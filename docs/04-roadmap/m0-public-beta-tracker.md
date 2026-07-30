@@ -81,18 +81,18 @@ Counts are task counts, not release-completion percentages.
 | PB-A05 | P0 | `DONE` | Engineering | PB-A01 | First-touch and session UTM persisted through result and second-check events |
 | PB-A06 | P1 | `NOT_STARTED` | Growth/Engineering | Consent/config decision | GA4 receives acquisition events without evidence data |
 | PB-A07 | P1 | `NOT_STARTED` | Growth | Production domain | Search Console ownership and sitemap verified |
-| PB-A08 | P1 | `NOT_STARTED` | Engineering/Product | PB-A03 to PB-A05 | Daily funnel/quality/cost report can be generated |
+| PB-A08 | P1 | `DONE` | Engineering/Product | PB-A03 to PB-A05 | `pnpm run beta:daily-report -- --date YYYY-MM-DD` produces a privacy-safe production D1 funnel/quality/cost report |
 
 ### Feedback And User Learning
 
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
 | PB-F01 | P0 | `DONE` | Engineering | None | Correct, False alarm, Missed something persist in D1 |
-| PB-F02 | P0 | `NOT_STARTED` | Engineering/Product | PB-Q05 | False alarm can target issue and reason |
-| PB-F03 | P0 | `NOT_STARTED` | Engineering/Product | None | Missed family and optional comment persist |
+| PB-F02 | P0 | `DONE` | Engineering/Product | PB-Q05 | False alarm requires a reason and targets a persisted product finding |
+| PB-F03 | P0 | `DONE` | Engineering/Product | None | Missed family and optional comment persist as structured D1 fields |
 | PB-F04 | P1 | `NOT_STARTED` | Product | PB-A01 | Post-result use case persists |
 | PB-F05 | P1 | `NOT_STARTED` | Product/Engineering | Privacy copy | Explicit optional contact consent persists separately |
-| PB-F06 | P1 | `NOT_STARTED` | Engineering/Product | PB-F02 to PB-F05 | Feedback report joins source, verdict, finding, model, and prompt |
+| PB-F06 | P1 | `DONE` | Engineering/Product | PB-F02 to PB-F05 | Daily report joins feedback to source, verdict, targeted finding family, provider, model, and prompt |
 
 ### Privacy, Security, Abuse, And Cost
 
@@ -142,7 +142,7 @@ the public-beta release summary and must not duplicate the detailed tracker.
 | --- | --- | --- | --- | --- | --- |
 | PB-O01 | P0 | `DONE` | Engineering | Production environment | Production Worker, custom domain, D1, R2, OpenAI secret, migrations, cron, health, upload, analysis, and feedback path verified |
 | PB-O02 | P0 | `NOT_STARTED` | Engineering | PB-A03, PB-P01, PB-P07 | Error, cost, and deletion alerts |
-| PB-O03 | P0 | `NOT_STARTED` | Engineering/Product | PB-A08 | Daily launch report |
+| PB-O03 | P0 | `DONE` | Engineering/Product | PB-A08 | Read-only daily launch report documented in `public-beta-telemetry-operations.md` |
 | PB-O04 | P0 | `NOT_STARTED` | Engineering | PB-P07 | New-analysis stop control |
 | PB-O05 | P1 | `NOT_STARTED` | Founder/Engineering | PB-O03 | First-seven-days review checklist |
 | PB-O06 | P1 | `NOT_STARTED` | Founder | Public data | Weekly keep/fix/defer decision log |
@@ -404,7 +404,7 @@ Upload-hardening verification:
 | R-003 | High | SEO traffic arrives before product is measurable | Indexing produces traffic before events/feedback are reliable | Allow slow indexing work; hold active distribution until attribution, feedback, and caps are release-ready |
 | R-004 | High | OpenAI spend abuse | Rapid anonymous analysis growth | Turnstile, limits, caps, stop control |
 | R-005 | High | Duplicate findings reduce trust | One change appears as multiple problems | Prompt boundary plus view consolidation |
-| R-006 | High | Feedback data cannot explain quality | Feedback lacks issue/source/version join | Complete PB-F02/PB-F03/PB-F06 |
+| R-006 | High | Feedback data cannot explain quality | Feedback lacks issue/source/version join | `MITIGATED`: structured feedback and daily joined report are live; review after first 20 completed analyses |
 | R-007 | Medium | Existing Wikimedia fixtures confound changes | Different products trigger many families | Use local single-variable fixtures for G1 |
 | R-008 | Medium | SEO pages become thin duplicates | Pages differ only by keyword | Require unique case and user intent |
 | R-009 | High | Development credential may have been exposed | Real key appeared in `.dev.vars.example` | File sanitized; rotate key; keep real value only in ignored `.dev.vars` |

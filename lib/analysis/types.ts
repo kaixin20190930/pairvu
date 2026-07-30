@@ -75,6 +75,9 @@ export interface PersistedAnalysisFeedback {
   id: string;
   analysisId: string;
   feedbackKind: FeedbackKind;
+  reasonCode: string | null;
+  checkFamily: string | null;
+  issueId: string | null;
   comment: string | null;
   createdAt: string;
 }
@@ -95,6 +98,9 @@ export interface AnalysisFeedbackInput {
   analysisId: string;
   anonymousSessionId: string;
   feedbackKind: FeedbackKind;
+  reasonCode?: string;
+  checkFamily?: string;
+  issueId?: string;
   comment?: string;
 }
 

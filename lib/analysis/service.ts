@@ -142,6 +142,10 @@ export async function saveAnalysisFeedback(db: D1Database, input: AnalysisFeedba
     return null;
   }
 
+  if (input.issueId && !existing.productIssues.some((issue) => issue.id === input.issueId)) {
+    throw new Error("feedback_issue_not_found");
+  }
+
   await recordAnalysisFeedback(db, input);
   return getAnalysisById(db, input.analysisId);
 }

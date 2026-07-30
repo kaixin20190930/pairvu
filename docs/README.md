@@ -19,9 +19,10 @@ This is the working documentation baseline for Pairvu.
 13. [Founder Review: M0 Specification And Architecture](04-roadmap/founder-review-m0-spec.md)
 14. [M0 Public Beta Launch Plan](04-roadmap/m0-public-beta-launch-plan.md)
 15. [M0 Public Beta Live Tracker](04-roadmap/m0-public-beta-tracker.md)
-16. [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
-17. [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
-18. [Keyword Evidence Baseline](03-growth/keyword-evidence-baseline-2026-07-29.md)
+16. [Public Beta Telemetry Operations](04-roadmap/public-beta-telemetry-operations.md)
+17. [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
+18. [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
+19. [Keyword Evidence Baseline](03-growth/keyword-evidence-baseline-2026-07-29.md)
 
 ## Current Decision
 

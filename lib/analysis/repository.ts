@@ -183,12 +183,25 @@ export async function recordAnalysisFeedback(db: D1Database, input: AnalysisFeed
         id,
         analysis_id,
         feedback_kind,
+        reason_code,
+        check_family,
+        issue_id,
         comment,
         created_at,
         updated_at
-      ) values (?, ?, ?, ?, ?, ?)`,
+      ) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     )
-    .bind(crypto.randomUUID(), input.analysisId, input.feedbackKind, input.comment ?? null, now, now)
+    .bind(
+      crypto.randomUUID(),
+      input.analysisId,
+      input.feedbackKind,
+      input.reasonCode ?? null,
+      input.checkFamily ?? null,
+      input.issueId ?? null,
+      input.comment ?? null,
+      now,
+      now,
+    )
     .run();
 
   if (!result.success) {
@@ -643,7 +656,15 @@ async function loadModelCalls(db: D1Database, analysisId: string): Promise<Persi
 async function loadFeedback(db: D1Database, analysisId: string): Promise<PersistedAnalysisFeedback | null> {
   const row = await db
     .prepare(
-      `select id, analysis_id as analysisId, feedback_kind as feedbackKind, comment, created_at as createdAt
+      `select
+         id,
+         analysis_id as analysisId,
+         feedback_kind as feedbackKind,
+         reason_code as reasonCode,
+         check_family as checkFamily,
+         issue_id as issueId,
+         comment,
+         created_at as createdAt
        from analysis_feedback
        where analysis_id = ?
        order by created_at desc
@@ -660,6 +681,9 @@ async function loadFeedback(db: D1Database, analysisId: string): Promise<Persist
     id: String(row.id),
     analysisId: String(row.analysisId),
     feedbackKind: row.feedbackKind as PersistedAnalysisFeedback["feedbackKind"],
+    reasonCode: (row.reasonCode as string | null) ?? null,
+    checkFamily: (row.checkFamily as string | null) ?? null,
+    issueId: (row.issueId as string | null) ?? null,
     comment: (row.comment as string | null) ?? null,
     createdAt: String(row.createdAt),
   };

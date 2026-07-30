@@ -107,6 +107,7 @@ export function ProductChecker() {
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const [feedbackDetailKind, setFeedbackDetailKind] = useState<Exclude<FeedbackKind, "correct"> | null>(null);
   const [feedbackReason, setFeedbackReason] = useState("");
+  const [feedbackIssueId, setFeedbackIssueId] = useState("");
   const [feedbackComment, setFeedbackComment] = useState("");
   const [runtimeConfig, setRuntimeConfig] = useState<PublicRuntimeConfig | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -224,6 +225,18 @@ export function ProductChecker() {
 
       if (!response.ok || !payload.asset) {
         setError(formatApiError(payload, "Upload failed."));
+        void trackProductEvent({
+          eventName: uploadFailedEvent,
+          anonymousSessionId,
+          attribution,
+          properties: {
+            errorCode: payload.error ?? `upload_http_${response.status}`,
+            httpStatus: response.status,
+            mimeType: file.type,
+            sizeBucket: sizeBucket(file.size),
+            retryable: response.status === 408 || response.status === 429 || response.status >= 500,
+          },
+        }).catch(logClientEventFailure);
         return;
       }
 
@@ -262,7 +275,11 @@ export function ProductChecker() {
         anonymousSessionId,
         attribution,
         properties: {
+          errorCode: uploadError instanceof Error ? "network_error" : "unknown_upload_error",
           errorType: uploadError instanceof Error ? uploadError.name : "unknown",
+          mimeType: file.type,
+          sizeBucket: sizeBucket(file.size),
+          retryable: true,
         },
       }).catch(logClientEventFailure);
     } finally {
@@ -611,7 +628,10 @@ export function ProductChecker() {
   }, []);
   /* eslint-enable react-hooks/exhaustive-deps */
 
-  async function submitFeedback(kind: FeedbackKind, detail?: { reason?: string; comment?: string }) {
+  async function submitFeedback(
+    kind: FeedbackKind,
+    detail?: { reason?: string; checkFamily?: string; issueId?: string; comment?: string },
+  ) {
     if (!analysis) return;
 
     setFeedbackKind(kind);
@@ -626,7 +646,10 @@ export function ProductChecker() {
         body: JSON.stringify({
           feedbackKind: kind,
           anonymousSessionId: getAnonymousSessionId(),
-          comment: buildFeedbackComment(kind, detail),
+          reasonCode: kind === "false_alarm" ? detail?.reason : undefined,
+          checkFamily: detail?.checkFamily,
+          issueId: detail?.issueId || undefined,
+          comment: detail?.comment?.trim() || undefined,
         }),
       });
 
@@ -648,6 +671,8 @@ export function ProductChecker() {
         properties: {
           feedbackKind: kind,
           ...(detail?.reason ? { feedbackReason: detail.reason } : {}),
+          ...(detail?.checkFamily ? { checkFamily: detail.checkFamily } : {}),
+          ...(detail?.issueId ? { issueId: detail.issueId } : {}),
         },
       }).catch(logClientEventFailure);
     } catch (feedbackError) {
@@ -660,6 +685,7 @@ export function ProductChecker() {
   function resetFeedbackDetail() {
     setFeedbackDetailKind(null);
     setFeedbackReason("");
+    setFeedbackIssueId("");
     setFeedbackComment("");
   }
 
@@ -892,6 +918,7 @@ export function ProductChecker() {
 
                       setFeedbackDetailKind(option.kind);
                       setFeedbackReason("");
+                      setFeedbackIssueId("");
                       setFeedbackComment("");
                       setFeedbackMessage(null);
                     }}
@@ -903,6 +930,23 @@ export function ProductChecker() {
               </div>
               {feedbackDetailKind ? (
                 <div className="feedback-detail">
+                  {feedbackDetailKind === "false_alarm" ? (
+                    <label>
+                      <span>Which detected issue was wrong?</span>
+                      <select
+                        value={feedbackIssueId}
+                        onChange={(event) => setFeedbackIssueId(event.target.value)}
+                        disabled={feedbackKind !== null}
+                      >
+                        <option value="">Select one</option>
+                        {analysis.productIssues.map((issue) => (
+                          <option key={issue.id} value={issue.id}>
+                            {feedbackIssueLabel(issue)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  ) : null}
                   <label>
                     <span>{feedbackDetailKind === "false_alarm" ? "What was wrong?" : "What did it miss?"}</span>
                     <select
@@ -936,10 +980,12 @@ export function ProductChecker() {
                       onClick={() =>
                         void submitFeedback(feedbackDetailKind, {
                           reason: feedbackReason || undefined,
+                          checkFamily: feedbackDetailKind === "missed_something" ? feedbackReason || undefined : undefined,
+                          issueId: feedbackDetailKind === "false_alarm" ? feedbackIssueId || undefined : undefined,
                           comment: feedbackComment || undefined,
                         })
                       }
-                      disabled={feedbackKind !== null || !feedbackReason}
+                      disabled={feedbackKind !== null || !feedbackReason || (feedbackDetailKind === "false_alarm" && !feedbackIssueId)}
                     >
                       Submit feedback
                     </button>
@@ -1218,18 +1264,8 @@ function formatRetryAfter(seconds: number | null | undefined) {
   return `${hours} hours`;
 }
 
-function buildFeedbackComment(kind: FeedbackKind, detail?: { reason?: string; comment?: string }) {
-  const reason = detail?.reason?.trim();
-  const note = detail?.comment?.trim();
-
-  if (kind === "correct" && !reason && !note) {
-    return undefined;
-  }
-
-  return JSON.stringify({
-    reason: reason || null,
-    note: note || null,
-  });
+function feedbackIssueLabel(issue: PersistedAnalysisResult["productIssues"][number]) {
+  return `${formatCheckType(issue.sourceCheckType)}: ${issue.message}`;
 }
 
 function EvidenceBlock({

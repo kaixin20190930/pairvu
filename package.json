@@ -19,12 +19,13 @@
     "test:m0:retention": "tsx scripts/verify-retention.ts",
     "test:m0:upload-validation": "tsx scripts/verify-upload-validation.ts",
     "test:seo": "tsx scripts/verify-seo-inventory.ts",
+    "beta:daily-report": "tsx scripts/public-beta-daily-report.ts",
     "db:migrate:preview": "WRANGLER_LOG_PATH=/private/tmp/pairvu-wrangler.log wrangler d1 migrations apply visualqa-dev-preview --remote",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "db:migrate:local": "wrangler d1 migrations apply pairvu-production --local",
-    "db:migrate:remote": "wrangler d1 migrations apply pairvu-production --remote",
+    "db:migrate:local": "WRANGLER_LOG_PATH=/tmp/pairvu-wrangler.log wrangler d1 migrations apply pairvu-production --local",
+    "db:migrate:remote": "WRANGLER_LOG_PATH=/tmp/pairvu-wrangler.log wrangler d1 migrations apply pairvu-production --remote",
     "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
