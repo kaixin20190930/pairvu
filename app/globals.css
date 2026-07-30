@@ -75,8 +75,10 @@ a {
 .site-logo {
   display: inline-flex;
   align-items: center;
-  width: 126px;
   color: var(--accent-strong);
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
   text-decoration: none;
 }
 
