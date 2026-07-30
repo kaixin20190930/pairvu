@@ -1,0 +1,1332 @@
+[
+  {
+    "caseId": "m0_seeded_001",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_001"
+  },
+  {
+    "caseId": "m0_seeded_002",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_002"
+  },
+  {
+    "caseId": "m0_seeded_003",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_003"
+  },
+  {
+    "caseId": "m0_seeded_004",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_004"
+  },
+  {
+    "caseId": "m0_seeded_005",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_005"
+  },
+  {
+    "caseId": "m0_seeded_006",
+    "verdict": "fail",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_006"
+  },
+  {
+    "caseId": "m0_seeded_007",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_007"
+  },
+  {
+    "caseId": "m0_seeded_008",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_008"
+  },
+  {
+    "caseId": "m0_seeded_009",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_009"
+  },
+  {
+    "caseId": "m0_seeded_010",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01,
+    "repeatabilityGroupId": "repeat_010"
+  },
+  {
+    "caseId": "m0_seeded_011",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_012",
+    "verdict": "fail",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_013",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_014",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_015",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_016",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_017",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_018",
+    "verdict": "fail",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_019",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_020",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_021",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_022",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_023",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_024",
+    "verdict": "fail",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_025",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_026",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_027",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_028",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_029",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_030",
+    "verdict": "fail",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_031",
+    "verdict": "fail",
+    "issueTypes": [
+      "logo_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_032",
+    "verdict": "fail",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_033",
+    "verdict": "review",
+    "issueTypes": [
+      "quantity_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_034",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_seeded_035",
+    "verdict": "review",
+    "issueTypes": [
+      "missing_component"
+    ],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_001",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_002",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_003",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_004",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_005",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_006",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_007",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_008",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_009",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_010",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_011",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_012",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_013",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_014",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_015",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_016",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_017",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_018",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_019",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_hard_negative_020",
+    "verdict": "pass",
+    "issueTypes": [],
+    "limitations": [],
+    "observability": {
+      "reference": "observable",
+      "candidate": "observable",
+      "coverage": "sufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_001",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_002",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_003",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_004",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_005",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_006",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_007",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_008",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_009",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_010",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_011",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_012",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_013",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_014",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_not_observable_015",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_001",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "reference_insufficient"
+    ],
+    "observability": {
+      "reference": "not_observable",
+      "candidate": "observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_002",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "candidate_insufficient"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_003",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "reference_insufficient"
+    ],
+    "observability": {
+      "reference": "not_observable",
+      "candidate": "observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_004",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "candidate_insufficient"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_005",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "reference_insufficient"
+    ],
+    "observability": {
+      "reference": "not_observable",
+      "candidate": "observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_006",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "candidate_insufficient"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_007",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "reference_insufficient"
+    ],
+    "observability": {
+      "reference": "not_observable",
+      "candidate": "observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_008",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "candidate_insufficient"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_009",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "reference_insufficient"
+    ],
+    "observability": {
+      "reference": "not_observable",
+      "candidate": "observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_input_insufficient_010",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "candidate_insufficient"
+    ],
+    "observability": {
+      "reference": "observable",
+      "candidate": "not_observable",
+      "coverage": "insufficient"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_001",
+    "verdict": "review",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_002",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1200,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_003",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1300,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_004",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1400,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_005",
+    "verdict": "review",
+    "issueTypes": [
+      "packaging_mismatch"
+    ],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1500,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_006",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1600,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_007",
+    "verdict": "review",
+    "issueTypes": [
+      "text_mismatch"
+    ],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1700,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_008",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1800,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_009",
+    "verdict": "review",
+    "issueTypes": [
+      "color_mismatch"
+    ],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 1900,
+    "estimatedCostUsd": 0.01
+  },
+  {
+    "caseId": "m0_mixed_hard_010",
+    "verdict": "review",
+    "issueTypes": [],
+    "limitations": [
+      "attribute_not_observable"
+    ],
+    "observability": {
+      "reference": "partially_observable",
+      "candidate": "partially_observable",
+      "coverage": "partial"
+    },
+    "latencyMs": 2000,
+    "estimatedCostUsd": 0.01
+  }
+]

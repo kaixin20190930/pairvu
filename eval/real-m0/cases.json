@@ -1,0 +1,173 @@
+[
+  {
+    "id": "real-001-logo-change",
+    "label": "Logo change",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "A glass bottle of Coca-Cola.jpg",
+    "notes": "Brand/logo should clearly differ."
+  },
+  {
+    "id": "real-002-visible-text-change",
+    "label": "Visible text / value change",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Pepsi bottle.JPG",
+    "candidateFileName": "Pepsi bottle (Taste the Difference Now).jpg",
+    "notes": "Identity-bearing label text should differ."
+  },
+  {
+    "id": "real-003-quantity-change",
+    "label": "Quantity change",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Pepsi bottles.jpg",
+    "candidateFileName": "Pepsi bottle.jpg",
+    "notes": "Pack quantity should change."
+  },
+  {
+    "id": "real-004-major-color-change",
+    "label": "Major color change",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Shampoo.jpg",
+    "candidateFileName": "Herbal Essences shampoo.jpg",
+    "notes": "Semantic product color should differ materially."
+  },
+  {
+    "id": "real-005-missing-component",
+    "label": "Missing major component",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Toothpaste (5146809288).jpg",
+    "candidateFileName": "Toothpaste (5146809288).jpg",
+    "candidateTransforms": [
+      { "type": "mask", "x": 120, "y": 0, "w": 260, "h": 220, "color": "#f3f3f0" }
+    ],
+    "notes": "Cap / top portion is obscured to simulate a missing major component."
+  },
+  {
+    "id": "real-006-extra-component",
+    "label": "Extra major component",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "composite-duplicate", "scale": 0.36, "x": 610, "y": 160, "opacity": 0.96 }
+    ],
+    "notes": "A duplicate bottle is composited in to create an extra major component."
+  },
+  {
+    "id": "real-007-packaging-shape-change",
+    "label": "Packaging / shape change",
+    "expectedBehavior": "FAIL",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Can.jpg",
+    "notes": "Bottle-to-can packaging identity should change."
+  },
+  {
+    "id": "real-008-background-only",
+    "label": "Background-only change",
+    "expectedBehavior": "PASS",
+    "referenceFileName": "Pepsi bottle (7824614306).jpg",
+    "candidateFileName": "Pepsi bottle a.JPG",
+    "notes": "Background/context should change without product identity change."
+  },
+  {
+    "id": "real-009-lighting-only",
+    "label": "Lighting-only change",
+    "expectedBehavior": "PASS",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "brightness", "value": 0.18 },
+      { "type": "contrast", "value": 0.08 }
+    ],
+    "notes": "Exposure and contrast shift only."
+  },
+  {
+    "id": "real-010-shadow-reflection",
+    "label": "Shadow / reflection",
+    "expectedBehavior": "PASS",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "shadow-band", "x": 180, "y": 120, "w": 320, "h": 120, "opacity": 0.22 }
+    ],
+    "notes": "Simulated reflection / shadow should not trigger a product mismatch."
+  },
+  {
+    "id": "real-011-repositioning",
+    "label": "Product repositioning",
+    "expectedBehavior": "PASS",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "crop", "x": 28, "y": 18, "w": 760, "h": 760 },
+      { "type": "resize", "w": 900, "h": 900 }
+    ],
+    "notes": "Product is shifted / framed differently."
+  },
+  {
+    "id": "real-012-minor-perspective",
+    "label": "Minor perspective change",
+    "expectedBehavior": "PASS",
+    "referenceFileName": "Pepsi bottle.jpg",
+    "candidateFileName": "Pepsi bottle.jpg",
+    "candidateTransforms": [
+      { "type": "rotate", "degrees": 3 }
+    ],
+    "notes": "Small perspective-like shift should remain a pass."
+  },
+  {
+    "id": "real-013-large-viewpoint-diff",
+    "label": "Large viewpoint difference",
+    "expectedBehavior": "REVIEW",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi bottle (7824614306).jpg",
+    "notes": "Large viewpoint difference should push the checker toward review."
+  },
+  {
+    "id": "real-014-partially-hidden-logo",
+    "label": "Partially hidden logo",
+    "expectedBehavior": "REVIEW",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "mask", "x": 210, "y": 250, "w": 250, "h": 120, "color": "#f2f4f6" }
+    ],
+    "notes": "Logo is partially hidden."
+  },
+  {
+    "id": "real-015-tiny-unreadable-text",
+    "label": "Tiny / unreadable text",
+    "expectedBehavior": "REVIEW",
+    "referenceFileName": "Pepsi bottle.JPG",
+    "candidateFileName": "Pepsi bottle.JPG",
+    "candidateTransforms": [
+      { "type": "resize", "w": 220, "h": 220 },
+      { "type": "resize", "w": 900, "h": 900 }
+    ],
+    "notes": "Text should become too small to read confidently."
+  },
+  {
+    "id": "real-016-partially-visible-product",
+    "label": "Partially visible product",
+    "expectedBehavior": "REVIEW",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "crop", "x": 150, "y": 140, "w": 520, "h": 620 },
+      { "type": "resize", "w": 900, "h": 900 }
+    ],
+    "notes": "Only part of the product is visible."
+  },
+  {
+    "id": "real-017-uncertain-color-reflection",
+    "label": "Uncertain color from reflection",
+    "expectedBehavior": "REVIEW",
+    "referenceFileName": "Pepsi Bottle.jpg",
+    "candidateFileName": "Pepsi Bottle.jpg",
+    "candidateTransforms": [
+      { "type": "brightness", "value": 0.08 },
+      { "type": "reflection-strip", "x": 140, "y": 180, "w": 420, "h": 80, "opacity": 0.45 }
+    ],
+    "notes": "Reflection makes semantic color less certain."
+  }
+]

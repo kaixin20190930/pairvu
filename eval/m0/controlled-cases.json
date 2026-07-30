@@ -1,0 +1,3932 @@
+[
+  {
+    "id": "m0_seeded_001",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_001_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_001_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_002",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_002_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_002_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_003",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_003_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_003_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_004",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_004_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_004_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_005",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_005_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_005_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_006",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_006_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_006_candidate",
+      "description": "Package/container geometry changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_shape_packaging product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_007",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_007_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_007_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_008",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_008_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_008_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_009",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_009_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_009_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_010",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_010_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_010_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_011",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_011_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_011_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_012",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_012_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_012_candidate",
+      "description": "Package/container geometry changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_shape_packaging product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_013",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_013_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_013_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_014",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_014_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_014_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_015",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_015_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_015_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_016",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_016_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_016_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_017",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_017_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_017_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_018",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_018_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_018_candidate",
+      "description": "Package/container geometry changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_shape_packaging product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_019",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_019_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_019_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_020",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_020_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_020_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_021",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_021_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_021_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_022",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_022_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_022_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_023",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_023_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_023_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_024",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_024_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_024_candidate",
+      "description": "Package/container geometry changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_shape_packaging product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_025",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_025_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_025_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_026",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_026_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_026_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_027",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_027_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_027_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_028",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_028_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_028_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_029",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_029_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_029_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_030",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_030_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_030_candidate",
+      "description": "Package/container geometry changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_shape_packaging product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_031",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_031_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_031_candidate",
+      "description": "Brand mark changed to a similar but incorrect mark."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "logo_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded logo product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_032",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_seeded_032_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_032_candidate",
+      "description": "Identity-bearing package value changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "fail",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": true,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded visible_text product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_033",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_seeded_033_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_033_candidate",
+      "description": "Comparable unit count changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "quantity_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded quantity product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_034",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_seeded_034_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_034_candidate",
+      "description": "SKU-defining package color changed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded dominant_color product identity failure."
+    }
+  },
+  {
+    "id": "m0_seeded_035",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_seeded_035_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_seeded_035_candidate",
+      "description": "Identity-relevant cap, lid, pump, or handle removed."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "missing_component"
+      ],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Seeded major_components product identity failure."
+    }
+  },
+  {
+    "id": "m0_hard_negative_001",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_hard_negative_001_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_001_candidate",
+      "description": "Candidate changes background_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: background_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_002",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_hard_negative_002_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_002_candidate",
+      "description": "Candidate changes lighting_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: lighting_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_003",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_hard_negative_003_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_003_candidate",
+      "description": "Candidate changes shadow_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: shadow_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_004",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_hard_negative_004_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_004_candidate",
+      "description": "Candidate changes scale_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: scale_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_005",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_hard_negative_005_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_005_candidate",
+      "description": "Candidate changes camera_angle_shift without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: camera_angle_shift."
+    }
+  },
+  {
+    "id": "m0_hard_negative_006",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_hard_negative_006_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_006_candidate",
+      "description": "Candidate changes reflection_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: reflection_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_007",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_hard_negative_007_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_007_candidate",
+      "description": "Candidate changes repositioning without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: repositioning."
+    }
+  },
+  {
+    "id": "m0_hard_negative_008",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_hard_negative_008_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_008_candidate",
+      "description": "Candidate changes minor_crop without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: minor_crop."
+    }
+  },
+  {
+    "id": "m0_hard_negative_009",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_hard_negative_009_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_009_candidate",
+      "description": "Candidate changes white_balance_shift without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: white_balance_shift."
+    }
+  },
+  {
+    "id": "m0_hard_negative_010",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_hard_negative_010_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_010_candidate",
+      "description": "Candidate changes exposure_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: exposure_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_011",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_hard_negative_011_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_011_candidate",
+      "description": "Candidate changes background_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: background_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_012",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_hard_negative_012_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_012_candidate",
+      "description": "Candidate changes lighting_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: lighting_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_013",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_hard_negative_013_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_013_candidate",
+      "description": "Candidate changes shadow_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: shadow_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_014",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_hard_negative_014_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_014_candidate",
+      "description": "Candidate changes scale_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: scale_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_015",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_hard_negative_015_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_015_candidate",
+      "description": "Candidate changes camera_angle_shift without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: camera_angle_shift."
+    }
+  },
+  {
+    "id": "m0_hard_negative_016",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_hard_negative_016_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_016_candidate",
+      "description": "Candidate changes reflection_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: reflection_change."
+    }
+  },
+  {
+    "id": "m0_hard_negative_017",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_hard_negative_017_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_017_candidate",
+      "description": "Candidate changes repositioning without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: repositioning."
+    }
+  },
+  {
+    "id": "m0_hard_negative_018",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_hard_negative_018_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_018_candidate",
+      "description": "Candidate changes minor_crop without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: minor_crop."
+    }
+  },
+  {
+    "id": "m0_hard_negative_019",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_hard_negative_019_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_019_candidate",
+      "description": "Candidate changes white_balance_shift without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: white_balance_shift."
+    }
+  },
+  {
+    "id": "m0_hard_negative_020",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_hard_negative_020_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_hard_negative_020_candidate",
+      "description": "Candidate changes exposure_change without changing product identity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "pass",
+      "issueTypes": [],
+      "limitations": [],
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "critical": false,
+      "hardNegative": true
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Hard negative: exposure_change."
+    }
+  },
+  {
+    "id": "m0_not_observable_001",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_not_observable_001_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_001_candidate",
+      "description": "Logo is occluded or too small."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for logo."
+    }
+  },
+  {
+    "id": "m0_not_observable_002",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_not_observable_002_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_002_candidate",
+      "description": "Identity-bearing text is too small or blurred."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for visible_text."
+    }
+  },
+  {
+    "id": "m0_not_observable_003",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_not_observable_003_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_003_candidate",
+      "description": "Unit boundaries are unclear."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for quantity."
+    }
+  },
+  {
+    "id": "m0_not_observable_004",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_not_observable_004_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_004_candidate",
+      "description": "Color is distorted by glare or monochrome treatment."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for dominant_color."
+    }
+  },
+  {
+    "id": "m0_not_observable_005",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_not_observable_005_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_005_candidate",
+      "description": "Component is hidden by angle or crop."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for major_components."
+    }
+  },
+  {
+    "id": "m0_not_observable_006",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_not_observable_006_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_006_candidate",
+      "description": "Container shape is cropped or non-comparable."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for major_shape_packaging."
+    }
+  },
+  {
+    "id": "m0_not_observable_007",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_not_observable_007_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_007_candidate",
+      "description": "Logo is occluded or too small."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for logo."
+    }
+  },
+  {
+    "id": "m0_not_observable_008",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_not_observable_008_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_008_candidate",
+      "description": "Identity-bearing text is too small or blurred."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for visible_text."
+    }
+  },
+  {
+    "id": "m0_not_observable_009",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_not_observable_009_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_009_candidate",
+      "description": "Unit boundaries are unclear."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for quantity."
+    }
+  },
+  {
+    "id": "m0_not_observable_010",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_not_observable_010_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_010_candidate",
+      "description": "Color is distorted by glare or monochrome treatment."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for dominant_color."
+    }
+  },
+  {
+    "id": "m0_not_observable_011",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_not_observable_011_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_011_candidate",
+      "description": "Component is hidden by angle or crop."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for major_components."
+    }
+  },
+  {
+    "id": "m0_not_observable_012",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_not_observable_012_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_012_candidate",
+      "description": "Container shape is cropped or non-comparable."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for major_shape_packaging."
+    }
+  },
+  {
+    "id": "m0_not_observable_013",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_not_observable_013_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_013_candidate",
+      "description": "Logo is occluded or too small."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for logo."
+    }
+  },
+  {
+    "id": "m0_not_observable_014",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_not_observable_014_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_014_candidate",
+      "description": "Identity-bearing text is too small or blurred."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for visible_text."
+    }
+  },
+  {
+    "id": "m0_not_observable_015",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_not_observable_015_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_not_observable_015_candidate",
+      "description": "Unit boundaries are unclear."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Not-observable case for quantity."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_001",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_001_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_001_candidate",
+      "description": "Reference is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "reference_insufficient"
+      ],
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: reference_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_002",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_002_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_002_candidate",
+      "description": "Candidate is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "candidate_insufficient"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: candidate_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_003",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_003_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_003_candidate",
+      "description": "Reference is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "reference_insufficient"
+      ],
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: reference_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_004",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_004_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_004_candidate",
+      "description": "Candidate is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "candidate_insufficient"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: candidate_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_005",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_005_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_005_candidate",
+      "description": "Reference is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "reference_insufficient"
+      ],
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: reference_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_006",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_006_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_006_candidate",
+      "description": "Candidate is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "candidate_insufficient"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: candidate_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_007",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "easy",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_007_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_007_candidate",
+      "description": "Reference is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "reference_insufficient"
+      ],
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: reference_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_008",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "medium",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_008_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_008_candidate",
+      "description": "Candidate is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "candidate_insufficient"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: candidate_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_009",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "hard",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_009_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_009_candidate",
+      "description": "Reference is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "reference_insufficient"
+      ],
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: reference_insufficient."
+    }
+  },
+  {
+    "id": "m0_input_insufficient_010",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_input_insufficient_010_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_input_insufficient_010_candidate",
+      "description": "Candidate is too blurred, cropped, or low information."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "candidate_insufficient"
+      ],
+      "observability": {
+        "reference": "observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Input-quality limitation: candidate_insufficient."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_001",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_001_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_001_candidate",
+      "description": "Mixed case with a possible visible_text mismatch and non-observable quantity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_002",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_002_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_002_candidate",
+      "description": "Mixed case with a possible quantity mismatch and non-observable dominant_color."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_003",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_003_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_003_candidate",
+      "description": "Mixed case with a possible dominant_color mismatch and non-observable major_components."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_004",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_004_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_004_candidate",
+      "description": "Mixed case with a possible major_components mismatch and non-observable major_shape_packaging."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_005",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_005_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_005_candidate",
+      "description": "Mixed case with a possible major_shape_packaging mismatch and non-observable logo."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "packaging_mismatch"
+      ],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_006",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "cosmetics",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_006_reference",
+      "description": "Controlled reference image placeholder for cosmetics."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_006_candidate",
+      "description": "Mixed case with a possible logo mismatch and non-observable visible_text."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_007",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "beverages",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_007_reference",
+      "description": "Controlled reference image placeholder for beverages."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_007_candidate",
+      "description": "Mixed case with a possible visible_text mismatch and non-observable quantity."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "text_mismatch"
+      ],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_008",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "personal_care",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_008_reference",
+      "description": "Controlled reference image placeholder for personal_care."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_008_candidate",
+      "description": "Mixed case with a possible quantity mismatch and non-observable dominant_color."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_009",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "packaged_food",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_009_reference",
+      "description": "Controlled reference image placeholder for packaged_food."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_009_candidate",
+      "description": "Mixed case with a possible dominant_color mismatch and non-observable major_components."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [
+        "color_mismatch"
+      ],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  },
+  {
+    "id": "m0_mixed_hard_010",
+    "round": "controlled",
+    "sourceType": "synthetic",
+    "category": "household_packaged_goods",
+    "difficulty": "adversarial",
+    "reference": {
+      "fixtureId": "m0_mixed_hard_010_reference",
+      "description": "Controlled reference image placeholder for household_packaged_goods."
+    },
+    "candidate": {
+      "fixtureId": "m0_mixed_hard_010_candidate",
+      "description": "Mixed case with a possible major_components mismatch and non-observable major_shape_packaging."
+    },
+    "selectedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components",
+      "major_shape_packaging"
+    ],
+    "expected": {
+      "verdict": "review",
+      "issueTypes": [],
+      "limitations": [
+        "attribute_not_observable"
+      ],
+      "observability": {
+        "reference": "partially_observable",
+        "candidate": "partially_observable",
+        "coverage": "partial"
+      },
+      "critical": false,
+      "hardNegative": false
+    },
+    "provenance": {
+      "createdAt": "2026-07-26T00:00:00.000Z",
+      "createdBy": "fixture-generator",
+      "reviewer": "founder",
+      "reviewStatus": "approved_for_m0_controlled_eval",
+      "notes": "Mixed/harder case for coverage and conservative REVIEW behavior."
+    }
+  }
+]

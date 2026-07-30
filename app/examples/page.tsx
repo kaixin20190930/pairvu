@@ -1,0 +1,152 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+
+const page = getSeoPage("/examples");
+
+export const metadata: Metadata = pageMetadata(page);
+
+const examples = [
+  {
+    title: "Main color changes",
+    expected: "REVIEW or FAIL when the product or packaging changes semantic color.",
+    detail: "Lighting and reflections should not be treated automatically as a different product color.",
+  },
+  {
+    title: "Missing or extra components",
+    expected: "REVIEW or FAIL when a major visible part is absent or added.",
+    detail: "A component must be observable before Pairvu can distinguish missing from hidden.",
+  },
+  {
+    title: "Packaging and shape changes",
+    expected: "FAIL for a material container or packaging-identity change.",
+    detail: "Viewpoint and crop differences should not become shape mismatches by themselves.",
+  },
+  {
+    title: "Product count changes",
+    expected: "REVIEW or FAIL when the visible number of primary product units changes.",
+    detail: "Product count is separate from a printed capacity or weight value.",
+  },
+];
+
+const featuredCases = [
+  {
+    href: "/examples/logo-change-ai-product-image",
+    title: "Logo changed",
+    summary: "A crescent moon becomes a sun while the cosmetics bottle and label remain stable.",
+    original: "/examples/logo-change/original.jpg",
+    candidate: "/examples/logo-change/candidate.jpg",
+    alt: "Cosmetics bottle logo change comparison",
+  },
+  {
+    href: "/examples/label-value-change-ai-product-image",
+    title: "Printed value changed",
+    summary: "The same beverage design changes from 330 mL to 500 mL.",
+    original: "/examples/label-value-change/original.jpg",
+    candidate: "/examples/label-value-change/candidate.jpg",
+    alt: "Beverage capacity label change comparison",
+  },
+  {
+    href: "/examples/packaging-shape-change-ai-product-image",
+    title: "Packaging shape changed",
+    summary: "A rounded shampoo bottle becomes rectangular while the label remains stable.",
+    original: "/examples/packaging-shape-change/original.jpg",
+    candidate: "/examples/packaging-shape-change/candidate.jpg",
+    alt: "Shampoo bottle shape change comparison",
+  },
+];
+
+export default function ExamplesPage() {
+  return (
+    <main className="content-page">
+      <div className="content-container">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Examples", href: page.route },
+          ]}
+        />
+        <header className="content-hero content-hero-compact">
+          <p className="eyebrow">Comparison examples</p>
+          <h1>{page.h1}</h1>
+          <p className="content-deck">
+            AI product-image errors are not one generic category. The useful question is which visible product
+            attribute changed, whether it was observable in both images, and whether that change should stop
+            publishing.
+          </p>
+        </header>
+
+        <section className="article-section wide-article-section" aria-labelledby="real-comparisons">
+          <h2 id="real-comparisons">Original and candidate comparisons</h2>
+          <p>
+            Each public example uses a founder-approved controlled pair with one intended product change. Open a case
+            to see what changed and which attributes should remain verified.
+          </p>
+          <div className="case-card-grid">
+            {featuredCases.map((caseItem) => (
+              <Link href={caseItem.href} className="case-card" key={caseItem.href}>
+                <div className="case-card-images">
+                  <Image src={caseItem.original} alt="" width={1000} height={1000} sizes="220px" />
+                  <Image src={caseItem.candidate} alt={caseItem.alt} width={1000} height={1000} sizes="220px" />
+                </div>
+                <div>
+                  <span>Controlled example</span>
+                  <h3>{caseItem.title}</h3>
+                  <p>{caseItem.summary}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="article-section" aria-labelledby="failure-modes">
+          <h2 id="failure-modes">Other product fidelity failure modes</h2>
+          <div className="example-grid">
+            {examples.map((example) => (
+              <article key={example.title}>
+                <h3>{example.title}</h3>
+                <p>
+                  <strong>{example.expected}</strong>
+                </p>
+                <p>{example.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="article-section" aria-labelledby="hard-negatives">
+          <h2 id="hard-negatives">Changes that should not automatically fail</h2>
+          <p>
+            A new background, lighting adjustment, reflection, shadow, repositioning, or minor perspective change can
+            leave the product faithful. These hard negatives matter because a useful checker must preserve unchanged
+            product attributes instead of reporting every pixel difference.
+          </p>
+        </section>
+
+        <section className="article-section" aria-labelledby="review-cases">
+          <h2 id="review-cases">When REVIEW is the honest result</h2>
+          <p>
+            Large viewpoint differences, a partially hidden logo, tiny text, incomplete product coverage, or a
+            reflection that changes apparent color may prevent a reliable comparison. In these cases, REVIEW is safer
+            than pretending the images match or asserting a difference that cannot be observed.
+          </p>
+        </section>
+
+        <section className="article-section article-cta">
+          <h2>Compare your own image pair</h2>
+          <p>Use the approved original as the reference and check the final candidate before it is published.</p>
+          <div className="content-actions">
+            <Link className="primary-link-button" href="/#checker">
+              Check image
+            </Link>
+            <Link className="text-link" href="/ai-product-photography">
+              Learn about AI product photography QA
+            </Link>
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}

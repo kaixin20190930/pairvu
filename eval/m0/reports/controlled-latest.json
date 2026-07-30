@@ -1,0 +1,27 @@
+{
+  "metrics": {
+    "generatedAt": "2026-07-26T16:22:59.804Z",
+    "casesPath": "eval/m0/controlled-cases.json",
+    "predictionsPath": "eval/m0/controlled-predictions.json",
+    "totalCases": 90,
+    "predictedCases": 90,
+    "criticalRecall": 1,
+    "falsePassRate": 0,
+    "hardNegativeFalseAlarmRate": 0,
+    "notObservableAccuracy": 1,
+    "verdictRepeatability": 1,
+    "issueAgreement": 1,
+    "limitationAgreement": 0.9444444444444444,
+    "medianLatencyMs": 0,
+    "estimatedCostUsd": 0
+  },
+  "gates": {
+    "criticalRecall": true,
+    "falsePassRate": true,
+    "hardNegativeFalseAlarmRate": true,
+    "notObservableAccuracy": true,
+    "verdictRepeatability": true
+  },
+  "passed": true,
+  "failures": []
+}

@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# opennext / cloudflare
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
+
+# local env
+.env
+.env.*
+.dev.vars
+!.env.example
+!.dev.vars.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tsconfig.tsbuildinfo
+
+# os/editor
+.DS_Store
+.idea/
+.vscode/

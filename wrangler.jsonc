@@ -1,0 +1,60 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": "custom-worker.ts",
+  "name": "pairvu",
+  "workers_dev": true,
+  "preview_urls": true,
+  "compatibility_date": "2026-07-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "pairvu.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.pairvu.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "NEXTJS_ENV": "production",
+    "ANONYMOUS_ASSET_RETENTION_HOURS": "24",
+    "OPENAI_MODEL": "gpt-4.1-mini",
+    "OPENAI_PROMPT_VERSION": "m0-real-mvp-007",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAEAut-dQfjfNjITa",
+    "PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS": "true",
+    "PUBLIC_ANALYSIS_SESSION_MINUTE_LIMIT": "3",
+    "PUBLIC_ANALYSIS_SESSION_DAILY_LIMIT": "8",
+    "PUBLIC_ANALYSIS_GLOBAL_DAILY_LIMIT": "50",
+    "PUBLIC_ANALYSIS_SESSION_CONCURRENT_LIMIT": "1",
+    "PUBLIC_ANALYSIS_GLOBAL_CONCURRENT_LIMIT": "3",
+    "PUBLIC_ANALYSIS_SESSION_DAILY_SPEND_LIMIT_USD": "5",
+    "PUBLIC_ANALYSIS_GLOBAL_DAILY_SPEND_LIMIT_USD": "25",
+    "PUBLIC_UPLOAD_SESSION_MINUTE_LIMIT": "10",
+    "PUBLIC_UPLOAD_SESSION_DAILY_LIMIT": "24",
+    "PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE": "false"
+  },
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  },
+  "r2_buckets": [
+    {
+      "binding": "VISUALQA_ASSETS",
+      "bucket_name": "pairvu-assets-production"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "VISUALQA_DB",
+      "database_name": "pairvu-production",
+      "database_id": "2d16e86a-fa00-4990-982a-ce4cc7ea31aa"
+    }
+  ]
+}

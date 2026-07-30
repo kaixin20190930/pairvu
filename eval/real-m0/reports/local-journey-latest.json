@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-07-27T16:32:40.654Z",
+  "sessionId": "84dc9ac0-ab19-4867-9046-d7af55da0a0c",
+  "analysisId": "b0d05d62-d8ba-48b0-8b93-8817023dfde2",
+  "referenceFileName": "10121785136504.jpg",
+  "candidateFileName": "10111785136474.jpg",
+  "verdict": "fail",
+  "promptVersion": "m0-real-mvp-002",
+  "productIssueTypes": [
+    "text_mismatch"
+  ],
+  "observationStatuses": [
+    {
+      "checkType": "logo",
+      "status": "match",
+      "differenceKind": "none"
+    },
+    {
+      "checkType": "visible_text",
+      "status": "mismatch",
+      "differenceKind": "value_changed"
+    },
+    {
+      "checkType": "quantity",
+      "status": "match",
+      "differenceKind": "none"
+    },
+    {
+      "checkType": "dominant_color",
+      "status": "match",
+      "differenceKind": "none"
+    },
+    {
+      "checkType": "major_components",
+      "status": "match",
+      "differenceKind": "none"
+    },
+    {
+      "checkType": "major_shape_packaging",
+      "status": "match",
+      "differenceKind": "none"
+    }
+  ],
+  "steps": [
+    "landing_view",
+    "checker_started",
+    "reference_upload_completed",
+    "candidate_upload_completed",
+    "analysis_completed",
+    "result_viewed",
+    "feedback_saved",
+    "feedback_submitted",
+    "second_check_started"
+  ]
+}

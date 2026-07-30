@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-07-27T09:59:27.864Z",
+  "label": "capacity-value-change",
+  "expectedBehavior": "FAIL",
+  "matchedExpectedBehavior": true,
+  "reference": {
+    "fileName": "10121785136504.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "9210ccec87fff4e32d556145693411c32dc8051653a425e666f96025832dc2a3"
+  },
+  "candidate": {
+    "fileName": "10111785136474.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "58d6fec932cc4e881d64631d06e8c77d59b32276de934ea1579e58f9be909b2f"
+  },
+  "category": null,
+  "finalVerdict": "fail",
+  "observations": [
+    {
+      "checkType": "logo",
+      "status": "match",
+      "differenceKind": "none",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "No meaningful visible difference in logo identity or presence detected.",
+      "evidence": {
+        "referenceObservation": "Green leaf logo above PUREMIST BOTANICALS brand name.",
+        "candidateObservation": "Green leaf logo above PUREMIST BOTANICALS brand name.",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful visible difference in logo identity or presence detected.",
+        "visibleEvidence": [
+          "both images show the same green leaf logo and brand text in the same relative position"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    },
+    {
+      "checkType": "visible_text",
+      "status": "mismatch",
+      "differenceKind": "value_changed",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "The printed volume and fluid ounce values differ between reference and candidate.",
+      "evidence": {
+        "referenceObservation": "Label shows volume text '550 ml / 18.6 fl oz'.",
+        "candidateObservation": "Label shows volume text '500 ml / 16.9 fl oz'.",
+        "differenceKind": "value_changed",
+        "comparisonSummary": "The printed volume and fluid ounce values differ between reference and candidate.",
+        "visibleEvidence": [
+          "reference text '550 ml / 18.6 fl oz'",
+          "candidate text '500 ml / 16.9 fl oz'"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    },
+    {
+      "checkType": "quantity",
+      "status": "match",
+      "differenceKind": "none",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "Number of bottles visible is the same in both images.",
+      "evidence": {
+        "referenceObservation": "One visible bottle shown in the image.",
+        "candidateObservation": "One visible bottle shown in the image.",
+        "differenceKind": "none",
+        "comparisonSummary": "Number of bottles visible is the same in both images.",
+        "visibleEvidence": [
+          "One bottle visible in each image"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    },
+    {
+      "checkType": "dominant_color",
+      "status": "match",
+      "differenceKind": "none",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "No meaningful visible difference in dominant colors of bottle and label detected.",
+      "evidence": {
+        "referenceObservation": "Bottle is amber brown with a beige label and black pump.",
+        "candidateObservation": "Bottle is amber brown with a beige label and black pump.",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful visible difference in dominant colors of bottle and label detected.",
+        "visibleEvidence": [
+          "Both bottles have amber brown color.",
+          "Both labels are beige.",
+          "Both pumps are black."
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    },
+    {
+      "checkType": "major_components",
+      "status": "match",
+      "differenceKind": "none",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "No meaningful visible difference in major components visible on the bottle detected.",
+      "evidence": {
+        "referenceObservation": "Bottle has a black pump dispenser and a label covering most of the bottle body.",
+        "candidateObservation": "Bottle has a black pump dispenser and a label covering most of the bottle body.",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful visible difference in major components visible on the bottle detected.",
+        "visibleEvidence": [
+          "Black pump dispenser visible on both bottles.",
+          "Large label covering the bottle body visible on both bottles."
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    },
+    {
+      "checkType": "major_shape_packaging",
+      "status": "match",
+      "differenceKind": "none",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "explanation": "No meaningful visible difference in overall bottle shape and packaging detected.",
+      "evidence": {
+        "referenceObservation": "Bottle shape is cylindrical with rounded shoulders and a pump top.",
+        "candidateObservation": "Bottle shape is cylindrical with rounded shoulders and a pump top.",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful visible difference in overall bottle shape and packaging detected.",
+        "visibleEvidence": [
+          "Cylindrical bottle with rounded shoulders and black pump top visible in both images."
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    }
+  ],
+  "issues": [
+    {
+      "kind": "product",
+      "type": "text_mismatch",
+      "sourceCheckType": "visible_text",
+      "sourceDifferenceKind": "value_changed",
+      "sourceObservability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "severity": "critical",
+      "confidence": "high",
+      "message": "The printed volume and fluid ounce values differ between reference and candidate.",
+      "evidence": {
+        "referenceObservation": "Label shows volume text '550 ml / 18.6 fl oz'.",
+        "candidateObservation": "Label shows volume text '500 ml / 16.9 fl oz'.",
+        "differenceKind": "value_changed",
+        "comparisonSummary": "The printed volume and fluid ounce values differ between reference and candidate.",
+        "visibleEvidence": [
+          "reference text '550 ml / 18.6 fl oz'",
+          "candidate text '500 ml / 16.9 fl oz'"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    }
+  ],
+  "limitations": [],
+  "coverage": {
+    "selectedChecks": 6,
+    "sufficientlyObservableChecks": 6,
+    "insufficientChecks": 0
+  },
+  "versions": {
+    "qaEngineVersion": "m0-qa-engine-002",
+    "riskPolicyVersion": "m0-risk-policy-002",
+    "modelPolicyVersion": "m0-model-policy-002"
+  },
+  "modelCall": {
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "promptVersion": "m0-real-mvp-002",
+    "latencyMs": 25408,
+    "inputUsage": {
+      "inputTokens": 5974
+    },
+    "outputUsage": {
+      "outputTokens": 1269
+    }
+  },
+  "totalLatencyMs": 25409,
+  "estimatedCostUsd": null
+}
