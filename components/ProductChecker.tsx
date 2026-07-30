@@ -13,6 +13,7 @@ import {
 } from "@/lib/analytics/client";
 import type { PublicRuntimeConfig } from "@/lib/config/public-beta";
 import { TurnstileWidget } from "@/components/TurnstileWidget";
+import { PairvuLogo } from "@/components/PairvuLogo";
 
 type UploadState = {
   assetId: string;
@@ -699,7 +700,9 @@ export function ProductChecker() {
             text, logo, color, quantity, components, and packaging shape.
           </p>
         </div>
-        <p className="product-wordmark">{PRODUCT_NAME}</p>
+        <div className="product-wordmark" aria-label={PRODUCT_NAME}>
+          <PairvuLogo className="product-wordmark-art" />
+        </div>
       </div>
 
       <div className="checker-grid">

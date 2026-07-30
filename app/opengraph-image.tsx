@@ -17,14 +17,14 @@ export default function OpenGraphImage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          background: "#f7faf9",
-          color: "#162023",
+          background: "#f6f7fb",
+          color: "#0b133f",
           padding: "72px 84px",
           fontFamily: "Arial, sans-serif",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", width: 760 }}>
-          <div style={{ color: "#0f766e", fontSize: 30, fontWeight: 700 }}>PAIRVU</div>
+          <div style={{ color: "#245cf5", fontSize: 30, fontWeight: 700 }}>PAIRVU</div>
           <div style={{ display: "flex", marginTop: 34, fontSize: 68, fontWeight: 700, lineHeight: 1.08 }}>
             Did AI change your product?
           </div>
@@ -41,7 +41,7 @@ export default function OpenGraphImage() {
               width: 170,
               height: 240,
               borderRadius: 18,
-              background: "#162023",
+            background: "#0b133f",
             }}
           />
           <div
@@ -54,9 +54,9 @@ export default function OpenGraphImage() {
               justifyContent: "center",
               width: 170,
               height: 240,
-              border: "8px solid #f7faf9",
+              border: "8px solid #f6f7fb",
               borderRadius: 18,
-              background: "#1d4ed8",
+              background: "#245cf5",
               color: "#ffffff",
               fontSize: 90,
               fontWeight: 700,

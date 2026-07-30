@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PairvuLogo } from "@/components/PairvuLogo";
 
 const footerGroups = [
   {
@@ -40,7 +41,7 @@ export function SiteFooter() {
       <div className="site-footer-inner">
         <div className="footer-brand">
           <Link className="site-logo" href="/">
-            Pairvu
+            <PairvuLogo tone="dark" className="site-logo-art" />
           </Link>
           <p>Quality control for AI product photography.</p>
         </div>

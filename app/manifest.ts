@@ -8,8 +8,13 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#1d4ed8",
+    theme_color: "#245cf5",
     icons: [
+      {
+        src: "/brand/pairvu-app-icon.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
       {
         src: "/icon.svg",
         sizes: "any",
