@@ -56,6 +56,30 @@ const featuredCases = [
     candidate: "/examples/packaging-shape-change/candidate.jpg",
     alt: "Shampoo bottle shape change comparison",
   },
+  {
+    href: "/examples/color-change-ai-product-image",
+    title: "Main color changed",
+    summary: "An ELARA serum label changes from cream and orange to dark green while its wording stays stable.",
+    original: "/examples/color-change/original.jpg",
+    candidate: "/examples/color-change/candidate.jpg",
+    alt: "Serum label main color change comparison",
+  },
+  {
+    href: "/examples/missing-product-component-ai-image",
+    title: "Spray trigger missing",
+    summary: "A BRIGHTLEAF cleaner bottle loses its white trigger sprayer while the bottle and label remain visible.",
+    original: "/examples/missing-component/original.jpg",
+    candidate: "/examples/missing-component/candidate.jpg",
+    alt: "Kitchen cleaner missing spray trigger comparison",
+  },
+  {
+    href: "/examples/product-count-change-ai-image",
+    title: "Product count changed",
+    summary: "One GRAINLY food box becomes two matching boxes in the candidate image.",
+    original: "/examples/product-count-change/original.jpg",
+    candidate: "/examples/product-count-change/candidate.jpg",
+    alt: "Food product count change from one box to two comparison",
+  },
 ];
 
 export default function ExamplesPage() {

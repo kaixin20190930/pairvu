@@ -140,12 +140,12 @@ Do not mass-produce tool-name pages.
 /
 ├── ai-product-photography
 ├── examples/
-│   ├── ai-product-logo-changes
-│   ├── ai-product-label-text-changes
-│   ├── ai-product-color-changes
-│   ├── missing-product-components
-│   ├── ai-product-packaging-changes
-│   └── ai-product-quantity-changes
+│   ├── logo-change-ai-product-image
+│   ├── label-value-change-ai-product-image
+│   ├── packaging-shape-change-ai-product-image
+│   ├── color-change-ai-product-image
+│   ├── missing-product-component-ai-image
+│   └── product-count-change-ai-image
 ├── guides/
 │   ├── ai-product-photography-checklist
 │   ├── compare-original-and-ai-product-images
