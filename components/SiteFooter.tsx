@@ -35,6 +35,13 @@ const footerGroups = [
   },
 ];
 
+const otherProducts = [
+  { href: "https://moxion.ai", label: "Moxion" },
+  { href: "https://sigoo.ai", label: "Sigoo" },
+  { href: "https://aibesttool.com", label: "AI Best Tool" },
+  { href: "https://triptrace.ai", label: "Triptrace" },
+];
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -55,6 +62,14 @@ export function SiteFooter() {
             ))}
           </div>
         ))}
+        <div className="footer-group">
+          <h2>Other products</h2>
+          {otherProducts.map((product) => (
+            <a key={product.href} href={product.href} target="_blank" rel="noopener noreferrer">
+              {product.label}
+            </a>
+          ))}
+        </div>
       </div>
       <div className="site-footer-bottom">
         <span>© {new Date().getUTCFullYear()} Pairvu</span>
