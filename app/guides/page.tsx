@@ -32,9 +32,17 @@ export default function GuidesPage() {
               <strong>AI product photography pre-publish checklist</strong>
               <span>Review visible identity, count, components, color, packaging, and coverage.</span>
             </Link>
-            <Link href="/ai-product-photography">
-              <strong>How AI product photography changes products</strong>
-              <span>Understand intended scene edits and unintended fidelity drift.</span>
+            <Link href="/guides/compare-original-and-ai-product-images">
+              <strong>How to compare original and AI product images</strong>
+              <span>Use an approved original and final candidate in a clear review order.</span>
+            </Link>
+            <Link href="/guides/keep-products-consistent-in-ai-images">
+              <strong>How to keep products consistent in AI images</strong>
+              <span>Separate intended creative variation from meaningful product drift.</span>
+            </Link>
+            <Link href="/how-pairvu-works">
+              <strong>How Pairvu works</strong>
+              <span>Understand the comparison method, verdicts, and observability limits.</span>
             </Link>
             <Link href="/examples">
               <strong>Product-change examples</strong>

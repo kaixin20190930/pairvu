@@ -28,13 +28,13 @@ const useCases = [
   },
   {
     id: "brands",
-    href: "/use-cases#brands",
+    href: "/use-cases/brands",
     title: "Brands",
     copy: "Protect brand marks, label wording, variants, package shape, and product identity across generated campaign assets.",
   },
   {
     id: "agencies",
-    href: "/use-cases#agencies",
+    href: "/use-cases/creative-agencies",
     title: "Creative agencies",
     copy: "Use client-approved originals as the comparison source before delivering AI-assisted product visuals.",
   },
@@ -67,7 +67,7 @@ export default function UseCasesPage() {
                 <h3>{useCase.title}</h3>
                 <p>{useCase.copy}</p>
                 <Link className="text-link" href={useCase.href}>
-                  {useCase.href.includes("#") ? "View workflow fit" : "Open workflow"}
+                  Open workflow
                 </Link>
               </article>
             ))}

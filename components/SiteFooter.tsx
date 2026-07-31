@@ -7,7 +7,7 @@ const footerGroups = [
     links: [
       { href: "/", label: "AI Product Image Checker" },
       { href: "/#checker", label: "Check Image" },
-      { href: "/#how-it-works", label: "How It Works" },
+      { href: "/how-pairvu-works", label: "How It Works" },
     ],
   },
   {
@@ -25,8 +25,8 @@ const footerGroups = [
       { href: "/use-cases/ecommerce-product-image-qa", label: "Ecommerce" },
       { href: "/use-cases/amazon-product-image-qa", label: "Amazon Sellers" },
       { href: "/use-cases/shopify-product-image-qa", label: "Shopify Stores" },
-      { href: "/use-cases#brands", label: "Brands" },
-      { href: "/use-cases#agencies", label: "Creative Agencies" },
+      { href: "/use-cases/brands", label: "Brands" },
+      { href: "/use-cases/creative-agencies", label: "Creative Agencies" },
     ],
   },
   {

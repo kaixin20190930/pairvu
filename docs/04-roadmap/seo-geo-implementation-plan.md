@@ -45,7 +45,7 @@ not progress; verified deliverables are progress.
 | SG-G0 Governance locked | Strategy, scope, keyword ownership, tracker | `DONE` |
 | SG-G1 Technical foundation | Canonicals, registry, navigation, sitemap, robots, schema, crawl QA | `DONE` |
 | SG-G2 Initial indexable release | Homepage, pillar, hubs, three real cases, checklist, two use cases | `DONE` |
-| SG-G3 Measurement active | Search Console, Bing, analytics attribution, baseline report | `NOT_STARTED` |
+| SG-G3 Measurement active | Search Console, Bing, analytics attribution, baseline report | `IN_PROGRESS` |
 | SG-G4 Expansion authorized | 30/60-day evidence and founder decision | `BLOCKED` |
 
 SG-G4 remains blocked by design until real search and conversion data exists.
@@ -102,7 +102,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-C03 | P0 | `DONE` | Engineering/Product | SG-T04 | `/examples`, `/guides`, and `/use-cases` hubs are published and registered |
 | SG-C04 | P0 | `DONE` | Founder/Growth | Approved test assets | Three founder-approved controlled comparisons published with optimized original/candidate assets and no internal telemetry |
 | SG-C05 | P0 | `DONE` | Product/Growth | SG-C04 | AI product photography pre-publish checklist published with a checker action path |
-| SG-C06 | P1 | `NOT_STARTED` | Product/Engineering | Product behavior | Method/how-it-works page explains actual comparison and verdict boundaries |
+| SG-C06 | P1 | `DONE` | Product/Engineering | Product behavior | `/how-pairvu-works` explains the actual comparison, verdicts, and visible-evidence boundaries |
 | SG-C07 | P0 | `DONE` | Product/Growth | SG-C04 | Ecommerce page contains a distinct four-step workflow and links to the printed-value example |
 | SG-C08 | P0 | `DONE` | Product/Growth | SG-C04, official sources | Amazon workflow cites official sources and states non-affiliation and no approval guarantee |
 | SG-C09 | P1 | `DONE` | Product/Growth | SG-C05 | Shopify workflow cites official product-media sources and separates fidelity from platform rendering |
@@ -114,15 +114,15 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
 | SG-I01 | P0 | `READY_FOR_REVIEW` | Engineering | SG-T01 to SG-C09 | Local build and 390px/1280px QA pass; production routes, images, canonicals, sitemap, Googlebot, and OAI Search return successfully; focused accessibility review remains |
-| SG-I02 | P0 | `NOT_STARTED` | Founder/Engineering | SG-I01 | Google Search Console domain ownership and production sitemap verified |
-| SG-I03 | P0 | `NOT_STARTED` | Founder/Engineering | SG-I01 | Bing Webmaster Tools ownership, sitemap, and crawl access verified |
-| SG-I04 | P0 | `NOT_STARTED` | Engineering | SG-I02, SG-I03 | Sitemap submitted; priority pages requested/observed for indexing; baseline saved |
+| SG-I02 | P0 | `DONE` | Founder/Engineering | SG-I01 | Google Search Console Domain Property verified and `https://pairvu.com/sitemap.xml` submitted |
+| SG-I03 | P0 | `DONE` | Founder/Engineering | SG-I01 | Bing Webmaster Tools imported from Search Console |
+| SG-I04 | P0 | `IN_PROGRESS` | Engineering | SG-I02, SG-I03 | Sitemap is submitted; discovery/indexation and priority-page baseline are being monitored |
 
 ### Measurement And Iteration
 
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
-| SG-M01 | P0 | `NOT_STARTED` | Growth/Engineering | SG-I04 | Weekly query/page/referral/checker-start report can be generated |
+| SG-M01 | P0 | `IN_PROGRESS` | Growth/Engineering | SG-I04 | First-party source/referral/checker report is active; Search Console query/page export is pending sufficient data |
 | SG-M02 | P1 | `NOT_STARTED` | Founder/Growth | 30 days of data | 30-day indexing and query review with keep/improve/consolidate decisions |
 | SG-M03 | P1 | `NOT_STARTED` | Founder/Growth | 60 days of data | 60-day content and conversion review; expansion candidates ranked |
 | SG-M04 | P1 | `NOT_STARTED` | Founder/Product | 90 days of data | 90-day strategy review records brand demand, conversions, citations, and scope compliance |
@@ -335,3 +335,4 @@ SEO demand alone never authorizes a new M0 product capability.
 | 2026-07-29 | Technical foundation and initial indexable pages implemented | SG-K01, SG-K03, SG-K04, SG-T01 to SG-T07, SG-C01 to SG-C03, SG-C05 | Quantitative keyword volume remains unavailable; real case pages were not fabricated without approved assets | Content pages still need founder-approved visual evidence; production crawler behavior is not yet verified | Approve three case assets, deploy, run SG-I01, then connect Search Console and Bing |
 | 2026-07-30 | First evidence and commerce workflow cluster implemented | SG-C04, SG-C07 to SG-C09 | Public examples describe controlled founder-approved cases, not aggregate accuracy claims | Platform requirements change; dated official source links require periodic review | Deploy and finish production SG-I01, then verify Search Console and Bing |
 | 2026-07-30 | Initial indexable cluster deployed to Pairvu | SG-G2; production portion of SG-I01 | SG-I01 remains ready for review until focused accessibility QA is recorded | Cloudflare managed crawler policy is an additional control plane and must be checked after policy changes | Verify Search Console and Bing, submit sitemap, then activate measurement baseline |
+| 2026-07-31 | Second evidence-first content cluster implemented | SG-C06 plus two workflow guides and two audience pages | New failure-mode case pages remain unpublished until founder-approved static image pairs are provided | Publishing unsupported or synthetic case claims would weaken evidence quality | Deploy five pages, then request color, component, and product-count case assets |

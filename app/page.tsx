@@ -103,6 +103,10 @@ export default function HomePage() {
                 <strong>Pre-publish checklist</strong>
                 <span>Review product fidelity before an image goes live.</span>
               </Link>
+              <Link href="/how-pairvu-works">
+                <strong>How Pairvu works</strong>
+                <span>Understand the comparison method, verdicts, and visible-evidence limits.</span>
+              </Link>
               <Link href="/use-cases">
                 <strong>Use cases</strong>
                 <span>Fit Pairvu into brand, creative, and commerce workflows.</span>
