@@ -144,6 +144,7 @@ Do not mass-produce tool-name pages.
 │   ├── label-value-change-ai-product-image
 │   ├── packaging-shape-change-ai-product-image
 │   ├── color-change-ai-product-image
+│   ├── background-change-ai-product-image
 │   ├── missing-product-component-ai-image
 │   └── product-count-change-ai-image
 ├── guides/

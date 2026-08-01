@@ -65,6 +65,14 @@ const featuredCases = [
     alt: "Serum label main color change comparison",
   },
   {
+    href: "/examples/background-change-ai-product-image",
+    title: "Background changed, product matched",
+    summary: "An ELARA serum moves into a new setting while the visible product remains faithful to the original.",
+    original: "/examples/background-change/original.jpg",
+    candidate: "/examples/background-change/candidate.jpg",
+    alt: "Serum background change comparison with product unchanged",
+  },
+  {
     href: "/examples/missing-product-component-ai-image",
     title: "Spray trigger missing",
     summary: "A BRIGHTLEAF cleaner bottle loses its white trigger sprayer while the bottle and label remain visible.",
