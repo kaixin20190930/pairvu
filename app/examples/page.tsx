@@ -73,12 +73,44 @@ const featuredCases = [
     alt: "Serum background change comparison with product unchanged",
   },
   {
+    href: "/examples/identical-product-images-pass",
+    title: "Identical images passed",
+    summary: "The exact same NOVA FIZZ can image is checked against itself without producing a false alarm.",
+    original: "/examples/label-value-change/original.jpg",
+    candidate: "/examples/label-value-change/original.jpg",
+    alt: "Identical NOVA FIZZ product image comparison",
+  },
+  {
+    href: "/examples/lighting-change-product-image",
+    title: "Lighting changed, product matched",
+    summary: "A MIREVA shampoo moves into warmer light while its visible product identity remains stable.",
+    original: "/examples/packaging-shape-change/original.jpg",
+    candidate: "/examples/lighting-change/candidate.jpg",
+    alt: "Shampoo lighting change comparison with product unchanged",
+  },
+  {
+    href: "/examples/shadow-reflection-change-product-image",
+    title: "Shadows and reflections changed",
+    summary: "A NOVA FIZZ can gains stronger highlights and window shadows without changing the product.",
+    original: "/examples/label-value-change/original.jpg",
+    candidate: "/examples/shadow-reflection-change/candidate.jpg",
+    alt: "Beverage can shadow and reflection change comparison",
+  },
+  {
     href: "/examples/missing-product-component-ai-image",
     title: "Spray trigger missing",
     summary: "A BRIGHTLEAF cleaner bottle loses its white trigger sprayer while the bottle and label remain visible.",
     original: "/examples/missing-component/original.jpg",
     candidate: "/examples/missing-component/candidate.jpg",
     alt: "Kitchen cleaner missing spray trigger comparison",
+  },
+  {
+    href: "/examples/extra-product-component-ai-image",
+    title: "Extra applicator appeared",
+    summary: "An ELARA serum candidate adds a separate white applicator while the approved bottle stays stable.",
+    original: "/examples/color-change/original.jpg",
+    candidate: "/examples/extra-component/candidate.jpg",
+    alt: "Cosmetics serum comparison with an extra applicator",
   },
   {
     href: "/examples/product-count-change-ai-image",
@@ -113,8 +145,8 @@ export default function ExamplesPage() {
         <section className="article-section wide-article-section" aria-labelledby="real-comparisons">
           <h2 id="real-comparisons">Original and candidate comparisons</h2>
           <p>
-            Each public example uses a founder-approved controlled pair with one intended product change. Open a case
-            to see what changed and which attributes should remain verified.
+            Each public example uses a founder-approved controlled pair with one intended test condition. Open a case
+            to see what changed, what stayed stable, and why the observed result was PASS, REVIEW, or FAIL.
           </p>
           <div className="case-card-grid">
             {featuredCases.map((caseItem) => (

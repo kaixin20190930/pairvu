@@ -146,7 +146,11 @@ Do not mass-produce tool-name pages.
 │   ├── color-change-ai-product-image
 │   ├── background-change-ai-product-image
 │   ├── missing-product-component-ai-image
-│   └── product-count-change-ai-image
+│   ├── extra-product-component-ai-image
+│   ├── product-count-change-ai-image
+│   ├── identical-product-images-pass
+│   ├── lighting-change-product-image
+│   └── shadow-reflection-change-product-image
 ├── guides/
 │   ├── ai-product-photography-checklist
 │   ├── compare-original-and-ai-product-images
