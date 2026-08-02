@@ -153,7 +153,9 @@ Do not mass-produce tool-name pages.
 │   ├── shadow-reflection-change-product-image
 │   ├── product-repositioning-perspective-change
 │   ├── large-viewpoint-difference-product-image
-│   └── partially-hidden-product-logo
+│   ├── partially-hidden-product-logo
+│   ├── unreadable-product-label-text
+│   └── partially-visible-product-image
 ├── guides/
 │   ├── ai-product-photography-checklist
 │   ├── compare-original-and-ai-product-images

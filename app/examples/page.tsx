@@ -144,6 +144,22 @@ const featuredCases = [
     candidate: "/examples/partially-hidden-logo/candidate.jpg",
     alt: "Beverage can logo partially hidden by a sticker",
   },
+  {
+    href: "/examples/unreadable-product-label-text",
+    title: "Label text is unreadable",
+    summary: "A GRAINLY package keeps its visual design, but pixelated identity text cannot be verified.",
+    original: "/examples/product-count-change/original.jpg",
+    candidate: "/examples/unreadable-text/candidate.jpg",
+    alt: "Readable and pixelated food package label comparison",
+  },
+  {
+    href: "/examples/partially-visible-product-image",
+    title: "Product is only partly visible",
+    summary: "A close crop preserves the upper bottle but hides label details and the full packaging silhouette.",
+    original: "/examples/packaging-shape-change/original.jpg",
+    candidate: "/examples/partial-product-coverage/candidate.jpg",
+    alt: "Complete and partially cropped shampoo bottle comparison",
+  },
 ];
 
 export default function ExamplesPage() {
