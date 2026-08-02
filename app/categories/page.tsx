@@ -11,7 +11,7 @@ const breadcrumbs = [
   { label: "Product Categories", href: page.route },
 ];
 
-const categories = [
+const publishedCategories = [
   {
     href: "/categories/cosmetics-product-image-qa",
     title: "Cosmetics",
@@ -20,29 +20,20 @@ const categories = [
     candidate: "/examples/color-change/candidate.jpg",
     alt: "Cosmetics serum packaging color comparison",
   },
+];
+
+const developingCategories = [
   {
-    href: "/categories/beverage-product-image-qa",
     title: "Beverages",
-    summary: "Check brand marks, flavor text, capacity values, can colors, pack count, and container shape.",
-    original: "/examples/label-value-change/original.jpg",
-    candidate: "/examples/label-value-change/candidate.jpg",
-    alt: "Beverage can printed capacity comparison",
+    summary: "Capacity, flavor text, can identity, multipack count, reflections, and container form.",
   },
   {
-    href: "/categories/personal-care-product-image-qa",
     title: "Personal care",
-    summary: "Check product names, usage text, volume, pumps, caps, bottle shape, and complete image coverage.",
-    original: "/examples/packaging-shape-change/original.jpg",
-    candidate: "/examples/packaging-shape-change/candidate.jpg",
-    alt: "Personal-care shampoo bottle shape comparison",
+    summary: "Product line text, volume, pumps, caps, bottle shape, lighting, and complete package coverage.",
   },
   {
-    href: "/categories/packaged-food-product-image-qa",
     title: "Packaged food",
-    summary: "Check brand and flavor text, net weight, box count, color blocks, claims, and package silhouette.",
-    original: "/examples/product-count-change/original.jpg",
-    candidate: "/examples/product-count-change/candidate.jpg",
-    alt: "Packaged food product count comparison",
+    summary: "Brand and flavor text, net weight, claims, product count, color blocks, and package silhouette.",
   },
 ];
 
@@ -66,11 +57,12 @@ export default function CategoriesPage() {
         <section className="article-section wide-article-section" aria-labelledby="supported-categories">
           <h2 id="supported-categories">Evidence-backed category workflows</h2>
           <p>
-            Each page combines category-specific review guidance with controlled Pairvu examples. The current public
-            set stays inside the accepted packaged-goods boundary.
+            A category page becomes public only after it has category-specific decision rules, controlled evidence for
+            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics is the first page
+            to meet that standard.
           </p>
           <div className="case-card-grid">
-            {categories.map((category) => (
+            {publishedCategories.map((category) => (
               <Link href={category.href} className="case-card" key={category.href}>
                 <div className="case-card-images">
                   <Image src={category.original} alt="" width={1000} height={1000} sizes="220px" />
@@ -83,6 +75,30 @@ export default function CategoriesPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="article-section" aria-labelledby="categories-in-development">
+          <p className="section-label">Quality-gated roadmap</p>
+          <h2 id="categories-in-development">Category workflows in development</h2>
+          <p>
+            These categories are supported by the current packaged-goods product boundary, but their dedicated search
+            pages remain out of the index until they match the Cosmetics flagship standard. Existing controlled cases
+            remain available through the Examples library.
+          </p>
+          <div className="category-roadmap-list">
+            {developingCategories.map((category) => (
+              <article key={category.title}>
+                <div>
+                  <h3>{category.title}</h3>
+                  <p>{category.summary}</p>
+                </div>
+                <span>In development</span>
+              </article>
+            ))}
+          </div>
+          <div className="content-actions">
+            <Link className="text-link" href="/examples">Browse the controlled examples</Link>
           </div>
         </section>
 

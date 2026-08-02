@@ -1119,6 +1119,206 @@ button:not(:disabled):active {
   text-underline-offset: 3px;
 }
 
+.cosmetics-category-hero {
+  max-width: 980px;
+}
+
+.category-audience {
+  max-width: 820px;
+  margin: 24px 0 0;
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.identity-hierarchy-list,
+.category-risk-list,
+.category-roadmap-list {
+  display: grid;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.identity-hierarchy-list article {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+
+.identity-hierarchy-list article > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.identity-hierarchy-list p,
+.category-risk-list p,
+.category-roadmap-list p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.category-decision-table th:first-child {
+  min-width: 160px;
+}
+
+.category-evidence-grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.category-evidence-card {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.category-evidence-card .case-card-images {
+  min-height: 100%;
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+}
+
+.category-evidence-card .case-card-images img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-evidence-content {
+  min-width: 0;
+  padding: 26px;
+}
+
+.category-evidence-content h3 {
+  margin-top: 16px;
+}
+
+.category-evidence-content p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.category-evidence-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.category-evidence-meta span {
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.category-evidence-meta strong {
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+.category-evidence-meta strong[data-decision="PASS"] {
+  color: #18794e;
+}
+
+.category-evidence-meta strong[data-decision="REVIEW"] {
+  color: #8a5800;
+}
+
+.category-evidence-meta strong[data-decision="FAIL"] {
+  color: #b42318;
+}
+
+.category-risk-list article,
+.category-roadmap-list article {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+
+.category-risk-list article > p:last-child {
+  color: var(--foreground);
+}
+
+.category-insight {
+  border-top-color: var(--accent);
+}
+
+.category-format-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 24px;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.category-format-list li {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.category-boundary {
+  border-top-color: #b42318;
+}
+
+.category-faq-list {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.category-faq-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+
+.category-faq-list summary {
+  cursor: pointer;
+  padding: 20px 32px 20px 0;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.category-faq-list details p {
+  max-width: 760px;
+  margin: -4px 0 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.category-roadmap-list article {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.category-roadmap-list article > span {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
 @media (max-width: 840px) {
   .checker-grid,
   .evidence-grid {
@@ -1170,6 +1370,15 @@ button:not(:disabled):active {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
+  .category-evidence-card {
+    grid-template-columns: 1fr;
+  }
+
+  .category-evidence-card .case-card-images {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
 }
 
 @media (max-width: 640px) {
@@ -1219,5 +1428,22 @@ button:not(:disabled):active {
 
   .article-cta {
     padding: 24px 18px;
+  }
+
+  .category-format-list {
+    grid-template-columns: 1fr;
+  }
+
+  .category-evidence-content {
+    padding: 20px;
+  }
+
+  .category-roadmap-list article {
+    display: block;
+  }
+
+  .category-roadmap-list article > span {
+    display: block;
+    margin-top: 12px;
   }
 }

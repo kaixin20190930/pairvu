@@ -171,21 +171,29 @@ Do not mass-produce tool-name pages.
 The root is the homepage and product. The other branches are publicly
 indexable content families that lead back to the checker.
 
-The founder approved the first evidence-backed category branch on 2026-08-02.
-These pages apply the same Pairvu product to distinct packaged-goods review
-workflows; they do not redefine the homepage product-category keyword.
+The founder approved category expansion on 2026-08-02 and adopted a stricter
+publication standard on 2026-08-03. Category pages apply the same Pairvu
+product to distinct packaged-goods workflows; they do not redefine the
+homepage product-category keyword.
 
 ```text
 /categories/
-├── cosmetics-product-image-qa
-├── beverage-product-image-qa
-├── personal-care-product-image-qa
-└── packaged-food-product-image-qa
+├── cosmetics-product-image-qa       PUBLISHED FLAGSHIP
+├── beverage-product-image-qa        PLANNED / NOINDEX
+├── personal-care-product-image-qa   PLANNED / NOINDEX
+└── packaged-food-product-image-qa   PLANNED / NOINDEX
 ```
 
-Every published category page must include category-specific checks, risks,
-controlled visual evidence, a review workflow, explicit limitations, and links
-back to the checker and supporting examples. Household packaged goods remain in
+Every published category page must pass the requirements in
+`docs/03-growth/category-page-quality-standard.md`. The mandatory structure
+includes an identity hierarchy, an attribute-level PASS / REVIEW / FAIL matrix,
+three distinct evidence roles, category-specific risks and insights, input
+requirements, workflow, limitations, FAQ, founder approval, and automated
+quality verification. New category routes default to planned and noindex.
+
+Cosmetics is the first public flagship. Beverage, personal care, and packaged
+food routes remain implemented but are removed from public discovery and the
+sitemap until they reach the same standard. Household packaged goods remain in
 the accepted M0 boundary, but a dedicated page is deferred until the public
 evidence set is broader. Platform and generator clusters still require separate
 founder approval and supporting demand evidence.
