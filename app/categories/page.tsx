@@ -20,13 +20,17 @@ const publishedCategories = [
     candidate: "/examples/color-change/candidate.jpg",
     alt: "Cosmetics serum packaging color comparison",
   },
+  {
+    href: "/categories/beverage-product-image-qa",
+    title: "Beverages",
+    summary: "Check capacity, flavor and formula text, unit count, multipack structure, reflections, and container identity.",
+    original: "/examples/label-value-change/original.jpg",
+    candidate: "/examples/label-value-change/candidate.jpg",
+    alt: "Beverage can printed capacity comparison",
+  },
 ];
 
 const developingCategories = [
-  {
-    title: "Beverages",
-    summary: "Capacity, flavor text, can identity, multipack count, reflections, and container form.",
-  },
   {
     title: "Personal care",
     summary: "Product line text, volume, pumps, caps, bottle shape, lighting, and complete package coverage.",
@@ -58,8 +62,8 @@ export default function CategoriesPage() {
           <h2 id="supported-categories">Evidence-backed category workflows</h2>
           <p>
             A category page becomes public only after it has category-specific decision rules, controlled evidence for
-            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics is the first page
-            to meet that standard.
+            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics and Beverages are
+            the first pages to meet that standard.
           </p>
           <div className="case-card-grid">
             {publishedCategories.map((category) => (

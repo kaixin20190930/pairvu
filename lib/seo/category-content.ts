@@ -357,6 +357,320 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
     ],
   },
+  {
+    route: "/categories/beverage-product-image-qa",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Beverage brand teams, ecommerce operators, distributors, creative agencies, and production reviewers checking AI-generated or AI-edited cans, bottles, cartons, and multipack imagery before a listing, campaign, retailer submission, or delivery asset is published.",
+    searchIntentEvidence:
+      "The page answers beverage-specific approval questions that a generic image checker cannot resolve alone: how to distinguish printed capacity from visible unit count, when flavor or formulation wording establishes another SKU, how to treat condensation and metallic reflections, and when an obscured front panel requires another image instead of a product-change verdict.",
+    deck:
+      "A beverage image can preserve the familiar can design while changing 330 mL to 500 mL, replacing a flavor, removing a zero-sugar claim, adding another unit, or hiding the brand behind a sticker. Pairvu compares the candidate with an approved reference and separates confirmed beverage identity changes from harmless lighting, shadow, reflection, and composition edits.",
+    packagingFormats: [
+      "Aluminum cans and slim cans",
+      "Glass and plastic bottles with visible caps",
+      "Cartons, aseptic packs, and juice boxes",
+      "Single-serve pouches and drink sachets",
+      "Multipack cartons, trays, and shrink-wrapped packs",
+      "Primary product groups shown as an approved offer",
+    ],
+    identityHierarchy: [
+      {
+        priority: "1",
+        attribute: "Brand and master logo",
+        reason:
+          "The visible brand name and mark establish product ownership. A star, wordmark, crest, or icon that is replaced or materially redrawn represents a different identity even when the container and color palette remain familiar.",
+      },
+      {
+        priority: "2",
+        attribute: "Product and flavor name",
+        reason:
+          "Lime, orange, cola, original, sparkling water, energy drink, and similar wording separates products that may share the same container and master brand system.",
+      },
+      {
+        priority: "3",
+        attribute: "Formula and customer-facing claims",
+        reason:
+          "Zero sugar, caffeine, electrolyte, organic, alcohol percentage, and other prominent visible statements can define the advertised formulation and must not drift during generation.",
+      },
+      {
+        priority: "4",
+        attribute: "Printed capacity or net contents",
+        reason:
+          "A printed 330 mL, 500 mL, 12 fl oz, or other net-content value describes the size of each package. It is different from the number of packages shown in the scene.",
+      },
+      {
+        priority: "5",
+        attribute: "Visible primary product count",
+        reason:
+          "One approved can becoming two cans changes the offer presented to the customer even if every printed label and capacity value remains identical.",
+      },
+      {
+        priority: "6",
+        attribute: "Container and closure",
+        reason:
+          "Can profile, bottle silhouette, carton form, cap, crown, tab, and closure style can distinguish pack revisions or formats and should be judged separately from perspective.",
+      },
+      {
+        priority: "7",
+        attribute: "Variant color system",
+        reason:
+          "A stable color block can identify a flavor or formulation, but metallic highlights, condensation, colored light, and reflected surroundings must not automatically become product-color failures.",
+      },
+      {
+        priority: "8",
+        attribute: "Multipack structure and pack count",
+        reason:
+          "A printed 6-pack or 12-pack claim and the visible multipack container describe a different commercial unit from a loose single beverage, even when the primary can artwork matches.",
+      },
+    ],
+    decisionRules: [
+      {
+        attribute: "Brand or logo",
+        pass: "The same beverage brand name, mark, and identifiable placement remain sufficiently visible.",
+        review: "Condensation, a sticker, a hand, a crop, or glare hides enough of the brand area to prevent direct comparison.",
+        fail: "The visible wordmark or symbol is replaced, removed, materially redrawn, or paired with a different brand name.",
+      },
+      {
+        attribute: "Product or flavor",
+        pass: "The product type and flavor wording match on corresponding visible package faces.",
+        review: "The relevant flavor panel is turned away, below readable resolution, cropped, or hidden by a prop.",
+        fail: "A visible product type, flavor name, or variant designation changes or disappears from the candidate.",
+      },
+      {
+        attribute: "Formula or claim",
+        pass: "Prominent identity-bearing claims such as ZERO SUGAR remain visibly consistent with the reference.",
+        review: "The candidate does not provide readable coverage of the claim area required for approval.",
+        fail: "A visible formulation, caffeine, sugar, alcohol, electrolyte, or comparable product-defining claim changes.",
+      },
+      {
+        attribute: "Printed capacity",
+        pass: "The same capacity or net-content value and unit remain visible on the corresponding package face.",
+        review: "The value is too small, blurred, reflected, cropped, or located on a package face not shown in the candidate.",
+        fail: "The printed package capacity changes, for example from 330 mL to 500 mL, even if the can artwork matches.",
+      },
+      {
+        attribute: "Product unit count",
+        pass: "The visible number of primary beverage units matches the approved composition or offer.",
+        review: "A unit may be hidden behind another product, outside the frame, or ambiguous because of a tight crop.",
+        fail: "The candidate visibly adds or removes a can, bottle, carton, or other primary product unit.",
+      },
+      {
+        attribute: "Container and closure",
+        pass: "Container form and visible closure remain consistent after allowing scale and minor perspective.",
+        review: "The crop or viewpoint hides the top, base, side profile, cap, tab, or other geometry required for comparison.",
+        fail: "The approved can, bottle, or carton becomes a materially different container or closure design.",
+      },
+      {
+        attribute: "Packaging color",
+        pass: "The semantic flavor and brand color system remains stable despite ordinary highlights and scene reflections.",
+        review: "Colored light, metal reflection, translucency, frost, or condensation prevents a confident semantic comparison.",
+        fail: "A deliberate artwork color block changes enough to indicate another flavor, formula, or packaging revision.",
+      },
+      {
+        attribute: "Multipack presentation",
+        pass: "The same approved single-unit or multipack structure and visible pack-count presentation remain present.",
+        review: "The outer pack or printed pack-count area is partly hidden, unreadable, or outside the candidate frame.",
+        fail: "A single unit becomes a multipack, the outer pack changes materially, or a visible pack-count claim changes.",
+      },
+      {
+        attribute: "Scene and condensation",
+        pass: "Only background, shadow, reflection, droplets, framing, or position changes while product identity remains observable.",
+        review: "Scene effects cover identity-bearing text, color blocks, closure details, or the full unit count needed for approval.",
+        fail: "The composition introduces or removes a product, package, attachment, or printed product attribute rather than only changing presentation.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/label-value-change-ai-product-image",
+        title: "Printed capacity changed from 330 mL to 500 mL",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/label-value-change/candidate.jpg",
+        alt: "NOVA FIZZ beverage cans with 330 mL and 500 mL printed capacities",
+        observation:
+          "The NOVA FIZZ name, star mark, LIME SPARKLING WATER wording, ZERO SUGAR claim, turquoise-and-white artwork, and can form remain stable. The bottom printed value alone changes from 330 mL to 500 mL.",
+        lesson:
+          "A plausible number is still the wrong approved package value. Printed capacity is a high-value identity attribute and must not be confused with product unit count or excused by overall visual similarity.",
+      },
+      {
+        href: "/examples/shadow-reflection-change-product-image",
+        title: "Window shadows and stronger reflections changed",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/shadow-reflection-change/candidate.jpg",
+        alt: "The same NOVA FIZZ can under neutral and stronger reflected light",
+        observation:
+          "The candidate introduces a brighter environment, window shadows, stronger can highlights, and a changed contact shadow. The logo, product wording, 330 mL value, can count, color system, and container remain sufficiently visible and consistent.",
+        lesson:
+          "Beverage photography frequently uses condensation, specular highlights, ice, and reflected light. A useful QA system must preserve a PASS when those scene effects change without changing the approved product.",
+      },
+      {
+        href: "/examples/partially-hidden-product-logo",
+        title: "A sticker covers part of the brand area",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/partially-hidden-logo/candidate.jpg",
+        alt: "A NOVA FIZZ can compared with a candidate whose brand text is partly covered",
+        observation:
+          "The can, star symbol, lower product wording, 330 mL value, colors, and unit count remain visible, but a white sticker covers enough of NOVA FIZZ to prevent complete brand-text comparison.",
+        lesson:
+          "Occlusion is not evidence that the hidden wording changed. REVIEW directs the user to provide an unobstructed candidate instead of producing a false logo FAIL or an unsupported PASS.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Capacity value regeneration",
+        detail:
+          "AI editing can preserve a full can design while replacing a small number and unit with another realistic value near the base or nutrition panel.",
+        businessRisk:
+          "A listing can advertise the wrong package size while appearing visually polished and consistent with the approved brand system.",
+      },
+      {
+        title: "Flavor or formula substitution",
+        detail:
+          "Flavor names and visible claims may be rewritten, removed, or blended with another variant because adjacent packages use nearly identical master artwork.",
+        businessRisk:
+          "The final image may imply a different drink, sugar formulation, caffeine profile, or customer-facing SKU than the approved reference.",
+      },
+      {
+        title: "Single-unit and multipack confusion",
+        detail:
+          "Generation may duplicate a can, convert a loose unit into a grouped offer, or change a printed pack count while preserving each visible label.",
+        businessRisk:
+          "Customers and retailers can interpret the image as a different quantity or commercial offer even though the individual package design is correct.",
+      },
+      {
+        title: "Container and closure drift",
+        detail:
+          "Slim cans can become standard cans, bottle shoulders can change, caps can disappear, and tabs or closures can be redrawn into another form.",
+        businessRisk:
+          "The candidate can represent an outdated or nonexistent packaging format and create inconsistency across product pages and campaigns.",
+      },
+      {
+        title: "Reflection mistaken for variant color",
+        detail:
+          "Metal, glass, liquid, ice, and condensation create highlights and environmental color spill that may change pixels without altering printed artwork.",
+        businessRisk:
+          "Over-sensitive color decisions create false alarms, delay creative approvals, and reduce trust in otherwise useful product-fidelity checks.",
+      },
+    ],
+    uniqueInsights: [
+      {
+        title: "Capacity and product count answer different questions",
+        paragraphs: [
+          "Printed capacity describes the net contents of each visible container. Product count describes how many primary containers or approved sellable units appear in the image. One can marked 330 mL, two cans each marked 330 mL, and one outer carton marked 6 x 330 mL are three different presentations and should not collapse into one quantity check.",
+          "Review systems need separate findings for printed value, visible unit count, and multipack structure. Otherwise a correct 330 mL reading can hide the fact that AI duplicated the product, while a correct one-can count can hide a regenerated 500 mL label value.",
+        ],
+      },
+      {
+        title: "Beverage color is inseparable from reflective materials",
+        paragraphs: [
+          "Aluminum cans, glass bottles, clear liquid, condensation, ice, and glossy labels react strongly to their environment. Window light can introduce long white highlights; a warm table can tint a bottle; droplets can distort a small printed region. Pixel difference alone is therefore a weak beverage-color signal.",
+          "A stronger decision uses semantic evidence: stable printed color blocks, readable flavor names, consistent brand artwork, and color changes that occur independently of surrounding highlights. If reflection prevents that judgment, REVIEW is safer than calling a new flavor or silently passing it.",
+        ],
+      },
+      {
+        title: "The correct package face matters more than overall recognition",
+        paragraphs: [
+          "A model may recognize NOVA FIZZ from color and shape even when a sticker covers the brand or a rear view replaces the front panel. Recognition does not prove that the candidate preserves the required flavor, claim, or capacity text on the approved face.",
+          "For pre-publish approval, the candidate must expose corresponding evidence. When the reference uses the front label and the candidate only shows a hidden or different face, the correct action is to request another image rather than infer invisible text from the rest of the package.",
+        ],
+      },
+    ],
+    inputRequirements: [
+      {
+        title: "Use the exact approved beverage SKU",
+        detail:
+          "The reference must match the intended product, flavor, formula, size, container, closure, and packaging revision rather than a related can from the same brand family.",
+      },
+      {
+        title: "Make capacity and variant text readable",
+        detail:
+          "The candidate needs enough resolution for direct comparison of flavor, product type, claims, and net-content values. Overall can recognition is not sufficient evidence.",
+      },
+      {
+        title: "Show all primary units being approved",
+        detail:
+          "Frame the complete single product or approved group so Pairvu can distinguish unit count from partial cropping and hidden products.",
+      },
+      {
+        title: "Include the full container and closure",
+        detail:
+          "Show the top, base, side profile, cap, tab, or carton closure when packaging form is part of the approval decision.",
+      },
+      {
+        title: "Provide corresponding package faces",
+        detail:
+          "A front-panel reference should be compared with a candidate that exposes the same identity-bearing area. Use another view when props, ice, hands, labels, or reflections cover it.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Lock the approved commercial unit",
+        detail:
+          "Record whether the reference represents one can, one bottle, one carton, or an approved multipack, together with its flavor, formula, capacity, and packaging revision.",
+      },
+      {
+        title: "Check printed identity before styling",
+        detail:
+          "Verify brand, product, flavor, formula claims, and capacity before evaluating whether the new background, droplets, shadows, or reflections are acceptable creative changes.",
+      },
+      {
+        title: "Check count, container, and closure separately",
+        detail:
+          "Confirm the number of primary units, then compare each container silhouette and visible closure so a duplicated product or packaging change cannot hide inside a general match.",
+      },
+      {
+        title: "Resolve FAIL and REVIEW differently",
+        detail:
+          "Correct confirmed changed values, flavors, counts, colors, or packaging. For REVIEW, collect an unobstructed, readable, corresponding view instead of editing an attribute that was never proven wrong.",
+      },
+      {
+        title: "Approve the actual final export",
+        detail:
+          "Run the final image delivered to the listing, retailer, or campaign and retain the reference, verdict, findings, and human feedback with the creative approval record.",
+      },
+    ],
+    limitations: [
+      "Pairvu does not verify ingredients, nutrition facts, allergens, formulation, taste, fill level, or the physical liquid inside the package.",
+      "The system does not certify alcohol, caffeine, sugar, health, organic, recycling, deposit, or other legal and regulatory claims.",
+      "Pairvu does not validate barcodes, batch codes, expiry dates, lot numbers, nutrition panels, or complete rear-label compliance.",
+      "A visual PASS does not prove calibrated print color, physical flavor color, transparent-liquid color, or consistency across cameras and displays.",
+      "Hidden, tiny, blurred, reflected, cropped, or non-corresponding package faces may require REVIEW even when the overall beverage is recognizable.",
+      "The current M0 compares one reference image with one candidate image and does not build a complete multi-angle packaging record.",
+    ],
+    faq: [
+      {
+        question: "Why is changing 330 mL to 500 mL a FAIL if the can looks identical?",
+        answer:
+          "Capacity is customer-facing product information and may identify another package size. Preserving the logo, color, and can design does not make a different printed net-content value acceptable.",
+      },
+      {
+        question: "Is printed capacity the same as the number of cans shown?",
+        answer:
+          "No. Capacity describes the contents of each package; product count describes how many primary units appear. Pairvu treats printed value, visible unit count, and multipack structure as separate approval questions.",
+      },
+      {
+        question: "Should condensation, window shadows, or metal reflections make a beverage image fail?",
+        answer:
+          "Not by themselves. Those are presentation effects and should PASS when the brand, product, flavor, claims, capacity, count, container, and semantic color system remain sufficiently observable and faithful.",
+      },
+      {
+        question: "What should happen when a sticker covers part of the beverage logo?",
+        answer:
+          "The affected brand attribute should go to REVIEW because hidden text cannot be confirmed as matching or changed. Supply an unobstructed candidate rather than accepting an unsupported PASS or false mismatch.",
+      },
+      {
+        question: "Does Pairvu validate nutrition facts or beverage compliance?",
+        answer:
+          "No. Pairvu checks visible fidelity against the supplied approved image. Nutrition, ingredients, formulation, alcohol or caffeine rules, deposits, barcodes, legal claims, retailer requirements, and physical products require separate review.",
+      },
+    ],
+  },
 ];
 
 export function getCategoryPageContent(route: string) {

@@ -26,6 +26,12 @@ for (const content of categoryPageContents) {
   }
 }
 
+for (let leftIndex = 0; leftIndex < categoryPageContents.length; leftIndex += 1) {
+  for (let rightIndex = leftIndex + 1; rightIndex < categoryPageContents.length; rightIndex += 1) {
+    verifyCategoryPair(categoryPageContents[leftIndex], categoryPageContents[rightIndex]);
+  }
+}
+
 if (errors.length) {
   console.error(`Category content quality failed with ${errors.length} issue(s):`);
   for (const error of errors) console.error(`- ${error}`);
@@ -91,4 +97,42 @@ function countWords(value: unknown): number {
     return Object.values(value).reduce<number>((total, item) => total + countWords(item), 0);
   }
   return 0;
+}
+
+function verifyCategoryPair(left: CategoryPageContent, right: CategoryPageContent) {
+  const leftTokens = meaningfulTokens(left);
+  const rightTokens = meaningfulTokens(right);
+  const intersection = new Set([...leftTokens].filter((token) => rightTokens.has(token)));
+  const union = new Set([...leftTokens, ...rightTokens]);
+  const similarity = union.size ? intersection.size / union.size : 1;
+  const sharedEvidence = left.evidence.filter((item) => right.evidence.some((candidate) => candidate.href === item.href));
+  const sharedInsightTitles = left.uniqueInsights.filter((item) =>
+    right.uniqueInsights.some((candidate) => candidate.title.toLowerCase() === item.title.toLowerCase()),
+  );
+
+  requireValue(
+    similarity < 0.55,
+    `${left.route} and ${right.route}: lexical overlap ${(similarity * 100).toFixed(1)}% exceeds 55%`,
+  );
+  requireValue(
+    sharedEvidence.length <= 1,
+    `${left.route} and ${right.route}: category pages may share at most one controlled evidence case`,
+  );
+  requireValue(
+    sharedInsightTitles.length === 0,
+    `${left.route} and ${right.route}: category insight titles must be unique`,
+  );
+}
+
+function meaningfulTokens(content: CategoryPageContent) {
+  const ignored = new Set([
+    "about", "after", "again", "against", "also", "another", "before", "between", "both", "candidate",
+    "category", "change", "changed", "check", "compare", "comparison", "detail", "different", "does", "enough",
+    "evidence", "final", "from", "image", "images", "into", "match", "pairvu", "product", "reference", "remain",
+    "review", "should", "that", "their", "these", "they", "this", "visible", "when", "where", "which", "while",
+    "with", "without",
+  ]);
+  const serialized = JSON.stringify(content).toLowerCase();
+  const words = serialized.match(/[a-z0-9%]+(?:-[a-z0-9%]+)*/g) ?? [];
+  return new Set(words.filter((word) => word.length >= 4 && !ignored.has(word)));
 }

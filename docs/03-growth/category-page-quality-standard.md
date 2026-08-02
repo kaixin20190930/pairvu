@@ -34,6 +34,7 @@ The page must support the homepage category `AI product image checker`. It must 
 | Category identity hierarchy | 6 attributes |
 | PASS / REVIEW / FAIL decision rows | 8 |
 | Controlled visual cases | 3 |
+| Evidence cases not reused by another category | 2 |
 | Confirmed product-change evidence | 1 |
 | Harmless hard-negative evidence | 1 |
 | Observability evidence | 1 |
@@ -46,6 +47,8 @@ The page must support the homepage category `AI product image checker`. It must 
 | Structured English content | 1,500 words |
 
 The word threshold is a guardrail, not a writing target. Repetition, filler, generic AI explanations, and keyword padding do not satisfy the standard.
+
+Published category manifests must also remain below 55% pairwise lexical overlap, may share at most one controlled evidence case, and may not reuse category-insight titles. These automated checks make noun substitution and lightly rewritten template pages fail the normal SEO test.
 
 ## Evidence Standard
 
@@ -99,7 +102,7 @@ Published pages use this order unless a category requires a documented exception
 | Category | Public status | Reason |
 | --- | --- | --- |
 | Cosmetics | `PUBLISHED` | First flagship page meeting the standard |
-| Beverages | `PLANNED / NOINDEX` | Requires a full category manifest and flagship-depth implementation |
+| Beverages | `PUBLISHED` | Second flagship with capacity, count, reflection, and observability guidance |
 | Personal care | `PLANNED / NOINDEX` | Requires a full category manifest and flagship-depth implementation |
 | Packaged food | `PLANNED / NOINDEX` | Requires a full category manifest and flagship-depth implementation |
 | Household packaged goods | `DEFERRED` | Public evidence exists, but the category evidence set is not broad enough |
