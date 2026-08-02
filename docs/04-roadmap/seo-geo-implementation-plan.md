@@ -126,7 +126,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-M02 | P1 | `NOT_STARTED` | Founder/Growth | 30 days of data | 30-day indexing and query review with keep/improve/consolidate decisions |
 | SG-M03 | P1 | `NOT_STARTED` | Founder/Growth | 60 days of data | 60-day content and conversion review; expansion candidates ranked |
 | SG-M04 | P1 | `NOT_STARTED` | Founder/Product | 90 days of data | 90-day strategy review records brand demand, conversions, citations, and scope compliance |
-| SG-M05 | P2 | `IN_PROGRESS` | Founder/Product | Founder approval and controlled evidence | Category quality gate adopted 2026-08-03; Cosmetics and Beverage are public flagships, while personal care and packaged food remain planned/noindex until they pass the same standard; platform and generator clusters remain blocked pending separate approval |
+| SG-M05 | P2 | `IN_PROGRESS` | Founder/Product | Founder approval and controlled evidence | Category quality gate adopted 2026-08-03; Cosmetics, Beverage, and Personal Care are public flagships, while packaged food remains planned/noindex until it passes the same standard; platform and generator clusters remain blocked pending separate approval |
 
 ## 6. Implementation Sequence And Timeline
 

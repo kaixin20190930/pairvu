@@ -28,13 +28,17 @@ const publishedCategories = [
     candidate: "/examples/label-value-change/candidate.jpg",
     alt: "Beverage can printed capacity comparison",
   },
+  {
+    href: "/categories/personal-care-product-image-qa",
+    title: "Personal Care",
+    summary: "Product line text, volume, pumps, caps, bottle shape, lighting, and complete package coverage.",
+    original: "/examples/packaging-shape-change/original.jpg",
+    candidate: "/examples/packaging-shape-change/candidate.jpg",
+    alt: "Personal-care pump bottle packaging shape comparison",
+  },
 ];
 
 const developingCategories = [
-  {
-    title: "Personal care",
-    summary: "Product line text, volume, pumps, caps, bottle shape, lighting, and complete package coverage.",
-  },
   {
     title: "Packaged food",
     summary: "Brand and flavor text, net weight, claims, product count, color blocks, and package silhouette.",
@@ -62,8 +66,8 @@ export default function CategoriesPage() {
           <h2 id="supported-categories">Evidence-backed category workflows</h2>
           <p>
             A category page becomes public only after it has category-specific decision rules, controlled evidence for
-            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics and Beverages are
-            the first pages to meet that standard.
+            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics, Beverages, and
+            Personal Care now meet that standard.
           </p>
           <div className="case-card-grid">
             {publishedCategories.map((category) => (
@@ -87,7 +91,7 @@ export default function CategoriesPage() {
           <h2 id="categories-in-development">Category workflows in development</h2>
           <p>
             These categories are supported by the current packaged-goods product boundary, but their dedicated search
-            pages remain out of the index until they match the Cosmetics flagship standard. Existing controlled cases
+            pages remain out of the index until they match the flagship standard. Existing controlled cases
             remain available through the Examples library.
           </p>
           <div className="category-roadmap-list">

@@ -1127,8 +1127,52 @@ button:not(:disabled):active {
   max-width: 980px;
 }
 
+.personal-care-category-hero {
+  max-width: 980px;
+}
+
 .beverage-quantity-model {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.personal-care-system-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.personal-care-system-grid article {
+  min-width: 0;
+  padding: 22px 18px;
+  border-right: 1px solid var(--line);
+}
+
+.personal-care-system-grid article:first-child {
+  padding-left: 0;
+}
+
+.personal-care-system-grid article:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.personal-care-system-grid span {
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.personal-care-system-grid h3 {
+  margin-top: 14px;
+  font-size: 1rem;
+}
+
+.personal-care-system-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .category-audience {
@@ -1387,6 +1431,26 @@ button:not(:disabled):active {
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
+
+  .personal-care-system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personal-care-system-grid article,
+  .personal-care-system-grid article:first-child,
+  .personal-care-system-grid article:last-child {
+    padding: 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .personal-care-system-grid article:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .personal-care-system-grid article:last-child {
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1445,6 +1509,14 @@ button:not(:disabled):active {
 
   .category-evidence-content {
     padding: 20px;
+  }
+
+  .personal-care-system-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-care-system-grid article:nth-child(odd) {
+    border-right: 0;
   }
 
   .category-roadmap-list article {

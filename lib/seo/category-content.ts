@@ -671,6 +671,320 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
     ],
   },
+  {
+    route: "/categories/personal-care-product-image-qa",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Personal-care brand managers, ecommerce teams, packaging reviewers, creative agencies, and production operators approving AI-generated or edited shampoo, conditioner, cleanser, lotion, deodorant, body-care, and grooming product images before publication or retailer delivery.",
+    searchIntentEvidence:
+      "The page addresses a distinct packaging-system problem: personal-care products often share label families while differing through bottle geometry, pump or cap design, dispensing mechanism, usage wording, volume, and lower-label coverage. It explains how to separate those changes from warmer light, a tighter composition, or details that are simply outside the frame.",
+    deck:
+      "Personal-care creatives often keep the brand and label looking right while changing a rounded bottle into a rectangular one, shortening a pump, replacing a cap, hiding the printed volume, or cropping away the lower package. Pairvu checks the complete visible packaging system and distinguishes confirmed product drift from harmless styling and insufficient coverage.",
+    packagingFormats: [
+      "Pump bottles for shampoo, conditioner, lotion, and wash",
+      "Flip-top and screw-cap bottles",
+      "Tubes for cleanser, cream, and treatment products",
+      "Jars, tubs, and wide-mouth containers",
+      "Deodorant, balm, and solid stick formats",
+      "Trigger, spray, foam, and specialty dispensing packages",
+    ],
+    identityHierarchy: [
+      {
+        priority: "1",
+        attribute: "Brand and product line",
+        reason:
+          "The wordmark, symbol, and line name establish the approved family. Similar botanical graphics or typography do not compensate for a changed brand or line identity.",
+      },
+      {
+        priority: "2",
+        attribute: "Product type and use",
+        reason:
+          "Shampoo, conditioner, body wash, lotion, cleanser, and FOR NORMAL HAIR wording distinguish products that may use almost identical bottles and label systems.",
+      },
+      {
+        priority: "3",
+        attribute: "Variant and benefit wording",
+        reason:
+          "Scent, hair type, skin type, strength, treatment, or benefit language can identify another sellable variant even when the master brand remains unchanged.",
+      },
+      {
+        priority: "4",
+        attribute: "Printed volume or weight",
+        reason:
+          "A visible 500 mL, 250 mL, or net-weight value is customer-facing package information and is commonly located near the lower edge that crops remove.",
+      },
+      {
+        priority: "5",
+        attribute: "Primary container body",
+        reason:
+          "Bottle shoulders, side walls, base, tube proportions, jar depth, and overall silhouette can distinguish a packaging revision or another product format.",
+      },
+      {
+        priority: "6",
+        attribute: "Closure and dispensing mechanism",
+        reason:
+          "Pump head, actuator, collar, dip-tube presentation, flip top, screw cap, spray trigger, and nozzle determine how the package is opened or dispensed.",
+      },
+      {
+        priority: "7",
+        attribute: "Label coverage and artwork placement",
+        reason:
+          "The visible label must cover the corresponding approved regions. A matching upper logo does not prove that lower instructions, volume, or variant text remain faithful.",
+      },
+      {
+        priority: "8",
+        attribute: "Semantic container and label color",
+        reason:
+          "Amber bottle, cream label, green print, and other stable material or artwork colors should remain consistent while allowing normal warmth, highlights, transparency, and reflections.",
+      },
+    ],
+    decisionRules: [
+      {
+        attribute: "Brand and line",
+        pass: "The same visible wordmark, symbol, and product-line identity remain sufficiently clear in both images.",
+        review: "A crop, glare, hand, prop, or low resolution blocks direct comparison of the required brand area.",
+        fail: "The visible brand, logo, or product-line name is replaced, removed, or materially altered.",
+      },
+      {
+        attribute: "Product type or use",
+        pass: "The same product-type and intended-use wording remains readable on corresponding label regions.",
+        review: "The candidate hides or cannot resolve the wording needed to distinguish shampoo, conditioner, wash, lotion, or another use.",
+        fail: "A visible product type, hair or skin use, or identity-bearing usage statement changes.",
+      },
+      {
+        attribute: "Variant or benefit",
+        pass: "The approved scent, treatment, benefit, and hair- or skin-type cues remain visibly consistent.",
+        review: "Variant wording is too small, cropped, curved away, reflected, or otherwise not reliable enough to compare.",
+        fail: "A visible variant, scent, treatment, or benefit designation changes or disappears.",
+      },
+      {
+        attribute: "Printed volume or weight",
+        pass: "The same visible net-content number and unit remain present on the corresponding package area.",
+        review: "The lower value area is outside the crop, blurred, hidden, or too small for direct reading.",
+        fail: "The candidate visibly changes the approved volume, weight, concentration, or related printed value.",
+      },
+      {
+        attribute: "Container body",
+        pass: "The bottle, tube, jar, or stick silhouette remains materially consistent after allowing scale and minor perspective.",
+        review: "The base, shoulders, sides, or complete profile is not shown well enough to establish the container form.",
+        fail: "The approved rounded, tapered, cylindrical, rectangular, or other primary container body materially changes.",
+      },
+      {
+        attribute: "Pump, cap, or dispenser",
+        pass: "The approved closure and dispensing parts remain present with consistent type and visible geometry.",
+        review: "The closure is hidden, cropped, viewed from an incompatible angle, or too small to compare reliably.",
+        fail: "A pump, cap, actuator, collar, trigger, or nozzle is removed, added, replaced, or materially reshaped.",
+      },
+      {
+        attribute: "Label coverage",
+        pass: "All label regions required for the approval decision are visible and correspond between the images.",
+        review: "The candidate shows only part of the package and omits lower text, artwork, or silhouette evidence required for PASS.",
+        fail: "A visible approved label region, panel, or artwork element is confirmed missing, replaced, or repositioned on the package.",
+      },
+      {
+        attribute: "Product color system",
+        pass: "Container material and label color families remain semantically stable despite ordinary lighting differences.",
+        review: "Strong color cast, transparency, glare, reflection, or shadow prevents a confident material or artwork comparison.",
+        fail: "A deliberate container, label, or variant color changes independently of the surrounding scene illumination.",
+      },
+      {
+        attribute: "Scene and framing",
+        pass: "Only light, background, shadow, position, or framing changes while all required package attributes remain observable.",
+        review: "The styling or crop prevents complete verification of a label, component, value, or container region.",
+        fail: "The composition visibly adds, removes, or changes a product component or package attribute rather than only changing presentation.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/packaging-shape-change-ai-product-image",
+        title: "Rounded shampoo bottle changed to a rectangular body",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/packaging-shape-change/candidate.jpg",
+        alt: "MIREVA shampoo in rounded and rectangular amber pump bottles",
+        observation:
+          "The MIREVA name, green leaf mark, DAILY BALANCE SHAMPOO wording, FOR NORMAL HAIR text, 500 mL value, amber material, cream label, and black pump remain stable. The primary bottle body changes from rounded cylindrical walls to a rectangular form with sharper edges.",
+        lesson:
+          "Stable artwork does not make a new container shape acceptable. The bottle body is an independent package-identity attribute and a confirmed material change requires correction before publishing.",
+      },
+      {
+        href: "/examples/lighting-change-product-image",
+        title: "Warmer lighting changed the scene, not the shampoo",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/lighting-change/candidate.jpg",
+        alt: "The same MIREVA shampoo bottle under neutral and warmer light",
+        observation:
+          "The candidate uses a warmer background and warmer illumination. The amber bottle, black pump, cream label, green artwork, product wording, 500 mL value, complete silhouette, and dispensing system remain visible and semantically consistent.",
+        lesson:
+          "Personal-care lifestyle imagery often changes white balance and environment. The product should still PASS when material colors and identity remain stable under a normal lighting shift.",
+      },
+      {
+        href: "/examples/partially-visible-product-image",
+        title: "A tight crop hides the lower package",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/partial-product-coverage/candidate.jpg",
+        alt: "A full MIREVA shampoo bottle compared with a crop that hides the lower label and base",
+        observation:
+          "The candidate clearly shows the pump, shoulders, brand, and upper label, but removes the bottle base, 500 mL area, lower label coverage, and enough of the silhouette to prevent complete package verification.",
+        lesson:
+          "Matching visible details cannot support a whole-product PASS when required regions are absent. REVIEW tells the user exactly what to reshoot or re-export: the full bottle and readable lower label.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Label-preserving bottle substitution",
+        detail:
+          "AI can place an accurate label onto a cleaner but incorrect bottle body, changing shoulders, corners, taper, height, or base while the front artwork looks approved.",
+        businessRisk:
+          "Customers may see packaging that does not exist, an outdated pack revision, or a container belonging to another product in the same line.",
+      },
+      {
+        title: "Dispensing-system drift",
+        detail:
+          "Pump spouts may shorten, actuator heads may rotate or change style, collars may simplify, and caps or nozzles may disappear during generation.",
+        businessRisk:
+          "The image can misrepresent how the product is used and undermine consistency across listings, instructions, and campaign assets.",
+      },
+      {
+        title: "Lower-label information lost to crop",
+        detail:
+          "Tight compositions favor the brand area but can remove volume, use wording, lower artwork, base geometry, or regulatory-adjacent visible packaging regions.",
+        businessRisk:
+          "A polished close-up may be approved without evidence that the complete sellable package still matches the reference.",
+      },
+      {
+        title: "Sibling product wording crossover",
+        detail:
+          "Shampoo, conditioner, body wash, scent, treatment, and hair- or skin-type wording can drift between visually related packages using the same master design.",
+        businessRisk:
+          "The creative may advertise another product or usage variant even when the brand and bottle family are correct.",
+      },
+      {
+        title: "Warm light mistaken for package recoloring",
+        detail:
+          "Amber plastic, translucent liquids, cream labels, and glossy pumps react to white balance and reflected surroundings without changing approved materials.",
+        businessRisk:
+          "False color alarms create unnecessary rework and teach teams to ignore valid warnings about actual variant or artwork changes.",
+      },
+    ],
+    uniqueInsights: [
+      {
+        title: "A personal-care package is a system, not one silhouette",
+        paragraphs: [
+          "A pump bottle consists of the primary vessel, shoulders and neck, closure collar, pump mechanism, actuator, spout, label, and visible printed attributes. Two packages can share a general shampoo silhouette while differing in the part that customers operate. Conversely, a pump can match while the bottle body changes underneath it.",
+          "Pairvu therefore separates container body, closure, dispensing mechanism, label coverage, and printed identity. A single packaging-match field is too coarse for deciding whether the final image represents the approved sellable pack.",
+        ],
+      },
+      {
+        title: "Coverage is part of approval evidence",
+        paragraphs: [
+          "A close crop is not automatically wrong; it may be the intended campaign composition. But it cannot prove attributes outside the frame. If the approval requires the lower volume, complete label, bottle base, or full silhouette, those regions must appear in the candidate or the result must remain REVIEW.",
+          "This distinction prevents two opposite errors: falsely failing a hidden attribute as if it changed, and falsely passing the entire package because the visible upper portion looks correct. REVIEW should identify the exact missing region and request a usable replacement view.",
+        ],
+      },
+      {
+        title: "Material color should survive ordinary lighting variation",
+        paragraphs: [
+          "Personal-care packs often combine translucent amber or colored plastic, liquid, glossy black closures, textured labels, and reflective bathrooms or studio sets. Warmer light can shift all of those pixels together while leaving the semantic material system unchanged.",
+          "A confident product-color failure needs evidence from stable label blocks, variant cues, or material regions that change independently of the scene. When the whole environment becomes warmer but amber, cream, black, and green relationships remain intact, PASS is the useful decision.",
+        ],
+      },
+    ],
+    inputRequirements: [
+      {
+        title: "Use the exact approved package revision",
+        detail:
+          "Select the correct product type, variant, volume, bottle body, pump or cap, and label revision rather than a sibling item from the same personal-care family.",
+      },
+      {
+        title: "Show the complete vessel when packaging matters",
+        detail:
+          "Include shoulders, side walls, base, neck, and enough profile detail to distinguish shape from scale, crop, and minor perspective.",
+      },
+      {
+        title: "Expose the closure and dispensing mechanism",
+        detail:
+          "Keep the pump, spout, actuator, collar, trigger, cap, or nozzle visible in both images when it is part of the approved packaging system.",
+      },
+      {
+        title: "Keep identity and volume text readable",
+        detail:
+          "Brand, product type, use, variant, and printed volume need enough resolution and corresponding label coverage for direct comparison.",
+      },
+      {
+        title: "Use another view for hidden regions",
+        detail:
+          "If a hand, prop, crop, glare, curvature, or angle blocks a required area, supply a clearer candidate rather than asking the system to infer invisible packaging.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Define the approved packaging system",
+        detail:
+          "Record product type, variant, volume, container body, closure, dispensing parts, label regions, and semantic colors before comparing creative outputs.",
+      },
+      {
+        title: "Verify label identity and lower values",
+        detail:
+          "Read the brand, product, use, variant, and volume on corresponding areas before deciding that a visually familiar package is the correct item.",
+      },
+      {
+        title: "Inspect body and dispenser separately",
+        detail:
+          "Compare the complete vessel silhouette, then the closure and operating parts so a correct pump cannot hide an incorrect bottle or vice versa.",
+      },
+      {
+        title: "Separate lighting from material change",
+        detail:
+          "Allow normal environmental warmth, highlight, and shadow while checking whether stable material and artwork colors changed independently of the scene.",
+      },
+      {
+        title: "Correct failures and complete reviews",
+        detail:
+          "Fix confirmed text, value, body, closure, component, or color changes. Replace cropped or obscured candidates with images that expose the missing approval evidence.",
+      },
+    ],
+    limitations: [
+      "Pairvu does not verify ingredients, allergens, formula, fragrance, efficacy, safety, dermatological suitability, or the contents inside the package.",
+      "The system does not certify cosmetic, drug, therapeutic, environmental, cruelty-free, or other legal and regulatory claims.",
+      "Pairvu does not validate barcodes, batch codes, expiry dates, recycling marks, complete directions, or back-label compliance.",
+      "A visual PASS does not prove physical fill level, dispenser function, leak resistance, material quality, or manufacturing conformity.",
+      "Hidden, cropped, blurred, curved-away, tiny, reflective, or non-corresponding package regions may require REVIEW.",
+      "The current M0 uses one approved reference and one candidate rather than a multi-angle product profile or full packaging specification.",
+    ],
+    faq: [
+      {
+        question: "Why should a rounded bottle becoming rectangular be a FAIL when the label matches?",
+        answer:
+          "The primary container is part of the approved packaging identity. Accurate brand and label artwork cannot authorize a materially different bottle body or packaging revision.",
+      },
+      {
+        question: "Can Pairvu distinguish pump or cap changes from bottle changes?",
+        answer:
+          "Yes when those parts are visible. The model separates the vessel, closure, and dispensing mechanism so a missing pump, changed spout, replaced cap, or altered bottle body can be described independently.",
+      },
+      {
+        question: "Should warmer bathroom lighting fail a personal-care image?",
+        answer:
+          "No, not when the product's semantic material and artwork colors remain consistent and identity attributes are readable. Lighting-only change is a presentation difference rather than a new package color.",
+      },
+      {
+        question: "What happens if the candidate crops off the bottle base and volume?",
+        answer:
+          "The affected volume, lower-label, and full-shape checks should go to REVIEW. The user should provide a complete candidate instead of treating hidden regions as matching or changed.",
+      },
+      {
+        question: "Does Pairvu verify personal-care ingredients or claims?",
+        answer:
+          "No. It compares visible packaging fidelity with the approved image. Ingredient, efficacy, safety, regulatory, marketplace, barcode, manufacturing, and physical-product checks remain separate responsibilities.",
+      },
+    ],
+  },
 ];
 
 export function getCategoryPageContent(route: string) {
