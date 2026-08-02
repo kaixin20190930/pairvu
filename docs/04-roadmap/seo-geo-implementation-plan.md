@@ -100,7 +100,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-C01 | P0 | `DONE` | Product/Engineering | SG-T01 | Homepage owns category keyword; checker remains first and crawlable supporting content follows |
 | SG-C02 | P0 | `DONE` | Growth/Product | SG-T02 to SG-T06 | `/ai-product-photography` market pillar is published with clear checker positioning |
 | SG-C03 | P0 | `DONE` | Engineering/Product | SG-T04 | `/examples`, `/guides`, and `/use-cases` hubs are published and registered |
-| SG-C04 | P0 | `DONE` | Founder/Growth | Approved test assets | Eleven founder-approved controlled comparisons published with optimized original/candidate assets and no internal telemetry: logo, printed value, packaging shape, main color, background-only, identical-image, lighting-only, shadow/reflection, missing component, extra component, and product count |
+| SG-C04 | P0 | `DONE` | Founder/Growth | Approved test assets | Fourteen founder-approved case pages publish fifteen controlled comparisons with optimized assets and no internal telemetry: logo, printed value, packaging shape, main color, background-only, identical-image, lighting-only, shadow/reflection, repositioning, minor perspective, large viewpoint, partial logo occlusion, missing component, extra component, and product count |
 | SG-C05 | P0 | `DONE` | Product/Growth | SG-C04 | AI product photography pre-publish checklist published with a checker action path |
 | SG-C06 | P1 | `DONE` | Product/Engineering | Product behavior | `/how-pairvu-works` explains the actual comparison, verdicts, and visible-evidence boundaries |
 | SG-C07 | P0 | `DONE` | Product/Growth | SG-C04 | Ecommerce page contains a distinct four-step workflow and links to the printed-value example |

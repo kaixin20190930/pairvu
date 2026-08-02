@@ -34,8 +34,8 @@ export function CaseComparison({ original, candidate }: CaseComparisonProps) {
         ))}
       </div>
       <figcaption>
-        Controlled comparison images approved for public Pairvu documentation. The candidate intentionally changes one
-        product attribute.
+        Controlled comparison images approved for public Pairvu documentation. The candidate introduces one controlled
+        test condition.
       </figcaption>
     </figure>
   );

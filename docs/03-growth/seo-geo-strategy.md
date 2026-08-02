@@ -150,7 +150,10 @@ Do not mass-produce tool-name pages.
 │   ├── product-count-change-ai-image
 │   ├── identical-product-images-pass
 │   ├── lighting-change-product-image
-│   └── shadow-reflection-change-product-image
+│   ├── shadow-reflection-change-product-image
+│   ├── product-repositioning-perspective-change
+│   ├── large-viewpoint-difference-product-image
+│   └── partially-hidden-product-logo
 ├── guides/
 │   ├── ai-product-photography-checklist
 │   ├── compare-original-and-ai-product-images

@@ -97,6 +97,14 @@ const featuredCases = [
     alt: "Beverage can shadow and reflection change comparison",
   },
   {
+    href: "/examples/product-repositioning-perspective-change",
+    title: "Position and perspective changed",
+    summary: "A GRAINLY box moves within the frame or turns slightly while the product remains faithful.",
+    original: "/examples/product-count-change/original.jpg",
+    candidate: "/examples/reposition-perspective/perspective.jpg",
+    alt: "Food box position and minor perspective change comparison",
+  },
+  {
     href: "/examples/missing-product-component-ai-image",
     title: "Spray trigger missing",
     summary: "A BRIGHTLEAF cleaner bottle loses its white trigger sprayer while the bottle and label remain visible.",
@@ -119,6 +127,22 @@ const featuredCases = [
     original: "/examples/product-count-change/original.jpg",
     candidate: "/examples/product-count-change/candidate.jpg",
     alt: "Food product count change from one box to two comparison",
+  },
+  {
+    href: "/examples/large-viewpoint-difference-product-image",
+    title: "Different package face needs review",
+    summary: "A cleaner bottle turns from front to back, leaving front-label identity details unverified.",
+    original: "/examples/missing-component/original.jpg",
+    candidate: "/examples/large-viewpoint/candidate.jpg",
+    alt: "Cleaner bottle front and back viewpoint comparison",
+  },
+  {
+    href: "/examples/partially-hidden-product-logo",
+    title: "Brand area partially hidden",
+    summary: "A sticker covers part of the NOVA FIZZ logo and brand name, so direct verification needs review.",
+    original: "/examples/label-value-change/original.jpg",
+    candidate: "/examples/partially-hidden-logo/candidate.jpg",
+    alt: "Beverage can logo partially hidden by a sticker",
   },
 ];
 
