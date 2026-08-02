@@ -248,6 +248,9 @@ export default function ExamplesPage() {
             <Link className="text-link" href="/ai-product-photography">
               Learn about AI product photography QA
             </Link>
+            <Link className="text-link" href="/categories">
+              Explore product categories
+            </Link>
           </div>
         </section>
       </div>
