@@ -73,6 +73,7 @@ export default function IdenticalProductImagesCasePage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples">See all comparison examples</Link>
             <Link className="text-link" href="/how-pairvu-works">How Pairvu reaches a verdict</Link>
+            <Link className="text-link" href="/checks/product-label-text">Use the Product Label Text check</Link>
           </div>
         </section>
       </div>

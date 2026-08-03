@@ -20,7 +20,8 @@ const checkFamilies = [
   },
   {
     title: "Product label text",
-    status: "Evidence review",
+    status: "Published",
+    href: "/checks/product-label-text",
     detail: "Distinguish confirmed wording changes from unreadable, hidden, or non-corresponding text regions.",
   },
   {

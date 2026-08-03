@@ -74,6 +74,7 @@ export default function LargeViewpointDifferenceCasePage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples/partially-hidden-product-logo">See a partial-occlusion REVIEW</Link>
             <Link className="text-link" href="/guides/ai-product-photography-checklist">Use the pre-publish checklist</Link>
+            <Link className="text-link" href="/checks/product-label-text">Check corresponding label text</Link>
           </div>
         </section>
       </div>

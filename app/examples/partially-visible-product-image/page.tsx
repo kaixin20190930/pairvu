@@ -74,6 +74,7 @@ export default function PartiallyVisibleProductImageCasePage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples/unreadable-product-label-text">See an unreadable-text REVIEW</Link>
             <Link className="text-link" href="/guides/ai-product-photography-checklist">Use the pre-publish checklist</Link>
+            <Link className="text-link" href="/checks/product-label-text">Review incomplete label coverage</Link>
           </div>
         </section>
       </div>

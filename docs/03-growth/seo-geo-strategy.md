@@ -206,6 +206,11 @@ attribute should be judged across products. Publication follows
 `docs/03-growth/check-page-quality-standard.md`; new routes default to planned
 and noindex, and synonym pages for the homepage checker remain prohibited.
 
+The ambiguous GSC query `pair check` is governed by
+`docs/03-growth/pair-check-query-assessment.md`. It remains a monitored query,
+not a target route or replacement product category, until relevant intent and
+conversion evidence meet the documented reassessment gate.
+
 ```text
 /checks/
 ├── product-quantity       FIRST FLAGSHIP

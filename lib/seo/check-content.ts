@@ -316,6 +316,292 @@ export const checkPageContents: readonly CheckPageContent[] = [
       },
     ],
   },
+  {
+    route: "/checks/product-label-text",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Brand and packaging reviewers, ecommerce content teams, catalog operators, creative agencies, and regulated-category stakeholders who must confirm that names, variants, claims, instructions, and printed values in an AI-generated or edited product image still match the approved packaging before publication.",
+    directAnswer:
+      "To check product label text in an AI image, compare readable wording on corresponding package faces and classify each text block by its job: brand and product identity, variant or descriptor, benefit or claim, numeric value, and supporting copy. PASS requires the approval-critical wording to be visible and unchanged. Use REVIEW when text is too small, hidden, cropped, blurred, or shown on a different package face. Use FAIL only when corresponding readable text is confirmed to differ.",
+    scopeDistinction:
+      "Label-text fidelity is narrower than visual similarity and broader than OCR transcription. A package can keep its colors, logo, type hierarchy, and silhouette while one word or number changes. Conversely, a back label is not evidence that front-label copy was removed, and blurred characters are not proof of a typo. Pairvu compares visible text evidence between two images; it does not validate hidden copy, translate language, certify claims, or determine whether approved wording is legally sufficient.",
+    deck:
+      "AI often preserves the look of packaging while rewriting the words that define the product. A capacity can change, a variant can drift, or a polished crop can remove the only copy needed for approval. This check separates confirmed text changes from harmless presentation changes and missing evidence, so reviewers know when to accept, correct, or request a clearer image.",
+    dimensions: [
+      {
+        title: "Identity-bearing wording",
+        definition:
+          "The readable brand name, product-line name, and primary product name that tell a viewer which packaged product is shown. These words can carry identity even when a separate graphic mark remains unchanged.",
+        example:
+          "MIREVA and DAILY BALANCE SHAMPOO are identity-bearing wording. Preserving the leaf mark while changing either phrase would not preserve the approved product identity.",
+      },
+      {
+        title: "Variant and descriptor copy",
+        definition:
+          "Flavor, scent, shade, formula, audience, usage, finish, size descriptor, and other words that distinguish one approved variation from another within the same visual brand system.",
+        example:
+          "LIME SPARKLING WATER, CITRUS, FOR NORMAL HAIR, and BRIGHTENING identify variants or intended use even when the master brand remains correct.",
+      },
+      {
+        title: "Claims and benefit statements",
+        definition:
+          "Customer-facing promises and qualifiers such as ZERO SUGAR, SULFATE FREE, WHOLE GRAIN, concentrated, gentle, or long-lasting. A small wording change can alter meaning without changing the package layout.",
+        example:
+          "Changing ZERO SUGAR to LOW SUGAR would be a substantive text change even if the words occupy the same location, color, and font style.",
+      },
+      {
+        title: "Numbers, units, and coded strings",
+        definition:
+          "Readable capacities, weights, concentrations, counts, model references, dates, percentages, or other exact strings printed on the visible package. They require character-level comparison rather than visual resemblance.",
+        example:
+          "A NOVA FIZZ can that reads 330 mL in the approved image and 500 mL in the candidate contains confirmed text drift on the same package region.",
+      },
+      {
+        title: "Correspondence and legibility",
+        definition:
+          "Whether both images expose the same physical label area at enough size, focus, contrast, and resolution for direct reading. Text comparison is valid only when the regions actually correspond.",
+        example:
+          "A front-label reference and back-label candidate can both contain readable words, but they cannot establish whether the candidate preserved the hidden front product name.",
+      },
+    ],
+    decisionRules: [
+      {
+        condition: "Brand and product name",
+        pass: "The same approval-critical brand and product wording is readable on corresponding regions in both images without character or word changes.",
+        review: "Part of the identity wording is hidden, cropped, too small, distorted, or presented on a non-corresponding face that prevents direct comparison.",
+        fail: "Readable corresponding text confirms a substituted, deleted, inserted, or misspelled brand or product name in the candidate image.",
+      },
+      {
+        condition: "Variant, flavor, scent, or formula",
+        pass: "The same readable variant and descriptor language remains associated with the same product area and meaning in the candidate.",
+        review: "The descriptor is partly visible, ambiguous, translated without an approved source, or absent because the relevant label region is not shown.",
+        fail: "The candidate visibly presents a different readable flavor, scent, shade, formula, audience, or other approval-critical variant descriptor.",
+      },
+      {
+        condition: "Claims and benefit copy",
+        pass: "Every in-scope readable claim retains the approved wording, qualifier, and negation on the corresponding package face.",
+        review: "The claim area lacks enough resolution or coverage to verify exact wording, punctuation, qualification, or a small but meaningful word.",
+        fail: "A corresponding readable claim is added, removed, or rewritten in a way that changes the customer-facing proposition or qualification.",
+      },
+      {
+        condition: "Numbers and units",
+        pass: "Exact digits, decimal marks, percentages, units, and adjacent qualifiers are readable and match the approved string where shown.",
+        review: "The string is present only as indistinct character shapes, partially covered, truncated, or too compressed for an exact transcription.",
+        fail: "The candidate contains a confirmed different readable number, unit, percentage, concentration, count, date, or coded value.",
+      },
+      {
+        condition: "Package-face correspondence",
+        pass: "Both images expose the same in-scope package face or matching text panel, allowing each required text block to be compared directly.",
+        review: "The reference and candidate show different sides, panels, rotations, folds, or curved regions, leaving required copy outside the comparison.",
+        fail: "Corresponding readable panels are present and demonstrate a genuine wording difference rather than merely different package-face content.",
+      },
+      {
+        condition: "Crop and occlusion",
+        pass: "The full boundaries of every required text block remain visible, unobstructed, and separated from stickers, props, hands, glare, or overlays.",
+        review: "A crop, sticker, prop, reflection, fold, or foreground object covers characters needed to establish exact text fidelity.",
+        fail: "The supposedly hidden area is actually observable on both images and contains confirmed replacement or missing copy in the candidate.",
+      },
+      {
+        condition: "Resolution and rendering quality",
+        pass: "Character strokes are sufficiently sharp and contrasted to read exact wording without reconstructing letters from expected package layout.",
+        review: "Pixelation, blur, AI-garbled glyphs, compression, glare, or tiny rendering makes one or more required strings uncertain.",
+        fail: "The characters are clearly readable and form a different word or value; visual polish does not excuse confirmed textual drift.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/label-value-change-ai-product-image",
+        title: "A readable capacity changed from 330 mL to 500 mL",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/label-value-change/candidate.jpg",
+        alt: "NOVA FIZZ cans with corresponding capacity text reading 330 mL and 500 mL",
+        observation:
+          "The same front panel is visible at high resolution in both images. NOVA FIZZ, LIME SPARKLING WATER, and ZERO SUGAR remain readable and stable, while the bottom capacity string changes from 330 mL to 500 mL.",
+        whyThisDecision:
+          "The relevant strings correspond and both are unambiguous, so the system has enough evidence to confirm a textual mismatch. REVIEW would incorrectly treat readable evidence as uncertain, and PASS would approve a different printed promise.",
+        nextAction:
+          "Restore the approved 330 mL artwork or regenerate the candidate with the exact approved label, then rerun the comparison on the corrected export.",
+      },
+      {
+        href: "/examples/identical-product-images-pass",
+        title: "Identical label artwork produced no invented text difference",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/label-value-change/original.jpg",
+        alt: "The same readable NOVA FIZZ label used as both approved image and candidate",
+        observation:
+          "The exact same image file appears on both sides. Brand, product descriptor, claim, and capacity text are all readable at corresponding locations, with no crop, viewpoint, or rendering difference.",
+        whyThisDecision:
+          "A reliable label check must preserve a clean baseline. Matching words and values support PASS; inventing a mismatch from typography texture or anti-aliasing would create a false alarm.",
+        nextAction:
+          "Accept the visible label-text result and continue with other approval requirements that are outside textual fidelity.",
+      },
+      {
+        href: "/examples/large-viewpoint-difference-product-image",
+        title: "A back-label view could not verify the approved front wording",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/missing-component/original.jpg",
+        candidate: "/examples/large-viewpoint/candidate.jpg",
+        alt: "BRIGHTLEAF cleaner shown from the front and back with non-corresponding label text",
+        observation:
+          "The approved image shows the BRIGHTLEAF front panel with product name, CITRUS, and 750 mL. The candidate shows a back panel with different types of supporting copy. Bottle color, sprayer, and shape remain comparable, but the front wording is outside the candidate view.",
+        whyThisDecision:
+          "Different package faces naturally contain different text. That does not prove the front copy changed or disappeared. REVIEW records the missing correspondence instead of manufacturing a mismatch from unrelated panels.",
+        nextAction:
+          "Supply a candidate front view when front-label fidelity is required, or provide an approved back-label reference when the back panel is the actual review target.",
+      },
+      {
+        href: "/examples/partially-visible-product-image",
+        title: "A close crop preserved upper wording but removed lower text",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/partial-product-coverage/candidate.jpg",
+        alt: "Complete MIREVA shampoo label compared with a crop that removes lower wording and 500 mL",
+        observation:
+          "MIREVA and part of DAILY BALANCE remain visible in the candidate, but the lower product wording, FOR NORMAL HAIR, and 500 mL region are outside the frame. The crop therefore supplies partial rather than complete text coverage.",
+        whyThisDecision:
+          "Visible upper words may match, yet they cannot stand in for omitted approval-critical copy. FAIL would claim hidden text changed; PASS would claim it was verified. REVIEW identifies exactly which evidence must be restored.",
+        nextAction:
+          "Use a wider crop that includes the complete label, or explicitly narrow the approval scope and provide another corresponding view for the omitted lower text.",
+      },
+    ],
+    diagnosticQuestions: [
+      {
+        question: "Which words can change what product the customer believes this is?",
+        reason:
+          "Prioritize brand, product name, variant, formula, and other identity-bearing copy before decorative or incidental wording. This defines the highest-risk strings for direct review.",
+      },
+      {
+        question: "Are the same physical label panels visible in both images?",
+        reason:
+          "Front and back panels, side flaps, carton tops, and wrapped bottle labels contain different legitimate copy. Comparison requires panel correspondence, not merely two readable text areas.",
+      },
+      {
+        question: "Can every required character be read without relying on expectation?",
+        reason:
+          "Familiar color blocks and word lengths can make blurred text feel correct. Approval needs pixels that support the actual letters, digits, punctuation, and units.",
+      },
+      {
+        question: "Did a small qualifier, negation, or unit alter the meaning?",
+        reason:
+          "Words such as no, free, low, extra, new, or concentrated and units such as mL, g, oz, and % can materially change a claim even when most of the line matches.",
+      },
+      {
+        question: "Is the difference textual, or only typographic and photographic?",
+        reason:
+          "Lighting, perspective, embossing, curvature, print texture, and anti-aliasing may alter appearance while the readable string remains the same. Compare meaning before style.",
+      },
+      {
+        question: "What exact new image would resolve an uncertain reading?",
+        reason:
+          "A useful REVIEW should name the missing input: a closer export, an unobstructed panel, a corresponding angle, or the complete uncropped package rather than a generic manual check.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Plausible word substitution",
+        mechanism:
+          "Generative editing redraws a label with a semantically plausible but unapproved product name, flavor, scent, formula, or audience descriptor while preserving layout and typography.",
+        consequence:
+          "The image can look professionally on-brand while identifying the wrong variant or presenting a product that is not part of the approved offer.",
+      },
+      {
+        title: "Claim qualifier drift",
+        mechanism:
+          "A short qualifier, number, negation, or benefit phrase is removed, inserted, or rewritten inside an otherwise stable claim block.",
+        consequence:
+          "The final creative may make a stronger, different, or unsupported customer-facing promise even though reviewers recognize the original design.",
+      },
+      {
+        title: "AI-shaped pseudo-letters",
+        mechanism:
+          "The candidate renders letter-like strokes that mimic the rhythm of packaging copy but do not form the approved words when inspected at full resolution.",
+        consequence:
+          "Thumbnail review may pass unreadable or nonsensical packaging text that becomes obvious on a product detail page or enlarged campaign asset.",
+      },
+      {
+        title: "Critical copy removed by composition",
+        mechanism:
+          "Cropping, foreground props, stickers, folds, glare, or close framing leaves attractive identity cues visible while excluding a lower claim, value, or instruction block.",
+        consequence:
+          "A reviewer may confuse partial confirmation with complete label approval and publish an image that cannot support the intended product information.",
+      },
+      {
+        title: "Wrong-panel false mismatch",
+        mechanism:
+          "A reviewer or model compares front-label copy in one image with legitimate back-panel directions, ingredients, or warnings in the other as if the regions corresponded.",
+        consequence:
+          "The workflow produces unnecessary failures and regeneration work while still leaving the actual front-label fidelity unanswered.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Inventory approval-critical strings",
+        detail:
+          "List the exact brand, product, variant, claim, and numeric strings that must survive the edit. Separate mandatory text from copy that is outside the current image scope.",
+      },
+      {
+        title: "Align corresponding package regions",
+        detail:
+          "Confirm that reference and candidate expose the same front, back, side, top, or label panel before comparing wording. Obtain another view when the target region differs.",
+      },
+      {
+        title: "Read by semantic block",
+        detail:
+          "Compare identity, variant, claims, and values as separate blocks. This keeps one confirmed change from obscuring stable text and produces a more actionable correction request.",
+      },
+      {
+        title: "Separate unreadable from different",
+        detail:
+          "Route tiny, pixelated, blocked, curved-away, or cropped strings to REVIEW. Reserve FAIL for characters that can actually be read and shown to differ.",
+      },
+      {
+        title: "Correct and re-export at use size",
+        detail:
+          "Restore approved wording, export at the resolution and crop intended for publication, and rerun the comparison so the final delivered asset rather than a working file receives approval.",
+      },
+    ],
+    limitations: [
+      "Pairvu compares text that is visibly represented in two images; it does not inspect source design files, hidden panels, physical packaging, databases, or copy that falls outside the supplied frames.",
+      "The check does not certify legal wording, regulatory sufficiency, ingredients, nutrition facts, warnings, trademarks, translations, marketplace policy, or whether an approved claim is factually substantiated.",
+      "Curved surfaces, foil, embossing, transparency, reflections, glare, folds, perspective, low contrast, tiny type, compression, and stylized lettering can reduce observability and require REVIEW.",
+      "A matching visible string does not prove that every occurrence of the same text elsewhere on the package is correct, nor that back, side, top, and bottom panels match.",
+      "Pairvu does not currently produce a complete OCR transcript, character-level bounding boxes, font certification, kerning comparison, spell-check report, or translation-quality assessment.",
+      "The M0 accepts one approved image and one candidate. Multi-angle label approval, version-controlled artwork, regional variants, and full packaging-copy specifications remain outside this page's claim.",
+    ],
+    faq: [
+      {
+        question: "Is product label checking the same as OCR?",
+        answer:
+          "No. OCR attempts to transcribe characters. Product label checking asks whether approval-critical visible wording on corresponding package regions stayed faithful, and it must also handle occlusion, viewpoint, crop, and unreadable evidence honestly.",
+      },
+      {
+        question: "Should different front and back label text fail?",
+        answer:
+          "Not by itself. Front and back panels legitimately contain different copy. If the reference shows the front and the candidate shows the back, front-label fidelity should be REVIEW until a corresponding view is supplied.",
+      },
+      {
+        question: "Can the text check pass if lighting or perspective changes?",
+        answer:
+          "Yes. Photographic presentation can change while readable wording remains identical. PASS is appropriate when the required strings still correspond, remain legible, and match despite harmless lighting, scale, or angle differences.",
+      },
+      {
+        question: "What happens when only part of a label is readable?",
+        answer:
+          "Pairvu can verify the visible in-scope blocks but should not extend that result to hidden copy. If omitted text matters to approval, the overall label-text decision needs REVIEW and a clearer or wider candidate.",
+      },
+      {
+        question: "Does a label-text PASS certify compliance?",
+        answer:
+          "No. It indicates that the required visible wording matched the approved image within the supplied evidence. It does not certify legal claims, mandatory disclosures, translation, ingredients, nutrition, warnings, or channel policy.",
+      },
+    ],
+  },
 ];
 
 export function getCheckPageContent(route: string) {
