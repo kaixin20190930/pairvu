@@ -73,6 +73,7 @@ export default function ShadowReflectionChangeCasePage() {
           <div className="content-actions">
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples/lighting-change-product-image">See a lighting-change PASS</Link>
+            <Link className="text-link" href="/checks/product-logo">Check logo identity under reflections</Link>
             <Link className="text-link" href="/examples">See all comparison examples</Link>
           </div>
         </section>

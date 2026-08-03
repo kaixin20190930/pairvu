@@ -913,6 +913,335 @@ export const checkPageContents: readonly CheckPageContent[] = [
       },
     ],
   },
+  {
+    route: "/checks/product-logo",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Brand managers, ecommerce teams, creative agencies, packaging reviewers, and production operators who need to confirm that an AI-generated or edited product image preserves the approved brand symbol, wordmark, lockup, placement, proportions, and identity before publication.",
+    directAnswer:
+      "To check a product logo in an AI image, compare the graphic symbol, wordmark letters, combined lockup, relative placement, proportions, and distinctive contours against an approved reference. PASS only when the identity-bearing features are observable and consistent. Use REVIEW when crop, occlusion, scale, glare, or viewpoint prevents direct verification. Use FAIL when a sufficiently visible candidate replaces, redraws, removes, or materially changes the approved brand mark.",
+    scopeDistinction:
+      "A product logo is not every printed word and not every colored accent. The logo check covers identity-bearing symbols, wordmarks, and their approved arrangement. Descriptive copy, claims, flavor names, and capacity values belong to the label-text check; broad package palette belongs to product color. A palette shift alone does not prove a new logo when symbol identity and wordmark geometry remain intact, while a new symbol can be a logo failure even if every surrounding label word still matches.",
+    deck:
+      "AI can preserve a polished package while quietly replacing the mark that tells customers whose product it is. This method separates a confirmed identity change from harmless background, shadow, reflection, and partial visibility so reviewers can reject the wrong brand, accept faithful presentation changes, and request better evidence instead of guessing.",
+    dimensions: [
+      {
+        title: "Symbol identity",
+        definition:
+          "The distinctive graphic device used as a brand identifier, such as a crescent, star, leaf, crest, monogram, geometric emblem, or recognizable abstract mark. Identity depends on its defining silhouette and internal structure rather than scene color alone.",
+        example:
+          "An ELARA crescent becoming a radiating sun changes the symbol identity even though the bottle, label wording, orange ink, and 30 mL value remain stable.",
+      },
+      {
+        title: "Wordmark identity",
+        definition:
+          "The exact brand name and identity-bearing letterforms presented as a mark. Review spelling, letter sequence, distinctive characters, case, spacing, and recognizable typographic construction without treating ordinary rendering softness as a confirmed redesign.",
+        example:
+          "A readable NOVA FIZZ wordmark must not become a different name, omit a letter, merge characters, or adopt a materially different identity-bearing arrangement.",
+      },
+      {
+        title: "Lockup composition",
+        definition:
+          "The approved relationship between symbol and wordmark, including which element sits above, beside, inside, or across another element and whether a required divider, badge, or enclosing shape belongs to the identity system.",
+        example:
+          "Keeping a crescent and the ELARA name but moving the crescent into an unrelated badge may preserve ingredients while changing the approved logo lockup.",
+      },
+      {
+        title: "Identity-relevant placement",
+        definition:
+          "The location and orientation of the logo on the corresponding product face when placement itself helps distinguish the approved identity. Evaluate placement relative to stable package landmarks, not absolute screen coordinates.",
+        example:
+          "A bottle may move within the photograph and still pass, while a front-label logo relocated below the product name can require review or correction if that layout is identity-bearing.",
+      },
+      {
+        title: "Proportion and scale relationship",
+        definition:
+          "The relative size of symbol, wordmark, spacing, and enclosing elements inside the logo. Perspective can alter apparent screen size, so compare internal ratios and corresponding package regions rather than raw pixels.",
+        example:
+          "A star that becomes twice the height of its wordmark may represent a rebuilt lockup even when both original ingredients remain visible.",
+      },
+      {
+        title: "Shape and stroke integrity",
+        definition:
+          "The defining curves, corners, negative spaces, stroke count, and internal cutouts that make the mark recognizable. Minor antialiasing and compression are presentation artifacts; added rays, missing leaves, or rebuilt geometry can change identity.",
+        example:
+          "The crescent-to-sun case adds a center circle and radial strokes, producing a new mark rather than a lighting highlight on the approved crescent.",
+      },
+      {
+        title: "Brand-area observability",
+        definition:
+          "Whether the corresponding logo region is large enough, sharp enough, sufficiently uncovered, and shown on the relevant package face to support direct identity comparison without reconstructing hidden pixels from context.",
+        example:
+          "A white sticker covering most of NOVA FIZZ can leave the package recognizable but cannot support a complete wordmark verification, so the honest result is REVIEW.",
+      },
+    ],
+    decisionRules: [
+      {
+        condition: "Graphic symbol",
+        pass: "The defining silhouette, internal shapes, negative spaces, and distinctive elements of the symbol correspond clearly across both supplied images.",
+        review: "The symbol is partly hidden, too small, blurred, reflected, turned away, or cropped so its identity cannot be established directly.",
+        fail: "A sufficiently observable candidate replaces the approved symbol, removes it, invents new defining geometry, or changes it into another recognizable mark.",
+      },
+      {
+        condition: "Brand wordmark",
+        pass: "The identity-bearing name, letter sequence, recognizable letterforms, case, and essential spacing remain readable and materially consistent.",
+        review: "One or more identity-bearing letters cannot be read because of scale, blur, occlusion, curvature, glare, or non-corresponding package faces.",
+        fail: "The readable candidate changes the brand name, drops or adds identity-bearing characters, or substitutes a materially different wordmark identity.",
+      },
+      {
+        condition: "Symbol and wordmark lockup",
+        pass: "The approved relationship, order, alignment, orientation, and required enclosing or separating elements remain consistent within the logo region.",
+        review: "The candidate exposes only one lockup element or uses an angle that prevents the relationship between symbol and wordmark from being verified.",
+        fail: "Both logo regions are observable and the candidate visibly rebuilds the approved lockup into a different identity-bearing composition.",
+      },
+      {
+        condition: "Placement on the product",
+        pass: "The logo remains on the corresponding package face and in a materially consistent relationship to stable label or container landmarks.",
+        review: "Crop, wraparound curvature, a different product face, or incomplete package coverage prevents corresponding placement from being compared.",
+        fail: "The candidate clearly moves, duplicates, rotates, or removes the logo in a way that violates an approval-critical brand placement requirement.",
+      },
+      {
+        condition: "Internal proportions",
+        pass: "Symbol-to-wordmark scale, spacing, aspect ratio, and distinctive internal geometry remain consistent after allowing for ordinary perspective and resizing.",
+        review: "Resolution or perspective is insufficient to distinguish a real proportion change from photographic foreshortening or resampling softness.",
+        fail: "Corresponding frontal evidence shows the candidate materially stretching, compressing, enlarging, or rebuilding identity-defining logo proportions.",
+      },
+      {
+        condition: "Color, light, and reflection",
+        pass: "Logo identity and geometry remain intact when only scene lighting, shadow, reflection, white balance, or non-identity palette presentation changes.",
+        review: "Reflection, glare, transparency, or colored light covers enough defining geometry that symbol identity can no longer be confirmed with confidence.",
+        fail: "A confirmed identity replacement accompanies the color difference; color alone is not used to manufacture a logo failure under the current scope.",
+      },
+      {
+        condition: "Occlusion and incomplete coverage",
+        pass: "All required identity-bearing areas remain sufficiently visible despite harmless nearby props, background changes, or small non-overlapping obstructions.",
+        review: "A sticker, crop, hand, prop, fold, package turn, or low-resolution export hides required logo evidence and blocks a complete comparison.",
+        fail: "Previously visible logo evidence is clearly removed or replaced rather than merely hidden, and the corresponding area remains sufficiently observable.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/logo-change-ai-product-image",
+        title: "ELARA crescent replaced by a sun",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/logo-change/original.jpg",
+        candidate: "/examples/logo-change/candidate.jpg",
+        alt: "ELARA serum with a crescent logo compared with the same serum carrying a sun logo",
+        observation:
+          "The approved bottle carries an orange crescent above ELARA. The candidate carries an orange sun with a center circle and radial strokes in the same brand area. ELARA, VITAMIN C SERUM, BRIGHTENING, 30 mL, bottle form, dropper, label position, and surrounding palette remain stable.",
+        whyThisDecision:
+          "Both marks are large, frontal, and directly observable, and the controlled pair isolates a new graphic identity. This is not glare, missing coverage, or a label-copy difference, so REVIEW would understate the evidence and PASS would approve the wrong brand mark.",
+        nextAction:
+          "Replace the generated sun with the approved crescent, preserve the rest of the candidate, and compare the corrected export again before it enters a listing or campaign.",
+      },
+      {
+        href: "/examples/background-change-ai-product-image",
+        title: "A new environment preserved the ELARA logo",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/background-change/original.jpg",
+        candidate: "/examples/background-change/candidate.jpg",
+        alt: "The same ELARA serum logo in a studio image and a lifestyle background",
+        observation:
+          "The candidate places the serum in a brighter interior setting with plants and reflective surfaces. The crescent, ELARA wordmark, relative lockup, orange treatment, and front-label position remain visible and consistent with the approved product.",
+        whyThisDecision:
+          "The scene changed, not the logo. Treating a new background as brand drift would create a false alarm and defeat a primary AI product-photography use case. The required identity evidence remains sufficiently observable in both images.",
+        nextAction:
+          "Accept the logo result and continue with separate checks for label wording, color, package structure, and channel-specific composition requirements.",
+      },
+      {
+        href: "/examples/shadow-reflection-change-product-image",
+        title: "Stronger highlights left NOVA FIZZ identity intact",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/shadow-reflection-change/candidate.jpg",
+        alt: "NOVA FIZZ can with ordinary studio light and with stronger window shadows and highlights",
+        observation:
+          "The candidate adds directional window shadows, brighter metallic highlights, and a different floor reflection. The four-point star and NOVA FIZZ wordmark remain centered, readable, and consistent in shape and arrangement on the turquoise can.",
+        whyThisDecision:
+          "Highlights can alter local contrast and apparent brightness without changing identity-bearing geometry. Because the star, lettering, lockup, and placement remain observable, the useful result is PASS rather than a logo false alarm.",
+        nextAction:
+          "Approve the logo check while reviewing the image separately for creative direction, exposure, marketplace background policy, and any exact text values outside the brand mark.",
+      },
+      {
+        href: "/examples/partially-hidden-product-logo",
+        title: "A sticker blocked direct wordmark verification",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/partially-hidden-logo/candidate.jpg",
+        alt: "NOVA FIZZ logo visible in the original and partly covered by a white sticker in the candidate",
+        observation:
+          "The candidate still shows the turquoise can, star area, lower product copy, and package shape, but a white square covers much of the NOVA FIZZ wordmark. The visible context suggests the same product yet the hidden letters cannot be compared directly.",
+        whyThisDecision:
+          "Product recognition is not proof of hidden logo fidelity. FAIL would invent a replacement behind the sticker, while PASS would claim that covered identity-bearing pixels were verified. REVIEW preserves the difference between mismatch and missing evidence.",
+        nextAction:
+          "Provide an unobstructed candidate or a second approved view that exposes the complete logo region, then rerun the comparison before final publication.",
+      },
+    ],
+    diagnosticQuestions: [
+      {
+        question: "Which elements form the approved logo rather than ordinary label copy?",
+        reason:
+          "Identify the symbol, wordmark, lockup, and any required enclosure first. This prevents a changed claim or flavor descriptor from being mislabeled as a brand-mark failure.",
+      },
+      {
+        question: "Can the defining symbol geometry be traced in both images?",
+        reason:
+          "Silhouette, internal cutouts, strokes, and negative spaces distinguish a real symbol replacement from glare, compression, recoloring, or a soft edge.",
+      },
+      {
+        question: "Are all identity-bearing letters directly readable?",
+        reason:
+          "Familiar package context can make reviewers mentally complete missing characters. Directly visible spelling and wordmark construction are required for a confident match.",
+      },
+      {
+        question: "Do the supplied views show corresponding logo-bearing package faces?",
+        reason:
+          "A front wordmark and a back regulatory panel are not mismatched logos. Non-corresponding views create an observability limitation rather than a confirmed identity change.",
+      },
+      {
+        question: "Did only the scene or local illumination change?",
+        reason:
+          "Background, shadow, reflection, and white balance can change pixels around a stable mark. Review identity geometry and lockup before escalating a photographic difference.",
+      },
+      {
+        question: "Is placement being measured relative to the product or the frame?",
+        reason:
+          "A product can move, rotate slightly, or scale within the canvas while its logo remains correctly placed on the package. Screen coordinates are not brand placement.",
+      },
+      {
+        question: "Is any required part hidden, cropped, or too small to verify?",
+        reason:
+          "An honest REVIEW identifies the missing evidence and requests a better view instead of treating recognition, memory, or neighboring text as proof.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Symbol substitution inside stable packaging",
+        mechanism:
+          "The generation preserves bottle, label, typography, and colors but replaces the approved emblem with a semantically plausible alternative such as a sun, leaf, star, or generic badge.",
+        consequence:
+          "A polished creative can represent a different or nonexistent brand while appearing correct during a quick whole-image review.",
+      },
+      {
+        title: "Wordmark character mutation",
+        mechanism:
+          "One or more identity-bearing letters are added, removed, merged, repeated, or reshaped while surrounding product copy stays readable and visually consistent.",
+        consequence:
+          "The image can create trademark, customer-recognition, campaign-consistency, and catalog-quality problems even when the intended name remains guessable.",
+      },
+      {
+        title: "Lockup rebuilt from correct ingredients",
+        mechanism:
+          "The model retains both symbol and brand name but changes their order, alignment, enclosure, orientation, spacing, or relative scale into a new composition.",
+        consequence:
+          "Teams may overlook a brand-system violation because every expected ingredient appears somewhere in the candidate.",
+      },
+      {
+        title: "Identity lost behind an obstruction",
+        mechanism:
+          "A sticker, hand, prop, reflection, fold, crop, or package turn covers the region needed to distinguish the approved mark from an altered one.",
+        consequence:
+          "Approving from context alone converts missing evidence into false confidence and can let a hidden mutation reach production.",
+      },
+      {
+        title: "Scene color mistaken for a new mark",
+        mechanism:
+          "Colored light, white balance, metallic reflection, transparency, or contrast shifts alter logo pixels while the defining symbol and wordmark geometry remain unchanged.",
+        consequence:
+          "False alarms slow creative production and encourage reviewers to distrust a checker that cannot separate identity from photography.",
+      },
+      {
+        title: "Product movement mistaken for logo relocation",
+        mechanism:
+          "The candidate changes framing, scale, position, or minor perspective, causing the logo to occupy different screen coordinates even though it remains fixed to the same package region.",
+        consequence:
+          "A frame-based comparison rejects faithful recomposition and misses the distinction between layout change and product-identity change.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Define the approved identity assets",
+        detail:
+          "Record the exact symbol, wordmark, combined lockup, permitted variants, required clear relationships, and any placement rule that is approval-critical for this product face.",
+      },
+      {
+        title: "Choose a corresponding reference",
+        detail:
+          "Use an approved image of the same product and logo-bearing face. Do not compare a front primary mark with a back panel, cap monogram, campaign badge, or sibling SKU variant.",
+      },
+      {
+        title: "Inspect geometry before color",
+        detail:
+          "Trace silhouette, negative space, strokes, letter sequence, and lockup composition first so lighting and palette changes do not dominate the identity decision.",
+      },
+      {
+        title: "Check wordmark and symbol separately",
+        detail:
+          "Confirm that each identity component remains faithful before evaluating their relative scale, order, alignment, and placement as one lockup.",
+      },
+      {
+        title: "Classify presentation and observability",
+        detail:
+          "Allow ordinary background, shadow, reflection, position, and minor perspective changes. Mark crop, obstruction, tiny scale, glare, or non-corresponding faces as missing evidence rather than a mismatch.",
+      },
+      {
+        title: "Resolve the decision and next action",
+        detail:
+          "Correct a confirmed replacement, accept a fully observable match, or request an unobstructed export when the brand area cannot support a reliable answer.",
+      },
+      {
+        title: "Recheck the publishable export",
+        detail:
+          "Repeat the comparison after localization, resizing, compositing, compression, or marketplace export because those final transformations can introduce new logo damage or hide prior evidence.",
+      },
+    ],
+    limitations: [
+      "Pairvu compares visible raster evidence and does not authenticate trademarks, establish legal ownership, search trademark registries, or determine whether a logo variant is contractually authorized.",
+      "A logo PASS applies only to the supplied product face and visible identity regions; it cannot verify marks hidden on backs, caps, seals, cartons, inserts, interiors, or out-of-frame surfaces.",
+      "The system does not compare against vector master artwork, brand guidelines, Pantone specifications, minimum-size rules, clear-space measurements, print tolerances, or production proofs.",
+      "Low resolution, compression, antialiasing, curved surfaces, metallic finishes, transparency, glare, and reflections can limit exact stroke and letterform evaluation even when the product remains recognizable.",
+      "A palette difference alone is not treated as a logo identity failure under this M0 scope when symbol and wordmark geometry remain intact; use the product-color workflow for major package palette questions.",
+      "Pairvu cannot infer hidden letters or geometry from brand familiarity. A covered or non-corresponding logo region requires REVIEW even when surrounding package cues strongly suggest the same product.",
+      "One approved reference may not represent every legitimate logo lockup, regional mark, co-brand, campaign badge, embossed variant, monochrome treatment, or packaging revision used by a brand.",
+      "A visible logo match does not certify label wording, product claims, capacity, package count, components, container geometry, marketplace compliance, or the physical product that will ship.",
+    ],
+    faq: [
+      {
+        question: "What counts as a logo change in an AI product image?",
+        answer:
+          "A logo change materially alters an identity-bearing symbol, wordmark, combined lockup, or approval-critical brand placement. The ELARA crescent becoming a sun is a clear example because both marks are observable while the rest of the label remains stable.",
+      },
+      {
+        question: "Is a different logo color always a logo failure?",
+        answer:
+          "No. Under the current scope, identity is based primarily on symbol and wordmark geometry. Scene light, reflection, white balance, or a broader package palette can change apparent color without creating a new logo. Review product color separately when palette fidelity matters.",
+      },
+      {
+        question: "Why does a partially covered logo receive REVIEW rather than FAIL?",
+        answer:
+          "The obstruction proves that required evidence is missing, not that the hidden mark changed. FAIL would invent unseen pixels and PASS would pretend they were verified. REVIEW asks for an unobstructed or corresponding view.",
+      },
+      {
+        question: "Can a logo PASS when the background, shadow, or reflection changes?",
+        answer:
+          "Yes. Those are presentation variables. The logo can PASS when its defining symbol, wordmark, lockup, and product-relative placement remain sufficiently observable and materially consistent despite a new environment or illumination.",
+      },
+      {
+        question: "Does moving the product in the frame change logo placement?",
+        answer:
+          "Not by itself. Logo placement is evaluated relative to the package and stable label landmarks, not absolute canvas coordinates. Repositioning, resizing, or a minor perspective change can preserve the approved brand placement.",
+      },
+      {
+        question: "Does Pairvu certify that a logo is legally approved?",
+        answer:
+          "No. Pairvu compares the visible candidate with the supplied approved reference. Brand owners still control legal clearance, trademark usage, authorized variants, brand-guideline compliance, and the final publication decision.",
+      },
+    ],
+  },
 ];
 
 export function getCheckPageContent(route: string) {

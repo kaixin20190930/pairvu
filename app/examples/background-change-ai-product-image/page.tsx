@@ -88,6 +88,9 @@ export default function BackgroundChangeCasePage() {
             <Link className="text-link" href="/ai-product-photography">
               Learn about AI product photography
             </Link>
+            <Link className="text-link" href="/checks/product-logo">
+              Verify that the logo stayed faithful
+            </Link>
           </div>
         </section>
       </div>

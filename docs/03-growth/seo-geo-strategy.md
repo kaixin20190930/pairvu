@@ -213,9 +213,11 @@ conversion evidence meet the documented reassessment gate.
 
 ```text
 /checks/
-├── product-quantity       FIRST FLAGSHIP
-├── product-label-text     PLANNED / NOINDEX
-└── product-packaging      PLANNED / NOINDEX
+├── product-quantity       PUBLISHED FLAGSHIP
+├── product-label-text     PUBLISHED FLAGSHIP
+├── product-packaging      PUBLISHED FLAGSHIP
+├── product-logo           PUBLISHED FLAGSHIP / AWAITING DEPLOY
+└── product-color          EVIDENCE GENERATION REQUIRED / NOINDEX
 ```
 
 ## 5. Page Specifications

@@ -85,6 +85,9 @@ export default function LogoChangeCasePage() {
             <Link className="text-link" href="/examples">
               See all comparison examples
             </Link>
+            <Link className="text-link" href="/checks/product-logo">
+              Use the Product Logo check
+            </Link>
           </div>
         </section>
       </div>

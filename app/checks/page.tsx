@@ -32,7 +32,8 @@ const checkFamilies = [
   },
   {
     title: "Logo and brand mark",
-    status: "Planned",
+    status: "Published",
+    href: "/checks/product-logo",
     detail: "Compare logo identity while separating a confirmed replacement from partial occlusion or insufficient resolution.",
   },
   {

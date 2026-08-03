@@ -74,6 +74,7 @@ export default function PartiallyHiddenProductLogoCasePage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples/large-viewpoint-difference-product-image">See a viewpoint REVIEW</Link>
             <Link className="text-link" href="/examples/logo-change-ai-product-image">See a confirmed logo change</Link>
+            <Link className="text-link" href="/checks/product-logo">Use the Product Logo check</Link>
           </div>
         </section>
       </div>
