@@ -1131,6 +1131,10 @@ button:not(:disabled):active {
   max-width: 980px;
 }
 
+.packaged-food-category-hero {
+  max-width: 980px;
+}
+
 .beverage-quantity-model {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1170,6 +1174,53 @@ button:not(:disabled):active {
 }
 
 .personal-care-system-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.packaged-food-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.packaged-food-offer-grid article {
+  min-width: 0;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+}
+
+.packaged-food-offer-grid article:first-child {
+  padding-left: 0;
+}
+
+.packaged-food-offer-grid article:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.packaged-food-offer-grid span {
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.packaged-food-offer-grid h3 {
+  margin-top: 14px;
+  font-size: 1rem;
+}
+
+.packaged-food-offer-grid strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 0.83rem;
+}
+
+.packaged-food-offer-grid p {
   margin: 8px 0 0;
   color: var(--muted);
   line-height: 1.55;
@@ -1436,6 +1487,10 @@ button:not(:disabled):active {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .packaged-food-offer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .personal-care-system-grid article,
   .personal-care-system-grid article:first-child,
   .personal-care-system-grid article:last-child {
@@ -1449,6 +1504,22 @@ button:not(:disabled):active {
   }
 
   .personal-care-system-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .packaged-food-offer-grid article,
+  .packaged-food-offer-grid article:first-child,
+  .packaged-food-offer-grid article:last-child {
+    padding: 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .packaged-food-offer-grid article:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .packaged-food-offer-grid article:nth-last-child(-n + 2) {
     border-bottom: 0;
   }
 }
@@ -1517,6 +1588,18 @@ button:not(:disabled):active {
 
   .personal-care-system-grid article:nth-child(odd) {
     border-right: 0;
+  }
+
+  .packaged-food-offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .packaged-food-offer-grid article:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .packaged-food-offer-grid article:nth-last-child(2) {
+    border-bottom: 1px solid var(--line);
   }
 
   .category-roadmap-list article {

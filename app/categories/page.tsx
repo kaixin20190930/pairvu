@@ -36,12 +36,13 @@ const publishedCategories = [
     candidate: "/examples/packaging-shape-change/candidate.jpg",
     alt: "Personal-care pump bottle packaging shape comparison",
   },
-];
-
-const developingCategories = [
   {
+    href: "/categories/packaged-food-product-image-qa",
     title: "Packaged food",
     summary: "Brand and flavor text, net weight, claims, product count, color blocks, and package silhouette.",
+    original: "/examples/product-count-change/original.jpg",
+    candidate: "/examples/product-count-change/candidate.jpg",
+    alt: "One packaged-food box compared with two duplicated boxes",
   },
 ];
 
@@ -66,8 +67,8 @@ export default function CategoriesPage() {
           <h2 id="supported-categories">Evidence-backed category workflows</h2>
           <p>
             A category page becomes public only after it has category-specific decision rules, controlled evidence for
-            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics, Beverages, and
-            Personal Care now meet that standard.
+            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics, Beverages,
+            Personal Care, and Packaged Food now meet that standard.
           </p>
           <div className="case-card-grid">
             {publishedCategories.map((category) => (
@@ -83,30 +84,6 @@ export default function CategoriesPage() {
                 </div>
               </Link>
             ))}
-          </div>
-        </section>
-
-        <section className="article-section" aria-labelledby="categories-in-development">
-          <p className="section-label">Quality-gated roadmap</p>
-          <h2 id="categories-in-development">Category workflows in development</h2>
-          <p>
-            These categories are supported by the current packaged-goods product boundary, but their dedicated search
-            pages remain out of the index until they match the flagship standard. Existing controlled cases
-            remain available through the Examples library.
-          </p>
-          <div className="category-roadmap-list">
-            {developingCategories.map((category) => (
-              <article key={category.title}>
-                <div>
-                  <h3>{category.title}</h3>
-                  <p>{category.summary}</p>
-                </div>
-                <span>In development</span>
-              </article>
-            ))}
-          </div>
-          <div className="content-actions">
-            <Link className="text-link" href="/examples">Browse the controlled examples</Link>
           </div>
         </section>
 

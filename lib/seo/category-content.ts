@@ -985,6 +985,320 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
     ],
   },
+  {
+    route: "/categories/packaged-food-product-image-qa",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Packaged-food brand managers, ecommerce operators, retail content teams, creative agencies, and production reviewers approving AI-generated or edited boxes, bags, pouches, jars, wrappers, and multipack images before they enter product pages, catalogs, campaigns, or retailer submissions.",
+    searchIntentEvidence:
+      "The page answers a packaged-food approval problem that generic visual comparison does not: whether the candidate still represents the same sellable pack. Reviewers must distinguish printed net contents from the number of packages shown, confirm flavor and variety wording, preserve package-face identity, and avoid failing harmless repositioning while refusing to approve text that is too pixelated to read.",
+    deck:
+      "A packaged-food image can preserve its colors and logo while changing one box into two, altering a flavor or net-weight value, losing a closure, or reducing label text below readable resolution. Pairvu compares the approved pack with the candidate and separates a changed sellable offer from harmless composition changes and missing visual evidence.",
+    packagingFormats: [
+      "Folding cartons and upright product boxes",
+      "Flexible bags, pillow packs, and gusseted pouches",
+      "Resealable stand-up pouches and zipper bags",
+      "Jars, tubs, cans, and bottles used as the primary food pack",
+      "Wrapped bars, trays, sleeves, and flow-wrap packages",
+      "Multipack cartons, bundled units, and retail-ready pack presentations",
+    ],
+    identityHierarchy: [
+      {
+        priority: "1",
+        attribute: "Brand and product family",
+        reason:
+          "The wordmark, symbol, and family name establish the source of the product. Similar colors, grain graphics, or natural-food styling cannot substitute for the approved brand identity.",
+      },
+      {
+        priority: "2",
+        attribute: "Food type, flavor, and variety",
+        reason:
+          "HONEY OAT BITES, chocolate, sea salt, whole grain, spicy, original, and other visible wording can distinguish a different food or variant inside an otherwise shared package system.",
+      },
+      {
+        priority: "3",
+        attribute: "Printed net contents and count statement",
+        reason:
+          "A visible 300 g, 12 oz, 6 count, or 10-pack statement describes what one approved sellable package contains. It is not the same as the number of packages pictured in the scene.",
+      },
+      {
+        priority: "4",
+        attribute: "Visible primary package count",
+        reason:
+          "One approved box becoming two boxes changes the offer represented by the image even if each duplicated front panel is individually accurate.",
+      },
+      {
+        priority: "5",
+        attribute: "Package face and artwork hierarchy",
+        reason:
+          "Brand, product name, flavor, claims, net contents, and color blocks occupy purposeful front-panel positions. Corresponding faces must be compared instead of treating a back or side panel as changed front text.",
+      },
+      {
+        priority: "6",
+        attribute: "Container form and closure",
+        reason:
+          "Carton proportions, pouch gussets, zipper tracks, jar lids, tear notches, caps, windows, sleeves, and wrapper ends are part of the visible approved pack.",
+      },
+      {
+        priority: "7",
+        attribute: "Semantic variant color system",
+        reason:
+          "Stable color blocks often organize flavor and product families. They should remain semantically consistent while allowing ordinary shadow, white balance, print texture, and reflected light.",
+      },
+      {
+        priority: "8",
+        attribute: "Readable approval-critical text",
+        reason:
+          "Recognizing a familiar layout is not enough. Brand, product, variant, and quantity text required for approval must be legible at the supplied resolution or the result must remain REVIEW.",
+      },
+    ],
+    decisionRules: [
+      {
+        attribute: "Brand and family",
+        pass: "The same visible wordmark, symbol, and product-family name remain readable on corresponding package faces.",
+        review: "Pixelation, blur, glare, crop, fold, or an incompatible package face prevents a direct identity comparison.",
+        fail: "The candidate visibly replaces, removes, redraws, or materially alters the approved brand or family identity.",
+      },
+      {
+        attribute: "Food type or product name",
+        pass: "The approved product name and food-type wording remain readable and semantically identical in both images.",
+        review: "The product-name region exists but is too small, distorted, covered, turned away, or blurred to verify.",
+        fail: "The visible food type or product name changes to another item, line, or meaningfully different wording.",
+      },
+      {
+        attribute: "Flavor, variety, or visible claim",
+        pass: "The same flavor, variety, and identity-bearing front-panel statements remain visibly consistent.",
+        review: "Required variant wording cannot be read reliably because resolution, perspective, reflection, or package curvature is insufficient.",
+        fail: "A visible flavor, variety, dietary descriptor, or identity-bearing claim changes, disappears, or is replaced.",
+      },
+      {
+        attribute: "Net contents or printed count",
+        pass: "The candidate preserves the approved readable weight, volume, or count statement for each sellable package.",
+        review: "The net-contents area is hidden, below readable resolution, cropped out, or shown on a non-corresponding face.",
+        fail: "The printed weight, volume, unit count, pack size, or other approved numeric content visibly changes.",
+      },
+      {
+        attribute: "Visible package quantity",
+        pass: "The scene contains the same number of primary sellable packages as the approved reference image.",
+        review: "Overlap, crop, props, or partial visibility makes the number of complete primary packages uncertain.",
+        fail: "A primary box, bag, jar, pouch, or wrapped unit is visibly duplicated, removed, or added in the candidate.",
+      },
+      {
+        attribute: "Pack configuration",
+        pass: "A single unit, bundle, multipack, tray, or retail carton remains the same approved commercial configuration.",
+        review: "The outer wrap, grouping, or pack boundary cannot be seen well enough to establish the sellable configuration.",
+        fail: "A loose unit becomes a bundle or multipack, or an approved multipack is represented as another configuration.",
+      },
+      {
+        attribute: "Package form and closure",
+        pass: "The box, bag, pouch, jar, wrapper, closure, and major structural features remain materially consistent.",
+        review: "A crop or viewpoint hides the top, base, side depth, closure, gusset, seal, window, or wrapper ends needed for comparison.",
+        fail: "The primary package form or a major visible closure, window, seal, cap, or structural component materially changes.",
+      },
+      {
+        attribute: "Artwork color system",
+        pass: "Variant-signaling color blocks and artwork remain semantically stable despite ordinary light, shadow, and print texture.",
+        review: "Strong color cast, glare, transparency, or low resolution prevents a confident distinction between scene light and artwork color.",
+        fail: "A deliberate package color block, flavor cue, or artwork palette changes independently of the surrounding scene.",
+      },
+      {
+        attribute: "Position, scale, and perspective",
+        pass: "The same observable package may move, scale, or turn slightly without changing the sellable item or hiding required evidence.",
+        review: "The new angle exposes a different face or removes enough identity detail that the required attributes cannot be verified.",
+        fail: "The composition change also duplicates, removes, substitutes, or materially changes a package or visible product attribute.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/product-count-change-ai-image",
+        title: "One approved food box became two packages",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/product-count-change/original.jpg",
+        candidate: "/examples/product-count-change/candidate.jpg",
+        alt: "One GRAINLY food box compared with two duplicated boxes",
+        observation:
+          "The GRAINLY logo, HONEY OAT BITES product name, WHOLE GRAIN wording, 300 g value, cream-orange-green color blocks, and rectangular carton design remain stable on each visible box. The candidate changes the primary package count from one complete sellable box to two.",
+        lesson:
+          "Printed net weight and scene quantity answer different questions. Two boxes that each say 300 g do not represent the same offer as one 300 g box, so the duplicated package requires correction before publication.",
+      },
+      {
+        href: "/examples/product-repositioning-perspective-change",
+        title: "The same carton moved and turned slightly",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/product-count-change/original.jpg",
+        candidate: "/examples/reposition-perspective/perspective.jpg",
+        alt: "The same GRAINLY food box shown front-on and at a minor perspective angle",
+        observation:
+          "The candidate changes position, apparent scale, and minor perspective while retaining one carton, readable GRAINLY and HONEY OAT BITES wording, 300 g value, the same color hierarchy, and the same rectangular packaging structure.",
+        lesson:
+          "Marketplace and campaign compositions routinely move or rotate a package. A useful QA system should normalize harmless framing differences and PASS the image when all approval-critical attributes remain observable and faithful.",
+      },
+      {
+        href: "/examples/unreadable-product-label-text",
+        title: "Recognizable packaging had unreadable identity text",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/product-count-change/original.jpg",
+        candidate: "/examples/unreadable-text/candidate.jpg",
+        alt: "A readable GRAINLY carton compared with a pixelated food package label",
+        observation:
+          "The candidate preserves the apparent carton, orange center panel, cream top, and dark-green base, but the brand, product name, WHOLE GRAIN statement, and 300 g value are pixelated or too soft for reliable direct comparison.",
+        lesson:
+          "Layout recognition cannot authorize text fidelity. REVIEW identifies a concrete remedy: provide a higher-resolution candidate in which the front-panel identity and quantity values can actually be read.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Scene count confused with net contents",
+        detail:
+          "Generation may duplicate an accurate box or bag while preserving the printed weight on every copy. A generic quantity check can overlook the difference between package count and contents per package.",
+        businessRisk:
+          "The creative can imply a two-pack, bundle, or larger offer that the listing price and delivered product do not include.",
+      },
+      {
+        title: "Sibling flavor or variety crossover",
+        detail:
+          "Food lines often share logos, carton geometry, and most artwork while changing one flavor name, variety descriptor, color band, or dietary cue.",
+        businessRisk:
+          "A visually credible image may represent another sellable variant and conflict with title, inventory, customer expectations, or campaign targeting.",
+      },
+      {
+        title: "Plausible but wrong numeric labeling",
+        detail:
+          "AI can alter 300 g, 12 oz, 6 count, serving-related front text, or pack-size wording without disturbing surrounding typography and layout.",
+        businessRisk:
+          "An incorrect visible value can misstate the offer and create content inconsistency even when the physical package is otherwise depicted correctly.",
+      },
+      {
+        title: "Readable design replaced by text-like texture",
+        detail:
+          "At small output sizes, letter-shaped marks can preserve the impression of a label while losing exact brand, flavor, and quantity wording.",
+        businessRisk:
+          "Teams may approve a thumbnail that looks polished but fails at zoom, on a product detail page, or in retailer content review.",
+      },
+      {
+        title: "Package structure simplified during recomposition",
+        detail:
+          "Pouch seals, zipper tracks, carton depth, wrapper ends, jar lids, windows, and closure details can disappear when the pack is rotated or placed in a new scene.",
+        businessRisk:
+          "The final image can imply another pack format, resealability, opening method, or included structure that the approved product does not have.",
+      },
+    ],
+    uniqueInsights: [
+      {
+        title: "Food quantity has three independent layers",
+        paragraphs: [
+          "Packaged-food approval must separate net contents per package, the number of primary packages pictured, and the commercial pack configuration. A carton marked 300 g is one quantity fact. Two such cartons in the image are a second fact. A printed 2-pack sleeve or bundled offer is a third. Treating all three as one quantity field creates false passes and unclear findings.",
+          "Pairvu should report the layer that changed. A 300 g to 500 g edit is a printed-value problem; one box becoming two is a visible package-count problem; a loose unit becoming a bundled multipack is a configuration problem. Clear naming helps the reviewer understand whether to fix artwork, remove a duplicate, or replace the entire offer image.",
+        ],
+      },
+      {
+        title: "The compared package face determines what can be approved",
+        paragraphs: [
+          "Food packs distribute information across front, back, side, top, and closure regions. Front-panel brand and flavor text cannot be compared directly with ingredients or preparation text on the back. A changed viewpoint may still verify carton shape and count while leaving flavor, net contents, or claims unverified.",
+          "The correct result depends on the approval question. A front-versus-front pair with minor perspective can PASS when all required front attributes remain readable. A front-versus-side pair may need REVIEW for identity text without implying that the hidden wording changed. Face correspondence is evidence, not a cosmetic preference.",
+        ],
+      },
+      {
+        title: "Recognizable typography is not readable typography",
+        paragraphs: [
+          "People and models can infer a familiar label from color blocks and word length even when individual letters are no longer resolvable. That inference is useful for locating a package region but unsafe for approving exact product text. A nearly correct brand or weight is still wrong customer-facing information.",
+          "For approval-critical wording, the candidate must support direct reading at the supplied resolution. If it does not, REVIEW is the productive answer because it asks for a better export without accusing the package of a confirmed text change. This protects both recall and false-alarm performance.",
+        ],
+      },
+    ],
+    inputRequirements: [
+      {
+        title: "Use the exact approved food variant",
+        detail:
+          "The reference should correspond to the intended brand, food type, flavor, variety, net contents, package size, and commercial configuration rather than a visually related sibling pack.",
+      },
+      {
+        title: "Show the package face required for approval",
+        detail:
+          "If brand, flavor, claims, and net contents are front-panel requirements, both images must expose that front panel at a comparable and useful angle.",
+      },
+      {
+        title: "Keep identity text readable",
+        detail:
+          "Supply enough resolution and focus to read the brand, product name, variant, and numeric values instead of relying on layout or color recognition.",
+      },
+      {
+        title: "Include complete package and unit boundaries",
+        detail:
+          "The frame should make every primary package countable and show enough top, sides, base, closure, or outer wrap to establish the intended package form.",
+      },
+      {
+        title: "Separate hero product from props and serving suggestions",
+        detail:
+          "Food pieces, bowls, ingredients, and decorative props should not obscure whether the candidate contains one primary sellable package, several packages, or another included component.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Lock the sellable offer",
+        detail:
+          "Record the exact flavor, net contents, primary package count, and pack configuration the final image is meant to represent before comparing visual styling.",
+      },
+      {
+        title: "Read the identity hierarchy",
+        detail:
+          "Verify brand and product family first, then food type, flavor or variety, visible claims, and printed quantity on corresponding package faces.",
+      },
+      {
+        title: "Count complete primary packages",
+        detail:
+          "Count boxes, bags, jars, pouches, or wrapped units in the approved image and candidate independently from any count printed on the package.",
+      },
+      {
+        title: "Inspect form, closure, and color cues",
+        detail:
+          "Check carton depth, pouch seals, lids, windows, wrapper ends, and variant color blocks while allowing ordinary scene light and minor perspective.",
+      },
+      {
+        title: "Route by evidence quality",
+        detail:
+          "Correct confirmed package, value, variant, or count changes; request a clearer export for unreadable or hidden regions; approve only when required attributes visibly match.",
+      },
+    ],
+    limitations: [
+      "Pairvu does not verify ingredients, allergen declarations, nutrition facts, recipes, food composition, freshness, taste, serving accuracy, food safety, or the physical contents inside a package.",
+      "The system does not certify legal claims, health claims, organic status, dietary suitability, country-of-origin statements, or regulatory and marketplace compliance.",
+      "Pairvu does not validate barcode data, lot codes, expiry or best-before dates, recycling symbols, preparation instructions, or complete back-panel labeling.",
+      "A visual PASS does not prove package dimensions, fill weight, seal integrity, print color calibration, substrate, material quality, or manufacturing conformity.",
+      "Tiny, pixelated, blurred, reflective, folded, curved-away, cropped, or non-corresponding label regions may require REVIEW even when the overall pack is recognizable.",
+      "The current M0 compares one approved reference with one candidate and does not replace a multi-face packaging specification, prepress proof, retailer certification, or legal review.",
+    ],
+    faq: [
+      {
+        question: "Why does one food box becoming two fail if both boxes are accurate?",
+        answer:
+          "The number of visible primary packages is part of the offer represented by the image. Two accurate 300 g boxes can imply a bundle or twice the delivered quantity, so they do not match a one-box reference.",
+      },
+      {
+        question: "Is printed net weight the same as product count?",
+        answer:
+          "No. Printed net weight describes the contents of each package. Product count describes how many primary packages appear in the scene. Pack configuration describes whether those units form a single, bundle, or multipack offer.",
+      },
+      {
+        question: "Should moving or slightly rotating a food package cause a failure?",
+        answer:
+          "No, provided the same package remains observable and all approval-critical brand, variant, quantity, count, color, and form attributes can still be verified. Ordinary recomposition is a hard negative, not product drift.",
+      },
+      {
+        question: "What happens when the package looks familiar but label text is pixelated?",
+        answer:
+          "The affected text checks should be REVIEW. Color and layout can identify where text belongs, but they cannot prove exact brand, flavor, claim, or net-content wording without readable letters and numbers.",
+      },
+      {
+        question: "Does Pairvu validate nutrition, ingredients, allergens, or food claims?",
+        answer:
+          "No. Pairvu checks visible image fidelity against an approved reference. Nutrition, ingredients, allergens, legal claims, barcodes, expiry dates, food safety, printing, and regulatory compliance require separate source data and specialist review.",
+      },
+    ],
+  },
 ];
 
 export function getCategoryPageContent(route: string) {

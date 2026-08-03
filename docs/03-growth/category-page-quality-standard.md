@@ -104,5 +104,5 @@ Published pages use this order unless a category requires a documented exception
 | Cosmetics | `PUBLISHED` | First flagship page meeting the standard |
 | Beverages | `PUBLISHED` | Second flagship with capacity, count, reflection, and observability guidance |
 | Personal care | `PUBLISHED` | Third flagship with packaging-system, dispenser, lighting, and coverage guidance |
-| Packaged food | `PLANNED / NOINDEX` | Requires a full category manifest and flagship-depth implementation |
+| Packaged food | `PUBLISHED` | Fourth flagship with sellable-offer, package-count, perspective, and text-readability guidance |
 | Household packaged goods | `DEFERRED` | Public evidence exists, but the category evidence set is not broad enough |

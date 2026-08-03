@@ -181,7 +181,7 @@ homepage product-category keyword.
 ├── cosmetics-product-image-qa       PUBLISHED FLAGSHIP
 ├── beverage-product-image-qa        PUBLISHED FLAGSHIP
 ├── personal-care-product-image-qa   PUBLISHED FLAGSHIP
-└── packaged-food-product-image-qa   PLANNED / NOINDEX
+└── packaged-food-product-image-qa   PUBLISHED FLAGSHIP
 ```
 
 Every published category page must pass the requirements in
@@ -191,9 +191,8 @@ three distinct evidence roles, category-specific risks and insights, input
 requirements, workflow, limitations, FAQ, founder approval, and automated
 quality verification. New category routes default to planned and noindex.
 
-Cosmetics, Beverage, and Personal Care are the first public flagships. The
-packaged food route remains implemented but is removed from public discovery
-and the sitemap until it reaches the same standard. Household packaged goods remain in
+Cosmetics, Beverage, Personal Care, and Packaged Food are the first public
+flagships. Household packaged goods remain in
 the accepted M0 boundary, but a dedicated page is deferred until the public
 evidence set is broader. Platform and generator clusters still require separate
 founder approval and supporting demand evidence.
