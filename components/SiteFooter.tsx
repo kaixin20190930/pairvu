@@ -16,6 +16,7 @@ const footerGroups = [
       { href: "/ai-product-photography", label: "AI Product Photography" },
       { href: "/examples", label: "Examples" },
       { href: "/categories", label: "Product Categories" },
+      { href: "/checks", label: "Product Checks" },
       { href: "/guides", label: "Guides" },
       { href: "/guides/ai-product-photography-checklist", label: "Checklist" },
     ],

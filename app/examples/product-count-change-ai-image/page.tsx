@@ -85,6 +85,9 @@ export default function ProductCountChangeCasePage() {
             <Link className="text-link" href="/examples">
               See all comparison examples
             </Link>
+            <Link className="text-link" href="/checks/product-quantity">
+              Learn the full quantity decision model
+            </Link>
             <Link className="text-link" href="/ai-product-photography">
               Learn about AI product photography
             </Link>

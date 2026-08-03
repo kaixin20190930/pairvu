@@ -3,7 +3,7 @@ import type { Metadata, MetadataRoute } from "next";
 export const SITE_URL = "https://pairvu.com";
 export const SITE_NAME = "Pairvu";
 
-export type SeoPageFamily = "product" | "market" | "hub" | "guide" | "case_study" | "category" | "use_case" | "legal";
+export type SeoPageFamily = "product" | "market" | "hub" | "guide" | "case_study" | "category" | "check" | "use_case" | "legal";
 export type SeoPageStatus = "published" | "planned" | "deferred";
 
 export type SeoPage = {
@@ -40,7 +40,7 @@ export const seoPages: readonly SeoPage[] = [
     primaryKeyword: "AI product image checker",
     secondaryKeywords: ["product image checker", "compare original and AI product image", "product visual QA"],
     intent: "Use a tool to compare an approved product image with an AI-generated or edited candidate.",
-    relatedRoutes: ["/ai-product-photography", "/examples", "/categories", "/guides", "/use-cases"],
+    relatedRoutes: ["/ai-product-photography", "/examples", "/categories", "/checks", "/guides", "/use-cases"],
     title: "Pairvu - AI Product Image Checker",
     h1: "Did AI change your product?",
     description:
@@ -571,6 +571,64 @@ export const seoPages: readonly SeoPage[] = [
     publishedAt: "2026-08-02",
     updatedAt: "2026-08-03",
     evidenceSource: "Founder-approved category hub with quality-gated public flagship pages",
+    evidenceDate: "2026-08-03",
+  },
+  {
+    route: "/checks",
+    family: "hub",
+    status: "published",
+    primaryKeyword: "AI product image checks",
+    secondaryKeywords: ["product image quality checks", "what to check in AI product images"],
+    intent: "Choose an attribute-level method for reviewing a specific visible product detail in an AI-generated or edited image.",
+    parentRoute: "/",
+    relatedRoutes: [
+      "/",
+      "/checks/product-quantity",
+      "/examples",
+      "/categories",
+      "/guides/ai-product-photography-checklist",
+    ],
+    title: "AI Product Image Checks for Visible Accuracy",
+    h1: "What to Check in AI Product Images",
+    description:
+      "Use evidence-backed checks for product quantity, label text, packaging, logos, color, components, and visibility before publishing an AI-assisted product image.",
+    indexable: true,
+    sitemapPriority: 0.8,
+    changeFrequency: "monthly",
+    publishedAt: "2026-08-03",
+    updatedAt: "2026-08-03",
+    evidenceSource: "Pairvu M0 check families and founder-approved controlled comparison library",
+    evidenceDate: "2026-08-03",
+  },
+  {
+    route: "/checks/product-quantity",
+    family: "check",
+    status: "published",
+    primaryKeyword: "check product quantity in AI images",
+    secondaryKeywords: ["AI product quantity checker", "wrong product count in AI image", "check package quantity in product photo"],
+    intent: "Understand how to verify printed quantity, visible package count, included units, and pack configuration in an AI product image.",
+    parentRoute: "/checks",
+    relatedRoutes: [
+      "/",
+      "/checks",
+      "/examples/label-value-change-ai-product-image",
+      "/examples/product-count-change-ai-image",
+      "/examples/product-repositioning-perspective-change",
+      "/examples/unreadable-product-label-text",
+      "/categories/beverage-product-image-qa",
+      "/categories/packaged-food-product-image-qa",
+      "/guides/ai-product-photography-checklist",
+    ],
+    title: "Check Product Quantity in AI Images | Pairvu",
+    h1: "How to Check Product Quantity in AI Images",
+    description:
+      "Check printed amounts, visible package count, included units, and pack configuration in AI product images. Learn when quantity should pass, fail, or need review.",
+    indexable: true,
+    sitemapPriority: 0.8,
+    changeFrequency: "monthly",
+    publishedAt: "2026-08-03",
+    updatedAt: "2026-08-03",
+    evidenceSource: "Founder-approved Pairvu cases T01, T07, T12, and T15 with current M0 decision behavior",
     evidenceDate: "2026-08-03",
   },
   {

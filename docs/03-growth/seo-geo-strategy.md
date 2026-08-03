@@ -200,6 +200,19 @@ founder approval and supporting demand evidence.
 Physical electronics remain outside the accepted M0 category boundary and must
 not receive an SEO category page that implies product support.
 
+The founder approved a separate attribute-level Checks family on 2026-08-03.
+Checks sit between examples and broad guides: they explain how one visible
+attribute should be judged across products. Publication follows
+`docs/03-growth/check-page-quality-standard.md`; new routes default to planned
+and noindex, and synonym pages for the homepage checker remain prohibited.
+
+```text
+/checks/
+├── product-quantity       FIRST FLAGSHIP
+├── product-label-text     PLANNED / NOINDEX
+└── product-packaging      PLANNED / NOINDEX
+```
+
 ## 5. Page Specifications
 
 ### 5.1 Homepage

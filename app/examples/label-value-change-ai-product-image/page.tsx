@@ -85,6 +85,9 @@ export default function LabelValueChangeCasePage() {
             <Link className="text-link" href="/guides/ai-product-photography-checklist">
               Use the pre-publish checklist
             </Link>
+            <Link className="text-link" href="/checks/product-quantity">
+              Separate printed amount from package count
+            </Link>
           </div>
         </section>
       </div>

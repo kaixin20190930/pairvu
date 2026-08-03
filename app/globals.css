@@ -1226,6 +1226,88 @@ button:not(:disabled):active {
   line-height: 1.55;
 }
 
+.check-detail-hero {
+  max-width: 980px;
+}
+
+.check-direct-answer {
+  border-top-color: var(--accent);
+}
+
+.check-direct-answer > p:not(.section-label) {
+  max-width: 900px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.check-family-model {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.check-topic-list,
+.check-dimension-list {
+  display: grid;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.check-topic-list > a,
+.check-topic-list > article {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.check-topic-list > a:hover h3 {
+  color: var(--accent-strong);
+}
+
+.check-topic-list p {
+  max-width: 760px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.check-topic-list span {
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.check-dimension-list article {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 18px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.check-dimension-list article > span {
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.check-dimension-list p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.check-dimension-list strong {
+  display: block;
+  margin-top: 10px;
+  line-height: 1.55;
+}
+
 .category-audience {
   max-width: 820px;
   margin: 24px 0 0;
@@ -1487,6 +1569,10 @@ button:not(:disabled):active {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .check-family-model {
+    grid-template-columns: 1fr;
+  }
+
   .packaged-food-offer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1600,6 +1686,20 @@ button:not(:disabled):active {
 
   .packaged-food-offer-grid article:nth-last-child(2) {
     border-bottom: 1px solid var(--line);
+  }
+
+  .check-topic-list > a,
+  .check-topic-list > article {
+    display: block;
+  }
+
+  .check-topic-list span {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .check-dimension-list article {
+    grid-template-columns: 36px minmax(0, 1fr);
   }
 
   .category-roadmap-list article {
