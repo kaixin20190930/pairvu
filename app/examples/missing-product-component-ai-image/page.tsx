@@ -88,6 +88,9 @@ export default function MissingProductComponentCasePage() {
             <Link className="text-link" href="/ai-product-photography">
               Learn about AI product photography
             </Link>
+            <Link className="text-link" href="/checks/product-packaging">
+              Review packaging components
+            </Link>
           </div>
         </section>
       </div>

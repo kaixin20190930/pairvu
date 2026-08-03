@@ -85,6 +85,9 @@ export default function PackagingShapeChangeCasePage() {
             <Link className="text-link" href="/examples">
               See all comparison examples
             </Link>
+            <Link className="text-link" href="/checks/product-packaging">
+              Use the Product Packaging check
+            </Link>
           </div>
         </section>
       </div>

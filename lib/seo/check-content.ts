@@ -602,6 +602,317 @@ export const checkPageContents: readonly CheckPageContent[] = [
       },
     ],
   },
+  {
+    route: "/checks/product-packaging",
+    founderApprovedAt: "2026-08-03",
+    audience:
+      "Brand managers, packaging owners, ecommerce content teams, creative agencies, and production reviewers who need to confirm that an AI-generated or edited product image preserves the approved container, closure, dispensing system, major attached parts, and overall package construction before publication.",
+    directAnswer:
+      "To check product packaging in an AI image, compare the visible package as an assembly rather than one outline. Verify the primary container geometry, closure or dispensing mechanism, major attached components, label carrier or outer structure, and material or finish cues. PASS requires all approval-critical packaging elements to be observable and consistent. Use REVIEW when intent or coverage is uncertain, and FAIL when a corresponding, clearly visible structural feature is confirmed changed.",
+    scopeDistinction:
+      "Packaging fidelity is not the same as general image similarity, product count, or label-copy accuracy. A bottle can move into warmer light without changing its package; a label can retain every word while the bottle changes from round to rectangular; and a cropped candidate can preserve the visible pump while hiding the base needed to verify silhouette. Pairvu evaluates visible structural representation only. It does not measure physical dimensions, inspect hidden assemblies, certify materials, or determine what fulfillment will ship.",
+    deck:
+      "AI can preserve branding while quietly rebuilding the object that carries it. A rounded bottle may become rectangular, a trigger sprayer may disappear, or a crop may hide the lower silhouette. This check separates confirmed package changes from harmless lighting and incomplete evidence, so reviewers can correct the image, request a better view, or publish with a defensible decision.",
+    dimensions: [
+      {
+        title: "Container geometry",
+        definition:
+          "The visible three-dimensional form of the primary bottle, jar, tube, can, carton, pouch, or other package: body profile, shoulders, base, corners, taper, proportions, and distinctive structural contours.",
+        example:
+          "A MIREVA shampoo bottle changing from a rounded cylindrical body to straight rectangular sides is a container-geometry change even when the label, pump, color, and 500 mL value remain stable.",
+      },
+      {
+        title: "Closure and dispensing system",
+        definition:
+          "The visible cap, lid, pump, trigger, dropper, nozzle, flip top, spray head, seal, or other mechanism used to close or dispense the packaged product, including its attachment to the container.",
+        example:
+          "A BRIGHTLEAF cleaner with an approved white trigger sprayer cannot be treated as the same complete package when the candidate exposes an open threaded neck instead.",
+      },
+      {
+        title: "Package assembly relationships",
+        definition:
+          "How major visible pieces connect and belong together: bottle and pump, jar and lid, tube and cap, carton and inner tray, sleeve and container, handle and body, or an accessory that may be separate from the primary package.",
+        example:
+          "A detached applicator placed beside a serum may be an intentional accessory or an invented part. The package assembly needs human confirmation when the approved offer does not define that relationship.",
+      },
+      {
+        title: "Label carrier and panel construction",
+        definition:
+          "The physical surface carrying artwork and copy, such as a pressure-sensitive label, shrink sleeve, printed carton panel, wraparound band, embossed area, window, insert, or separate front plaque.",
+        example:
+          "A label can keep identical wording while changing from a narrow applied panel to a full-body sleeve, which alters packaging construction rather than label text alone.",
+      },
+      {
+        title: "Material and finish cues",
+        definition:
+          "Observable cues that communicate glass, plastic, metal, paperboard, translucency, opacity, gloss, matte coating, frosting, ribbing, texture, or another visible surface treatment without claiming laboratory material verification.",
+        example:
+          "Warmer illumination on the same amber plastic bottle is a scene change; a candidate that visibly replaces the transparent amber body with an opaque metal-like body may require a packaging decision.",
+      },
+      {
+        title: "Full silhouette coverage",
+        definition:
+          "Whether the candidate includes enough of the complete top, sides, base, closures, and distinctive profile to compare every packaging feature that matters to approval without extrapolating beyond the frame.",
+        example:
+          "A close crop of the MIREVA pump and upper label can verify those visible parts but cannot establish that the bottle base and full body profile still match the approved package.",
+      },
+    ],
+    decisionRules: [
+      {
+        condition: "Primary container body",
+        pass: "The visible body profile, shoulders, sidewalls, base, proportions, and distinctive contours remain consistent with the approved container.",
+        review: "Crop, overlap, viewpoint, reflection, low resolution, or partial coverage prevents a complete comparison of required container boundaries.",
+        fail: "Corresponding visible boundaries confirm a materially different container form, such as a rounded cylinder becoming a rectangular bottle.",
+      },
+      {
+        condition: "Closure or dispenser",
+        pass: "The same required cap, pump, trigger, dropper, nozzle, lid, or dispensing mechanism is visibly present and attached in the approved manner.",
+        review: "The mechanism is hidden, detached, outside the frame, ambiguous as a separate prop, or changed in a way that requires confirmation of intent.",
+        fail: "A clearly required and observable closure or dispenser is confirmed replaced, removed, or structurally altered against the approved package.",
+      },
+      {
+        condition: "Major attached parts",
+        pass: "Handles, collars, grips, sleeves, trays, windows, applicators, and other approval-critical visible parts remain present with the same package relationship.",
+        review: "A part may be occluded, optional, detachable, or newly placed beside the product, so the image alone cannot establish whether the approved set changed.",
+        fail: "The reference and candidate clearly show that a required structural part was removed or an unapproved part was integrated into the package.",
+      },
+      {
+        condition: "Panel and label construction",
+        pass: "The physical label carrier, sleeve, carton panel, window, wrap, or applied plaque retains its observable construction and placement on the package.",
+        review: "Perspective, glare, crop, or non-corresponding package faces prevent reliable comparison of the relevant panel edges or attachment method.",
+        fail: "The candidate visibly changes an approval-critical construction, such as replacing a front panel with a full-body sleeve or removing a package window.",
+      },
+      {
+        condition: "Surface appearance",
+        pass: "Observable transparency, opacity, gloss, frosting, texture, ribbing, and material-like cues remain semantically consistent despite normal photographic variation.",
+        review: "Strong reflection, tint, color cast, compression, or insufficient resolution makes a material or finish cue uncertain rather than demonstrably changed.",
+        fail: "A clearly visible and identity-relevant surface treatment is replaced, such as approved frosted glass becoming an opaque smooth package.",
+      },
+      {
+        condition: "Lighting, shadow, and reflection",
+        pass: "Illumination, shadow direction, highlights, or reflections change while observable container structure and package components remain faithful.",
+        review: "Lighting or reflection hides a structural edge, closure, component, or finish cue needed for the packaging decision.",
+        fail: "The apparent photographic change also contains a separately confirmed packaging alteration rather than only different illumination.",
+      },
+      {
+        condition: "Viewpoint and coverage",
+        pass: "A changed angle or crop still exposes every packaging boundary and assembly feature required for the defined approval scope.",
+        review: "The candidate omits the base, reverse side, closure, silhouette edge, or another required region, so a complete packaging PASS is unsupported.",
+        fail: "Corresponding visible regions remain sufficient and show a confirmed package difference; the viewpoint does not explain the altered structure.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/packaging-shape-change-ai-product-image",
+        title: "Rounded shampoo bottle changed to a rectangular body",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/packaging-shape-change/candidate.jpg",
+        alt: "Rounded MIREVA shampoo bottle compared with a rectangular MIREVA bottle",
+        observation:
+          "Both images provide a complete front view of one amber MIREVA pump bottle. The leaf mark, DAILY BALANCE SHAMPOO wording, FOR NORMAL HAIR text, 500 mL value, cream label, amber color, and black pump remain stable. The approved body is rounded and cylindrical; the candidate has straight sides, sharper shoulders, and a rectangular base.",
+        whyThisDecision:
+          "The complete corresponding silhouettes make the structural difference directly observable. It is not explained by crop, perspective, lighting, or label artwork. PASS would approve the wrong package identity, and REVIEW would ignore evidence that is already sufficient, so the correct decision is FAIL.",
+        nextAction:
+          "Restore the approved rounded bottle geometry or regenerate from a reference that preserves the cylindrical body, then rerun the comparison on the corrected final export.",
+      },
+      {
+        href: "/examples/missing-product-component-ai-image",
+        title: "The cleaner bottle lost its trigger sprayer",
+        role: "product_change",
+        decision: "REVIEW",
+        original: "/examples/missing-component/original.jpg",
+        candidate: "/examples/missing-component/candidate.jpg",
+        alt: "BRIGHTLEAF cleaner bottle with and without its white trigger sprayer",
+        observation:
+          "The reference shows a translucent blue BRIGHTLEAF cleaner bottle with a white trigger sprayer attached. The candidate preserves the bottle body, blue liquid, label, CITRUS variant, and 750 mL value but shows an open threaded neck with no trigger assembly. The component absence is clearly visible rather than hidden by the frame.",
+        whyThisDecision:
+          "Pairvu identified the missing major component with high confidence, but the current M0 RiskPolicy returns REVIEW because the system cannot determine whether the user intentionally supplied a refill-style or uncapped variant. The result must not be PASS, yet founder or packaging-owner intent is still required before treating it as a final failure.",
+        nextAction:
+          "Confirm the intended package specification. Restore the white trigger sprayer when the approved product requires it, or use a formally approved sprayer-free reference if the candidate represents another valid package variant.",
+      },
+      {
+        href: "/examples/lighting-change-product-image",
+        title: "Warmer lighting changed the scene, not the bottle",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/lighting-change/candidate.jpg",
+        alt: "The same rounded MIREVA shampoo bottle under neutral and warmer lighting",
+        observation:
+          "The candidate moves the approved MIREVA shampoo into warmer ambient light. One rounded amber bottle remains fully visible with the same black ribbed pump, curved shoulders, cylindrical base, cream wrap label, leaf mark, printed wording, and 500 mL value. Only illumination and background tone change.",
+        whyThisDecision:
+          "Lighting affects pixel color and highlight placement but does not by itself alter packaging. Because all required structure, components, and silhouette remain observable and consistent, REVIEW would add unnecessary friction and FAIL would be a false alarm. The packaging check can honestly PASS.",
+        nextAction:
+          "Accept the packaging result and evaluate artistic lighting, brand color tolerance, or channel composition separately if those requirements are part of the production brief.",
+      },
+      {
+        href: "/examples/partially-visible-product-image",
+        title: "A close crop hid the lower package silhouette",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/partial-product-coverage/candidate.jpg",
+        alt: "Full MIREVA shampoo package compared with a crop that omits its lower bottle",
+        observation:
+          "The crop preserves the black pump, rounded upper shoulders, amber body, MIREVA logo, and top label area. It excludes the lower label, 500 mL region, base, and complete side boundary. Those omitted regions could conceal a changed body length, base geometry, or lower package construction.",
+        whyThisDecision:
+          "The visible upper package can be verified, but a complete packaging PASS would extrapolate beyond supplied pixels. There is no observed mismatch to support FAIL. REVIEW accurately records that the required full silhouette lacks coverage and asks for evidence rather than guessing.",
+        nextAction:
+          "Provide a wider candidate showing the complete product boundary from pump to base, or explicitly narrow the approval scope if the omitted regions are not intended to be assessed in this creative.",
+      },
+    ],
+    diagnosticQuestions: [
+      {
+        question: "Which packaging structures define this approved product?",
+        reason:
+          "List the primary container, closure, dispenser, applied panels, attached parts, and distinctive silhouette before comparing. Otherwise reviewers may focus on artwork and overlook a rebuilt physical package.",
+      },
+      {
+        question: "Are the same physical package regions visible in both images?",
+        reason:
+          "Direct comparison requires corresponding boundaries. A front view cannot prove the reverse panel, and a close crop cannot establish the base or complete package proportions.",
+      },
+      {
+        question: "Did an apparent shape change come from perspective or from geometry?",
+        reason:
+          "A cylindrical bottle can appear narrower or asymmetric when turned. Look for consistent shoulders, side curvature, base, and depth cues before declaring a structural mismatch.",
+      },
+      {
+        question: "Is every required closure and dispensing component present?",
+        reason:
+          "Check pumps, triggers, droppers, nozzles, lids, caps, collars, seals, and handles separately. A correct bottle body does not compensate for a missing functional assembly.",
+      },
+      {
+        question: "Could light or reflection explain the surface difference?",
+        reason:
+          "Highlights and color casts can make plastic look metallic or matte surfaces look glossy. Require stable structural and surface evidence before treating photographic appearance as changed packaging.",
+      },
+      {
+        question: "Is a separate object packaging, an accessory, or a scene prop?",
+        reason:
+          "A detached applicator or cap may be intentionally included, temporarily removed, or invented by generation. The approved offer and assembly specification determine its packaging meaning.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Silhouette reconstruction",
+        mechanism:
+          "The generator keeps recognizable artwork but rebuilds the bottle, jar, carton, or pouch with different shoulders, sidewalls, corners, taper, or base geometry.",
+        consequence:
+          "The visual can represent another package design or imply a package revision that does not exist, despite looking convincingly branded.",
+      },
+      {
+        title: "Closure or dispenser loss",
+        mechanism:
+          "A pump, trigger, dropper, cap, lid, nozzle, collar, or seal disappears, becomes detached, or is replaced by a generic mechanism during editing.",
+        consequence:
+          "Customers may misunderstand use, included functionality, tamper protection, or the exact packaged variant they are viewing.",
+      },
+      {
+        title: "Invented assembly part",
+        mechanism:
+          "Outpainting or generative fill adds a handle, applicator, window, tray, sleeve, spout, grip, or accessory that was not part of the approved package.",
+        consequence:
+          "The image can promise an included feature or alter the visual identity of the commercial package without any label-text warning.",
+      },
+      {
+        title: "Material-like finish drift",
+        mechanism:
+          "The candidate changes translucency, frosting, metallic appearance, gloss, texture, ribbing, or opacity while preserving approximate color and outline.",
+        consequence:
+          "A materially different-looking package may change perceived quality, sustainability, usage expectations, or brand recognition.",
+      },
+      {
+        title: "Coverage falsely treated as a match",
+        mechanism:
+          "A crop, prop, hand, reflection, or viewpoint hides the exact structural region where a package change could occur, yet the visible upper portion looks familiar.",
+        consequence:
+          "Approval becomes an unsupported inference and a real base, closure, panel, or silhouette change can pass unnoticed.",
+      },
+      {
+        title: "Scene variation misclassified as packaging",
+        mechanism:
+          "Warmer light, stronger shadow, reflection, background color, or ordinary perspective changes the pixels around an otherwise faithful package.",
+        consequence:
+          "False alarms slow production, encourage reviewers to ignore future warnings, and obscure the structural issues the check is meant to find.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Define the approved package assembly",
+        detail:
+          "Record the exact primary container, closure, dispenser, major components, panel construction, and distinctive surface cues that must remain faithful in the final image.",
+      },
+      {
+        title: "Select a corresponding reference view",
+        detail:
+          "Use an approved image that exposes the same package face and enough complete silhouette to evaluate the intended candidate, rather than a sibling SKU or unrelated angle.",
+      },
+      {
+        title: "Inspect structure before artwork",
+        detail:
+          "Trace the top, shoulders, sides, base, closure, attachment points, and major parts first. Review label text and color in their dedicated checks instead of allowing them to distract from package form.",
+      },
+      {
+        title: "Normalize harmless photography",
+        detail:
+          "Allow background, position, minor perspective, lighting, shadow, and reflection differences when required package geometry and assemblies stay fully observable and consistent.",
+      },
+      {
+        title: "Resolve the verdict by evidence",
+        detail:
+          "Correct a confirmed structural mismatch, confirm intent for a missing or added component, request a complete view for insufficient coverage, and accept faithful packaging despite harmless presentation changes.",
+      },
+      {
+        title: "Recheck the final export",
+        detail:
+          "Run the corrected or approved candidate again after resizing, compositing, localization, or marketplace export so the version that will actually publish receives the decision.",
+      },
+    ],
+    limitations: [
+      "Pairvu compares visible package representation and does not measure physical dimensions, wall thickness, volume, weight, tolerances, closure torque, fit, seal integrity, or manufacturing feasibility.",
+      "The system cannot inspect hidden backs, interiors, undersides, inserts, seals, contents, or components that are outside the frame or fully occluded in either supplied image.",
+      "A packaging PASS does not certify material composition, recyclability, sustainability claims, food contact, child resistance, tamper evidence, accessibility, or regulatory compliance.",
+      "Surface cues in a photograph are affected by lighting, white balance, reflections, transparency, compression, and display conditions; Pairvu does not perform calibrated material or color measurement.",
+      "Pairvu does not know whether a missing trigger, detached applicator, alternate cap, or new package form is an intentional approved variant unless the supplied reference and workflow make that intent explicit.",
+      "The current M0 compares one approved image with one candidate and does not maintain a multi-angle package specification, dieline, CAD model, bill of materials, SKU family, or revision history.",
+      "Packaging fidelity does not verify printed wording, barcode validity, legal declarations, exact product count, marketplace policy, listing entitlement, or what fulfillment will physically deliver.",
+    ],
+    faq: [
+      {
+        question: "What counts as a product packaging change in an AI image?",
+        answer:
+          "A packaging change affects the visible container, closure, dispenser, major attached part, panel construction, material-like finish, or complete silhouette. A different background or ordinary lighting change is not packaging when the product structure remains observable and faithful.",
+      },
+      {
+        question: "Why does a rounded bottle becoming rectangular receive FAIL?",
+        answer:
+          "The approved and candidate images expose complete corresponding boundaries, and the label, pump, color, and capacity stay stable. That isolates a confirmed container-geometry change, leaving no visibility limitation or photographic explanation that would justify REVIEW or PASS.",
+      },
+      {
+        question: "Why can a clearly missing sprayer receive REVIEW instead of FAIL?",
+        answer:
+          "The missing sprayer is directly observed, so the image must not PASS. The current M0 policy still asks whether the candidate intentionally represents a valid refill or alternate package. The packaging owner must confirm intent or provide the correct approved reference before final rejection.",
+      },
+      {
+        question: "Can packaging PASS when the lighting, shadow, or background changes?",
+        answer:
+          "Yes. These are presentation variables. Packaging can PASS when container geometry, closure, components, panel construction, finish cues, and required silhouette remain sufficiently visible and consistent across the two images.",
+      },
+      {
+        question: "What should I do when only part of the package is visible?",
+        answer:
+          "Verify only the visible in-scope parts and use REVIEW for any required structure outside the frame. Supply a wider candidate showing the complete boundary, or explicitly define a narrower approval scope that does not depend on omitted regions.",
+      },
+      {
+        question: "Does a Pairvu packaging PASS certify the physical package?",
+        answer:
+          "No. It means the required visible packaging evidence matched the approved image within the supplied views. It does not inspect the physical item, certify manufacturing, validate materials, confirm dimensions, or replace packaging engineering and compliance review.",
+      },
+    ],
+  },
 ];
 
 export function getCheckPageContent(route: string) {

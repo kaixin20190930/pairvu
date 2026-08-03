@@ -26,7 +26,8 @@ const checkFamilies = [
   },
   {
     title: "Product packaging",
-    status: "Evidence review",
+    status: "Published",
+    href: "/checks/product-packaging",
     detail: "Evaluate container form, closures, major components, package coverage, and harmless lighting changes.",
   },
   {

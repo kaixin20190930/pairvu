@@ -120,8 +120,8 @@ The first screen must contain a concise, quotable answer to the page question. T
 | Check | Status | Evidence position |
 | --- | --- | --- |
 | Product quantity | `PUBLISHED` | Printed capacity, visible package count, repositioning, unreadable quantity |
-| Product label text | `PUBLISHED / AWAITING DEPLOY` | Exact text change, identical baseline, partial coverage, viewpoint |
-| Product packaging | `PLANNED / NOINDEX` | Shape change, missing component, extra component, lighting hard negative |
+| Product label text | `PUBLISHED` | Exact text change, identical baseline, partial coverage, viewpoint |
+| Product packaging | `PUBLISHED / AWAITING DEPLOY` | Shape change, missing component, lighting hard negative, partial coverage |
 | Product logo | `PLANNED / NOINDEX` | Logo change, partial occlusion, identical baseline; broader evidence needed |
 | Product color | `PLANNED / NOINDEX` | Main color and scene-light negatives; broader evidence needed |
 | Observability | `PLANNED / NOINDEX` | Viewpoint, occlusion, unreadable text, partial product coverage |

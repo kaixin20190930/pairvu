@@ -74,6 +74,7 @@ export default function LightingChangeCasePage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples/background-change-ai-product-image">See a background-change PASS</Link>
             <Link className="text-link" href="/examples">See all comparison examples</Link>
+            <Link className="text-link" href="/checks/product-packaging">Separate lighting from packaging</Link>
           </div>
         </section>
       </div>
