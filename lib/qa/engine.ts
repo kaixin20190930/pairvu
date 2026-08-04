@@ -10,7 +10,7 @@ import type {
 } from "./types";
 
 export class M0QAEngine implements QAEngine {
-  readonly version = "m0-qa-engine-003";
+  readonly version = "m0-qa-engine-004";
 
   constructor(
     private readonly visionProvider: VisionProvider,
@@ -122,6 +122,32 @@ function validateProviderResult(input: M0AnalysisInput, observations: VisionObse
 }
 
 function normalizeObservationConsistency(observation: VisionObservation): VisionObservation {
+  if (observation.status === "mismatch" && !hasSufficientObservability(observation)) {
+    const providerDifferenceKind = observation.differenceKind;
+    const providerEvidenceDifferenceKind = observation.evidence.differenceKind;
+
+    return {
+      ...observation,
+      status: "not_observable",
+      differenceKind: "not_visible",
+      evidence: {
+        ...observation.evidence,
+        differenceKind: "not_visible",
+        uncertainReason:
+          observation.evidence.uncertainReason ??
+          "The provider reported a mismatch without sufficient corresponding coverage.",
+        raw: {
+          ...normalizeEvidenceRaw(observation.evidence.raw),
+          normalizationReason: "mismatch_requires_sufficient_observability",
+          providerStatus: observation.status,
+          providerObservationDifferenceKind: providerDifferenceKind ?? null,
+          providerEvidenceDifferenceKind: providerEvidenceDifferenceKind ?? null,
+          providerObservability: observation.observability,
+        },
+      },
+    };
+  }
+
   if (observation.status !== "match") {
     return observation;
   }
@@ -148,6 +174,14 @@ function normalizeObservationConsistency(observation: VisionObservation): Vision
         : observation.evidence.raw,
     },
   };
+}
+
+function hasSufficientObservability(observation: VisionObservation) {
+  return (
+    observation.observability.coverage === "sufficient" &&
+    observation.observability.reference === "observable" &&
+    observation.observability.candidate === "observable"
+  );
 }
 
 function normalizeEvidenceRaw(raw: VisionObservation["evidence"]["raw"]): Record<string, unknown> {

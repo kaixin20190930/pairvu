@@ -89,6 +89,12 @@ assert.match(correspondenceInstructions, /CANDIDATE independently before using t
 assert.match(correspondenceInstructions, /Never use readable reference content to autocomplete/);
 assert.match(correspondenceInstructions, /If the image boundary cuts through the product/);
 assert.match(correspondenceInstructions, /If the product silhouette exits the image frame/);
+assert.match(correspondenceInstructions, /isolated label panel as partial product coverage/);
+assert.match(correspondenceInstructions, /do not compare the reference's full package body color/);
+assert.match(correspondenceInstructions, /candidate shows only a label or interior package region/);
+assert.match(correspondenceInstructions, /matching logo or readable text on a close-up label may be observable/);
+assert.match(correspondenceInstructions, /directly visible corresponding color-bearing regions/);
+assert.match(correspondenceInstructions, /crop shows only a label panel/);
 
 assert.equal(
   estimateOpenAICostUsd("gpt-4.1-mini", {
@@ -160,6 +166,70 @@ assert.deepEqual(normalizedMatch.observations[0]?.evidence.raw, {
   normalizationReason: "match_requires_none",
   providerObservationDifferenceKind: "text_changed",
   providerEvidenceDifferenceKind: "text_changed",
+});
+
+const normalizedPartialMismatch = await new M0QAEngine({
+  name: "partial-mismatch-test-provider",
+  async analyzeProductFidelity() {
+    return {
+      observations: [
+        {
+          checkType: "dominant_color",
+          status: "mismatch",
+          differenceKind: "color_changed",
+          observability: {
+            reference: "observable",
+            candidate: "partially_observable",
+            coverage: "partial",
+          },
+          confidence: "high",
+          explanation: "Candidate shows only a label close-up; package body color is omitted.",
+          evidence: {
+            differenceKind: "color_changed",
+            referenceObservation: "Full orange pouch body",
+            candidateObservation: "White label close-up with package body outside the frame",
+          },
+        },
+      ],
+      limitations: [],
+      modelCall: {
+        provider: "partial-mismatch-test-provider",
+        model: "test",
+        promptVersion: "test",
+        latencyMs: 0,
+      },
+    };
+  },
+}).analyze({
+  analysisId: "partial-mismatch-normalization",
+  reference: {
+    assetId: "reference",
+    mimeType: "image/png",
+    r2Key: "reference",
+  },
+  candidate: {
+    assetId: "candidate",
+    mimeType: "image/png",
+    r2Key: "candidate",
+  },
+  selectedChecks: ["dominant_color"],
+});
+
+assert.equal(normalizedPartialMismatch.verdict, "review");
+assert.equal(normalizedPartialMismatch.productIssues.length, 0);
+assert.equal(normalizedPartialMismatch.observations[0]?.status, "not_observable");
+assert.equal(normalizedPartialMismatch.observations[0]?.differenceKind, "not_visible");
+assert.equal(normalizedPartialMismatch.limitations[0]?.type, "attribute_not_observable");
+assert.deepEqual(normalizedPartialMismatch.observations[0]?.evidence.raw, {
+  normalizationReason: "mismatch_requires_sufficient_observability",
+  providerStatus: "mismatch",
+  providerObservationDifferenceKind: "color_changed",
+  providerEvidenceDifferenceKind: "color_changed",
+  providerObservability: {
+    reference: "observable",
+    candidate: "partially_observable",
+    coverage: "partial",
+  },
 });
 
 console.log("M0 policy boundary checks passed.");

@@ -38,7 +38,8 @@ const checkFamilies = [
   },
   {
     title: "Product color",
-    status: "Planned",
+    status: "Published",
+    href: "/checks/product-color",
     detail: "Separate deliberate package recoloring from scene light, reflection, shadow, transparency, and white balance.",
   },
   {
@@ -95,7 +96,7 @@ export default function ProductChecksPage() {
         </section>
 
         <section className="article-section wide-article-section" aria-labelledby="quantity-preview">
-          <p className="section-label">First flagship check</p>
+          <p className="section-label">Featured flagship check</p>
           <h2 id="quantity-preview">Product quantity is more than the number printed on a label</h2>
           <p>
             The first detailed check separates a printed amount from primary package count and pack configuration.

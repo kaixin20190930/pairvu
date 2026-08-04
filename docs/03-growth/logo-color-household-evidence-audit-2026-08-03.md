@@ -9,7 +9,7 @@ Scope: Evidence gates for `/checks/product-logo`, `/checks/product-color`, and t
 | Surface | Status | Decision |
 | --- | --- | --- |
 | Product Logo | `PUBLISHED` | Existing evidence is sufficient and distinct. The page passed the check-content gate, full SEO inventory, production build, and responsive QA. |
-| Product Color | `BLOCKED ON OBSERVABILITY EVIDENCE` | ORVENA now provides a clean variant-text plus main-color FAIL, and TIDORA provides a clean color-only REVIEW. A separate, valid color-not-observable case is still required before publication. |
+| Product Color | `IMPLEMENTED / AWAITING DEPLOY` | ORVENA provides a clean variant-text plus main-color FAIL, TIDORA provides a color-only REVIEW, lighting provides PASS, and the corrected label-only crop now provides an observability REVIEW after prompt and engine remediation. |
 | Household Packaged Goods | `IMPLEMENTED / AWAITING DEPLOY` | HOUSEHOLD-01 produced a clean capacity FAIL and HOUSEHOLD-02 produced a clean background-only PASS. Two case pages and the fifth flagship category page pass the content and SEO gates. |
 
 Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-003`, `color_mismatch` is high severity rather than critical, so a sufficiently observable color mismatch contributes REVIEW. The Product Color page must explain this product boundary honestly.
@@ -24,7 +24,9 @@ Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-0
 | `COLOR-02-reflection-limited-color.png` | REVIEW, but the system saw a real holographic/rainbow label recolor rather than insufficient color observability | `REGENERATE` |
 | `COLOR-01-v3-candidate-charcoal-toothpaste.png` | FAIL for readable `FRESH MINT` to `CHARCOAL CLEAN` plus a high-confidence light-green to dark-gray main-color change; logo, count, components, and package shape verified | `ACCEPTED` |
 | `COLOR-02-v3-candidate-neutral-glare-pouch.png` | REVIEW for a high-confidence matte reddish-orange to glossy pale-pink pouch-color change; no observability limitation was recorded | `ACCEPTED AS COLOR-ONLY CHANGE`, not an observability case |
-| `COLOR-03-main-color-outside-crop.png` | PASS; the crop still exposes substantial orange pouch material, so main color remains observable. The provider also incorrectly claimed the cropped zipper, bottom gusset, and complete pouch silhouette were visible | `REJECTED` |
+| `COLOR-03-main-color-outside-crop.png` (first attempt) | PASS; the crop still exposed substantial orange pouch material, so main color remained observable. The provider also incorrectly claimed the cropped zipper, bottom gusset, and complete pouch silhouette were visible | `REJECTED` |
+| `COLOR-03-main-color-outside-crop.png` (label-only rerun, original behavior) | REVIEW, but incorrectly reported a high-confidence orange-body to white-label `color_changed` mismatch and again claimed the omitted pouch closure, body, outer boundaries, and shape were visible | `REJECTED / REGRESSION FIXTURE` |
+| Same label-only pair after prompt `m0-real-mvp-008` and engine `m0-qa-engine-004` | REVIEW; logo and visible text match, while main color, major components, and package shape are normalized to `not_observable` because corresponding product coverage is absent | `ACCEPTED` |
 
 The Color outcomes are not a reason to change model instructions or RiskPolicy. The supplied pixels contain extra product mutations. Publishing those fixtures would teach the wrong lesson: COLOR-01 would conflate logo, copy, and palette changes, while COLOR-02 would describe an observable material recolor as glare. Evidence purity takes priority over adding another route.
 
@@ -34,7 +36,7 @@ The Color outcomes are not a reason to change model instructions or RiskPolicy. 
 
 The same run did expose a separate false-pass pattern under `major_shape_packaging`: the result described a zipper closure, rounded top corners, bottom gusset, and full stand-up pouch silhouette even though those regions were outside the candidate frame. Record this as a crop/coverage regression case. Do not change `M0RiskPolicy`; first rerun with a deterministic label-only crop containing no orange pouch body. If that valid fixture still produces PASS for color or complete package shape, tighten provider observability handling and regression-test the same pair before publishing Product Color.
 
-For the next candidate, use a standard crop operation rather than generative editing. Crop to the interior of the white label only. The candidate must contain no orange pouch body, no zipper, no side boundary, and no bottom gusset. Logo and printed text should remain readable. Expected behavior is REVIEW with main color and package shape marked not observable or insufficiently covered; logo and visible text may remain verified.
+The label-only rerun confirmed a provider observability failure rather than a contaminated fixture. Prompt `m0-real-mvp-008` therefore adds explicit coverage-scope rules: a visible label detail cannot be compared with the reference's full package-body color, and omitted closures, components, boundaries, or silhouettes cannot be claimed as visible. The first local v008 call correctly marked package shape not observable, but still returned color and component mismatches while its own observability fields were partial. `m0-qa-engine-004` now enforces the domain invariant that a mismatch requires sufficient corresponding observability; incomplete mismatches are normalized to `not_observable` while preserving provider values in raw audit evidence. `M0RiskPolicy` remains unchanged. A local real-provider rerun of the exact pair passed acceptance: REVIEW, logo and visible text verified, and main color, major components, and package shape not observable. Production deployment still needs the same pair as a final smoke check.
 
 ### Corrected COLOR-01 candidate
 
@@ -86,16 +88,16 @@ Acceptance requires REVIEW with color explicitly not observable, uncertain, or i
 
 The set covers symbol identity, wordmark visibility, scene separation, and occlusion. It does not duplicate evidence already used by another published check page. Product Logo is therefore approved for implementation without new images.
 
-## Product Color Evidence Gap
+## Product Color Evidence Completion
 
-Existing evidence:
+Published evidence set:
 
-- `/examples/color-change-ai-product-image`: color-only product change, observed REVIEW.
+- `/examples/toothpaste-variant-color-change`: readable variant and main-color change, observed FAIL.
+- `/examples/laundry-pouch-color-change`: color-only product change, observed REVIEW.
 - `/examples/lighting-change-product-image`: illumination change with faithful product color, observed PASS.
-- `/examples/background-change-ai-product-image`: environment change with faithful product color, observed PASS.
-- `/examples/shadow-reflection-change-product-image`: shadow/reflection hard negative, observed PASS.
+- `/examples/product-color-not-observable-label-crop`: label verified while body color is outside the crop, observed REVIEW.
 
-Two new candidates are required. Both should be edited from the existing founder-approved ELARA original at:
+The prompts below are retained as audit history for the fixture-generation process. They are no longer open evidence requirements. The original experiments began from the founder-approved ELARA source at:
 
 `/Users/liukai/Documents/Product Visual QA Test/C 化妆品.png`
 

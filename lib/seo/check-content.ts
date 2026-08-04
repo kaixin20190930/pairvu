@@ -1242,6 +1242,341 @@ export const checkPageContents: readonly CheckPageContent[] = [
       },
     ],
   },
+  {
+    route: "/checks/product-color",
+    founderApprovedAt: "2026-08-04",
+    audience:
+      "Brand owners, creative teams, catalog operators, agencies, and product-image reviewers who must decide whether an AI-generated or edited image still represents the approved shade, flavor, scent, formula, finish, package palette, or color-coded product variant before publication.",
+    directAnswer:
+      "To check product color in an AI image, compare corresponding semantic regions rather than raw pixels. First identify the product body, primary label or artwork field, variant-coded accents, closures, and transparent or reflective materials. Then decide whether those same regions are visible under usable illumination in both images. PASS when observable color families and their product meaning remain stable, REVIEW when a visible palette change may be intentional or when glare, crop, transparency, or viewpoint prevents verification, and FAIL when readable variant identity and its associated approved color are both confirmed changed.",
+    scopeDistinction:
+      "Product-color QA asks whether the candidate still communicates the approved product identity through color. It is not pixel matching, background matching, white-balance grading, Pantone measurement, print-proof approval, or physical-sample colorimetry. A cream label under warm light can still represent the same cream label; a package recoded from FRESH MINT in pale green to CHARCOAL CLEAN in dark gray represents a different variant. Color can also be absent from evidence: a label-only crop cannot prove the color of a pouch body outside the frame.",
+    deck:
+      "Color is often both visual styling and product information. The useful question is not whether two images contain different RGB values, but whether a corresponding product region changed semantic color, whether that color encodes a different variant, and whether the candidate supplies enough coverage to know. This method separates confirmed variant drift, color-only changes needing intent confirmation, harmless illumination, and unavailable color evidence.",
+    dimensions: [
+      {
+        title: "Product-body color family",
+        definition:
+          "The dominant semantic color of the actual container, tube, pouch, carton, or product surface after discounting background, cast shadow, highlight, and small decorative marks. Compare the same physical region on corresponding package faces.",
+        example:
+          "An ORVENA toothpaste tube changing from muted pale mint to dark charcoal changes the body color family even though its white cap and tube geometry remain stable.",
+      },
+      {
+        title: "Primary artwork field",
+        definition:
+          "The large label panel, printed field, sleeve, or front artwork block that carries the product's approved palette. Its color may be more identity-bearing than the neutral bottle around it.",
+        example:
+          "A cream-and-orange serum label becoming dark green is a product-artwork change even when the frosted glass bottle remains unchanged.",
+      },
+      {
+        title: "Variant-coded palette",
+        definition:
+          "Colors associated with readable flavor, scent, formula, shade, strength, or size variants. Review color together with the text or symbol that explains what the palette means commercially.",
+        example:
+          "FRESH MINT on a pale green tube becoming CHARCOAL CLEAN on a dark tube is stronger evidence than color difference alone because the visible variant identity changes too.",
+      },
+      {
+        title: "Material and transparency interaction",
+        definition:
+          "The way translucent plastic, clear glass, liquid, foil, holographic film, metallic ink, or glossy laminate changes apparent color under light. Material cues determine whether color is intrinsic or illumination-dependent.",
+        example:
+          "A rainbow reflection crossing a serum label can alter local pixels without proving that the approved printed color or product formula changed.",
+      },
+      {
+        title: "Illumination separation",
+        definition:
+          "Evidence that distinguishes package color from ambient warmth, white balance, directional highlights, window shadows, exposure, and reflected surroundings. Stable text and material landmarks help establish correspondence.",
+        example:
+          "A MIREVA amber bottle photographed in warmer light can preserve the same amber body, cream label, green print, and black pump despite a different scene tone.",
+      },
+      {
+        title: "Corresponding-region coverage",
+        definition:
+          "Whether the same body, label, cap, and color-bearing regions are actually inside both frames. A region cannot match or mismatch when one image shows only a different face or an isolated label crop.",
+        example:
+          "A complete orange laundry pouch compared with a crop of its white label can verify label text but cannot verify the orange pouch body outside the candidate frame.",
+      },
+      {
+        title: "Color observability threshold",
+        definition:
+          "The minimum resolution, exposure, glare control, area coverage, and confidence required to make a color claim. Recognition of the product does not automatically make every color-bearing region observable.",
+        example:
+          "A heavily reflected label may remain readable yet require REVIEW for color because the glare covers too much of the surface used to judge its base palette.",
+      },
+    ],
+    decisionRules: [
+      {
+        condition: "Corresponding package-body region",
+        pass: "The same body region is visible in both images and retains the approved semantic color family despite ordinary exposure variation.",
+        review: "The candidate crops, hides, turns away, or replaces the body region with a close-up that cannot establish its dominant package color.",
+        fail: "The corresponding body is clearly visible and changes color together with confirmed approval-critical variant or identity evidence.",
+      },
+      {
+        condition: "Primary label or artwork palette",
+        pass: "Large approval-relevant artwork fields preserve their color hierarchy, boundaries, and relationship to readable product identity.",
+        review: "The artwork visibly changes color but user intent or an approved alternate palette is unknown, so publication requires confirmation.",
+        fail: "A visible artwork recoloring accompanies a confirmed wrong product name, formula, flavor, scent, shade, or other critical identity fact.",
+      },
+      {
+        condition: "Readable variant cue",
+        pass: "Variant wording or symbols and their associated palette remain readable, corresponding, and materially consistent in both images.",
+        review: "The palette differs while the variant cue is hidden, unreadable, ambiguous, or possibly an approved alternate treatment.",
+        fail: "Both images expose readable variant evidence and the candidate substitutes a different variant and its color-coded presentation.",
+      },
+      {
+        condition: "Lighting and white balance",
+        pass: "Color differences are consistent with a global lighting, exposure, or white-balance shift while product-relative color relationships remain stable.",
+        review: "Mixed lighting or severe color cast prevents separation of illumination from a possible package recoloring on a required region.",
+        fail: "The change remains localized to a corresponding product region and is corroborated by changed identity evidence rather than scene light.",
+      },
+      {
+        condition: "Reflection, glare, and metallic response",
+        pass: "Highlights or reflections move across the surface without changing the observable base palette outside the affected area.",
+        review: "Glare, iridescence, foil response, or reflection covers enough of the region that its underlying approved color cannot be established.",
+        fail: "Unaffected areas reveal a confirmed semantic recoloring and the difference is not explainable by the observed reflective material response.",
+      },
+      {
+        condition: "Transparent or translucent packaging",
+        pass: "Bottle tint, visible liquid, label, closure, and background interaction remain consistent after accounting for transparency and scene context.",
+        review: "Background transmission, fill appearance, or internal reflection makes the container or liquid color uncertain from the supplied views.",
+        fail: "Corresponding transparent regions clearly encode a different approved product variant together with corroborating visible identity evidence.",
+      },
+      {
+        condition: "Crop and viewpoint completeness",
+        pass: "Every approval-critical color-bearing region is inside both frames at sufficient scale, even if framing or perspective differs modestly.",
+        review: "A close crop or different face omits the body, side panel, closure, or artwork area required for the color decision.",
+        fail: "The complete corresponding regions are visible and confirm an unacceptable color-linked identity change rather than missing evidence.",
+      },
+      {
+        condition: "Unchanged-image baseline",
+        pass: "Identical or faithfully recomposed product evidence preserves semantic colors while background, shadow, and product position may change.",
+        review: "Compression, clipping, color profile loss, or inadequate resolution prevents a dependable unchanged-color conclusion.",
+        fail: "Direct inspection confirms that an apparently unchanged candidate actually substitutes a different color-coded product identity.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/toothpaste-variant-color-change",
+        title: "Toothpaste body and readable variant changed together",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/toothpaste-color-variant/original.png",
+        candidate: "/examples/toothpaste-color-variant/candidate.png",
+        alt: "Pale mint FRESH MINT toothpaste compared with charcoal CHARCOAL CLEAN toothpaste",
+        observation:
+          "The ORVENA tube changes from muted pale green to charcoal gray while FRESH MINT becomes CHARCOAL CLEAN. Logo geometry, 100 g value, white flip cap, package count, tube form, and front-facing composition remain stable.",
+        whyThisDecision:
+          "The result is a high-confidence FAIL because approval-critical readable variant identity changes alongside the package color. The evidence does not claim that color alone caused failure; text confirms that the candidate represents another variant.",
+        nextAction:
+          "Restore the approved FRESH MINT wording and pale-mint body, or compare the charcoal variant against its own approved reference before publication.",
+      },
+      {
+        href: "/examples/laundry-pouch-color-change",
+        title: "Pouch color changed while identity stayed stable",
+        role: "product_change",
+        decision: "REVIEW",
+        original: "/examples/laundry-pouch-color-change/original.png",
+        candidate: "/examples/laundry-pouch-color-change/candidate.png",
+        alt: "Orange and pale-pink TIDORA laundry-pods pouches with matching label information",
+        observation:
+          "The TIDORA pouch changes from matte reddish orange to glossy pale pink. The star logo, TIDORA, LAUNDRY PODS, CLEAN COTTON, 24 PODS, white label, zipper, one-pouch count, and stand-up form remain visible and consistent.",
+        whyThisDecision:
+          "Pairvu records REVIEW because a major package color visibly changed but the supplied images do not reveal whether the new palette is an approved redesign. Automatically passing would hide drift; automatically failing would invent the user's intent.",
+        nextAction:
+          "Confirm the approved campaign or variant palette. If pale pink is intended, adopt a matching approved reference; otherwise regenerate the candidate with the orange pouch preserved.",
+      },
+      {
+        href: "/examples/lighting-change-product-image",
+        title: "Warmer illumination changed the scene, not the product",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/packaging-shape-change/original.jpg",
+        candidate: "/examples/lighting-change/candidate.jpg",
+        alt: "Same MIREVA shampoo bottle under neutral and warmer light",
+        observation:
+          "The scene becomes warmer, but the MIREVA amber bottle, cream label, green identity print, black pump, readable wording, package count, and cylindrical shape retain their product-relative color relationships.",
+        whyThisDecision:
+          "A global illumination shift is presentation, not a semantic recoloring. The corresponding product regions remain visible and internally consistent, so a color alarm would be a false positive.",
+        nextAction:
+          "Accept the product-color check and review exposure or channel-specific creative style separately if the warmer treatment conflicts with campaign requirements.",
+      },
+      {
+        href: "/examples/product-color-not-observable-label-crop",
+        title: "A label crop could not verify the pouch-body color",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/product-color-label-crop/original.png",
+        candidate: "/examples/product-color-label-crop/candidate.png",
+        alt: "Complete orange TIDORA pouch compared with a close crop of its white label",
+        observation:
+          "The label crop preserves enough evidence to verify the TIDORA logo, LAUNDRY PODS, CLEAN COTTON, and 24 PODS. It does not show the pouch body, zipper, complete outline, or enough surrounding package area to establish the approved orange color.",
+        whyThisDecision:
+          "Prompt policy v008 and QA Engine v004 correctly return REVIEW with color, components, and shape marked not observable. Comparing the orange body with the white label would compare different semantic regions and create a false mismatch.",
+        nextAction:
+          "Request a candidate showing the complete corresponding pouch face. Keep the verified logo and text findings, but do not approve package color or construction from this crop.",
+      },
+    ],
+    diagnosticQuestions: [
+      {
+        question: "Which physical or printed region is supposed to carry the approved color?",
+        reason:
+          "Naming the tube body, label field, cap, band, liquid, or accent prevents background and unrelated white label space from becoming the comparison target.",
+      },
+      {
+        question: "Are the two images showing the same corresponding package face?",
+        reason:
+          "Front, back, side, and isolated detail crops can legitimately contain different palettes. Color comparison requires region correspondence before similarity is meaningful.",
+      },
+      {
+        question: "Does color encode a readable flavor, scent, shade, formula, or strength?",
+        reason:
+          "Variant text provides semantic corroboration. A palette difference paired with another variant is stronger evidence than unexplained color difference alone.",
+      },
+      {
+        question: "Is the difference global scene light or localized product artwork?",
+        reason:
+          "Global warmth, exposure, and white balance affect the entire scene, while a localized region change with stable surroundings is more likely an edited product attribute.",
+      },
+      {
+        question: "Do reflection, transparency, gloss, or metallic material explain the pixels?",
+        reason:
+          "Material response can produce intense local color without changing the underlying print. Inspect unaffected areas and stable landmarks before deciding.",
+      },
+      {
+        question: "Is enough of the color-bearing region inside the candidate frame?",
+        reason:
+          "A recognizable logo or label does not establish the body color beyond the crop. Missing coverage requires REVIEW rather than invented match or mismatch.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Variant recoloring with text drift",
+        mechanism:
+          "Generation substitutes a nearby flavor, scent, formula, or shade and changes both the variant wording and its associated palette while preserving the brand template.",
+        consequence:
+          "The image can advertise the wrong product variant even though logo, package form, and most copy still look professionally consistent.",
+      },
+      {
+        title: "Color-only redesign without approval context",
+        mechanism:
+          "An editing model recolors a large body or label region but leaves identity text unchanged, making visual drift obvious while user intent remains unknown.",
+        consequence:
+          "The result needs human confirmation because automatic PASS hides an unapproved design and automatic FAIL may reject an intentional campaign treatment.",
+      },
+      {
+        title: "Lighting mistaken for package color",
+        mechanism:
+          "Warm light, colored bounce, exposure, or white balance shifts product pixels globally while the package's internal color relationships remain intact.",
+        consequence:
+          "A naive pixel comparison creates false alarms, slows creative production, and teaches reviewers to distrust valid color warnings.",
+      },
+      {
+        title: "Reflection mistaken for printed ink",
+        mechanism:
+          "Gloss, foil, holographic film, glass, or curved plastic reflects colored surroundings across a label or container region.",
+        consequence:
+          "The checker may overstate a temporary optical effect unless it recognizes the material cue and requests review where the base color is covered.",
+      },
+      {
+        title: "Non-corresponding crop comparison",
+        mechanism:
+          "A complete package body in the reference is compared with an isolated label, back panel, or close detail in the candidate.",
+        consequence:
+          "Different semantic regions produce a false color mismatch and can also create unsupported claims about components and package shape.",
+      },
+      {
+        title: "Transparent-content ambiguity",
+        mechanism:
+          "A clear or tinted package transmits a new background or exposes a liquid under different illumination, changing apparent body color.",
+        consequence:
+          "Without controlled coverage and lighting, the image cannot prove whether the container, liquid, or environment caused the visual change.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Name the color-bearing product regions",
+        detail:
+          "Before comparing, list the approved body, artwork field, variant accent, closure, and any transparent or reflective regions that matter to product identity.",
+      },
+      {
+        title: "Confirm face and region correspondence",
+        detail:
+          "Ensure both images expose the same package face and enough surrounding structure to locate each color observation on the product rather than the scene.",
+      },
+      {
+        title: "Read variant identity before judging palette",
+        detail:
+          "Transcribe visible flavor, scent, shade, formula, strength, and size cues. Use them to determine whether a palette change also represents another product variant.",
+      },
+      {
+        title: "Separate illumination and material response",
+        detail:
+          "Check background light, neutral areas, shadows, highlights, transparency, gloss, and reflection. Look for stable unaffected regions that reveal the base palette.",
+      },
+      {
+        title: "Apply the evidence-aware decision",
+        detail:
+          "PASS observable matching color, REVIEW intent-dependent recoloring or insufficient coverage, and FAIL only when confirmed critical identity evidence establishes the wrong product.",
+      },
+      {
+        title: "Resolve the precise cause",
+        detail:
+          "Correct the candidate, approve the intentional palette, switch to the correct variant reference, or request a wider unobstructed image according to the finding.",
+      },
+      {
+        title: "Rerun against the approved source",
+        detail:
+          "Compare the corrected final export again. Preserve the reference, model and prompt versions, latency, result, and reviewer feedback for regression tracking.",
+      },
+    ],
+    limitations: [
+      "Pairvu compares visible raster evidence and does not measure Pantone values, LAB coordinates, Delta E, ink density, substrate color, print tolerances, or a physical production sample.",
+      "Display calibration, browser color management, embedded profiles, compression, screenshots, and export conversion can affect apparent color outside the model's control.",
+      "A PASS applies only to observable corresponding regions. Hidden backs, side panels, caps, cartons, inserts, interiors, and out-of-frame body areas remain unverified.",
+      "The system cannot decide whether a new palette, seasonal edition, campaign treatment, regional design, or authorized variant is commercially approved without an appropriate reference or human confirmation.",
+      "Transparent liquid, translucent plastic, glass tint, metallic ink, foil, holographic film, gloss, curved surfaces, glare, and colored reflections can require REVIEW even when the product is unchanged.",
+      "Product color QA does not certify exact photographic color reproduction, color accessibility, marketplace compliance, legal claims, trademark use, or the physical color customers will receive.",
+      "A visible palette match does not certify logo identity, wording, printed quantity, product count, components, package geometry, or fulfillment accuracy; those checks remain separate.",
+      "One approved reference may not represent every legitimate shade, scent, formula, flavor, strength, size, package revision, or market-specific palette in a product family.",
+    ],
+    faq: [
+      {
+        question: "What counts as a product color change in an AI image?",
+        answer:
+          "A product color change alters the semantic color family of a corresponding body, label, artwork, closure, or variant-coded region. It is stronger when readable variant evidence also changes and weaker when the difference follows scene lighting or reflection.",
+      },
+      {
+        question: "Should every visible package recoloring automatically FAIL?",
+        answer:
+          "No. A color-only change receives REVIEW under the current M0 behavior because Pairvu cannot infer whether the user intended an approved redesign. A confirmed wrong readable variant combined with color drift can produce FAIL.",
+      },
+      {
+        question: "Why can warmer light still produce PASS?",
+        answer:
+          "Lighting is a presentation variable. When color relationships remain stable across the bottle, label, print, and closure and other product facts match, a global warm shift does not mean the product itself was recolored.",
+      },
+      {
+        question: "Why does a label-only crop receive REVIEW for product color?",
+        answer:
+          "The crop can verify facts inside the label, including logo and readable text, but cannot prove the package-body color outside its frame. Claiming either match or mismatch would exceed the visible evidence.",
+      },
+      {
+        question: "Can Pairvu verify exact brand colors or Pantone values?",
+        answer:
+          "No. Pairvu performs semantic visual comparison from raster images. Exact brand-color certification requires controlled capture, calibrated displays, source artwork, color-managed production files, and often physical print measurement.",
+      },
+      {
+        question: "How should reflective or holographic packaging be checked?",
+        answer:
+          "Use views that expose unaffected base-color areas and similar lighting when possible. If reflection covers the required region, mark color not observable and request another image rather than treating the reflected hue as printed color.",
+      },
+      {
+        question: "Can a color match prove the candidate is the correct product?",
+        answer:
+          "No. Different variants can share a palette, and a candidate can preserve color while changing logo, label text, quantity, components, or shape. Product approval requires the full set of relevant checks.",
+      },
+    ],
+  },
 ];
 
 export function getCheckPageContent(route: string) {

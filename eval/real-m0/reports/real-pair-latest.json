@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-07-27T09:59:27.864Z",
-  "label": "capacity-value-change",
-  "expectedBehavior": "FAIL",
+  "generatedAt": "2026-08-04T02:22:02.420Z",
+  "label": "color-label-only-coverage-v008-engine004",
+  "expectedBehavior": "REVIEW",
   "matchedExpectedBehavior": true,
   "reference": {
-    "fileName": "10121785136504.jpg",
-    "mimeType": "image/jpeg",
-    "sha256": "9210ccec87fff4e32d556145693411c32dc8051653a425e666f96025832dc2a3"
+    "fileName": "COLOR-02-v3-original-laundry-pods-pouch.png",
+    "mimeType": "image/png",
+    "sha256": "ea01de61e29065d9127ee6571a6290e670b7f9a98d412e9066a26bf3054a3897"
   },
   "candidate": {
-    "fileName": "10111785136474.jpg",
-    "mimeType": "image/jpeg",
-    "sha256": "58d6fec932cc4e881d64631d06e8c77d59b32276de934ea1579e58f9be909b2f"
+    "fileName": "COLOR-03-main-color-outside-crop.png",
+    "mimeType": "image/png",
+    "sha256": "efa1b06d38b76b4b21a242377593b779b30ef0b7145548cf3039932800b97cb1"
   },
-  "category": null,
-  "finalVerdict": "fail",
+  "category": "household packaged goods",
+  "finalVerdict": "review",
   "observations": [
     {
       "checkType": "logo",
@@ -26,14 +26,15 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "No meaningful visible difference in logo identity or presence detected.",
+      "explanation": "No meaningful logo difference detected; same star symbol and brand text visible.",
       "evidence": {
-        "referenceObservation": "Green leaf logo above PUREMIST BOTANICALS brand name.",
-        "candidateObservation": "Green leaf logo above PUREMIST BOTANICALS brand name.",
+        "referenceObservation": "Blue star symbol above the word TIDORA in uppercase letters.",
+        "candidateObservation": "Blue star symbol above the word TIDORA in uppercase letters.",
         "differenceKind": "none",
-        "comparisonSummary": "No meaningful visible difference in logo identity or presence detected.",
+        "comparisonSummary": "No meaningful logo difference detected; same star symbol and brand text visible.",
         "visibleEvidence": [
-          "both images show the same green leaf logo and brand text in the same relative position"
+          "Blue star symbol",
+          "TIDORA text"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -41,23 +42,25 @@
     },
     {
       "checkType": "visible_text",
-      "status": "mismatch",
-      "differenceKind": "value_changed",
+      "status": "match",
+      "differenceKind": "none",
       "observability": {
         "reference": "observable",
         "candidate": "observable",
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "The printed volume and fluid ounce values differ between reference and candidate.",
+      "explanation": "Visible text and printed values match on corresponding package faces.",
       "evidence": {
-        "referenceObservation": "Label shows volume text '550 ml / 18.6 fl oz'.",
-        "candidateObservation": "Label shows volume text '500 ml / 16.9 fl oz'.",
-        "differenceKind": "value_changed",
-        "comparisonSummary": "The printed volume and fluid ounce values differ between reference and candidate.",
+        "referenceObservation": "TIDORA LAUNDRY PODS CLEAN COTTON 24 PODS",
+        "candidateObservation": "TIDORA LAUNDRY PODS CLEAN COTTON 24 PODS",
+        "differenceKind": "none",
+        "comparisonSummary": "Visible text and printed values match on corresponding package faces.",
         "visibleEvidence": [
-          "reference text '550 ml / 18.6 fl oz'",
-          "candidate text '500 ml / 16.9 fl oz'"
+          "TIDORA",
+          "LAUNDRY PODS",
+          "CLEAN COTTON",
+          "24 PODS"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -73,14 +76,14 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "Number of bottles visible is the same in both images.",
+      "explanation": "Both images show one primary package each, quantity matches.",
       "evidence": {
-        "referenceObservation": "One visible bottle shown in the image.",
-        "candidateObservation": "One visible bottle shown in the image.",
+        "referenceObservation": "1 primary product visible",
+        "candidateObservation": "1 primary product visible",
         "differenceKind": "none",
-        "comparisonSummary": "Number of bottles visible is the same in both images.",
+        "comparisonSummary": "Both images show one primary package each, quantity matches.",
         "visibleEvidence": [
-          "One bottle visible in each image"
+          "single package in each image"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -88,48 +91,47 @@
     },
     {
       "checkType": "dominant_color",
-      "status": "match",
-      "differenceKind": "none",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
       "observability": {
         "reference": "observable",
-        "candidate": "observable",
-        "coverage": "sufficient"
+        "candidate": "not_observable",
+        "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "No meaningful visible difference in dominant colors of bottle and label detected.",
+      "explanation": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
       "evidence": {
-        "referenceObservation": "Bottle is amber brown with a beige label and black pump.",
-        "candidateObservation": "Bottle is amber brown with a beige label and black pump.",
-        "differenceKind": "none",
-        "comparisonSummary": "No meaningful visible difference in dominant colors of bottle and label detected.",
+        "referenceObservation": "Dominant package color is orange-red on the pouch body surrounding the label panel.",
+        "candidateObservation": "Dominant package color not observable; only the white label panel with thin orange-red edge visible, majority of orange-red pouch outside frame.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
         "visibleEvidence": [
-          "Both bottles have amber brown color.",
-          "Both labels are beige.",
-          "Both pumps are black."
+          "Orange-red pouch body in reference",
+          "White label panel with thin orange-red edge in candidate"
         ],
         "referenceVisible": true,
-        "candidateVisible": true
+        "candidateVisible": false
       }
     },
     {
       "checkType": "major_components",
-      "status": "match",
-      "differenceKind": "none",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
       "observability": {
         "reference": "observable",
-        "candidate": "observable",
-        "coverage": "sufficient"
+        "candidate": "partially_observable",
+        "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "No meaningful visible difference in major components visible on the bottle detected.",
+      "explanation": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
       "evidence": {
-        "referenceObservation": "Bottle has a black pump dispenser and a label covering most of the bottle body.",
-        "candidateObservation": "Bottle has a black pump dispenser and a label covering most of the bottle body.",
-        "differenceKind": "none",
-        "comparisonSummary": "No meaningful visible difference in major components visible on the bottle detected.",
+        "referenceObservation": "Stand-up resealable pouch with visible zipper closure and pouch body.",
+        "candidateObservation": "Only the flat white label panel visible, no visible bag pouch body or zipper closure.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
         "visibleEvidence": [
-          "Black pump dispenser visible on both bottles.",
-          "Large label covering the bottle body visible on both bottles."
+          "Pouch body and zipper closure visible in reference",
+          "Only label panel visible in candidate"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -137,79 +139,122 @@
     },
     {
       "checkType": "major_shape_packaging",
-      "status": "match",
-      "differenceKind": "none",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
       "observability": {
         "reference": "observable",
-        "candidate": "observable",
-        "coverage": "sufficient"
+        "candidate": "not_observable",
+        "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "No meaningful visible difference in overall bottle shape and packaging detected.",
+      "explanation": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
       "evidence": {
-        "referenceObservation": "Bottle shape is cylindrical with rounded shoulders and a pump top.",
-        "candidateObservation": "Bottle shape is cylindrical with rounded shoulders and a pump top.",
-        "differenceKind": "none",
-        "comparisonSummary": "No meaningful visible difference in overall bottle shape and packaging detected.",
+        "referenceObservation": "Stand-up bag pouch with zipper closure and rounded corner edges visible.",
+        "candidateObservation": "Candidate shows only a cropped flat label panel with rounded corners; overall packaging shape and pouch body not visible.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
         "visibleEvidence": [
-          "Cylindrical bottle with rounded shoulders and black pump top visible in both images."
+          "Full stand-up pouch shape in reference",
+          "Cropped flat label panel in candidate"
         ],
         "referenceVisible": true,
-        "candidateVisible": true
+        "candidateVisible": false
       }
     }
   ],
-  "issues": [
+  "issues": [],
+  "limitations": [
     {
-      "kind": "product",
-      "type": "text_mismatch",
-      "sourceCheckType": "visible_text",
-      "sourceDifferenceKind": "value_changed",
-      "sourceObservability": {
-        "reference": "observable",
-        "candidate": "observable",
-        "coverage": "sufficient"
-      },
-      "severity": "critical",
+      "kind": "limitation",
+      "type": "attribute_not_observable",
+      "sourceCheckType": "dominant_color",
       "confidence": "high",
-      "message": "The printed volume and fluid ounce values differ between reference and candidate.",
+      "message": "dominant_color is not sufficiently observable.",
       "evidence": {
-        "referenceObservation": "Label shows volume text '550 ml / 18.6 fl oz'.",
-        "candidateObservation": "Label shows volume text '500 ml / 16.9 fl oz'.",
-        "differenceKind": "value_changed",
-        "comparisonSummary": "The printed volume and fluid ounce values differ between reference and candidate.",
+        "referenceObservation": "Dominant package color is orange-red on the pouch body surrounding the label panel.",
+        "candidateObservation": "Dominant package color not observable; only the white label panel with thin orange-red edge visible, majority of orange-red pouch outside frame.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
         "visibleEvidence": [
-          "reference text '550 ml / 18.6 fl oz'",
-          "candidate text '500 ml / 16.9 fl oz'"
+          "Orange-red pouch body in reference",
+          "White label panel with thin orange-red edge in candidate"
         ],
         "referenceVisible": true,
-        "candidateVisible": true
+        "candidateVisible": false,
+        "raw": {
+          "uncertainReason": "Relevant attribute is not observable."
+        }
+      }
+    },
+    {
+      "kind": "limitation",
+      "type": "attribute_not_observable",
+      "sourceCheckType": "major_components",
+      "confidence": "high",
+      "message": "major_components is not sufficiently observable.",
+      "evidence": {
+        "referenceObservation": "Stand-up resealable pouch with visible zipper closure and pouch body.",
+        "candidateObservation": "Only the flat white label panel visible, no visible bag pouch body or zipper closure.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
+        "visibleEvidence": [
+          "Pouch body and zipper closure visible in reference",
+          "Only label panel visible in candidate"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true,
+        "raw": {
+          "uncertainReason": "Relevant attribute is not observable."
+        }
+      }
+    },
+    {
+      "kind": "limitation",
+      "type": "attribute_not_observable",
+      "sourceCheckType": "major_shape_packaging",
+      "confidence": "high",
+      "message": "major_shape_packaging is not sufficiently observable.",
+      "evidence": {
+        "referenceObservation": "Stand-up bag pouch with zipper closure and rounded corner edges visible.",
+        "candidateObservation": "Candidate shows only a cropped flat label panel with rounded corners; overall packaging shape and pouch body not visible.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
+        "visibleEvidence": [
+          "Full stand-up pouch shape in reference",
+          "Cropped flat label panel in candidate"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": false,
+        "raw": {
+          "uncertainReason": "Relevant attribute is not observable."
+        }
       }
     }
   ],
-  "limitations": [],
   "coverage": {
     "selectedChecks": 6,
-    "sufficientlyObservableChecks": 6,
-    "insufficientChecks": 0
+    "sufficientlyObservableChecks": 3,
+    "insufficientChecks": 3
   },
   "versions": {
-    "qaEngineVersion": "m0-qa-engine-002",
-    "riskPolicyVersion": "m0-risk-policy-002",
+    "qaEngineVersion": "m0-qa-engine-004",
+    "riskPolicyVersion": "m0-risk-policy-003",
     "modelPolicyVersion": "m0-model-policy-002"
   },
   "modelCall": {
     "provider": "openai",
     "model": "gpt-4.1-mini",
-    "promptVersion": "m0-real-mvp-002",
-    "latencyMs": 25408,
+    "promptVersion": "m0-real-mvp-008",
+    "latencyMs": 22866,
+    "estimatedCostUsd": 0.0048408,
     "inputUsage": {
-      "inputTokens": 5974
+      "inputTokens": 6742,
+      "cachedInputTokens": 0
     },
     "outputUsage": {
-      "outputTokens": 1269
+      "outputTokens": 1340
     }
   },
-  "totalLatencyMs": 25409,
-  "estimatedCostUsd": null
+  "totalLatencyMs": 22868,
+  "estimatedCostUsd": 0.0048408
 }

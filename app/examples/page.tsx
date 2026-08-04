@@ -176,6 +176,30 @@ const featuredCases = [
     candidate: "/examples/household-background-change/candidate.jpg",
     alt: "Same household cleaner on studio and kitchen backgrounds",
   },
+  {
+    href: "/examples/toothpaste-variant-color-change",
+    title: "Toothpaste color and variant changed",
+    summary: "An ORVENA tube changes from pale mint FRESH MINT to charcoal CHARCOAL CLEAN.",
+    original: "/examples/toothpaste-color-variant/original.png",
+    candidate: "/examples/toothpaste-color-variant/candidate.png",
+    alt: "Toothpaste color and readable variant change comparison",
+  },
+  {
+    href: "/examples/laundry-pouch-color-change",
+    title: "Laundry pouch color changed",
+    summary: "The same TIDORA pouch changes from matte orange to glossy pale pink and needs intent confirmation.",
+    original: "/examples/laundry-pouch-color-change/original.png",
+    candidate: "/examples/laundry-pouch-color-change/candidate.png",
+    alt: "Laundry-pods pouch product color change comparison",
+  },
+  {
+    href: "/examples/product-color-not-observable-label-crop",
+    title: "Package color was outside the crop",
+    summary: "A label close-up verifies logo and text but cannot verify the pouch body, closure, or silhouette.",
+    original: "/examples/product-color-label-crop/original.png",
+    candidate: "/examples/product-color-label-crop/candidate.png",
+    alt: "Complete laundry pouch and label-only crop observability comparison",
+  },
 ];
 
 export default function ExamplesPage() {
