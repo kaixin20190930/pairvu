@@ -9,8 +9,8 @@ Scope: Evidence gates for `/checks/product-logo`, `/checks/product-color`, and t
 | Surface | Status | Decision |
 | --- | --- | --- |
 | Product Logo | `PUBLISHED` | Existing evidence is sufficient and distinct. The page passed the check-content gate, full SEO inventory, production build, and responsive QA. |
-| Product Color | `IMPLEMENTED / AWAITING DEPLOY` | ORVENA provides a clean variant-text plus main-color FAIL, TIDORA provides a color-only REVIEW, lighting provides PASS, and the corrected label-only crop now provides an observability REVIEW after prompt and engine remediation. |
-| Household Packaged Goods | `IMPLEMENTED / AWAITING DEPLOY` | HOUSEHOLD-01 produced a clean capacity FAIL and HOUSEHOLD-02 produced a clean background-only PASS. Two case pages and the fifth flagship category page pass the content and SEO gates. |
+| Product Color | `PUBLISHED / PRODUCTION ACCEPTED` | ORVENA provides a clean variant-text plus main-color FAIL, TIDORA provides a color-only REVIEW, lighting provides PASS, and the corrected label-only crop now provides an observability REVIEW after prompt and engine remediation. |
+| Household Packaged Goods | `PUBLISHED / PRODUCTION ACCEPTED` | HOUSEHOLD-01 produced a clean capacity FAIL and HOUSEHOLD-02 produced a clean background-only PASS. Two case pages and the fifth flagship category page pass the content and SEO gates. |
 
 Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-003`, `color_mismatch` is high severity rather than critical, so a sufficiently observable color mismatch contributes REVIEW. The Product Color page must explain this product boundary honestly.
 
@@ -27,7 +27,7 @@ Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-0
 | `COLOR-03-main-color-outside-crop.png` (first attempt) | PASS; the crop still exposed substantial orange pouch material, so main color remained observable. The provider also incorrectly claimed the cropped zipper, bottom gusset, and complete pouch silhouette were visible | `REJECTED` |
 | `COLOR-03-main-color-outside-crop.png` (label-only rerun, original behavior) | REVIEW, but incorrectly reported a high-confidence orange-body to white-label `color_changed` mismatch and again claimed the omitted pouch closure, body, outer boundaries, and shape were visible | `REJECTED / REGRESSION FIXTURE` |
 | Same label-only pair after prompt `m0-real-mvp-008` and engine `m0-qa-engine-004` | REVIEW; logo and visible text match, while main color, major components, and package shape are normalized to `not_observable`. Product count still incorrectly appears verified despite `candidateVisible=false` | `PARTIAL / COUNT REGRESSION` |
-| Final label-only pair after prompt `m0-real-mvp-009` and engine `m0-qa-engine-005` | Local real-provider result: REVIEW; logo and visible text verified, while product count, main color, major components, and package shape are not observable | `LOCAL ACCEPTED / PRODUCTION DEPLOYMENT REQUIRED` |
+| Final label-only pair after prompt `m0-real-mvp-009` and engine `m0-qa-engine-005` | Production result: REVIEW; logo and visible text verified, while product count, main color, major components, and package shape are not observable | `PRODUCTION ACCEPTED` |
 
 The Color outcomes are not a reason to change model instructions or RiskPolicy. The supplied pixels contain extra product mutations. Publishing those fixtures would teach the wrong lesson: COLOR-01 would conflate logo, copy, and palette changes, while COLOR-02 would describe an observable material recolor as glare. Evidence purity takes priority over adding another route.
 
