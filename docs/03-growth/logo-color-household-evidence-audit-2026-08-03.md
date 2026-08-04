@@ -9,7 +9,7 @@ Scope: Evidence gates for `/checks/product-logo`, `/checks/product-color`, and t
 | Surface | Status | Decision |
 | --- | --- | --- |
 | Product Logo | `PUBLISHED` | Existing evidence is sufficient and distinct. The page passed the check-content gate, full SEO inventory, production build, and responsive QA. |
-| Product Color | `BLOCKED ON CLEAN EVIDENCE` | Both first-round candidates produced the expected overall verdict, but neither isolated the intended color behavior. Regenerate the two corrected candidates below before publication. |
+| Product Color | `BLOCKED ON OBSERVABILITY EVIDENCE` | ORVENA now provides a clean variant-text plus main-color FAIL, and TIDORA provides a clean color-only REVIEW. A separate, valid color-not-observable case is still required before publication. |
 | Household Packaged Goods | `IMPLEMENTED / AWAITING DEPLOY` | HOUSEHOLD-01 produced a clean capacity FAIL and HOUSEHOLD-02 produced a clean background-only PASS. Two case pages and the fifth flagship category page pass the content and SEO gates. |
 
 Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-003`, `color_mismatch` is high severity rather than critical, so a sufficiently observable color mismatch contributes REVIEW. The Product Color page must explain this product boundary honestly.
@@ -22,8 +22,19 @@ Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-0
 | `HOUSEHOLD-02-background-only.png` | PASS with no issue or limitation; all six check families verified | `ACCEPTED` |
 | `COLOR-01-variant-and-color-change.png` | FAIL with text and color changes, plus an unintended critical logo finding because the logo and ELARA ink changed from orange to white | `REGENERATE` |
 | `COLOR-02-reflection-limited-color.png` | REVIEW, but the system saw a real holographic/rainbow label recolor rather than insufficient color observability | `REGENERATE` |
+| `COLOR-01-v3-candidate-charcoal-toothpaste.png` | FAIL for readable `FRESH MINT` to `CHARCOAL CLEAN` plus a high-confidence light-green to dark-gray main-color change; logo, count, components, and package shape verified | `ACCEPTED` |
+| `COLOR-02-v3-candidate-neutral-glare-pouch.png` | REVIEW for a high-confidence matte reddish-orange to glossy pale-pink pouch-color change; no observability limitation was recorded | `ACCEPTED AS COLOR-ONLY CHANGE`, not an observability case |
+| `COLOR-03-main-color-outside-crop.png` | PASS; the crop still exposes substantial orange pouch material, so main color remains observable. The provider also incorrectly claimed the cropped zipper, bottom gusset, and complete pouch silhouette were visible | `REJECTED` |
 
 The Color outcomes are not a reason to change model instructions or RiskPolicy. The supplied pixels contain extra product mutations. Publishing those fixtures would teach the wrong lesson: COLOR-01 would conflate logo, copy, and palette changes, while COLOR-02 would describe an observable material recolor as glare. Evidence purity takes priority over adding another route.
+
+### COLOR-03 crop decision
+
+`COLOR-03-main-color-outside-crop.png` does not satisfy the intended color-observability condition. Orange pouch material remains visible on both sides of the white label and fills a meaningful portion of the candidate frame, so a main-color match is supportable from the candidate pixels. The case must not be presented publicly as evidence that Pairvu can detect insufficient color coverage.
+
+The same run did expose a separate false-pass pattern under `major_shape_packaging`: the result described a zipper closure, rounded top corners, bottom gusset, and full stand-up pouch silhouette even though those regions were outside the candidate frame. Record this as a crop/coverage regression case. Do not change `M0RiskPolicy`; first rerun with a deterministic label-only crop containing no orange pouch body. If that valid fixture still produces PASS for color or complete package shape, tighten provider observability handling and regression-test the same pair before publishing Product Color.
+
+For the next candidate, use a standard crop operation rather than generative editing. Crop to the interior of the white label only. The candidate must contain no orange pouch body, no zipper, no side boundary, and no bottom gusset. Logo and printed text should remain readable. Expected behavior is REVIEW with main color and package shape marked not observable or insufficiently covered; logo and visible text may remain verified.
 
 ### Corrected COLOR-01 candidate
 
