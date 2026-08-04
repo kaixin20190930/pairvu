@@ -122,6 +122,7 @@ The first screen must contain a concise, quotable answer to the page question. T
 | Product quantity | `PUBLISHED` | Printed capacity, visible package count, repositioning, unreadable quantity |
 | Product label text | `PUBLISHED` | Exact text change, identical baseline, partial coverage, viewpoint |
 | Product packaging | `PUBLISHED` | Shape change, missing component, lighting hard negative, partial coverage |
-| Product logo | `PUBLISHED / AWAITING DEPLOY` | Logo replacement FAIL, background PASS, shadow/reflection PASS, and partial-occlusion REVIEW; automated quality and responsive QA passed |
-| Product color | `EVIDENCE GENERATION REQUIRED` | Color-only change correctly remains REVIEW under M0; add one mixed color-plus-variant FAIL and one reflection-limited color REVIEW before implementation |
+| Product logo | `PUBLISHED` | Logo replacement FAIL, background PASS, shadow/reflection PASS, and partial-occlusion REVIEW |
+| Product color | `PUBLISHED` | Variant-plus-color FAIL, color-only REVIEW, lighting PASS, and incomplete-coverage REVIEW |
+| Product components | `PLANNED / EVIDENCE IN PROGRESS` | Generate one fresh candle-set family covering component removal plus text change, background-only PASS, cropped accessory REVIEW, and extra-accessory REVIEW |
 | Observability | `PLANNED / NOINDEX` | Viewpoint, occlusion, unreadable text, partial product coverage |

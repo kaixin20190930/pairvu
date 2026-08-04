@@ -43,6 +43,11 @@ const checkFamilies = [
     detail: "Separate deliberate package recoloring from scene light, reflection, shadow, transparency, and white balance.",
   },
   {
+    title: "Product components",
+    status: "Evidence in progress",
+    detail: "Distinguish missing, substituted, added, hidden, and harmlessly repositioned product parts or included accessories.",
+  },
+  {
     title: "Observability",
     status: "Planned",
     detail: "Identify exactly which crop, viewpoint, occlusion, reflection, or resolution problem prevents a reliable answer.",
