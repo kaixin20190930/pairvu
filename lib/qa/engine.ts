@@ -10,7 +10,7 @@ import type {
 } from "./types";
 
 export class M0QAEngine implements QAEngine {
-  readonly version = "m0-qa-engine-004";
+  readonly version = "m0-qa-engine-005";
 
   constructor(
     private readonly visionProvider: VisionProvider,
@@ -122,7 +122,8 @@ function validateProviderResult(input: M0AnalysisInput, observations: VisionObse
 }
 
 function normalizeObservationConsistency(observation: VisionObservation): VisionObservation {
-  if (observation.status === "mismatch" && !hasSufficientObservability(observation)) {
+  if ((observation.status === "match" || observation.status === "mismatch") && !hasSufficientObservability(observation)) {
+    const providerStatus = observation.status;
     const providerDifferenceKind = observation.differenceKind;
     const providerEvidenceDifferenceKind = observation.evidence.differenceKind;
 
@@ -135,11 +136,11 @@ function normalizeObservationConsistency(observation: VisionObservation): Vision
         differenceKind: "not_visible",
         uncertainReason:
           observation.evidence.uncertainReason ??
-          "The provider reported a mismatch without sufficient corresponding coverage.",
+          `The provider reported a ${providerStatus} without sufficient corresponding coverage.`,
         raw: {
           ...normalizeEvidenceRaw(observation.evidence.raw),
-          normalizationReason: "mismatch_requires_sufficient_observability",
-          providerStatus: observation.status,
+          normalizationReason: `${providerStatus}_requires_sufficient_observability`,
+          providerStatus,
           providerObservationDifferenceKind: providerDifferenceKind ?? null,
           providerEvidenceDifferenceKind: providerEvidenceDifferenceKind ?? null,
           providerObservability: observation.observability,
@@ -180,7 +181,9 @@ function hasSufficientObservability(observation: VisionObservation) {
   return (
     observation.observability.coverage === "sufficient" &&
     observation.observability.reference === "observable" &&
-    observation.observability.candidate === "observable"
+    observation.observability.candidate === "observable" &&
+    observation.evidence.referenceVisible !== false &&
+    observation.evidence.candidateVisible !== false
   );
 }
 

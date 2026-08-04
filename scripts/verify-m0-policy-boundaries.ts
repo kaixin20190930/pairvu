@@ -95,6 +95,8 @@ assert.match(correspondenceInstructions, /candidate shows only a label or interi
 assert.match(correspondenceInstructions, /matching logo or readable text on a close-up label may be observable/);
 assert.match(correspondenceInstructions, /directly visible corresponding color-bearing regions/);
 assert.match(correspondenceInstructions, /crop shows only a label panel/);
+assert.match(correspondenceInstructions, /close-up label or partial package fragment does not establish/);
+assert.match(correspondenceInstructions, /never infer candidate count from the reference/);
 
 assert.equal(
   estimateOpenAICostUsd("gpt-4.1-mini", {
@@ -229,6 +231,64 @@ assert.deepEqual(normalizedPartialMismatch.observations[0]?.evidence.raw, {
     reference: "observable",
     candidate: "partially_observable",
     coverage: "partial",
+  },
+});
+
+const normalizedUnsupportedMatch = await new M0QAEngine({
+  name: "unsupported-match-test-provider",
+  async analyzeProductFidelity() {
+    return {
+      observations: [
+        {
+          checkType: "quantity",
+          status: "match",
+          differenceKind: "none",
+          observability: {
+            reference: "observable",
+            candidate: "observable",
+            coverage: "sufficient",
+          },
+          confidence: "high",
+          explanation: "Candidate shows only a label crop, so one product was assumed from the reference.",
+          evidence: {
+            differenceKind: "none",
+            referenceObservation: "One complete pouch",
+            candidateObservation: "Label detail only",
+            referenceVisible: true,
+            candidateVisible: false,
+          },
+        },
+      ],
+      limitations: [],
+      modelCall: {
+        provider: "unsupported-match-test-provider",
+        model: "test",
+        promptVersion: "test",
+        latencyMs: 0,
+      },
+    };
+  },
+}).analyze({
+  analysisId: "unsupported-match-normalization",
+  reference: { assetId: "reference", mimeType: "image/png", r2Key: "reference" },
+  candidate: { assetId: "candidate", mimeType: "image/png", r2Key: "candidate" },
+  selectedChecks: ["quantity"],
+});
+
+assert.equal(normalizedUnsupportedMatch.verdict, "review");
+assert.equal(normalizedUnsupportedMatch.productIssues.length, 0);
+assert.equal(normalizedUnsupportedMatch.observations[0]?.status, "not_observable");
+assert.equal(normalizedUnsupportedMatch.observations[0]?.differenceKind, "not_visible");
+assert.equal(normalizedUnsupportedMatch.limitations[0]?.type, "attribute_not_observable");
+assert.deepEqual(normalizedUnsupportedMatch.observations[0]?.evidence.raw, {
+  normalizationReason: "match_requires_sufficient_observability",
+  providerStatus: "match",
+  providerObservationDifferenceKind: "none",
+  providerEvidenceDifferenceKind: "none",
+  providerObservability: {
+    reference: "observable",
+    candidate: "observable",
+    coverage: "sufficient",
   },
 });
 

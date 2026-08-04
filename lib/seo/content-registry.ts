@@ -286,7 +286,7 @@ export const seoPages: readonly SeoPage[] = [
     changeFrequency: "yearly",
     publishedAt: "2026-08-04",
     updatedAt: "2026-08-04",
-    evidenceSource: "Pairvu prompt v008 and QA Engine v004 real-image regression result",
+    evidenceSource: "Pairvu prompt v009 and QA Engine v005 real-image regression result",
     evidenceDate: "2026-08-04",
   },
   {
@@ -881,7 +881,7 @@ export const seoPages: readonly SeoPage[] = [
     changeFrequency: "monthly",
     publishedAt: "2026-08-04",
     updatedAt: "2026-08-04",
-    evidenceSource: "Founder-approved ORVENA and TIDORA cases plus prompt v008 and QA Engine v004 observability regression",
+    evidenceSource: "Founder-approved ORVENA and TIDORA cases plus prompt v009 and QA Engine v005 observability regression",
     evidenceDate: "2026-08-04",
   },
   {

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-04T02:22:02.420Z",
-  "label": "color-label-only-coverage-v008-engine004",
+  "generatedAt": "2026-08-04T03:32:34.954Z",
+  "label": "color-label-crop-v009",
   "expectedBehavior": "REVIEW",
   "matchedExpectedBehavior": true,
   "reference": {
@@ -26,15 +26,14 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "No meaningful logo difference detected; same star symbol and brand text visible.",
+      "explanation": "No meaningful visible difference in logo identity, presence, or placement.",
       "evidence": {
-        "referenceObservation": "Blue star symbol above the word TIDORA in uppercase letters.",
-        "candidateObservation": "Blue star symbol above the word TIDORA in uppercase letters.",
+        "referenceObservation": "Circular star-like icon above the brand name 'TIDORA' in dark blue.",
+        "candidateObservation": "Circular star-like icon above the brand name 'TIDORA' in dark blue.",
         "differenceKind": "none",
-        "comparisonSummary": "No meaningful logo difference detected; same star symbol and brand text visible.",
+        "comparisonSummary": "No meaningful visible difference in logo identity, presence, or placement.",
         "visibleEvidence": [
-          "Blue star symbol",
-          "TIDORA text"
+          "Both images show the circular star-like icon above 'TIDORA' brand name in dark blue on a white background."
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -50,17 +49,14 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "Visible text and printed values match on corresponding package faces.",
+      "explanation": "No meaningful change in visible text or printed values on corresponding package faces.",
       "evidence": {
-        "referenceObservation": "TIDORA LAUNDRY PODS CLEAN COTTON 24 PODS",
-        "candidateObservation": "TIDORA LAUNDRY PODS CLEAN COTTON 24 PODS",
+        "referenceObservation": "TIDORA, LAUNDRY PODS, CLEAN COTTON, 24 PODS in dark blue text on white label.",
+        "candidateObservation": "TIDORA, LAUNDRY PODS, CLEAN COTTON, 24 PODS in dark blue text on white label.",
         "differenceKind": "none",
-        "comparisonSummary": "Visible text and printed values match on corresponding package faces.",
+        "comparisonSummary": "No meaningful change in visible text or printed values on corresponding package faces.",
         "visibleEvidence": [
-          "TIDORA",
-          "LAUNDRY PODS",
-          "CLEAN COTTON",
-          "24 PODS"
+          "Both images show matching text: 'TIDORA', 'LAUNDRY PODS', 'CLEAN COTTON', '24 PODS'."
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -68,25 +64,25 @@
     },
     {
       "checkType": "quantity",
-      "status": "match",
-      "differenceKind": "none",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
       "observability": {
         "reference": "observable",
-        "candidate": "observable",
-        "coverage": "sufficient"
+        "candidate": "not_observable",
+        "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "Both images show one primary package each, quantity matches.",
+      "explanation": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
       "evidence": {
-        "referenceObservation": "1 primary product visible",
-        "candidateObservation": "1 primary product visible",
-        "differenceKind": "none",
-        "comparisonSummary": "Both images show one primary package each, quantity matches.",
+        "referenceObservation": "One complete product visible.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
         "visibleEvidence": [
-          "single package in each image"
+          "Reference shows entire pouch product. Candidate shows only a close-up of the white label with text.",
+          "No full product is visible in candidate image."
         ],
         "referenceVisible": true,
-        "candidateVisible": true
+        "candidateVisible": false
       }
     },
     {
@@ -99,15 +95,14 @@
         "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
+      "explanation": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
       "evidence": {
-        "referenceObservation": "Dominant package color is orange-red on the pouch body surrounding the label panel.",
-        "candidateObservation": "Dominant package color not observable; only the white label panel with thin orange-red edge visible, majority of orange-red pouch outside frame.",
+        "referenceObservation": "Orange/red dominant color of entire pouch surrounding white label.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
+        "comparisonSummary": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
         "visibleEvidence": [
-          "Orange-red pouch body in reference",
-          "White label panel with thin orange-red edge in candidate"
+          "Reference shows orange/red pouch surrounding white label.",
+          "Candidate shows only white label area with no surrounding pouch color visible."
         ],
         "referenceVisible": true,
         "candidateVisible": false
@@ -123,15 +118,15 @@
         "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
+      "explanation": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
       "evidence": {
-        "referenceObservation": "Stand-up resealable pouch with visible zipper closure and pouch body.",
-        "candidateObservation": "Only the flat white label panel visible, no visible bag pouch body or zipper closure.",
+        "referenceObservation": "Components visible: pouch package body with resealable zipper and white label panel.",
+        "candidateObservation": "Only white label panel visible, no pouch body or zipper visible in candidate image.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
+        "comparisonSummary": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
         "visibleEvidence": [
-          "Pouch body and zipper closure visible in reference",
-          "Only label panel visible in candidate"
+          "Reference image shows full pouch package including zipper seal and white label panel.",
+          "Candidate image shows only a close-up of the white label panel, omitting zipper and pouch body."
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -147,15 +142,14 @@
         "coverage": "partial"
       },
       "confidence": "high",
-      "explanation": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
+      "explanation": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
       "evidence": {
-        "referenceObservation": "Stand-up bag pouch with zipper closure and rounded corner edges visible.",
-        "candidateObservation": "Candidate shows only a cropped flat label panel with rounded corners; overall packaging shape and pouch body not visible.",
+        "referenceObservation": "Pouch packaging with flat bottom and zipper seal, standing upright silhouette mostly visible.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
+        "comparisonSummary": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
         "visibleEvidence": [
-          "Full stand-up pouch shape in reference",
-          "Cropped flat label panel in candidate"
+          "Reference shows full pouch shape with standing base and zipper seal.",
+          "Candidate image shows only close-up of label, no packaging shape seen."
         ],
         "referenceVisible": true,
         "candidateVisible": false
@@ -167,17 +161,37 @@
     {
       "kind": "limitation",
       "type": "attribute_not_observable",
+      "sourceCheckType": "quantity",
+      "confidence": "high",
+      "message": "quantity is not sufficiently observable.",
+      "evidence": {
+        "referenceObservation": "One complete product visible.",
+        "differenceKind": "not_visible",
+        "comparisonSummary": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
+        "visibleEvidence": [
+          "Reference shows entire pouch product. Candidate shows only a close-up of the white label with text.",
+          "No full product is visible in candidate image."
+        ],
+        "referenceVisible": true,
+        "candidateVisible": false,
+        "raw": {
+          "uncertainReason": "Relevant attribute is not observable."
+        }
+      }
+    },
+    {
+      "kind": "limitation",
+      "type": "attribute_not_observable",
       "sourceCheckType": "dominant_color",
       "confidence": "high",
       "message": "dominant_color is not sufficiently observable.",
       "evidence": {
-        "referenceObservation": "Dominant package color is orange-red on the pouch body surrounding the label panel.",
-        "candidateObservation": "Dominant package color not observable; only the white label panel with thin orange-red edge visible, majority of orange-red pouch outside frame.",
+        "referenceObservation": "Orange/red dominant color of entire pouch surrounding white label.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Dominant color comparison not possible due to limited candidate coverage of the orange-red package body.",
+        "comparisonSummary": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
         "visibleEvidence": [
-          "Orange-red pouch body in reference",
-          "White label panel with thin orange-red edge in candidate"
+          "Reference shows orange/red pouch surrounding white label.",
+          "Candidate shows only white label area with no surrounding pouch color visible."
         ],
         "referenceVisible": true,
         "candidateVisible": false,
@@ -193,13 +207,13 @@
       "confidence": "high",
       "message": "major_components is not sufficiently observable.",
       "evidence": {
-        "referenceObservation": "Stand-up resealable pouch with visible zipper closure and pouch body.",
-        "candidateObservation": "Only the flat white label panel visible, no visible bag pouch body or zipper closure.",
+        "referenceObservation": "Components visible: pouch package body with resealable zipper and white label panel.",
+        "candidateObservation": "Only white label panel visible, no pouch body or zipper visible in candidate image.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate omits the pouch body and zipper closure components visible in reference; component comparison incomplete due to partial candidate visibility.",
+        "comparisonSummary": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
         "visibleEvidence": [
-          "Pouch body and zipper closure visible in reference",
-          "Only label panel visible in candidate"
+          "Reference image shows full pouch package including zipper seal and white label panel.",
+          "Candidate image shows only a close-up of the white label panel, omitting zipper and pouch body."
         ],
         "referenceVisible": true,
         "candidateVisible": true,
@@ -215,13 +229,12 @@
       "confidence": "high",
       "message": "major_shape_packaging is not sufficiently observable.",
       "evidence": {
-        "referenceObservation": "Stand-up bag pouch with zipper closure and rounded corner edges visible.",
-        "candidateObservation": "Candidate shows only a cropped flat label panel with rounded corners; overall packaging shape and pouch body not visible.",
+        "referenceObservation": "Pouch packaging with flat bottom and zipper seal, standing upright silhouette mostly visible.",
         "differenceKind": "not_visible",
-        "comparisonSummary": "Overall packaging shape comparison not possible due to partial candidate coverage; candidate cropped to only label panel.",
+        "comparisonSummary": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
         "visibleEvidence": [
-          "Full stand-up pouch shape in reference",
-          "Cropped flat label panel in candidate"
+          "Reference shows full pouch shape with standing base and zipper seal.",
+          "Candidate image shows only close-up of label, no packaging shape seen."
         ],
         "referenceVisible": true,
         "candidateVisible": false,
@@ -233,28 +246,28 @@
   ],
   "coverage": {
     "selectedChecks": 6,
-    "sufficientlyObservableChecks": 3,
-    "insufficientChecks": 3
+    "sufficientlyObservableChecks": 2,
+    "insufficientChecks": 4
   },
   "versions": {
-    "qaEngineVersion": "m0-qa-engine-004",
+    "qaEngineVersion": "m0-qa-engine-005",
     "riskPolicyVersion": "m0-risk-policy-003",
     "modelPolicyVersion": "m0-model-policy-002"
   },
   "modelCall": {
     "provider": "openai",
     "model": "gpt-4.1-mini",
-    "promptVersion": "m0-real-mvp-008",
-    "latencyMs": 22866,
-    "estimatedCostUsd": 0.0048408,
+    "promptVersion": "m0-real-mvp-009",
+    "latencyMs": 28320,
+    "estimatedCostUsd": 0.004883200000000001,
     "inputUsage": {
-      "inputTokens": 6742,
+      "inputTokens": 6784,
       "cachedInputTokens": 0
     },
     "outputUsage": {
-      "outputTokens": 1340
+      "outputTokens": 1356
     }
   },
-  "totalLatencyMs": 22868,
-  "estimatedCostUsd": 0.0048408
+  "totalLatencyMs": 28322,
+  "estimatedCostUsd": 0.004883200000000001
 }

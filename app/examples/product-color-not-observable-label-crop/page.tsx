@@ -39,13 +39,13 @@ export default function ProductColorNotObservableLabelCropPage() {
           <div className="case-fact-grid">
             <div><span>Verified</span><strong>Logo and visible label text</strong></div>
             <div><span>Observed Pairvu decision</span><strong>REVIEW</strong></div>
-            <div><span>Not observable</span><strong>Main color, major components, and package shape</strong></div>
+            <div><span>Not observable</span><strong>Product count, main color, major components, and package shape</strong></div>
           </div>
           <p>
-            Prompt version m0-real-mvp-008 and QA Engine m0-qa-engine-004 prevent missing coverage from becoming a
-            false color or component mismatch. The candidate supplies enough corresponding label evidence to verify
+            Prompt version m0-real-mvp-009 and QA Engine m0-qa-engine-005 prevent missing coverage from becoming a
+            false match or mismatch. The candidate supplies enough corresponding label evidence to verify
             TIDORA, LAUNDRY PODS, CLEAN COTTON, and 24 PODS, but not enough product-body evidence to verify the
-            dominant orange color or complete pouch construction.
+            number of complete products, dominant orange color, or complete pouch construction.
           </p>
         </section>
 

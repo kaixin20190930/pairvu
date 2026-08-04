@@ -1411,7 +1411,7 @@ export const checkPageContents: readonly CheckPageContent[] = [
         observation:
           "The label crop preserves enough evidence to verify the TIDORA logo, LAUNDRY PODS, CLEAN COTTON, and 24 PODS. It does not show the pouch body, zipper, complete outline, or enough surrounding package area to establish the approved orange color.",
         whyThisDecision:
-          "Prompt policy v008 and QA Engine v004 correctly return REVIEW with color, components, and shape marked not observable. Comparing the orange body with the white label would compare different semantic regions and create a false mismatch.",
+          "Prompt policy v009 and QA Engine v005 correctly return REVIEW with product count, color, components, and shape marked not observable. Comparing the orange body with the white label would compare different semantic regions, while inferring one product from the reference would create a false match.",
         nextAction:
           "Request a candidate showing the complete corresponding pouch face. Keep the verified logo and text findings, but do not approve package color or construction from this crop.",
       },
