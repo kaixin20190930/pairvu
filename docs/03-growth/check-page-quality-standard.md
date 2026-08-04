@@ -124,5 +124,5 @@ The first screen must contain a concise, quotable answer to the page question. T
 | Product packaging | `PUBLISHED` | Shape change, missing component, lighting hard negative, partial coverage |
 | Product logo | `PUBLISHED` | Logo replacement FAIL, background PASS, shadow/reflection PASS, and partial-occlusion REVIEW |
 | Product color | `PUBLISHED` | Variant-plus-color FAIL, color-only REVIEW, lighting PASS, and incomplete-coverage REVIEW |
-| Product components | `PLANNED / EVIDENCE IN PROGRESS` | Generate one fresh candle-set family covering component removal plus text change, background-only PASS, cropped accessory REVIEW, and extra-accessory REVIEW |
+| Product components | `PUBLISHED` | Founder-approved candle-set family: component removal plus text change FAIL, scene recomposition PASS, cropped accessory REVIEW, and extra-accessory REVIEW |
 | Observability | `PLANNED / NOINDEX` | Viewpoint, occlusion, unreadable text, partial product coverage |

@@ -44,7 +44,8 @@ const checkFamilies = [
   },
   {
     title: "Product components",
-    status: "Evidence in progress",
+    status: "Published",
+    href: "/checks/product-components",
     detail: "Distinguish missing, substituted, added, hidden, and harmlessly repositioned product parts or included accessories.",
   },
   {

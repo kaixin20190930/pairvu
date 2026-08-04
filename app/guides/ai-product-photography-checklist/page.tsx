@@ -104,9 +104,12 @@ export default function ChecklistPage() {
               <Link className="text-link" href="/examples">
                 Review failure modes
               </Link>
+              <Link className="text-link" href="/checks/product-components">
+                Check included components
+              </Link>
             </div>
           </section>
-          <p className="content-updated">Last updated: July 29, 2026</p>
+          <p className="content-updated">Last updated: August 4, 2026</p>
         </div>
       </main>
     </>

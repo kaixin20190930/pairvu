@@ -226,6 +226,7 @@ export default function HouseholdPackagedGoodsImageQaPage() {
             <Link className="primary-link-button" href="/#checker">Check image</Link>
             <Link className="text-link" href="/examples">See all controlled examples</Link>
             <Link className="text-link" href="/checks/product-packaging">Review packaging checks</Link>
+            <Link className="text-link" href="/checks/product-components">Review component checks</Link>
           </div>
         </section>
 

@@ -1,9 +1,9 @@
 # Product Components Evidence Plan
 
-Status: `FOUNDER IMAGE GENERATION AND REAL CHECKS REQUIRED`
+Status: `FOUNDER APPROVED / IMPLEMENTED`
 
 Route: `/checks/product-components`  
-Indexing state: `planned / noindex`  
+Indexing state: `published / indexable`
 Evidence family: `EMBERNOOK cedar candle set`  
 Target category: Household packaged goods  
 Canvas: square `1536 x 1536 px`, PNG
@@ -153,3 +153,14 @@ After the four results are accepted, Engineering will:
 5. update the Checks and Examples hubs plus contextual category and guide links;
 6. switch the registry route from `planned / noindex` to `published / indexable` only after tests and founder approval;
 7. run check-content, SEO inventory, typecheck, production build, and desktop/mobile visual QA.
+
+## Accepted Production Results
+
+| Test | Observed result | Accepted interpretation |
+| --- | --- | --- |
+| C01 | FAIL | Wick trimmer is confirmed missing and `CEDAR CANDLE SET` changes to `CEDAR CANDLE`; the critical text finding supplies the current FAIL path. |
+| C02 | PASS | The complete candle set remains observable after a scene and composition change. The public case does not claim strict pixel-level background isolation. |
+| C03 | REVIEW | The jar and lid match, but the candidate crop excludes the approved wick-trimmer region; absence cannot be confirmed. |
+| C04 | REVIEW | One brass snuffer is visibly added while the approved jar, lid, trimmer, logo, text, color, and shape remain stable. |
+
+Founder evidence accepted on `2026-08-04`. The five optimized public assets live under `public/examples/candle-components/`, and the four case pages link into the Product Components decision method.

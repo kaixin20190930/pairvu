@@ -200,6 +200,38 @@ const featuredCases = [
     candidate: "/examples/product-color-label-crop/candidate.png",
     alt: "Complete laundry pouch and label-only crop observability comparison",
   },
+  {
+    href: "/examples/candle-set-component-removed",
+    title: "Candle-set accessory removed",
+    summary: "The wick trimmer disappears and CEDAR CANDLE SET becomes CEDAR CANDLE.",
+    original: "/examples/candle-components/original.jpg",
+    candidate: "/examples/candle-components/missing-trimmer.jpg",
+    alt: "Candle set with and without the approved wick trimmer",
+  },
+  {
+    href: "/examples/candle-set-scene-change",
+    title: "Candle set preserved in a new scene",
+    summary: "The complete jar, lid, and wick trimmer remain faithful after scene recomposition.",
+    original: "/examples/candle-components/original.jpg",
+    candidate: "/examples/candle-components/scene-change.jpg",
+    alt: "Same candle set in studio and textured stone scenes",
+  },
+  {
+    href: "/examples/candle-accessory-outside-crop",
+    title: "Included accessory outside the crop",
+    summary: "The jar can match, but the approved wick trimmer cannot be verified outside the candidate frame.",
+    original: "/examples/candle-components/original.jpg",
+    candidate: "/examples/candle-components/trimmer-crop.jpg",
+    alt: "Complete candle set and crop excluding the wick trimmer",
+  },
+  {
+    href: "/examples/extra-candle-accessory",
+    title: "Extra candle snuffer appeared",
+    summary: "The approved candle set remains visible while a new included-looking brass snuffer is added.",
+    original: "/examples/candle-components/original.jpg",
+    candidate: "/examples/candle-components/extra-snuffer.jpg",
+    alt: "Candle set with an extra brass snuffer",
+  },
 ];
 
 export default function ExamplesPage() {
