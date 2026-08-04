@@ -105,4 +105,4 @@ Published pages use this order unless a category requires a documented exception
 | Beverages | `PUBLISHED` | Second flagship with capacity, count, reflection, and observability guidance |
 | Personal care | `PUBLISHED` | Third flagship with packaging-system, dispenser, lighting, and coverage guidance |
 | Packaged food | `PUBLISHED` | Fourth flagship with sellable-offer, package-count, perspective, and text-readability guidance |
-| Household packaged goods | `EVIDENCE GENERATION REQUIRED` | Missing-trigger and large-viewpoint REVIEW cases exist; add a capacity-change FAIL and household background-only PASS before implementation |
+| Household packaged goods | `PUBLISHED / AWAITING DEPLOY` | Capacity FAIL, background PASS, missing-trigger REVIEW, and front-versus-back observability evidence now support the fifth flagship workflow |

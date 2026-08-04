@@ -107,7 +107,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-C07 | P0 | `DONE` | Product/Growth | SG-C04 | Ecommerce page contains a distinct four-step workflow and links to the printed-value example |
 | SG-C08 | P0 | `DONE` | Product/Growth | SG-C04, official sources | Amazon workflow cites official sources and states non-affiliation and no approval guarantee |
 | SG-C09 | P1 | `DONE` | Product/Growth | SG-C05 | Shopify workflow cites official product-media sources and separates fidelity from platform rendering |
-| SG-C10 | P2 | `IN_PROGRESS` | Product/Growth | Founder-approved category evidence | Cosmetics, Beverage, Personal Care, and Packaged Food flagship category pages are published; Household needs capacity-change FAIL and background-only PASS evidence before implementation |
+| SG-C10 | P2 | `DONE` | Product/Growth | Founder-approved category evidence | Five M0 flagship category pages are implemented: Cosmetics, Beverage, Personal Care, Packaged Food, and Household Packaged Goods |
 | SG-C11 | P2 | `DEFERRED` | Product/Growth | Real tool-specific fixtures | Generator-specific pages |
 
 ### Indexing And Launch QA
@@ -127,7 +127,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-M02 | P1 | `NOT_STARTED` | Founder/Growth | 30 days of data | 30-day indexing and query review with keep/improve/consolidate decisions |
 | SG-M03 | P1 | `NOT_STARTED` | Founder/Growth | 60 days of data | 60-day content and conversion review; expansion candidates ranked |
 | SG-M04 | P1 | `NOT_STARTED` | Founder/Product | 90 days of data | 90-day strategy review records brand demand, conversions, citations, and scope compliance |
-| SG-M05 | P2 | `IN_PROGRESS` | Founder/Product | Founder approval and controlled evidence | Category quality gate adopted 2026-08-03; Cosmetics, Beverage, Personal Care, and Packaged Food are public flagships; Household evidence generation is specified and platform or generator clusters remain blocked pending separate approval |
+| SG-M05 | P2 | `DONE` | Founder/Product | Founder approval and controlled evidence | Category quality gate adopted 2026-08-03; all five accepted M0 CPG families now have evidence-backed flagship pages; platform or generator clusters remain blocked pending separate approval |
 | SG-M06 | P2 | `IN_PROGRESS` | Founder/Product | Founder approval and four controlled evidence cases per page | Product Quantity, Product Label Text, and Product Packaging are deployed; Product Logo passed implementation QA and awaits deploy; Product Color requires a mixed variant-cue FAIL and reflection-limited REVIEW before implementation |
 
 ## 6. Implementation Sequence And Timeline

@@ -44,6 +44,14 @@ const publishedCategories = [
     candidate: "/examples/product-count-change/candidate.jpg",
     alt: "One packaged-food box compared with two duplicated boxes",
   },
+  {
+    href: "/categories/household-packaged-goods-image-qa",
+    title: "Household packaged goods",
+    summary: "Check intended use, capacity, liquid and label colors, triggers, pumps, closures, components, and package form.",
+    original: "/examples/household-capacity-change/original.jpg",
+    candidate: "/examples/household-capacity-change/candidate.jpg",
+    alt: "Household cleaner front-label capacity comparison",
+  },
 ];
 
 export const metadata: Metadata = pageMetadata(page);
@@ -68,7 +76,7 @@ export default function CategoriesPage() {
           <p>
             A category page becomes public only after it has category-specific decision rules, controlled evidence for
             PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics, Beverages,
-            Personal Care, and Packaged Food now meet that standard.
+            Personal Care, Packaged Food, and Household Packaged Goods now meet that standard.
           </p>
           <div className="case-card-grid">
             {publishedCategories.map((category) => (
@@ -87,17 +95,13 @@ export default function CategoriesPage() {
           </div>
         </section>
 
-        <section className="article-section" aria-labelledby="household-scope">
-          <h2 id="household-scope">Household packaged goods</h2>
+        <section className="article-section" aria-labelledby="category-boundary">
+          <h2 id="category-boundary">Current category boundary</h2>
           <p>
-            Household packaged goods are also inside M0 scope. The first public evidence covers a cleaner bottle with
-            a missing trigger and a front-versus-back observability review. A dedicated category workflow will follow
-            when the public evidence set is broader.
+            These five CPG families are the accepted M0 scope. New category pages require their own decision model,
+            founder-reviewed PASS, REVIEW, and FAIL evidence, explicit limitations, and automated quality approval.
+            Physical electronics remain deferred and are not implied by this hub.
           </p>
-          <div className="content-actions">
-            <Link className="text-link" href="/examples/missing-product-component-ai-image">See the missing-trigger example</Link>
-            <Link className="text-link" href="/examples/large-viewpoint-difference-product-image">See the viewpoint example</Link>
-          </div>
         </section>
 
         <section className="article-section" aria-labelledby="category-limits">

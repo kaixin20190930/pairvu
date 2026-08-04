@@ -160,6 +160,22 @@ const featuredCases = [
     candidate: "/examples/partial-product-coverage/candidate.jpg",
     alt: "Complete and partially cropped shampoo bottle comparison",
   },
+  {
+    href: "/examples/household-cleaner-capacity-change",
+    title: "Household cleaner capacity changed",
+    summary: "The BRIGHTLEAF bottle stays stable while the readable capacity changes from 750 mL to 500 mL.",
+    original: "/examples/household-capacity-change/original.jpg",
+    candidate: "/examples/household-capacity-change/candidate.jpg",
+    alt: "Household cleaner capacity comparison from 750 mL to 500 mL",
+  },
+  {
+    href: "/examples/household-cleaner-background-change",
+    title: "Household product changed setting",
+    summary: "The same cleaner moves from a studio into a kitchen while every required product attribute matches.",
+    original: "/examples/household-background-change/original.jpg",
+    candidate: "/examples/household-background-change/candidate.jpg",
+    alt: "Same household cleaner on studio and kitchen backgrounds",
+  },
 ];
 
 export default function ExamplesPage() {

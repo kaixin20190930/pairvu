@@ -191,10 +191,10 @@ three distinct evidence roles, category-specific risks and insights, input
 requirements, workflow, limitations, FAQ, founder approval, and automated
 quality verification. New category routes default to planned and noindex.
 
-Cosmetics, Beverage, Personal Care, and Packaged Food are the first public
-flagships. Household packaged goods remain in
-the accepted M0 boundary, but a dedicated page is deferred until the public
-evidence set is broader. Platform and generator clusters still require separate
+Cosmetics, Beverage, Personal Care, Packaged Food, and Household Packaged Goods
+are the five public category flagships. The Household page was approved after
+controlled capacity FAIL, background PASS, missing-component REVIEW, and
+viewpoint-observability evidence completed its category decision set. Platform and generator clusters still require separate
 founder approval and supporting demand evidence.
 
 Physical electronics remain outside the accepted M0 category boundary and must

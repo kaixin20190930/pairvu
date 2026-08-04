@@ -1299,6 +1299,358 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
     ],
   },
+  {
+    route: "/categories/household-packaged-goods-image-qa",
+    founderApprovedAt: "2026-08-04",
+    audience:
+      "Household-product brand owners, ecommerce operators, marketplace teams, packaging reviewers, and creative agencies checking AI-generated or AI-edited images of cleaners, detergents, wipes, refills, and other packaged home-care goods before publication.",
+    searchIntentEvidence:
+      "This page answers the household-specific approval question: whether a generated image still represents the approved cleaner or home-care product when labels, capacities, liquid colors, dispensing hardware, package faces, or functional components may have changed while the surrounding room and lighting are allowed to vary.",
+    deck:
+      "Household packaging is a functional system, not just a decorated bottle. Pairvu compares an AI-generated or edited image with an approved reference and checks the visible identity, capacity, liquid and package colors, trigger or closure, included components, and container form without treating every kitchen background or natural shadow as product drift.",
+    packagingFormats: [
+      "Trigger-spray bottles with visible actuator, nozzle, closure, and dip tube",
+      "Pump dispensers for soaps, detergents, and concentrated cleaners",
+      "Squeeze bottles with flip caps, angled necks, or dosing closures",
+      "Rigid jugs and handled containers for laundry or bulk cleaning products",
+      "Stand-up refill pouches, flexible sachets, and concentrated refill packs",
+      "Aerosol cans and pressurized household-product containers",
+      "Tubs, canisters, cartons, wipe packs, and lidded household consumables",
+    ],
+    identityHierarchy: [
+      {
+        priority: "1",
+        attribute: "Brand, product family, and intended job",
+        reason:
+          "The brand name and product wording distinguish kitchen cleaner, bathroom cleaner, glass cleaner, disinfectant, detergent, and other home-care jobs that may share the same container family.",
+      },
+      {
+        priority: "2",
+        attribute: "Variant, scent, formula, and visible claims",
+        reason:
+          "CITRUS, fragrance-free, concentrate, antibacterial, refill, and surface-specific wording can identify a different sellable variant even when the master brand and bottle remain familiar.",
+      },
+      {
+        priority: "3",
+        attribute: "Printed capacity, dose, or concentration",
+        reason:
+          "A visible 750 mL, 500 mL, dilution ratio, or dose statement is customer-facing product information and must match the approved package rather than merely look typographically plausible.",
+      },
+      {
+        priority: "4",
+        attribute: "Dispensing and closure system",
+        reason:
+          "A trigger, pump, cap, spout, nozzle, collar, or dosing cup establishes how the package functions. Missing or substituted hardware can change both usability and the offer represented by the image.",
+      },
+      {
+        priority: "5",
+        attribute: "Container, handle, neck, and base geometry",
+        reason:
+          "Bottle shoulders, grip recesses, handles, neck threads, pouch seams, can profiles, and base shapes distinguish approved packaging from a generic AI reconstruction.",
+      },
+      {
+        priority: "6",
+        attribute: "Liquid, container, and label color layers",
+        reason:
+          "Transparent household packs can expose three separate color facts: the liquid, the plastic container, and the printed label. Scene light should not collapse these into one dominant-color judgment.",
+      },
+      {
+        priority: "7",
+        attribute: "Major components and fluid path",
+        reason:
+          "An internal dip tube, attached trigger, pump head, closure, cap, refill spout, or separate dosing tool may be necessary for the product shown to work as the approved package promises.",
+      },
+      {
+        priority: "8",
+        attribute: "Primary package count and refill relationship",
+        reason:
+          "One ready-to-use bottle, two bottles, a bottle plus refill, or a refill alone are different visible offers even when their brand family and color system correspond.",
+      },
+    ],
+    decisionRules: [
+      {
+        attribute: "Brand and intended use",
+        pass: "The same readable brand, product family, and household-use wording remain visible on corresponding package faces.",
+        review: "The required front label is turned away, cropped, blurred, reflected, or too small to verify the exact product job.",
+        fail: "The brand, cleaner type, intended surface, or primary product wording is visibly replaced, removed, or changed.",
+      },
+      {
+        attribute: "Variant, scent, and claims",
+        pass: "The candidate preserves the approved visible scent, formula, concentration, and identity-bearing claim wording.",
+        review: "Small variant or claim text is unreadable or appears on a package face that is not shown in both supplied images.",
+        fail: "A visible scent, formula, refill designation, concentration, or surface-specific variant changes to another offer.",
+      },
+      {
+        attribute: "Capacity and dose",
+        pass: "Readable net contents, dose, and concentration values match the approved household package exactly.",
+        review: "The numeric area is hidden, curved away, washed out by glare, or below the resolution needed for direct reading.",
+        fail: "A visible quantity or dose changes, such as an approved 750 mL cleaner becoming 500 mL in the candidate.",
+      },
+      {
+        attribute: "Trigger, pump, cap, or spout",
+        pass: "The approved dispensing and closure hardware is present with the same functional type and visible construction.",
+        review: "A component may be behind the package, outside the crop, or hidden by viewpoint, so presence cannot be established.",
+        fail: "A clearly observable required trigger, pump, cap, spout, or dosing closure is removed or replaced by another system.",
+      },
+      {
+        attribute: "Container and grip geometry",
+        pass: "The same bottle, jug, pouch, can, tub, handle, neck, shoulder, and base form remain visibly consistent.",
+        review: "The frame or viewpoint hides enough of the side profile, handle, base, or closure interface to prevent comparison.",
+        fail: "The approved container materially changes form, for example from trigger bottle to straight bottle or pouch to jug.",
+      },
+      {
+        attribute: "Liquid and package color",
+        pass: "Liquid, container, label, and closure color families remain semantically consistent under ordinary room lighting.",
+        review: "Tinted glare, translucency, reflections, or mixed illumination makes the underlying liquid or package color uncertain.",
+        fail: "A deliberate liquid, label, container, or closure color change visibly indicates different artwork or a different variant.",
+      },
+      {
+        attribute: "Components and product count",
+        pass: "The same primary package count and all observable approved major parts are present without unapproved extras.",
+        review: "A possible component or additional unit cannot be separated from background objects, occlusion, or incomplete coverage.",
+        fail: "A clearly visible package, dosing tool, sprayer, cap, refill, or other major included element is added or removed.",
+      },
+      {
+        attribute: "Background, room, and composition",
+        pass: "Only the kitchen, bathroom, laundry setting, shadows, framing, or product position changes while product evidence remains complete.",
+        review: "The new scene overlaps package boundaries, hides required text, or introduces reflections that prevent direct verification.",
+        fail: "The composition changes the visible offer by adding or removing a product, attachment, refill, or functional accessory.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/household-cleaner-capacity-change",
+        title: "Kitchen cleaner capacity changed from 750 mL to 500 mL",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/household-capacity-change/original.jpg",
+        candidate: "/examples/household-capacity-change/candidate.jpg",
+        alt: "BRIGHTLEAF household cleaner with a front-label capacity change from 750 mL to 500 mL",
+        observation:
+          "Pairvu confirmed the readable capacity mismatch and returned FAIL. The BRIGHTLEAF logo, KITCHEN CLEANER and CITRUS wording, light-blue bottle, liquid, trigger, product count, and package form were verified as stable.",
+        lesson:
+          "Correct the candidate label value before publishing; the result isolates a customer-facing capacity error rather than a generic visual difference.",
+      },
+      {
+        href: "/examples/household-cleaner-background-change",
+        title: "Same cleaner moved from studio to kitchen",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/household-background-change/original.jpg",
+        candidate: "/examples/household-background-change/candidate.jpg",
+        alt: "The same BRIGHTLEAF cleaner bottle on neutral studio and bright kitchen backgrounds",
+        observation:
+          "Pairvu returned PASS with no product issue or observability limitation. Logo, text, 750 mL value, count, color, components, and package shape all matched after the environment changed.",
+        lesson:
+          "Approve the scene variation when product evidence remains faithful; a new room, plant, countertop, and natural shadow are not product mutations.",
+      },
+      {
+        href: "/examples/missing-product-component-ai-image",
+        title: "Trigger sprayer is visibly absent",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/missing-component/original.jpg",
+        candidate: "/examples/missing-component/candidate.jpg",
+        alt: "BRIGHTLEAF cleaner with an approved trigger compared with a candidate open threaded neck",
+        observation:
+          "Pairvu identified the missing white trigger sprayer while preserving the bottle, front label, liquid color, and one-product count. The current policy routes this high-impact component finding to REVIEW.",
+        lesson:
+          "Do not publish until a human confirms whether the open-neck candidate is intentional; the component is observable and the visible package system changed.",
+      },
+      {
+        href: "/examples/large-viewpoint-difference-product-image",
+        title: "Front and back views do not prove the same label attributes",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/missing-component/original.jpg",
+        candidate: "/examples/large-viewpoint/candidate.jpg",
+        alt: "Household cleaner front label compared with its back package face",
+        observation:
+          "The bottle, trigger, quantity of primary products, major colors, and container shape correspond, but the candidate exposes the back while the approved reference exposes the front identity panel.",
+        lesson:
+          "Request a candidate view that shows the corresponding front label instead of treating unseen brand and front-label wording as changed.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "A functional dispenser becomes generic packaging",
+        detail:
+          "AI may preserve a cleaner bottle body while deleting the trigger, shortening the pump, closing an open spout, or inventing a cap that no longer matches the approved dispensing method.",
+        businessRisk:
+          "Customers see a package that cannot deliver the product as represented, and teams may publish an image of a nonexistent packaging configuration.",
+      },
+      {
+        title: "Capacity, concentration, or dilution information drifts",
+        detail:
+          "Small numeric text can change while the overall label looks convincing, including net contents, concentrated formulas, dose amounts, or refill yield statements.",
+        businessRisk:
+          "The visual can misstate how much product is sold or how it should be used, creating offer, support, and compliance exposure.",
+      },
+      {
+        title: "Liquid color is confused with container tint",
+        detail:
+          "Transparent packs can show colored liquid through tinted plastic under room reflections. A model may treat scene spill, liquid hue, and printed label color as one attribute.",
+        businessRisk:
+          "A different formula or variant can pass unnoticed, or a faithful product can be rejected because the room cast changes apparent color.",
+      },
+      {
+        title: "Front and back package information is compared as if corresponding",
+        detail:
+          "The back may show directions, ingredients, warning text, or a barcode while the front carries brand, intended use, variant, and capacity. Both can be authentic without directly matching.",
+        businessRisk:
+          "Reviewers receive false text failures instead of an honest request for a corresponding view, slowing production and reducing trust.",
+      },
+      {
+        title: "Background props look like included accessories",
+        detail:
+          "Cloths, brushes, cups, plants, spray mist, or sink hardware placed near the pack can overlap it or appear to be attached, bundled, or supplied with the product.",
+        businessRisk:
+          "The final creative can imply included items or package functions that are not part of the approved household-product offer.",
+      },
+      {
+        title: "Ready-to-use and refill packages are conflated",
+        detail:
+          "A branded refill pouch and a trigger bottle may share color and wording while representing different packaging, quantities, closures, and customer usage expectations.",
+        businessRisk:
+          "A listing can show the wrong delivery format even though the brand family and product purpose appear correct at first glance.",
+      },
+    ],
+    uniqueInsights: [
+      {
+        title: "The package must form a credible dispensing chain",
+        paragraphs: [
+          "For a trigger cleaner, the visible system runs from the nozzle and actuator through the closure and internal dip tube into the container. For a pump, it includes the head, collar, and bottle interface. These parts are not independent decorations. Their presence and relationship explain how the packaged product is used.",
+          "A household review should therefore inspect the chain rather than asking only whether a bottle exists. A candidate with a clean open neck may preserve the label and silhouette but still represent a materially different product experience. Pairvu reports visible component evidence; a human decides whether an intentional packaging revision has been approved.",
+        ],
+      },
+      {
+        title: "Transparent packaging creates three color questions",
+        paragraphs: [
+          "A translucent cleaner can expose the hue of the liquid, the tint of the bottle resin, and the colors printed on the label. A white trigger adds another stable reference. Kitchen daylight or bathroom tiles may alter the pixels without changing any of those underlying product choices.",
+          "Approval should name the affected layer. A blue liquid becoming green is different from a blue label becoming green, and both differ from a warm room reflection on clear plastic. When reflection masks the true layer, REVIEW is more accurate than a confident PASS or a fabricated color mismatch.",
+        ],
+      },
+      {
+        title: "Package faces are complementary evidence, not duplicates",
+        paragraphs: [
+          "Household packs often put brand, use, scent, and capacity on the front while directions, warnings, ingredients, and barcode information live on the back. Rotating the bottle can verify the container and trigger but cannot verify front-label fidelity from memory or inference.",
+          "A front-versus-back pair should preserve what is observable and route hidden attributes to REVIEW. Teams can then request the missing face rather than redesigning a valid package or approving a detail that never appeared in the candidate pixels.",
+        ],
+      },
+      {
+        title: "Scene context must not redefine what is included",
+        paragraphs: [
+          "Household product photography naturally uses counters, sinks, plants, tiles, cloths, and brushes. These contextual objects can explain use, but they must remain visibly separate from the package and should not cover the trigger, label, base, or bottle boundary needed for approval.",
+          "A clean background substitution is a valuable hard negative: it proves the system can ignore creative context while preserving product fidelity. When a prop touches or overlaps the product, however, the reviewer may need to decide whether it is merely staging or an apparent accessory added to the offer.",
+        ],
+      },
+    ],
+    inputRequirements: [
+      {
+        title: "Use the approved product format and variant",
+        detail:
+          "Choose a reference for the exact cleaner, detergent, refill, scent, concentration, capacity, closure, and commercial configuration intended for the final image.",
+      },
+      {
+        title: "Show the complete dispensing system",
+        detail:
+          "Include the trigger, pump, cap, spout, closure interface, neck, and any visible tube or dosing component required for the package approval decision.",
+      },
+      {
+        title: "Keep identity and numeric text readable",
+        detail:
+          "The brand, intended use, variant, capacity, and other approval-critical wording must have enough pixels, focus, and contrast for direct reading.",
+      },
+      {
+        title: "Expose corresponding package faces",
+        detail:
+          "Use front-to-front or another intentional face pairing when label fidelity matters; a front and back pair cannot prove the same text attributes.",
+      },
+      {
+        title: "Preserve full product and component boundaries",
+        detail:
+          "Avoid crops or props that hide the base, shoulders, handle, closure, actuator, or included accessories needed to establish package form and count.",
+      },
+      {
+        title: "Control glare on transparent or glossy packs",
+        detail:
+          "Retain enough clean surface area to distinguish liquid color, container tint, and label palette rather than letting one reflection dominate every color-bearing region.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Define the approved household offer",
+        detail:
+          "Record product job, variant, capacity, package format, dispensing system, included parts, and whether the asset represents a bottle, refill, bundle, or other sellable configuration.",
+      },
+      {
+        title: "Read the identity-bearing label face",
+        detail:
+          "Compare brand, use wording, scent or formula, claims, and numeric values only on corresponding visible regions with enough resolution for direct inspection.",
+      },
+      {
+        title: "Trace the dispensing and closure system",
+        detail:
+          "Verify nozzle, trigger or pump, collar, neck, cap, spout, dip tube, and any separate dosing part that is both approved and observable in the pair.",
+      },
+      {
+        title: "Separate product colors from room light",
+        detail:
+          "Judge liquid, container, label, and closure layers independently while allowing natural highlights, reflections, contact shadows, and a different room setting.",
+      },
+      {
+        title: "Confirm package geometry and visible offer",
+        detail:
+          "Check complete container form, handle or grip, base, primary product count, refills, and accessories before deciding whether the candidate represents the same item.",
+      },
+      {
+        title: "Route the evidence to the right action",
+        detail:
+          "Fix confirmed identity, value, component, count, color, or packaging changes; request a better image for hidden details; approve harmless scene differences when required product evidence matches.",
+      },
+    ],
+    limitations: [
+      "Pairvu does not verify chemical composition, cleaning performance, disinfecting efficacy, active ingredients, dilution safety, toxicity, fragrance, or suitability for a surface or appliance.",
+      "The system does not certify hazard communication, warning statements, child-safety requirements, regulatory claims, marketplace policy, country-specific labeling, or legal compliance.",
+      "Pairvu does not inspect physical seal integrity, tamper evidence, trigger mechanics, leakage, pressure, fill level accuracy, material quality, or whether an internal tube functions in the real package.",
+      "A visual PASS does not validate barcode data, lot codes, recycling marks, ingredient lists, directions, contact information, manufacturing details, or every small back-label statement.",
+      "Strong glare, transparent layers, colored reflections, mist, condensation, blur, small text, crop, occlusion, or non-corresponding package faces may require REVIEW even when the product is recognizable.",
+      "Background props and detached objects may be ambiguous when they overlap the package or resemble accessories; the current system does not infer contractual contents beyond visible evidence.",
+      "The M0 workflow compares one approved reference with one candidate and does not replace a multi-angle packaging specification, production proof, retailer approval, safety review, or legal sign-off.",
+    ],
+    faq: [
+      {
+        question: "Why can a missing trigger return REVIEW instead of FAIL?",
+        answer:
+          "Pairvu can confirm that the visible package system differs, but the current M0 risk policy routes a high-impact component finding to REVIEW unless a critical identity rule also fails. A reviewer should confirm whether the open-neck package is intentional before publication.",
+      },
+      {
+        question: "Should a kitchen or bathroom background change cause an issue?",
+        answer:
+          "No. A new room, countertop, tile pattern, plant, contact shadow, or ordinary daylight can PASS when the bottle, label, values, colors, components, product count, and package shape remain observable and faithful.",
+      },
+      {
+        question: "How should Pairvu judge color in a transparent cleaner bottle?",
+        answer:
+          "Liquid hue, container tint, label palette, and closure color should be considered separately. If reflection or mixed lighting prevents those layers from being distinguished, the affected color check should need review rather than guessing.",
+      },
+      {
+        question: "Can a front image be compared with a back image of the same cleaner?",
+        answer:
+          "Container, trigger, count, and some colors may still be verified, but front-label brand, product, variant, and capacity cannot be approved from a back view. Those hidden attributes require REVIEW or a corresponding front view.",
+      },
+      {
+        question: "Does Pairvu validate cleaning claims, warnings, or ingredients?",
+        answer:
+          "No. Pairvu checks visible image fidelity against an approved reference. Product efficacy, chemical safety, claims, warnings, ingredients, legal requirements, and regulatory compliance need separate source data and specialist review.",
+      },
+      {
+        question: "Is a refill pouch interchangeable with a trigger bottle in an image?",
+        answer:
+          "No. Even within the same brand and formula, a refill and ready-to-use bottle have different packaging, closures, capacities, and customer expectations. The reference must represent the exact offer intended for publication.",
+      },
+    ],
+  },
 ];
 
 export function getCategoryPageContent(route: string) {

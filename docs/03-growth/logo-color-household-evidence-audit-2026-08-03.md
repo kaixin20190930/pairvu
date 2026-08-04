@@ -1,6 +1,6 @@
 # Product Logo, Product Color, and Household Evidence Audit
 
-Status date: 2026-08-03  
+Status date: 2026-08-04
 Owner: Founder / Product / Engineering  
 Scope: Evidence gates for `/checks/product-logo`, `/checks/product-color`, and the Household Packaged Goods category flagship.
 
@@ -8,11 +8,61 @@ Scope: Evidence gates for `/checks/product-logo`, `/checks/product-color`, and t
 
 | Surface | Status | Decision |
 | --- | --- | --- |
-| Product Logo | `IMPLEMENTED / AWAITING DEPLOY` | Existing evidence is sufficient and distinct. The page passed the check-content gate, full SEO inventory, production build, and 1280px/390px responsive QA. |
-| Product Color | `BLOCKED ON TWO CANDIDATES` | A color-only change currently produces REVIEW by design. Publish only after a mixed color-plus-variant case produces overall FAIL and a reflection-limited candidate produces REVIEW. |
-| Household Packaged Goods | `BLOCKED ON TWO CANDIDATES` | Existing missing-trigger and large-viewpoint cases both produce REVIEW. Add one capacity-change FAIL and one background-only PASS to create a complete, category-specific verdict set. |
+| Product Logo | `PUBLISHED` | Existing evidence is sufficient and distinct. The page passed the check-content gate, full SEO inventory, production build, and responsive QA. |
+| Product Color | `BLOCKED ON CLEAN EVIDENCE` | Both first-round candidates produced the expected overall verdict, but neither isolated the intended color behavior. Regenerate the two corrected candidates below before publication. |
+| Household Packaged Goods | `IMPLEMENTED / AWAITING DEPLOY` | HOUSEHOLD-01 produced a clean capacity FAIL and HOUSEHOLD-02 produced a clean background-only PASS. Two case pages and the fifth flagship category page pass the content and SEO gates. |
 
 Do not change `M0RiskPolicy` to force a color-only FAIL. Under `m0-risk-policy-003`, `color_mismatch` is high severity rather than critical, so a sufficiently observable color mismatch contributes REVIEW. The Product Color page must explain this product boundary honestly.
+
+## Observed Result Review — 2026-08-04
+
+| Fixture | Observed result | Evidence decision |
+| --- | --- | --- |
+| `HOUSEHOLD-01-capacity-500ml.png` | FAIL for readable `750 mL` to `500 mL`; all other check families verified | `ACCEPTED` |
+| `HOUSEHOLD-02-background-only.png` | PASS with no issue or limitation; all six check families verified | `ACCEPTED` |
+| `COLOR-01-variant-and-color-change.png` | FAIL with text and color changes, plus an unintended critical logo finding because the logo and ELARA ink changed from orange to white | `REGENERATE` |
+| `COLOR-02-reflection-limited-color.png` | REVIEW, but the system saw a real holographic/rainbow label recolor rather than insufficient color observability | `REGENERATE` |
+
+The Color outcomes are not a reason to change model instructions or RiskPolicy. The supplied pixels contain extra product mutations. Publishing those fixtures would teach the wrong lesson: COLOR-01 would conflate logo, copy, and palette changes, while COLOR-02 would describe an observable material recolor as glare. Evidence purity takes priority over adding another route.
+
+### Corrected COLOR-01 candidate
+
+Save as `COLOR-01-v2-variant-and-color-change.png`.
+
+```text
+Edit the supplied approved ELARA VITAMIN C SERUM image. Preserve the exact frosted bottle, white dropper, camera angle, position, scale, lighting, shadow, neutral background, label dimensions, and printed value “30 mL”.
+
+Preserve the complete logo lockup exactly as it appears in the approved original: the crescent moon must remain the same orange color, shape, size, and position, and the word “ELARA” must remain the same orange color, spelling, type style, size, and position. Preserve the orange top and bottom label rules and the orange “30 mL” value.
+
+Make exactly these intended variant changes:
+1. Change only the main label background from cream to deep cobalt blue.
+2. Change “VITAMIN C SERUM” to “RETINOL SERUM”.
+3. Change “BRIGHTENING” to “NIGHT RENEWAL”.
+
+The final front label must read exactly:
+ELARA
+RETINOL SERUM
+NIGHT RENEWAL
+30 mL
+
+Use white text only for “RETINOL SERUM” and “NIGHT RENEWAL” so those lines remain readable against blue. Do not recolor, redraw, replace, move, or restyle the orange crescent, orange ELARA wordmark, orange rules, or orange 30 mL value. Do not alter bottle geometry, dropper, product count, framing, or background. Do not add decorations, claims, badges, props, or extra components.
+```
+
+Acceptance requires the logo check to remain verified while visible text and main color change. Overall FAIL may be driven by the identity-bearing variant text.
+
+### Corrected COLOR-02 candidate
+
+Save as `COLOR-02-v2-neutral-glare-color-not-observable.png`.
+
+```text
+Edit the supplied approved ELARA VITAMIN C SERUM image. Preserve the exact underlying bottle, white dropper, cream-and-orange label artwork, orange crescent, orange ELARA wordmark, VITAMIN C SERUM wording, BRIGHTENING wording, 30 mL value, package geometry, product count, camera angle, scale, position, and neutral background.
+
+Photograph the unchanged product through a neutral frosted acrylic sheet or strong neutral-white softbox reflection positioned in front of the product. Add a broad, physically plausible, colorless white glare and diffusion region across approximately 70–80% of the front label. The glare must wash out the true label palette and make the cream-versus-orange color relationship impossible to certify directly. Keep the bottle silhouette, dropper, and enough label location visible to recognize that the product is present.
+
+The obstruction must be neutral white and gray only. Do not add cyan, magenta, rainbow, iridescent, holographic, metallic, or colored lighting. Do not repaint the label, recolor the product, change text, add a sticker, pixelate the image, crop the bottle, or alter any component. The intended condition is insufficient color evidence caused by neutral glare, not a different package color or material.
+```
+
+Acceptance requires REVIEW with color explicitly not observable, uncertain, or insufficiently covered. A confirmed color-change finding means the fixture must be regenerated again.
 
 ## Product Logo Evidence Audit
 
