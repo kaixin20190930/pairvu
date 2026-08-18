@@ -6,10 +6,11 @@ import {
   syncStripeSubscription,
 } from "@/lib/billing/repository";
 import {
+  isStripeWebhookModeAllowed,
   normalizeStripeSubscription,
   retrieveStripeSubscription,
   StripeSignatureError,
-  subscriptionIdFromEventObject,
+  subscriptionIdFromWebhookEvent,
   verifyStripeWebhook,
   type StripeWebhookEvent,
 } from "@/lib/billing/stripe";
@@ -27,6 +28,10 @@ const RETRIEVE_SUBSCRIPTION_EVENTS = new Set([
   "invoice.paid",
   "invoice.payment_failed",
 ]);
+const SUBSCRIPTION_EVENTS = new Set([
+  ...DIRECT_SUBSCRIPTION_EVENTS,
+  ...RETRIEVE_SUBSCRIPTION_EVENTS,
+]);
 
 export async function POST(request: NextRequest) {
   const env = getVisualQAEnv();
@@ -39,15 +44,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "stripe_signature_invalid", message }, { status: 400 });
   }
 
+  if (!isStripeWebhookModeAllowed(env, event)) {
+    return NextResponse.json(
+      { error: "stripe_mode_invalid", message: "Test-mode Stripe events are not accepted by live billing." },
+      { status: 400 },
+    );
+  }
+
   try {
     const shouldProcess = await beginStripeWebhookEvent(env.VISUALQA_DB, event);
     if (!shouldProcess) return NextResponse.json({ received: true, duplicate: true });
 
-    if (DIRECT_SUBSCRIPTION_EVENTS.has(event.type)) {
-      await syncStripeSubscription(env.VISUALQA_DB, normalizeStripeSubscription(env, event.data.object));
-    } else if (RETRIEVE_SUBSCRIPTION_EVENTS.has(event.type)) {
-      const subscriptionId = subscriptionIdFromEventObject(event.data.object);
+    if (SUBSCRIPTION_EVENTS.has(event.type)) {
+      const subscriptionId = subscriptionIdFromWebhookEvent(event);
       if (!subscriptionId) throw new Error(`${event.type} did not contain a subscription identifier.`);
+      // Stripe does not guarantee webhook ordering. Always synchronize from the
+      // current Subscription instead of applying a potentially stale event snapshot.
       const subscription = await retrieveStripeSubscription(env, subscriptionId);
       await syncStripeSubscription(env.VISUALQA_DB, normalizeStripeSubscription(env, subscription));
     }

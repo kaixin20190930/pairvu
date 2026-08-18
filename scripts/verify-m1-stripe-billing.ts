@@ -7,15 +7,21 @@ import {
   completeStripeWebhookEvent,
   syncStripeSubscription,
 } from "../lib/billing/repository";
+import { reserveWorkspaceCredits, WorkspaceBillingInactiveError } from "../lib/credits/repository";
 import {
+  isStripeWebhookModeAllowed,
   normalizeStripeSubscription,
   StripeSignatureError,
+  subscriptionIdFromWebhookEvent,
   verifyStripeWebhook,
   type StripeWebhookEvent,
 } from "../lib/billing/stripe";
 import type { D1Database, D1PreparedStatement, VisualQACloudflareEnv } from "../lib/cloudflare/bindings";
 
 const NOW = new Date("2026-08-10T08:00:00.000Z");
+const RENEWAL_NOW = new Date("2026-09-10T08:00:00.000Z");
+const RENEWAL_PERIOD_START = 1788998400;
+const RENEWAL_PERIOD_END = 1791590400;
 const USER = { id: "stripe-test-user", name: "Stripe Test", email: "stripe-test@pairvu.com" };
 const ENV = {
   STRIPE_PRICE_STARTER: "price_starter_test",
@@ -45,29 +51,114 @@ async function main() {
   assert.equal(snapshot.retentionDays, 30);
   assert.equal(snapshot.billingManaged, true);
 
+  const scheduledCancellation = normalizeStripeSubscription(ENV, subscriptionPayload({
+    priceId: ENV.STRIPE_PRICE_STARTER!, workspaceId, status: "active", cancelAtPeriodEnd: true,
+  }));
+  await syncStripeSubscription(db, scheduledCancellation, NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
+  assert.equal(snapshot.planCode, "starter", "A scheduled cancellation keeps paid access through period end");
+  assert.equal(scalar(sqlite, "select cancel_at_period_end from workspace_subscriptions"), 1);
+
+  const pastDue = normalizeStripeSubscription(ENV, subscriptionPayload({
+    priceId: ENV.STRIPE_PRICE_STARTER!, workspaceId, status: "past_due",
+  }));
+  await syncStripeSubscription(db, pastDue, NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
+  assert.equal(snapshot.subscriptionStatus, "past_due");
+  await assert.rejects(
+    reserveWorkspaceCredits({
+      db,
+      workspaceId,
+      amount: 1,
+      purpose: "past-due-check",
+      sourceType: "verification",
+      sourceId: "past-due-check",
+      now: NOW,
+    }),
+    WorkspaceBillingInactiveError,
+    "Past-due subscriptions must not start new paid checks",
+  );
+
+  const recovered = normalizeStripeSubscription(ENV, subscriptionPayload({
+    priceId: ENV.STRIPE_PRICE_STARTER!, workspaceId, status: "active",
+  }));
+  await syncStripeSubscription(db, recovered, NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
+  assert.equal(snapshot.subscriptionStatus, "active");
+
+  const renewed = normalizeStripeSubscription(ENV, subscriptionPayload({
+    priceId: ENV.STRIPE_PRICE_STARTER!,
+    workspaceId,
+    status: "active",
+    currentPeriodStart: RENEWAL_PERIOD_START,
+    currentPeriodEnd: RENEWAL_PERIOD_END,
+  }));
+  await syncStripeSubscription(db, renewed, RENEWAL_NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, RENEWAL_NOW);
+  assert.equal(snapshot.planCode, "starter");
+  assert.equal(snapshot.allowance, 150);
+  assert.equal(count(sqlite, "select count(*) as count from workspace_credit_periods where period_key like 'stripe-%'"), 2);
+
   const event = webhookEvent("evt_pairvu_once");
   assert.equal(await beginStripeWebhookEvent(db, event, NOW), true);
   await completeStripeWebhookEvent(db, event.id, NOW);
   assert.equal(await beginStripeWebhookEvent(db, event, NOW), false, "Completed event replay must be ignored");
 
+  assert.equal(isStripeWebhookModeAllowed({ STRIPE_SECRET_KEY: "sk_live_pairvu" } as VisualQACloudflareEnv, event), false);
+  assert.equal(isStripeWebhookModeAllowed({ STRIPE_SECRET_KEY: "sk_live_pairvu" } as VisualQACloudflareEnv, { ...event, livemode: true }), true);
+  assert.equal(isStripeWebhookModeAllowed({ STRIPE_SECRET_KEY: "sk_test_pairvu" } as VisualQACloudflareEnv, event), true);
+  assert.equal(subscriptionIdFromWebhookEvent(event), "sub_pairvu_test");
+  assert.equal(subscriptionIdFromWebhookEvent({
+    ...event,
+    type: "customer.subscription.deleted",
+  }), "sub_pairvu_test");
+  assert.equal(subscriptionIdFromWebhookEvent({
+    ...event,
+    type: "checkout.session.completed",
+    data: { object: { subscription: "sub_from_checkout" } },
+  }), "sub_from_checkout");
+  assert.equal(subscriptionIdFromWebhookEvent({
+    ...event,
+    type: "invoice.paid",
+    data: { object: { parent: { subscription_details: { subscription: "sub_from_invoice" } } } },
+  }), "sub_from_invoice");
+
   const growth = normalizeStripeSubscription(ENV, subscriptionPayload({
-    priceId: ENV.STRIPE_PRICE_GROWTH!, workspaceId, status: "active",
+    priceId: ENV.STRIPE_PRICE_GROWTH!,
+    workspaceId,
+    status: "active",
+    currentPeriodStart: RENEWAL_PERIOD_START,
+    currentPeriodEnd: RENEWAL_PERIOD_END,
   }));
-  await syncStripeSubscription(db, growth, NOW);
-  snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
+  await syncStripeSubscription(db, growth, RENEWAL_NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, RENEWAL_NOW);
   assert.equal(snapshot.planCode, "growth");
   assert.equal(snapshot.allowance, 600);
   assert.equal(count(sqlite, "select count(*) as count from usage_ledger where event_type = 'adjustment'"), 1);
 
   const canceled = normalizeStripeSubscription(ENV, subscriptionPayload({
-    priceId: ENV.STRIPE_PRICE_GROWTH!, workspaceId, status: "canceled",
+    priceId: ENV.STRIPE_PRICE_GROWTH!,
+    workspaceId,
+    status: "canceled",
+    currentPeriodStart: RENEWAL_PERIOD_START,
+    currentPeriodEnd: RENEWAL_PERIOD_END,
   }));
-  await syncStripeSubscription(db, canceled, NOW);
-  snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
+  await syncStripeSubscription(db, canceled, RENEWAL_NOW);
+  snapshot = await getWorkspaceAccountSnapshot(db, USER, RENEWAL_NOW);
   assert.equal(snapshot.planCode, "free");
   assert.equal(snapshot.allowance, 10);
   assert.equal(snapshot.retentionDays, 7);
   assert.equal(snapshot.billingManaged, false);
+  assert.equal(textScalar(sqlite, `
+    select cp.plan_code
+    from workspace_subscriptions s
+    join workspace_credit_periods cp
+      on cp.workspace_id = s.workspace_id
+     and cp.period_key = case
+       when s.provider = 'stripe' then 'stripe-' || s.current_period_start
+       else substr(s.current_period_start, 1, 7)
+     end
+  `), "free", "Billing audit must select the subscription's current Free period after cancellation");
 
   await verifySignatureBehavior();
   sqlite.close();
@@ -89,14 +180,21 @@ async function verifySignatureBehavior() {
   );
 }
 
-function subscriptionPayload(input: { priceId: string; workspaceId: string; status: string }): Record<string, unknown> {
+function subscriptionPayload(input: {
+  priceId: string;
+  workspaceId: string;
+  status: string;
+  cancelAtPeriodEnd?: boolean;
+  currentPeriodStart?: number;
+  currentPeriodEnd?: number;
+}): Record<string, unknown> {
   return {
     id: "sub_pairvu_test",
     customer: "cus_pairvu_test",
     status: input.status,
-    current_period_start: 1786320000,
-    current_period_end: 1788998400,
-    cancel_at_period_end: false,
+    current_period_start: input.currentPeriodStart ?? 1786320000,
+    current_period_end: input.currentPeriodEnd ?? 1788998400,
+    cancel_at_period_end: input.cancelAtPeriodEnd ?? false,
     metadata: { workspace_id: input.workspaceId },
     items: { data: [{ price: { id: input.priceId } }] },
   };
@@ -121,6 +219,16 @@ async function hmac(secret: string, value: string): Promise<string> {
 
 function count(db: DatabaseSync, sql: string): number {
   return Number(db.prepare(sql).get()?.count ?? 0);
+}
+
+function scalar(db: DatabaseSync, sql: string): number {
+  const row = db.prepare(sql).get();
+  return Number(row ? Object.values(row)[0] : 0);
+}
+
+function textScalar(db: DatabaseSync, sql: string): string | null {
+  const row = db.prepare(sql).get();
+  return row ? String(Object.values(row)[0]) : null;
 }
 
 class SqliteD1 implements D1Database {

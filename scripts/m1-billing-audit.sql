@@ -57,7 +57,10 @@ left join workspace_credit_periods cp
     select current_cp.id
     from workspace_credit_periods current_cp
     where current_cp.workspace_id = s.workspace_id
-    order by current_cp.ends_at desc
+      and current_cp.period_key = case
+        when s.provider = 'stripe' then 'stripe-' || s.current_period_start
+        else substr(s.current_period_start, 1, 7)
+      end
     limit 1
   )
 where s.status in ('active', 'trialing')
@@ -91,7 +94,10 @@ left join workspace_credit_periods cp
     select latest_cp.id
     from workspace_credit_periods latest_cp
     where latest_cp.workspace_id = s.workspace_id
-    order by latest_cp.ends_at desc
+      and latest_cp.period_key = case
+        when s.provider = 'stripe' then 'stripe-' || s.current_period_start
+        else substr(s.current_period_start, 1, 7)
+      end
     limit 1
   )
 group by s.plan_code, s.status

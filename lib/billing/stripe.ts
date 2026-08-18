@@ -24,6 +24,20 @@ export interface StripeWebhookEvent {
   data: { object: Record<string, unknown> };
 }
 
+export function isStripeWebhookModeAllowed(
+  env: VisualQACloudflareEnv,
+  event: Pick<StripeWebhookEvent, "livemode">,
+): boolean {
+  return !env.STRIPE_SECRET_KEY?.startsWith("sk_live_") || event.livemode;
+}
+
+export function subscriptionIdFromWebhookEvent(event: StripeWebhookEvent): string | null {
+  if (event.type.startsWith("customer.subscription.")) {
+    return typeof event.data.object.id === "string" ? event.data.object.id : null;
+  }
+  return subscriptionIdFromEventObject(event.data.object);
+}
+
 export function stripePriceId(env: VisualQACloudflareEnv, planCode: Exclude<PlanCode, "free">): string {
   const value = {
     starter: env.STRIPE_PRICE_STARTER,
