@@ -16,14 +16,16 @@ const planDescriptions = {
   agency: "For high-volume client work across repeated product-image reviews.",
 } as const;
 
-function pricingSchema() {
+function pricingServiceSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${absoluteUrl(page.route)}#product`,
+    "@type": "Service",
+    "@id": `${absoluteUrl(page.route)}#service`,
     name: "Pairvu product image QA",
     description: page.description,
-    brand: { "@type": "Brand", name: "Pairvu" },
+    serviceType: "AI product image quality assurance",
+    provider: { "@id": `${absoluteUrl("/")}#organization` },
+    areaServed: "Worldwide",
     offers: PLAN_CODES.map((code) => {
       const plan = PLAN_ENTITLEMENTS[code];
       return {
@@ -32,7 +34,7 @@ function pricingSchema() {
         url: absoluteUrl("/account"),
         price: (plan.monthlyPriceCents / 100).toFixed(2),
         priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
+        category: "Monthly SaaS subscription",
         description: `${plan.includedMonthlyCredits} product checks per month and ${plan.retentionDays}-day image retention`,
       };
     }),
@@ -42,7 +44,7 @@ function pricingSchema() {
 export default function PricingPage() {
   return (
     <main className="content-page">
-      <StructuredData data={pricingSchema()} />
+      <StructuredData data={pricingServiceSchema()} />
       <div className="content-container">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Pricing", href: page.route }]} />
         <header className="content-hero content-hero-compact">

@@ -86,6 +86,14 @@ for (const page of publishedPages) {
 const sourceFiles = walkSourceFiles([path.join(root, "app"), path.join(root, "components"), path.join(root, "lib", "seo")]);
 const incomingLinks = new Map<string, Set<string>>();
 
+const pricingSource = fs.readFileSync(pageFileForRoute("/pricing"), "utf8");
+if (/"@type":\s*"Product"/.test(pricingSource)) {
+  addError("Pricing must not use Product structured data for SaaS subscriptions.");
+}
+if (!/"@type":\s*"Service"/.test(pricingSource)) {
+  addError("Pricing must describe Pairvu plans with Service structured data.");
+}
+
 for (const sourceFile of sourceFiles) {
   const source = fs.readFileSync(sourceFile, "utf8");
   const route = routeFromPageFile(sourceFile);
