@@ -108,6 +108,7 @@ export interface OpenAIVisionProviderOptions {
   apiKey?: string;
   model: string;
   promptVersion: string;
+  requestTimeoutMs?: number;
 }
 
 export class OpenAIVisionProvider implements VisionProvider {
@@ -117,6 +118,8 @@ export class OpenAIVisionProvider implements VisionProvider {
   constructor(private readonly options: OpenAIVisionProviderOptions) {
     this.client = new OpenAI({
       apiKey: options.apiKey ?? process.env.OPENAI_API_KEY,
+      maxRetries: 0,
+      timeout: options.requestTimeoutMs,
     });
   }
 

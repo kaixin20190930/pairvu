@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
-import { articleSchema, breadcrumbSchema, getSeoPage } from "@/lib/seo/content-registry";
+import { articleSchema, getSeoPage } from "@/lib/seo/content-registry";
 
 type ComponentCasePageProps = {
   route: string;
@@ -30,7 +30,7 @@ export function ComponentCasePage(props: ComponentCasePageProps) {
 
   return (
     <main className="content-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page)]} />
+      <StructuredData data={articleSchema(page)} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero content-hero-compact">

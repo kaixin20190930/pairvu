@@ -38,6 +38,14 @@ export interface PublicBetaUploadGuardInput {
   clientIp?: string | null;
 }
 
+export interface AuthenticatedAnalysisGuardInput {
+  workspaceId: string;
+}
+
+export interface AuthenticatedUploadGuardInput {
+  workspaceId: string;
+}
+
 export async function enforcePublicAnalysisGuard(
   db: D1Database,
   env: Parameters<typeof getPublicBetaConfig>[0],
@@ -70,6 +78,33 @@ export async function enforcePublicUploadGuard(
   }
 
   await enforceUploadSessionRateLimit(db, config, input.anonymousSessionId);
+  return config;
+}
+
+export async function enforceAuthenticatedAnalysisGuard(
+  db: D1Database,
+  env: Parameters<typeof getPublicBetaConfig>[0],
+  input: AuthenticatedAnalysisGuardInput,
+): Promise<PublicBetaConfig> {
+  const config = getPublicBetaConfig(env);
+
+  if (!config.analysisAcceptingNewRequests) {
+    throw new PublicBetaAccessError("analysis_paused", config.analysisPauseMessage, 503, 300);
+  }
+
+  await enforceAnalysisGlobalRateLimit(db, config);
+  await enforceAuthenticatedAnalysisConcurrencyLimit(db, config, input.workspaceId);
+  await enforceAnalysisGlobalBudgetLimit(db, config);
+  return config;
+}
+
+export async function enforceAuthenticatedUploadGuard(
+  db: D1Database,
+  env: Parameters<typeof getPublicBetaConfig>[0],
+  input: AuthenticatedUploadGuardInput,
+): Promise<PublicBetaConfig> {
+  const config = getPublicBetaConfig(env);
+  await enforceWorkspaceUploadRateLimit(db, config, input.workspaceId);
   return config;
 }
 
@@ -226,6 +261,64 @@ async function enforceAnalysisBudgetLimit(
   }
 }
 
+async function enforceAnalysisGlobalBudgetLimit(db: D1Database, config: PublicBetaConfig) {
+  const globalSpend = await sumGlobalAnalysisSpend(db, startOfUtcDayIso());
+  if (globalSpend >= config.analysisGlobalDailySpendLimitUsd) {
+    throw new PublicBetaAccessError(
+      "analysis_global_budget_limited",
+      "The daily spend cap has been reached. Please retry later.",
+      429,
+      secondsUntilUtcDayEnd(),
+    );
+  }
+}
+
+async function enforceAuthenticatedAnalysisConcurrencyLimit(
+  db: D1Database,
+  config: PublicBetaConfig,
+  workspaceId: string,
+) {
+  const [workspaceActive, globalActive] = await Promise.all([
+    countActiveWorkspaceAnalyses(db, workspaceId),
+    countGlobalActiveAnalyses(db),
+  ]);
+
+  if (workspaceActive >= config.analysisSessionConcurrentLimit) {
+    throw new PublicBetaAccessError(
+      "analysis_session_concurrency_limited",
+      "Another analysis is already running for this workspace. Please wait and retry.",
+      429,
+      30,
+    );
+  }
+
+  if (globalActive >= config.analysisGlobalConcurrentLimit) {
+    throw new PublicBetaAccessError(
+      "analysis_global_concurrency_limited",
+      "The service is busy right now. Please retry in a moment.",
+      429,
+      30,
+    );
+  }
+}
+
+async function enforceWorkspaceUploadRateLimit(
+  db: D1Database,
+  config: PublicBetaConfig,
+  workspaceId: string,
+) {
+  const sinceMinute = new Date(Date.now() - 60_000).toISOString();
+  const minuteCount = await countWorkspaceUploads(db, workspaceId, sinceMinute);
+  if (minuteCount >= config.uploadSessionMinuteLimit) {
+    throw new PublicBetaAccessError(
+      "upload_session_rate_limited",
+      "Too many uploads were started in a short time. Please wait a moment and retry.",
+      429,
+      60,
+    );
+  }
+}
+
 async function enforceUploadSessionRateLimit(
   db: D1Database,
   config: PublicBetaConfig,
@@ -312,6 +405,28 @@ async function countGlobalActiveAnalyses(db: D1Database) {
   return Number(row?.count ?? 0);
 }
 
+async function countActiveWorkspaceAnalyses(db: D1Database, workspaceId: string) {
+  const row = await db
+    .prepare(
+      `select count(*) as count
+       from analyses a
+       where a.workspace_id = ?
+         and a.status = 'running'
+         and not exists (
+           select 1
+           from analysis_execution_attempts attempt
+           where attempt.analysis_id = a.id
+             and attempt.status = 'running'
+             and attempt.batch_item_id is not null
+             and attempt.trigger_kind in ('batch_queue', 'retry')
+         )`,
+    )
+    .bind(workspaceId)
+    .first<Record<string, unknown>>();
+
+  return Number(row?.count ?? 0);
+}
+
 async function sumAnalysisSpend(db: D1Database, anonymousSessionId: string, sinceIso: string) {
   const row = await db
     .prepare(
@@ -351,6 +466,21 @@ async function countUploads(db: D1Database, anonymousSessionId: string, sinceIso
          and kind in ('reference', 'candidate')`,
     )
     .bind(anonymousSessionId, sinceIso)
+    .first<Record<string, unknown>>();
+
+  return Number(row?.count ?? 0);
+}
+
+async function countWorkspaceUploads(db: D1Database, workspaceId: string, sinceIso: string) {
+  const row = await db
+    .prepare(
+      `select count(*) as count
+       from assets
+       where workspace_id = ?
+         and created_at >= ?
+         and kind in ('reference', 'candidate')`,
+    )
+    .bind(workspaceId, sinceIso)
     .first<Record<string, unknown>>();
 
   return Number(row?.count ?? 0);

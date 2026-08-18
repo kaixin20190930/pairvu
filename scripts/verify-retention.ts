@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { mkdir, writeFile } from "node:fs/promises";
-import { deleteExpiredAnonymousAssets } from "../lib/assets/deletion";
+import { deleteAssetsImmediately, deleteExpiredAssets } from "../lib/assets/deletion";
+import { listWorkspaceAssets } from "../lib/assets/repository";
 import type {
   D1Database,
   D1PreparedStatement,
@@ -17,31 +18,49 @@ async function main() {
   const bucket = new FakeR2();
   const successful = createAsset("retention-success");
   const retryable = createAsset("retention-retry");
+  const workspace = createAsset("retention-workspace", "workspace-retention-verification");
 
   db.assets.set(successful.id, successful);
   db.assets.set(retryable.id, retryable);
-  for (const key of objectKeys(successful).concat(objectKeys(retryable))) {
+  db.assets.set(workspace.id, workspace);
+  for (const key of objectKeys(successful).concat(objectKeys(retryable), objectKeys(workspace))) {
     bucket.objects.add(key);
   }
   bucket.failOnceForAsset = retryable.id;
 
-  const firstRun = await deleteExpiredAnonymousAssets(db, bucket, { now: NOW, batchSize: 10 });
-  assert.deepEqual(firstRun, { scanned: 2, deleted: 1, failed: 1, hasMore: false });
+  const firstRun = await deleteExpiredAssets(db, bucket, { now: NOW, batchSize: 10 });
+  assert.deepEqual(firstRun, { scanned: 3, deleted: 2, failed: 1, hasMore: false });
   assert.equal(db.assets.get(successful.id)?.status, "deleted");
   assert.equal(db.assets.get(retryable.id)?.status, "uploaded");
+  assert.equal(db.assets.get(workspace.id)?.status, "deleted");
   assert.equal(objectKeys(successful).some((key) => bucket.objects.has(key)), false);
   assert.equal(objectKeys(retryable).every((key) => bucket.objects.has(key)), true);
+  assert.equal(objectKeys(workspace).some((key) => bucket.objects.has(key)), false);
+  assert.deepEqual(
+    await listWorkspaceAssets(db, "workspace-retention-verification"),
+    [],
+    "Deleted assets must not be returned by retained-reference or preview listings",
+  );
 
-  const secondRun = await deleteExpiredAnonymousAssets(db, bucket, { now: NOW, batchSize: 10 });
+  const secondRun = await deleteExpiredAssets(db, bucket, { now: NOW, batchSize: 10 });
   assert.deepEqual(secondRun, { scanned: 1, deleted: 1, failed: 0, hasMore: false });
   assert.equal(db.assets.get(retryable.id)?.status, "deleted");
   assert.equal(objectKeys(retryable).some((key) => bucket.objects.has(key)), false);
 
-  const thirdRun = await deleteExpiredAnonymousAssets(db, bucket, { now: NOW, batchSize: 10 });
+  const thirdRun = await deleteExpiredAssets(db, bucket, { now: NOW, batchSize: 10 });
   assert.deepEqual(thirdRun, { scanned: 0, deleted: 0, failed: 0, hasMore: false });
 
+  const immediate = createAsset("retention-user-deletion", "workspace-retention-verification");
+  immediate.retentionExpiresAt = "2030-01-01T00:00:00.000Z";
+  db.assets.set(immediate.id, immediate);
+  objectKeys(immediate).forEach((key) => bucket.objects.add(key));
+  const immediateRun = await deleteAssetsImmediately(db, bucket, [immediate], NOW);
+  assert.deepEqual(immediateRun, { requested: 1, deleted: 1, failed: 0 });
+  assert.equal(db.assets.get(immediate.id)?.status, "deleted");
+  assert.equal(objectKeys(immediate).some((key) => bucket.objects.has(key)), false);
+
   const attempts = [...db.attempts.values()];
-  assert.equal(attempts.filter((attempt) => attempt.status === "completed").length, 2);
+  assert.equal(attempts.filter((attempt) => attempt.status === "completed").length, 4);
   assert.equal(attempts.filter((attempt) => attempt.status === "failed").length, 1);
 
   const report = {
@@ -49,9 +68,12 @@ async function main() {
     firstRun,
     secondRun,
     thirdRun,
+    immediateRun,
     originalAndDerivativesUnavailable: true,
     retryPreservedUntilSuccess: true,
-    completedAttempts: 2,
+    workspaceAssetDeleted: true,
+    deletedAssetsExcludedFromListings: true,
+    completedAttempts: 4,
     failedAttempts: 1,
   };
 
@@ -62,8 +84,9 @@ async function main() {
 
 interface FakeAsset {
   id: string;
-  workspaceId: null;
-  anonymousSessionId: string;
+  originalFileName: string | null;
+  workspaceId: string | null;
+  anonymousSessionId: string | null;
   kind: "reference";
   assetType: "image";
   mimeType: string;
@@ -87,12 +110,15 @@ interface FakeAttempt {
   errorMessage: string | null;
 }
 
-function createAsset(id: string): FakeAsset {
-  const prefix = `anonymous/retention-verification/reference/${id}`;
+function createAsset(id: string, workspaceId: string | null = null): FakeAsset {
+  const prefix = workspaceId
+    ? `workspace/${workspaceId}/reference/${id}`
+    : `anonymous/retention-verification/reference/${id}`;
   return {
     id,
-    workspaceId: null,
-    anonymousSessionId: "retention-verification",
+    originalFileName: `${id}.jpg`,
+    workspaceId,
+    anonymousSessionId: workspaceId ? null : "retention-verification",
     kind: "reference",
     assetType: "image",
     mimeType: "image/jpeg",
@@ -145,6 +171,10 @@ class FakeD1 implements D1Database {
   prepare(query: string): D1PreparedStatement {
     return new FakeStatement(this, query);
   }
+
+  async batch<T = unknown>(statements: D1PreparedStatement[]): Promise<T[]> {
+    return Promise.all(statements.map((statement) => statement.run())) as Promise<T[]>;
+  }
 }
 
 class FakeStatement implements D1PreparedStatement {
@@ -169,13 +199,18 @@ class FakeStatement implements D1PreparedStatement {
     if (!this.query.includes("from assets")) {
       return { results: [], success: false, error: "Unexpected all() query" };
     }
+    if (this.query.includes("from assets a")) {
+      const workspaceId = String(this.values[0]);
+      const rows = [...this.db.assets.values()].filter(
+        (asset) => asset.workspaceId === workspaceId && asset.status !== "deleted",
+      );
+      return { results: rows as T[], success: true };
+    }
     const expiresBefore = String(this.values[0]);
     const limit = Number(this.values[1]);
     const rows = [...this.db.assets.values()]
       .filter(
         (asset) =>
-          asset.workspaceId === null &&
-          asset.anonymousSessionId &&
           asset.retentionExpiresAt <= expiresBefore &&
           asset.status !== "deleted",
       )

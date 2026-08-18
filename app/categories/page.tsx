@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { collectionPageSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const page = getSeoPage("/categories");
 const breadcrumbs = [
@@ -12,6 +12,14 @@ const breadcrumbs = [
 ];
 
 const publishedCategories = [
+  {
+    href: "/categories/skincare-product-image-qa",
+    title: "Skincare",
+    summary: "Check SPF, actives, variants, printed values, closures, applicators, package color, and complete product coverage.",
+    original: "/examples/skincare-spf-change/original.png",
+    candidate: "/examples/skincare-spf-change/candidate.png",
+    alt: "Skincare sun stick SPF value comparison",
+  },
   {
     href: "/categories/cosmetics-product-image-qa",
     title: "Cosmetics",
@@ -59,7 +67,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function CategoriesPage() {
   return (
     <main className="content-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page)]} />
+      <StructuredData data={collectionPageSchema(page)} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero content-hero-compact">
@@ -75,8 +83,9 @@ export default function CategoriesPage() {
           <h2 id="supported-categories">Evidence-backed category workflows</h2>
           <p>
             A category page becomes public only after it has category-specific decision rules, controlled evidence for
-            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. Cosmetics, Beverages,
-            Personal Care, Packaged Food, and Household Packaged Goods now meet that standard.
+            PASS, REVIEW, and FAIL, input requirements, limitations, and founder review. The five accepted CPG
+            families now meet that standard, with Skincare published as an evidence-backed specialist workflow inside
+            the cosmetics boundary.
           </p>
           <div className="case-card-grid">
             {publishedCategories.map((category) => (
@@ -98,7 +107,8 @@ export default function CategoriesPage() {
         <section className="article-section" aria-labelledby="category-boundary">
           <h2 id="category-boundary">Current category boundary</h2>
           <p>
-            These five CPG families are the accepted M0 scope. New category pages require their own decision model,
+            These five CPG families remain the accepted product boundary; specialist workflows such as Skincare can
+            deepen a supported family without silently expanding scope. New category pages require their own decision model,
             founder-reviewed PASS, REVIEW, and FAIL evidence, explicit limitations, and automated quality approval.
             Physical electronics remain deferred and are not implied by this hub.
           </p>

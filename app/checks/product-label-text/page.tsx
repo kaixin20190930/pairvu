@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { getCheckPageContent } from "@/lib/seo/check-content";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { articleSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const route = "/checks/product-label-text";
 const page = getSeoPage(route);
@@ -39,7 +39,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function ProductLabelTextCheckPage() {
   return (
     <main className="content-page check-detail-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page), faqSchema]} />
+      <StructuredData data={[articleSchema(page), faqSchema]} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero check-detail-hero">

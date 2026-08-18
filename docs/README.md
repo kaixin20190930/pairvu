@@ -15,14 +15,21 @@ This is the working documentation baseline for Pairvu.
 9. [D1 Schema Design](01-architecture/data-model.md)
 10. [QA Engine Contracts](01-architecture/engine-contracts.md)
 11. [M0 Validation Protocol](02-product/m0-requirements.md)
-12. [Implementation Plan And Timeline](04-roadmap/implementation-plan.md)
-13. [Founder Review: M0 Specification And Architecture](04-roadmap/founder-review-m0-spec.md)
-14. [M0 Public Beta Launch Plan](04-roadmap/m0-public-beta-launch-plan.md)
-15. [M0 Public Beta Live Tracker](04-roadmap/m0-public-beta-tracker.md)
-16. [Public Beta Telemetry Operations](04-roadmap/public-beta-telemetry-operations.md)
-17. [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
-18. [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
-19. [Keyword Evidence Baseline](03-growth/keyword-evidence-baseline-2026-07-29.md)
+12. [M1 Accounts, Credits, And Batch QA](02-product/m1-batch-commercial-definition.md)
+13. [Implementation Plan And Timeline](04-roadmap/implementation-plan.md)
+14. [M1 Batch Commercial Plan](04-roadmap/m1-batch-commercial-plan.md)
+15. [Pairvu Product Expansion Roadmap](04-roadmap/product-expansion-roadmap.md)
+16. [M1 Stripe Test Mode Setup](01-architecture/m1-stripe-test-setup.md)
+17. [Founder Review: M0 Specification And Architecture](04-roadmap/founder-review-m0-spec.md)
+18. [M0 Public Beta Launch Plan](04-roadmap/m0-public-beta-launch-plan.md)
+19. [M0 Public Beta Live Tracker](04-roadmap/m0-public-beta-tracker.md)
+20. [Public Beta Telemetry Operations](04-roadmap/public-beta-telemetry-operations.md)
+21. [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
+22. [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
+23. [Keyword Evidence Baseline](03-growth/keyword-evidence-baseline-2026-07-29.md)
+24. [Keyword Ownership And Cannibalization Audit](03-growth/keyword-ownership-and-cannibalization-audit-2026-08-17.md)
+25. [External Distribution And Backlink Plan](03-growth/external-distribution-plan-2026-08-17.md)
+26. [Subcategory Evidence Generation Plan](03-growth/subcategory-evidence-generation-plan-2026-08-17.md)
 
 ## Current Decision
 
@@ -35,8 +42,14 @@ Execution and current status:
 - [M0 Public Beta Live Tracker](04-roadmap/m0-public-beta-tracker.md)
 - [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
 - [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
+- [Keyword Ownership And Cannibalization Audit](03-growth/keyword-ownership-and-cannibalization-audit-2026-08-17.md)
+- [External Distribution And Backlink Plan](03-growth/external-distribution-plan-2026-08-17.md)
 
-Do not expand M0 product scope.
+M0's checker boundary remains fixed. New commercial and batch work must follow
+the approved [M1 Accounts, Credits, And Batch QA](02-product/m1-batch-commercial-definition.md)
+definition rather than expanding M0 opportunistically.
+Product work after M1 must follow the evidence gates and boundaries in the
+[Pairvu Product Expansion Roadmap](04-roadmap/product-expansion-roadmap.md).
 
 ## Core Product Rule
 

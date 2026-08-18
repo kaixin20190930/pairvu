@@ -2,7 +2,7 @@
 
 Status: `IN_PROGRESS`
 
-Last updated: 2026-08-02
+Last updated: 2026-08-18
 
 Strategy:
 [Pairvu SEO And GEO Strategy](../03-growth/seo-geo-strategy.md)
@@ -47,9 +47,10 @@ not progress; verified deliverables are progress.
 | SG-G1 Technical foundation | Canonicals, registry, navigation, sitemap, robots, schema, crawl QA | `DONE` |
 | SG-G2 Initial indexable release | Homepage, pillar, hubs, three real cases, checklist, two use cases | `DONE` |
 | SG-G3 Measurement active | Search Console, Bing, analytics attribution, baseline report | `IN_PROGRESS` |
-| SG-G4 Expansion authorized | 30/60-day evidence and founder decision | `BLOCKED` |
+| SG-G4 Expansion authorized | Evidence and founder decision for each proposed cluster | `IN_PROGRESS` |
 
-SG-G4 remains blocked by design until real search and conversion data exists.
+SG-G4 is open only for evidence-gated subcategory planning. It does not authorize
+mass publishing or expansion beyond supported CPG products.
 
 ## 4. Workstream Summary
 
@@ -109,6 +110,7 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-C09 | P1 | `DONE` | Product/Growth | SG-C05 | Shopify workflow cites official product-media sources and separates fidelity from platform rendering |
 | SG-C10 | P2 | `DONE` | Product/Growth | Founder-approved category evidence | Five M0 flagship category pages are implemented: Cosmetics, Beverage, Personal Care, Packaged Food, and Household Packaged Goods |
 | SG-C11 | P2 | `DEFERRED` | Product/Growth | Real tool-specific fixtures | Generator-specific pages |
+| SG-C13 | P1 | `DONE` | Founder/Product/Engineering | Founder-reviewed FOLDWELL evidence | Three indexable controlled examples published in the registry: `/examples/laundry-sheets-scent-count-change` (FAIL), `/examples/laundry-sheets-background-change` (PASS), and `/examples/laundry-sheets-back-view-review` (REVIEW); static Examples and Household links, metadata, schema, assets, sitemap parity, and targeted validation completed |
 
 ### Indexing And Launch QA
 
@@ -128,7 +130,21 @@ SG-G4 remains blocked by design until real search and conversion data exists.
 | SG-M03 | P1 | `NOT_STARTED` | Founder/Growth | 60 days of data | 60-day content and conversion review; expansion candidates ranked |
 | SG-M04 | P1 | `NOT_STARTED` | Founder/Product | 90 days of data | 90-day strategy review records brand demand, conversions, citations, and scope compliance |
 | SG-M05 | P2 | `DONE` | Founder/Product | Founder approval and controlled evidence | Category quality gate adopted 2026-08-03; all five accepted M0 CPG families now have evidence-backed flagship pages; platform or generator clusters remain blocked pending separate approval |
-| SG-M06 | P2 | `IN_PROGRESS` | Founder/Product | Founder approval and four controlled evidence cases per page | Product Quantity, Product Label Text, and Product Packaging are deployed; Product Logo passed implementation QA and awaits deploy; Product Color requires a mixed variant-cue FAIL and reflection-limited REVIEW before implementation |
+| SG-M06 | P2 | `DONE` | Founder/Product | Founder approval and four controlled evidence cases per page | Six attribute flagships are published: Product Quantity, Product Label Text, Product Packaging, Product Logo, Product Color, and Product Components |
+| SG-M07 | P2 | `DONE` | Founder/Product/Engineering | Existing approved observability cases and check-page quality gate | Product Image Observability is published as the final cross-cutting flagship with unique evidence modeling, controlled cases, build verification, and responsive QA |
+| SG-M08 | P2 | `IN_PROGRESS` | Founder/Growth | SG-M07 and sufficient market data | First GSC review completed; Logo and Color intent corrections implemented; continue query-to-page monitoring |
+| SG-M09 | P1 | `DONE` | Engineering/Growth | Published SEO foundation | Technical alignment completed 2026-08-05: branded metadata, OG fallback, stable entity IDs, CollectionPage hubs, one BreadcrumbList per page, owned/supporting keyword separation, contextual homepage links, and expanded SEO inventory checks |
+| SG-M10 | P1 | `DONE` | Engineering/Growth | SG-M08 | Published-route ownership audit completed: unique metadata/intent enforcement, exact keyword collision correction, and semantic overlap report added |
+| SG-C12 | P2 | `BLOCKED` | Founder/Product/Growth | Nine unique controlled comparison pairs | Skincare, Beverage Can, and Cleaning Product subcategory pages pass the category standard and become eligible for indexation |
+| SG-D01 | P1 | `READY_FOR_REVIEW` | Founder/Growth | Public evidence pages | Four-week external distribution plan, destination map, UTM taxonomy, channel cadence, and anti-spam boundaries documented |
+
+### FOLDWELL Evidence Delivery Notes
+
+- The three routes use the repository's existing concise `*-change` and `*-review` case naming convention rather than the longer draft slugs. Each route owns a different intent and has unique title, description, H1, canonical, and primary keyword.
+- The pages are controlled comparison examples backed by founder-reviewed Pairvu results. They are not customer stories, certifications, marketplace approvals, benchmarks, or statistical performance claims.
+- Public assets live under `public/examples/foldwell-scent-count-change`, `public/examples/foldwell-background-change`, and `public/examples/foldwell-back-view`; source files outside the repository remain unchanged.
+- No detection engine, prompt, QA policy, RiskPolicy, or M1 behavior changed. The Cleaning Product subcategory page in SG-C12 remains blocked; this delivery strengthens the existing Household flagship and does not authorize a new subcategory route.
+- Remaining operational risk is limited to normal post-deploy crawl and rendering verification. Search Console discovery and indexation continue under SG-I04.
 
 ## 6. Implementation Sequence And Timeline
 
@@ -338,3 +354,4 @@ SEO demand alone never authorizes a new M0 product capability.
 | 2026-07-30 | First evidence and commerce workflow cluster implemented | SG-C04, SG-C07 to SG-C09 | Public examples describe controlled founder-approved cases, not aggregate accuracy claims | Platform requirements change; dated official source links require periodic review | Deploy and finish production SG-I01, then verify Search Console and Bing |
 | 2026-07-30 | Initial indexable cluster deployed to Pairvu | SG-G2; production portion of SG-I01 | SG-I01 remains ready for review until focused accessibility QA is recorded | Cloudflare managed crawler policy is an additional control plane and must be checked after policy changes | Verify Search Console and Bing, submit sitemap, then activate measurement baseline |
 | 2026-07-31 | Second evidence-first content cluster implemented | SG-C06 plus two workflow guides and two audience pages | New failure-mode case pages remain unpublished until founder-approved static image pairs are provided | Publishing unsupported or synthetic case claims would weaken evidence quality | Deploy five pages, then request color, component, and product-count case assets |
+| 2026-08-17 | First GSC-led intent and ownership review | SG-M10; SG-M08 moved to active | Broad route expansion remains evidence-gated; only three supported subcategory workflows are planned | Low-volume GSC data can expose intent but cannot support CTR or demand conclusions yet | Collect nine unique evidence pairs, execute four-week distribution plan, and review query-to-page mapping weekly |

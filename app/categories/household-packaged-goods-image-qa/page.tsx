@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { getCategoryPageContent } from "@/lib/seo/category-content";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { articleSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const route = "/categories/household-packaged-goods-image-qa";
 const page = getSeoPage(route);
@@ -47,7 +47,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function HouseholdPackagedGoodsImageQaPage() {
   return (
     <main className="content-page household-category-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page), faqSchema]} />
+      <StructuredData data={[articleSchema(page), faqSchema]} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
 
@@ -122,8 +122,8 @@ export default function HouseholdPackagedGoodsImageQaPage() {
           <p className="section-label">Controlled evidence</p>
           <h2 id="household-evidence">Capacity, setting, components, and viewpoint require different actions</h2>
           <p>
-            These founder-reviewed BRIGHTLEAF cases cover a confirmed printed-value failure, a clean background PASS,
-            an observable missing trigger, and a front-versus-back evidence limitation.
+            These founder-reviewed FOLDWELL cases cover a confirmed variant-and-count failure, a clean laundry-room
+            background PASS, and a front-versus-back evidence limitation that requires human review.
           </p>
           <div className="category-evidence-grid">
             {approvedContent.evidence.map((evidence) => (

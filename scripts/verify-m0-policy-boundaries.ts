@@ -11,6 +11,31 @@ import type { DifferenceKind } from "@/lib/domain/semantics";
 async function main() {
 const policy = new M0RiskPolicy();
 
+const familyCases: Array<{
+  checkType: M0CheckFamily;
+  differenceKind: DifferenceKind;
+  issueType: string;
+  verdict: "fail" | "review";
+}> = [
+  { checkType: "logo", differenceKind: "brand_changed", issueType: "logo_mismatch", verdict: "fail" },
+  { checkType: "visible_text", differenceKind: "value_changed", issueType: "text_mismatch", verdict: "fail" },
+  { checkType: "quantity", differenceKind: "count_changed", issueType: "quantity_mismatch", verdict: "review" },
+  { checkType: "dominant_color", differenceKind: "color_changed", issueType: "color_mismatch", verdict: "review" },
+  { checkType: "major_components", differenceKind: "component_missing", issueType: "missing_component", verdict: "review" },
+  { checkType: "major_shape_packaging", differenceKind: "shape_changed", issueType: "packaging_mismatch", verdict: "fail" },
+];
+
+for (const testCase of familyCases) {
+  const result = policy.decide({
+    analysisId: `family-${testCase.checkType}`,
+    selectedChecks: [testCase.checkType],
+    observations: [mismatch(testCase.checkType, testCase.differenceKind)],
+    limitations: [],
+  });
+  assert.equal(result.productIssues[0]?.type, testCase.issueType, `${testCase.checkType} must keep its canonical issue type`);
+  assert.equal(result.verdict, testCase.verdict, `${testCase.checkType} must keep its M0 verdict boundary`);
+}
+
 const componentShapeLeak = policy.decide({
   analysisId: "component-shape-leak",
   selectedChecks: ["major_components"],
@@ -292,7 +317,60 @@ assert.deepEqual(normalizedUnsupportedMatch.observations[0]?.evidence.raw, {
   },
 });
 
+const normalizedUncertainMatch = await new M0QAEngine({
+  name: "uncertain-match-test-provider",
+  async analyzeProductFidelity() {
+    return {
+      observations: [
+        {
+          checkType: "visible_text",
+          status: "match",
+          differenceKind: "none",
+          observability: {
+            reference: "observable",
+            candidate: "observable",
+            coverage: "sufficient",
+          },
+          confidence: "high",
+          explanation: "The visible wording matches, but the printed volume cannot be verified.",
+          evidence: {
+            differenceKind: "none",
+            referenceObservation: "VANILLA OAT, 250 mL",
+            candidateObservation: "VANILLA OAT; volume hidden by glare",
+            referenceVisible: true,
+            candidateVisible: true,
+            uncertainReason: "Candidate volume text is obscured by glare, preventing full visible_text comparison.",
+          },
+        },
+      ],
+      limitations: [],
+      modelCall: {
+        provider: "uncertain-match-test-provider",
+        model: "test",
+        promptVersion: "test",
+        latencyMs: 0,
+      },
+    };
+  },
+}).analyze({
+  analysisId: "uncertain-match-normalization",
+  reference: { assetId: "reference", mimeType: "image/png", r2Key: "reference" },
+  candidate: { assetId: "candidate", mimeType: "image/png", r2Key: "candidate" },
+  selectedChecks: ["visible_text"],
+});
+
+assert.equal(normalizedUncertainMatch.verdict, "review");
+assert.equal(normalizedUncertainMatch.productIssues.length, 0);
+assert.equal(normalizedUncertainMatch.observations[0]?.status, "not_observable");
+assert.equal(normalizedUncertainMatch.observations[0]?.differenceKind, "not_visible");
+assert.equal(normalizedUncertainMatch.limitations[0]?.type, "attribute_not_observable");
+assert.equal(
+  normalizedUncertainMatch.observations[0]?.evidence.uncertainReason,
+  "Candidate volume text is obscured by glare, preventing full visible_text comparison.",
+);
+
 console.log("M0 policy boundary checks passed.");
+console.log("Verified all six check families plus invalid taxonomy, observability, and normalization boundaries.");
 }
 
 function mismatch(checkType: M0CheckFamily, differenceKind: DifferenceKind): VisionObservation {

@@ -59,6 +59,21 @@ type UiError = {
   help: string;
 };
 
+type AssetPreviewErrorCode =
+  | "asset_deleted"
+  | "asset_expired"
+  | "asset_binary_missing"
+  | "asset_unavailable"
+  | "asset_not_found"
+  | "unknown";
+
+class AssetPreviewRestoreError extends Error {
+  constructor(public readonly code: AssetPreviewErrorCode) {
+    super(code);
+    this.name = "AssetPreviewRestoreError";
+  }
+}
+
 const FEEDBACK_OPTIONS: Array<{ kind: FeedbackKind; label: string }> = [
   { kind: "correct", label: "Correct" },
   { kind: "false_alarm", label: "False alarm" },
@@ -91,7 +106,7 @@ const COMPLETED_ANALYSIS_STORAGE_KEY = "visualqa.completedAnalysis";
 const DRAFT_UPLOADS_STORAGE_KEY = "visualqa.draftUploads";
 const RECOVERY_POLL_INTERVAL_MS = 1_500;
 const RECOVERY_TIMEOUT_MS = 3 * 60_000;
-const COMPLETED_ANALYSIS_TTL_MS = 24 * 60 * 60 * 1000;
+const COMPLETED_ANALYSIS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 export function ProductChecker() {
   const [reference, setReference] = useState<UploadState | null>(null);
@@ -457,10 +472,28 @@ export function ProductChecker() {
       restoreAssetPreview(activeRequest.candidateAssetId, activeRequest.candidateFileName, setCandidate, runId),
     ]);
 
-    if (recoveryRunId.current === runId && results.some((result) => result.status === "rejected")) {
-      setPreviewRecoveryError(
-        "One or both previews could not be restored. The saved analysis will continue, but expired images must be uploaded again.",
+    if (recoveryRunId.current === runId) {
+      const failedCodes = results.flatMap((result) =>
+        result.status === "rejected" && result.reason instanceof AssetPreviewRestoreError
+          ? [result.reason.code]
+          : result.status === "rejected"
+            ? ["unknown" as const]
+            : [],
       );
+
+      if (failedCodes.some((code) => code === "asset_deleted")) {
+        setPreviewRecoveryError(
+          "One or both saved images were deleted. The analysis result remains available, but the deleted previews cannot be restored.",
+        );
+      } else if (failedCodes.some((code) => code === "asset_expired")) {
+        setPreviewRecoveryError(
+          "One or both saved images reached the end of their retention period. The analysis result remains available.",
+        );
+      } else if (failedCodes.length > 0) {
+        setPreviewRecoveryError(
+          "One or both saved previews are temporarily unavailable. The analysis result is still available; refresh to try the previews again.",
+        );
+      }
     }
   }
 
@@ -498,7 +531,8 @@ export function ProductChecker() {
     });
 
     if (!response.ok) {
-      throw new Error(`Preview restore failed with status ${response.status}.`);
+      const payload = await response.json().catch(() => null) as { error?: string } | null;
+      throw new AssetPreviewRestoreError(normalizeAssetPreviewErrorCode(payload?.error));
     }
 
     const previewUrl = URL.createObjectURL(await response.blob());
@@ -547,7 +581,6 @@ export function ProductChecker() {
       const payload = (await response.json()) as { analysis?: PersistedAnalysisResult } & ApiError;
 
       if (!response.ok || !payload.analysis || payload.analysis.status !== "completed") {
-        clearCompletedAnalysisRequest();
         setError(formatApiError(payload, "The saved result could not be restored."));
         return;
       }
@@ -558,7 +591,56 @@ export function ProductChecker() {
       priorAnalysisError.current = false;
       trackResultViewed(payload.analysis, anonymousSessionId);
     } catch (restoreError) {
-      clearCompletedAnalysisRequest();
+      if (recoveryRunId.current === runId) {
+        setError(formatThrownError(restoreError, "The saved result could not be restored."));
+      }
+    } finally {
+      if (recoveryRunId.current === runId) {
+        setAnalyzing(false);
+        setRecoveringAnalysis(false);
+      }
+    }
+  }
+
+  async function restoreWorkspaceAnalysis(analysisId: string, runId: number) {
+    const anonymousSessionId = getAnonymousSessionId();
+    setAnalyzing(true);
+    setRecoveringAnalysis(true);
+    setError(null);
+    setPreviewRecoveryError(null);
+
+    try {
+      const response = await fetch(`/api/analyses/${analysisId}`, {
+        cache: "no-store",
+        headers: { "x-anonymous-session-id": anonymousSessionId },
+      });
+      const payload = (await response.json()) as { analysis?: PersistedAnalysisResult } & ApiError;
+      if (!response.ok || !payload.analysis || payload.analysis.status !== "completed") {
+        setError(formatApiError(payload, "The saved result could not be restored."));
+        return;
+      }
+
+      const result = payload.analysis;
+      const request: CompletedAnalysisRequest = {
+        analysisId: result.id,
+        idempotencyKey: `history:${result.id}`,
+        referenceAssetId: result.referenceAssetId,
+        candidateAssetId: result.candidateAssetId,
+        referenceFileName: "Approved original",
+        candidateFileName: "Image checked",
+        startedAt: result.startedAt ?? result.createdAt,
+        completedAt: result.completedAt ?? result.updatedAt,
+      };
+      setReference({ assetId: result.referenceAssetId, fileName: request.referenceFileName, previewUrl: "" });
+      setCandidate({ assetId: result.candidateAssetId, fileName: request.candidateFileName, previewUrl: "" });
+      await restoreAnalysisPreviews(request, runId);
+      if (recoveryRunId.current !== runId) return;
+
+      setAnalysis(result);
+      saveCompletedAnalysisRequest(request, result);
+      priorAnalysisError.current = false;
+      trackResultViewed(result, anonymousSessionId);
+    } catch (restoreError) {
       if (recoveryRunId.current === runId) {
         setError(formatThrownError(restoreError, "The saved result could not be restored."));
       }
@@ -585,14 +667,20 @@ export function ProductChecker() {
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    const requestedAnalysisId = new URLSearchParams(window.location.search).get("analysis");
     const activeRequest = readActiveAnalysisRequest();
     const completedRequest = activeRequest ? null : readCompletedAnalysisRequest();
     const draftUploads = activeRequest || completedRequest ? null : readDraftUploads();
-    if (!activeRequest && !completedRequest && !draftUploads) return;
+    if (!requestedAnalysisId && !activeRequest && !completedRequest && !draftUploads) return;
 
     const startTimer = window.setTimeout(() => {
       const runId = recoveryRunId.current + 1;
       recoveryRunId.current = runId;
+
+      if (requestedAnalysisId) {
+        void restoreWorkspaceAnalysis(requestedAnalysisId, runId);
+        return;
+      }
 
       if (activeRequest) {
         setReference({
@@ -718,12 +806,13 @@ export function ProductChecker() {
     <div id="checker" className="checker-tool">
       <div className="checker-header">
         <div>
-          <p className="eyebrow">Product visual check</p>
+          <p className="eyebrow">Pairvu AI product image checker</p>
           <h1 id="headline">Did AI change your product?</h1>
           <p className="positioning-line">Quality control for AI product photography.</p>
           <p className="lede">
-            Upload a real or approved reference image and a candidate image. The checker compares visible identity
-            text, logo, color, quantity, components, and packaging shape.
+            Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The
+            AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging
+            shape.
           </p>
         </div>
         <div className="product-wordmark" aria-label={PRODUCT_NAME}>
@@ -772,8 +861,9 @@ export function ProductChecker() {
         {previewRecoveryError ? <p className="preview-warning">{previewRecoveryError}</p> : null}
 
         <p className="privacy-note">
-          Images are stored privately for up to 24 hours, then automatically deleted. They are sent to OpenAI only
-          to perform this check and are not added to our evaluation set. <a href="/privacy">Privacy details</a>
+          Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your
+          account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our
+          evaluation set. <a href="/privacy">Privacy details</a>
         </p>
 
         {runtimeConfig?.analysisAcceptingNewRequests === false ? (
@@ -1177,7 +1267,19 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
         message: retry
           ? `This browser has used its free analysis checks for now. You can try again in about ${retry}.`
           : "This browser has used its free analysis checks for today.",
-        help: "Pairvu is in public beta. Login-based quotas and paid upgrades are planned after the first user validation round.",
+        help: "Sign in to use your account allowance, or try again when the anonymous limit resets.",
+      };
+    case "workspace_quota_exceeded":
+      return {
+        title: "Monthly checks used.",
+        message: "This workspace has no checks remaining in the current billing period.",
+        help: "Open Account to review your allowance or upgrade to a paid monthly plan.",
+      };
+    case "workspace_billing_inactive":
+      return {
+        title: "Billing needs attention.",
+        message: "This workspace's paid subscription is not currently active.",
+        help: "Open Account, then Manage billing to update the payment method or subscription.",
       };
     case "analysis_global_rate_limited":
     case "analysis_global_budget_limited":
@@ -1202,7 +1304,7 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
       return {
         title: "Free beta usage limit reached.",
         message: "This browser has reached today’s free analysis usage.",
-        help: "Try again tomorrow. Account-based quota is planned after the MVP validation round.",
+        help: "Try again tomorrow, or sign in to use your monthly account allowance.",
       };
     case "upload_session_rate_limited":
       return {
@@ -1218,6 +1320,12 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
         message: "One of the uploaded images is no longer available.",
         help: "Images are kept for up to 24 hours. Upload both images again to run a new check.",
       };
+    case "analysis_not_found":
+      return {
+        title: "Sign in to restore this result.",
+        message: "This result belongs to a workspace that is not available in the current session.",
+        help: "Sign in with the account that created the check, then open it again from Account > Recent checks.",
+      };
     case "file_too_large":
     case "image_decode_failed":
     case "unsupported_mime_type":
@@ -1225,6 +1333,19 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
         title: "Image could not be uploaded.",
         message: payload.message ?? "The image file is not supported.",
         help: "Use a clear JPG, PNG, or WebP image and try again.",
+      };
+    case "analysis_execution_failed":
+      if (payload.message?.includes("Network connection lost")) {
+        return {
+          title: "Connection interrupted during analysis.",
+          message: "The image provider connection ended before Pairvu received a result.",
+          help: "This failed check was not charged. Select Check image to try the same pair again.",
+        };
+      }
+      return {
+        title: fallbackTitle,
+        message: payload.message ?? "The analysis could not be completed.",
+        help: "Try the same pair again. If it repeats, wait a moment before retrying.",
       };
     default:
       return {
@@ -1262,6 +1383,19 @@ function formatRetryAfter(seconds: number | null | undefined) {
 
   const hours = Math.ceil(minutes / 60);
   return `${hours} hours`;
+}
+
+function normalizeAssetPreviewErrorCode(value: string | undefined): AssetPreviewErrorCode {
+  switch (value) {
+    case "asset_deleted":
+    case "asset_expired":
+    case "asset_binary_missing":
+    case "asset_unavailable":
+    case "asset_not_found":
+      return value;
+    default:
+      return "unknown";
+  }
 }
 
 function feedbackIssueLabel(issue: PersistedAnalysisResult["productIssues"][number]) {

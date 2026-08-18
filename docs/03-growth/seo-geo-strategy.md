@@ -1,8 +1,10 @@
 # Pairvu SEO And GEO Strategy
 
-Status: Accepted
+Status: Accepted and active
 
 Decision date: 2026-07-29
+
+Last reviewed: 2026-08-17
 
 Owner: Founder / Product / Growth
 
@@ -71,9 +73,9 @@ a synonym shows a larger third-party estimate; first inspect its actual intent.
 | AI product photography | Market/information | `/ai-product-photography` | Market pillar |
 | AI product image changes | Problem discovery | `/examples/` | Examples hub |
 | AI product photography checklist | Workflow | `/guides/ai-product-photography-checklist` | Guide |
-| Ecommerce product-image QA | Audience/workflow | `/use-cases/ecommerce` | Use case |
-| Amazon product-image QA | Platform/workflow | `/use-cases/amazon-sellers` | Use case |
-| Shopify product-image QA | Platform/workflow | `/use-cases/shopify-stores` | Use case |
+| Ecommerce product-image QA | Audience/workflow | `/use-cases/ecommerce-product-image-qa` | Use case |
+| Amazon product-image QA | Platform/workflow | `/use-cases/amazon-product-image-qa` | Use case |
+| Shopify product-image QA | Platform/workflow | `/use-cases/shopify-product-image-qa` | Use case |
 
 The homepage owns the product-category term. Do not create independent pages for
 these synonymous intents:
@@ -161,9 +163,9 @@ Do not mass-produce tool-name pages.
 │   ├── compare-original-and-ai-product-images
 │   └── keep-products-consistent-in-ai-images
 └── use-cases/
-    ├── ecommerce
-    ├── amazon-sellers
-    ├── shopify-stores
+    ├── ecommerce-product-image-qa
+    ├── amazon-product-image-qa
+    ├── shopify-product-image-qa
     ├── brands
     └── creative-agencies
 ```
@@ -181,7 +183,8 @@ homepage product-category keyword.
 ├── cosmetics-product-image-qa       PUBLISHED FLAGSHIP
 ├── beverage-product-image-qa        PUBLISHED FLAGSHIP
 ├── personal-care-product-image-qa   PUBLISHED FLAGSHIP
-└── packaged-food-product-image-qa   PUBLISHED FLAGSHIP
+├── packaged-food-product-image-qa   PUBLISHED FLAGSHIP
+└── household-packaged-goods-image-qa PUBLISHED FLAGSHIP
 ```
 
 Every published category page must pass the requirements in
@@ -216,9 +219,29 @@ conversion evidence meet the documented reassessment gate.
 ├── product-quantity       PUBLISHED FLAGSHIP
 ├── product-label-text     PUBLISHED FLAGSHIP
 ├── product-packaging      PUBLISHED FLAGSHIP
-├── product-logo           PUBLISHED FLAGSHIP / AWAITING DEPLOY
-└── product-color          EVIDENCE GENERATION REQUIRED / NOINDEX
+├── product-logo           PUBLISHED FLAGSHIP
+├── product-color          PUBLISHED FLAGSHIP
+├── product-components     PUBLISHED FLAGSHIP
+└── product-image-observability PUBLISHED FINAL CROSS-CUTTING FLAGSHIP
 ```
+
+The five accepted CPG category flagships and six attribute check flagships are published. Product Image Observability is the final planned cross-cutting page in the current foundation. It explains whether a requested attribute can be verified from the supplied pair; it is not a seventh product attribute and must not turn uncertainty into a mismatch.
+
+After Product Image Observability is published, routine SEO route expansion stops. New check, category, platform, or combination pages require evidence of a distinct user job, unique controlled comparisons, non-cannibalizing query intent, and measurable demand from Search Console, checker behavior, feedback, referrals, or user interviews.
+
+The first Search Console learning review on 2026-08-17 did not authorize mass
+route expansion. It did authorize two controlled actions:
+
+1. clarify existing Product Logo and Product Color pages around Pairvu's actual
+   approved-reference versus AI-candidate comparison job;
+2. prepare narrower Skincare, Beverage Can, and Cleaning Product workflow pages,
+   but publish each only after it has three unique controlled evidence roles and
+   passes the category quality gate.
+
+The current ownership and collision audit is recorded in
+`docs/03-growth/keyword-ownership-and-cannibalization-audit-2026-08-17.md`.
+The external acquisition execution rules are recorded in
+`docs/03-growth/external-distribution-plan-2026-08-17.md`.
 
 ## 5. Page Specifications
 
@@ -229,10 +252,11 @@ Route: `/`
 Recommended metadata:
 
 - Title: `Pairvu - AI Product Image Checker`
-- Description: `Compare an AI-generated or edited product image with the
-  original. Check visible changes to logos, label text, color, quantity,
-  components, and packaging before publishing.`
+- Description: `Use Pairvu to compare an AI-generated or edited product image
+  with the original. Check logos, label text, color, quantity, components, and
+  packaging before publishing.`
 - H1: `Did AI change your product?`
+- Visible category label: `Pairvu AI product image checker`
 - Positioning line: `Quality control for AI product photography.`
 
 Required page order:
@@ -328,13 +352,18 @@ the whole brand. Each page needs:
 Desktop:
 
 ```text
-Pairvu | AI Product Photography | Examples | Guides | Use Cases | [Check image]
+Pairvu | Product | Learn | Solutions | Account | [Check image]
 ```
 
 - Pairvu links to `/`.
 - Check image links to `#checker` on the homepage and `/#checker` elsewhere.
-- Initial navigation stays simple; no large marketing dropdown is required.
-- Mobile navigation must expose ordinary crawlable links.
+- Product groups How Pairvu Works, Product Checks, and Batch Checking.
+- Learn groups AI Product Photography, Comparison Examples, and Guides.
+- Solutions groups Product Categories and Use Cases.
+- Mobile uses an explicit menu panel and must never require horizontal scrolling.
+- Every menu destination remains an ordinary crawlable link.
+- The active product information-architecture standard is maintained in
+  `docs/02-product/navigation-information-architecture.md`.
 
 ### 6.2 Footer
 
@@ -375,6 +404,63 @@ Home > Use Cases > Amazon Sellers
 ```
 
 Render visible breadcrumbs and matching `BreadcrumbList` structured data.
+Each page must emit exactly one `BreadcrumbList`; the shared Breadcrumbs
+component is the single owner of that schema.
+
+### 7.1 Keyword ownership fields
+
+The registry separates keywords a page is expected to own from topics it only
+mentions to help users and link to specialist pages:
+
+- `primaryKeyword`: the page's single main query intent;
+- `ownedSecondaryKeywords`: close variants the same page may rank for;
+- `supportingTopics`: child entities or adjacent questions mentioned for
+  comprehension and internal linking, but owned by another page.
+
+An exact keyword may appear in the first two fields on only one published
+route. Hubs list child-page terms as `supportingTopics`, not as keywords the hub
+claims to own. Product-specific case studies must target specific long-tail
+language when a generic example already owns the broader failure mode.
+
+### 7.2 Metadata and entity graph
+
+Every indexable page must provide:
+
+- a unique final title of 20-65 characters containing both the page's primary
+  topic and `Pairvu`;
+- a unique 70-180 character description and a self-canonical URL;
+- Open Graph and Twitter metadata with a 1200x630 fallback image;
+- `article` Open Graph type for guides, cases, checks, categories, use cases,
+  and the market pillar; `website` for the homepage and hubs;
+- one visible H1 that expresses the page's distinct job.
+
+The site entity graph uses stable IDs for `#organization`, `#website`, and
+`#webapp`. Articles reference the website and Pairvu organization. Hub routes
+use `CollectionPage` with an `ItemList`; evidence, guide, category, check, and
+use-case detail pages use `Article` plus any truthful FAQ schema. Pairvu does
+not add Product, Review, AggregateRating, or SearchAction schema without the
+corresponding public product capability and visible content.
+
+The structured-data organization logo is the stable 512x512 Pairvu PNG. The
+free `Offer` in WebApplication schema remains valid only while the capped beta
+is genuinely free and must be revised when commercial plans launch.
+
+### 7.3 Internal-link quality gate
+
+Internal links are part of the content model, not footer decoration:
+
+- every child links visibly to its parent hub;
+- every hub links to each published child;
+- high-value detail pages receive contextual links from the homepage, their
+  parent, and relevant check, category, guide, or example pages;
+- the homepage exposes both `/checks` and `/categories` and links its visible
+  check descriptions to the correct specialist routes;
+- automatic inventory scans cover `app`, `components`, and `lib/seo`, including
+  dynamic evidence and category content.
+
+New routes cannot reuse another page's primary or owned secondary keyword.
+Supporting-topic overlap is allowed because it creates topical context rather
+than a competing ownership claim.
 
 ## 8. New Keyword Admission
 
@@ -405,7 +491,7 @@ Minimum fields:
 
 - route and slug;
 - page family and status;
-- primary and secondary keywords;
+- primary keyword, owned secondary keywords, and supporting topics;
 - search intent;
 - parent hub and related routes;
 - title, H1, description, and canonical;

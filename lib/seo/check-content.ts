@@ -919,9 +919,9 @@ export const checkPageContents: readonly CheckPageContent[] = [
     audience:
       "Brand managers, ecommerce teams, creative agencies, packaging reviewers, and production operators who need to confirm that an AI-generated or edited product image preserves the approved brand symbol, wordmark, lockup, placement, proportions, and identity before publication.",
     directAnswer:
-      "To check a product logo in an AI image, compare the graphic symbol, wordmark letters, combined lockup, relative placement, proportions, and distinctive contours against an approved reference. PASS only when the identity-bearing features are observable and consistent. Use REVIEW when crop, occlusion, scale, glare, or viewpoint prevents direct verification. Use FAIL when a sufficiently visible candidate replaces, redraws, removes, or materially changes the approved brand mark.",
+      "To check whether AI changed a product logo, Pairvu needs two images: an approved product reference and the generated, edited, or final candidate. It compares the graphic symbol, wordmark letters, combined lockup, relative placement, proportions, and distinctive contours on corresponding product areas. PASS only when the identity-bearing features are observable and consistent. Use REVIEW when crop, occlusion, scale, glare, or viewpoint prevents direct verification. Use FAIL when a sufficiently visible candidate replaces, redraws, removes, or materially changes the approved brand mark.",
     scopeDistinction:
-      "A product logo is not every printed word and not every colored accent. The logo check covers identity-bearing symbols, wordmarks, and their approved arrangement. Descriptive copy, claims, flavor names, and capacity values belong to the label-text check; broad package palette belongs to product color. A palette shift alone does not prove a new logo when symbol identity and wordmark geometry remain intact, while a new symbol can be a logo failure even if every surrounding label word still matches.",
+      "This is product-logo comparison, not reverse-logo search, logo detection in an unknown photo, or brand identification from a single image. A product logo is also not every printed word or colored accent. The logo check covers identity-bearing symbols, wordmarks, and their approved arrangement. Descriptive copy, claims, flavor names, and capacity values belong to the label-text check; broad package palette belongs to product color. A palette shift alone does not prove a new logo when symbol identity and wordmark geometry remain intact, while a new symbol can be a logo failure even if every surrounding label word still matches.",
     deck:
       "AI can preserve a polished package while quietly replacing the mark that tells customers whose product it is. This method separates a confirmed identity change from harmless background, shadow, reflection, and partial visibility so reviewers can reject the wrong brand, accept faithful presentation changes, and request better evidence instead of guessing.",
     dimensions: [
@@ -1896,6 +1896,335 @@ export const checkPageContents: readonly CheckPageContent[] = [
         question: "Is product count the same as component count?",
         answer:
           "No. Two candle jars change the number of primary sellable products. One candle jar plus a wick trimmer describes a single product set with an included accessory. The commercial meaning and remediation differ.",
+      },
+    ],
+  },
+  {
+    route: "/checks/product-image-observability",
+    founderApprovedAt: "2026-08-04",
+    audience:
+      "Brand managers, ecommerce operators, catalog teams, creative agencies, and production reviewers who need to decide whether an AI-generated or edited product image contains enough corresponding, readable, and complete evidence to verify product fidelity before publication.",
+    directAnswer:
+      "A product image is observable when the approved original and candidate expose corresponding product regions with enough coverage, resolution, focus, lighting, and separation to answer the requested approval question directly. Recognition is not enough: identifying a brand or package does not prove that hidden label text, cropped color-bearing surfaces, covered logos, unseen accessories, or turned-away package faces match. PASS requires observable evidence that matches, REVIEW is required when a needed fact is hidden or unreliable, and FAIL requires a confirmed visible difference rather than an absence of pixels.",
+    scopeDistinction:
+      "Observability is not another product attribute beside logo, text, quantity, color, components, and packaging. It is the evidence gate applied before any of those attributes can receive a trustworthy verdict. Pairvu can verify different subsets within one pair: a back view may support bottle shape and component observations while leaving front-label identity unresolved. This page does not score photographic beauty, marketplace compliance, physical product quality, or whether an image is commercially persuasive.",
+    deck:
+      "A candidate can clearly depict the same kind of product and still omit the exact evidence needed for approval. This method separates product recognition from product verification, shows how correspondence and coverage affect each check family, and explains why honest REVIEW results prevent both false passes and invented mismatches.",
+    dimensions: [
+      {
+        title: "Corresponding region alignment",
+        definition:
+          "The original and candidate must expose the same evidence-bearing package face, object relationship, or product area before their contents can be compared. A front label cannot be compared as though it were a back label, and a white label panel cannot stand in for a cropped-away colored pouch body.",
+        example:
+          "A cleaner shown from the front and back can still support bottle-shape comparison, but the candidate back label supplies no corresponding evidence for the approved front logo or product name.",
+      },
+      {
+        title: "Attribute-specific coverage",
+        definition:
+          "Coverage is evaluated for the requested attribute rather than for the image as a whole. A tight crop may fully cover a wordmark while excluding the closure, package silhouette, lower quantity value, or separate accessory needed by another check.",
+        example:
+          "A TIDORA label close-up verifies readable logo and label text but cannot verify the orange pouch body, zipper, bottom gusset, complete product count, or outer package shape.",
+      },
+      {
+        title: "Readable information density",
+        definition:
+          "Text, symbols, printed values, and small components need enough resolved pixels, contrast, focus, and scale to distinguish exact characters and boundaries. Familiar layout, color, or word length cannot substitute for a direct reading.",
+        example:
+          "A package may remain recognizable as GRAINLY while the 300 g line is too pixelated to support an exact quantity match, requiring REVIEW for printed value.",
+      },
+      {
+        title: "Occlusion and overlap",
+        definition:
+          "Stickers, hands, props, glare, overlapping packages, folds, and attached objects can hide only part of an attribute or break the continuity needed to identify its complete form. The hidden portion remains unknown even when adjacent pixels look correct.",
+        example:
+          "A white sticker covering the NOVA FIZZ wordmark leaves the can and star visible but prevents complete brand-text verification without proving that the hidden letters changed.",
+      },
+      {
+        title: "Viewpoint and surface orientation",
+        definition:
+          "Perspective determines which faces and relationships are available. Minor turning is acceptable when required evidence stays visible; a large viewpoint change can reveal a different package face and remove direct correspondence for identity-bearing artwork.",
+        example:
+          "A small angle change preserves one readable GRAINLY box and can pass, while a BRIGHTLEAF front-to-back change requires review for front-label logo and wording.",
+      },
+      {
+        title: "Photometric interference",
+        definition:
+          "Lighting, shadow, reflection, transparency, white balance, and glare matter only when they alter or obscure evidence. A stronger highlight can be harmless, while saturated reflection across a label can make semantic color or small text uncertain.",
+        example:
+          "Window shadows around a NOVA FIZZ can preserve all required attributes and pass; a rainbow reflection covering a label may require review for color even when wording stays readable.",
+      },
+      {
+        title: "Complete object and set boundaries",
+        definition:
+          "The frame must reveal enough outer edges, closures, attachments, and relationships to establish how many primary products and required components are present. Seeing one label is not equivalent to seeing one complete package.",
+        example:
+          "A close-up can show the TIDORA label perfectly while excluding the pouch boundaries, leaving product count, zipper construction, and complete silhouette unverified.",
+      },
+    ],
+    decisionRules: [
+      {
+        condition: "Corresponding package face",
+        pass: "Both images expose the same approval-relevant face or equivalent corresponding region, and the requested attribute can be compared directly without translating between unrelated surfaces.",
+        review: "The candidate shows a different side, turns the required surface away, or supplies only a nearby region, so some attributes remain recognizable but not directly comparable.",
+        fail: "Corresponding regions are clearly visible in both images and contain a confirmed approval-critical difference rather than merely showing different sides of the same package.",
+      },
+      {
+        condition: "Crop and frame coverage",
+        pass: "The frame includes every outer boundary, component relationship, and information-bearing area required by the selected check, even if nonessential background is cropped.",
+        review: "One or more required package edges, components, color-bearing surfaces, values, or closures are outside the frame, preventing a complete decision for that attribute.",
+        fail: "The needed regions are present and corresponding in both images, and the candidate visibly adds, removes, substitutes, or changes an approval-critical product fact.",
+      },
+      {
+        condition: "Text and symbol resolution",
+        pass: "Required characters, digits, units, symbols, and boundaries are directly readable at supplied resolution with enough contrast and focus to support exact comparison.",
+        review: "The package is recognizable but required text or symbol detail is too small, blurred, pixelated, compressed, distorted, or low contrast to verify exactly.",
+        fail: "The same readable text or symbol region appears in both images and the candidate visibly contains a different word, value, unit, or identity mark.",
+      },
+      {
+        condition: "Occlusion",
+        pass: "No obstruction covers the required attribute, or the uncovered evidence is independently sufficient to establish its complete approved form and identity.",
+        review: "A sticker, prop, overlap, fold, reflection, hand, or crop hides a material portion of the requested attribute and the hidden content cannot be inferred safely.",
+        fail: "The attribute is sufficiently exposed despite surrounding objects, and the visible corresponding evidence confirms a real product difference unrelated to the obstruction.",
+      },
+      {
+        condition: "Lighting and reflection",
+        pass: "Light, shadow, highlight, and environmental reflection change presentation while identity-bearing text, semantic color, components, count, and shape remain observable and stable.",
+        review: "Glare, clipping, color cast, transparency, or reflection masks the relevant surface or makes its semantic color, text, logo, or boundary uncertain.",
+        fail: "After accounting for illumination, corresponding visible surfaces still show a confirmed semantic product or package change rather than a photometric effect.",
+      },
+      {
+        condition: "Object and component boundaries",
+        pass: "Complete primary products and required major components have visible boundaries and relationships that support count, presence, and package-structure decisions.",
+        review: "Overlap, crop, hidden space, or ambiguous props prevent the reviewer from establishing whether a product or required component is present, absent, or included.",
+        fail: "Complete corresponding boundaries are visible and prove that a required item was removed, an unapproved item was added, or the represented product set changed.",
+      },
+      {
+        condition: "Mixed observability across checks",
+        pass: "Every attribute required for the current approval is observable and matches, even if optional or out-of-scope details elsewhere in the image remain unresolved.",
+        review: "Some checks can pass but at least one approval-required attribute lacks sufficient evidence, so the overall image cannot receive an honest complete PASS.",
+        fail: "At least one approval-critical attribute is observable and confirmed changed under policy; unresolved attributes remain limitations rather than canceling the confirmed finding.",
+      },
+    ],
+    evidence: [
+      {
+        href: "/examples/product-count-change-ai-image",
+        title: "Complete corresponding coverage confirmed one box became two",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/product-count-change/original.jpg",
+        candidate: "/examples/product-count-change/candidate.jpg",
+        alt: "One complete GRAINLY box compared with two complete corresponding boxes",
+        observation:
+          "Both images clearly expose complete GRAINLY package boundaries, the same front face, readable 300 g text, and unambiguous separation between primary units. The candidate contains two boxes where the approved image contains one, so the evidence supports a real visible count change rather than a crop or overlap limitation.",
+        whyThisDecision:
+          "This page uses FAIL as the evidence principle for a confirmed approval-critical change: all regions needed to establish primary package count are observable and corresponding. The current product UI may apply policy-specific REVIEW to intent-dependent count changes, but observability itself is not the limiting factor.",
+        nextAction:
+          "Confirm the intended commercial offer. Restore one box for a single-product listing, or use an approved two-box reference when a multipackage presentation is intentional.",
+      },
+      {
+        href: "/examples/shadow-reflection-change-product-image",
+        title: "Stronger shadow and reflection preserved complete evidence",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/label-value-change/original.jpg",
+        candidate: "/examples/shadow-reflection-change/candidate.jpg",
+        alt: "NOVA FIZZ can under neutral light and with stronger highlights and window shadows",
+        observation:
+          "The candidate adds environmental shadow and a stronger surface highlight, yet the star mark, NOVA FIZZ wording, LIME SPARKLING WATER, ZERO SUGAR, 330 mL, turquoise package color, single-can count, and cylindrical silhouette remain visible and corresponding.",
+        whyThisDecision:
+          "Visual treatment changed without removing the evidence needed by the six product checks. Observability remains sufficient, so escalating every shadow or reflection would create false alarms and discourage legitimate creative variation.",
+        nextAction:
+          "Accept the product-fidelity comparison and review channel-specific aesthetics separately. Recheck only if a later export introduces clipped highlights or glare over required evidence.",
+      },
+      {
+        href: "/examples/large-viewpoint-difference-product-image",
+        title: "A front-to-back viewpoint removed label correspondence",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/missing-component/original.jpg",
+        candidate: "/examples/large-viewpoint/candidate.jpg",
+        alt: "BRIGHTLEAF cleaner shown from the front and then from the back",
+        observation:
+          "The approved image shows the BRIGHTLEAF front logo, product name, and 750 mL value, while the candidate shows the back label. Bottle color, trigger sprayer, one-product count, and overall silhouette remain comparable, but front-label identity has no corresponding candidate region.",
+        whyThisDecision:
+          "The same pair can support PASS-like observations for shape and components while requiring REVIEW for logo and front-label text. Calling those hidden front details changed would compare different surfaces; calling them matched would invent evidence.",
+        nextAction:
+          "Provide a corresponding front-facing candidate for identity approval, or add an approved back view when the workflow intentionally evaluates multiple package faces.",
+      },
+      {
+        href: "/examples/product-color-not-observable-label-crop",
+        title: "A label crop preserved text but removed product-body evidence",
+        role: "observability",
+        decision: "REVIEW",
+        original: "/examples/product-color-label-crop/original.png",
+        candidate: "/examples/product-color-label-crop/candidate.png",
+        alt: "Complete orange TIDORA pouch compared with a close crop of only its white label",
+        observation:
+          "The candidate clearly preserves the TIDORA logo, LAUNDRY PODS, CLEAN COTTON, and 24 PODS on the corresponding white panel. It excludes the orange pouch body, zipper, bottom gusset, outer boundaries, and complete object silhouette needed for color, components, count, and packaging decisions.",
+        whyThisDecision:
+          "Recognition and partial verification are possible, but complete product verification is not. REVIEW reports exactly which attributes lack coverage and avoids the earlier failure mode of treating the visible white label as though the orange package body had changed color.",
+        nextAction:
+          "Request a wider candidate that includes the complete pouch and closure while keeping the front label readable, then rerun the same approved comparison.",
+      },
+    ],
+    diagnosticQuestions: [
+      {
+        question: "Which exact attribute must this approval verify?",
+        reason:
+          "Observability is question-specific. A crop sufficient for logo text may be insufficient for package shape, component presence, semantic color, count, or a printed value near the base.",
+      },
+      {
+        question: "Do the images expose corresponding product regions?",
+        reason:
+          "Comparing different package faces or different semantic regions can manufacture false mismatches. Establish correspondence before comparing what the pixels contain.",
+      },
+      {
+        question: "Are the required boundaries and relationships inside the frame?",
+        reason:
+          "Object count, package construction, closures, and component presence depend on complete boundaries. A label-only close-up cannot answer those questions reliably.",
+      },
+      {
+        question: "Can required text and symbols be read without inference?",
+        reason:
+          "Brand familiarity, layout, and color are supporting context, not substitutes for resolved characters, digits, units, punctuation, or complete logo geometry.",
+      },
+      {
+        question: "Is any required evidence hidden by occlusion or photometric effects?",
+        reason:
+          "Stickers, overlap, glare, transparency, and clipped highlights can leave adjacent details visible while hiding the specific feature that needs approval.",
+      },
+      {
+        question: "Which checks can be decided independently from this pair?",
+        reason:
+          "Do not discard usable evidence or overgeneralize one limitation. Record matched observable checks separately from attributes that need another image or human review.",
+      },
+    ],
+    failureModes: [
+      {
+        title: "Recognition substituted for verification",
+        mechanism:
+          "The reviewer recognizes the brand, package category, or familiar layout and assumes hidden or unreadable details must match the approved product.",
+        consequence:
+          "A plausible image can pass while containing wrong printed values, variant wording, logo details, components, or package construction outside the resolved evidence.",
+      },
+      {
+        title: "Non-corresponding surfaces compared",
+        mechanism:
+          "A front face is compared with a back face, or a light label panel is compared with the colored package body that surrounds it in the reference.",
+        consequence:
+          "The system can report false text or color changes even though the candidate simply shows a different product region.",
+      },
+      {
+        title: "Crop interpreted as removal",
+        mechanism:
+          "A package edge, closure, accessory, printed value, or entire component falls outside the candidate frame and is treated as visibly absent.",
+        consequence:
+          "An uncertain image receives an invented mismatch instead of the clearer and operationally useful request for more coverage.",
+      },
+      {
+        title: "Unreadable detail accepted as matching",
+        mechanism:
+          "Low resolution, compression, blur, or small scale preserves the rough appearance of text and marks while destroying the exact information needed for comparison.",
+        consequence:
+          "Wrong digits, units, claims, brand letters, or symbols can reach publication behind a false high-confidence PASS.",
+      },
+      {
+        title: "Harmless presentation change escalated",
+        mechanism:
+          "Background, shadow, reflection, repositioning, or minor perspective variation is treated as a product change even though required attributes remain observable and stable.",
+        consequence:
+          "False alarms add production cost, reduce trust in the checker, and discourage useful creative variation without improving product accuracy.",
+      },
+      {
+        title: "One limitation applied to every attribute",
+        mechanism:
+          "A hidden logo or unreadable value causes the reviewer to mark the entire product unverifiable despite clear evidence for count, components, color, or shape.",
+        consequence:
+          "The result loses diagnostic value and fails to tell the user what is already verified versus what new evidence is actually needed.",
+      },
+    ],
+    workflow: [
+      {
+        title: "Name the approval question",
+        detail:
+          "Select logo, visible text, quantity, main color, components, packaging, or a defined combination. Avoid beginning with a vague request to decide whether the images look the same.",
+      },
+      {
+        title: "Map required evidence regions",
+        detail:
+          "Identify which package faces, boundaries, text lines, color-bearing surfaces, closures, and component relationships must be present to answer that question.",
+      },
+      {
+        title: "Confirm correspondence",
+        detail:
+          "Match like with like across the pair. Record when the candidate shows another face or semantic region instead of forcing comparison across unrelated surfaces.",
+      },
+      {
+        title: "Audit coverage and readability",
+        detail:
+          "Check crop, scale, focus, resolution, occlusion, glare, overlap, and object boundaries. Separate unavailable evidence from evidence that is visible and different.",
+      },
+      {
+        title: "Decide each attribute independently",
+        detail:
+          "Mark observable matches, confirmed differences, and limitations by check family. One attribute can pass while another remains in review within the same image pair.",
+      },
+      {
+        title: "Request the smallest useful correction",
+        detail:
+          "Ask for a corresponding angle, wider crop, higher-resolution export, reduced glare, unobstructed label, or complete product set rather than regenerating unrelated content.",
+      },
+      {
+        title: "Rerun the final publication asset",
+        detail:
+          "Compare the corrected final export against the approved source, confirm that previously missing evidence is now visible, and record user feedback on the result.",
+      },
+    ],
+    limitations: [
+      "Pairvu evaluates only the supplied pixels and cannot prove attributes that are behind the product, inside packaging, beyond the frame, or otherwise absent from both images.",
+      "A recognizable product, brand, or package category does not establish that every hidden or unreadable attribute matches the approved source.",
+      "Observability depends on the approval question; one image may be sufficient for logo verification but insufficient for package shape, component inventory, or printed quantity.",
+      "The checker does not reconstruct missing views, infer the unseen side of a package, or certify that separate images depict the same physical product instance.",
+      "Lighting and display differences prevent calibrated color measurement. Pairvu compares visible semantic color families only when corresponding color-bearing regions are sufficiently exposed.",
+      "A REVIEW is not proof of a defect. It means the supplied pair cannot support the requested conclusion without another view, clearer export, or product-owner context.",
+      "A PASS applies only to the required attributes that were observable in the supplied pair and is not marketplace, legal, regulatory, safety, or physical-product certification.",
+      "Provider, network, storage, and system errors remain execution failures and must never be represented as PASS, REVIEW, FAIL, or an observability limitation.",
+    ],
+    faq: [
+      {
+        question: "What does product image observability mean?",
+        answer:
+          "It means the supplied original and candidate contain corresponding, sufficiently complete, readable, and unobstructed evidence for the specific product attribute being checked. It is an evidence condition, not a seventh product attribute.",
+      },
+      {
+        question: "Why can Pairvu recognize a product but still return REVIEW?",
+        answer:
+          "Recognition can rely on overall shape, colors, or a partial label. Verification requires the exact region that proves a logo, value, component, color, or package feature matches. Missing proof should not become an assumed PASS.",
+      },
+      {
+        question: "Does a different viewpoint mean the product failed?",
+        answer:
+          "No. Minor viewpoint changes can pass when required evidence remains visible. A large front-to-back change usually needs REVIEW only for attributes on the hidden face, while shape, count, color, or components may still be verifiable.",
+      },
+      {
+        question: "Can a cropped candidate pass some checks?",
+        answer:
+          "Yes. A close label crop may verify readable logo and text while leaving product count, package body color, closure, components, and complete silhouette unresolved. Results should preserve that attribute-level distinction.",
+      },
+      {
+        question: "When does reflection cause REVIEW instead of PASS?",
+        answer:
+          "Reflection needs review when it covers, clips, recolors, or distorts a required evidence region enough to prevent reliable comparison. Environmental highlights can pass when the underlying attributes remain observable and stable.",
+      },
+      {
+        question: "Can insufficient visibility ever be called FAIL?",
+        answer:
+          "Insufficient visibility alone should not fail. FAIL requires a confirmed visible approval-critical difference. A pair may contain both a confirmed difference and other unobservable attributes; the finding and limitations should be reported separately.",
+      },
+      {
+        question: "How should I fix an observability REVIEW?",
+        answer:
+          "Provide the smallest missing evidence: a corresponding package face, wider crop, unobstructed logo, higher-resolution text region, reduced glare, complete product boundary, or a view containing every required component. Then rerun the final export.",
       },
     ],
   },

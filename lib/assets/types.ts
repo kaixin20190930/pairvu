@@ -6,6 +6,7 @@ export type AssetStatus = "uploaded" | "normalized" | "analyzed" | "deleted" | "
 
 export interface StoredAsset {
   id: string;
+  originalFileName?: string;
   workspaceId?: string;
   anonymousSessionId?: string;
   kind: AssetKind;
@@ -24,4 +25,5 @@ export interface AssetUploadInput {
   kind: Extract<AssetKind, "reference" | "candidate">;
   workspaceId?: string;
   anonymousSessionId?: string;
+  retentionDays?: number;
 }

@@ -125,4 +125,6 @@ The first screen must contain a concise, quotable answer to the page question. T
 | Product logo | `PUBLISHED` | Logo replacement FAIL, background PASS, shadow/reflection PASS, and partial-occlusion REVIEW |
 | Product color | `PUBLISHED` | Variant-plus-color FAIL, color-only REVIEW, lighting PASS, and incomplete-coverage REVIEW |
 | Product components | `PUBLISHED` | Founder-approved candle-set family: component removal plus text change FAIL, scene recomposition PASS, cropped accessory REVIEW, and extra-accessory REVIEW |
-| Observability | `PLANNED / NOINDEX` | Viewpoint, occlusion, unreadable text, partial product coverage |
+| Product image observability | `PUBLISHED` | Viewpoint, occlusion, unreadable text, partial product coverage, reflection, crop, and correspondence |
+
+The six attribute checks above complete the approved attribute-level M0 library. Product Image Observability is the final cross-cutting flagship in this phase. After it passes this standard and is published, Pairvu must stop routine check-page expansion until Search Console, checker usage, feedback, or user interviews identify a distinct approval job with unique evidence. Category-plus-check and platform-plus-check combinations remain blocked by default.

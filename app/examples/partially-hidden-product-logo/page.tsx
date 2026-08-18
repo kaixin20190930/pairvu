@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CaseComparison } from "@/components/CaseComparison";
 import { StructuredData } from "@/components/StructuredData";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { articleSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const page = getSeoPage("/examples/partially-hidden-product-logo");
 const breadcrumbs = [
@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function PartiallyHiddenProductLogoCasePage() {
   return (
     <main className="content-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page)]} />
+      <StructuredData data={articleSchema(page)} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero content-hero-compact">

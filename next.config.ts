@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 };
 
-export default nextConfig;
-
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
-initOpenNextCloudflareForDev();
+export default function config(phase: string): NextConfig {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
+    initOpenNextCloudflareForDev();
+  }
+
+  return nextConfig;
+}

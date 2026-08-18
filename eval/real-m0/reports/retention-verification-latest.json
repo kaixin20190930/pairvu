@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-27T15:07:07.969Z",
+  "generatedAt": "2026-08-18T06:09:19.130Z",
   "firstRun": {
-    "scanned": 2,
-    "deleted": 1,
+    "scanned": 3,
+    "deleted": 2,
     "failed": 1,
     "hasMore": false
   },
@@ -18,8 +18,15 @@
     "failed": 0,
     "hasMore": false
   },
+  "immediateRun": {
+    "requested": 1,
+    "deleted": 1,
+    "failed": 0
+  },
   "originalAndDerivativesUnavailable": true,
   "retryPreservedUntilSuccess": true,
-  "completedAttempts": 2,
+  "workspaceAssetDeleted": true,
+  "deletedAssetsExcludedFromListings": true,
+  "completedAttempts": 4,
   "failedAttempts": 1
 }

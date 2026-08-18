@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { StructuredData } from "@/components/StructuredData";
+import { collectionPageSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const page = getSeoPage("/guides");
 
@@ -10,6 +11,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function GuidesPage() {
   return (
     <main className="content-page">
+      <StructuredData data={collectionPageSchema(page)} />
       <div className="content-container">
         <Breadcrumbs
           items={[

@@ -105,4 +105,15 @@ Published pages use this order unless a category requires a documented exception
 | Beverages | `PUBLISHED` | Second flagship with capacity, count, reflection, and observability guidance |
 | Personal care | `PUBLISHED` | Third flagship with packaging-system, dispenser, lighting, and coverage guidance |
 | Packaged food | `PUBLISHED` | Fourth flagship with sellable-offer, package-count, perspective, and text-readability guidance |
-| Household packaged goods | `PUBLISHED / AWAITING DEPLOY` | Capacity FAIL, background PASS, missing-trigger REVIEW, and front-versus-back observability evidence now support the fifth flagship workflow |
+| Household packaged goods | `PUBLISHED` | Founder-reviewed FOLDWELL scent-and-count FAIL, laundry-room PASS, and front-versus-back REVIEW evidence now form the primary three-role workflow; earlier cleaner evidence remains available as supporting cases |
+| Skincare | `PUBLISHED` | Founder-reviewed sunscreen-stick FAIL, PASS, and REVIEW evidence; flagship workflow and scope-layer model completed on 2026-08-17 |
+
+## Coverage Language Standard
+
+Category pages must distinguish three different layers of product-image quality instead of implying that one visual comparison certifies an asset for publication:
+
+1. **Product fidelity (available now):** visible logo and identity text, printed values, primary product count, main semantic color, major components, package shape, and observability.
+2. **Creative and brand rules (future configurable capability):** composition, product occupancy, approved backgrounds and props, safe areas, typography, brand palette, and channel-specific presentation rules.
+3. **Technical, marketplace, and compliance review (outside the current checker):** dimensions, file format, compression, color profile, accessibility, platform policy, claims, warnings, ingredients, and legal or regulatory approval.
+
+No page may use “complete,” “all-in-one,” “guaranteed,” “100% accurate,” or equivalent language for the current checker. The correct promise is evidence-based product fidelity review, with REVIEW used when the supplied image cannot establish a required fact.

@@ -16,9 +16,10 @@ export async function storeUploadedAsset(bucket: R2Bucket, input: AssetUploadInp
   const buffer = await input.file.arrayBuffer();
   await validateM0ImageContent(buffer, input.file.type);
   const sha256 = await sha256Hex(buffer);
-  const retentionExpiresAt = input.workspaceId
-    ? undefined
-    : new Date(createdAt.getTime() + ANONYMOUS_ASSET_RETENTION_HOURS * 60 * 60 * 1000).toISOString();
+  const retentionMilliseconds = input.workspaceId
+    ? requireWorkspaceRetentionDays(input.retentionDays) * 24 * 60 * 60 * 1000
+    : ANONYMOUS_ASSET_RETENTION_HOURS * 60 * 60 * 1000;
+  const retentionExpiresAt = new Date(createdAt.getTime() + retentionMilliseconds).toISOString();
   const r2KeyOriginal = buildOriginalAssetKey({
     assetId,
     kind: input.kind,
@@ -41,6 +42,7 @@ export async function storeUploadedAsset(bucket: R2Bucket, input: AssetUploadInp
 
   return {
     id: assetId,
+    originalFileName: input.file.name,
     workspaceId: input.workspaceId,
     anonymousSessionId: input.anonymousSessionId,
     kind: input.kind,
@@ -53,6 +55,14 @@ export async function storeUploadedAsset(bucket: R2Bucket, input: AssetUploadInp
     retentionExpiresAt,
     createdAt: createdAt.toISOString(),
   };
+}
+
+function requireWorkspaceRetentionDays(retentionDays: number | undefined): number {
+  if (!Number.isInteger(retentionDays) || !retentionDays || retentionDays <= 0) {
+    throw new Error("A positive workspace retention period is required.");
+  }
+
+  return retentionDays;
 }
 
 function buildOriginalAssetKey(input: {

@@ -2,12 +2,13 @@ import fs from "node:fs";
 import path from "node:path";
 import robots from "../app/robots";
 import sitemap from "../app/sitemap";
-import { absoluteUrl, seoPages } from "../lib/seo/content-registry";
+import { absoluteUrl, brandedPageTitle, seoPages } from "../lib/seo/content-registry";
 
 const root = process.cwd();
 const errors: string[] = [];
 const publishedPages = seoPages.filter((page) => page.status === "published");
 const publishedRoutes = new Set(publishedPages.map((page) => page.route));
+const nonOrganicRoutePrefixes = ["/account", "/sign-in"];
 
 function addError(message: string) {
   errors.push(message);
@@ -17,7 +18,7 @@ function pageFileForRoute(route: string) {
   return route === "/" ? path.join(root, "app", "page.tsx") : path.join(root, "app", route.slice(1), "page.tsx");
 }
 
-function assertUnique(field: "route" | "title" | "h1" | "primaryKeyword") {
+function assertUnique(field: "route" | "title" | "h1" | "description" | "intent" | "primaryKeyword") {
   const seen = new Map<string, string>();
 
   for (const page of publishedPages) {
@@ -31,8 +32,21 @@ function assertUnique(field: "route" | "title" | "h1" | "primaryKeyword") {
   }
 }
 
-for (const field of ["route", "title", "h1", "primaryKeyword"] as const) {
+for (const field of ["route", "title", "h1", "description", "intent", "primaryKeyword"] as const) {
   assertUnique(field);
+}
+
+const ownedKeywords = new Map<string, string>();
+for (const page of publishedPages) {
+  for (const keyword of [page.primaryKeyword, ...page.ownedSecondaryKeywords]) {
+    const normalized = keyword.trim().toLowerCase();
+    const prior = ownedKeywords.get(normalized);
+    if (prior && prior !== page.route) {
+      addError(`Owned keyword collision: "${keyword}" on ${prior} and ${page.route}`);
+    } else {
+      ownedKeywords.set(normalized, page.route);
+    }
+  }
 }
 
 for (const page of publishedPages) {
@@ -45,8 +59,13 @@ for (const page of publishedPages) {
     addError(`Published organic page is unexpectedly non-indexable: ${page.route}`);
   }
 
-  if (page.title.length < 20 || page.title.length > 65) {
-    addError(`Title length is outside 20-65 characters: ${page.route} (${page.title.length})`);
+  const finalTitle = brandedPageTitle(page);
+  if (finalTitle.length < 20 || finalTitle.length > 65) {
+    addError(`Branded title length is outside 20-65 characters: ${page.route} (${finalTitle.length})`);
+  }
+
+  if (!finalTitle.includes("Pairvu")) {
+    addError(`Final title does not expose the Pairvu brand: ${page.route}`);
   }
 
   if (page.description.length < 70 || page.description.length > 180) {
@@ -64,7 +83,7 @@ for (const page of publishedPages) {
   }
 }
 
-const sourceFiles = walkSourceFiles([path.join(root, "app"), path.join(root, "components")]);
+const sourceFiles = walkSourceFiles([path.join(root, "app"), path.join(root, "components"), path.join(root, "lib", "seo")]);
 const incomingLinks = new Map<string, Set<string>>();
 
 for (const sourceFile of sourceFiles) {
@@ -79,6 +98,9 @@ for (const sourceFile of sourceFiles) {
       if (!href.startsWith("/") || href.startsWith("/api/")) continue;
 
       const targetRoute = href.split("#", 1)[0] || "/";
+      if (nonOrganicRoutePrefixes.some((prefix) => targetRoute === prefix || targetRoute.startsWith(`${prefix}/`))) {
+        continue;
+      }
       if (!publishedRoutes.has(targetRoute)) {
         addError(`Internal link points to an unregistered route: ${relative(sourceFile)} -> ${href}`);
         continue;
@@ -95,6 +117,14 @@ for (const page of publishedPages) {
   if (page.route === "/") continue;
   if (!incomingLinks.get(page.route)?.size) {
     addError(`Published page has no source-level incoming link: ${page.route}`);
+  }
+}
+
+for (const page of publishedPages) {
+  if (!page.parentRoute) continue;
+  const parent = publishedPages.find((candidate) => candidate.route === page.parentRoute);
+  if (!parent?.relatedRoutes.includes(page.route)) {
+    addError(`Parent registry page does not link to its published child: ${page.parentRoute} -> ${page.route}`);
   }
 }
 

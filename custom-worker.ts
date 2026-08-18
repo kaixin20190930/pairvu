@@ -1,7 +1,11 @@
 // @ts-expect-error OpenNext generates this module before Wrangler bundles the worker.
 import nextWorker from "./.open-next/worker.js";
-import { deleteExpiredAnonymousAssets } from "./lib/assets/deletion";
+import { deleteExpiredAssets } from "./lib/assets/deletion";
 import type { VisualQACloudflareEnv } from "./lib/cloudflare/bindings";
+import type { QueueMessageBatch } from "./lib/cloudflare/bindings";
+import { releaseExpiredCreditReservations } from "./lib/credits/repository";
+import { isBatchAnalysisQueueMessage, type BatchAnalysisQueueMessage } from "./lib/batches/queue";
+import { processBatchAnalysisMessage, terminallyFailBatchMessage } from "./lib/batches/worker";
 
 interface ScheduledController {
   scheduledTime: number;
@@ -29,23 +33,55 @@ const worker = {
     env: VisualQACloudflareEnv,
     context: ExecutionContext,
   ) {
-    context.waitUntil(runRetentionDeletion(controller, env));
+    context.waitUntil(runScheduledMaintenance(controller, env));
+  },
+
+  async queue(batch: QueueMessageBatch<unknown>, env: VisualQACloudflareEnv) {
+    const deadLetter = batch.queue === "pairvu-batch-dead-letter";
+    for (const message of batch.messages) {
+      if (!isBatchAnalysisQueueMessage(message.body)) {
+        console.error("batch_queue_invalid_message", { queue: batch.queue, messageId: message.id });
+        message.ack();
+        continue;
+      }
+
+      try {
+        if (deadLetter) {
+          await terminallyFailBatchMessage(env, message.body as BatchAnalysisQueueMessage);
+        } else {
+          await processBatchAnalysisMessage(env, message.body as BatchAnalysisQueueMessage);
+        }
+        message.ack();
+      } catch (error) {
+        console.error("batch_queue_item_failed", {
+          queue: batch.queue,
+          messageId: message.id,
+          attempts: message.attempts,
+          error: error instanceof Error ? error.message : String(error),
+        });
+        if (deadLetter) message.ack();
+        else message.retry({ delaySeconds: 30 });
+      }
+    }
   },
 };
 
 export default worker;
 
-async function runRetentionDeletion(
+async function runScheduledMaintenance(
   controller: ScheduledController,
   env: VisualQACloudflareEnv,
 ) {
-  const summary = await deleteExpiredAnonymousAssets(env.VISUALQA_DB, env.VISUALQA_ASSETS, {
-    now: new Date(controller.scheduledTime),
-  });
+  const now = new Date(controller.scheduledTime);
+  const [retention, releasedCreditReservations] = await Promise.all([
+    deleteExpiredAssets(env.VISUALQA_DB, env.VISUALQA_ASSETS, { now }),
+    releaseExpiredCreditReservations(env.VISUALQA_DB, now),
+  ]);
 
-  console.log("anonymous_asset_retention_completed", {
+  console.log("scheduled_maintenance_completed", {
     cron: controller.cron,
-    ...summary,
+    retention,
+    releasedCreditReservations,
   });
 }
 

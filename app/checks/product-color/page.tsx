@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { getCheckPageContent } from "@/lib/seo/check-content";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { articleSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const route = "/checks/product-color";
 const page = getSeoPage(route);
@@ -39,7 +39,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function ProductColorCheckPage() {
   return (
     <main className="content-page check-detail-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page), faqSchema]} />
+      <StructuredData data={[articleSchema(page), faqSchema]} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero check-detail-hero">
@@ -55,7 +55,7 @@ export default function ProductColorCheckPage() {
 
         <section className="article-section check-direct-answer" aria-labelledby="color-answer">
           <p className="section-label">Direct answer</p>
-          <h2 id="color-answer">How should product color be checked?</h2>
+          <h2 id="color-answer">Compare approved product color with the AI candidate</h2>
           <p>{approvedContent.directAnswer}</p>
           <p>{approvedContent.scopeDistinction}</p>
         </section>

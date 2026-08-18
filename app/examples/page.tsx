@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { StructuredData } from "@/components/StructuredData";
+import { collectionPageSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const page = getSeoPage("/examples");
 
@@ -32,6 +33,73 @@ const examples = [
 ];
 
 const featuredCases = [
+  {
+    href: "/examples/laundry-sheets-scent-count-change",
+    verdict: "FAIL",
+    title: "Laundry-sheet scent and count changed",
+    summary: "The FOLDWELL carton keeps its identity while FRESH LINEN 30 SHEETS changes to UNSCENTED 20 SHEETS.",
+    original: "/examples/foldwell-scent-count-change/original.png",
+    candidate: "/examples/foldwell-scent-count-change/candidate.png",
+    alt: "FOLDWELL laundry-sheet cartons with different scent wording and sheet counts",
+  },
+  {
+    href: "/examples/laundry-sheets-background-change",
+    verdict: "PASS",
+    title: "Laundry-room setting changed, product matched",
+    summary: "The same FOLDWELL Fresh Linen carton moves from a studio pack shot into a laundry-room scene.",
+    original: "/examples/foldwell-background-change/original.png",
+    candidate: "/examples/foldwell-background-change/candidate.png",
+    alt: "Same FOLDWELL laundry-sheets carton on studio and laundry-room backgrounds",
+  },
+  {
+    href: "/examples/laundry-sheets-back-view-review",
+    verdict: "REVIEW",
+    title: "Laundry-sheet carton front label was hidden",
+    summary: "The rear carton supports a package match but cannot verify the logo, scent, count, or load claim on the front.",
+    original: "/examples/foldwell-back-view/original.png",
+    candidate: "/examples/foldwell-back-view/candidate.png",
+    alt: "FOLDWELL laundry-sheets carton front and rear package-face comparison",
+  },
+  {
+    href: "/examples/skincare-spf-value-change",
+    title: "Skincare SPF value changed",
+    summary: "A SOLVANE sun stick keeps its package identity while SPF 50+ changes to SPF 30.",
+    original: "/examples/skincare-spf-change/original.png",
+    candidate: "/examples/skincare-spf-change/candidate.png",
+    alt: "Sunscreen stick SPF 50+ and SPF 30 comparison",
+  },
+  {
+    href: "/examples/skincare-product-background-change",
+    title: "Skincare product moved to a beach scene",
+    summary: "The same sun stick moves from a studio to a beach setting without changing the visible product.",
+    original: "/examples/skincare-background-change/original.png",
+    candidate: "/examples/skincare-background-change/candidate.png",
+    alt: "Same sunscreen stick on studio and beach backgrounds",
+  },
+  {
+    href: "/examples/skincare-package-crop-review",
+    title: "Skincare package is only partly visible",
+    summary: "A close crop preserves logo and front text but hides the lower control and complete silhouette.",
+    original: "/examples/skincare-crop-observability/original.png",
+    candidate: "/examples/skincare-crop-observability/candidate.png",
+    alt: "Complete sunscreen stick and close package crop comparison",
+  },
+  {
+    href: "/examples/cold-brew-flavor-volume-change",
+    title: "Cold-brew flavor and volume changed",
+    summary: "The MORROW can keeps its brand and shape while VANILLA OAT 250 mL changes to MOCHA OAT 330 mL.",
+    original: "/examples/cold-brew-flavor-volume-change/original.png",
+    candidate: "/examples/cold-brew-flavor-volume-change/candidate.png",
+    alt: "MORROW cold-brew cans with different flavor and volume wording",
+  },
+  {
+    href: "/examples/cold-brew-condensation-change",
+    title: "Condensation changed, product matched",
+    summary: "Surface droplets change the photography while the observable MORROW product remains faithful.",
+    original: "/examples/cold-brew-condensation-change/original.png",
+    candidate: "/examples/cold-brew-condensation-change/candidate.png",
+    alt: "Same MORROW cold-brew can without and with condensation droplets",
+  },
   {
     href: "/examples/logo-change-ai-product-image",
     title: "Logo changed",
@@ -237,6 +305,7 @@ const featuredCases = [
 export default function ExamplesPage() {
   return (
     <main className="content-page">
+      <StructuredData data={collectionPageSchema(page)} />
       <div className="content-container">
         <Breadcrumbs
           items={[
@@ -268,7 +337,7 @@ export default function ExamplesPage() {
                   <Image src={caseItem.candidate} alt={caseItem.alt} width={1000} height={1000} sizes="220px" />
                 </div>
                 <div>
-                  <span>Controlled example</span>
+                  <span>{caseItem.verdict ? `${caseItem.verdict} controlled example` : "Controlled example"}</span>
                   <h3>{caseItem.title}</h3>
                   <p>{caseItem.summary}</p>
                 </div>

@@ -8,6 +8,7 @@ const footerGroups = [
       { href: "/", label: "AI Product Image Checker" },
       { href: "/#checker", label: "Check Image" },
       { href: "/how-pairvu-works", label: "How It Works" },
+      { href: "/pricing", label: "Pricing" },
     ],
   },
   {

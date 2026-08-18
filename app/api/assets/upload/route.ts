@@ -3,8 +3,13 @@ import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import { insertAssetMetadata } from "@/lib/assets/repository";
 import { storeUploadedAsset } from "@/lib/assets/storage";
 import type { AssetKind } from "@/lib/assets/types";
-import { AssetValidationError, isValidAnonymousSessionId } from "@/lib/assets/validation";
-import { enforcePublicUploadGuard, PublicBetaAccessError } from "@/lib/public-beta/guards";
+import { AssetValidationError } from "@/lib/assets/validation";
+import {
+  enforceAuthenticatedUploadGuard,
+  enforcePublicUploadGuard,
+  PublicBetaAccessError,
+} from "@/lib/public-beta/guards";
+import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 
 export const dynamic = "force-dynamic";
 
@@ -26,20 +31,25 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "kind must be reference or candidate" }, { status: 400 });
     }
 
-    if (!isValidAnonymousSessionId(anonymousSessionId)) {
-      return NextResponse.json({ error: "invalid_session", message: "Anonymous session id is invalid." }, { status: 400 });
-    }
-
     const env = getVisualQAEnv();
-    await enforcePublicUploadGuard(env.VISUALQA_DB, env, {
-      anonymousSessionId,
-      turnstileToken: typeof turnstileToken === "string" ? turnstileToken : undefined,
-      clientIp: request.headers.get("cf-connecting-ip"),
-    });
+    const access = await resolveRequestAccess(env, request.headers, anonymousSessionId);
+    if (access.workspaceId) {
+      await enforceAuthenticatedUploadGuard(env.VISUALQA_DB, env, {
+        workspaceId: access.workspaceId,
+      });
+    } else {
+      await enforcePublicUploadGuard(env.VISUALQA_DB, env, {
+        anonymousSessionId: access.anonymousSessionId!,
+        turnstileToken: typeof turnstileToken === "string" ? turnstileToken : undefined,
+        clientIp: request.headers.get("cf-connecting-ip"),
+      });
+    }
     const asset = await storeUploadedAsset(env.VISUALQA_ASSETS, {
       file,
       kind: kind as "reference" | "candidate",
-      anonymousSessionId,
+      workspaceId: access.workspaceId ?? undefined,
+      anonymousSessionId: access.workspaceId ? undefined : access.anonymousSessionId ?? undefined,
+      retentionDays: access.retentionDays ?? undefined,
     });
 
     await insertAssetMetadata(env.VISUALQA_DB, asset);
@@ -59,6 +69,10 @@ export async function POST(request: NextRequest) {
       { status: 201 },
     );
   } catch (error) {
+    if (error instanceof RequestAccessError) {
+      return NextResponse.json({ error: error.code, message: error.message }, { status: 400 });
+    }
+
     if (error instanceof PublicBetaAccessError) {
       const headers = retryAfterHeaders(error.retryAfterSeconds);
       return NextResponse.json(

@@ -28,6 +28,7 @@
     "ANONYMOUS_ASSET_RETENTION_HOURS": "24",
     "OPENAI_MODEL": "gpt-4.1-mini",
     "OPENAI_PROMPT_VERSION": "m0-real-mvp-009",
+    "OPENAI_REQUEST_TIMEOUT_MS": "120000",
     "TURNSTILE_SITE_KEY": "0x4AAAAAAEAut-dQfjfNjITa",
     "PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS": "true",
     "PUBLIC_ANALYSIS_SESSION_MINUTE_LIMIT": "3",
@@ -39,7 +40,13 @@
     "PUBLIC_ANALYSIS_GLOBAL_DAILY_SPEND_LIMIT_USD": "25",
     "PUBLIC_UPLOAD_SESSION_MINUTE_LIMIT": "10",
     "PUBLIC_UPLOAD_SESSION_DAILY_LIMIT": "24",
-    "PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE": "false"
+    "PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE": "false",
+    "BETTER_AUTH_URL": "https://pairvu.com",
+    "AUTH_EMAIL_FROM": "Pairvu <sign-in@pairvu.com>",
+    "AUTH_TRUSTED_ORIGINS": "https://pairvu.com,https://www.pairvu.com",
+    "STRIPE_PRICE_STARTER": "price_1U4wVaGlvseBpI4P6LKCEoYz",
+    "STRIPE_PRICE_GROWTH": "price_1U5G9PGlvseBpI4PQlZsQT7v",
+    "STRIPE_PRICE_AGENCY": "price_1U5GA0GlvseBpI4Phe04i4fi"
   },
   "triggers": {
     "crons": ["*/15 * * * *"]
@@ -56,5 +63,44 @@
       "database_name": "pairvu-production",
       "database_id": "2d16e86a-fa00-4990-982a-ce4cc7ea31aa"
     }
-  ]
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "BATCH_ANALYSIS_QUEUE",
+        "queue": "pairvu-batch-analysis"
+      },
+      {
+        "binding": "BATCH_PRIORITY_ANALYSIS_QUEUE",
+        "queue": "pairvu-batch-priority-analysis"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "pairvu-batch-analysis",
+        "max_batch_size": 1,
+        "max_batch_timeout": 2,
+        "max_retries": 2,
+        "retry_delay": 30,
+        "dead_letter_queue": "pairvu-batch-dead-letter",
+        "max_concurrency": 1
+      },
+      {
+        "queue": "pairvu-batch-priority-analysis",
+        "max_batch_size": 1,
+        "max_batch_timeout": 2,
+        "max_retries": 2,
+        "retry_delay": 30,
+        "dead_letter_queue": "pairvu-batch-dead-letter",
+        "max_concurrency": 1
+      },
+      {
+        "queue": "pairvu-batch-dead-letter",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5,
+        "max_retries": 1,
+        "max_concurrency": 1
+      }
+    ]
+  }
 }

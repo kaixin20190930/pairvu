@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
-import { articleSchema, breadcrumbSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
+import { collectionPageSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
 const page = getSeoPage("/checks");
 const breadcrumbs = [
@@ -50,8 +50,9 @@ const checkFamilies = [
   },
   {
     title: "Observability",
-    status: "Planned",
-    detail: "Identify exactly which crop, viewpoint, occlusion, reflection, or resolution problem prevents a reliable answer.",
+    status: "Published",
+    href: "/checks/product-image-observability",
+    detail: "Identify exactly which correspondence, crop, viewpoint, occlusion, reflection, or resolution problem prevents a reliable answer.",
   },
 ];
 
@@ -60,7 +61,7 @@ export const metadata: Metadata = pageMetadata(page);
 export default function ProductChecksPage() {
   return (
     <main className="content-page">
-      <StructuredData data={[breadcrumbSchema(breadcrumbs), articleSchema(page)]} />
+      <StructuredData data={collectionPageSchema(page)} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero content-hero-compact">

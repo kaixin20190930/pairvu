@@ -35,16 +35,46 @@ export interface D1PreparedStatement {
 
 export interface D1Database {
   prepare(query: string): D1PreparedStatement;
+  batch<T = unknown>(statements: D1PreparedStatement[]): Promise<T[]>;
+}
+
+export interface QueueSendOptions {
+  delaySeconds?: number;
+  contentType?: "json" | "text" | "bytes" | "v8";
+}
+
+export interface Queue<T = unknown> {
+  send(message: T, options?: QueueSendOptions): Promise<void>;
+  sendBatch(messages: Array<{ body: T; contentType?: "json" | "text" | "bytes" | "v8"; delaySeconds?: number }>): Promise<void>;
+}
+
+export interface QueueMessage<T = unknown> {
+  id: string;
+  timestamp: Date;
+  body: T;
+  attempts: number;
+  ack(): void;
+  retry(options?: { delaySeconds?: number }): void;
+}
+
+export interface QueueMessageBatch<T = unknown> {
+  queue: string;
+  messages: QueueMessage<T>[];
+  ackAll(): void;
+  retryAll(options?: { delaySeconds?: number }): void;
 }
 
 export interface VisualQACloudflareEnv {
   VISUALQA_ASSETS: R2Bucket;
   VISUALQA_DB: D1Database;
+  BATCH_ANALYSIS_QUEUE: Queue;
+  BATCH_PRIORITY_ANALYSIS_QUEUE: Queue;
   ANONYMOUS_ASSET_RETENTION_HOURS?: string;
   NEXTJS_ENV?: string;
   OPENAI_API_KEY?: string;
   OPENAI_MODEL?: string;
   OPENAI_PROMPT_VERSION?: string;
+  OPENAI_REQUEST_TIMEOUT_MS?: string;
   TURNSTILE_SITE_KEY?: string;
   TURNSTILE_SECRET_KEY?: string;
   PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS?: string;
@@ -59,6 +89,18 @@ export interface VisualQACloudflareEnv {
   PUBLIC_UPLOAD_SESSION_MINUTE_LIMIT?: string;
   PUBLIC_UPLOAD_SESSION_DAILY_LIMIT?: string;
   PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE?: string;
+  BETTER_AUTH_SECRET?: string;
+  BETTER_AUTH_URL?: string;
+  GOOGLE_CLIENT_ID?: string;
+  GOOGLE_CLIENT_SECRET?: string;
+  RESEND_API_KEY?: string;
+  AUTH_EMAIL_FROM?: string;
+  AUTH_TRUSTED_ORIGINS?: string;
+  STRIPE_SECRET_KEY?: string;
+  STRIPE_WEBHOOK_SECRET?: string;
+  STRIPE_PRICE_STARTER?: string;
+  STRIPE_PRICE_GROWTH?: string;
+  STRIPE_PRICE_AGENCY?: string;
 }
 
 export function getVisualQAEnv(): VisualQACloudflareEnv {

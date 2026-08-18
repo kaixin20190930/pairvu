@@ -56,6 +56,78 @@ export type CategoryPageContent = {
 
 export const categoryPageContents: readonly CategoryPageContent[] = [
   {
+    route: "/categories/skincare-product-image-qa",
+    founderApprovedAt: "2026-08-17",
+    audience: "Skincare founders, brand managers, ecommerce operators, marketplace teams, creative studios, and production reviewers who use AI-generated or edited pack shots and need to confirm that a final image still represents the approved sunscreen, serum, cleanser, moisturizer, treatment, or mask SKU before publication.",
+    searchIntentEvidence: "This page serves category-specific skincare image QA intent rather than generic image comparison. It explains how variant names, active or strength values, SPF, net contents, closures, applicators, package color systems, complete product coverage, and harmless lifestyle-scene changes affect a publish decision, using three founder-reviewed production comparisons.",
+    deck: "Skincare products often share compact packages while a short line of text, SPF number, concentration, shade cue, applicator, or lower closure distinguishes one sellable SKU from another. Pairvu compares a candidate with an approved product image, separates confirmed product changes from creative scene changes, and routes hidden evidence to human review.",
+    packagingFormats: ["Sun sticks and treatment sticks with twist controls", "Dropper bottles, ampoules, and facial serums", "Airless pumps, lotion pumps, and treatment dispensers", "Jars, pots, balm tins, and refill capsules", "Squeeze tubes for cleansers, masks, and SPF products", "Cartons, kits, and primary packages shown as the approved offer"],
+    identityHierarchy: [
+      {priority:"1",attribute:"Brand, sub-brand, and logo",reason:"A skincare package can retain its premium styling while a generated symbol or brand word changes. Identity must be compared before aesthetic similarity because a plausible replacement mark still represents the wrong commercial source."},
+      {priority:"2",attribute:"Product type and line",reason:"SUN STICK, SERUM, CLEANSER, NIGHT CREAM, and similar wording distinguish products that may use the same bottle family. The corresponding package face must expose this text clearly enough for direct comparison."},
+      {priority:"3",attribute:"Variant, active, strength, shade, and SPF",reason:"SPF 50+, 2% BHA, RETINOL, FRAGRANCE FREE, a shade name, or a day-versus-night variant can define a separate SKU. These small visible tokens deserve higher priority than decorative copy."},
+      {priority:"4",attribute:"Net contents and count",reason:"Volume, weight, pad count, patch count, capsule count, and kit quantity are customer-facing offer data. A polished candidate must not silently convert 20 g into 30 g or one product into a multipack."},
+      {priority:"5",attribute:"Container, closure, and dispensing mechanism",reason:"Droppers, pumps, caps, spatulas, rollers, twist wheels, seals, and nozzle systems affect both product identity and expected use. Their presence and geometry should be assessed separately from ordinary crop and perspective."},
+      {priority:"6",attribute:"Semantic package and variant colors",reason:"Color may encode a formula family or approved artwork. Compare stable label and container regions while allowing ordinary daylight, reflections, translucent materials, and background color spill that do not change the product."},
+      {priority:"7",attribute:"Complete coverage and corresponding faces",reason:"A readable upper label does not prove that the base, control, side panel, closure, or hidden face remains faithful. Approval requires enough corresponding visual evidence for every attribute that matters to the decision."},
+    ],
+    decisionRules: [
+      {attribute:"Brand and logo",pass:"The same readable brand wording, symbol, and identity-bearing placement remain visible on corresponding package regions.",review:"Glare, a hand, crop, prop, overlay, or viewpoint hides enough of the mark that identity cannot be compared directly.",fail:"The candidate replaces, removes, redraws, or materially changes the approved brand name or logo into another visible identity."},
+      {attribute:"Product line and type",pass:"The approved product name and type remain readable and consistent on the same visible package face.",review:"The required face is turned away, too small, blurred, or partly hidden, so line identity cannot be established.",fail:"The visible product line or type changes, such as a sunscreen becoming a moisturizer or a serum becoming a cleanser."},
+      {attribute:"SPF, active, strength, or variant",pass:"The same SPF, concentration, active, shade, finish, fragrance, and day-or-night designation remains observable.",review:"The identifying value is below readable resolution or outside the crop, and no reliable visual cue proves the approved variant.",fail:"An approval-critical token changes, including SPF 50+ to SPF 30, 2% to 1%, or one named formula to another."},
+      {attribute:"Net contents and unit count",pass:"Visible weight, volume, count, and number of primary products match the approved offer on corresponding regions.",review:"The quantity panel or complete set is hidden, preventing a reliable decision about contents or included units.",fail:"A printed quantity or visible unit count changes and would describe a different amount, pack, or customer offer."},
+      {attribute:"Closure, applicator, and control",pass:"The approved cap, pump, dropper, spatula, nozzle, roller, seal, or twist mechanism is present and visually consistent.",review:"A required component may be behind the product or beyond the frame, so absence cannot be distinguished from occlusion.",fail:"A clearly visible required component is removed, replaced with a materially different mechanism, or an unapproved component is added."},
+      {attribute:"Container and package shape",pass:"The complete silhouette and characteristic shoulders, base, cap, and proportions remain consistent after allowing normal perspective.",review:"A close crop or large viewpoint difference hides the geometry needed to compare complete packaging form.",fail:"A stick, jar, tube, bottle, carton, or closure becomes a materially different packaging format or silhouette."},
+      {attribute:"Semantic color",pass:"Stable package regions preserve the approved color family despite normal lighting, highlight, reflection, and scene warmth.",review:"Strong color cast, iridescence, transparency, or reflection prevents separation of surface color from illumination.",fail:"A deliberate label, container, cap, or variant color changes enough to indicate different artwork or SKU identity."},
+      {attribute:"Background and styling",pass:"Only the scene, props, shadow, framing, or product position changes while product evidence remains observable and faithful.",review:"Creative styling covers label text, components, color-bearing regions, or the complete silhouette required for approval.",fail:"A prop is presented as an included component, the visible product set changes, or styling physically alters the approved package."},
+      {attribute:"Coverage and correspondence",pass:"Every approval-critical attribute is visible on a corresponding region in both images and can be compared directly.",review:"The candidate proves only part of the product, requiring a complete or matching-angle image before approval.",fail:"Visible corresponding regions confirm a real identity, value, component, color, count, or packaging change rather than missing evidence."},
+    ],
+    evidence: [
+      {href:"/examples/skincare-spf-value-change",title:"SPF 50+ changed to SPF 30",role:"product_change",decision:"FAIL",original:"/examples/skincare-spf-change/original.png",candidate:"/examples/skincare-spf-change/candidate.png",alt:"SOLVANE sunscreen SPF value comparison",observation:"The approved and candidate sun sticks preserve logo, wording, weight, color, count, controls, and shape, but the visible protection value changes from SPF 50+ to SPF 30.",lesson:"Treat protection, strength, shade, and concentration values as identity-bearing SKU evidence. Correct the value and run a new comparison before publishing."},
+      {href:"/examples/skincare-product-background-change",title:"Beach setting changed, product matched",role:"hard_negative",decision:"PASS",original:"/examples/skincare-background-change/original.png",candidate:"/examples/skincare-background-change/candidate.png",alt:"SOLVANE studio pack shot compared with beach lifestyle image",observation:"The candidate introduces fabric, a hat, beach light, a horizon, new shadows, and smaller product scale while all required visible product attributes remain faithful.",lesson:"Do not confuse creative presentation with product drift. A hard-negative PASS shows that scene freedom can coexist with strict product identity review."},
+      {href:"/examples/skincare-package-crop-review",title:"Lower package outside the crop",role:"observability",decision:"REVIEW",original:"/examples/skincare-crop-observability/original.png",candidate:"/examples/skincare-crop-observability/candidate.png",alt:"Complete SOLVANE sunscreen stick compared with close upper crop",observation:"Logo and front text are readable in the crop, but the lower package, twist component, base, and complete silhouette are unavailable for comparison.",lesson:"A recognizable product is not a fully verified product. Request a complete candidate and phrase sub-results as visible-region matches rather than complete approval."},
+    ],
+    failureModes: [
+      {title:"Variant token drift",detail:"A short SPF, active, percentage, shade, scent, or day-versus-night token changes while the rest of the package remains convincing.",businessRisk:"The image can advertise a different formula or protection level under the correct brand."},
+      {title:"Hallucinated microcopy",detail:"AI preserves headline text but invents, drops, duplicates, or garbles small directions, claims, values, or secondary package wording.",businessRisk:"Customers may see inaccurate product information even when the hero pack shot looks polished."},
+      {title:"Closure or applicator substitution",detail:"A dropper, pump, cap, spatula, roller, seal, or twist control disappears or changes to another dispensing system.",businessRisk:"The image misrepresents use, hygiene, included contents, or the exact package revision."},
+      {title:"Variant color remapping",detail:"The candidate changes a semantic color used to distinguish formula, shade, strength, or approved artwork from ordinary lighting effects.",businessRisk:"A customer may select the wrong SKU or the asset may conflict with the product catalog."},
+      {title:"Beauty crop without complete evidence",detail:"A tight composition keeps the brand and headline attractive but removes the base, quantity, control, side, or full silhouette.",businessRisk:"Reviewers can approve a recognizable label without verifying the actual sellable package."},
+      {title:"Lifestyle props interpreted as contents",detail:"Applicators, towels, pouches, caps, or accessories in a styled scene appear to be included with the product.",businessRisk:"The image can create an inaccurate offer expectation even when the primary container is faithful."},
+    ],
+    uniqueInsights: [
+      {title:"Skincare identity often lives in very small tokens",paragraphs:["Two skincare SKUs may share the same bottle mold, logo, typography, and palette. A two-character percentage, SPF number, shade suffix, or DAY versus NIGHT word can be the only visible distinction. Review priority should follow commercial identity, not pixel area.","A useful reference therefore needs readable identity-bearing text. When those tokens are tiny, provide a higher-resolution pack shot instead of asking the system to infer them from color or context."]},
+      {title:"Reflective and translucent packages require semantic color reasoning",paragraphs:["Frosted glass, metallic foil, clear liquid, iridescent labels, and glossy caps mix object color with illumination. Raw pixel color difference is not enough to decide that a variant changed.","Compare stable semantic regions and printed variant text first. When reflection dominates those regions, REVIEW is more honest than either a false color alarm or an unsupported PASS."]},
+      {title:"Publication confidence needs more than the current six fidelity families",paragraphs:["Pairvu currently anchors product fidelity through logo, visible text and values, product count, main color, major components, package shape, and observability. These answer whether the candidate still depicts the approved product.","A broader release process should add image-integrity checks for deformation, text-rendering artifacts, edges, reflections, and impossible geometry; configurable brand rules for composition and logo treatment; and separate technical, marketplace, claims, legal, and regulatory review. Those future layers must not be implied by a current PASS."]},
+    ],
+    inputRequirements: [
+      {title:"Use the exact approved SKU",detail:"Choose the approved variant, strength, size, shade, formula, and package revision rather than a similar product from the same line."},
+      {title:"Keep identity text readable",detail:"Supply enough resolution for brand, product line, SPF or active, variant, and net contents that determine the sellable skincare SKU."},
+      {title:"Show the complete primary package",detail:"Include the cap or closure, container shoulders, base, dispenser, controls, and full silhouette needed for package verification."},
+      {title:"Expose corresponding package faces",detail:"A front reference cannot prove hidden candidate side or back details. Add a corresponding view when approval depends on another face."},
+      {title:"Separate included components from props",detail:"Make droppers, spatulas, brushes, pouches, and other included tools visually distinguishable from decorative scene objects."},
+      {title:"Avoid uncontrolled glare on identity regions",detail:"Use a view where reflections do not erase variant color, logo, printed values, or package edges required for the decision."},
+    ],
+    workflow: [
+      {title:"Lock the approved SKU",detail:"Confirm brand, line, variant, strength, contents, and packaging revision represented by the reference before checking candidates."},
+      {title:"Check observability first",detail:"Verify that both images expose corresponding identity text, complete package form, semantic color regions, and required components."},
+      {title:"Resolve confirmed identity failures",detail:"Stop publication for changed logos, product names, SPF or active values, quantities, variants, or clearly altered packaging."},
+      {title:"Review components and the visible offer",detail:"Confirm closures, controls, applicators, kits, counts, and styled props do not add, remove, or misrepresent included items."},
+      {title:"Allow harmless creative variation",detail:"Accept background, lighting, shadow, repositioning, and ordinary perspective changes when product evidence remains faithful."},
+      {title:"Escalate missing evidence",detail:"Request a complete, higher-resolution, or corresponding-angle candidate whenever the pair cannot support a reliable approval."},
+      {title:"Run separate release checks",detail:"After fidelity review, apply brand, image-quality, technical, retailer, claims, legal, and regulatory controls outside the current Pairvu decision."},
+    ],
+    limitations: ["Pairvu compares visible image fidelity and does not validate sunscreen efficacy, active concentration, formulation, ingredients, safety, or physical product contents.","A PASS is not legal, regulatory, claims, medical, retailer, or marketplace certification and must not be presented as one.","The current result does not guarantee exact OCR for unreadable microcopy, directions, warnings, INCI lists, barcodes, or lot information.","One reference view cannot verify hidden package faces, seals, cartons, inserts, tamper evidence, or components outside the frame.","Current M1 checks do not score general beauty, conversion quality, composition, retouching quality, texture realism, or brand desirability.","File format, pixel dimensions, color profile, compression, accessibility text, and marketplace delivery specifications require separate technical validation.","The workflow does not determine whether lifestyle props, models, claims, or usage scenes are legally or commercially appropriate.","Near-release confidence requires layered human and automated review; no single image comparison can guarantee a product image is error-free."],
+    faq: [
+      {question:"Does Pairvu check SPF and skincare strength values?",answer:"It compares readable visible text and printed values against the approved reference. A confirmed SPF 50+ to SPF 30 change can produce FAIL, while an unreadable or hidden value should require review rather than inference."},
+      {question:"Can a skincare product move to a lifestyle background and still PASS?",answer:"Yes. Background, props, lighting, position, and shadow may change when the observable logo, product identity, values, count, colors, components, and package form remain faithful."},
+      {question:"Why does a close skincare crop return REVIEW?",answer:"A crop may preserve logo and headline text while excluding quantity, base, closure, control, or complete silhouette. Pairvu can verify corresponding visible regions but should not approve attributes that are outside the frame."},
+      {question:"Does Pairvu validate ingredients or skincare claims?",answer:"No. It does not determine formula truth, INCI accuracy, efficacy, safety, claim substantiation, regulatory compliance, or medical suitability. Those require structured source data and specialist review."},
+      {question:"What else should be checked before publishing a skincare image?",answer:"After product-fidelity QA, review visual artifacts and deformation, brand and composition rules, exact technical delivery requirements, retailer rules, claims and required disclaimers, localization, rights, and final SKU-to-listing mapping."},
+      {question:"Can Pairvu guarantee that an AI product image has no errors?",answer:"No. Pairvu reduces risk by comparing visible evidence and reporting PASS, REVIEW, or FAIL. Complete confidence depends on image quality, reference coverage, configured rules, source data, and human review for nonvisual and regulated requirements."},
+    ],
+  },
+  {
     route: "/categories/cosmetics-product-image-qa",
     founderApprovedAt: "2026-08-03",
     audience:
@@ -481,6 +553,32 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
     ],
     evidence: [
+      {
+        href: "/examples/cold-brew-flavor-volume-change",
+        title: "Flavor and printed volume changed together",
+        role: "product_change",
+        decision: "FAIL",
+        original: "/examples/cold-brew-flavor-volume-change/original.png",
+        candidate: "/examples/cold-brew-flavor-volume-change/candidate.png",
+        alt: "MORROW Vanilla Oat 250 mL and Mocha Oat 330 mL cold-brew cans",
+        observation:
+          "The MORROW logo, one-can count, maroon body, cream label, and slim aluminum-can shape remain stable. The flavor changes from VANILLA OAT to MOCHA OAT and the printed volume changes from 250 mL to 330 mL.",
+        lesson:
+          "A matching master brand and container do not establish the same sellable beverage. Variant wording and printed package volume are independent identity attributes, and either confirmed change should stop publication.",
+      },
+      {
+        href: "/examples/cold-brew-condensation-change",
+        title: "Condensation changed without changing the product",
+        role: "hard_negative",
+        decision: "PASS",
+        original: "/examples/cold-brew-condensation-change/original.png",
+        candidate: "/examples/cold-brew-condensation-change/candidate.png",
+        alt: "The same MORROW cold-brew can before and after condensation was added",
+        observation:
+          "The candidate adds realistic surface droplets and stronger highlights. MORROW, COLD BREW, VANILLA OAT, 250 mL, the logo, can count, maroon-and-cream color system, and can silhouette remain observable and consistent.",
+        lesson:
+          "Condensation is a common beverage-photography treatment, not a product attribute. It should pass when the underlying identity remains visible, but should trigger REVIEW when droplets or glare hide approval-critical wording or package details.",
+      },
       {
         href: "/examples/label-value-change-ai-product-image",
         title: "Printed capacity changed from 330 mL to 500 mL",
@@ -1301,13 +1399,13 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
   },
   {
     route: "/categories/household-packaged-goods-image-qa",
-    founderApprovedAt: "2026-08-04",
+    founderApprovedAt: "2026-08-18",
     audience:
       "Household-product brand owners, ecommerce operators, marketplace teams, packaging reviewers, and creative agencies checking AI-generated or AI-edited images of cleaners, detergents, wipes, refills, and other packaged home-care goods before publication.",
     searchIntentEvidence:
-      "This page answers the household-specific approval question: whether a generated image still represents the approved cleaner or home-care product when labels, capacities, liquid colors, dispensing hardware, package faces, or functional components may have changed while the surrounding room and lighting are allowed to vary.",
+      "This page answers the household-specific approval question: whether a generated image still represents the approved cleaner, laundry product, or home-care offer when labels, variants, counts, capacities, colors, dispensing hardware, package faces, or functional components may have changed while the surrounding room and lighting are allowed to vary.",
     deck:
-      "Household packaging is a functional system, not just a decorated bottle. Pairvu compares an AI-generated or edited image with an approved reference and checks the visible identity, capacity, liquid and package colors, trigger or closure, included components, and container form without treating every kitchen background or natural shadow as product drift.",
+      "Household packaging is a functional system and a customer-facing offer, not just a decorated bottle or carton. Pairvu compares an AI-generated or edited image with an approved reference and checks visible identity, variant, quantity, colors, closures, components, and package form without treating every kitchen or laundry-room background as product drift.",
     packagingFormats: [
       "Trigger-spray bottles with visible actuator, nozzle, closure, and dip tube",
       "Pump dispensers for soaps, detergents, and concentrated cleaners",
@@ -1332,9 +1430,9 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
       },
       {
         priority: "3",
-        attribute: "Printed capacity, dose, or concentration",
+        attribute: "Printed count, capacity, dose, or concentration",
         reason:
-          "A visible 750 mL, 500 mL, dilution ratio, or dose statement is customer-facing product information and must match the approved package rather than merely look typographically plausible.",
+          "A visible 30 SHEETS, 20 SHEETS, 750 mL, 500 mL, dilution ratio, or dose statement is customer-facing product information and must match the approved package rather than merely look typographically plausible.",
       },
       {
         priority: "4",
@@ -1381,10 +1479,10 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
         fail: "A visible scent, formula, refill designation, concentration, or surface-specific variant changes to another offer.",
       },
       {
-        attribute: "Capacity and dose",
-        pass: "Readable net contents, dose, and concentration values match the approved household package exactly.",
+        attribute: "Count, capacity, and dose",
+        pass: "Readable sheet count, net contents, dose, and concentration values match the approved household package exactly.",
         review: "The numeric area is hidden, curved away, washed out by glare, or below the resolution needed for direct reading.",
-        fail: "A visible quantity or dose changes, such as an approved 750 mL cleaner becoming 500 mL in the candidate.",
+        fail: "A visible quantity or dose changes, such as an approved 30-sheet carton becoming 20 sheets or a 750 mL cleaner becoming 500 mL.",
       },
       {
         attribute: "Trigger, pump, cap, or spout",
@@ -1419,56 +1517,43 @@ export const categoryPageContents: readonly CategoryPageContent[] = [
     ],
     evidence: [
       {
-        href: "/examples/household-cleaner-capacity-change",
-        title: "Kitchen cleaner capacity changed from 750 mL to 500 mL",
+        href: "/examples/laundry-sheets-scent-count-change",
+        title: "Laundry-sheet scent and count changed",
         role: "product_change",
         decision: "FAIL",
-        original: "/examples/household-capacity-change/original.jpg",
-        candidate: "/examples/household-capacity-change/candidate.jpg",
-        alt: "BRIGHTLEAF household cleaner with a front-label capacity change from 750 mL to 500 mL",
+        original: "/examples/foldwell-scent-count-change/original.png",
+        candidate: "/examples/foldwell-scent-count-change/candidate.png",
+        alt: "FOLDWELL laundry-sheets cartons changed from Fresh Linen 30 sheets to Unscented 20 sheets",
         observation:
-          "Pairvu confirmed the readable capacity mismatch and returned FAIL. The BRIGHTLEAF logo, KITCHEN CLEANER and CITRUS wording, light-blue bottle, liquid, trigger, product count, and package form were verified as stable.",
+          "Pairvu returned FAIL and confirmed that FRESH LINEN changed to UNSCENTED while 30 SHEETS changed to 20 SHEETS. The FOLDWELL logo, LAUNDRY SHEETS wording, UP TO 60 LOADS claim, colors, components, one-package count, and carton shape were verified as stable.",
         lesson:
-          "Correct the candidate label value before publishing; the result isolates a customer-facing capacity error rather than a generic visual difference.",
+          "Correct both identity-bearing lines before publishing. A familiar brand system and unchanged load claim do not make a different scent variant and sheet count the same sellable offer.",
       },
       {
-        href: "/examples/household-cleaner-background-change",
-        title: "Same cleaner moved from studio to kitchen",
+        href: "/examples/laundry-sheets-background-change",
+        title: "Same laundry-sheets carton moved into a laundry room",
         role: "hard_negative",
         decision: "PASS",
-        original: "/examples/household-background-change/original.jpg",
-        candidate: "/examples/household-background-change/candidate.jpg",
-        alt: "The same BRIGHTLEAF cleaner bottle on neutral studio and bright kitchen backgrounds",
+        original: "/examples/foldwell-background-change/original.png",
+        candidate: "/examples/foldwell-background-change/candidate.png",
+        alt: "The same FOLDWELL laundry-sheets carton on neutral studio and laundry-room backgrounds",
         observation:
-          "Pairvu returned PASS with no product issue or observability limitation. Logo, text, 750 mL value, count, color, components, and package shape all matched after the environment changed.",
+          "Pairvu returned PASS with no product issue or observability limitation. Logo, all front-panel text, 30-sheet quantity, load claim, count, colors, flap, spine, and carton shape matched after the environment changed.",
         lesson:
-          "Approve the scene variation when product evidence remains faithful; a new room, plant, countertop, and natural shadow are not product mutations.",
+          "Approve the scene variation when product evidence remains faithful; new tiles, towels, shelving, a plant, countertop, scale, and natural shadow are presentation changes rather than product mutations.",
       },
       {
-        href: "/examples/missing-product-component-ai-image",
-        title: "Trigger sprayer is visibly absent",
+        href: "/examples/laundry-sheets-back-view-review",
+        title: "Rear carton view hides front identity and values",
         role: "observability",
         decision: "REVIEW",
-        original: "/examples/missing-component/original.jpg",
-        candidate: "/examples/missing-component/candidate.jpg",
-        alt: "BRIGHTLEAF cleaner with an approved trigger compared with a candidate open threaded neck",
+        original: "/examples/foldwell-back-view/original.png",
+        candidate: "/examples/foldwell-back-view/candidate.png",
+        alt: "FOLDWELL laundry-sheets front panel compared with the rear information panel",
         observation:
-          "Pairvu identified the missing white trigger sprayer while preserving the bottle, front label, liquid color, and one-product count. The current policy routes this high-impact component finding to REVIEW.",
+          "Pairvu returned REVIEW with no confirmed product issue. The sea-glass and cream colors, rigid carton, flap construction, overall shape, and one primary package correspond, but the rear candidate does not expose the front logo, scent, sheet count, or load claim.",
         lesson:
-          "Do not publish until a human confirms whether the open-neck candidate is intentional; the component is observable and the visible package system changed.",
-      },
-      {
-        href: "/examples/large-viewpoint-difference-product-image",
-        title: "Front and back views do not prove the same label attributes",
-        role: "observability",
-        decision: "REVIEW",
-        original: "/examples/missing-component/original.jpg",
-        candidate: "/examples/large-viewpoint/candidate.jpg",
-        alt: "Household cleaner front label compared with its back package face",
-        observation:
-          "The bottle, trigger, quantity of primary products, major colors, and container shape correspond, but the candidate exposes the back while the approved reference exposes the front identity panel.",
-        lesson:
-          "Request a candidate view that shows the corresponding front label instead of treating unseen brand and front-label wording as changed.",
+          "Request a corresponding front view before approving identity-bearing artwork and printed values. Keep the rear image as complementary evidence for package color, structure, and instructions.",
       },
     ],
     failureModes: [

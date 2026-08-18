@@ -53,19 +53,19 @@ export default function HomePage() {
             <h2 id="what-pairvu-checks">What Pairvu checks</h2>
             <div className="feature-list">
               <article>
-                <h3>Logo and visible text</h3>
-                <p>Brand marks, product names, label wording, and printed values such as size or capacity.</p>
+                <h3><Link href="/checks/product-logo">Logo and visible text</Link></h3>
+                <p>Brand marks, product names, label wording, and <Link href="/checks/product-label-text">printed values</Link> such as size or capacity.</p>
               </article>
               <article>
-                <h3>Product count and components</h3>
-                <p>Visible product units and major parts that are missing, added, or materially changed.</p>
+                <h3><Link href="/checks/product-components">Product count and components</Link></h3>
+                <p><Link href="/checks/product-quantity">Visible product units</Link> and major parts that are missing, added, or materially changed.</p>
               </article>
               <article>
-                <h3>Main color and packaging</h3>
-                <p>Semantic product colors, container shape, packaging silhouette, and major structural changes.</p>
+                <h3><Link href="/checks/product-color">Main color and packaging</Link></h3>
+                <p>Semantic product colors, container shape, <Link href="/checks/product-packaging">packaging silhouette</Link>, and major structural changes.</p>
               </article>
               <article>
-                <h3>What cannot be verified</h3>
+                <h3><Link href="/checks/product-image-observability">What cannot be verified</Link></h3>
                 <p>Occlusion, unreadable text, incomplete coverage, and viewpoint differences are kept in review.</p>
               </article>
             </div>
@@ -98,6 +98,14 @@ export default function HomePage() {
               <Link href="/examples">
                 <strong>Comparison examples</strong>
                 <span>See the visible changes Pairvu is designed to catch.</span>
+              </Link>
+              <Link href="/checks">
+                <strong>Product checks</strong>
+                <span>Use Pairvu&apos;s evidence rules for logo, text, quantity, color, components, packaging, and observability.</span>
+              </Link>
+              <Link href="/categories">
+                <strong>Product categories</strong>
+                <span>Review category-specific risks across the five supported packaged-goods families.</span>
               </Link>
               <Link href="/guides/ai-product-photography-checklist">
                 <strong>Pre-publish checklist</strong>

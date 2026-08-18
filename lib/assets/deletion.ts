@@ -1,5 +1,5 @@
 import type { D1Database, R2Bucket } from "@/lib/cloudflare/bindings";
-import { listExpiredAnonymousAssets, type AssetMetadataRecord } from "./repository";
+import { listExpiredAssets, type AssetMetadataRecord } from "./repository";
 
 const DEFAULT_BATCH_SIZE = 100;
 
@@ -8,6 +8,12 @@ export interface RetentionDeletionSummary {
   deleted: number;
   failed: number;
   hasMore: boolean;
+}
+
+export interface ImmediateDeletionSummary {
+  requested: number;
+  deleted: number;
+  failed: number;
 }
 
 export async function deleteAssetObjects(
@@ -31,7 +37,7 @@ export async function markAssetDeleted(db: D1Database, assetId: string, deletedA
   }
 }
 
-export async function deleteExpiredAnonymousAssets(
+export async function deleteExpiredAssets(
   db: D1Database,
   bucket: R2Bucket,
   options: {
@@ -41,7 +47,7 @@ export async function deleteExpiredAnonymousAssets(
 ): Promise<RetentionDeletionSummary> {
   const now = options.now ?? new Date();
   const batchSize = Math.max(1, Math.min(Math.trunc(options.batchSize ?? DEFAULT_BATCH_SIZE), 500));
-  const assets = await listExpiredAnonymousAssets(db, now, batchSize);
+  const assets = await listExpiredAssets(db, now, batchSize);
   let deleted = 0;
   let failed = 0;
 
@@ -68,6 +74,35 @@ export async function deleteExpiredAnonymousAssets(
     hasMore: assets.length === batchSize,
   };
 }
+
+export async function deleteAssetsImmediately(
+  db: D1Database,
+  bucket: R2Bucket,
+  assets: AssetMetadataRecord[],
+  now = new Date(),
+): Promise<ImmediateDeletionSummary> {
+  let deleted = 0;
+  let failed = 0;
+
+  for (const asset of assets) {
+    const attemptId = crypto.randomUUID();
+    await recordDeletionAttempt(db, attemptId, asset.id, assetObjectKeys(asset), now);
+    try {
+      await deleteAssetObjects(bucket, asset);
+      await markAssetDeleted(db, asset.id, now);
+      await completeDeletionAttempt(db, attemptId, now);
+      deleted += 1;
+    } catch (error) {
+      failed += 1;
+      await failDeletionAttempt(db, attemptId, error, now);
+    }
+  }
+
+  return { requested: assets.length, deleted, failed };
+}
+
+// Compatibility alias for the existing retention verification and operations command.
+export const deleteExpiredAnonymousAssets = deleteExpiredAssets;
 
 function assetObjectKeys(
   asset: Pick<AssetMetadataRecord, "r2KeyOriginal" | "r2KeyNormalized" | "r2KeyThumbnail">,

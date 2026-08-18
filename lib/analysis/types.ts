@@ -21,6 +21,9 @@ export interface AnalysisCreateInput {
   candidateAssetId: string;
   selectedChecks: M0CheckFamily[];
   category?: string;
+  executionTrigger?: "interactive" | "batch_queue" | "retry";
+  batchItemId?: string;
+  allowFailedRetry?: boolean;
 }
 
 export interface PersistedAnalysisSummary {
@@ -96,7 +99,8 @@ export interface AnalysisResultEnvelope extends PersistedAnalysisResult {
 
 export interface AnalysisFeedbackInput {
   analysisId: string;
-  anonymousSessionId: string;
+  workspaceId?: string;
+  anonymousSessionId?: string;
   feedbackKind: FeedbackKind;
   reasonCode?: string;
   checkFamily?: string;

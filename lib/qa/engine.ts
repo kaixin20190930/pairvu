@@ -10,7 +10,7 @@ import type {
 } from "./types";
 
 export class M0QAEngine implements QAEngine {
-  readonly version = "m0-qa-engine-005";
+  readonly version = "m0-qa-engine-006";
 
   constructor(
     private readonly visionProvider: VisionProvider,
@@ -183,7 +183,8 @@ function hasSufficientObservability(observation: VisionObservation) {
     observation.observability.reference === "observable" &&
     observation.observability.candidate === "observable" &&
     observation.evidence.referenceVisible !== false &&
-    observation.evidence.candidateVisible !== false
+    observation.evidence.candidateVisible !== false &&
+    !observation.evidence.uncertainReason?.trim()
   );
 }
 

@@ -85,7 +85,9 @@ export async function createAnalysisRecord(db: D1Database, input: AnalysisCreate
 export async function persistCompletedAnalysis(
   db: D1Database,
   result: QAEngineResult,
-  input: Pick<AnalysisCreateInput, "workspaceId" | "anonymousSessionId" | "referenceAssetId" | "candidateAssetId" | "selectedChecks" | "category">,
+  input: Pick<AnalysisCreateInput, "workspaceId" | "anonymousSessionId" | "referenceAssetId" | "candidateAssetId" | "selectedChecks" | "category"> & {
+    executionAttemptId?: string;
+  },
 ): Promise<void> {
   const now = new Date().toISOString();
   const summaryUpdate = await db
@@ -137,6 +139,8 @@ export async function persistCompletedAnalysis(
     input.workspaceId ?? null,
     result.modelCalls,
     result.versions.modelPolicyVersion,
+    input.executionAttemptId ?? null,
+    [input.referenceAssetId, input.candidateAssetId],
   );
 }
 
@@ -173,6 +177,18 @@ export async function persistFailedAnalysis(
   if (!result.success) {
     throw new Error(result.error ?? "Failed to mark analysis as failed.");
   }
+}
+
+export async function prepareFailedAnalysisRetry(db: D1Database, analysisId: string) {
+  const result = await db
+    .prepare(
+      `update analyses set status = 'running', verdict = null, error_code = null,
+        error_message = null, completed_at = null, updated_at = ?
+       where id = ? and status = 'failed'`,
+    )
+    .bind(new Date().toISOString(), analysisId)
+    .run();
+  if (!result.success) throw new Error(result.error ?? "Failed to prepare analysis retry.");
 }
 
 export async function recordAnalysisFeedback(db: D1Database, input: AnalysisFeedbackInput): Promise<void> {
@@ -281,18 +297,22 @@ export async function getAnalysisById(db: D1Database, analysisId: string): Promi
 
 export async function getAnalysisByIdempotencyKey(
   db: D1Database,
-  anonymousSessionId: string,
+  owner: { workspaceId?: string; anonymousSessionId?: string },
   idempotencyKey: string,
 ): Promise<PersistedAnalysisResult | null> {
+  const ownerColumn = owner.workspaceId ? "workspace_id" : "anonymous_session_id";
+  const ownerId = owner.workspaceId ?? owner.anonymousSessionId;
+  if (!ownerId) return null;
+
   const row = await db
     .prepare(
       `select id
        from analyses
-       where anonymous_session_id = ?
+       where ${ownerColumn} = ?
          and idempotency_key = ?
        limit 1`,
     )
-    .bind(anonymousSessionId, idempotencyKey)
+    .bind(ownerId, idempotencyKey)
     .first<D1Row>();
 
   return row?.id ? getAnalysisById(db, String(row.id)) : null;
@@ -448,6 +468,8 @@ async function insertAnalysisModelCalls(
   workspaceId: string | null,
   modelCalls: QAEngineResult["modelCalls"],
   modelPolicyVersion: string,
+  executionAttemptId: string | null,
+  inputAssetIds: string[],
 ) {
   for (const modelCall of modelCalls) {
     const result = await db
@@ -477,13 +499,13 @@ async function insertAnalysisModelCalls(
         crypto.randomUUID(),
         workspaceId,
         analysisId,
-        null,
+        executionAttemptId,
         modelCall.provider,
         modelCall.model,
         modelCall.promptVersion,
         modelPolicyVersion,
         "analysis",
-        JSON.stringify(modelCall.inputUsage ?? {}),
+        JSON.stringify(inputAssetIds),
         modelCall.inputUsage ? JSON.stringify(modelCall.inputUsage) : null,
         modelCall.outputUsage ? JSON.stringify(modelCall.outputUsage) : null,
         modelCall.latencyMs,

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import { saveAnalysisFeedback } from "@/lib/analysis/service";
-import { isValidAnonymousSessionId } from "@/lib/assets/validation";
+import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 
 export const dynamic = "force-dynamic";
 
@@ -36,14 +36,6 @@ export async function POST(request: NextRequest, context: { params: Promise<{ an
     const reasonCode = typeof body?.reasonCode === "string" ? body.reasonCode : undefined;
     const checkFamily = typeof body?.checkFamily === "string" ? body.checkFamily : undefined;
     const issueId = typeof body?.issueId === "string" ? body.issueId : undefined;
-    const anonymousSessionId = isValidAnonymousSessionId(body?.anonymousSessionId)
-      ? body.anonymousSessionId
-      : null;
-
-    if (!anonymousSessionId) {
-      return NextResponse.json({ error: "anonymous_session_required" }, { status: 400 });
-    }
-
     if (feedbackKind !== "correct" && feedbackKind !== "false_alarm" && feedbackKind !== "missed_something") {
       return NextResponse.json({ error: "invalid_feedback_kind" }, { status: 400 });
     }
@@ -69,9 +61,11 @@ export async function POST(request: NextRequest, context: { params: Promise<{ an
     }
 
     const env = getVisualQAEnv();
+    const access = await resolveRequestAccess(env, request.headers, body?.anonymousSessionId);
     const analysis = await saveAnalysisFeedback(env.VISUALQA_DB, {
       analysisId,
-      anonymousSessionId,
+      workspaceId: access.workspaceId ?? undefined,
+      anonymousSessionId: access.anonymousSessionId ?? undefined,
       feedbackKind,
       reasonCode,
       checkFamily,
@@ -85,6 +79,9 @@ export async function POST(request: NextRequest, context: { params: Promise<{ an
 
     return NextResponse.json({ analysis });
   } catch (error) {
+    if (error instanceof RequestAccessError) {
+      return NextResponse.json({ error: error.code, message: error.message }, { status: 400 });
+    }
     if (error instanceof Error && error.message === "feedback_issue_not_found") {
       return NextResponse.json({ error: "feedback_issue_not_found" }, { status: 400 });
     }

@@ -1,5 +1,11 @@
 # Trackable Implementation Plan And Timeline
 
+> Historical note: this document began before the public single-image product
+> and commercial Batch implementation existed. M0 and the older M2-M9 sequence
+> below preserve the original planning record. Current execution is governed by
+> [M1 Batch Commercial Plan](m1-batch-commercial-plan.md), and post-M1 product
+> direction is governed by [Pairvu Product Expansion Roadmap](product-expansion-roadmap.md).
+
 ## Timeline Assumptions
 
 - Small focused team: 1-2 engineers, founder/product owner, design support as needed.
@@ -100,13 +106,13 @@ Success gate:
 - avoids obvious false passes in internal eval.
 - at least 30-50 curated eval cases exist.
 
-## Phase M1: Public Single-Image MVP
+## Historical Phase M1: Public Single-Image MVP
 
 Target: Weeks 6-9
 
 Priority: P0
 
-Status: Not Started
+Status: Superseded by implemented M0 public-product foundation
 
 Scope:
 
@@ -126,7 +132,21 @@ Success gate:
 - measurable second-check rate.
 - early users report that findings matter.
 
-## Phase M2: Product Profiles
+The active M1 definition is now [Accounts, Credits, And Batch QA](../02-product/m1-batch-commercial-definition.md), with the executable plan in [M1 Batch Commercial Plan](m1-batch-commercial-plan.md). The historical label remains here to preserve the original planning record.
+
+## Historical Phase M2-M9 Sequence
+
+Status: `Superseded`
+
+The sections below preserve the original expansion hypotheses. They are no
+longer the approved build order: Batch QA moved forward and became M1, while
+saved products, rules, selection, selective fixes, and monitoring now require
+behavioral entry gates. Do not use the old week numbers to authorize scope.
+
+See [Pairvu Product Expansion Roadmap](product-expansion-roadmap.md) for the
+approved sequence.
+
+## Historical Phase M2: Product Profiles
 
 Target: Weeks 10-13
 
@@ -149,7 +169,7 @@ Success gate:
 - repeat users prefer saved products over repeated reference upload.
 - profile-based checks reduce repeated setup time.
 
-## Phase M3: Marketplace Compliance
+## Historical Phase M3: Marketplace Compliance
 
 Target: Weeks 14-17
 
@@ -170,7 +190,7 @@ Success gate:
 - users understand outputs as readiness signals, not acceptance guarantees.
 - rule updates are versioned and auditable.
 
-## Phase M4: Listing / Image Set QA
+## Historical Phase M4: Listing / Image Set QA
 
 Target: Weeks 18-21
 
@@ -191,7 +211,7 @@ Success gate:
 
 - users need listing-level readiness, not only single-image verdicts.
 
-## Phase M5: Batch QA
+## Historical Phase M5: Batch QA
 
 Target: Weeks 22-27
 
@@ -215,7 +235,7 @@ Success gate:
 - users have enough volume that exception review is materially better than manual review.
 - cost per batch is predictable.
 
-## Phase M6: Category Packs
+## Historical Phase M6: Category Packs
 
 Target: Weeks 28-33
 
@@ -236,7 +256,7 @@ Success gate:
 
 - category performance beats generic prompt baseline in eval.
 
-## Phase M7: Public API
+## Historical Phase M7: Public API
 
 Target: Weeks 34-39
 
@@ -260,7 +280,7 @@ Success gate:
 
 - external systems ask to integrate validation before publish/regenerate flows.
 
-## Phase M8: Integrations
+## Historical Phase M8: Integrations
 
 Target: Weeks 40-47
 
@@ -278,7 +298,7 @@ Success gate:
 
 - integration removes repeated manual upload from active customers.
 
-## Phase M9: Continuous QA Monitor / Enterprise
+## Historical Phase M9: Continuous QA Monitor / Enterprise
 
 Target: Weeks 48+
 
