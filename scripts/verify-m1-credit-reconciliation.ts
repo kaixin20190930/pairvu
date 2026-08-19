@@ -9,15 +9,18 @@ import {
   reserveWorkspaceCredits,
   settleCreditReservation,
 } from "../lib/credits/repository";
+import { getWorkspacePackBalance, grantWorkspaceCreditPack } from "../lib/credits/packs";
 import type { D1Database, D1PreparedStatement } from "../lib/cloudflare/bindings";
 
 const NOW = new Date("2026-08-10T08:00:00.000Z");
 const USER = { id: "credit-test-user", name: "Credit Test", email: "credit-test@pairvu.com" };
+const PACK_USER = { id: "pack-test-user", name: "Pack Test", email: "pack-test@pairvu.com" };
 
 async function main() {
   const sqlite = new DatabaseSync(":memory:");
   sqlite.exec("pragma foreign_keys = on");
   sqlite.exec(await readFile("migrations/0007_identity_workspaces_credits.sql", "utf8"));
+  sqlite.exec(await readFile("migrations/0013_check_packs.sql", "utf8"));
   const db = new SqliteD1(sqlite);
 
   sqlite
@@ -71,6 +74,61 @@ async function main() {
     "released",
   );
 
+  sqlite
+    .prepare(
+      `insert into user (id, name, email, emailVerified, createdAt, updatedAt)
+       values (?, ?, ?, 1, ?, ?)`,
+    )
+    .run(PACK_USER.id, PACK_USER.name, PACK_USER.email, NOW.getTime(), NOW.getTime());
+  const packWorkspaceId = await ensurePersonalWorkspace(db, PACK_USER, NOW);
+
+  const packLotId = await grantWorkspaceCreditPack({
+    db,
+    workspaceId: packWorkspaceId,
+    packCode: "pack_50",
+    checkoutSessionId: "cs_pack_once",
+    paymentIntentId: "pi_pack_once",
+    now: NOW,
+  });
+  const duplicatePackLotId = await grantWorkspaceCreditPack({
+    db,
+    workspaceId: packWorkspaceId,
+    packCode: "pack_50",
+    checkoutSessionId: "cs_pack_once",
+    paymentIntentId: "pi_pack_once",
+    now: NOW,
+  });
+  assert.equal(duplicatePackLotId, packLotId, "Checkout replay must not grant a pack twice");
+  assert.equal(count(sqlite, "select count(*) as count from workspace_credit_lots"), 1);
+  assert.equal(count(sqlite, "select count(*) as count from credit_lot_ledger where event_type = 'grant'"), 1);
+
+  const packSnapshot = await getWorkspaceAccountSnapshot(db, PACK_USER, NOW);
+  assert.equal(packSnapshot.monthlyAvailable, 10);
+  assert.equal(packSnapshot.packAvailable, 50);
+  assert.equal(packSnapshot.available, 60);
+
+  const mixed = await reserve(db, packWorkspaceId, "analysis-mixed-balance", 12, NOW);
+  assert.equal(
+    count(sqlite, `select count(*) as count from credit_reservation_allocations where reservation_id = '${mixed.id}'`),
+    2,
+    "A check can allocate monthly credits first and then a pack",
+  );
+  await settleCreditReservation(db, mixed.id, NOW);
+  const packAfterSettle = await getWorkspaceAccountSnapshot(db, PACK_USER, NOW);
+  assert.equal(packAfterSettle.monthlyAvailable, 0);
+  assert.equal(packAfterSettle.packConsumed, 2);
+  assert.equal(packAfterSettle.packAvailable, 48);
+  assert.equal(packAfterSettle.available, 48);
+
+  const packRelease = await reserve(db, packWorkspaceId, "analysis-pack-release", 3, NOW);
+  await releaseCreditReservation(db, packRelease.id, NOW);
+  assert.equal((await getWorkspacePackBalance(db, packWorkspaceId, NOW)).available, 48);
+  assert.equal(
+    (await getWorkspacePackBalance(db, packWorkspaceId, new Date("2027-08-11T08:00:01.000Z"))).available,
+    0,
+    "Purchased checks expire after the disclosed 365-day validity",
+  );
+
   snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
   assert.deepEqual(pickBalance(snapshot), { allowance: 10, consumed: 1, reserved: 0, available: 9 });
 
@@ -121,7 +179,7 @@ async function main() {
 
   sqlite.close();
   console.log("M1 credit reconciliation verification passed.");
-  console.log("Verified monthly grant, idempotent transitions, exhaustion, expiry release, ledger reconstruction, and retry charge idempotency.");
+  console.log("Verified monthly grants, check-pack grants, monthly-first allocation, expiry, idempotent transitions, and ledger reconstruction.");
 }
 
 function reserve(db: D1Database, workspaceId: string, sourceId: string, amount: number, now: Date) {

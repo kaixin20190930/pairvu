@@ -2,7 +2,7 @@
 
 Status: `DEPLOYED_FOR_FOUNDER_TEST`
 
-Last updated: 2026-08-11
+Last updated: 2026-08-19
 
 Production Test Mode deployment:
 
@@ -39,6 +39,20 @@ Test Mode Stripe objects in the Pairvu account:
 | Growth | `prod_V3BuQCBsxJ2zjX` | `price_1U35YlK1UJsctvou7ZnB1USO` |
 | Agency | `prod_V3BuRMYp1ejq5j` | `price_1U35YlK1UJsctvouKZXXKcVk` |
 
+Test Mode one-time Check Packs:
+
+| Pack | Product ID | Price ID | Validity |
+| --- | --- | --- | --- |
+| 50 checks / USD 9 | `prod_V6Eb1wFS6ixrLL` | `price_1U62F6K1UJsctvourtTi1vbR` | 365 days |
+| 200 checks / USD 29 | `prod_V6Eb1wFS6ixrLL` | `price_1U62F8K1UJsctvouURn4VbkE` | 365 days |
+| 500 checks / USD 59 | `prod_V6Eb1wFS6ixrLL` | `price_1U62FAK1UJsctvouKL1iixYG` | 365 days |
+
+The default Test Mode Customer Portal permits price changes between Starter,
+Growth, and Agency with `create_prorations` and an unchanged billing-cycle
+anchor. The three plans use separate Stripe Products, so Stripe cannot schedule
+lower-price changes at period end; Test Mode therefore applies both upgrades
+and downgrades immediately and emits `customer.subscription.updated`.
+
 Free remains internal at 10 checks per UTC calendar month and 7-day image retention.
 
 ## Required Variables
@@ -52,6 +66,9 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_PRICE_STARTER=price_...
 STRIPE_PRICE_GROWTH=price_...
 STRIPE_PRICE_AGENCY=price_...
+STRIPE_PRICE_PACK_50=price_...
+STRIPE_PRICE_PACK_200=price_...
+STRIPE_PRICE_PACK_500=price_...
 STRIPE_TESTER_EMAILS=founder@example.com
 ```
 
@@ -83,6 +100,8 @@ https://pairvu.com/api/billing/webhook
 Subscribe it to:
 
 - `checkout.session.completed`
+- `checkout.session.async_payment_succeeded`
+- `checkout.session.async_payment_failed`
 - `customer.subscription.created`
 - `customer.subscription.updated`
 - `customer.subscription.deleted`
@@ -103,6 +122,10 @@ Copy that endpoint's signing secret into production `STRIPE_WEBHOOK_SECRET`.
 | Cancellation at period end | Paid access remains until Stripe reports cancellation |
 | Final cancellation | Workspace returns to Free and 7-day retention |
 | Signed-out access | Checkout and portal return authentication required |
+| One-time Check Pack | Checkout uses `mode=payment`; replay grants one lot only |
+| Credit consumption | Current monthly allowance is consumed before the earliest-expiring pack |
+| Pack-only workspace | Pack checks work on Free; retention and batch entitlements remain Free |
+| Pack expiry | Unused purchased checks stop being available after 365 days |
 
 Existing retained assets are not retroactively deleted on plan change. New
 retention applies to new assets; scheduled deletion continues to honor each

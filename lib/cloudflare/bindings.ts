@@ -101,6 +101,9 @@ export interface VisualQACloudflareEnv {
   STRIPE_PRICE_STARTER?: string;
   STRIPE_PRICE_GROWTH?: string;
   STRIPE_PRICE_AGENCY?: string;
+  STRIPE_PRICE_PACK_50?: string;
+  STRIPE_PRICE_PACK_200?: string;
+  STRIPE_PRICE_PACK_500?: string;
 }
 
 export function getVisualQAEnv(): VisualQACloudflareEnv {

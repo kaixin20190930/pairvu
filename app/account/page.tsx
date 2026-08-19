@@ -52,6 +52,12 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         {billingState === "existing" ? (
           <p className="account-banner">You already have a subscription. Review its status or manage it below.</p>
         ) : null}
+        {billingState === "pack-success" ? (
+          <p className="account-banner account-banner-success">Payment received. Extra checks will appear as soon as Stripe confirms the purchase.</p>
+        ) : null}
+        {billingState === "plan-updated" ? (
+          <p className="account-banner account-banner-success">Your plan change is being confirmed by Stripe.</p>
+        ) : null}
         <header className="account-heading">
           <div>
             <p className="eyebrow">Personal workspace</p>
@@ -70,7 +76,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           <article className="account-metric">
             <span>Checks available</span>
             <strong>{snapshot.available}</strong>
-            <small>{snapshot.allowance} included this month</small>
+            <small>{snapshot.monthlyAvailable} monthly · {snapshot.packAvailable} extra</small>
           </article>
           <article className="account-metric">
             <span>Image retention</span>
@@ -109,6 +115,17 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           <p className="account-period-copy">
             Current period ends {formatDate(snapshot.periodEndsAt)}. Unused checks do not carry forward to the next billing period.
           </p>
+          <div className="account-pack-balance">
+            <div>
+              <strong>Extra check packs</strong>
+              <p>
+                {snapshot.packAvailable > 0
+                  ? `${snapshot.packAvailable} extra checks available${snapshot.packNextExpiryAt ? ` · next expiry ${formatDate(snapshot.packNextExpiryAt)}` : ""}.`
+                  : "No extra checks are currently available."}
+              </p>
+            </div>
+            <Link className="secondary-link-button" href="/pricing#check-packs">Buy extra checks</Link>
+          </div>
         </section>
 
         <section className="account-section account-retention" aria-labelledby="retention-title">

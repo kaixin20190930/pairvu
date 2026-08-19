@@ -6,6 +6,7 @@ import {
   syncStripeSubscription,
 } from "@/lib/billing/repository";
 import {
+  checkPackPurchaseFromSession,
   isStripeWebhookModeAllowed,
   normalizeStripeSubscription,
   retrieveStripeSubscription,
@@ -14,6 +15,7 @@ import {
   verifyStripeWebhook,
   type StripeWebhookEvent,
 } from "@/lib/billing/stripe";
+import { grantWorkspaceCreditPack } from "@/lib/credits/packs";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 
 export const dynamic = "force-dynamic";
@@ -24,9 +26,13 @@ const DIRECT_SUBSCRIPTION_EVENTS = new Set([
   "customer.subscription.deleted",
 ]);
 const RETRIEVE_SUBSCRIPTION_EVENTS = new Set([
-  "checkout.session.completed",
   "invoice.paid",
   "invoice.payment_failed",
+]);
+const CHECKOUT_SESSION_EVENTS = new Set([
+  "checkout.session.completed",
+  "checkout.session.async_payment_succeeded",
+  "checkout.session.async_payment_failed",
 ]);
 const SUBSCRIPTION_EVENTS = new Set([
   ...DIRECT_SUBSCRIPTION_EVENTS,
@@ -55,7 +61,19 @@ export async function POST(request: NextRequest) {
     const shouldProcess = await beginStripeWebhookEvent(env.VISUALQA_DB, event);
     if (!shouldProcess) return NextResponse.json({ received: true, duplicate: true });
 
-    if (SUBSCRIPTION_EVENTS.has(event.type)) {
+    if (CHECKOUT_SESSION_EVENTS.has(event.type)) {
+      const purchase = checkPackPurchaseFromSession(event.data.object);
+      if (purchase) {
+        if (event.type !== "checkout.session.async_payment_failed" && purchase.paid) {
+          await grantWorkspaceCreditPack({ db: env.VISUALQA_DB, ...purchase });
+        }
+      } else {
+        const subscriptionId = subscriptionIdFromWebhookEvent(event);
+        if (!subscriptionId) throw new Error(`${event.type} did not contain a subscription or check-pack purchase.`);
+        const subscription = await retrieveStripeSubscription(env, subscriptionId);
+        await syncStripeSubscription(env.VISUALQA_DB, normalizeStripeSubscription(env, subscription));
+      }
+    } else if (SUBSCRIPTION_EVENTS.has(event.type)) {
       const subscriptionId = subscriptionIdFromWebhookEvent(event);
       if (!subscriptionId) throw new Error(`${event.type} did not contain a subscription identifier.`);
       // Stripe does not guarantee webhook ordering. Always synchronize from the

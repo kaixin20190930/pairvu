@@ -57,6 +57,7 @@ type UiError = {
   title: string;
   message: string;
   help: string;
+  actions?: Array<{ href: string; label: string; primary?: boolean }>;
 };
 
 type AssetPreviewErrorCode =
@@ -903,6 +904,15 @@ export function ProductChecker() {
             <strong>{error.title}</strong>
             <p>{error.message}</p>
             <p className="muted">{error.help}</p>
+            {error.actions ? (
+              <div className="error-actions">
+                {error.actions.map((action) => (
+                  <a className={action.primary ? "primary-link-button" : "text-link"} href={action.href} key={action.href}>
+                    {action.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         ) : null}
 
@@ -1271,9 +1281,14 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
       };
     case "workspace_quota_exceeded":
       return {
-        title: "Monthly checks used.",
-        message: "This workspace has no checks remaining in the current billing period.",
-        help: "Open Account to review your allowance or upgrade to a paid monthly plan.",
+        title: "No checks available.",
+        message: "This workspace has no monthly or extra checks remaining.",
+        help: "Buy a one-time check pack, change your monthly plan, or wait for the allowance to reset.",
+        actions: [
+          { href: "/pricing#check-packs", label: "Buy extra checks", primary: true },
+          { href: "/pricing", label: "Compare plans" },
+          { href: "/account", label: "Open Account" },
+        ],
       };
     case "workspace_billing_inactive":
       return {

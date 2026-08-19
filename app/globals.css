@@ -543,6 +543,21 @@ a {
   font-size: 0.9rem;
 }
 
+.account-pack-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.account-pack-balance p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+}
+
 .account-retention {
   border-left: 4px solid #178266;
 }
@@ -1855,14 +1870,71 @@ button:not(:disabled):active {
   text-align: left;
 }
 
+.pricing-action-link {
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.pricing-pack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.pricing-pack {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--panel-soft);
+}
+
+.pricing-pack h3 {
+  margin-top: 6px;
+  font-size: 1.35rem;
+}
+
+.pricing-pack ul {
+  display: grid;
+  gap: 9px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.pricing-pack .pricing-plan-action {
+  margin-top: auto;
+}
+
+.error-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 16px;
+}
+
 @media (max-width: 960px) {
   .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-pack-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 580px) {
   .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-pack-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -2942,7 +3014,8 @@ button:not(:disabled):active {
   .batch-history-main { grid-template-columns: 1fr; }
 
   .batch-result-tools,
-  .account-batch-actions {
+  .account-batch-actions,
+  .account-pack-balance {
     align-items: flex-start;
     flex-direction: column;
   }

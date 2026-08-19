@@ -23,9 +23,16 @@ export async function POST(request: NextRequest) {
     if (!billing?.customerId) {
       return NextResponse.json({ error: "billing_account_missing", message: "No billing account is linked yet." }, { status: 400 });
     }
+    const body = await request.json().catch(() => ({})) as { flow?: unknown };
+    const flow = body.flow === "subscription_update" ? "subscription_update" : undefined;
+    if (flow && !billing.subscriptionId) {
+      return NextResponse.json({ error: "subscription_missing", message: "No active subscription can be changed." }, { status: 409 });
+    }
     const portal = await createStripePortalSession({
       env,
       customerId: billing.customerId,
+      subscriptionId: billing.subscriptionId,
+      flow,
       returnBaseUrl: (env.BETTER_AUTH_URL || "https://pairvu.com").replace(/\/$/, ""),
     });
     return NextResponse.json({ url: portal.url });

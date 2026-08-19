@@ -115,3 +115,50 @@ self-service access and not commercial SLA claims.
 - [ ] Stripe live-mode Customer Portal is activated with payment-method updates, invoices, and cancellation enabled.
 - [ ] Every production `provider_customer_id` belongs to the same live Stripe account as `STRIPE_SECRET_KEY`.
 - [ ] `Manage billing` opens the portal for a live subscriber and shows a visible actionable error if Stripe rejects the request.
+
+## E. One-time Check Packs and Pricing Recovery
+
+Implementation completed on 2026-08-19:
+
+- Pricing no longer sends an existing paid subscriber to an Account dead end.
+  The current plan is identified in place, other plans open Stripe's
+  `subscription_update` flow, and payment problems open the standard portal.
+- Free and paid workspaces can buy one-time packs of 50 / 200 / 500 checks for
+  USD 9 / 29 / 59. Packs expire after 365 days and do not change retention,
+  batch, priority, or export entitlements.
+- Reservations consume the monthly allowance first, then active pack lots by
+  earliest expiry. Reserve, settle, release, Checkout replay, and account
+  totals have separate auditable ledgers.
+- Quota errors link directly to the Check Pack section and Account. The Account
+  page separately reports monthly and extra checks plus the next pack expiry.
+- Public refunds remain a product boundary. Founder-issued Stripe refunds and
+  any corresponding credit adjustment remain manual operations.
+
+Test Mode evidence on 2026-08-19:
+
+- all three one-time prices are active with `livemode=false`;
+- a USD 9 `mode=payment` Checkout Session was generated with the expected
+  `workspace_id`, `purchase_type=credit_pack`, and `pack_code=pack_50` metadata;
+- the default Pairvu Test Portal accepted a deep-linked
+  `subscription_update` session for the existing Starter subscription;
+- TypeScript, production build, local D1 migration, account foundation, credit
+  reconciliation, Stripe billing, and batch domain checks passed.
+
+Production checklist before release:
+
+- [x] Create and record the three Live Check Pack prices in the same Stripe
+  account as the existing Pairvu Live monthly prices: `pack_50`
+  (`price_1U65lwGlvseBpI4PVQ7aKUNH`), `pack_200`
+  (`price_1U65mZGlvseBpI4PwdicWZ8g`), and `pack_500`
+  (`price_1U65nqGlvseBpI4PqxwtBMGA`).
+- [x] Add all three Live Price IDs to Worker variables.
+- [ ] Enable Live Portal price switching for the three existing monthly prices.
+- [ ] Add `checkout.session.async_payment_succeeded` and
+  `checkout.session.async_payment_failed` to the existing Live webhook without
+  removing its six current events.
+- [x] Applied `0013_check_packs.sql`, deployed Worker version
+  `fc0530e8-8930-4a24-860d-b7b0e733d3c0`, and completed a no-purchase
+  production smoke test on 2026-08-19. Health, public pricing, signed-out
+  billing context, Checkout authentication, and production billing-ledger
+  reconciliation passed. A real Check Pack purchase remains a separate founder
+  action.

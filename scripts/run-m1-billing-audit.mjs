@@ -11,6 +11,7 @@ const reports = sql
 
 const titles = [
   "Credit ledger reconciliation",
+  "Check-pack ledger reconciliation",
   "Expired credit reservations",
   "Subscription and credit-period alignment",
   "Stripe webhook processing",

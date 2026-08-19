@@ -1,5 +1,6 @@
 import type { VisualQACloudflareEnv } from "@/lib/cloudflare/bindings";
 import { isPlanCode, type PlanCode } from "./plans";
+import { isCheckPackCode, type CheckPackCode } from "./packs";
 
 const STRIPE_API_BASE = "https://api.stripe.com/v1";
 const WEBHOOK_TOLERANCE_SECONDS = 300;
@@ -56,6 +57,24 @@ export function stripePlanForPrice(env: VisualQACloudflareEnv, priceId: string |
   return null;
 }
 
+export function stripePackPriceId(env: VisualQACloudflareEnv, packCode: CheckPackCode): string {
+  const value = {
+    pack_50: env.STRIPE_PRICE_PACK_50,
+    pack_200: env.STRIPE_PRICE_PACK_200,
+    pack_500: env.STRIPE_PRICE_PACK_500,
+  }[packCode];
+  if (!value) throw new StripeConfigurationError(`Stripe price is not configured for ${packCode}.`);
+  return value;
+}
+
+export function stripePackForPrice(env: VisualQACloudflareEnv, priceId: string | null): CheckPackCode | null {
+  if (!priceId) return null;
+  if (priceId === env.STRIPE_PRICE_PACK_50) return "pack_50";
+  if (priceId === env.STRIPE_PRICE_PACK_200) return "pack_200";
+  if (priceId === env.STRIPE_PRICE_PACK_500) return "pack_500";
+  return null;
+}
+
 export async function createStripeCheckoutSession(input: {
   env: VisualQACloudflareEnv;
   workspaceId: string;
@@ -86,20 +105,90 @@ export async function createStripeCheckoutSession(input: {
   return { id: session.id, url: session.url };
 }
 
+export async function createStripePackCheckoutSession(input: {
+  env: VisualQACloudflareEnv;
+  workspaceId: string;
+  email: string;
+  packCode: CheckPackCode;
+  customerId?: string | null;
+  returnBaseUrl: string;
+}): Promise<{ id: string; url: string }> {
+  const body = new URLSearchParams({
+    mode: "payment",
+    "line_items[0][price]": stripePackPriceId(input.env, input.packCode),
+    "line_items[0][quantity]": "1",
+    success_url: `${input.returnBaseUrl}/account?billing=pack-success&session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${input.returnBaseUrl}/pricing?pack=canceled#check-packs`,
+    client_reference_id: input.workspaceId,
+    "metadata[workspace_id]": input.workspaceId,
+    "metadata[purchase_type]": "credit_pack",
+    "metadata[pack_code]": input.packCode,
+    "payment_intent_data[metadata][workspace_id]": input.workspaceId,
+    "payment_intent_data[metadata][purchase_type]": "credit_pack",
+    "payment_intent_data[metadata][pack_code]": input.packCode,
+  });
+  if (input.customerId) body.set("customer", input.customerId);
+  else {
+    body.set("customer_email", input.email);
+    body.set("customer_creation", "always");
+  }
+
+  const session = await stripeRequest<Record<string, unknown>>(input.env, "/checkout/sessions", body);
+  if (typeof session.id !== "string" || typeof session.url !== "string") {
+    throw new StripeApiError("Stripe did not return a usable check-pack Checkout Session.", 502);
+  }
+  return { id: session.id, url: session.url };
+}
+
 export async function createStripePortalSession(input: {
   env: VisualQACloudflareEnv;
   customerId: string;
+  subscriptionId?: string | null;
+  flow?: "subscription_update";
   returnBaseUrl: string;
 }): Promise<{ url: string }> {
+  const body = new URLSearchParams({ customer: input.customerId, return_url: `${input.returnBaseUrl}/account` });
+  if (input.flow === "subscription_update") {
+    if (!input.subscriptionId) throw new StripeConfigurationError("A subscription is required to change plans.");
+    body.set("flow_data[type]", "subscription_update");
+    body.set("flow_data[subscription_update][subscription]", input.subscriptionId);
+    body.set("flow_data[after_completion][type]", "redirect");
+    body.set("flow_data[after_completion][redirect][return_url]", `${input.returnBaseUrl}/account?billing=plan-updated`);
+  }
   const session = await stripeRequest<Record<string, unknown>>(
     input.env,
     "/billing_portal/sessions",
-    new URLSearchParams({ customer: input.customerId, return_url: `${input.returnBaseUrl}/account` }),
+    body,
   );
   if (typeof session.url !== "string") {
     throw new StripeApiError("Stripe did not return a customer portal URL.", 502);
   }
   return { url: session.url };
+}
+
+export function checkPackPurchaseFromSession(value: Record<string, unknown>): {
+  workspaceId: string;
+  packCode: CheckPackCode;
+  checkoutSessionId: string;
+  paymentIntentId: string | null;
+  paid: boolean;
+} | null {
+  const metadata = asRecord(value.metadata);
+  if (metadata?.purchase_type !== "credit_pack") return null;
+  const workspaceId = typeof metadata.workspace_id === "string" ? metadata.workspace_id : null;
+  const packCode = typeof metadata.pack_code === "string" && isCheckPackCode(metadata.pack_code)
+    ? metadata.pack_code
+    : null;
+  if (!workspaceId || !packCode || typeof value.id !== "string") {
+    throw new StripeApiError("Check-pack Checkout metadata is incomplete.", 400);
+  }
+  return {
+    workspaceId,
+    packCode,
+    checkoutSessionId: value.id,
+    paymentIntentId: idFromExpandableOptional(value.payment_intent),
+    paid: value.payment_status === "paid" || value.payment_status === "no_payment_required",
+  };
 }
 
 export async function retrieveStripeSubscription(

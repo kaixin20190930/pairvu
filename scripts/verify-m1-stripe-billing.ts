@@ -9,6 +9,7 @@ import {
 } from "../lib/billing/repository";
 import { reserveWorkspaceCredits, WorkspaceBillingInactiveError } from "../lib/credits/repository";
 import {
+  checkPackPurchaseFromSession,
   isStripeWebhookModeAllowed,
   normalizeStripeSubscription,
   StripeSignatureError,
@@ -27,6 +28,9 @@ const ENV = {
   STRIPE_PRICE_STARTER: "price_starter_test",
   STRIPE_PRICE_GROWTH: "price_growth_test",
   STRIPE_PRICE_AGENCY: "price_agency_test",
+  STRIPE_PRICE_PACK_50: "price_pack_50_test",
+  STRIPE_PRICE_PACK_200: "price_pack_200_test",
+  STRIPE_PRICE_PACK_500: "price_pack_500_test",
 } as VisualQACloudflareEnv;
 
 async function main() {
@@ -34,6 +38,7 @@ async function main() {
   sqlite.exec("pragma foreign_keys = on");
   sqlite.exec(await readFile("migrations/0007_identity_workspaces_credits.sql", "utf8"));
   sqlite.exec(await readFile("migrations/0009_stripe_billing.sql", "utf8"));
+  sqlite.exec(await readFile("migrations/0013_check_packs.sql", "utf8"));
   const db = new SqliteD1(sqlite);
 
   sqlite.prepare(`insert into user (id, name, email, emailVerified, createdAt, updatedAt) values (?, ?, ?, 1, ?, ?)`).run(
@@ -124,6 +129,19 @@ async function main() {
     type: "invoice.paid",
     data: { object: { parent: { subscription_details: { subscription: "sub_from_invoice" } } } },
   }), "sub_from_invoice");
+  assert.deepEqual(checkPackPurchaseFromSession({
+    id: "cs_pack_test",
+    mode: "payment",
+    payment_status: "paid",
+    payment_intent: "pi_pack_test",
+    metadata: { purchase_type: "credit_pack", workspace_id: workspaceId, pack_code: "pack_50" },
+  }), {
+    workspaceId,
+    packCode: "pack_50",
+    checkoutSessionId: "cs_pack_test",
+    paymentIntentId: "pi_pack_test",
+    paid: true,
+  });
 
   const growth = normalizeStripeSubscription(ENV, subscriptionPayload({
     priceId: ENV.STRIPE_PRICE_GROWTH!,

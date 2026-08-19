@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getCalendarMonthPeriod } from "../lib/accounts/repository";
 import { PLAN_ENTITLEMENTS } from "../lib/billing/plans";
+import { CHECK_PACKS } from "../lib/billing/packs";
 
 const requiredTables = [
   "user",
@@ -28,6 +29,10 @@ async function main(): Promise<void> {
     join(process.cwd(), "migrations/0009_stripe_billing.sql"),
     "utf8",
   );
+  const packMigration = await readFile(
+    join(process.cwd(), "migrations/0013_check_packs.sql"),
+    "utf8",
+  );
 
   for (const table of requiredTables) {
     assert.match(migration, new RegExp(`create table if not exists ${table}\\b`), `Missing ${table} table`);
@@ -50,6 +55,18 @@ async function main(): Promise<void> {
     },
     "Plan entitlements drifted from the founder-approved M1 definition",
   );
+  assert.deepEqual(
+    Object.fromEntries(Object.values(CHECK_PACKS).map((pack) => [pack.code, {
+      price: pack.priceCents,
+      credits: pack.credits,
+      validityDays: pack.validityDays,
+    }])),
+    {
+      pack_50: { price: 900, credits: 50, validityDays: 365 },
+      pack_200: { price: 2900, credits: 200, validityDays: 365 },
+      pack_500: { price: 5900, credits: 500, validityDays: 365 },
+    },
+  );
 
   const january = getCalendarMonthPeriod(new Date("2026-01-31T23:59:59.000Z"));
   assert.deepEqual(january, {
@@ -68,6 +85,9 @@ async function main(): Promise<void> {
   assert.match(stripeMigration, /create table if not exists stripe_webhook_events\b/);
   assert.match(stripeMigration, /event_id text primary key/);
   assert.match(stripeMigration, /status text not null check \(status in \('processing', 'completed', 'failed'\)\)/);
+  assert.match(packMigration, /create table if not exists workspace_credit_lots\b/);
+  assert.match(packMigration, /create table if not exists credit_reservation_allocations\b/);
+  assert.match(packMigration, /create table if not exists credit_lot_ledger\b/);
 
   console.log("M1 account foundation verification passed.");
   console.log(`Verified ${requiredTables.length + 1} tables, 4 plans, UTC periods, credit constraints, and the Stripe event journal.`);

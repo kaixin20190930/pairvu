@@ -46,7 +46,10 @@
     "AUTH_TRUSTED_ORIGINS": "https://pairvu.com,https://www.pairvu.com",
     "STRIPE_PRICE_STARTER": "price_1U4wVaGlvseBpI4P6LKCEoYz",
     "STRIPE_PRICE_GROWTH": "price_1U5G9PGlvseBpI4PQlZsQT7v",
-    "STRIPE_PRICE_AGENCY": "price_1U5GA0GlvseBpI4Phe04i4fi"
+    "STRIPE_PRICE_AGENCY": "price_1U5GA0GlvseBpI4Phe04i4fi",
+    "STRIPE_PRICE_PACK_50": "price_1U65lwGlvseBpI4PVQ7aKUNH",
+    "STRIPE_PRICE_PACK_200": "price_1U65mZGlvseBpI4PwdicWZ8g",
+    "STRIPE_PRICE_PACK_500": "price_1U65nqGlvseBpI4PqxwtBMGA"
   },
   "triggers": {
     "crons": ["*/15 * * * *"]

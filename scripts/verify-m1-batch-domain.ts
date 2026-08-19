@@ -19,7 +19,7 @@ const WORKSPACE_ID = "batch-workspace";
 async function main() {
   const sqlite = new DatabaseSync(":memory:");
   sqlite.exec("pragma foreign_keys = on");
-  for (const migration of ["0001_foundation.sql", "0002_analysis_mvp.sql", "0007_identity_workspaces_credits.sql", "0010_batch_domain.sql", "0011_batch_retention.sql"]) {
+  for (const migration of ["0001_foundation.sql", "0002_analysis_mvp.sql", "0007_identity_workspaces_credits.sql", "0010_batch_domain.sql", "0011_batch_retention.sql", "0013_check_packs.sql"]) {
     sqlite.exec(await readFile(`migrations/${migration}`, "utf8"));
   }
   seed(sqlite);

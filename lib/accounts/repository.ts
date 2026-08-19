@@ -1,5 +1,6 @@
 import type { D1Database } from "@/lib/cloudflare/bindings";
 import { PLAN_ENTITLEMENTS, isPlanCode, type PlanCode } from "@/lib/billing/plans";
+import { getWorkspacePackBalance } from "@/lib/credits/packs";
 
 export interface AuthUserIdentity {
   id: string;
@@ -20,6 +21,12 @@ export interface WorkspaceAccountSnapshot {
   allowance: number;
   consumed: number;
   reserved: number;
+  monthlyAvailable: number;
+  packAllowance: number;
+  packConsumed: number;
+  packReserved: number;
+  packAvailable: number;
+  packNextExpiryAt: string | null;
   available: number;
   subscriptionStatus: "active" | "trialing" | "past_due" | "canceled" | "incomplete";
   billingManaged: boolean;
@@ -309,7 +316,8 @@ export async function getWorkspaceAccountSnapshot(
   }
 
   const plan = PLAN_ENTITLEMENTS[row.planCode];
-  const available = Math.max(0, row.allowance + row.rolloverAllowance - row.consumed - row.reserved);
+  const monthlyAvailable = Math.max(0, row.allowance + row.rolloverAllowance - row.consumed - row.reserved);
+  const packs = await getWorkspacePackBalance(db, workspaceId, now);
 
   return {
     workspaceId: row.workspaceId,
@@ -324,7 +332,13 @@ export async function getWorkspaceAccountSnapshot(
     allowance: row.allowance + row.rolloverAllowance,
     consumed: row.consumed,
     reserved: row.reserved,
-    available,
+    monthlyAvailable,
+    packAllowance: packs.granted,
+    packConsumed: packs.consumed,
+    packReserved: packs.reserved,
+    packAvailable: packs.available,
+    packNextExpiryAt: packs.nextExpiryAt,
+    available: monthlyAvailable + packs.available,
     subscriptionStatus: row.subscriptionStatus,
     billingManaged: row.subscriptionProvider === "stripe",
     cancelAtPeriodEnd: Boolean(row.cancelAtPeriodEnd),

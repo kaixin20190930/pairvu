@@ -9,3 +9,12 @@ export function isLiveStripeBillingConfigured(env: VisualQACloudflareEnv): boole
       && env.STRIPE_PRICE_AGENCY,
   );
 }
+
+export function areLiveStripeCheckPacksConfigured(env: VisualQACloudflareEnv): boolean {
+  return Boolean(
+    isLiveStripeBillingConfigured(env)
+      && env.STRIPE_PRICE_PACK_50
+      && env.STRIPE_PRICE_PACK_200
+      && env.STRIPE_PRICE_PACK_500,
+  );
+}
