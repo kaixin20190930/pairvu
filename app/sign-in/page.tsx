@@ -11,8 +11,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function SignInPage() {
+export default async function SignInPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
   const methods = getAuthMethodAvailability();
+  const callbackURL = safeCallbackUrl((await searchParams).next);
 
   return (
     <main className="auth-page">
@@ -22,7 +23,7 @@ export default function SignInPage() {
         <p className="auth-intro">
           Sign in with Google or a secure email link. No password is required.
         </p>
-        <SignInForm googleEnabled={methods.google} magicLinkEnabled={methods.magicLink} />
+        <SignInForm callbackURL={callbackURL} googleEnabled={methods.google} magicLinkEnabled={methods.magicLink} />
         <div className="auth-entitlement-note">
           <strong>Free account</strong>
           <span>10 product checks each calendar month</span>
@@ -34,4 +35,9 @@ export default function SignInPage() {
       </section>
     </main>
   );
+}
+
+function safeCallbackUrl(value: string | undefined): string {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) return "/account";
+  return value;
 }

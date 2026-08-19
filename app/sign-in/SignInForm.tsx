@@ -4,11 +4,12 @@ import { FormEvent, useState } from "react";
 import { authClient } from "@/lib/auth/client";
 
 interface SignInFormProps {
+  callbackURL: string;
   googleEnabled: boolean;
   magicLinkEnabled: boolean;
 }
 
-export function SignInForm({ googleEnabled, magicLinkEnabled }: SignInFormProps) {
+export function SignInForm({ callbackURL, googleEnabled, magicLinkEnabled }: SignInFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +18,7 @@ export function SignInForm({ googleEnabled, magicLinkEnabled }: SignInFormProps)
     setError(null);
     const result = await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/account",
+      callbackURL,
       errorCallbackURL: "/sign-in?error=oauth",
     });
     if (result.error) setError(result.error.message || "Google sign-in could not start.");
@@ -29,7 +30,7 @@ export function SignInForm({ googleEnabled, magicLinkEnabled }: SignInFormProps)
     setStatus("sending");
     const result = await authClient.signIn.magicLink({
       email,
-      callbackURL: "/account",
+      callbackURL,
       errorCallbackURL: "/sign-in?error=magic-link",
     });
 

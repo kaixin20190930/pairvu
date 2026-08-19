@@ -10,7 +10,6 @@ import { getWorkspaceAccountSnapshot, listRecentWorkspaceAnalyses } from "@/lib/
 import { createPairvuAuth } from "@/lib/auth/server";
 import { listWorkspaceBatches } from "@/lib/batches/repository";
 import { isLiveStripeBillingConfigured } from "@/lib/billing/access";
-import { PLAN_ENTITLEMENTS } from "@/lib/billing/plans";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 
 export const dynamic = "force-dynamic";
@@ -40,8 +39,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   ]);
   const activeBatch = recentBatches.find((batch) => batch.status === "queued" || batch.status === "processing");
   const billingState = (await searchParams).billing;
-  const plan = PLAN_ENTITLEMENTS[snapshot.planCode];
-
   return (
     <main className="account-page">
       <div className="account-shell">
@@ -51,6 +48,9 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         ) : null}
         {billingState === "canceled" ? (
           <p className="account-banner">Checkout was canceled. Your current plan has not changed.</p>
+        ) : null}
+        {billingState === "existing" ? (
+          <p className="account-banner">You already have a subscription. Review its status or manage it below.</p>
         ) : null}
         <header className="account-heading">
           <div>
@@ -65,7 +65,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           <article className="account-metric">
             <span>Current plan</span>
             <strong>{snapshot.planName}</strong>
-            <small>${(plan.monthlyPriceCents / 100).toFixed(0)} per month</small>
+            <small>{planStatusLabel(snapshot)}</small>
           </article>
           <article className="account-metric">
             <span>Checks available</span>
@@ -80,16 +80,18 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         </section>
 
         <section className="account-section" aria-labelledby="billing-title">
-          <p className="eyebrow">Plans and billing</p>
-          <h2 id="billing-title">Choose the capacity that fits your workflow</h2>
+          <p className="eyebrow">Subscription and billing</p>
+          <h2 id="billing-title">Your subscription</h2>
           <p className="account-period-copy">
-            Paid plans include expanded monthly capacity, batch checks, CSV export, and 30-day image retention. Charges shown are monthly.
+            Review the current billing period here. Stripe securely handles payment methods, invoices, cancellation, and reactivation.
           </p>
           <BillingActions
             billingEnabled={isLiveStripeBillingConfigured(env)}
             billingManaged={snapshot.billingManaged}
             currentPlan={snapshot.planCode}
             subscriptionStatus={snapshot.subscriptionStatus}
+            cancelAtPeriodEnd={snapshot.cancelAtPeriodEnd}
+            periodEndsOn={formatDate(snapshot.periodEndsAt)}
           />
         </section>
 
@@ -228,4 +230,13 @@ function formatDate(value: string): string {
     day: "numeric",
     timeZone: "UTC",
   }).format(new Date(value));
+}
+
+function planStatusLabel(snapshot: Awaited<ReturnType<typeof getWorkspaceAccountSnapshot>>): string {
+  if (!snapshot.billingManaged) return "Free workspace";
+  if (snapshot.subscriptionStatus === "past_due" || snapshot.subscriptionStatus === "incomplete") {
+    return "Payment needs attention";
+  }
+  if (snapshot.cancelAtPeriodEnd) return `Access ends ${formatDate(snapshot.periodEndsAt)}`;
+  return `Renews ${formatDate(snapshot.periodEndsAt)}`;
 }

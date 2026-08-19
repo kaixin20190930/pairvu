@@ -23,6 +23,7 @@ export interface WorkspaceAccountSnapshot {
   available: number;
   subscriptionStatus: "active" | "trialing" | "past_due" | "canceled" | "incomplete";
   billingManaged: boolean;
+  cancelAtPeriodEnd: boolean;
 }
 
 export interface RecentWorkspaceAnalysis {
@@ -47,6 +48,7 @@ interface WorkspaceRow {
   reserved: number;
   subscriptionStatus: WorkspaceAccountSnapshot["subscriptionStatus"];
   subscriptionProvider: string;
+  cancelAtPeriodEnd: number;
 }
 
 interface SubscriptionRow {
@@ -289,6 +291,7 @@ export async function getWorkspaceAccountSnapshot(
          cp.reserved as reserved
          ,s.status as subscriptionStatus
          ,s.provider as subscriptionProvider
+         ,s.cancel_at_period_end as cancelAtPeriodEnd
        from workspaces w
        join workspace_memberships m on m.workspace_id = w.id
        join workspace_subscriptions s on s.workspace_id = w.id
@@ -324,6 +327,7 @@ export async function getWorkspaceAccountSnapshot(
     available,
     subscriptionStatus: row.subscriptionStatus,
     billingManaged: row.subscriptionProvider === "stripe",
+    cancelAtPeriodEnd: Boolean(row.cancelAtPeriodEnd),
   };
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { PlanCode } from "@/lib/billing/plans";
 
 interface BillingActionsProps {
@@ -8,26 +9,29 @@ interface BillingActionsProps {
   billingManaged: boolean;
   billingEnabled: boolean;
   subscriptionStatus: "active" | "trialing" | "past_due" | "canceled" | "incomplete";
+  cancelAtPeriodEnd: boolean;
+  periodEndsOn: string;
 }
 
-const paidPlans = [
-  { code: "starter" as const, name: "Starter", price: 19, checks: 150, note: "For regular product-image review" },
-  { code: "growth" as const, name: "Growth", price: 49, checks: 600, note: "For growing content operations" },
-  { code: "agency" as const, name: "Agency", price: 99, checks: 1500, note: "For high-volume client work" },
-];
-
-export function BillingActions({ currentPlan, billingManaged, billingEnabled, subscriptionStatus }: BillingActionsProps) {
+export function BillingActions({
+  currentPlan,
+  billingManaged,
+  billingEnabled,
+  subscriptionStatus,
+  cancelAtPeriodEnd,
+  periodEndsOn,
+}: BillingActionsProps) {
   const [pending, setPending] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  async function openBilling(path: "checkout" | "portal", planCode?: PlanCode) {
-    setPending(planCode ?? "portal");
+  async function openBilling() {
+    setPending("portal");
     setError(null);
     try {
-      const response = await fetch(`/api/billing/${path}`, {
+      const response = await fetch("/api/billing/portal", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(planCode ? { planCode } : {}),
+        body: "{}",
       });
       const result = await response.json() as { url?: string; message?: string };
       if (!response.ok || !result.url) throw new Error(result.message || "Billing could not be opened.");
@@ -38,53 +42,50 @@ export function BillingActions({ currentPlan, billingManaged, billingEnabled, su
     }
   }
 
-  if (!billingEnabled && !billingManaged) {
+  if (billingManaged) {
+    const needsAttention = subscriptionStatus === "past_due" || subscriptionStatus === "incomplete";
     return (
-      <div className="billing-manage-panel">
-        <div>
-          <strong>Checkout is temporarily unavailable</strong>
-          <p>Your Free workspace remains available. Paid plans will return when billing is restored for this deployment.</p>
+      <div>
+        <div className={`billing-manage-panel${needsAttention ? " billing-manage-attention" : ""}`}>
+          <div>
+            <strong>
+              {needsAttention
+                ? "Payment needs attention"
+                : cancelAtPeriodEnd
+                  ? `${currentPlanName(currentPlan)} ends on ${periodEndsOn}`
+                  : `${currentPlanName(currentPlan)} renews on ${periodEndsOn}`}
+            </strong>
+            <p>
+              {cancelAtPeriodEnd
+                ? "Your checks and paid retention remain available until this date. Reactivate in Stripe before the subscription ends."
+                : "Update payment details, view invoices, or cancel from Stripe's secure billing portal."}
+            </p>
+          </div>
+          <button className="secondary-button" disabled={pending !== null} onClick={openBilling} type="button">
+            {pending === "portal" ? "Opening…" : cancelAtPeriodEnd ? "Reactivate or manage billing" : "Manage billing"}
+          </button>
         </div>
+        <p className="billing-secondary-action"><Link href="/pricing">Compare all plans</Link></p>
+        {error ? <p className="billing-error" role="alert" aria-live="assertive">{error}</p> : null}
       </div>
     );
   }
 
   return (
-    <div>
-      {billingManaged ? (
-        <div>
-          <div className="billing-manage-panel">
-            <div>
-              <strong>{subscriptionStatus === "past_due" ? "Payment needs attention" : "Your subscription is managed by Stripe"}</strong>
-              <p>Update payment details, view invoices, or cancel from the secure billing portal.</p>
-            </div>
-            <button className="secondary-button" disabled={pending !== null} onClick={() => openBilling("portal")} type="button">
-              {pending === "portal" ? "Opening…" : "Manage billing"}
-            </button>
-          </div>
-          {error ? <p className="billing-error" role="alert" aria-live="assertive">{error}</p> : null}
-        </div>
-      ) : null}
-      <div className="billing-plan-grid">
-        {paidPlans.map((plan) => (
-          <article className={`billing-plan${currentPlan === plan.code ? " billing-plan-current" : ""}`} key={plan.code}>
-            <span>{plan.name}</span>
-            <strong>${plan.price}<small>/month</small></strong>
-            <p>{plan.checks} checks per month · 30-day image retention</p>
-            <small>{plan.note}</small>
-            {billingManaged ? (
-              <span className="billing-plan-status">
-                {currentPlan === plan.code ? "Current plan" : "Plan switching is not yet available"}
-              </span>
-            ) : (
-              <button disabled={pending !== null || currentPlan === plan.code} onClick={() => openBilling("checkout", plan.code)} type="button">
-                {pending === plan.code ? "Opening…" : currentPlan === plan.code ? "Current plan" : `Choose ${plan.name}`}
-              </button>
-            )}
-          </article>
-        ))}
+    <div className="billing-manage-panel">
+      <div>
+        <strong>{billingEnabled ? "Your Free workspace is active" : "Paid checkout is temporarily unavailable"}</strong>
+        <p>
+          {billingEnabled
+            ? "Compare monthly capacity on Pricing. Paid checkout starts there after you choose a plan."
+            : "You can keep using the Free workspace while paid billing is restored."}
+        </p>
       </div>
-      {!billingManaged && error ? <p className="billing-error" role="alert" aria-live="assertive">{error}</p> : null}
+      <Link className="primary-link-button" href="/pricing">{billingEnabled ? "View plans" : "View pricing"}</Link>
     </div>
   );
+}
+
+function currentPlanName(planCode: PlanCode): string {
+  return planCode.charAt(0).toUpperCase() + planCode.slice(1);
 }

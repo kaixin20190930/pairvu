@@ -1828,9 +1828,31 @@ button:not(:disabled):active {
   line-height: 1.45;
 }
 
-.pricing-plan > a {
+.pricing-plan > a,
+.pricing-plan-action {
   margin-top: auto;
   text-align: center;
+}
+
+.pricing-plan-action {
+  display: grid;
+  gap: 10px;
+}
+
+.pricing-plan-action > button {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.pricing-plan-action > button:disabled {
+  cursor: wait;
+  opacity: .6;
+}
+
+.pricing-plan-action .billing-error {
+  margin: 0;
+  text-align: left;
 }
 
 @media (max-width: 960px) {
@@ -2953,48 +2975,6 @@ button:not(:disabled):active {
   background: #f2fbf7;
 }
 
-.billing-plan-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.billing-plan {
-  border: 1px solid #d4dcda;
-  border-radius: 6px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.billing-plan-current {
-  border-color: #2458e6;
-  box-shadow: inset 0 3px 0 #2458e6;
-}
-
-.billing-plan-status {
-  margin-top: auto;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-  color: #465357;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.billing-plan > strong {
-  font-size: 30px;
-}
-
-.billing-plan > strong small {
-  font-size: 14px;
-  font-weight: 500;
-  color: #5e696d;
-}
-
-.billing-plan button,
 .billing-manage-panel button {
   margin-top: auto;
   min-height: 42px;
@@ -3007,7 +2987,6 @@ button:not(:disabled):active {
   cursor: pointer;
 }
 
-.billing-plan button:disabled,
 .billing-manage-panel button:disabled {
   cursor: wait;
   opacity: .55;
@@ -3021,6 +3000,19 @@ button:not(:disabled):active {
   grid-template-columns: 1fr auto;
   gap: 14px;
   align-items: center;
+}
+
+.billing-manage-panel > a {
+  text-align: center;
+}
+
+.billing-manage-attention {
+  border-top-color: #d7a3a0;
+}
+
+.billing-secondary-action {
+  margin: 12px 0 0;
+  font-size: .9rem;
 }
 
 .billing-manage-panel p {
@@ -3042,10 +3034,6 @@ button:not(:disabled):active {
 }
 
 @media (max-width: 760px) {
-  .billing-plan-grid {
-    grid-template-columns: 1fr;
-  }
-
   .billing-manage-panel {
     grid-template-columns: 1fr;
   }

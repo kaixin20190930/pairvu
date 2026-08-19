@@ -50,6 +50,7 @@ async function main() {
   assert.equal(snapshot.allowance, 150);
   assert.equal(snapshot.retentionDays, 30);
   assert.equal(snapshot.billingManaged, true);
+  assert.equal(snapshot.cancelAtPeriodEnd, false);
 
   const scheduledCancellation = normalizeStripeSubscription(ENV, subscriptionPayload({
     priceId: ENV.STRIPE_PRICE_STARTER!, workspaceId, status: "active", cancelAtPeriodEnd: true,
@@ -57,6 +58,7 @@ async function main() {
   await syncStripeSubscription(db, scheduledCancellation, NOW);
   snapshot = await getWorkspaceAccountSnapshot(db, USER, NOW);
   assert.equal(snapshot.planCode, "starter", "A scheduled cancellation keeps paid access through period end");
+  assert.equal(snapshot.cancelAtPeriodEnd, true);
   assert.equal(scalar(sqlite, "select cancel_at_period_end from workspace_subscriptions"), 1);
 
   const pastDue = normalizeStripeSubscription(ENV, subscriptionPayload({

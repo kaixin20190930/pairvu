@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
+import { PricingPlanAction } from "@/app/pricing/PricingPlanAction";
 import { PLAN_CODES, PLAN_ENTITLEMENTS } from "@/lib/billing/plans";
 import { absoluteUrl, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
@@ -31,7 +32,7 @@ function pricingServiceSchema() {
       return {
         "@type": "Offer",
         name: `${plan.name} plan`,
-        url: absoluteUrl("/account"),
+        url: absoluteUrl(`/pricing#${code}`),
         price: (plan.monthlyPriceCents / 100).toFixed(2),
         priceCurrency: "USD",
         category: "Monthly SaaS subscription",
@@ -63,9 +64,8 @@ export default function PricingPage() {
         <section className="pricing-grid" aria-label="Pairvu plans">
           {PLAN_CODES.map((code) => {
             const plan = PLAN_ENTITLEMENTS[code];
-            const isFree = code === "free";
             return (
-              <article className={`pricing-plan${code === "starter" ? " pricing-plan-featured" : ""}`} key={code}>
+              <article className={`pricing-plan${code === "starter" ? " pricing-plan-featured" : ""}`} id={code} key={code}>
                 <div>
                   <p className="eyebrow">{code === "starter" ? "Popular starting point" : `${plan.name} plan`}</p>
                   <h2>{plan.name}</h2>
@@ -81,9 +81,7 @@ export default function PricingPage() {
                   <li>{plan.priorityQueueEnabled ? "Priority batch processing" : "Standard processing"}</li>
                   <li>{plan.retentionDays}-day image retention</li>
                 </ul>
-                <Link className={isFree ? "secondary-link-button" : "primary-link-button"} href="/account">
-                  {isFree ? "Start free" : `Choose ${plan.name}`}
-                </Link>
+                <PricingPlanAction planCode={code} planName={plan.name} />
               </article>
             );
           })}
@@ -116,7 +114,7 @@ export default function PricingPage() {
         <section className="article-section" aria-labelledby="pricing-faq">
           <h2 id="pricing-faq">Pricing questions</h2>
           <div className="faq-list">
-            <details><summary>Do I need an invitation?</summary><p>No. Create an account, use the Free plan, or subscribe from your workspace.</p></details>
+            <details><summary>Do I need an invitation?</summary><p>No. Create an account, use the Free plan, or choose a paid plan here. If you are signed out, Pairvu asks you to sign in before opening Stripe Checkout.</p></details>
             <details><summary>Do the 10 Free checks add to a paid plan?</summary><p>No. Upgrading replaces the Free monthly allowance with the paid plan allowance for the active billing period.</p></details>
             <details><summary>Can I cancel?</summary><p>Yes. Open Manage billing in your workspace to cancel through Stripe. Access follows the subscription state shown in your account.</p></details>
             <details><summary>What happens when an image expires?</summary><p>The retained image and derivatives stop restoring. Result metadata may remain available so the decision is still auditable.</p></details>
