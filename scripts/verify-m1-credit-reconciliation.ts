@@ -9,7 +9,11 @@ import {
   reserveWorkspaceCredits,
   settleCreditReservation,
 } from "../lib/credits/repository";
-import { getWorkspacePackBalance, grantWorkspaceCreditPack } from "../lib/credits/packs";
+import {
+  getWorkspaceCreditPackPurchase,
+  getWorkspacePackBalance,
+  grantWorkspaceCreditPack,
+} from "../lib/credits/packs";
 import type { D1Database, D1PreparedStatement } from "../lib/cloudflare/bindings";
 
 const NOW = new Date("2026-08-10T08:00:00.000Z");
@@ -101,6 +105,28 @@ async function main() {
   assert.equal(duplicatePackLotId, packLotId, "Checkout replay must not grant a pack twice");
   assert.equal(count(sqlite, "select count(*) as count from workspace_credit_lots"), 1);
   assert.equal(count(sqlite, "select count(*) as count from credit_lot_ledger where event_type = 'grant'"), 1);
+  const confirmedPackPurchase = await getWorkspaceCreditPackPurchase(
+    db,
+    packWorkspaceId,
+    "cs_pack_once",
+  );
+  assert.deepEqual(
+    confirmedPackPurchase ? { ...confirmedPackPurchase } : null,
+    {
+      checkoutSessionId: "cs_pack_once",
+      packCode: "pack_50",
+      granted: 50,
+      available: 50,
+      purchasedAt: NOW.toISOString(),
+      expiresAt: "2027-08-10T08:00:00.000Z",
+    },
+    "The Checkout return status must resolve only a webhook-created credit lot",
+  );
+  assert.equal(
+    await getWorkspaceCreditPackPurchase(db, workspaceId, "cs_pack_once"),
+    null,
+    "A Checkout session from another workspace must never be disclosed",
+  );
 
   const packSnapshot = await getWorkspaceAccountSnapshot(db, PACK_USER, NOW);
   assert.equal(packSnapshot.monthlyAvailable, 10);

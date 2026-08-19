@@ -89,11 +89,13 @@ export async function beginStripeWebhookEvent(
   now = new Date(),
 ): Promise<boolean> {
   const receivedAt = now.toISOString();
+  const audit = stripeWebhookAuditFields(event);
   const result = await db
     .prepare(
       `insert or ignore into stripe_webhook_events (
-        event_id, event_type, livemode, status, payload_created_at, received_at
-      ) values (?, ?, ?, 'processing', ?, ?)`,
+        event_id, event_type, livemode, status, payload_created_at, received_at,
+        source_object_id, workspace_id, purchase_type, payment_status
+      ) values (?, ?, ?, 'processing', ?, ?, ?, ?, ?, ?)`,
     )
     .bind(
       event.id,
@@ -101,6 +103,10 @@ export async function beginStripeWebhookEvent(
       event.livemode ? 1 : 0,
       Number.isFinite(event.created) ? new Date(event.created * 1000).toISOString() : null,
       receivedAt,
+      audit.sourceObjectId,
+      audit.workspaceId,
+      audit.purchaseType,
+      audit.paymentStatus,
     )
     .run();
   if (!result.success) throw new Error(result.error ?? "Unable to journal Stripe webhook event.");
@@ -114,11 +120,37 @@ export async function beginStripeWebhookEvent(
   await runOrThrow(
     db,
     `update stripe_webhook_events
-     set status = 'processing', error_message = null
+     set status = 'processing', error_message = null,
+       source_object_id = coalesce(source_object_id, ?),
+       workspace_id = coalesce(workspace_id, ?),
+       purchase_type = coalesce(purchase_type, ?),
+       payment_status = coalesce(payment_status, ?)
      where event_id = ?`,
+    audit.sourceObjectId,
+    audit.workspaceId,
+    audit.purchaseType,
+    audit.paymentStatus,
     event.id,
   );
   return true;
+}
+
+function stripeWebhookAuditFields(event: StripeWebhookEvent): {
+  sourceObjectId: string | null;
+  workspaceId: string | null;
+  purchaseType: string | null;
+  paymentStatus: string | null;
+} {
+  const object = event.data.object;
+  const metadata = object.metadata && typeof object.metadata === "object"
+    ? object.metadata as Record<string, unknown>
+    : null;
+  return {
+    sourceObjectId: typeof object.id === "string" ? object.id : null,
+    workspaceId: typeof metadata?.workspace_id === "string" ? metadata.workspace_id : null,
+    purchaseType: typeof metadata?.purchase_type === "string" ? metadata.purchase_type : null,
+    paymentStatus: typeof object.payment_status === "string" ? object.payment_status : null,
+  };
 }
 
 export async function completeStripeWebhookEvent(

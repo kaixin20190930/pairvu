@@ -33,6 +33,10 @@ async function main(): Promise<void> {
     join(process.cwd(), "migrations/0013_check_packs.sql"),
     "utf8",
   );
+  const billingObservabilityMigration = await readFile(
+    join(process.cwd(), "migrations/0014_billing_observability.sql"),
+    "utf8",
+  );
 
   for (const table of requiredTables) {
     assert.match(migration, new RegExp(`create table if not exists ${table}\\b`), `Missing ${table} table`);
@@ -88,9 +92,14 @@ async function main(): Promise<void> {
   assert.match(packMigration, /create table if not exists workspace_credit_lots\b/);
   assert.match(packMigration, /create table if not exists credit_reservation_allocations\b/);
   assert.match(packMigration, /create table if not exists credit_lot_ledger\b/);
+  assert.match(billingObservabilityMigration, /add column source_object_id text/);
+  assert.match(billingObservabilityMigration, /add column workspace_id text/);
+  assert.match(billingObservabilityMigration, /add column purchase_type text/);
+  assert.match(billingObservabilityMigration, /add column payment_status text/);
+  assert.match(billingObservabilityMigration, /idx_stripe_webhook_events_purchase_status/);
 
   console.log("M1 account foundation verification passed.");
-  console.log(`Verified ${requiredTables.length + 1} tables, 4 plans, UTC periods, credit constraints, and the Stripe event journal.`);
+  console.log(`Verified ${requiredTables.length + 1} tables, 4 plans, UTC periods, credit constraints, and the Stripe event audit journal.`);
 }
 
 main().catch((error) => {

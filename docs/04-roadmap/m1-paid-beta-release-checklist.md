@@ -152,8 +152,8 @@ Production checklist before release:
   (`price_1U65mZGlvseBpI4PwdicWZ8g`), and `pack_500`
   (`price_1U65nqGlvseBpI4PqxwtBMGA`).
 - [x] Add all three Live Price IDs to Worker variables.
-- [ ] Enable Live Portal price switching for the three existing monthly prices.
-- [ ] Add `checkout.session.async_payment_succeeded` and
+- [x] Enable Live Portal price switching for the three existing monthly prices.
+- [x] Add `checkout.session.async_payment_succeeded` and
   `checkout.session.async_payment_failed` to the existing Live webhook without
   removing its six current events.
 - [x] Applied `0013_check_packs.sql`, deployed Worker version
@@ -162,3 +162,39 @@ Production checklist before release:
   billing context, Checkout authentication, and production billing-ledger
   reconciliation passed. A real Check Pack purchase remains a separate founder
   action.
+
+Operational hardening completed on 2026-08-20:
+
+- The two asynchronous Checkout events are enabled on the Live webhook, and
+  Customer Portal price switching is enabled for Starter, Growth, and Agency.
+- A successful Check Pack Checkout returns to Account with its `session_id`.
+  Account polls a workspace-scoped, no-store status endpoint and shows the
+  webhook-created lot, credited checks, total available checks, and expiry once
+  fulfillment is durable. The return endpoint never grants credits and never
+  treats a browser redirect as payment proof.
+- Stripe webhook rows now retain the source object, workspace, purchase type,
+  and payment status required to diagnose a paid Checkout that did not create a
+  credit lot. No raw Checkout payload or customer email is added to this audit
+  journal.
+- The existing 15-minute maintenance cron performs a read-only billing
+  integrity audit after releasing expired reservations. It emits structured
+  alerts for failed or stale webhooks, paid packs missing a grant, lot/ledger
+  disagreement, expired reservations still held, and active subscriptions with
+  no matching credit period. The audit never repairs or changes balances.
+- Operational response remains manual: inspect the sampled identifiers and
+  Stripe/D1 records, correct the underlying event or data issue, then verify the
+  next audit is healthy. Refund credit adjustment remains founder-operated.
+- Applied `0014_billing_observability.sql` and deployed Worker version
+  `ed7228d9-3221-4e92-9d2e-c38646e17e1a`. The production health and Pricing
+  routes returned 200, the signed-out pack-status route correctly returned 401,
+  and the production billing audit reported no reconciliation or processing
+  exceptions. No real purchase was made for this verification.
+
+Verification commands:
+
+```bash
+pnpm test:m1:account-foundation
+pnpm test:m1:credit-reconciliation
+pnpm test:m1:billing-observability
+pnpm typecheck
+```

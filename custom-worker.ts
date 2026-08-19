@@ -1,6 +1,7 @@
 // @ts-expect-error OpenNext generates this module before Wrangler bundles the worker.
 import nextWorker from "./.open-next/worker.js";
 import { deleteExpiredAssets } from "./lib/assets/deletion";
+import { auditBillingIntegrity } from "./lib/billing/audit";
 import type { VisualQACloudflareEnv } from "./lib/cloudflare/bindings";
 import type { QueueMessageBatch } from "./lib/cloudflare/bindings";
 import { releaseExpiredCreditReservations } from "./lib/credits/repository";
@@ -78,10 +79,27 @@ async function runScheduledMaintenance(
     releaseExpiredCreditReservations(env.VISUALQA_DB, now),
   ]);
 
-  console.log("scheduled_maintenance_completed", {
+  // Run after expired reservations are released so normal maintenance cannot
+  // create a transient false positive. This audit is intentionally read-only.
+  const billingIntegrity = await auditBillingIntegrity(env.VISUALQA_DB, now);
+  for (const alert of billingIntegrity.alerts) {
+    console.error({
+      event: "billing_integrity_alert",
+      cron: controller.cron,
+      checkedAt: billingIntegrity.checkedAt,
+      ...alert,
+    });
+  }
+
+  console.log({
+    event: "scheduled_maintenance_completed",
     cron: controller.cron,
     retention,
     releasedCreditReservations,
+    billingIntegrity: {
+      healthy: billingIntegrity.healthy,
+      alertCount: billingIntegrity.alerts.length,
+    },
   });
 }
 

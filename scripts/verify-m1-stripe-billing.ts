@@ -39,6 +39,7 @@ async function main() {
   sqlite.exec(await readFile("migrations/0007_identity_workspaces_credits.sql", "utf8"));
   sqlite.exec(await readFile("migrations/0009_stripe_billing.sql", "utf8"));
   sqlite.exec(await readFile("migrations/0013_check_packs.sql", "utf8"));
+  sqlite.exec(await readFile("migrations/0014_billing_observability.sql", "utf8"));
   const db = new SqliteD1(sqlite);
 
   sqlite.prepare(`insert into user (id, name, email, emailVerified, createdAt, updatedAt) values (?, ?, ?, 1, ?, ?)`).run(
@@ -110,6 +111,31 @@ async function main() {
   assert.equal(await beginStripeWebhookEvent(db, event, NOW), true);
   await completeStripeWebhookEvent(db, event.id, NOW);
   assert.equal(await beginStripeWebhookEvent(db, event, NOW), false, "Completed event replay must be ignored");
+
+  const packEvent: StripeWebhookEvent = {
+    id: "evt_pack_audit",
+    type: "checkout.session.completed",
+    livemode: true,
+    created: Math.floor(NOW.getTime() / 1000),
+    data: {
+      object: {
+        id: "cs_live_pack_audit",
+        payment_status: "paid",
+        metadata: { purchase_type: "credit_pack", workspace_id: workspaceId, pack_code: "pack_50" },
+      },
+    },
+  };
+  assert.equal(await beginStripeWebhookEvent(db, packEvent, NOW), true);
+  const packAudit = sqlite.prepare(
+    `select source_object_id, workspace_id, purchase_type, payment_status
+     from stripe_webhook_events where event_id = ?`,
+  ).get(packEvent.id);
+  assert.deepEqual(packAudit ? { ...packAudit } : null, {
+    source_object_id: "cs_live_pack_audit",
+    workspace_id: workspaceId,
+    purchase_type: "credit_pack",
+    payment_status: "paid",
+  });
 
   assert.equal(isStripeWebhookModeAllowed({ STRIPE_SECRET_KEY: "sk_live_pairvu" } as VisualQACloudflareEnv, event), false);
   assert.equal(isStripeWebhookModeAllowed({ STRIPE_SECRET_KEY: "sk_live_pairvu" } as VisualQACloudflareEnv, { ...event, livemode: true }), true);

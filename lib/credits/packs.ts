@@ -9,6 +9,15 @@ export interface WorkspacePackBalance {
   nextExpiryAt: string | null;
 }
 
+export interface WorkspaceCreditPackPurchase {
+  checkoutSessionId: string;
+  packCode: CheckPackCode;
+  granted: number;
+  available: number;
+  purchasedAt: string;
+  expiresAt: string;
+}
+
 export async function grantWorkspaceCreditPack(input: {
   db: D1Database;
   workspaceId: string;
@@ -102,4 +111,26 @@ export async function getWorkspacePackBalance(
     available: Number(row?.available ?? 0),
     nextExpiryAt: typeof row?.nextExpiryAt === "string" ? row.nextExpiryAt : null,
   };
+}
+
+export async function getWorkspaceCreditPackPurchase(
+  db: D1Database,
+  workspaceId: string,
+  checkoutSessionId: string,
+): Promise<WorkspaceCreditPackPurchase | null> {
+  return db
+    .prepare(
+      `select
+         stripe_checkout_session_id as checkoutSessionId,
+         pack_code as packCode,
+         granted,
+         granted - consumed - reserved as available,
+         purchased_at as purchasedAt,
+         expires_at as expiresAt
+       from workspace_credit_lots
+       where workspace_id = ? and stripe_checkout_session_id = ?
+       limit 1`,
+    )
+    .bind(workspaceId, checkoutSessionId)
+    .first<WorkspaceCreditPackPurchase>();
 }

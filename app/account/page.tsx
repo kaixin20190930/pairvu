@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { SignOutButton } from "@/app/account/SignOutButton";
 import { BillingActions } from "@/app/account/BillingActions";
 import { DeleteImagesButton } from "@/app/account/DeleteImagesButton";
+import { PackPurchaseStatus } from "@/app/account/PackPurchaseStatus";
 import { AccountWorkspaceNav } from "@/components/AccountWorkspaceNav";
 import { getWorkspaceAccountSnapshot, listRecentWorkspaceAnalyses } from "@/lib/accounts/repository";
 import { createPairvuAuth } from "@/lib/auth/server";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function AccountPage({ searchParams }: { searchParams: Promise<{ billing?: string }> }) {
+export default async function AccountPage({ searchParams }: { searchParams: Promise<{ billing?: string; session_id?: string }> }) {
   const env = getVisualQAEnv();
   const session = await createPairvuAuth(env).api.getSession({ headers: await headers() });
   if (!session?.user) redirect("/sign-in");
@@ -38,7 +39,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     listWorkspaceBatches(env.VISUALQA_DB, snapshot.workspaceId, 10),
   ]);
   const activeBatch = recentBatches.find((batch) => batch.status === "queued" || batch.status === "processing");
-  const billingState = (await searchParams).billing;
+  const billingParams = await searchParams;
+  const billingState = billingParams.billing;
   return (
     <main className="account-page">
       <div className="account-shell">
@@ -52,9 +54,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         {billingState === "existing" ? (
           <p className="account-banner">You already have a subscription. Review its status or manage it below.</p>
         ) : null}
-        {billingState === "pack-success" ? (
-          <p className="account-banner account-banner-success">Payment received. Extra checks will appear as soon as Stripe confirms the purchase.</p>
-        ) : null}
+        {billingState === "pack-success" ? <PackPurchaseStatus checkoutSessionId={billingParams.session_id ?? null} /> : null}
         {billingState === "plan-updated" ? (
           <p className="account-banner account-banner-success">Your plan change is being confirmed by Stripe.</p>
         ) : null}
