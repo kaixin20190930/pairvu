@@ -2,7 +2,7 @@
 
 Status: `FOUNDER_APPROVED_DIRECTION`
 
-Last updated: 2026-08-14
+Last updated: 2026-09-01
 
 ## 1. Roadmap Decision
 
@@ -118,7 +118,7 @@ rules, ranking, automatic fixes, integrations, or monitoring.
 
 ## 6. M2: Saved Products And Approved Reference Versions
 
-Status: `EVIDENCE_GATED`
+Status: `EVIDENCE_GATED_PILOT_IMPLEMENTED`
 
 Product job:
 
@@ -144,6 +144,22 @@ Initial scope:
 
 Multiple-reference consensus is a separate increment. M2 should first prove
 that persistent product context improves return use.
+
+Implemented pilot slice (2026-09-01):
+
+- workspace-scoped named Saved Products with an optional case-insensitive SKU;
+- one current approved reference plus immutable superseded-version metadata;
+- explicit promotion of a new approved reference;
+- product-level reference and associated-batch history;
+- Saved Product selection in one-reference-many-candidates batch creation;
+- retention-aware availability: names and version metadata persist, while images
+  continue to expire under the existing account retention policy;
+- adoption events for create, select, reuse, history view, and reference promotion.
+
+This implementation does not mean the M2 evidence gate has passed. It is the
+smallest controlled pilot needed to measure the entry and success evidence
+below. Multiple references, product rules, roles, external IDs/imports, APIs,
+and monitoring remain out of scope.
 
 Entry evidence:
 

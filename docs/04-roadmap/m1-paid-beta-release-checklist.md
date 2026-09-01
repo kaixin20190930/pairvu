@@ -5,6 +5,24 @@ Status: `GO FOR PUBLIC PAID BETA`
 Purpose: make the public-beta decision reproducible without turning normal
 release work into a new benchmark project.
 
+## Release Constitution: GitHub Before Production
+
+Every production release must follow this immutable order:
+
+1. validate the production-bound change;
+2. commit all production-bound files;
+3. push the release commit to the intended GitHub branch;
+4. fetch and verify that the remote branch contains the exact local commit and
+   that no production-bound changes remain uncommitted;
+5. apply required production migrations from that pushed commit;
+6. deploy that same commit;
+7. run a targeted production smoke test and record the Git commit plus the
+   deployment identifier.
+
+Never deploy uncommitted or unpushed code. If GitHub push or remote verification
+fails or is inconclusive, production deployment is blocked; there is no
+emergency or convenience bypass.
+
 ## A. Automated Engineering Gate
 
 Run:

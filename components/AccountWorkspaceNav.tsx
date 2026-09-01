@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 const items = [
   { href: "/account", label: "Overview", match: (pathname: string) => pathname === "/account" },
+  { href: "/account/products", label: "Products", match: (pathname: string) => pathname.startsWith("/account/products") },
   { href: "/account/batches", label: "Batches", match: (pathname: string, hasBatch: boolean) => pathname === "/account/batches" || (pathname === "/account/batches/new" && hasBatch) },
   { href: "/account/batches/new", label: "New batch", match: (pathname: string, hasBatch: boolean) => pathname === "/account/batches/new" && !hasBatch },
 ] as const;

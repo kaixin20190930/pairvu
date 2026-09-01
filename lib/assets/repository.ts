@@ -112,11 +112,15 @@ export async function listAnalysisAssets(
       select reference_asset_id from analyses where id = ? and workspace_id = ?
       union
       select candidate_asset_id from analyses where id = ? and workspace_id = ?
+    ) and not exists (
+      select 1 from product_reference_versions prv
+      where prv.asset_id = a.id and prv.workspace_id = ?
     )`,
     workspaceId,
     analysisId,
     workspaceId,
     analysisId,
+    workspaceId,
     workspaceId,
   );
 }
@@ -132,11 +136,15 @@ export async function listBatchAssets(
       select reference_asset_id from batch_items where batch_id = ? and workspace_id = ?
       union
       select candidate_asset_id from batch_items where batch_id = ? and workspace_id = ?
+    ) and not exists (
+      select 1 from product_reference_versions prv
+      where prv.asset_id = a.id and prv.workspace_id = ?
     )`,
     workspaceId,
     batchId,
     workspaceId,
     batchId,
+    workspaceId,
     workspaceId,
   );
 }

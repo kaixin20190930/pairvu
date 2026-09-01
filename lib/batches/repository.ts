@@ -12,6 +12,7 @@ import {
   fingerprintBatchMapping,
   validateAndNormalizeBatchMapping,
 } from "@/lib/batches/validation";
+import { assertSavedProductBatchReference } from "@/lib/products/repository";
 
 export class BatchIdempotencyConflictError extends Error {
   readonly code = "batch_idempotency_conflict";
@@ -34,7 +35,14 @@ export async function createBatch(
   input: CreateBatchInput,
 ): Promise<{ batch: PersistedBatchWithItems; resumed: boolean }> {
   const items = validateAndNormalizeBatchMapping(input);
-  const fingerprint = await fingerprintBatchMapping(input.mappingMode, items);
+  const productId = input.productId?.trim() || null;
+  if (productId && input.mappingMode !== "one_reference_many_candidates") {
+    throw new BatchValidationError(
+      "product_mapping_mode_invalid",
+      "Saved Products can only be used with one product, many images mode.",
+    );
+  }
+  const fingerprint = await fingerprintBatchMapping(input.mappingMode, items, productId);
   const existing = await getBatchByIdempotencyKey(db, input.workspaceId, input.idempotencyKey);
   if (existing) {
     if (existing.requestFingerprint !== fingerprint) throw new BatchIdempotencyConflictError();
@@ -44,17 +52,24 @@ export async function createBatch(
   const active = await getActiveBatchForWorkspace(db, input.workspaceId);
   if (active) throw new ActiveBatchExistsError();
 
-  const assetRetentionExpiresAt = await assertAssetsBelongToWorkspace(db, input.workspaceId, items);
-
   const timestamp = (input.now ?? new Date()).toISOString();
+  const assetRetentionExpiresAt = await assertAssetsBelongToWorkspace(db, input.workspaceId, items, timestamp);
+  if (productId) {
+    await assertSavedProductBatchReference(db, {
+      productId,
+      workspaceId: input.workspaceId,
+      referenceAssetId: items[0].referenceAssetId,
+      now: input.now,
+    });
+  }
   const statements = [
     db
       .prepare(
         `insert into batches (
           id, workspace_id, mapping_mode, status, idempotency_key, request_fingerprint,
-          item_count, completed_item_count, failed_item_count, asset_retention_expires_at,
+          item_count, completed_item_count, failed_item_count, asset_retention_expires_at, product_id,
           created_at, updated_at
-        ) values (?, ?, ?, 'queued', ?, ?, ?, 0, 0, ?, ?, ?)`,
+        ) values (?, ?, ?, 'queued', ?, ?, ?, 0, 0, ?, ?, ?, ?)`,
       )
       .bind(
         input.batchId,
@@ -64,6 +79,7 @@ export async function createBatch(
         fingerprint,
         items.length,
         assetRetentionExpiresAt,
+        productId,
         timestamp,
         timestamp,
       ),
@@ -108,7 +124,7 @@ export async function getBatchById(
   batchId: string,
   workspaceId: string,
 ): Promise<PersistedBatchWithItems | null> {
-  const batch = await db.prepare(batchSelect("id = ? and workspace_id = ?")).bind(batchId, workspaceId).first<PersistedBatch>();
+  const batch = await db.prepare(batchSelect("b.id = ? and b.workspace_id = ?")).bind(batchId, workspaceId).first<PersistedBatch>();
   if (!batch) return null;
   return { ...batch, items: await listBatchItems(db, batch.id, workspaceId) };
 }
@@ -123,6 +139,7 @@ export async function listWorkspaceBatches(
       b.idempotency_key as idempotencyKey, b.request_fingerprint as requestFingerprint,
       b.item_count as itemCount, b.completed_item_count as completedItemCount,
       b.failed_item_count as failedItemCount, b.asset_retention_expires_at as assetRetentionExpiresAt,
+      b.product_id as productId, p.name as productName, p.sku_label as productSkuLabel,
       b.created_at as createdAt, b.updated_at as updatedAt, b.started_at as startedAt,
       b.completed_at as completedAt,
       (select count(*) from batch_items bi join analyses a on a.id = bi.analysis_id
@@ -131,7 +148,8 @@ export async function listWorkspaceBatches(
         where bi.batch_id = b.id and lower(a.verdict) = 'review') as reviewCount,
       (select count(*) from batch_items bi join analyses a on a.id = bi.analysis_id
         where bi.batch_id = b.id and lower(a.verdict) = 'fail') as failCount
-     from batches b where b.workspace_id = ? order by b.created_at desc limit ?`,
+     from batches b left join products p on p.id = b.product_id
+     where b.workspace_id = ? order by b.created_at desc limit ?`,
   ).bind(workspaceId, Math.min(100, Math.max(1, limit))).all<BatchHistoryItem>();
   return rows.results.map((row) => ({
     ...row,
@@ -169,7 +187,7 @@ export async function getBatchByIdempotencyKey(
   idempotencyKey: string,
 ): Promise<PersistedBatchWithItems | null> {
   const batch = await db
-    .prepare(batchSelect("workspace_id = ? and idempotency_key = ?"))
+    .prepare(batchSelect("b.workspace_id = ? and b.idempotency_key = ?"))
     .bind(workspaceId, idempotencyKey)
     .first<PersistedBatch>();
   if (!batch) return null;
@@ -307,7 +325,7 @@ export async function restoreFailedBatchItem(
 
 async function getActiveBatchForWorkspace(db: D1Database, workspaceId: string) {
   return db
-    .prepare(batchSelect("workspace_id = ? and status in ('queued', 'processing')"))
+    .prepare(batchSelect("b.workspace_id = ? and b.status in ('queued', 'processing')"))
     .bind(workspaceId)
     .first<PersistedBatch>();
 }
@@ -341,6 +359,7 @@ async function assertAssetsBelongToWorkspace(
   db: D1Database,
   workspaceId: string,
   items: Array<{ referenceAssetId: string; candidateAssetId: string }>,
+  nowIso: string,
 ) {
   const ids = [...new Set(items.flatMap((item) => [item.referenceAssetId, item.candidateAssetId]))];
   const retentionExpiries: string[] = [];
@@ -363,17 +382,25 @@ async function assertAssetsBelongToWorkspace(
         "One or more mapped assets do not have a retention expiry.",
       );
     }
+    if (asset.retentionExpiresAt <= nowIso) {
+      throw new BatchValidationError(
+        "batch_asset_expired",
+        "One or more mapped images have expired. Upload them again before starting this batch.",
+      );
+    }
     retentionExpiries.push(asset.retentionExpiresAt);
   }
   return retentionExpiries.sort()[0];
 }
 
 function batchSelect(where: string) {
-  return `select id, workspace_id as workspaceId, mapping_mode as mappingMode, status,
-    idempotency_key as idempotencyKey, request_fingerprint as requestFingerprint,
-    item_count as itemCount, completed_item_count as completedItemCount,
-    failed_item_count as failedItemCount,
-    asset_retention_expires_at as assetRetentionExpiresAt,
-    created_at as createdAt, updated_at as updatedAt, started_at as startedAt,
-    completed_at as completedAt from batches where ${where} limit 1`;
+  return `select b.id, b.workspace_id as workspaceId, b.mapping_mode as mappingMode, b.status,
+    b.idempotency_key as idempotencyKey, b.request_fingerprint as requestFingerprint,
+    b.item_count as itemCount, b.completed_item_count as completedItemCount,
+    b.failed_item_count as failedItemCount, b.product_id as productId,
+    p.name as productName, p.sku_label as productSkuLabel,
+    b.asset_retention_expires_at as assetRetentionExpiresAt,
+    b.created_at as createdAt, b.updated_at as updatedAt, b.started_at as startedAt,
+    b.completed_at as completedAt from batches b left join products p on p.id = b.product_id
+    where ${where} limit 1`;
 }

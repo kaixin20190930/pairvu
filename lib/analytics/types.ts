@@ -24,6 +24,11 @@ export const PRODUCT_EVENT_NAMES = [
   "retry_clicked",
   "second_check_started",
   "contact_opt_in",
+  "product_created",
+  "saved_product_selected",
+  "reference_reused",
+  "reference_version_promoted",
+  "product_history_viewed",
 ] as const;
 
 export const CLIENT_PRODUCT_EVENT_NAMES = [
@@ -49,6 +54,11 @@ export const CLIENT_PRODUCT_EVENT_NAMES = [
   "retry_clicked",
   "second_check_started",
   "contact_opt_in",
+  "product_created",
+  "saved_product_selected",
+  "reference_reused",
+  "reference_version_promoted",
+  "product_history_viewed",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENT_NAMES)[number];

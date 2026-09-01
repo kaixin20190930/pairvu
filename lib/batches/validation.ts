@@ -77,8 +77,9 @@ export function validateAndNormalizeBatchMapping(input: {
 export async function fingerprintBatchMapping(
   mappingMode: BatchMappingMode,
   items: Array<{ referenceAssetId: string; candidateAssetId: string; clientLabel: string | null }>,
+  productId: string | null = null,
 ) {
-  const canonical = JSON.stringify({ mappingMode, items });
+  const canonical = JSON.stringify({ mappingMode, productId, items });
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical));
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }

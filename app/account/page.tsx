@@ -225,7 +225,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
                   {analysis.imagesAvailable ? (
                     <DeleteImagesButton
                       endpoint={`/api/analyses/${analysis.id}`}
-                      confirmMessage="Permanently delete the original, candidate, and analysis derivatives for this result? The verdict and text evidence will remain."
+                      confirmMessage="Permanently delete the candidate, non-saved reference, and analysis derivatives for this result? Saved Product reference images, the verdict, and text evidence will remain."
                     />
                   ) : null}
                 </article>

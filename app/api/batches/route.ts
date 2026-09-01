@@ -12,6 +12,7 @@ import {
 } from "@/lib/batches/repository";
 import { BATCH_MAPPING_MODES, type BatchMappingItemInput, type BatchMappingMode } from "@/lib/batches/types";
 import { BatchValidationError } from "@/lib/batches/validation";
+import { SavedProductError } from "@/lib/products/repository";
 import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import {
@@ -35,8 +36,11 @@ export async function POST(request: NextRequest) {
     const batchId = isValidAnonymousSessionId(body?.batchId) ? body.batchId : null;
     const idempotencyKey = isValidAnonymousSessionId(body?.idempotencyKey) ? body.idempotencyKey : null;
     const mappingMode = isBatchMappingMode(body?.mappingMode) ? body.mappingMode : null;
+    const productId = body?.productId == null || body.productId === ""
+      ? null
+      : isValidAnonymousSessionId(body.productId) ? body.productId : undefined;
     const items = normalizeItems(body?.items);
-    if (!batchId || !idempotencyKey || !mappingMode || !items) {
+    if (!batchId || !idempotencyKey || !mappingMode || !items || productId === undefined) {
       return NextResponse.json(
         { error: "invalid_batch_request", message: "batchId, idempotencyKey, mappingMode, and items must be valid." },
         { status: 400 },
@@ -49,6 +53,7 @@ export async function POST(request: NextRequest) {
       workspaceId: access.workspaceId,
       idempotencyKey,
       mappingMode,
+      productId,
       items,
       planBatchItemLimit: entitlement.batchItemLimit,
     });
@@ -146,6 +151,7 @@ function authenticationRequired() {
 function batchErrorResponse(error: unknown) {
   if (error instanceof RequestAccessError) return authenticationRequired();
   if (error instanceof BatchValidationError) return NextResponse.json({ error: error.code, message: error.message }, { status: 400 });
+  if (error instanceof SavedProductError) return NextResponse.json({ error: error.code, message: error.message }, { status: error.status });
   if (error instanceof BatchIdempotencyConflictError || error instanceof ActiveBatchExistsError) {
     return NextResponse.json({ error: error.code, message: error.message }, { status: 409 });
   }

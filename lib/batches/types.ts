@@ -26,6 +26,7 @@ export interface CreateBatchInput {
   workspaceId: string;
   idempotencyKey: string;
   mappingMode: BatchMappingMode;
+  productId?: string | null;
   items: BatchMappingItemInput[];
   planBatchItemLimit: number;
   now?: Date;
@@ -35,6 +36,9 @@ export interface PersistedBatch {
   id: string;
   workspaceId: string;
   mappingMode: BatchMappingMode;
+  productId: string | null;
+  productName: string | null;
+  productSkuLabel: string | null;
   status: BatchStatus;
   idempotencyKey: string;
   requestFingerprint: string;

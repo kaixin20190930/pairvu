@@ -1,6 +1,6 @@
 # D1 Schema Design
 
-This document is a schema design, not a migration. Use migrations from day one when implementation starts.
+This document records the durable schema direction. The active implementation is defined by versioned files in `migrations/`; later sections may still describe evidence-gated extension points.
 
 ## Design Rules
 
@@ -80,21 +80,32 @@ Indexes:
 - `id` primary key
 - `workspace_id`
 - `name`
-- `category_key`
-- `external_id`
-- `status`
+- `sku_label` nullable, display value
+- `sku_key` nullable, normalized workspace-unique value
 - `created_at`
 - `updated_at`
 
-### product_reference_assets
+### product_reference_versions
 
 - `id` primary key
 - `workspace_id`
 - `product_id`
 - `asset_id`
-- `reference_role`
-- `is_approved`
+- `version_number`
+- `status` (`current`, `superseded`)
 - `created_at`
+- `promoted_at`
+
+The initial M2 pilot permits one current reference per product. A partial
+unique index enforces that invariant, while superseded version metadata remains
+available for audit history. Reference binaries still follow the workspace
+retention policy; an expired or deleted current image makes the product
+temporarily unavailable for reuse until a new reference is promoted.
+
+`batches.product_id` is nullable and is populated only for the
+`one_reference_many_candidates` workflow. Batch creation revalidates product
+ownership, current-reference identity, asset status, and retention expiry on
+the server.
 
 ### product_attributes
 

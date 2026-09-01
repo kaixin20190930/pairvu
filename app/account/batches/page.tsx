@@ -30,10 +30,10 @@ export default async function BatchHistoryPage() {
       {batches.length === 0 ? <div className="batch-history-empty"><h2>No batches yet</h2><p>Start with one approved product and a group of candidate images.</p></div> : <div className="batch-history-list">
         {batches.map((batch) => <article className="batch-history-row" key={batch.id}>
           <Link className="batch-history-main" href={`/account/batches/new?batchId=${batch.id}`}>
-            <div><strong>{formatStatus(batch.status)}</strong><small>{formatDateTime(batch.createdAt)} · {batch.itemCount} check{batch.itemCount === 1 ? "" : "s"}</small></div>
+            <div><strong>{batch.productName ?? formatStatus(batch.status)}</strong><small>{batch.productName ? `${formatStatus(batch.status)} · ` : ""}{formatDateTime(batch.createdAt)} · {batch.itemCount} check{batch.itemCount === 1 ? "" : "s"}</small></div>
             <div className="batch-history-counts"><span className="verdict-fail">{batch.failCount} FAIL</span><span className="verdict-review">{batch.reviewCount} REVIEW</span><span className="verdict-pass">{batch.passCount} PASS</span>{batch.failedItemCount > 0 ? <span>{batch.failedItemCount} error</span> : null}</div>
           </Link>
-          {!isActive(batch.status) ? <DeleteImagesButton endpoint={`/api/batches/${batch.id}`} label="Delete batch images" confirmMessage="Permanently delete all originals, candidates, analysis derivatives, and thumbnails used by this batch? Batch result metadata and CSV evidence will remain." /> : null}
+          {!isActive(batch.status) ? <DeleteImagesButton endpoint={`/api/batches/${batch.id}`} label="Delete batch images" confirmMessage="Permanently delete candidates, non-saved references, analysis derivatives, and thumbnails used by this batch? Saved Product reference images and result metadata will remain." /> : null}
         </article>)}
       </div>}
     </section>

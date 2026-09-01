@@ -5,13 +5,18 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { PersistedBatchWithItems, RetainedBatchReference } from "@/lib/batches/types";
 import { AccountBreadcrumbs } from "@/components/AccountBreadcrumbs";
 import { AccountWorkspaceNav } from "@/components/AccountWorkspaceNav";
+import { captureAcquisitionContext, getAnonymousSessionId, trackProductEvent } from "@/lib/analytics/client";
+import type { SavedProductOption } from "@/lib/products/types";
 
 interface BatchCreationClientProps {
   availableCredits: number;
   batchItemLimit: number;
   csvExportEnabled: boolean;
+  initialBatchId: string;
+  initialSavedProductId: string;
   planName: string;
   retainedReferences: RetainedBatchReference[];
+  savedProducts: SavedProductOption[];
   retentionDays: number;
 }
 
@@ -35,40 +40,45 @@ export function BatchCreationClient({
   availableCredits,
   batchItemLimit,
   csvExportEnabled,
+  initialBatchId,
+  initialSavedProductId,
   planName,
   retainedReferences,
+  savedProducts,
   retentionDays,
 }: BatchCreationClientProps) {
   const [creationMode, setCreationMode] = useState<CreationMode>("one_reference_many_candidates");
   const [reference, setReference] = useState<File | null>(null);
   const [retainedReferenceId, setRetainedReferenceId] = useState("");
+  const [savedProductId, setSavedProductId] = useState(initialSavedProductId);
   const [candidates, setCandidates] = useState<File[]>([]);
   const [pairs, setPairs] = useState<FilePair[]>([{ id: "pair-1", reference: null, candidate: null }]);
   const [batch, setBatch] = useState<PersistedBatchWithItems | null>(null);
-  const [working, setWorking] = useState(false);
+  const [working, setWorking] = useState(Boolean(initialBatchId));
   const [batchAction, setBatchAction] = useState<"cancel" | string | null>(null);
-  const [workMessage, setWorkMessage] = useState("");
+  const [workMessage, setWorkMessage] = useState(initialBatchId ? "Restoring batch status..." : "");
   const [error, setError] = useState<string | null>(null);
   const [resultFilter, setResultFilter] = useState<ResultFilter>("exceptions");
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const trackedPrefillProductId = useRef<string | null>(null);
 
   const usableLimit = Math.min(batchItemLimit, availableCredits);
   const plannedItemCount = creationMode === "one_reference_many_candidates" ? candidates.length : pairs.length;
   const preflightError = useMemo(() => {
-    if (creationMode === "one_reference_many_candidates" && !reference && !retainedReferenceId) return "Add or reuse one approved reference image.";
+    if (creationMode === "one_reference_many_candidates" && !reference && !retainedReferenceId && !savedProductId) return "Add or reuse one approved reference image.";
     if (creationMode === "one_reference_many_candidates" && candidates.length === 0) return "Add at least one candidate image.";
     if (creationMode === "explicit_pairs" && pairs.some((pair) => !pair.reference || !pair.candidate)) return "Every row needs one reference and one candidate image.";
     if (plannedItemCount > batchItemLimit) return `Your ${planName} plan supports up to ${batchItemLimit} product checks per batch.`;
     if (plannedItemCount > availableCredits) return `This batch needs ${plannedItemCount} checks, but ${availableCredits} are available.`;
     return null;
-  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId]);
+  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId, savedProductId]);
 
   const stopPolling = useCallback(() => {
     if (pollTimer.current) clearTimeout(pollTimer.current);
     pollTimer.current = null;
   }, []);
 
-  const loadBatch = useCallback(async (batchId: string, keepPolling = true) => {
+  const loadBatch = useCallback(async function pollBatch(batchId: string, keepPolling = true) {
     try {
       const response = await fetch(`/api/batches?batchId=${encodeURIComponent(batchId)}`, { cache: "no-store" });
       const payload = await response.json() as { batch?: PersistedBatchWithItems } & ApiErrorPayload;
@@ -76,7 +86,7 @@ export function BatchCreationClient({
       setBatch(payload.batch);
       setError(null);
       if (keepPolling && !TERMINAL_STATUSES.has(payload.batch.status)) {
-        pollTimer.current = setTimeout(() => void loadBatch(batchId), POLL_INTERVAL_MS);
+        pollTimer.current = setTimeout(() => void pollBatch(batchId), POLL_INTERVAL_MS);
       } else {
         setWorking(false);
         setWorkMessage("");
@@ -89,14 +99,19 @@ export function BatchCreationClient({
   }, []);
 
   useEffect(() => {
-    const batchId = new URLSearchParams(window.location.search).get("batchId");
-    if (batchId) {
-      setWorking(true);
-      setWorkMessage("Restoring batch status...");
-      void loadBatch(batchId);
+    if (initialSavedProductId && trackedPrefillProductId.current !== initialSavedProductId) {
+        trackedPrefillProductId.current = initialSavedProductId;
+        const context = captureAcquisitionContext();
+        void trackProductEvent({
+          eventName: "saved_product_selected",
+          anonymousSessionId: getAnonymousSessionId(),
+          attribution: context.attribution,
+          properties: { workflow: "batch", selection_source: "product_detail_cta" },
+        }).catch(() => undefined);
     }
+    if (initialBatchId) void loadBatch(initialBatchId);
     return stopPolling;
-  }, [loadBatch, stopPolling]);
+  }, [initialBatchId, initialSavedProductId, loadBatch, stopPolling]);
 
   function selectCandidates(files: FileList | null) {
     const selected = Array.from(files ?? []);
@@ -138,7 +153,8 @@ export function BatchCreationClient({
       const mappedItems: Array<{ referenceAssetId: string; candidateAssetId: string; clientLabel: string }> = [];
       if (creationMode === "one_reference_many_candidates") {
         setWorkMessage(reference ? "Uploading the approved reference..." : "Reusing the saved reference...");
-        const referenceAssetId = retainedReferenceId || await uploadAsset(reference!, "reference");
+        const selectedProduct = savedProducts.find((product) => product.id === savedProductId);
+        const referenceAssetId = selectedProduct?.currentReference.assetId || retainedReferenceId || await uploadAsset(reference!, "reference");
         let uploadedCandidates = 0;
         const candidateItems = await mapWithConcurrency(candidates, 3, async (file) => {
           const candidateAssetId = await uploadAsset(file, "candidate");
@@ -181,6 +197,7 @@ export function BatchCreationClient({
           batchId,
           idempotencyKey: crypto.randomUUID(),
           mappingMode: creationMode,
+          productId: savedProductId || null,
           items: mappedItems,
         }),
       });
@@ -188,6 +205,13 @@ export function BatchCreationClient({
       if (!response.ok || !payload.batch) throw new Error(payload.message ?? "The batch could not be started.");
 
       setBatch(payload.batch);
+      if (savedProductId) {
+        const context = captureAcquisitionContext();
+        void trackProductEvent({
+          eventName: "reference_reused", anonymousSessionId: getAnonymousSessionId(), attribution: context.attribution,
+          properties: { workflow: "batch" },
+        }).catch(() => undefined);
+      }
       window.history.replaceState(null, "", `/account/batches/new?batchId=${payload.batch.id}`);
       setWorkMessage("Checking candidate images...");
       pollTimer.current = setTimeout(() => void loadBatch(payload.batch!.id), POLL_INTERVAL_MS);
@@ -235,6 +259,7 @@ export function BatchCreationClient({
     stopPolling();
     setReference(null);
     setRetainedReferenceId("");
+    setSavedProductId("");
     setCandidates([]);
     setPairs([{ id: crypto.randomUUID(), reference: null, candidate: null }]);
     setBatch(null);
@@ -301,14 +326,26 @@ export function BatchCreationClient({
               <label className="batch-file-field">
                 <strong>Approved reference</strong>
                 <span>One image that represents the product you intend to show.</span>
+                {savedProducts.length > 0 ? <select aria-label="Use a Saved Product" disabled={working} onChange={(event) => {
+                  const nextId = event.target.value;
+                  setSavedProductId(nextId); setRetainedReferenceId(""); setReference(null);
+                  if (nextId) {
+                    const context = captureAcquisitionContext();
+                    void trackProductEvent({ eventName: "saved_product_selected", anonymousSessionId: getAnonymousSessionId(), attribution: context.attribution, properties: { workflow: "batch", selection_source: "dropdown" } }).catch(() => undefined);
+                  }
+                }} value={savedProductId}>
+                  <option value="">Use a Saved Product</option>
+                  {savedProducts.map((product) => <option key={product.id} value={product.id}>{product.name}{product.skuLabel ? ` · ${product.skuLabel}` : ""}</option>)}
+                </select> : null}
+                {savedProductId ? <SavedProductPreview product={savedProducts.find((product) => product.id === savedProductId)} /> : null}
                 <input
                   accept="image/jpeg,image/png,image/webp"
                   disabled={working}
-                  onChange={(event) => { setReference(event.target.files?.[0] ?? null); setRetainedReferenceId(""); }}
+                  onChange={(event) => { setReference(event.target.files?.[0] ?? null); setRetainedReferenceId(""); setSavedProductId(""); }}
                   type="file"
                 />
                 <small>{reference?.name ?? "No reference selected"}</small>
-                {retainedReferences.length > 0 ? <select aria-label="Reuse a retained reference" disabled={working} onChange={(event) => { setRetainedReferenceId(event.target.value); if (event.target.value) setReference(null); }} value={retainedReferenceId}>
+                {retainedReferences.length > 0 ? <select aria-label="Reuse a retained reference" disabled={working} onChange={(event) => { setRetainedReferenceId(event.target.value); if (event.target.value) { setReference(null); setSavedProductId(""); } }} value={retainedReferenceId}>
                   <option value="">Or reuse a recent reference</option>
                   {retainedReferences.map((saved) => <option key={saved.assetId} value={saved.assetId}>{saved.label} · last used {formatShortDate(saved.lastUsedAt)}</option>)}
                 </select> : null}
@@ -374,6 +411,7 @@ export function BatchCreationClient({
             <div>
               <p className="eyebrow">Batch status</p>
               <h2>{formatBatchStatus(batch.status)}</h2>
+              {batch.productName ? <p>Saved Product: <Link href={`/account/products/${batch.productId}`}>{batch.productName}</Link>{batch.productSkuLabel ? ` · SKU ${batch.productSkuLabel}` : ""}</p> : null}
             </div>
             <strong>{completedCount} of {batch.itemCount} finished</strong>
           </div>
@@ -484,14 +522,20 @@ function SavedReferencePreview({ reference }: { reference?: RetainedBatchReferen
   </div>;
 }
 
+function SavedProductPreview({ product }: { product?: SavedProductOption }) {
+  if (!product) return null;
+  return <div className="batch-saved-reference">
+    <img alt={`Current approved reference for ${product.name}`} src={product.currentReference.previewUrl!} />
+    <div><strong>{product.name}</strong><small>Approved version {product.currentReference.versionNumber} · available until {formatShortDate(product.currentReference.retentionExpiresAt!)}</small></div>
+  </div>;
+}
+
 function CandidatePreview({ file }: { file: File }) {
-  const [previewUrl, setPreviewUrl] = useState("");
+  const previewUrl = useMemo(() => URL.createObjectURL(file), [file]);
 
   useEffect(() => {
-    const nextPreviewUrl = URL.createObjectURL(file);
-    setPreviewUrl(nextPreviewUrl);
-    return () => URL.revokeObjectURL(nextPreviewUrl);
-  }, [file]);
+    return () => URL.revokeObjectURL(previewUrl);
+  }, [previewUrl]);
 
-  return previewUrl ? <img alt="" src={previewUrl} /> : <span aria-hidden="true" />;
+  return <img alt="" src={previewUrl} />;
 }
