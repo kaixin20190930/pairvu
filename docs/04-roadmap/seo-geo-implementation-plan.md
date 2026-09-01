@@ -2,7 +2,7 @@
 
 Status: `IN_PROGRESS`
 
-Last updated: 2026-08-18
+Last updated: 2026-08-20
 
 Strategy:
 [Pairvu SEO And GEO Strategy](../03-growth/seo-geo-strategy.md)
@@ -111,6 +111,7 @@ mass publishing or expansion beyond supported CPG products.
 | SG-C10 | P2 | `DONE` | Product/Growth | Founder-approved category evidence | Five M0 flagship category pages are implemented: Cosmetics, Beverage, Personal Care, Packaged Food, and Household Packaged Goods |
 | SG-C11 | P2 | `DEFERRED` | Product/Growth | Real tool-specific fixtures | Generator-specific pages |
 | SG-C13 | P1 | `DONE` | Founder/Product/Engineering | Founder-reviewed FOLDWELL evidence | Three indexable controlled examples published in the registry: `/examples/laundry-sheets-scent-count-change` (FAIL), `/examples/laundry-sheets-background-change` (PASS), and `/examples/laundry-sheets-back-view-review` (REVIEW); static Examples and Household links, metadata, schema, assets, sitemap parity, and targeted validation completed |
+| SG-C14 | P1 | `DONE` | Founder/Product/Engineering | Founder-reviewed public comparisons | `/examples/controlled-visual-qa-benchmark` publishes a versioned, indexable Dataset page with 19 controlled comparisons, methodology, limitations, citation guidance, static case links, and generated JSON/CSV distributions; benchmark-specific validation is included in `pnpm test:seo` |
 
 ### Indexing And Launch QA
 
@@ -145,6 +146,14 @@ mass publishing or expansion beyond supported CPG products.
 - Public assets live under `public/examples/foldwell-scent-count-change`, `public/examples/foldwell-background-change`, and `public/examples/foldwell-back-view`; source files outside the repository remain unchanged.
 - No detection engine, prompt, QA policy, RiskPolicy, or M1 behavior changed. The Cleaning Product subcategory page in SG-C12 remains blocked; this delivery strengthens the existing Household flagship and does not authorize a new subcategory route.
 - Remaining operational risk is limited to normal post-deploy crawl and rendering verification. Search Console discovery and indexation continue under SG-I04.
+
+### Controlled Visual QA Benchmark Delivery Notes
+
+- Version 1.0 freezes 19 founder-reviewed controlled comparisons spanning PASS, FAIL, and REVIEW across eight visible-evidence attributes. Expected-versus-observed agreement applies only to this selected release and is not a general accuracy statistic.
+- The benchmark route is registered under `/examples`, emits `Dataset` and breadcrumb structured data, and is included in the generated sitemap through the existing registry architecture.
+- Public CSV and JSON distributions live under `public/benchmarks/controlled-visual-qa/`. Metadata may be cited with attribution; product images remain all rights reserved.
+- The Examples hub and AI Product Photography pillar provide static entry links. Every dataset row links to an existing detailed controlled case page.
+- No checker behavior, model prompt, QA engine, RiskPolicy, billing behavior, or M1 functionality changed. Post-deploy rendering and indexing remain operational follow-up work under SG-I04.
 
 ## 6. Implementation Sequence And Timeline
 

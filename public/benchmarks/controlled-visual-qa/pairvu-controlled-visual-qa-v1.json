@@ -1,0 +1,475 @@
+{
+  "name": "Pairvu Controlled Visual QA Benchmark",
+  "version": "1.0",
+  "publishedAt": "2026-08-20",
+  "updatedAt": "2026-08-20",
+  "methodology": "Founder-reviewed controlled original-versus-candidate product image comparisons.",
+  "license": "Dataset metadata may be reused with attribution. Product images remain all rights reserved.",
+  "cases": [
+    {
+      "caseId": "foldwell-scent-count",
+      "caseRoute": "/examples/laundry-sheets-scent-count-change",
+      "title": "Laundry-sheet scent and count changed",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "product_change",
+      "controlledCondition": "FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "label_text",
+      "changedAttributes": [
+        "Scent wording",
+        "Printed sheet count"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Logo",
+        "Carton color",
+        "UP TO 60 LOADS",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/foldwell-scent-count-change/original.png",
+      "candidateImage": "/examples/foldwell-scent-count-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "foldwell-background",
+      "caseRoute": "/examples/laundry-sheets-background-change",
+      "title": "Laundry-room setting changed, product matched",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "Studio background became a laundry-room scene",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Brand",
+        "Logo",
+        "FRESH LINEN",
+        "30 SHEETS",
+        "UP TO 60 LOADS",
+        "Carton structure"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/foldwell-background-change/original.png",
+      "candidateImage": "/examples/foldwell-background-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "foldwell-back-view",
+      "caseRoute": "/examples/laundry-sheets-back-view-review",
+      "title": "Front label turned away",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "observability",
+      "controlledCondition": "Candidate showed the rear package face",
+      "expectedVerdict": "REVIEW",
+      "observedVerdict": "REVIEW",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Main color",
+        "Rigid carton form",
+        "Single package"
+      ],
+      "unobservableAttributes": [
+        "Front logo",
+        "Scent",
+        "Sheet count",
+        "Load claim"
+      ],
+      "originalImage": "/examples/foldwell-back-view/original.png",
+      "candidateImage": "/examples/foldwell-back-view/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "solvane-spf",
+      "caseRoute": "/examples/skincare-spf-value-change",
+      "title": "SPF value changed",
+      "productFamily": "Skincare",
+      "evidenceRole": "product_change",
+      "controlledCondition": "SPF 50+ became SPF 30",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "printed_value",
+      "changedAttributes": [
+        "Printed SPF value"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Logo",
+        "Product name",
+        "20 g",
+        "Color",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/skincare-spf-change/original.png",
+      "candidateImage": "/examples/skincare-spf-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "solvane-background",
+      "caseRoute": "/examples/skincare-product-background-change",
+      "title": "Beach scene changed, product matched",
+      "productFamily": "Skincare",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "Studio pack shot became a beach lifestyle scene",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Brand",
+        "Logo",
+        "SPF 50+",
+        "20 g",
+        "Color",
+        "Cap",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/skincare-background-change/original.png",
+      "candidateImage": "/examples/skincare-background-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "solvane-crop",
+      "caseRoute": "/examples/skincare-package-crop-review",
+      "title": "Lower package was outside the crop",
+      "productFamily": "Skincare",
+      "evidenceRole": "observability",
+      "controlledCondition": "Candidate excluded the lower package and twist control",
+      "expectedVerdict": "REVIEW",
+      "observedVerdict": "REVIEW",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Logo",
+        "Visible front text",
+        "Upper package color"
+      ],
+      "unobservableAttributes": [
+        "Lower component",
+        "Complete silhouette"
+      ],
+      "originalImage": "/examples/skincare-crop-observability/original.png",
+      "candidateImage": "/examples/skincare-crop-observability/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "morrow-flavor-volume",
+      "caseRoute": "/examples/cold-brew-flavor-volume-change",
+      "title": "Flavor and volume changed",
+      "productFamily": "Beverage",
+      "evidenceRole": "product_change",
+      "controlledCondition": "VANILLA OAT 250 mL became MOCHA OAT 330 mL",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "label_text",
+      "changedAttributes": [
+        "Flavor wording",
+        "Printed volume"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Can color",
+        "Single-unit count",
+        "Can shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/cold-brew-flavor-volume-change/original.png",
+      "candidateImage": "/examples/cold-brew-flavor-volume-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "morrow-condensation",
+      "caseRoute": "/examples/cold-brew-condensation-change",
+      "title": "Condensation changed, product matched",
+      "productFamily": "Beverage",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "Surface droplets and highlights changed",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "color",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Brand",
+        "Flavor",
+        "Volume",
+        "Count",
+        "Can color",
+        "Can shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/cold-brew-condensation-change/original.png",
+      "candidateImage": "/examples/cold-brew-condensation-change/candidate.png",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "brightleaf-capacity",
+      "caseRoute": "/examples/household-cleaner-capacity-change",
+      "title": "Cleaner capacity changed",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "product_change",
+      "controlledCondition": "750 mL became 500 mL",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "printed_value",
+      "changedAttributes": [
+        "Printed capacity"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Bottle",
+        "Trigger",
+        "Color",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/household-capacity-change/original.jpg",
+      "candidateImage": "/examples/household-capacity-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "brightleaf-background",
+      "caseRoute": "/examples/household-cleaner-background-change",
+      "title": "Kitchen setting changed, product matched",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "Studio background became a kitchen scene",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Brand",
+        "Label text",
+        "750 mL",
+        "Trigger",
+        "Color",
+        "Bottle shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/household-background-change/original.jpg",
+      "candidateImage": "/examples/household-background-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "brightleaf-back-view",
+      "caseRoute": "/examples/large-viewpoint-difference-product-image",
+      "title": "Different package face needed review",
+      "productFamily": "Household packaged goods",
+      "evidenceRole": "observability",
+      "controlledCondition": "Front-facing reference became a rear-facing candidate",
+      "expectedVerdict": "REVIEW",
+      "observedVerdict": "REVIEW",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Bottle family",
+        "Trigger",
+        "Main color"
+      ],
+      "unobservableAttributes": [
+        "Front logo",
+        "Front label text",
+        "Capacity"
+      ],
+      "originalImage": "/examples/missing-component/original.jpg",
+      "candidateImage": "/examples/large-viewpoint/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "embernook-component",
+      "caseRoute": "/examples/candle-set-component-removed",
+      "title": "Candle-set accessory and wording changed",
+      "productFamily": "Home fragrance",
+      "evidenceRole": "product_change",
+      "controlledCondition": "Wick trimmer disappeared and SET wording was removed",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "components",
+      "changedAttributes": [
+        "Included accessory",
+        "Product-name wording"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Jar",
+        "Lid",
+        "220 g",
+        "Color",
+        "Jar shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/candle-components/original.jpg",
+      "candidateImage": "/examples/candle-components/missing-trimmer.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "embernook-scene",
+      "caseRoute": "/examples/candle-set-scene-change",
+      "title": "Candle set was preserved in a new scene",
+      "productFamily": "Home fragrance",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "Studio scene became a textured stone composition",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "components",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Jar",
+        "Lid",
+        "Wick trimmer",
+        "Logo",
+        "Text",
+        "220 g",
+        "Color"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/candle-components/original.jpg",
+      "candidateImage": "/examples/candle-components/scene-change.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "embernook-crop",
+      "caseRoute": "/examples/candle-accessory-outside-crop",
+      "title": "Included accessory was outside the crop",
+      "productFamily": "Home fragrance",
+      "evidenceRole": "observability",
+      "controlledCondition": "Candidate excluded the approved accessory area",
+      "expectedVerdict": "REVIEW",
+      "observedVerdict": "REVIEW",
+      "primaryAttribute": "components",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "Jar",
+        "Lid",
+        "Logo",
+        "Text",
+        "220 g"
+      ],
+      "unobservableAttributes": [
+        "Wick trimmer"
+      ],
+      "originalImage": "/examples/candle-components/original.jpg",
+      "candidateImage": "/examples/candle-components/trimmer-crop.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "elara-logo",
+      "caseRoute": "/examples/logo-change-ai-product-image",
+      "title": "Visible logo changed",
+      "productFamily": "Cosmetics",
+      "evidenceRole": "product_change",
+      "controlledCondition": "Crescent mark became a sun mark",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "logo",
+      "changedAttributes": [
+        "Logo identity"
+      ],
+      "stableAttributes": [
+        "Bottle",
+        "Label text",
+        "Color",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/logo-change/original.jpg",
+      "candidateImage": "/examples/logo-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "nova-value",
+      "caseRoute": "/examples/label-value-change-ai-product-image",
+      "title": "Printed capacity changed",
+      "productFamily": "Beverage",
+      "evidenceRole": "product_change",
+      "controlledCondition": "330 mL became 500 mL",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "printed_value",
+      "changedAttributes": [
+        "Printed capacity"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Can design",
+        "Color",
+        "Can shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/label-value-change/original.jpg",
+      "candidateImage": "/examples/label-value-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "mireva-shape",
+      "caseRoute": "/examples/packaging-shape-change-ai-product-image",
+      "title": "Packaging shape changed",
+      "productFamily": "Personal care",
+      "evidenceRole": "product_change",
+      "controlledCondition": "Rounded bottle became rectangular",
+      "expectedVerdict": "FAIL",
+      "observedVerdict": "FAIL",
+      "primaryAttribute": "packaging",
+      "changedAttributes": [
+        "Container shape"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Label",
+        "Main color"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/packaging-shape-change/original.jpg",
+      "candidateImage": "/examples/packaging-shape-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "grainly-count",
+      "caseRoute": "/examples/product-count-change-ai-image",
+      "title": "Visible product count changed",
+      "productFamily": "Packaged food",
+      "evidenceRole": "product_change",
+      "controlledCondition": "One primary package became two",
+      "expectedVerdict": "REVIEW",
+      "observedVerdict": "REVIEW",
+      "primaryAttribute": "product_count",
+      "changedAttributes": [
+        "Visible primary product count"
+      ],
+      "stableAttributes": [
+        "Brand",
+        "Label",
+        "Color",
+        "Package shape"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/product-count-change/original.jpg",
+      "candidateImage": "/examples/product-count-change/candidate.jpg",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "caseId": "nova-identical",
+      "caseRoute": "/examples/identical-product-images-pass",
+      "title": "Identical product images matched",
+      "productFamily": "Beverage",
+      "evidenceRole": "hard_negative",
+      "controlledCondition": "The same approved file appeared on both sides",
+      "expectedVerdict": "PASS",
+      "observedVerdict": "PASS",
+      "primaryAttribute": "observability",
+      "changedAttributes": [],
+      "stableAttributes": [
+        "All observable product attributes"
+      ],
+      "unobservableAttributes": [],
+      "originalImage": "/examples/label-value-change/original.jpg",
+      "candidateImage": "/examples/label-value-change/original.jpg",
+      "reviewedAt": "2026-08-20"
+    }
+  ]
+}

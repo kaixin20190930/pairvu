@@ -109,6 +109,10 @@ for (const sourceFile of sourceFiles) {
       if (nonOrganicRoutePrefixes.some((prefix) => targetRoute === prefix || targetRoute.startsWith(`${prefix}/`))) {
         continue;
       }
+      const publicAsset = path.join(root, "public", targetRoute);
+      if (path.extname(targetRoute) && fs.existsSync(publicAsset) && fs.statSync(publicAsset).isFile()) {
+        continue;
+      }
       if (!publishedRoutes.has(targetRoute)) {
         addError(`Internal link points to an unregistered route: ${relative(sourceFile)} -> ${href}`);
         continue;

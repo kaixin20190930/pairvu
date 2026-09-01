@@ -334,6 +334,12 @@ export function ProductChecker() {
           attribution,
         }).catch(logClientEventFailure);
       }
+      void trackProductEvent({
+        eventName: "analysis_submit_attempted",
+        anonymousSessionId,
+        attribution,
+        idempotencyKey: `analysis-submit-attempted:${activeRequest.analysisId}`,
+      }).catch(logClientEventFailure);
       const response = await fetch("/api/analyses", {
         method: "POST",
         headers: {
@@ -352,6 +358,16 @@ export function ProductChecker() {
       const payload = (await response.json()) as { analysis?: PersistedAnalysisResult } & ApiError;
 
       if (!response.ok || !payload.analysis) {
+        void trackProductEvent({
+          eventName: "analysis_submit_blocked",
+          anonymousSessionId,
+          attribution,
+          idempotencyKey: `analysis-submit-blocked:${activeRequest.analysisId}`,
+          properties: {
+            errorCode: payload.error ?? `http_${response.status}`,
+            httpStatus: response.status,
+          },
+        }).catch(logClientEventFailure);
         clearActiveAnalysisRequest(activeRequest.analysisId);
         setError(formatApiError(payload, "Analysis failed."));
         priorAnalysisError.current = true;

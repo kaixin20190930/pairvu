@@ -86,7 +86,12 @@ async function main() {
         count(*) as failures
       from product_events
       where occurred_at >= '${start}' and occurred_at < '${end}'
-        and event_name in ('reference_upload_failed', 'candidate_upload_failed', 'analysis_failed')
+        and event_name in (
+          'reference_upload_failed',
+          'candidate_upload_failed',
+          'analysis_submit_blocked',
+          'analysis_failed'
+        )
       group by eventName, errorCode
       order by failures desc
     `),
@@ -106,7 +111,9 @@ async function main() {
       ["Checker started", count("checker_started"), count("landing_view")],
       ["Reference upload completed", count("reference_upload_completed"), count("checker_started")],
       ["Candidate upload completed", count("candidate_upload_completed"), count("reference_upload_completed")],
-      ["Analysis started", count("analysis_started"), count("candidate_upload_completed")],
+      ["Analysis submit attempted", count("analysis_submit_attempted"), count("candidate_upload_completed")],
+      ["Analysis submit blocked", count("analysis_submit_blocked"), count("analysis_submit_attempted")],
+      ["Analysis started", count("analysis_started"), count("analysis_submit_attempted")],
       ["Analysis completed", count("analysis_completed"), count("analysis_started")],
       ["Result viewed", count("result_viewed"), count("analysis_completed")],
       ["Feedback submitted", count("feedback_submitted"), count("result_viewed")],

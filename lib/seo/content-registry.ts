@@ -3,7 +3,7 @@ import type { Metadata, MetadataRoute } from "next";
 export const SITE_URL = "https://pairvu.com";
 export const SITE_NAME = "Pairvu";
 
-export type SeoPageFamily = "product" | "market" | "hub" | "guide" | "case_study" | "category" | "check" | "use_case" | "legal";
+export type SeoPageFamily = "product" | "market" | "hub" | "guide" | "case_study" | "benchmark" | "category" | "check" | "use_case" | "legal";
 export type SeoPageStatus = "published" | "planned" | "deferred";
 
 export type SeoPage = {
@@ -126,6 +126,7 @@ export const seoPages: readonly SeoPage[] = [
       "/examples/candle-set-scene-change",
       "/examples/candle-accessory-outside-crop",
       "/examples/extra-candle-accessory",
+      "/examples/controlled-visual-qa-benchmark",
       "/categories",
       "/guides/ai-product-photography-checklist",
     ],
@@ -1480,6 +1481,39 @@ export const seoPages: readonly SeoPage[] = [
     updatedAt: "2026-07-29",
     evidenceSource: "Founder-approved pre-publish workflow",
     evidenceDate: "2026-07-29",
+  },
+  {
+    route: "/examples/controlled-visual-qa-benchmark",
+    family: "benchmark",
+    status: "published",
+    primaryKeyword: "AI product image QA benchmark",
+    ownedSecondaryKeywords: ["controlled visual QA benchmark", "product image comparison dataset"],
+    supportingTopics: ["product image consistency benchmark", "PASS FAIL REVIEW product image examples", "product image observability dataset"],
+    intent: "Review and download a founder-reviewed controlled dataset of expected and observed product-image QA verdicts.",
+    parentRoute: "/examples",
+    relatedRoutes: [
+      "/examples",
+      "/ai-product-photography",
+      "/how-pairvu-works",
+      "/guides/compare-original-and-ai-product-images",
+      "/checks/product-label-text",
+      "/checks/product-logo",
+      "/checks/product-color",
+      "/checks/product-quantity",
+      "/checks/product-components",
+      "/checks/product-packaging",
+      "/checks/product-image-observability",
+    ],
+    title: "Controlled AI Product Image QA Benchmark",
+    h1: "Pairvu Controlled Visual QA Benchmark",
+    description: "Explore and download founder-reviewed PASS, FAIL, and REVIEW comparisons across product text, logo, color, count, components, packaging, and observability.",
+    indexable: true,
+    sitemapPriority: 0.86,
+    changeFrequency: "monthly",
+    publishedAt: "2026-08-20",
+    updatedAt: "2026-08-20",
+    evidenceSource: "Pairvu Controlled Visual QA Benchmark v1.0 manifest and linked founder-reviewed public comparisons",
+    evidenceDate: "2026-08-20",
   },
   {
     route: "/guides/ai-product-photography-checklist",

@@ -323,6 +323,21 @@ export default function ExamplesPage() {
           </p>
         </header>
 
+        <section className="article-section benchmark-promo" aria-labelledby="benchmark-promo-title">
+          <div>
+            <p className="section-label">Public dataset · Version 1.0</p>
+            <h2 id="benchmark-promo-title">Pairvu Controlled Visual QA Benchmark</h2>
+            <p>
+              Review 19 founder-verified product-image comparisons with expected and observed PASS, FAIL, and REVIEW
+              outcomes. The frozen dataset includes methodology, limitations, a complete case index, and CSV and JSON
+              downloads for citation.
+            </p>
+          </div>
+          <Link className="primary-link-button" href="/examples/controlled-visual-qa-benchmark">
+            Explore the benchmark
+          </Link>
+        </section>
+
         <section className="article-section wide-article-section" aria-labelledby="real-comparisons">
           <h2 id="real-comparisons">Original and candidate comparisons</h2>
           <p>

@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import {
-  analysisBelongsToAnonymousSession,
+  analysisBelongsToEventActor,
   clientEventRateLimitExceeded,
   recordProductEvent,
 } from "@/lib/analytics/repository";
 import { CLIENT_PRODUCT_EVENT_NAMES } from "@/lib/analytics/types";
+import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 
 export const dynamic = "force-dynamic";
 
@@ -79,21 +80,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (
-      parsed.data.analysisId &&
-      !(await analysisBelongsToAnonymousSession(
-        env.VISUALQA_DB,
-        parsed.data.analysisId,
-        parsed.data.anonymousSessionId,
-      ))
-    ) {
-      return NextResponse.json(
-        {
-          error: "analysis_not_found",
-          message: "The analysis does not belong to this anonymous session.",
-        },
-        { status: 404 },
-      );
+    if (parsed.data.analysisId) {
+      const access = await resolveRequestAccess(env, request.headers, parsed.data.anonymousSessionId);
+      if (
+        !(await analysisBelongsToEventActor(env.VISUALQA_DB, parsed.data.analysisId, {
+          workspaceId: access.workspaceId,
+          anonymousSessionId: access.anonymousSessionId,
+        }))
+      ) {
+        return NextResponse.json(
+          {
+            error: "analysis_not_found",
+            message: "The analysis does not belong to this account or anonymous session.",
+          },
+          { status: 404 },
+        );
+      }
     }
 
     await recordProductEvent(env.VISUALQA_DB, {
@@ -104,6 +106,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ accepted: true }, { status: 202 });
   } catch (error) {
+    if (error instanceof RequestAccessError) {
+      return NextResponse.json({ error: error.code, message: error.message }, { status: 400 });
+    }
+
     console.error("product_event_failed", error);
     return NextResponse.json(
       {

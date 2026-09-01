@@ -74,20 +74,23 @@ export async function clientEventRateLimitExceeded(db: D1Database, anonymousSess
   return Number(row?.eventCount ?? 0) >= CLIENT_EVENT_LIMIT_PER_MINUTE;
 }
 
-export async function analysisBelongsToAnonymousSession(
+export async function analysisBelongsToEventActor(
   db: D1Database,
   analysisId: string,
-  anonymousSessionId: string,
+  actor: { workspaceId: string | null; anonymousSessionId: string | null },
 ): Promise<boolean> {
   const row = await db
     .prepare(
       `select id
        from analyses
        where id = ?
-         and anonymous_session_id = ?
+         and (
+           (workspace_id is not null and workspace_id = ?)
+           or (anonymous_session_id is not null and anonymous_session_id = ?)
+         )
        limit 1`,
     )
-    .bind(analysisId, anonymousSessionId)
+    .bind(analysisId, actor.workspaceId, actor.anonymousSessionId)
     .first<Record<string, unknown>>();
 
   return Boolean(row?.id);

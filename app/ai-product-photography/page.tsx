@@ -141,6 +141,9 @@ export default function AiProductPhotographyPage() {
               <Link className="text-link" href="/guides/ai-product-photography-checklist">
                 Follow the pre-publish checklist
               </Link>
+              <Link className="text-link" href="/examples/controlled-visual-qa-benchmark">
+                Review the controlled benchmark
+              </Link>
             </div>
           </section>
 

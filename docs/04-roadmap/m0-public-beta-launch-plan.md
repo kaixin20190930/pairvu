@@ -146,6 +146,8 @@ reference_upload_failed
 candidate_upload_started
 candidate_upload_completed
 candidate_upload_failed
+analysis_submit_attempted
+analysis_submit_blocked
 analysis_started
 analysis_completed
 analysis_failed
