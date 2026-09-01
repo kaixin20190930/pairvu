@@ -1,5 +1,11 @@
 export const PRODUCT_EVENT_NAMES = [
   "landing_view",
+  "example_cta_clicked",
+  "zero_allowance_viewed",
+  "zero_allowance_cta_clicked",
+  "pricing_viewed",
+  "checkout_started",
+  "checkout_redirected",
   "checker_started",
   "reference_upload_started",
   "reference_upload_completed",
@@ -22,6 +28,12 @@ export const PRODUCT_EVENT_NAMES = [
 
 export const CLIENT_PRODUCT_EVENT_NAMES = [
   "landing_view",
+  "example_cta_clicked",
+  "zero_allowance_viewed",
+  "zero_allowance_cta_clicked",
+  "pricing_viewed",
+  "checkout_started",
+  "checkout_redirected",
   "checker_started",
   "reference_upload_started",
   "reference_upload_completed",

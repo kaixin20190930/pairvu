@@ -7,10 +7,14 @@ import type { FeedbackKind, PersistedAnalysisResult } from "@/lib/analysis/types
 import { PRODUCT_NAME } from "@/lib/config/product";
 import {
   captureAcquisitionContext,
+  getAnonymousSessionId,
   sizeBucket,
   trackProductEvent,
   type ClientAcquisitionContext,
 } from "@/lib/analytics/client";
+import { ActivationLink, ActivationView } from "@/components/ActivationAnalytics";
+import { useBillingContext } from "@/lib/billing/client-context";
+import { PLAN_ENTITLEMENTS } from "@/lib/billing/plans";
 import type { PublicRuntimeConfig } from "@/lib/config/public-beta";
 import { TurnstileWidget } from "@/components/TurnstileWidget";
 import { PairvuLogo } from "@/components/PairvuLogo";
@@ -131,6 +135,7 @@ export function ProductChecker() {
   const acquisitionContext = useRef<ClientAcquisitionContext | null>(null);
   const priorAnalysisError = useRef(false);
   const recoveryRunId = useRef(0);
+  const billingContext = useBillingContext();
 
   useEffect(() => {
     const anonymousSessionId = getAnonymousSessionId();
@@ -179,8 +184,10 @@ export function ProductChecker() {
   }, [candidate?.previewUrl, reference?.previewUrl]);
 
   const turnstileRequired = runtimeConfig?.turnstileEnabled ?? false;
+  const noChecksAvailable = billingContext?.authenticated === true && billingContext.available === 0;
   const canCheck =
     Boolean(reference?.assetId && candidate?.assetId) &&
+    !noChecksAvailable &&
     !analyzing &&
     !uploadingReference &&
     !uploadingCandidate &&
@@ -837,6 +844,58 @@ export function ProductChecker() {
         </div>
       </div>
 
+      <section className="checker-quick-start" aria-labelledby="checker-quick-start-title">
+        <div>
+          <p className="eyebrow">Your first check</p>
+          <h2 id="checker-quick-start-title">Use two views that make the same product details observable</h2>
+        </div>
+        <ol>
+          <li><strong>1. Approved original</strong><span>Use the product image you trust.</span></li>
+          <li><strong>2. Candidate</strong><span>Add the generated, edited, or proposed image.</span></li>
+          <li><strong>3. Verdict</strong><span>Review PASS, REVIEW, or FAIL with visible evidence.</span></li>
+        </ol>
+        <p>
+          For the clearest result, show the complete product, readable label text, and the corresponding package face
+          where possible. A hidden detail should produce REVIEW, not proof of a product change.
+        </p>
+      </section>
+
+      {billingContext?.authenticated === true && billingContext.available === 0 ? (
+        <aside className="checker-zero-banner" aria-labelledby="checker-zero-title">
+          <ActivationView
+            eventName="zero_allowance_viewed"
+            idempotencyPrefix="zero-allowance:checker"
+            properties={{ surface: "checker", planCode: billingContext.planCode }}
+          />
+          <div>
+            <p className="eyebrow">0 checks available</p>
+            <h2 id="checker-zero-title">Add checks before uploading another image pair</h2>
+            <p>
+              Your {PLAN_ENTITLEMENTS[billingContext.planCode].name} workspace has no monthly or extra checks left.
+              The current allowance resets on {formatShortDate(billingContext.periodEndsAt)}.
+            </p>
+          </div>
+          <div className="checker-zero-actions">
+            <ActivationLink
+              className="primary-link-button"
+              eventName="zero_allowance_cta_clicked"
+              href="/pricing?reason=no-checks#check-packs"
+              properties={{ surface: "checker", action: "buy_pack", planCode: billingContext.planCode }}
+            >
+              Buy extra checks
+            </ActivationLink>
+            <ActivationLink
+              className="text-link"
+              eventName="zero_allowance_cta_clicked"
+              href="/pricing?reason=no-checks"
+              properties={{ surface: "checker", action: "compare_plans", planCode: billingContext.planCode }}
+            >
+              Compare plans
+            </ActivationLink>
+          </div>
+        </aside>
+      ) : null}
+
       <div className="checker-grid">
           <label className="upload-field">
             <span>Original product image</span>
@@ -848,7 +907,7 @@ export function ProductChecker() {
                 const file = event.target.files?.[0];
                 if (file) void onUpload(file, "reference");
               }}
-              disabled={uploadingReference || analyzing}
+              disabled={uploadingReference || analyzing || noChecksAvailable}
             />
             <div className="upload-footnote">
               {uploadingReference ? "Uploading…" : reference ? reference.fileName : "No file selected."}
@@ -866,7 +925,7 @@ export function ProductChecker() {
                 const file = event.target.files?.[0];
                 if (file) void onUpload(file, "candidate");
               }}
-              disabled={uploadingCandidate || analyzing}
+              disabled={uploadingCandidate || analyzing || noChecksAvailable}
             />
             <div className="upload-footnote">
               {uploadingCandidate ? "Uploading…" : candidate ? candidate.fileName : "No file selected."}
@@ -1124,18 +1183,6 @@ export function ProductChecker() {
   );
 }
 
-function getAnonymousSessionId() {
-  const storageKey = "visualqa.anonymousSessionId";
-  const existing = window.localStorage.getItem(storageKey);
-  const next = existing ?? crypto.randomUUID();
-
-  if (!existing) {
-    window.localStorage.setItem(storageKey, next);
-  }
-
-  return next;
-}
-
 function saveActiveAnalysisRequest(request: ActiveAnalysisRequest) {
   window.localStorage.setItem(ACTIVE_ANALYSIS_STORAGE_KEY, JSON.stringify(request));
 }
@@ -1301,8 +1348,8 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
         message: "This workspace has no monthly or extra checks remaining.",
         help: "Buy a one-time check pack, change your monthly plan, or wait for the allowance to reset.",
         actions: [
-          { href: "/pricing#check-packs", label: "Buy extra checks", primary: true },
-          { href: "/pricing", label: "Compare plans" },
+          { href: "/pricing?reason=no-checks#check-packs", label: "Buy extra checks", primary: true },
+          { href: "/pricing?reason=no-checks", label: "Compare plans" },
           { href: "/account", label: "Open Account" },
         ],
       };
@@ -1385,6 +1432,15 @@ function formatApiError(payload: ApiError, fallbackTitle: string): UiError {
         help: "Refresh the page and try again. If it repeats, use a new pair of images.",
       };
   }
+}
+
+function formatShortDate(value: string) {
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(value));
 }
 
 function formatThrownError(error: unknown, fallbackTitle: string): UiError {

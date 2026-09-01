@@ -3,6 +3,8 @@
 import { useState } from "react";
 import type { CheckPackCode } from "@/lib/billing/packs";
 import { usePricingBillingContext } from "@/app/pricing/billing-context";
+import { captureAcquisitionContext, getAnonymousSessionId, trackProductEvent } from "@/lib/analytics/client";
+import { logActivationEventFailure } from "@/components/ActivationAnalytics";
 
 export function PricingPackAction({ packCode }: { packCode: CheckPackCode }) {
   const [pending, setPending] = useState(false);
@@ -18,6 +20,7 @@ export function PricingPackAction({ packCode }: { packCode: CheckPackCode }) {
     }
     setPending(true);
     setError(null);
+    trackCheckoutEvent("checkout_started", packCode);
     try {
       const response = await fetch("/api/billing/packs/checkout", {
         method: "POST",
@@ -34,6 +37,7 @@ export function PricingPackAction({ packCode }: { packCode: CheckPackCode }) {
         return;
       }
       if (!response.ok || !result.url) throw new Error(result.message || "Check-pack checkout could not be opened.");
+      trackCheckoutEvent("checkout_redirected", packCode);
       window.location.assign(result.url);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Check-pack checkout could not be opened.");
@@ -50,4 +54,14 @@ export function PricingPackAction({ packCode }: { packCode: CheckPackCode }) {
       {error ? <p className="billing-error" role="alert">{error}</p> : null}
     </div>
   );
+}
+
+function trackCheckoutEvent(eventName: "checkout_started" | "checkout_redirected", packCode: CheckPackCode) {
+  const context = captureAcquisitionContext();
+  void trackProductEvent({
+    eventName,
+    anonymousSessionId: getAnonymousSessionId(),
+    attribution: context.attribution,
+    properties: { surface: "pricing", purchaseType: "pack", packCode },
+  }).catch(logActivationEventFailure);
 }

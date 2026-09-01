@@ -1124,6 +1124,173 @@ img {
   scroll-margin-top: 20px;
 }
 
+.checker-quick-start {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr);
+  gap: 16px 28px;
+  margin: 0 0 22px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f5f8ff;
+}
+
+.checker-quick-start h2 {
+  font-size: 1.08rem;
+}
+
+.checker-quick-start ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checker-quick-start li {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+.checker-quick-start li strong {
+  color: var(--foreground);
+}
+
+.checker-quick-start > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.55;
+}
+
+.checker-zero-banner,
+.account-zero-banner,
+.pricing-zero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid #e3b341;
+  border-radius: 8px;
+  background: #fff9e8;
+}
+
+.checker-zero-banner {
+  margin: 0 0 22px;
+  padding: 18px;
+}
+
+.checker-zero-banner h2,
+.account-zero-banner h2,
+.pricing-zero-banner h2 {
+  margin: 0 0 7px;
+  font-size: 1.12rem;
+}
+
+.checker-zero-banner p,
+.account-zero-banner p,
+.pricing-zero-banner p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.checker-zero-actions,
+.account-zero-actions,
+.pricing-zero-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.home-example-strip {
+  margin-top: 18px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.home-example-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.home-example-heading h2 {
+  font-size: 1.35rem;
+}
+
+.home-example-heading p:not(.eyebrow),
+.home-example-benchmark {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.home-example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.home-example-card {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.home-example-card:hover {
+  border-color: var(--accent-strong);
+  box-shadow: 0 10px 24px rgb(18 28 23 / .08);
+}
+
+.home-example-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.home-example-images img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.home-example-card > span:last-child {
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
+.example-verdict {
+  width: fit-content;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+.example-verdict-fail { background: #fce8e6; color: #8b251d; }
+.example-verdict-pass { background: #e2f4eb; color: #17633f; }
+.example-verdict-review { background: #fff1cf; color: #76510b; }
+
 .eyebrow,
 .section-label {
   margin: 0 0 10px;
@@ -1795,6 +1962,11 @@ button:not(:disabled):active {
   gap: 14px;
   max-width: 1180px;
   padding: 8px 0 56px;
+}
+
+.pricing-zero-banner {
+  margin: 8px 0 28px;
+  padding: 22px;
 }
 
 .pricing-plan {
@@ -3207,6 +3379,11 @@ button:not(:disabled):active {
   background: #f2fbf7;
 }
 
+.account-zero-banner {
+  margin-top: 18px;
+  padding: 22px;
+}
+
 .billing-manage-panel button {
   margin-top: auto;
   min-height: 42px;
@@ -3222,6 +3399,41 @@ button:not(:disabled):active {
 .billing-manage-panel button:disabled {
   cursor: wait;
   opacity: .55;
+}
+
+@media (max-width: 840px) {
+  .checker-quick-start {
+    grid-template-columns: 1fr;
+  }
+
+  .checker-quick-start ol {
+    grid-template-columns: 1fr;
+  }
+
+  .checker-quick-start > p {
+    grid-column: auto;
+  }
+
+  .home-example-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .checker-zero-banner,
+  .account-zero-banner,
+  .pricing-zero-banner,
+  .home-example-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .checker-zero-actions,
+  .account-zero-actions,
+  .pricing-zero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
 }
 
 .billing-manage-panel {

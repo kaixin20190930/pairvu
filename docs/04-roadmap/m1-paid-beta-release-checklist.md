@@ -198,3 +198,24 @@ pnpm test:m1:credit-reconciliation
 pnpm test:m1:billing-observability
 pnpm typecheck
 ```
+
+Activation and quota-recovery hardening implemented on 2026-09-01:
+
+- The homepage now explains the first comparison in three steps and links
+  directly to controlled FOLDWELL PASS, REVIEW, and FAIL examples before the
+  longer educational content. These are identified as controlled comparisons,
+  not customer case studies or performance claims.
+- Signed-in workspaces with zero available checks are warned before upload.
+  Checker and Account provide a direct one-time-pack route plus a separate plan
+  comparison route; Pricing explains both choices without automatically
+  selecting a purchase or redirecting to Account.
+- First-party events now cover example entry, zero-allowance exposure and CTA,
+  Pricing views, Checkout intent, and successful redirect to Stripe. Event
+  properties use safe enums only; payment completion continues to rely on the
+  existing replay-safe Stripe webhook rather than a browser-side success claim.
+- `0016_activation_conversion_events.sql` extends the existing D1 event-name
+  constraint while preserving all historical rows. The daily aggregate report
+  now includes activation and purchase-intent conversion plus offer breakdowns.
+- No detector, prompt, QA policy, entitlement, Stripe price, or webhook behavior
+  changed. Production rollout still requires applying migration `0016` before
+  deploying the application build.

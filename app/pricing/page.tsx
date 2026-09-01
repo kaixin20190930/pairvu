@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { PricingPlanAction } from "@/app/pricing/PricingPlanAction";
 import { PricingPackAction } from "@/app/pricing/PricingPackAction";
+import { PricingActivationPanel } from "@/app/pricing/PricingActivationPanel";
 import { PLAN_CODES, PLAN_ENTITLEMENTS } from "@/lib/billing/plans";
 import { CHECK_PACK_CODES, CHECK_PACKS } from "@/lib/billing/packs";
 import { absoluteUrl, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
@@ -73,6 +74,8 @@ export default function PricingPage() {
             <Link className="text-link" href="/#checker">Try one image pair</Link>
           </div>
         </header>
+
+        <PricingActivationPanel />
 
         <section className="pricing-grid" aria-label="Pairvu plans">
           {PLAN_CODES.map((code) => {

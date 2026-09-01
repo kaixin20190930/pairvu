@@ -7,6 +7,7 @@ import { BillingActions } from "@/app/account/BillingActions";
 import { DeleteImagesButton } from "@/app/account/DeleteImagesButton";
 import { PackPurchaseStatus } from "@/app/account/PackPurchaseStatus";
 import { AccountWorkspaceNav } from "@/components/AccountWorkspaceNav";
+import { ActivationLink, ActivationView } from "@/components/ActivationAnalytics";
 import { getWorkspaceAccountSnapshot, listRecentWorkspaceAnalyses } from "@/lib/accounts/repository";
 import { createPairvuAuth } from "@/lib/auth/server";
 import { listWorkspaceBatches } from "@/lib/batches/repository";
@@ -84,6 +85,42 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             <small>Originals and analysis derivatives</small>
           </article>
         </section>
+
+        {snapshot.available === 0 ? (
+          <aside className="account-zero-banner" aria-labelledby="account-zero-title">
+            <ActivationView
+              eventName="zero_allowance_viewed"
+              idempotencyPrefix="zero-allowance:account"
+              properties={{ surface: "account", planCode: snapshot.planCode }}
+            />
+            <div>
+              <p className="eyebrow">No checks available</p>
+              <h2 id="account-zero-title">Continue now with a one-time pack</h2>
+              <p>
+                You have used the current monthly allowance and have no extra checks. Buy a pack now, change plans,
+                or wait until the allowance resets on {formatDate(snapshot.periodEndsAt)}.
+              </p>
+            </div>
+            <div className="account-zero-actions">
+              <ActivationLink
+                className="primary-link-button"
+                eventName="zero_allowance_cta_clicked"
+                href="/pricing?reason=no-checks#check-packs"
+                properties={{ surface: "account", action: "buy_pack", planCode: snapshot.planCode }}
+              >
+                Buy extra checks
+              </ActivationLink>
+              <ActivationLink
+                className="text-link"
+                eventName="zero_allowance_cta_clicked"
+                href="/pricing?reason=no-checks"
+                properties={{ surface: "account", action: "compare_plans", planCode: snapshot.planCode }}
+              >
+                Compare plans
+              </ActivationLink>
+            </div>
+          </aside>
+        ) : null}
 
         <section className="account-section" aria-labelledby="billing-title">
           <p className="eyebrow">Subscription and billing</p>

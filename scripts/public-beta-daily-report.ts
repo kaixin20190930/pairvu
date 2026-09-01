@@ -11,7 +11,7 @@ async function main() {
   const date = readDateArgument(process.argv.slice(2)) ?? todayInShanghai();
   const { start, end } = utcDayWindow(date);
 
-  const [funnel, acquisition, quality, feedback, feedbackQuality, failures] = await Promise.all([
+  const [funnel, acquisition, quality, feedback, feedbackQuality, failures, activation] = await Promise.all([
     query(`
       select event_name as eventName, count(distinct anonymous_session_id) as sessions
       from product_events
@@ -95,6 +95,27 @@ async function main() {
       group by eventName, errorCode
       order by failures desc
     `),
+    query(`
+      select
+        event_name as eventName,
+        coalesce(json_extract(properties_json, '$.surface'), '(not set)') as surface,
+        coalesce(json_extract(properties_json, '$.purchaseType'), '(not set)') as purchaseType,
+        coalesce(json_extract(properties_json, '$.planCode'), json_extract(properties_json, '$.packCode'), '(not set)') as offerCode,
+        count(*) as events,
+        count(distinct anonymous_session_id) as sessions
+      from product_events
+      where occurred_at >= '${start}' and occurred_at < '${end}'
+        and event_name in (
+          'example_cta_clicked',
+          'zero_allowance_viewed',
+          'zero_allowance_cta_clicked',
+          'pricing_viewed',
+          'checkout_started',
+          'checkout_redirected'
+        )
+      group by eventName, surface, purchaseType, offerCode
+      order by events desc
+    `),
   ]);
 
   const funnelCounts = new Map(funnel.map((row) => [String(row.eventName), number(row.sessions)]));
@@ -119,6 +140,18 @@ async function main() {
       ["Feedback submitted", count("feedback_submitted"), count("result_viewed")],
       ["Second check started", count("second_check_started"), count("analysis_completed")],
     ]),
+    ``,
+    `## Activation And Purchase Intent`,
+    funnelTable([
+      ["Example CTA clicked", count("example_cta_clicked"), count("landing_view")],
+      ["Zero allowance shown", count("zero_allowance_viewed"), null],
+      ["Zero allowance CTA clicked", count("zero_allowance_cta_clicked"), count("zero_allowance_viewed")],
+      ["Pricing viewed", count("pricing_viewed"), null],
+      ["Checkout started", count("checkout_started"), count("pricing_viewed")],
+      ["Checkout redirected", count("checkout_redirected"), count("checkout_started")],
+    ]),
+    ``,
+    markdownRows(activation, ["eventName", "surface", "purchaseType", "offerCode", "events", "sessions"]),
     ``,
     `## Acquisition`,
     markdownRows(acquisition, ["source", "medium", "campaign", "referrer", "sessions", "completedSessions", "feedbackSessions"]),

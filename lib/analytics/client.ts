@@ -9,10 +9,22 @@ import type {
 const FIRST_TOUCH_KEY = "visualqa.firstTouch";
 const SESSION_ATTRIBUTION_KEY = "visualqa.sessionAttribution";
 const PAGE_VIEW_KEY = "visualqa.pageViewId";
+const ANONYMOUS_SESSION_KEY = "visualqa.anonymousSessionId";
 
 export interface ClientAcquisitionContext {
   attribution: AcquisitionAttribution;
   pageViewId: string;
+}
+
+export function getAnonymousSessionId() {
+  const existing = window.localStorage.getItem(ANONYMOUS_SESSION_KEY);
+  const next = existing ?? crypto.randomUUID();
+
+  if (!existing) {
+    window.localStorage.setItem(ANONYMOUS_SESSION_KEY, next);
+  }
+
+  return next;
 }
 
 export function captureAcquisitionContext(): ClientAcquisitionContext {

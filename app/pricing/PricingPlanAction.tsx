@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import type { PlanCode } from "@/lib/billing/plans";
 import { usePricingBillingContext } from "@/app/pricing/billing-context";
+import { captureAcquisitionContext, getAnonymousSessionId, trackProductEvent } from "@/lib/analytics/client";
+import { logActivationEventFailure } from "@/components/ActivationAnalytics";
 
 interface PricingPlanActionProps {
   planCode: PlanCode;
@@ -40,6 +42,7 @@ export function PricingPlanAction({ planCode, planName }: PricingPlanActionProps
           : "subscription_update");
         return;
       }
+      trackCheckoutEvent("checkout_started", planCode);
       const response = await fetch("/api/billing/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -58,6 +61,7 @@ export function PricingPlanAction({ planCode, planName }: PricingPlanActionProps
       if (!response.ok || !result.url) {
         throw new Error(result.message || "Checkout could not be opened.");
       }
+      trackCheckoutEvent("checkout_redirected", planCode);
       window.location.assign(result.url);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Checkout could not be opened.");
@@ -93,4 +97,14 @@ export function PricingPlanAction({ planCode, planName }: PricingPlanActionProps
       {error ? <p className="billing-error" role="alert">{error}</p> : null}
     </div>
   );
+}
+
+function trackCheckoutEvent(eventName: "checkout_started" | "checkout_redirected", planCode: PlanCode) {
+  const context = captureAcquisitionContext();
+  void trackProductEvent({
+    eventName,
+    anonymousSessionId: getAnonymousSessionId(),
+    attribution: context.attribution,
+    properties: { surface: "pricing", purchaseType: "plan", planCode },
+  }).catch(logActivationEventFailure);
 }

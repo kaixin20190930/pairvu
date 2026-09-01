@@ -105,7 +105,7 @@ for (const sourceFile of sourceFiles) {
       const href = match[1] ?? match[2];
       if (!href.startsWith("/") || href.startsWith("/api/")) continue;
 
-      const targetRoute = href.split("#", 1)[0] || "/";
+      const targetRoute = routeFromInternalHref(href);
       if (nonOrganicRoutePrefixes.some((prefix) => targetRoute === prefix || targetRoute.startsWith(`${prefix}/`))) {
         continue;
       }
@@ -208,4 +208,12 @@ function routeFromPageFile(filePath: string) {
 
 function relative(filePath: string) {
   return path.relative(root, filePath);
+}
+
+function routeFromInternalHref(href: string) {
+  try {
+    return new URL(href, "https://pairvu.local").pathname || "/";
+  } catch {
+    return href.split(/[?#]/, 1)[0] || "/";
+  }
 }

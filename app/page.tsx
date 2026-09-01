@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ProductChecker } from "@/components/ProductChecker";
+import { HomeExampleStrip } from "@/components/HomeExampleStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { getSeoPage, pageMetadata, websiteSchema, webApplicationSchema } from "@/lib/seo/content-registry";
 
@@ -17,6 +18,7 @@ export default function HomePage() {
           <section className="checker-surface" aria-labelledby="headline">
             <ProductChecker />
           </section>
+          <HomeExampleStrip />
         </div>
 
         <section className="content-band" aria-labelledby="how-it-works">

@@ -23,6 +23,7 @@ export async function GET(request: NextRequest) {
     billingManaged: account.billingManaged,
     subscriptionStatus: account.subscriptionStatus,
     cancelAtPeriodEnd: account.cancelAtPeriodEnd,
+    periodEndsAt: account.periodEndsAt,
     available: account.available,
     billingEnabled: isLiveStripeBillingConfigured(env),
     packsEnabled: areLiveStripeCheckPacksConfigured(env),

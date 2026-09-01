@@ -50,6 +50,12 @@ async function main(): Promise<void> {
 
   assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("analysis_submit_attempted"));
   assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("analysis_submit_blocked"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("example_cta_clicked"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("zero_allowance_viewed"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("zero_allowance_cta_clicked"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("pricing_viewed"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("checkout_started"));
+  assert.ok(CLIENT_PRODUCT_EVENT_NAMES.includes("checkout_redirected"));
 
   const eventRoute = await readFile("app/api/events/route.ts", "utf8");
   assert.match(eventRoute, /resolveRequestAccess/);
@@ -65,8 +71,17 @@ async function main(): Promise<void> {
   assert.match(migration, /'analysis_submit_blocked'/);
   assert.match(migration, /insert into product_events_next[\s\S]+from product_events/);
 
+  const activationMigration = await readFile("migrations/0016_activation_conversion_events.sql", "utf8");
+  assert.match(activationMigration, /'example_cta_clicked'/);
+  assert.match(activationMigration, /'zero_allowance_viewed'/);
+  assert.match(activationMigration, /'zero_allowance_cta_clicked'/);
+  assert.match(activationMigration, /'pricing_viewed'/);
+  assert.match(activationMigration, /'checkout_started'/);
+  assert.match(activationMigration, /'checkout_redirected'/);
+  assert.match(activationMigration, /insert into product_events_next[\s\S]+from product_events/);
+
   console.log("Product analytics verification passed.");
-  console.log("Verified workspace and anonymous ownership plus analysis submission observability wiring.");
+  console.log("Verified ownership plus analysis, activation, and purchase-intent observability wiring.");
 }
 
 function ownershipDb(owners: AnalysisOwner[]): D1Database {
