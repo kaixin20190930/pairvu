@@ -129,6 +129,20 @@ export default function ProductPackagingCheckPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="packaging-related-decisions">
+          <p className="section-label">Related decisions</p>
+          <h2 id="packaging-related-decisions">Separate package structure from components and color</h2>
+          <p>
+            Use the <Link className="text-link" href="/checks/product-components">components check</Link> when a cap,
+            pump, handle, or included part may be missing or added. Use the {" "}
+            <Link className="text-link" href="/checks/product-color">product-color check</Link> when structure remains
+            stable but a surface or variant color changes. The {" "}
+            <Link className="text-link" href="/examples">controlled example library</Link> shows each outcome in context,
+            and the <Link className="text-link" href="/examples/controlled-visual-qa-benchmark">controlled benchmark</Link>
+            {" "}maps packaging evidence across FAIL, PASS, and REVIEW.
+          </p>
+        </section>
+
         <section className="article-section" aria-labelledby="packaging-failures">
           <p className="section-label">Failure patterns</p>
           <h2 id="packaging-failures">How an AI image can keep the brand but alter the package</h2>

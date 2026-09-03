@@ -129,6 +129,20 @@ export default function ProductLabelTextCheckPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="label-text-related-decisions">
+          <p className="section-label">Related decisions</p>
+          <h2 id="label-text-related-decisions">Connect readable wording to identity and quantity</h2>
+          <p>
+            Use the <Link className="text-link" href="/checks/product-logo">product-logo check</Link> when a wordmark or
+            symbol carries the identity decision, and use the {" "}
+            <Link className="text-link" href="/checks/product-quantity">quantity check</Link> when text describes pack
+            count, volume, or included units. Open the {" "}
+            <Link className="text-link" href="/examples">controlled example library</Link> for individual cases or the
+            {" "}<Link className="text-link" href="/examples/controlled-visual-qa-benchmark">controlled benchmark</Link>
+            {" "}for the complete evidence matrix.
+          </p>
+        </section>
+
         <section className="article-section" aria-labelledby="label-text-failures">
           <p className="section-label">Failure patterns</p>
           <h2 id="label-text-failures">How packaging copy fails while the design still looks convincing</h2>

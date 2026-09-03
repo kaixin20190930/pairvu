@@ -146,6 +146,7 @@ export default function ControlledVisualQaBenchmarkPage() {
           <div className="link-grid">
             <Link href="/checks/product-label-text"><strong>Label text</strong><span>Identity wording and printed values</span></Link>
             <Link href="/checks/product-logo"><strong>Product logo</strong><span>Visible brand-mark identity</span></Link>
+            <Link href="/checks/product-color"><strong>Product color</strong><span>Variant drift versus lighting effects</span></Link>
             <Link href="/checks/product-quantity"><strong>Product quantity</strong><span>Visible primary-unit count</span></Link>
             <Link href="/checks/product-components"><strong>Components</strong><span>Missing, added, or hidden parts</span></Link>
             <Link href="/checks/product-packaging"><strong>Packaging</strong><span>Container structure and silhouette</span></Link>

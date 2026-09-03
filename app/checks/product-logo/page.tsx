@@ -130,6 +130,20 @@ export default function ProductLogoCheckPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="logo-related-decisions">
+          <p className="section-label">Related decisions</p>
+          <h2 id="logo-related-decisions">Connect logo evidence to wording and color</h2>
+          <p>
+            A familiar mark does not prove that the rest of the product stayed faithful. Continue with the
+            {" "}<Link className="text-link" href="/checks/product-label-text">label-text check</Link> when brand or
+            variant wording carries identity, and use the {" "}
+            <Link className="text-link" href="/checks/product-color">product-color check</Link> when color distinguishes
+            a product variant. Browse the <Link className="text-link" href="/examples">controlled example library</Link>
+            {" "}or use the <Link className="text-link" href="/examples/controlled-visual-qa-benchmark">controlled benchmark</Link>
+            {" "}to compare FAIL, PASS, and REVIEW evidence across attributes.
+          </p>
+        </section>
+
         <section className="article-section" aria-labelledby="logo-failures">
           <p className="section-label">Failure patterns</p>
           <h2 id="logo-failures">How AI can alter identity while preserving the package</h2>

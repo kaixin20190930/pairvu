@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CaseComparison } from "@/components/CaseComparison";
 import { StructuredData } from "@/components/StructuredData";
 import { articleSchema, getSeoPage, pageMetadata } from "@/lib/seo/content-registry";
 
@@ -32,21 +33,80 @@ export default function AmazonProductImageQaPage() {
         </header>
 
         <section className="article-section" aria-labelledby="two-checks">
-          <h2 id="two-checks">Two different checks</h2>
+          <p className="section-label">Scope boundary</p>
+          <h2 id="two-checks">How Pairvu differs from an Amazon image validator</h2>
+          <p>
+            If by an Amazon image validator you mean a tool that checks marketplace image rules, it answers a
+            different question from Pairvu. Pairvu checks whether the visible product in a candidate image remains
+            consistent with a real or approved reference image.
+          </p>
           <div className="comparison-table">
             <div>
               <span>Pairvu product-fidelity check</span>
-              <p>Did the final image change the visible product compared with the approved original?</p>
+              <p>Did the final image change observable logo, label text, quantity, color, components, or packaging?</p>
             </div>
             <div>
-              <span>Amazon listing and image review</span>
+              <span>Amazon image and listing validation</span>
               <p>Does the image meet current Amazon and category-specific requirements for its intended placement?</p>
             </div>
           </div>
           <p>
-            A Pairvu PASS does not mean that Amazon will accept or approve an image. A candidate can preserve product
-            identity and still fail a marketplace-specific requirement.
+            Pairvu does not certify Amazon compliance, approve a listing, or predict marketplace acceptance. A Pairvu
+            PASS means the observable product evidence matched the approved reference; the same image can still fail
+            a separate Amazon requirement.
           </p>
+        </section>
+
+        <CaseComparison
+          original={{
+            src: "/examples/label-value-change/original.jpg",
+            alt: "Approved NOVA FIZZ sparkling water can with a printed 330 mL capacity",
+            label: "Approved original",
+            detail: "NOVA FIZZ · 330 mL",
+          }}
+          candidate={{
+            src: "/examples/label-value-change/candidate.jpg",
+            alt: "Controlled NOVA FIZZ candidate with the printed capacity changed to 500 mL",
+            label: "Candidate image",
+            detail: "NOVA FIZZ · 500 mL",
+          }}
+        />
+
+        <section className="article-section" aria-labelledby="controlled-comparison">
+          <p className="section-label">Controlled comparison</p>
+          <h2 id="controlled-comparison">The package looked familiar, but the printed capacity changed</h2>
+          <div className="case-fact-grid">
+            <div><span>Expected verdict</span><strong>FAIL</strong></div>
+            <div><span>Observed verdict</span><strong>FAIL</strong></div>
+            <div><span>Confirmed change</span><strong>330 mL to 500 mL</strong></div>
+          </div>
+          <p>
+            This founder-reviewed controlled comparison is not a customer case study or a statistical performance
+            claim. The logo, can design, flavor wording, color, and visible product count remain stable, while the
+            corresponding printed capacity changes. That is enough to stop the candidate for correction before a
+            seller begins the separate Amazon listing review.
+          </p>
+          <p>
+            <Link className="text-link" href="/examples/label-value-change-ai-product-image">
+              Review the complete 330 mL-to-500 mL comparison
+            </Link>
+            , including what changed and what remained stable.
+          </p>
+        </section>
+
+        <section className="article-section" aria-labelledby="visible-attributes">
+          <p className="section-label">Visible evidence</p>
+          <h2 id="visible-attributes">Review the product attributes before marketplace validation</h2>
+          <p>
+            Start with the attributes that identify the approved product. Use the benchmark when you need examples of
+            confirmed changes, harmless presentation changes, and evidence that should be routed to REVIEW.
+          </p>
+          <div className="link-grid">
+            <Link href="/checks/product-logo"><strong>Product logo</strong><span>Compare visible brand-mark identity</span></Link>
+            <Link href="/checks/product-label-text"><strong>Label text</strong><span>Check wording, variants, and printed values</span></Link>
+            <Link href="/checks/product-quantity"><strong>Product quantity</strong><span>Verify counts and pack configuration</span></Link>
+            <Link href="/examples/controlled-visual-qa-benchmark"><strong>Controlled benchmark</strong><span>See FAIL, PASS, and REVIEW evidence</span></Link>
+          </div>
         </section>
 
         <section className="article-section" aria-labelledby="seller-workflow">
@@ -110,13 +170,13 @@ export default function AmazonProductImageQaPage() {
 
         <section className="article-section article-cta">
           <h2>Check product fidelity first</h2>
+          <p>Compare the approved product with the final candidate, then apply the current channel requirements.</p>
           <div className="content-actions">
             <Link className="primary-link-button" href="/#checker">
               Check image
             </Link>
-            <Link className="text-link" href="/examples/logo-change-ai-product-image">
-              See a logo-change example
-            </Link>
+            <Link className="text-link" href="/examples">Explore controlled examples</Link>
+            <Link className="text-link" href="/ai-product-photography">Review the AI product photography workflow</Link>
           </div>
         </section>
       </div>

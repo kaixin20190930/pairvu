@@ -131,6 +131,21 @@ export default function ProductColorCheckPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="color-related-decisions">
+          <p className="section-label">Related decisions</p>
+          <h2 id="color-related-decisions">Separate color evidence from wording and package structure</h2>
+          <p>
+            When color signals a variant, confirm the corresponding name or claim with the {" "}
+            <Link className="text-link" href="/checks/product-label-text">label-text check</Link>. When the silhouette,
+            closure, or container also differs, continue with the {" "}
+            <Link className="text-link" href="/checks/product-packaging">packaging check</Link>. The
+            {" "}<Link className="text-link" href="/examples">controlled example library</Link> shows individual
+            decisions, while the {" "}
+            <Link className="text-link" href="/examples/controlled-visual-qa-benchmark">controlled benchmark</Link>
+            {" "}connects color evidence to the broader FAIL, PASS, and REVIEW framework.
+          </p>
+        </section>
+
         <section className="article-section" aria-labelledby="color-failures">
           <p className="section-label">Failure patterns</p>
           <h2 id="color-failures">How AI creates color drift and false color evidence</h2>
