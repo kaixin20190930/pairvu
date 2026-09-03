@@ -12,12 +12,50 @@ const breadcrumbs = [
   { label: "Amazon Sellers", href: page.route },
 ];
 
+const amazonFaq = [
+  {
+    question: "Does Pairvu validate Amazon image requirements?",
+    answer:
+      "No. Pairvu compares visible product fidelity against an approved reference. Amazon requirements, category rules, listing data, and marketplace decisions must be reviewed separately using current Amazon guidance.",
+  },
+  {
+    question: "Does a Pairvu PASS mean an image is ready to publish on Amazon?",
+    answer:
+      "No. PASS means the observable product attributes supported a fidelity match. The image can still require technical, content, category, or listing review before publication.",
+  },
+  {
+    question: "Which approved original should an Amazon seller use?",
+    answer:
+      "Use a current, approved image of the exact product and variant represented by the listing. Prefer a comparable package face and view that clearly exposes every attribute the candidate must preserve.",
+  },
+  {
+    question: "Can a lifestyle background change still receive PASS?",
+    answer:
+      "Yes. A scene change can pass product-fidelity review when the observable logo, text, quantity, color, components, and packaging remain consistent. Amazon suitability remains a separate decision.",
+  },
+  {
+    question: "Why can a back-of-package candidate receive REVIEW instead of FAIL?",
+    answer:
+      "A front reference and back candidate may not expose corresponding logo, label, or quantity evidence. REVIEW records that those attributes could not be verified; it does not claim that the product changed.",
+  },
+] as const;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: amazonFaq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export const metadata: Metadata = pageMetadata(page);
 
 export default function AmazonProductImageQaPage() {
   return (
     <main className="content-page">
-      <StructuredData data={articleSchema(page)} />
+      <StructuredData data={[articleSchema(page), faqSchema]} />
       <div className="content-container">
         <Breadcrumbs items={breadcrumbs} />
         <header className="content-hero content-hero-compact">
@@ -109,6 +147,90 @@ export default function AmazonProductImageQaPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="reference-selection">
+          <p className="section-label">Reference selection</p>
+          <h2 id="reference-selection">Choose evidence for the exact product and image role</h2>
+          <p>
+            The comparison is only as useful as its approved original. An image for a related size, flavor, scent,
+            bundle, or package generation can make a real product difference look acceptable. Before checking a
+            candidate, connect it to the exact product represented by the listing and record which visible attributes
+            the creative is allowed to change.
+          </p>
+          <div className="feature-list">
+            <article>
+              <h3>Match the exact variant</h3>
+              <p>Confirm product identity, size, color, flavor, scent, pack count, and packaging generation instead of relying on a similar-looking family image.</p>
+            </article>
+            <article>
+              <h3>Compare corresponding package faces</h3>
+              <p>Use a front reference for a front candidate and an approved rear or side view when that package face contains the evidence being reviewed.</p>
+            </article>
+            <article>
+              <h3>Require sufficient product coverage</h3>
+              <p>A crop must expose the logo, printed values, closure, included parts, and silhouette needed for the intended decision.</p>
+            </article>
+            <article>
+              <h3>Use a current approved source</h3>
+              <p>Replace obsolete references when packaging artwork or physical configuration changes, and do not treat an old approval as the current product truth.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="article-section" aria-labelledby="image-role-observability">
+          <p className="section-label">Image roles and observability</p>
+          <h2 id="image-role-observability">A changed scene and a changed package face are not the same problem</h2>
+          <div className="comparison-table">
+            <div>
+              <span>Studio or front-facing image</span>
+              <p>Use a corresponding approved front view to compare identity-bearing logo, label wording, printed values, color, and package structure.</p>
+            </div>
+            <div>
+              <span>Lifestyle or contextual image</span>
+              <p>The environment, surface, lighting, and composition may change while the observable product itself should remain faithful.</p>
+            </div>
+            <div>
+              <span>Rear, side, or alternate view</span>
+              <p>Use an approved view of the same face. A front-only reference cannot establish that hidden rear or side details match.</p>
+            </div>
+          </div>
+          <p>
+            The controlled <Link className="text-link" href="/examples/laundry-sheets-background-change">FOLDWELL background-change example</Link>
+            {" "}shows a PASS when a laundry-room scene changes but the product remains stable. The
+            {" "}<Link className="text-link" href="/examples/laundry-sheets-back-view-review">FOLDWELL back-view example</Link>
+            {" "}shows why non-corresponding package faces should produce REVIEW for attributes that are no longer
+            observable. Neither verdict determines whether Amazon accepts the image.
+          </p>
+        </section>
+
+        <section className="article-section wide-article-section" aria-labelledby="verdict-actions">
+          <p className="section-label">Publishing decision</p>
+          <h2 id="verdict-actions">Route each Pairvu verdict before the Amazon review</h2>
+          <div className="decision-table-wrap">
+            <table className="decision-table">
+              <thead>
+                <tr><th>Pairvu verdict</th><th>What the evidence means</th><th>Recommended next action</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">FAIL</th>
+                  <td>A corresponding visible product attribute changed, such as the controlled NOVA FIZZ capacity change.</td>
+                  <td>Return the candidate for correction and compare the corrected export before marketplace review.</td>
+                </tr>
+                <tr>
+                  <th scope="row">PASS</th>
+                  <td>Observable product identity and approval-critical details remained consistent despite permitted presentation changes.</td>
+                  <td>Continue to current Amazon image, category, listing, and technical checks. Do not interpret PASS as Amazon approval.</td>
+                </tr>
+                <tr>
+                  <th scope="row">REVIEW</th>
+                  <td>A required attribute is hidden, unreadable, shown on a different face, or its intended change is unresolved.</td>
+                  <td>Collect a corresponding approved view, a clearer candidate, or human confirmation before deciding whether to publish.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section className="article-section" aria-labelledby="seller-workflow">
           <h2 id="seller-workflow">Suggested seller workflow</h2>
           <ol className="workflow-steps">
@@ -166,6 +288,19 @@ export default function AmazonProductImageQaPage() {
             </li>
           </ul>
           <p className="content-updated">Sources reviewed July 30, 2026.</p>
+        </section>
+
+        <section className="article-section" aria-labelledby="amazon-faq">
+          <p className="section-label">Questions</p>
+          <h2 id="amazon-faq">Amazon product image QA FAQ</h2>
+          <div className="category-faq-list">
+            {amazonFaq.map((item) => (
+              <details key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section className="article-section article-cta">
