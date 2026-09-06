@@ -2,7 +2,7 @@
 
 Status: `FOUNDER_APPROVED_DIRECTION`
 
-Last updated: 2026-09-01
+Last updated: 2026-09-06
 
 ## 1. Roadmap Decision
 
@@ -118,7 +118,7 @@ rules, ranking, automatic fixes, integrations, or monitoring.
 
 ## 6. M2: Saved Products And Approved Reference Versions
 
-Status: `EVIDENCE_GATED_PILOT_IMPLEMENTED`
+Status: `EVIDENCE_GATED_REFERENCE_VIEWS_IMPLEMENTED`
 
 Product job:
 
@@ -134,7 +134,7 @@ Product
   -> later: rule profile and monitored assets
 ```
 
-Initial scope:
+Initial pilot scope:
 
 - named product with optional internal product ID/SKU label;
 - one current approved reference;
@@ -142,8 +142,8 @@ Initial scope:
 - product-level analysis and batch history;
 - reuse from batch creation without repeated upload.
 
-Multiple-reference consensus is a separate increment. M2 should first prove
-that persistent product context improves return use.
+Multiple-reference consensus remains a separate increment. M2 should first
+prove that persistent, explicitly selected product context improves return use.
 
 Implemented pilot slice (2026-09-01):
 
@@ -156,10 +156,23 @@ Implemented pilot slice (2026-09-01):
   continue to expire under the existing account retention policy;
 - adoption events for create, select, reuse, history view, and reference promotion.
 
+M2.1 reference-view slice implemented (2026-09-06):
+
+- one current approved image per explicit role: front, back, left side, right
+  side, detail, or other;
+- independent version promotion and history for each role; existing references
+  migrate to front without changing their assets or batch history;
+- explicit reference-view selection in batch creation, which binds the exact
+  current asset rather than a product-wide visual consensus;
+- product name/SKU editing plus reversible archive and restore; there is no
+  permanent-delete control;
+- missing corresponding views remain observability gaps. This slice does not
+  change the QA engine, model prompt, verdict policy, or RiskPolicy.
+
 This implementation does not mean the M2 evidence gate has passed. It is the
-smallest controlled pilot needed to measure the entry and success evidence
-below. Multiple references, product rules, roles, external IDs/imports, APIs,
-and monitoring remain out of scope.
+smallest controlled capability needed to measure the entry and success evidence
+below. Multi-reference consensus, automatic view matching, product rules,
+external IDs/imports, public APIs, and monitoring remain out of scope.
 
 Entry evidence:
 
@@ -404,7 +417,7 @@ Pairvu should now:
 2. Run the public paid beta without adding later-phase scope or invitation gates.
 3. Instrument reference reuse, repeat batches, PASS-set inspection, export,
    recheck, feedback, cost, and provider reliability.
-4. Treat M2 Saved Products and Approved Reference Versions as the default next
-   candidate, subject to beta evidence.
+4. Measure M2/M2.1 Saved Product creation, explicit reference-view reuse, repeat
+   batches, and history use before expanding reference automation or consensus.
 5. Not begin formal ranking, custom rules, auto-fix, or integrations before the
    corresponding entry evidence is reviewed.

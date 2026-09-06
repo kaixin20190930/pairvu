@@ -3,6 +3,7 @@ import { isValidAnonymousSessionId } from "@/lib/assets/validation";
 import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import { createSavedProduct, listSavedProducts, SavedProductError } from "@/lib/products/repository";
+import { SAVED_PRODUCT_REFERENCE_ROLES, type SavedProductReferenceRole } from "@/lib/products/types";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,8 @@ export async function GET(request: NextRequest) {
     const env = getVisualQAEnv();
     const access = await resolveRequestAccess(env, request.headers, undefined);
     if (!access.workspaceId) return authenticationRequired();
-    return NextResponse.json({ products: await listSavedProducts(env.VISUALQA_DB, access.workspaceId) });
+    const includeArchived = request.nextUrl.searchParams.get("includeArchived") === "true";
+    return NextResponse.json({ products: await listSavedProducts(env.VISUALQA_DB, access.workspaceId, new Date(), { includeArchived }) });
   } catch (error) {
     return productErrorResponse(error);
   }
@@ -35,11 +37,20 @@ export async function POST(request: NextRequest) {
       name: typeof body.name === "string" ? body.name : "",
       skuLabel: typeof body.skuLabel === "string" ? body.skuLabel : null,
       referenceAssetId: body.referenceAssetId,
+      referenceRole: parseReferenceRole(body.referenceRole),
     });
     return NextResponse.json(created, { status: created.resumed ? 200 : 201 });
   } catch (error) {
     return productErrorResponse(error);
   }
+}
+
+function parseReferenceRole(value: unknown): SavedProductReferenceRole {
+  if (value === undefined || value === null) return "front";
+  if (typeof value === "string" && SAVED_PRODUCT_REFERENCE_ROLES.includes(value as SavedProductReferenceRole)) {
+    return value as SavedProductReferenceRole;
+  }
+  throw new SavedProductError("invalid_reference_role", "Choose a supported approved reference view.");
 }
 
 function authenticationRequired() {

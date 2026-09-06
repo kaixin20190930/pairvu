@@ -76,6 +76,7 @@ async function main(): Promise<void> {
   assert.match(batchCreation, /eventName: "saved_product_selected"/);
   assert.match(batchCreation, /selection_source: "product_detail_cta"/);
   assert.match(batchCreation, /selection_source: "dropdown"/);
+  assert.match(batchCreation, /reference_role/);
 
   const migration = await readFile("migrations/0015_product_event_submission_observability.sql", "utf8");
   assert.match(migration, /'analysis_submit_attempted'/);

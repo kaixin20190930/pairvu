@@ -28,6 +28,20 @@ export default function EcommerceProductImageQaPage() {
           </p>
         </header>
 
+        <section className="article-section" aria-labelledby="reference-set">
+          <p className="section-label">Approved evidence</p>
+          <h2 id="reference-set">Match each candidate to the right approved product view</h2>
+          <p>
+            A single front image is not interchangeable with every ecommerce asset. Saved Products can keep named
+            front, back, left-side, right-side, and detail references together. Select the corresponding current view
+            when a batch is created so the comparison is tied to the exact approved image version.
+          </p>
+          <p>
+            If the candidate exposes a package face that has no approved counterpart, collect that reference or route
+            the unsupported attributes to REVIEW. See the <Link className="text-link" href="/guides/ecommerce-product-image-requirements">platform requirements guide</Link> for the separate product-fidelity and channel-eligibility gates.
+          </p>
+        </section>
+
         <section className="article-section" aria-labelledby="workflow">
           <h2 id="workflow">A small checkpoint in the content workflow</h2>
           <ol className="workflow-steps">
@@ -102,6 +116,7 @@ export default function EcommerceProductImageQaPage() {
             <Link className="text-link" href="/examples/label-value-change-ai-product-image">
               See a printed-value example
             </Link>
+            <Link className="text-link" href="/guides/ecommerce-product-image-requirements">Compare platform requirements</Link>
           </div>
         </section>
       </div>

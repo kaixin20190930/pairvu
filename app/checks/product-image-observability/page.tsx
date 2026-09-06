@@ -139,6 +139,13 @@ export default function ProductImageObservabilityCheckPage() {
           </div>
         </section>
 
+        <section className="article-section" aria-labelledby="saved-reference-views">
+          <p className="section-label">Reference coverage</p>
+          <h2 id="saved-reference-views">Build an approved reference set for repeated checks</h2>
+          <p>Saved Products can keep named front, back, left-side, right-side, and detail references under one product. Each role has one current approved version and its own history. When starting a batch, select the view that corresponds to the candidate instead of treating all package faces as interchangeable.</p>
+          <p>If no corresponding view exists, the product may still be recognizable, but face-specific text, logo, components, or shape evidence remains unverified. Request the missing view or route those attributes to REVIEW.</p>
+        </section>
+
         <section className="article-section" aria-labelledby="observability-failures">
           <p className="section-label">Failure patterns</p>
           <h2 id="observability-failures">How unreliable conclusions are created</h2>
@@ -175,6 +182,7 @@ export default function ProductImageObservabilityCheckPage() {
             <Link className="text-link" href="/checks">See all product checks</Link>
             <Link className="text-link" href="/guides/ai-product-photography-checklist">Use the pre-publish checklist</Link>
             <Link className="text-link" href="/examples">Browse controlled examples</Link>
+            <Link className="text-link" href="/guides/ecommerce-product-image-requirements">Review ecommerce image requirements</Link>
           </div>
         </section>
 

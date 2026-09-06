@@ -3,9 +3,12 @@ import type {
   SavedProductBatchHistory,
   SavedProductDetail,
   SavedProductOption,
+  SavedProductReferenceRole,
   SavedProductReferenceVersion,
+  SavedProductStatus,
   SavedProductSummary,
 } from "@/lib/products/types";
+import { SAVED_PRODUCT_REFERENCE_ROLES } from "@/lib/products/types";
 
 export class SavedProductError extends Error {
   constructor(
@@ -23,6 +26,8 @@ interface ProductRow {
   workspaceId: string;
   name: string;
   skuLabel: string | null;
+  status: SavedProductStatus;
+  archivedAt: string | null;
   createdAt: string;
   updatedAt: string;
   referenceVersionCount: number;
@@ -35,6 +40,7 @@ interface ReferenceRow {
   assetId: string;
   versionNumber: number;
   status: "current" | "superseded";
+  referenceRole: SavedProductReferenceRole;
   originalFileName: string | null;
   retentionExpiresAt: string | null;
   assetStatus: string;
@@ -50,17 +56,19 @@ export async function createSavedProduct(
     name: string;
     skuLabel?: string | null;
     referenceAssetId: string;
+    referenceRole?: SavedProductReferenceRole;
     now?: Date;
   },
 ): Promise<{ product: SavedProductDetail; resumed: boolean }> {
   const name = normalizeName(input.name);
+  const referenceRole = normalizeReferenceRole(input.referenceRole);
   const { skuLabel, skuKey } = normalizeSku(input.skuLabel);
   const existing = await getSavedProductById(db, input.productId, input.workspaceId, input.now);
   if (existing) {
     if (
       existing.name === name &&
       existing.skuLabel === skuLabel &&
-      existing.currentReference?.assetId === input.referenceAssetId
+      existing.currentReferences.some((reference) => reference.referenceRole === referenceRole && reference.assetId === input.referenceAssetId)
     ) {
       return { product: existing, resumed: true };
     }
@@ -80,9 +88,9 @@ export async function createSavedProduct(
     ).bind(input.productId, input.workspaceId, name, skuLabel, skuKey, timestamp, timestamp),
     db.prepare(
       `insert into product_reference_versions (
-        id, workspace_id, product_id, asset_id, version_number, status, created_at, promoted_at
-       ) values (?, ?, ?, ?, 1, 'current', ?, ?)`,
-    ).bind(crypto.randomUUID(), input.workspaceId, input.productId, input.referenceAssetId, timestamp, timestamp),
+        id, workspace_id, product_id, asset_id, version_number, status, created_at, promoted_at, reference_role
+       ) values (?, ?, ?, ?, 1, 'current', ?, ?, ?)`,
+    ).bind(crypto.randomUUID(), input.workspaceId, input.productId, input.referenceAssetId, timestamp, timestamp, referenceRole),
   ]);
   assertBatchSucceeded(results, "product_create_failed");
 
@@ -93,11 +101,14 @@ export async function createSavedProduct(
 
 export async function promoteSavedProductReference(
   db: D1Database,
-  input: { productId: string; workspaceId: string; referenceAssetId: string; now?: Date },
+  input: { productId: string; workspaceId: string; referenceAssetId: string; referenceRole?: SavedProductReferenceRole; now?: Date },
 ): Promise<{ product: SavedProductDetail; resumed: boolean }> {
   const product = await getSavedProductById(db, input.productId, input.workspaceId, input.now);
   if (!product) throw new SavedProductError("product_not_found", "Saved Product not found.", 404);
-  if (product.currentReference?.assetId === input.referenceAssetId) return { product, resumed: true };
+  if (product.status === "archived") throw new SavedProductError("product_archived", "Restore this Saved Product before updating its references.", 409);
+  const referenceRole = normalizeReferenceRole(input.referenceRole);
+  const currentForRole = product.currentReferences.find((reference) => reference.referenceRole === referenceRole);
+  if (currentForRole?.assetId === input.referenceAssetId) return { product, resumed: true };
 
   await assertReferenceAssetAvailable(db, input.workspaceId, input.referenceAssetId, input.now);
   const timestamp = (input.now ?? new Date()).toISOString();
@@ -105,15 +116,15 @@ export async function promoteSavedProductReference(
   const results = await runProductBatch(db, [
     db.prepare(
       `update product_reference_versions set status = 'superseded'
-       where product_id = ? and workspace_id = ? and status = 'current'`,
-    ).bind(input.productId, input.workspaceId),
+       where product_id = ? and workspace_id = ? and reference_role = ? and status = 'current'`,
+    ).bind(input.productId, input.workspaceId, referenceRole),
     db.prepare(
       `insert into product_reference_versions (
-        id, workspace_id, product_id, asset_id, version_number, status, created_at, promoted_at
-       ) values (?, ?, ?, ?, ?, 'current', ?, ?)`,
+        id, workspace_id, product_id, asset_id, version_number, status, created_at, promoted_at, reference_role
+       ) values (?, ?, ?, ?, ?, 'current', ?, ?, ?)`,
     ).bind(
       crypto.randomUUID(), input.workspaceId, input.productId, input.referenceAssetId,
-      nextVersion, timestamp, timestamp,
+      nextVersion, timestamp, timestamp, referenceRole,
     ),
     db.prepare(`update products set updated_at = ? where id = ? and workspace_id = ?`)
       .bind(timestamp, input.productId, input.workspaceId),
@@ -129,13 +140,15 @@ export async function listSavedProducts(
   db: D1Database,
   workspaceId: string,
   now = new Date(),
+  options: { includeArchived?: boolean } = {},
 ): Promise<SavedProductSummary[]> {
-  const rows = await db.prepare(productSelect("p.workspace_id = ?") + " order by p.updated_at desc")
+  const where = options.includeArchived ? "p.workspace_id = ?" : "p.workspace_id = ? and p.status = 'active'";
+  const rows = await db.prepare(productSelect(where) + " order by p.status asc, p.updated_at desc")
     .bind(workspaceId).all<ProductRow>();
   const products: SavedProductSummary[] = [];
   for (const row of rows.results) {
     const versions = await listReferenceVersions(db, row.id, workspaceId, now);
-    products.push(mapProduct(row, versions.find((version) => version.status === "current") ?? null));
+    products.push(mapProduct(row, versions));
   }
   return products;
 }
@@ -146,9 +159,10 @@ export async function listSelectableSavedProducts(
   now = new Date(),
 ): Promise<SavedProductOption[]> {
   const products = await listSavedProducts(db, workspaceId, now);
-  return products.flatMap((product) => product.currentReference?.imageAvailable
-    ? [{ id: product.id, name: product.name, skuLabel: product.skuLabel, currentReference: product.currentReference }]
-    : []);
+  return products.flatMap((product) => {
+    const currentReferences = product.currentReferences.filter((reference) => reference.imageAvailable);
+    return currentReferences.length ? [{ id: product.id, name: product.name, skuLabel: product.skuLabel, currentReferences }] : [];
+  });
 }
 
 export async function getSavedProductById(
@@ -167,7 +181,7 @@ export async function getSavedProductById(
      from batches where product_id = ? and workspace_id = ? order by created_at desc limit 25`,
   ).bind(productId, workspaceId).all<SavedProductBatchHistory>();
   return {
-    ...mapProduct(row, referenceVersions.find((version) => version.status === "current") ?? null),
+    ...mapProduct(row, referenceVersions),
     referenceVersions,
     batches: batchRows.results.map((batch) => ({
       ...batch,
@@ -184,22 +198,51 @@ export async function assertSavedProductBatchReference(
 ) {
   const product = await getSavedProductById(db, input.productId, input.workspaceId, input.now);
   if (!product) throw new SavedProductError("product_not_found", "Saved Product not found.", 404);
-  const current = product.currentReference;
-  if (!current?.imageAvailable) {
+  if (product.status === "archived") {
+    throw new SavedProductError("product_archived", "Restore this Saved Product before starting a new batch.", 409);
+  }
+  const current = product.currentReferences.find((reference) => reference.assetId === input.referenceAssetId);
+  if (!current) {
     throw new SavedProductError(
-      "product_reference_unavailable",
-      "This Saved Product needs a new approved reference before it can be reused.",
+      "product_reference_changed",
+      "The approved reference view changed. Reload this batch setup and select the current version.",
       409,
     );
   }
-  if (current.assetId !== input.referenceAssetId) {
+  if (!current.imageAvailable) {
     throw new SavedProductError(
-      "product_reference_changed",
-      "The approved reference changed while this batch was being prepared. Review the current version and try again.",
+      "product_reference_unavailable",
+      "Select a current, retained approved reference view before starting this batch.",
       409,
     );
   }
   return current;
+}
+
+export async function updateSavedProduct(
+  db: D1Database,
+  input: { productId: string; workspaceId: string; name: string; skuLabel?: string | null; status?: SavedProductStatus; now?: Date },
+) {
+  const product = await getSavedProductById(db, input.productId, input.workspaceId, input.now);
+  if (!product) throw new SavedProductError("product_not_found", "Saved Product not found.", 404);
+  const name = normalizeName(input.name);
+  const { skuLabel, skuKey } = normalizeSku(input.skuLabel);
+  const status = input.status ?? product.status;
+  if (!(["active", "archived"] as const).includes(status)) {
+    throw new SavedProductError("invalid_product_status", "Saved Product status is invalid.");
+  }
+  const timestamp = (input.now ?? new Date()).toISOString();
+  const archivedAt = status === "archived" ? (product.archivedAt ?? timestamp) : null;
+  const results = await runProductBatch(db, [
+    db.prepare(
+      `update products set name = ?, sku_label = ?, sku_key = ?, status = ?, archived_at = ?, updated_at = ?
+       where id = ? and workspace_id = ?`,
+    ).bind(name, skuLabel, skuKey, status, archivedAt, timestamp, input.productId, input.workspaceId),
+  ]);
+  assertBatchSucceeded(results, "product_update_failed");
+  const updated = await getSavedProductById(db, input.productId, input.workspaceId, input.now);
+  if (!updated) throw new Error("Saved Product was updated but could not be reloaded.");
+  return updated;
 }
 
 async function assertReferenceAssetAvailable(
@@ -232,6 +275,7 @@ async function listReferenceVersions(
 ) {
   const rows = await db.prepare(
     `select prv.id, prv.asset_id as assetId, prv.version_number as versionNumber, prv.status,
+      prv.reference_role as referenceRole,
       a.original_file_name as originalFileName, a.retention_expires_at as retentionExpiresAt,
       a.status as assetStatus, prv.created_at as createdAt, prv.promoted_at as promotedAt
      from product_reference_versions prv join assets a on a.id = prv.asset_id
@@ -247,6 +291,7 @@ async function listReferenceVersions(
       assetId: row.assetId,
       versionNumber: Number(row.versionNumber),
       status: row.status,
+      referenceRole: row.referenceRole,
       originalFileName: row.originalFileName,
       retentionExpiresAt: row.retentionExpiresAt,
       imageAvailable,
@@ -259,6 +304,7 @@ async function listReferenceVersions(
 
 function productSelect(where: string) {
   return `select p.id, p.workspace_id as workspaceId, p.name, p.sku_label as skuLabel,
+    p.status, p.archived_at as archivedAt,
     p.created_at as createdAt, p.updated_at as updatedAt,
     (select count(*) from product_reference_versions prv where prv.product_id = p.id) as referenceVersionCount,
     (select count(*) from batches b where b.product_id = p.id) as batchCount,
@@ -266,13 +312,26 @@ function productSelect(where: string) {
    from products p where ${where}`;
 }
 
-function mapProduct(row: ProductRow, currentReference: SavedProductReferenceVersion | null): SavedProductSummary {
+function mapProduct(row: ProductRow, referenceVersions: SavedProductReferenceVersion[]): SavedProductSummary {
+  const currentReferences = referenceVersions
+    .filter((version) => version.status === "current")
+    .sort((a, b) => SAVED_PRODUCT_REFERENCE_ROLES.indexOf(a.referenceRole) - SAVED_PRODUCT_REFERENCE_ROLES.indexOf(b.referenceRole));
+  const currentReference = currentReferences.find((version) => version.referenceRole === "front") ?? currentReferences[0] ?? null;
   return {
     ...row,
     referenceVersionCount: Number(row.referenceVersionCount),
     batchCount: Number(row.batchCount),
     currentReference,
+    currentReferences,
   };
+}
+
+function normalizeReferenceRole(value?: SavedProductReferenceRole) {
+  const role = value ?? "front";
+  if (!SAVED_PRODUCT_REFERENCE_ROLES.includes(role)) {
+    throw new SavedProductError("invalid_reference_role", "Choose a supported approved reference view.");
+  }
+  return role;
 }
 
 function normalizeName(value: string) {
@@ -298,7 +357,7 @@ function assertBatchSucceeded(results: Array<{ success?: boolean; error?: string
   if (message.includes("idx_products_workspace_sku_key") || message.includes("products.workspace_id, products.sku_key")) {
     throw new SavedProductError("duplicate_product_sku", "A Saved Product with this SKU already exists.", 409);
   }
-  if (message.includes("idx_product_reference_current") || message.includes("product_reference_versions.product_id")) {
+  if (message.includes("idx_product_reference_current_role") || message.includes("product_reference_versions.product_id")) {
     throw new SavedProductError("reference_promotion_conflict", "The approved reference changed. Reload and try again.", 409);
   }
   throw new SavedProductError(fallbackCode, `Saved Product persistence failed: ${message}`, 500);

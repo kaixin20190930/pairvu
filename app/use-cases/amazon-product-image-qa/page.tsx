@@ -200,6 +200,7 @@ export default function AmazonProductImageQaPage() {
             {" "}shows why non-corresponding package faces should produce REVIEW for attributes that are no longer
             observable. Neither verdict determines whether Amazon accepts the image.
           </p>
+          <p>For repeat checks, keep named approved front, back, side, and detail views in one Saved Product, then select the corresponding current view explicitly in the batch. The selected reference version remains part of the batch evidence trail.</p>
         </section>
 
         <section className="article-section wide-article-section" aria-labelledby="verdict-actions">
@@ -312,6 +313,7 @@ export default function AmazonProductImageQaPage() {
             </Link>
             <Link className="text-link" href="/examples">Explore controlled examples</Link>
             <Link className="text-link" href="/ai-product-photography">Review the AI product photography workflow</Link>
+            <Link className="text-link" href="/guides/ecommerce-product-image-requirements">Compare platform requirements</Link>
           </div>
         </section>
       </div>

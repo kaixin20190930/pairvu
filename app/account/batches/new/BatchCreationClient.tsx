@@ -6,7 +6,7 @@ import type { PersistedBatchWithItems, RetainedBatchReference } from "@/lib/batc
 import { AccountBreadcrumbs } from "@/components/AccountBreadcrumbs";
 import { AccountWorkspaceNav } from "@/components/AccountWorkspaceNav";
 import { captureAcquisitionContext, getAnonymousSessionId, trackProductEvent } from "@/lib/analytics/client";
-import type { SavedProductOption } from "@/lib/products/types";
+import { SAVED_PRODUCT_REFERENCE_ROLE_LABELS, type SavedProductOption, type SavedProductReferenceVersion } from "@/lib/products/types";
 
 interface BatchCreationClientProps {
   availableCredits: number;
@@ -51,6 +51,8 @@ export function BatchCreationClient({
   const [reference, setReference] = useState<File | null>(null);
   const [retainedReferenceId, setRetainedReferenceId] = useState("");
   const [savedProductId, setSavedProductId] = useState(initialSavedProductId);
+  const initialSavedProduct = savedProducts.find((product) => product.id === initialSavedProductId);
+  const [savedReferenceAssetId, setSavedReferenceAssetId] = useState(initialSavedProduct?.currentReferences[0]?.assetId ?? "");
   const [candidates, setCandidates] = useState<File[]>([]);
   const [pairs, setPairs] = useState<FilePair[]>([{ id: "pair-1", reference: null, candidate: null }]);
   const [batch, setBatch] = useState<PersistedBatchWithItems | null>(null);
@@ -64,14 +66,20 @@ export function BatchCreationClient({
 
   const usableLimit = Math.min(batchItemLimit, availableCredits);
   const plannedItemCount = creationMode === "one_reference_many_candidates" ? candidates.length : pairs.length;
+  const selectedProduct = useMemo(() => savedProducts.find((product) => product.id === savedProductId), [savedProductId, savedProducts]);
+  const selectedProductReference = useMemo(
+    () => selectedProduct?.currentReferences.find((item) => item.assetId === savedReferenceAssetId) ?? selectedProduct?.currentReferences[0],
+    [savedReferenceAssetId, selectedProduct],
+  );
   const preflightError = useMemo(() => {
     if (creationMode === "one_reference_many_candidates" && !reference && !retainedReferenceId && !savedProductId) return "Add or reuse one approved reference image.";
+    if (creationMode === "one_reference_many_candidates" && savedProductId && !selectedProductReference) return "Choose an available approved view for this Saved Product.";
     if (creationMode === "one_reference_many_candidates" && candidates.length === 0) return "Add at least one candidate image.";
     if (creationMode === "explicit_pairs" && pairs.some((pair) => !pair.reference || !pair.candidate)) return "Every row needs one reference and one candidate image.";
     if (plannedItemCount > batchItemLimit) return `Your ${planName} plan supports up to ${batchItemLimit} product checks per batch.`;
     if (plannedItemCount > availableCredits) return `This batch needs ${plannedItemCount} checks, but ${availableCredits} are available.`;
     return null;
-  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId, savedProductId]);
+  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId, savedProductId, selectedProductReference]);
 
   const stopPolling = useCallback(() => {
     if (pollTimer.current) clearTimeout(pollTimer.current);
@@ -106,12 +114,12 @@ export function BatchCreationClient({
           eventName: "saved_product_selected",
           anonymousSessionId: getAnonymousSessionId(),
           attribution: context.attribution,
-          properties: { workflow: "batch", selection_source: "product_detail_cta" },
+          properties: { workflow: "batch", selection_source: "product_detail_cta", reference_role: selectedProductReference?.referenceRole ?? "unknown" },
         }).catch(() => undefined);
     }
     if (initialBatchId) void loadBatch(initialBatchId);
     return stopPolling;
-  }, [initialBatchId, initialSavedProductId, loadBatch, stopPolling]);
+  }, [initialBatchId, initialSavedProductId, loadBatch, selectedProductReference?.referenceRole, stopPolling]);
 
   function selectCandidates(files: FileList | null) {
     const selected = Array.from(files ?? []);
@@ -153,8 +161,7 @@ export function BatchCreationClient({
       const mappedItems: Array<{ referenceAssetId: string; candidateAssetId: string; clientLabel: string }> = [];
       if (creationMode === "one_reference_many_candidates") {
         setWorkMessage(reference ? "Uploading the approved reference..." : "Reusing the saved reference...");
-        const selectedProduct = savedProducts.find((product) => product.id === savedProductId);
-        const referenceAssetId = selectedProduct?.currentReference.assetId || retainedReferenceId || await uploadAsset(reference!, "reference");
+        const referenceAssetId = selectedProductReference?.assetId || retainedReferenceId || await uploadAsset(reference!, "reference");
         let uploadedCandidates = 0;
         const candidateItems = await mapWithConcurrency(candidates, 3, async (file) => {
           const candidateAssetId = await uploadAsset(file, "candidate");
@@ -209,7 +216,7 @@ export function BatchCreationClient({
         const context = captureAcquisitionContext();
         void trackProductEvent({
           eventName: "reference_reused", anonymousSessionId: getAnonymousSessionId(), attribution: context.attribution,
-          properties: { workflow: "batch" },
+          properties: { workflow: "batch", reference_role: selectedProductReference?.referenceRole ?? "unknown" },
         }).catch(() => undefined);
       }
       window.history.replaceState(null, "", `/account/batches/new?batchId=${payload.batch.id}`);
@@ -260,6 +267,7 @@ export function BatchCreationClient({
     setReference(null);
     setRetainedReferenceId("");
     setSavedProductId("");
+    setSavedReferenceAssetId("");
     setCandidates([]);
     setPairs([{ id: crypto.randomUUID(), reference: null, candidate: null }]);
     setBatch(null);
@@ -328,24 +336,29 @@ export function BatchCreationClient({
                 <span>One image that represents the product you intend to show.</span>
                 {savedProducts.length > 0 ? <select aria-label="Use a Saved Product" disabled={working} onChange={(event) => {
                   const nextId = event.target.value;
-                  setSavedProductId(nextId); setRetainedReferenceId(""); setReference(null);
+                  const nextProduct = savedProducts.find((product) => product.id === nextId);
+                  const nextReference = nextProduct?.currentReferences[0];
+                  setSavedProductId(nextId); setSavedReferenceAssetId(nextReference?.assetId ?? ""); setRetainedReferenceId(""); setReference(null);
                   if (nextId) {
                     const context = captureAcquisitionContext();
-                    void trackProductEvent({ eventName: "saved_product_selected", anonymousSessionId: getAnonymousSessionId(), attribution: context.attribution, properties: { workflow: "batch", selection_source: "dropdown" } }).catch(() => undefined);
+                    void trackProductEvent({ eventName: "saved_product_selected", anonymousSessionId: getAnonymousSessionId(), attribution: context.attribution, properties: { workflow: "batch", selection_source: "dropdown", reference_role: nextReference?.referenceRole ?? "unknown" } }).catch(() => undefined);
                   }
                 }} value={savedProductId}>
                   <option value="">Use a Saved Product</option>
                   {savedProducts.map((product) => <option key={product.id} value={product.id}>{product.name}{product.skuLabel ? ` · ${product.skuLabel}` : ""}</option>)}
                 </select> : null}
-                {savedProductId ? <SavedProductPreview product={savedProducts.find((product) => product.id === savedProductId)} /> : null}
+                {selectedProduct && selectedProduct.currentReferences.length > 1 ? <select aria-label="Choose an approved product view" disabled={working} onChange={(event) => setSavedReferenceAssetId(event.target.value)} value={selectedProductReference?.assetId ?? ""}>
+                  {selectedProduct.currentReferences.map((item) => <option key={item.assetId} value={item.assetId}>{SAVED_PRODUCT_REFERENCE_ROLE_LABELS[item.referenceRole]} · version {item.versionNumber}</option>)}
+                </select> : null}
+                {savedProductId ? <SavedProductPreview product={selectedProduct} reference={selectedProductReference} /> : null}
                 <input
                   accept="image/jpeg,image/png,image/webp"
                   disabled={working}
-                  onChange={(event) => { setReference(event.target.files?.[0] ?? null); setRetainedReferenceId(""); setSavedProductId(""); }}
+                  onChange={(event) => { setReference(event.target.files?.[0] ?? null); setRetainedReferenceId(""); setSavedProductId(""); setSavedReferenceAssetId(""); }}
                   type="file"
                 />
                 <small>{reference?.name ?? "No reference selected"}</small>
-                {retainedReferences.length > 0 ? <select aria-label="Reuse a retained reference" disabled={working} onChange={(event) => { setRetainedReferenceId(event.target.value); if (event.target.value) { setReference(null); setSavedProductId(""); } }} value={retainedReferenceId}>
+                {retainedReferences.length > 0 ? <select aria-label="Reuse a retained reference" disabled={working} onChange={(event) => { setRetainedReferenceId(event.target.value); if (event.target.value) { setReference(null); setSavedProductId(""); setSavedReferenceAssetId(""); } }} value={retainedReferenceId}>
                   <option value="">Or reuse a recent reference</option>
                   {retainedReferences.map((saved) => <option key={saved.assetId} value={saved.assetId}>{saved.label} · last used {formatShortDate(saved.lastUsedAt)}</option>)}
                 </select> : null}
@@ -522,11 +535,11 @@ function SavedReferencePreview({ reference }: { reference?: RetainedBatchReferen
   </div>;
 }
 
-function SavedProductPreview({ product }: { product?: SavedProductOption }) {
-  if (!product) return null;
+function SavedProductPreview({ product, reference }: { product?: SavedProductOption; reference?: SavedProductReferenceVersion }) {
+  if (!product || !reference) return null;
   return <div className="batch-saved-reference">
-    <img alt={`Current approved reference for ${product.name}`} src={product.currentReference.previewUrl!} />
-    <div><strong>{product.name}</strong><small>Approved version {product.currentReference.versionNumber} · available until {formatShortDate(product.currentReference.retentionExpiresAt!)}</small></div>
+    <img alt={`${SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]} approved reference for ${product.name}`} src={reference.previewUrl!} />
+    <div><strong>{product.name} · {SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]}</strong><small>Approved version {reference.versionNumber} · available until {formatShortDate(reference.retentionExpiresAt!)}</small></div>
   </div>;
 }
 

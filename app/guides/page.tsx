@@ -30,6 +30,10 @@ export default function GuidesPage() {
 
         <section className="article-section">
           <div className="link-grid">
+            <Link href="/guides/ecommerce-product-image-requirements">
+              <strong>Ecommerce product image requirements by platform</strong>
+              <span>Separate product-fidelity review from Amazon, Google, eBay, Shopify, and TikTok requirements.</span>
+            </Link>
             <Link href="/guides/ai-product-photography-checklist">
               <strong>AI product photography pre-publish checklist</strong>
               <span>Review visible identity, count, components, color, packaging, and coverage.</span>

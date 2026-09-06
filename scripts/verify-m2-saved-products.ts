@@ -8,9 +8,11 @@ import type { D1Database, D1PreparedStatement } from "../lib/cloudflare/bindings
 import {
   createSavedProduct,
   getSavedProductById,
+  listSavedProducts,
   listSelectableSavedProducts,
   promoteSavedProductReference,
   SavedProductError,
+  updateSavedProduct,
 } from "../lib/products/repository";
 
 const NOW = new Date("2026-09-01T08:00:00.000Z");
@@ -23,7 +25,7 @@ async function main() {
   for (const migration of [
     "0001_foundation.sql", "0002_analysis_mvp.sql", "0007_identity_workspaces_credits.sql",
     "0010_batch_domain.sql", "0011_batch_retention.sql", "0012_asset_original_filename.sql",
-    "0017_saved_products.sql",
+    "0017_saved_products.sql", "0019_saved_product_reference_views.sql",
   ]) sqlite.exec(await readFile(`migrations/${migration}`, "utf8"));
   seed(sqlite);
   const db = new SqliteD1(sqlite);
@@ -37,6 +39,7 @@ async function main() {
   assert.equal(created.product.skuLabel, "FW-30");
   assert.equal(created.product.currentReference?.versionNumber, 1);
   assert.equal(created.product.currentReference?.imageAvailable, true);
+  assert.equal(created.product.currentReference?.referenceRole, "front");
 
   const resumed = await createSavedProduct(db, {
     productId: "product-one", workspaceId: WORKSPACE, name: "Foldwell Fresh Linen",
@@ -81,7 +84,21 @@ async function main() {
   assert.equal(promoted.product.currentReference?.versionNumber, 2);
   assert.deepEqual(promoted.product.referenceVersions.map((version) => version.status), ["current", "superseded"]);
   assert.equal(count(sqlite, "select count(*) as count from product_reference_versions where status = 'current'"), 1);
+
+  const withBack = await promoteSavedProductReference(db, {
+    productId: "product-one", workspaceId: WORKSPACE, referenceAssetId: "ref-back", referenceRole: "back", now: NOW,
+  });
+  assert.equal(withBack.product.currentReferences.length, 2);
+  assert.deepEqual(withBack.product.currentReferences.map((version) => version.referenceRole), ["front", "back"]);
+  assert.equal(count(sqlite, "select count(*) as count from product_reference_versions where status = 'current'"), 2);
   assert.equal((await listSelectableSavedProducts(db, WORKSPACE, NOW)).length, 1);
+  assert.equal((await listSelectableSavedProducts(db, WORKSPACE, NOW))[0].currentReferences.length, 2);
+
+  const renamed = await updateSavedProduct(db, {
+    productId: "product-one", workspaceId: WORKSPACE, name: "Foldwell Laundry Sheets", skuLabel: "FW-30-LINEN", now: NOW,
+  });
+  assert.equal(renamed.name, "Foldwell Laundry Sheets");
+  assert.equal(renamed.skuLabel, "FW-30-LINEN");
 
   const batch = await createBatch(db, {
     batchId: "saved-product-batch", workspaceId: WORKSPACE, idempotencyKey: "saved-product-request",
@@ -89,7 +106,7 @@ async function main() {
     items: [{ referenceAssetId: "ref-v2", candidateAssetId: "candidate-a" }], now: NOW,
   });
   assert.equal(batch.batch.productId, "product-one");
-  assert.equal(batch.batch.productName, "Foldwell Fresh Linen");
+  assert.equal(batch.batch.productName, "Foldwell Laundry Sheets");
   assert.equal((await getSavedProductById(db, "product-one", WORKSPACE, NOW))?.batchCount, 1);
   assert.deepEqual((await listBatchAssets(db, batch.batch.id, WORKSPACE)).map((asset) => asset.id), ["candidate-a"]);
   sqlite.prepare(
@@ -123,11 +140,36 @@ async function main() {
   sqlite.prepare("update assets set retention_expires_at = ? where id = 'ref-v2'").run("2026-08-31T08:00:00.000Z");
   const expiredProduct = await getSavedProductById(db, "product-one", WORKSPACE, NOW);
   assert.equal(expiredProduct?.currentReference?.imageAvailable, false);
-  assert.equal((await listSelectableSavedProducts(db, WORKSPACE, NOW)).length, 0);
+  assert.equal((await listSelectableSavedProducts(db, WORKSPACE, NOW)).length, 1);
+
+  const archived = await updateSavedProduct(db, {
+    productId: "product-one", workspaceId: WORKSPACE, name: "Foldwell Laundry Sheets", skuLabel: "FW-30-LINEN", status: "archived", now: NOW,
+  });
+  assert.equal(archived.status, "archived");
+  assert.equal((await listSavedProducts(db, WORKSPACE, NOW)).length, 0);
+  assert.equal((await listSavedProducts(db, WORKSPACE, NOW, { includeArchived: true }))[0].status, "archived");
+  await assert.rejects(
+    createBatch(db, {
+      batchId: "archived-product-batch", workspaceId: WORKSPACE, idempotencyKey: "archived-product-request",
+      mappingMode: "one_reference_many_candidates", productId: "product-one", planBatchItemLimit: 20,
+      items: [{ referenceAssetId: "ref-back", candidateAssetId: "candidate-b" }], now: NOW,
+    }),
+    (error: unknown) => error instanceof SavedProductError && error.code === "product_archived",
+  );
+  await assert.rejects(
+    promoteSavedProductReference(db, {
+      productId: "product-one", workspaceId: WORKSPACE, referenceAssetId: "ref-v1", referenceRole: "detail", now: NOW,
+    }),
+    (error: unknown) => error instanceof SavedProductError && error.code === "product_archived",
+  );
+  const restored = await updateSavedProduct(db, {
+    productId: "product-one", workspaceId: WORKSPACE, name: "Foldwell Laundry Sheets", skuLabel: "FW-30-LINEN", status: "active", now: NOW,
+  });
+  assert.equal(restored.status, "active");
 
   sqlite.close();
   console.log("M2 Saved Product verification passed.");
-  console.log("Verified ownership, idempotency, SKU uniqueness, reference versions, expiry, batch reuse, and deletion protection.");
+  console.log("Verified ownership, idempotency, SKU uniqueness, per-role reference versions, archive/restore, expiry, batch reuse, and deletion protection.");
 }
 
 function seed(db: DatabaseSync) {
@@ -138,6 +180,7 @@ function seed(db: DatabaseSync) {
   const assets = [
     ["ref-v1", WORKSPACE, "reference", "2026-10-01T08:00:00.000Z"],
     ["ref-v2", WORKSPACE, "reference", "2026-10-01T08:00:00.000Z"],
+    ["ref-back", WORKSPACE, "reference", "2026-10-01T08:00:00.000Z"],
     ["expired-ref", WORKSPACE, "reference", "2026-08-31T08:00:00.000Z"],
     ["candidate-a", WORKSPACE, "candidate", "2026-10-01T08:00:00.000Z"],
     ["candidate-b", WORKSPACE, "candidate", "2026-10-01T08:00:00.000Z"],

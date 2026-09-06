@@ -82,6 +82,8 @@ Indexes:
 - `name`
 - `sku_label` nullable, display value
 - `sku_key` nullable, normalized workspace-unique value
+- `status` (`active`, `archived`)
+- `archived_at` nullable
 - `created_at`
 - `updated_at`
 
@@ -93,19 +95,22 @@ Indexes:
 - `asset_id`
 - `version_number`
 - `status` (`current`, `superseded`)
+- `reference_role` (`front`, `back`, `left_side`, `right_side`, `detail`, `other`)
 - `created_at`
 - `promoted_at`
 
-The initial M2 pilot permits one current reference per product. A partial
-unique index enforces that invariant, while superseded version metadata remains
-available for audit history. Reference binaries still follow the workspace
-retention policy; an expired or deleted current image makes the product
-temporarily unavailable for reuse until a new reference is promoted.
+The M2.1 pilot permits one current reference per product and reference role. A
+partial unique index enforces that invariant, while superseded version metadata
+remains available for audit history. References that predate roles migrate to
+`front`. Reference binaries still follow the workspace retention policy; an
+expired or deleted current image makes only that view unavailable until a new
+reference is promoted. Another retained view does not become an automatic
+substitute.
 
 `batches.product_id` is nullable and is populated only for the
 `one_reference_many_candidates` workflow. Batch creation revalidates product
-ownership, current-reference identity, asset status, and retention expiry on
-the server.
+ownership, exact current-reference identity, asset status, and retention expiry
+on the server. Batch creation never merges multiple views into a consensus.
 
 ### product_attributes
 

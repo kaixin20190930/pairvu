@@ -31,6 +31,13 @@ export default function ShopifyProductImageQaPage() {
           </p>
         </header>
 
+        <section className="article-section" aria-labelledby="shopify-reference-views">
+          <p className="section-label">Approved evidence</p>
+          <h2 id="shopify-reference-views">Keep front, back, side, and detail views tied to one product</h2>
+          <p>When a Shopify product uses multiple media angles, compare each final export with its corresponding approved view. Saved Products can retain named current views and their version history, while the batch records the exact reference asset selected for the check.</p>
+          <p>A missing corresponding view is an evidence gap, not proof that the product changed. Request the approved face or route hidden attributes to REVIEW before uploading the final media.</p>
+        </section>
+
         <section className="article-section" aria-labelledby="workflow">
           <h2 id="workflow">A pre-upload quality-control step</h2>
           <ol className="workflow-steps">
@@ -114,6 +121,7 @@ export default function ShopifyProductImageQaPage() {
             <Link className="text-link" href="/guides/ai-product-photography-checklist">
               Use the pre-publish checklist
             </Link>
+            <Link className="text-link" href="/guides/ecommerce-product-image-requirements">Review platform requirements</Link>
           </div>
         </section>
       </div>

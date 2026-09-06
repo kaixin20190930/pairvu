@@ -3,6 +3,7 @@ import { isValidAnonymousSessionId } from "@/lib/assets/validation";
 import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import { promoteSavedProductReference, SavedProductError } from "@/lib/products/repository";
+import { SAVED_PRODUCT_REFERENCE_ROLES, type SavedProductReferenceRole } from "@/lib/products/types";
 
 export const dynamic = "force-dynamic";
 
@@ -19,10 +20,16 @@ export async function POST(request: NextRequest, context: { params: Promise<{ pr
         { status: 400 },
       );
     }
+    if (body.referenceRole !== undefined && (
+      typeof body.referenceRole !== "string" || !SAVED_PRODUCT_REFERENCE_ROLES.includes(body.referenceRole as SavedProductReferenceRole)
+    )) {
+      return NextResponse.json({ error: "invalid_reference_role", message: "Choose a supported approved reference view." }, { status: 400 });
+    }
     const promoted = await promoteSavedProductReference(env.VISUALQA_DB, {
       productId,
       workspaceId: access.workspaceId,
       referenceAssetId: body.referenceAssetId,
+      referenceRole: body.referenceRole === undefined ? "front" : body.referenceRole as SavedProductReferenceRole,
     });
     return NextResponse.json(promoted, { status: promoted.resumed ? 200 : 201 });
   } catch (error) {
