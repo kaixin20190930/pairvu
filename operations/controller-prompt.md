@@ -8,7 +8,7 @@
 3. 总控从 QA 原始最终输出保存 evidence JSON 到 operations/evidence/，包含 unitId、candidateSha、reviewerThreadId、result、checks；checks 覆盖 requiredEvidence，另外记录真实命令/反例、限制和原始报告位置。不能把开发报告改写成独立 PASS，不能把缺环境标绿。用 CLI qa 保存摘要。FAIL 用 rework 返原开发再复验，不能新建替代任务规避失败。
 4. local_only PASS 后 close；runtime PASS 后 release-ready。生产执行必须有明确用户授权且遵守AGENTS发布规则；完成后按production-evidence-schema.md组装真实证据，record-deployment→verify-production→close，不能跳级或伪造平台事实。所有关联证据保持不可变并保存原始来源；失败留原状态。生产已完成的单元不重复发布。
 5. 无活跃单元时 `pnpm control next`，优先选择已满足依赖、autoEligible=true 的一个单元。先完成 operations/contracts/<ID>.md 七要素契约和台账。默认复用已有闲置开发/验收角色任务，重命名为该单元并分别续派；绑定前确保前一单元 CLOSED，显式传新范围和基线。若角色不可用，才顺序创建新的原生项目任务，并立即记录每个返回身份。按 operations/model-selection-policy.md 分别选择开发与验收模型和推理档，记录理由与升级条件；不得默认最贵或最便宜，复用任务也须重新评估。禁止一次创建多套任务。
-6. 用户本轮授权继续下一批，AUTO-02、UPG-03A已关闭，UPG-03B0本地D1实证已开放；UPG-03实现须在03B0独立通过后落明确契约再开放。其他单元保持依赖和需求门槛。修改backlog后必须用plan-sync显式同步：不得删除历史单元或改变已开始单元，不在开发/QA进行中同步。不得删状态重建。
+6. 用户本轮授权继续下一批，AUTO-02、UPG-03A、UPG-03B0已关闭，UPG-03运行时实施已按明确契约开放；其独立通过后止于RELEASE_READY。其他单元保持依赖和需求门槛。修改backlog后必须用plan-sync显式同步：不得删除历史单元或改变已开始单元，不在开发/QA进行中同步。不得删状态重建。
 7. 每次 heartbeat 最多开启一个新单元，但必须完成其开发/返工/验收回收循环；用户明确要求的连续交付可在同一主动会话完成前项后继续下一项。连续两次同类失败或一小时无进展时停止扩大测试，报告可复现阻塞并缩小范围。无变化保持安静，首次新阻塞、完成或需要人处理时简短报告。
 
 权限：允许本地开发、专项验证、本地提交；禁止生产部署、生产 DB 写入、价格/支付/密钥改变、真实购买、客户外发。部署另有授权时仍必须严格执行 AGENTS.md。不能改变权限设置、自动批准工具请求或伪造客户/数据证据。
@@ -17,6 +17,4 @@
 
 ## 已完成的本次生产授权
 
-2026-10-10 用户已明确授权本次已验收升级及发布修复，发布 SHA f85bd3eb7046130acaa30f5ae473765e57ec413b 已生产验收通过。先读取 task-registry.production 及其 receipt。不要因 CLI 仍为 RELEASE_READY 而再次请求同次授权或重新部署；这是当前 CLI 没有生产状态命令的限制。下一批清单见 docs/04-roadmap/next-development-batch-2026-10-10.md，AUTO-02 设计为受验收的状态/计划导入，尚未派单；不得直接编辑状态绕过单槽。此授权不自动覆盖未来新增产品功能发布。
-
-2026-10-10续交付更新：AUTO-02已独立验收并用正式命令关闭，UPG-01真实生产证据已导入并CLOSED；上一节描述的CLI限制已解除。后续执行以实际state和新schema为准，不用手改台账代替转换。
+2026-10-10 用户已明确授权的发布 SHA f85bd3eb7046130acaa30f5ae473765e57ec413b 已生产验收通过。AUTO-02已补齐生产状态命令，UPG-01真实生产证据已正式导入并CLOSED；不重复部署。此授权不覆盖未来新增产品功能发布。AUTO-02、UPG-03A、UPG-03B0已独立关闭；UPG-03已独立PASS并正式RELEASE_READY；没有新增生产授权时保持该状态，不反复询问或重复派QA，也不越过单槽启动UPG-04。进度以真实CLI和任务结果为准。

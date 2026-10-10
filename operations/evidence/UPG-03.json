@@ -1,0 +1,35 @@
+{
+  "unitId": "UPG-03",
+  "candidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "73 unique local D1 integration cases",
+      "status": "PASS"
+    },
+    {
+      "name": "typecheck and saved products regression",
+      "status": "PASS"
+    },
+    {
+      "name": "independent UI retries and immutable CSV",
+      "status": "PASS"
+    },
+    {
+      "name": "clean fixed candidate build",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a125c3-2d00-7f60-9db9-8863f1a0b8e9",
+  "originalReport": "UPG-03 独立验收 **PASS**，候选：`46d1e38dc8ec5f8398960e4b3a05040376764e6c`，可进入 **RELEASE_READY**。\n\n- 73 个唯一用例通过，3,315 次真实本地 D1 请求。\n- typecheck、saved-products 回归及固定 SHA 构建通过。\n- CAS、幂等、冻结快照、额度释放、UI 重试和 CSV 导出通过，无阻断发现。\n\n[完整验收报告](/private/tmp/pairvu-upg03-qa-q7w425ky/qa-acceptance.md)。边界采用合成 stub，未验证生产资源或完整登录流程；未修改共享仓库、部署或启用开关。\n\n![独立 UI 验收](/private/tmp/pairvu-upg03-qa-q7w425ky/qa-ui-final.png)",
+  "reportPath": "operations/evidence/UPG-03/qa-acceptance.md"
+}

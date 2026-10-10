@@ -1,0 +1,237 @@
+{
+  "unitId": "UPG-03",
+  "result": "PASS",
+  "releaseRecommendation": "RELEASE_READY only; no production actions authorized or performed",
+  "candidate": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+  "baseline": "98f83200b63c93c3b87c4981a95a48b0a886f7aa",
+  "completedAt": "2026-10-10T12:29:11.498418+00:00",
+  "independentUniqueCases": 73,
+  "selectedD1Requests": 3315,
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "findings": [],
+  "checks": {
+    "sourceHashes": "36/36 exact initial candidate matches",
+    "fullMigrations": "0001–0020 against real local D1; legacy rows unchanged and foreign_key_check empty",
+    "matrix": "F1 D1 C1 C2 C3 C4 O1 B1 B2 A1 A2 R1 L1 G1 U1 X1 PASS",
+    "typecheck": {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0
+    },
+    "savedProducts": {
+      "command": "./node_modules/.bin/tsx scripts/verify-m2-saved-products.ts",
+      "exitCode": 0
+    },
+    "build": {
+      "candidate": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+      "checkout": "/private/tmp/pairvu-upg03-build-q45t4wks",
+      "cleanBeforeBuild": true,
+      "exitCode": 0,
+      "elapsedSeconds": 16.755672931671143,
+      "builtSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c"
+    },
+    "diffCheck": {
+      "exitCode": 0
+    },
+    "ui": "actual components, synthetic server; statuses409/503/200; request body exact replay; manual review retains draft; empty name disables save",
+    "csv": "actual export route returns frozen snapshot after profile rename/archive/flag-off; foreign workspace404"
+  },
+  "qaAdditionalCases": [
+    {
+      "id": "QA-C3",
+      "name": "committed profile response loss resolves through immutable ledger, even after another version",
+      "status": "PASS",
+      "detail": {
+        "requestId": "2b8be10e-4b0d-411c-a56b-832c0a3902fd",
+        "resultRevision": 11,
+        "currentRevision": 12
+      }
+    },
+    {
+      "id": "QA-C3",
+      "name": "one request UUID cannot cross mutation action; failure changes no rows",
+      "status": "PASS",
+      "detail": {
+        "before": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d",
+        "after": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 0/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 0,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 1/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 1,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 2/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 2,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 3/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 3,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 4/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 4,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 5/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 5,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-A2",
+      "name": "actual analysis API SQL failure 6/6 releases once and leaves complete database unchanged",
+      "status": "PASS",
+      "detail": {
+        "position": 6,
+        "status": 503,
+        "events": [
+          "reserve",
+          "release"
+        ],
+        "databaseHash": "c9d03382ea4620fb27e87c2533a5815d216e365088d61c587141b4dcce32c16d"
+      }
+    },
+    {
+      "id": "QA-G1",
+      "name": "completed single-analysis replay remains historical after flag closure and later profile",
+      "status": "PASS",
+      "detail": {
+        "status": 200,
+        "noCreditOrProviderCalls": true
+      }
+    },
+    {
+      "id": "QA-O1",
+      "name": "asset ownership changes after snapshot preparation aborts analysis transaction without rows or revision disclosure",
+      "status": "PASS",
+      "detail": {
+        "analysisRows": 0,
+        "snapshotRows": 0
+      }
+    },
+    {
+      "id": "QA-B2",
+      "name": "actual CSV export uses frozen snapshot after rename/archive/flag-off; foreign workspace gets 404",
+      "status": "PASS",
+      "detail": {
+        "status": 200,
+        "foreignStatus": 404,
+        "profileVersionId": "3155a3e5-9a56-4787-aea0-0eed484f8d61",
+        "referenceVersionId": "02f1279b-a249-4d14-9171-7841f9d3355a"
+      }
+    }
+  ],
+  "isolation": "Shared repository, docs, control state and locks untouched. Tests and synthetic data only in /private/tmp. No git commit/push, remote DB/R2, deployment, customer images, real credentials/model/payment. QA faults injected through local D1 transport and synthetic boundary stubs; production runtime modules unchanged. Extra temporary API fixture adds actual export route to bundle. Build used clean exact-SHA local clone with copied local dependencies and a filtered child environment.",
+  "resolvedEnvironmentIssue": "First isolated build failed because Turbopack rejects node_modules symlinks outside project root; copied local dependencies into clean clone and exact-SHA default Turbopack build succeeded. This was an isolation setup issue, not a candidate source failure.",
+  "limitations": [
+    "Real local D1/workerd, not remote replicas, production load or cloud migration.",
+    "Auth, credits, queues, R2 and model provider boundaries use controlled stubs; actual credits ledger/payment and production credentials not exercised.",
+    "UI actual components mounted in synthetic server; no full authenticated Next journey.",
+    "Default productProfiles feature remains disabled; activation and production migration/deployment are separate authorized release work."
+  ],
+  "evidence": {
+    "qa-source-verification.json": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-source-verification.json",
+      "sha256": "79bfe27d5a7ec419aa15c10e6b640c08240b4324208f372be7d0188be4f4c5d0"
+    },
+    "qa-independent-all.json": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-independent-all.json",
+      "sha256": "5fe8a0d23514f98cf40fddc8851f2d4ba98d2cdd10acb801e7f3988305c17419"
+    },
+    "qa-additional-final-results.json": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-additional-final-results.json",
+      "sha256": "60e9be8e2deef8f8df7598fef7139768012957ea3d33a3ac6685364c893e78d7"
+    },
+    "qa-ui-results.json": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-ui-results.json",
+      "sha256": "b58d8168844020e8e49c82a4eb4a9d0472776a86e4d175a4a81c7421c74ebd92"
+    },
+    "qa-ui-final.png": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-ui-final.png",
+      "sha256": "74a88d68548a18f5987bccb74b450ac220008d5761076596bfe0fa80120056db"
+    },
+    "qa-export.csv": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-export.csv",
+      "sha256": "3759f3b8139bf3fb5e4c6d8064d597fb0ff0693d6615020ab2f28ab90a8b9327"
+    },
+    "qa-build-summary.json": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-build-summary.json",
+      "sha256": "182c71ed8794b73ad0e6a898b8b1e8762fb693473884c22a726e239c65a44898"
+    },
+    "qa-build-final.log": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/qa-build-final.log",
+      "sha256": "379d48b0b8dff295a0fbefb8f2b80a1fe1e180948a52c24a8f056fe38ca59bbe"
+    },
+    "scripts/qa-product-profiles.ts": {
+      "path": "/private/tmp/pairvu-upg03-qa-q7w425ky/scripts/qa-product-profiles.ts",
+      "sha256": "0ff37e88d03bace7381b0d86024742872679cc47b54b43bf82317646e4996f3b"
+    }
+  }
+}

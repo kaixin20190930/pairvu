@@ -1,0 +1,80 @@
+{
+  "synthetic": true,
+  "unitId": "UPG-03",
+  "kind": "browser UI request log",
+  "sources": {
+    "app/account/products/[productId]/ProductProfileClient.tsx": "3670e2b824c13696d12502daee27f8ed1207ca3049e99f6df6f43823cc24a9b7",
+    "app/account/products/[productId]/PromoteReferenceClient.tsx": "2b185d8a7c6d213279b1db23ea96cfc6aa0f938eff0153e21bf5f2b5e1fc5536",
+    "app/account/products/[productId]/SavedProductSettingsClient.tsx": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb",
+    "fixtures/product-profiles/ui-entry.tsx": "75920654d1d37161aea3782b1188c4589eb5e3c431dddf4ee0e902b564518951",
+    "fixtures/product-profiles/ui-server.mjs": "912eb9134b56d1585ea114a3e0896bff3e27a71903153280ca9c7a4f37c0f1c2"
+  },
+  "requests": [
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "04a2e325-e8c6-46b0-89e6-b893d270140e",
+        "expectedVersion": 1,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Independent QA retained draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 409
+    },
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "d957a704-7e9f-4b8c-a61e-9801d28a61dd",
+        "expectedVersion": 2,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Independent QA retained draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 503
+    },
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "d957a704-7e9f-4b8c-a61e-9801d28a61dd",
+        "expectedVersion": 2,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Independent QA retained draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 200
+    }
+  ],
+  "result": "PASS",
+  "observedUi": [
+    "409 keeps draft and disables save",
+    "manual GET keeps draft while displaying latest version 2",
+    "explicit resubmit changes key and expectedVersion",
+    "503 retry body exactly equals previous body",
+    "success displays Text version 3 beside Reference version 4",
+    "empty required name leaves UI mounted and disables save"
+  ]
+}

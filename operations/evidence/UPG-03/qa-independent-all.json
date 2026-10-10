@@ -1,0 +1,520 @@
+{
+  "unitId": "UPG-03",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "id": "D1",
+      "name": "all 20 real migrations preserve legacy fields; no fabricated versions",
+      "status": "PASS",
+      "detail": {
+        "legacyDigest": "20a523536d803e263cc79fd135adb8b6bd5ba36f4ea70a44ab6fcc62fb33cb45"
+      }
+    },
+    {
+      "id": "F1",
+      "name": "strict fields, limits, Unicode, controls, decimal and canonical hash",
+      "status": "PASS",
+      "detail": {
+        "invalidCases": 24,
+        "missingFields": 9
+      }
+    },
+    {
+      "id": "G1",
+      "name": "default disabled rejects profile writes with unchanged complete database",
+      "status": "PASS",
+      "detail": {
+        "before": "e0589064a2d87e513a98777c271307e357dfcb33c51a15b78068a3c23b832061",
+        "after": "e0589064a2d87e513a98777c271307e357dfcb33c51a15b78068a3c23b832061"
+      }
+    },
+    {
+      "id": "F1",
+      "name": "first saved version, exact hash, audit identifier never in output",
+      "status": "PASS"
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 0/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 1/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 2/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 3/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 4/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 5/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "profile injected SQL failure at position 6/6: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 0/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 1/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 2/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 3/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 4/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 5/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 6/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "reference injected SQL failure at position 7/7: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 0/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 1/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 2/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 3/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 4/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lifecycle injected SQL failure at position 5/5: entire database unchanged",
+      "status": "PASS",
+      "detail": {
+        "before": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8",
+        "after": "8d82065542cc86a13d79eeaeb100b660ee78a777968049d156b08f3d5881aad8"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "two independent Worker requests at same revision: exactly one new profile",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": false,
+          "code": "product_version_conflict"
+        },
+        {
+          "ok": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "profile/reference CAS uses one revision and rolls back loser",
+      "status": "PASS",
+      "detail": [
+        "fulfilled",
+        "rejected"
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "two reference roles race on one revision",
+      "status": "PASS"
+    },
+    {
+      "id": "C2",
+      "name": "archive/profile race and loser leaves no partial version",
+      "status": "PASS"
+    },
+    {
+      "id": "C4",
+      "name": "zero-row profile UPDATE is detected by final guard",
+      "status": "PASS",
+      "detail": {
+        "before": "5ccecc4bbdbaa0e3eeeb8e63b95a138581752565e49da87634e155116239b74c",
+        "after": "5ccecc4bbdbaa0e3eeeb8e63b95a138581752565e49da87634e155116239b74c"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "SKU conflict rolls back profile and idempotency ledger",
+      "status": "PASS",
+      "detail": {
+        "before": "b63e71cb2af64b73476217ef479b42fb84077b8a734d0af5443fd6d41e192992",
+        "after": "b63e71cb2af64b73476217ef479b42fb84077b8a734d0af5443fd6d41e192992"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "same-key concurrent retries and replay after a later version",
+      "status": "PASS"
+    },
+    {
+      "id": "C3",
+      "name": "no-op profile, lifecycle and current reference do not increment versions",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "cross-workspace product/profile/reference/asset and reads never leak",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "initialized legacy writes blocked by triggers and old API paths",
+      "status": "PASS"
+    },
+    {
+      "id": "L1",
+      "name": "legacy product-only fingerprint replay survives first initialization",
+      "status": "PASS"
+    },
+    {
+      "id": "L1",
+      "name": "legacy update racing first profile is rejected rather than zero-row success",
+      "status": "PASS"
+    },
+    {
+      "id": "B1",
+      "name": "batch SQL failure at every write position is atomic",
+      "status": "PASS",
+      "detail": [
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        },
+        {
+          "before": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b",
+          "after": "5396f4003491f176d94cd1666d7e5d8ee27a9a3446e8d3890d6e7a24f011959b"
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "name": "stale pre-read cannot bind after a profile wins the transaction",
+      "status": "PASS",
+      "detail": {
+        "winner": "profile",
+        "batchRows": 0
+      }
+    },
+    {
+      "id": "B2",
+      "name": "batch snapshot/replay stays frozen after rename, archive and reference change",
+      "status": "PASS",
+      "detail": {
+        "profileVersion": 6,
+        "referenceVersion": 1
+      }
+    },
+    {
+      "id": "B2",
+      "name": "worker analysis creation copies historical snapshot without current product checks",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "analysis/reference/snapshot fail at every SQL position with no partial rows",
+      "status": "PASS"
+    },
+    {
+      "id": "X1",
+      "name": "snapshot UPDATE forbidden; metadata survives product removal semantics",
+      "status": "PASS"
+    },
+    {
+      "id": "F1",
+      "name": "attribute/note counts, boundaries, primitive types and capacity units",
+      "status": "PASS",
+      "detail": {
+        "validAttributes": 12,
+        "validSceneNotes": 5
+      }
+    },
+    {
+      "id": "B1/B2",
+      "name": "promotion wins stale binding and historical reference remains exact",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "foreign task images rejected before revision disclosure or snapshot writes",
+      "status": "PASS"
+    },
+    {
+      "id": "O1/R1",
+      "name": "bound image errors stay scoped even with an active batch",
+      "status": "PASS"
+    },
+    {
+      "id": "R1",
+      "name": "expiry crossing after preparation is rejected by database clock",
+      "status": "PASS"
+    },
+    {
+      "id": "F1/G1",
+      "name": "successful profile API, stable replay, pagination and disabled CAS compatibility",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "foreign candidate/ref image API preflight takes no credits and returns 404",
+      "status": "PASS"
+    },
+    {
+      "id": "A1",
+      "name": "bound/no-product/anonymous analysis APIs run with unchanged engine input",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "same images different binding conflict without extra credits; replay fixed snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "simultaneous same-key API calls reserve once by source and settle only after completion",
+      "status": "PASS",
+      "detail": {
+        "statuses": [
+          201,
+          202
+        ],
+        "providerCalls": 1,
+        "settlements": 1
+      }
+    },
+    {
+      "id": "A2",
+      "name": "race after credit reserve releases exactly once and never calls provider",
+      "status": "PASS",
+      "detail": {
+        "status": 409,
+        "creditEvents": [
+          {
+            "kind": "reserve",
+            "amount": 1
+          },
+          {
+            "kind": "release"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "name": "missing R2 binary fails original task; releases reservation; no fallback reference",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "disabled API explicitly rejects new profile/binding; history remains available",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "API foreign identifiers return 404 and no revision/content",
+      "status": "PASS"
+    },
+    {
+      "id": "R1",
+      "name": "expired reference before binding and after archive/restore cannot be reused",
+      "status": "PASS"
+    },
+    {
+      "id": "B2",
+      "name": "real batch worker copies saved snapshot, repeated delivery does not call provider twice",
+      "status": "PASS"
+    },
+    {
+      "id": "B2/R1",
+      "name": "failed worker retry preserves source after profile change and flag closure",
+      "status": "PASS"
+    },
+    {
+      "id": "X1",
+      "name": "report/workspace deletion cascades snapshots without changing retention",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "scripts/verify-product-profiles.ts": "a8261f88c9f102dcc8184a4a1f507bcc50b1cd8c603da7f07ec9baf4d4ecee71",
+    "migrations/0020_product_profiles.sql": "b3a708722496da8a16090a2669881e6b357601a0c9c4592e5dfcc81c2632cee9",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc",
+    "lib/products/repository.ts": "e63504a6e6d2ad098c5c53ccdb0ee88b623be5465c1cc8cc2ad53cf7ae548b4a",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/batches/repository.ts": "33e938e10f5565f8d86d72f8b6428c1e8d4ae7a89800179bd96fb03e4fd526ec",
+    "lib/analysis/repository.ts": "4a254eae0540bd7662d464c2bdb3dc2c2de8127f4569debf9851db4577f7e51e",
+    "lib/analysis/service.ts": "7a1da8fd1746931871b579b3804213e72ed40f257c3eb2e5709dab8708569366",
+    "lib/batches/worker.ts": "92a6789d9e8e2bdc0c039f09a06d5047cbfb4aeddeaa81cea51786304691d71c",
+    "app/api/analyses/route.ts": "3c6b1ef4c6750de703581ff7ba258336b23066f9b9b520119591a15c50fe440a",
+    "app/api/batches/route.ts": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+    "app/api/products/[productId]/profile/route.ts": "f47b5957a9cb7e29b9099ad579ab135cacd1a56ce2e8d9237946fe3b458a3dc9",
+    "app/api/products/[productId]/profiles/route.ts": "4e784966553b21fe68c1c536c5f8b228a035f09cd1212940988deb5c37ce20cd",
+    "app/api/products/[productId]/route.ts": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+    "app/api/products/[productId]/references/route.ts": "d2ee54506ee48922029ccd0be8920c6492f07dfbbe8da2db386952e545283796"
+  },
+  "limitations": [
+    "Real local D1; remote production and replica behavior not verified.",
+    "Authentication, credits, queue, public guards and provider are controlled synthetic stubs; application routes, repositories, analysis service, batch worker and QA engine/policy run unchanged against real local D1.",
+    "Browser UI interaction is recorded separately; no real credentials, images, models, payments or cloud resources used."
+  ],
+  "requestCount": 2175,
+  "completedAt": "2026-10-10T12:24:08.204Z"
+}

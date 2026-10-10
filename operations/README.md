@@ -38,7 +38,7 @@ R：文档/离线材料做链接、结构、事实检查。C：运行时代码�
 
 ## 使用入口
 
-`pnpm control help` 查看命令；`pnpm control status` 查看状态；`pnpm test:control` 执行离线门禁测试。总控指令见 [controller-prompt.md](controller-prompt.md)。任务快照初始化后不会自动读取 backlog 的后续修改，禁止删状态重建。当前工具只实现开发至离线完成/待发布，生产后半程是协议边界，尚无机器执行器。
+`pnpm control help` 查看命令；`pnpm control status` 查看状态；`pnpm test:control` 执行离线门禁测试。总控指令见 [controller-prompt.md](controller-prompt.md)。任务快照初始化后不会自动读取 backlog 的后续修改，禁止删状态重建。当前工具支持生产证据导入、验证、关闭及plan-sync；它不执行部署，也不替代用户授权。
 
 参考 ai-best-tool 的唯一总控、七要素派单、独立固定 SHA 验收和返工复用机制；本项目使用 D1 和现有本地项目环境，没有照搬其模型配置、部署权限或数据库策略。
 
@@ -71,3 +71,11 @@ R：文档/离线材料做链接、结构、事实检查。C：运行时代码�
 ## 子任务模型选择
 
 创建与复用子任务前遵守 [模型选择标准](model-selection-policy.md)：按任务难度、风险、所需能力分别决定开发/验收配置，记录理由；不默认最高档，也不单纯选择最便宜档。持续等待与独立验收规则不变。
+
+## 当前实施（2026-10-10）
+
+UPG-03A设计候选4362a26已独立通过；UPG-03B0候选fb38dbe已通过37专项和11独立反例并正式关闭。UPG-03运行时实现已按[契约](contracts/UPG-03.md)启动，独立PASS后止于RELEASE_READY。此前章节为历史阶段记录；当前状态以control status与task-registry为准。
+
+## UPG-03 独立验收完成
+
+候选46d1e38dc8ec5f8398960e4b3a05040376764e6c已独立PASS并正式RELEASE_READY。73唯一用例、3315本地D1请求、UI重试与CSV、typecheck、saved-products回归、固定SHA干净构建通过；[报告](evidence/UPG-03/qa-acceptance.md)。尚未推送/迁移/部署/启用，真实身份/额度/R2仍属发布前边界。此前开发中状态为历史记录；下一单元UPG-04须等本项生产关闭。
