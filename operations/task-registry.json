@@ -30,12 +30,19 @@
     },
     "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:174",
     "observedStatus": "completed",
-    "receipt": "operations/evidence/UPG-04.json"
+    "receipt": "operations/evidence/UPG-04.json",
+    "releaseModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "生产真实登录及新provider结构化输出联通验收，涉及持久结果、历史兼容与UI实际映射。",
+      "upgradeCondition": "仅定位到重复实质推理不足再评估升级；登录或网络缺失不升级。",
+      "applied": false
+    }
   },
   "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG-04固定候选ec5a73d独立PASS：52后端+30浏览器检查；原始报告已归档并经CLI正式RELEASE_READY。生产仍SKU修复ce1f2fe；新功能尚未推送/部署，等待单独发布授权。",
+  "notes": "用户已明确授权UPG-04 GitHub→Cloudflare生产发布及必要修复，通过后自动开发/独立验收UPG-05；后者生产仍需另行授权。",
   "nextUnitId": "UPG-05",
   "production": {
     "status": "PROD_VERIFIED",
@@ -86,8 +93,8 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "UPG-04获得明确发布授权后，按GitHub优先发布规则发布并生产验收；关闭后制定UPG-05最小契约并重新评估角色模型。",
-    "dependency": "UPG-04生产授权；UPG-05依赖UPG-04关闭且契约开放。",
-    "automatic": false
+    "action": "发布并验收UPG-04，关闭后自动推进UPG-05研发与独立验收。",
+    "dependency": "发布规则与真实生产证据",
+    "automatic": true
   }
 }
