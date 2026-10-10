@@ -15,7 +15,7 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:105"
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:121"
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
@@ -26,7 +26,7 @@
       "thinking": "high",
       "reason": "局部UI需确保生命周期新props、异步保存、草稿与CAS冲突一致，独立验收需反例。",
       "upgradeCondition": "重复实质并发推理缺陷再评估；环境问题不升级。",
-      "applied": false
+      "applied": true
     },
     "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:97",
     "observedStatus": "completed",
@@ -38,10 +38,10 @@
       "applied": true
     }
   },
-  "candidateSha": null,
-  "state": "DEV_ACTIVE",
+  "candidateSha": "9abae260aa09156657d9db5a4abd9beedaf9de4c",
+  "state": "DEV_READY",
   "automationId": "pairvu-2",
-  "notes": "HTTP部署已正式关闭；登录旅程发现状态同步问题，下一修复单元先于UPG-04。",
+  "notes": "生命周期修复开发10项交互及typecheck/lint通过，冻结最终候选交独立QA；登录门禁仍待生产复验。",
   "nextUnitId": "UPG-04",
   "production": {
     "status": "PROD_VERIFIED",
