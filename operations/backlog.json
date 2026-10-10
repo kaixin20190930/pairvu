@@ -61,7 +61,7 @@
       "title": "结构化区域证据与可观测性",
       "priority": 4,
       "dependsOn": [
-        "UPG-03-ENABLE"
+        "UPG-03-LIFECYCLE-FIX"
       ],
       "mode": "runtime",
       "autoEligible": false,
@@ -252,6 +252,20 @@
       "priority": 3,
       "dependsOn": [
         "UPG-03"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-03-LIFECYCLE-FIX",
+      "title": "SKU归档恢复编辑状态同步修复",
+      "priority": 3,
+      "dependsOn": [
+        "UPG-03-ENABLE"
       ],
       "mode": "runtime",
       "autoEligible": true,

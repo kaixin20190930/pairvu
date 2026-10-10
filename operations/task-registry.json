@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-03-ENABLE",
-  "baselineSha": "9dc1cc25f5b6c629bae9bdfe84058313ead38432",
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "baselineSha": "71d39c5648335997679b111af811bafdeb17976b",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "单一生产配置变更和明确验收流程，medium足够；不是跨模块开发。",
-      "upgradeCondition": "实际跨模块事务缺陷再评估high；权限或登录缺失不升档。",
+      "thinking": "high",
+      "reason": "局部UI需确保生命周期新props、异步保存、草稿与CAS冲突一致，独立验收需反例。",
+      "upgradeCondition": "重复实质并发推理缺陷再评估；环境问题不升级。",
       "applied": true
     },
     "observedStatus": "completed",
@@ -23,10 +23,10 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "单一生产配置变更和明确验收流程，medium足够；不是跨模块开发。",
-      "upgradeCondition": "实际跨模块事务缺陷再评估high；权限或登录缺失不升档。",
-      "applied": true
+      "thinking": "high",
+      "reason": "局部UI需确保生命周期新props、异步保存、草稿与CAS冲突一致，独立验收需反例。",
+      "upgradeCondition": "重复实质并发推理缺陷再评估；环境问题不升级。",
+      "applied": false
     },
     "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:97",
     "observedStatus": "completed",
@@ -41,14 +41,14 @@
   "candidateSha": null,
   "state": "DEV_ACTIVE",
   "automationId": "pairvu-2",
-  "notes": "启用配置开发完成；真实生产登录会话已确认。待冻结含台账的最终候选进行独立QA。",
+  "notes": "HTTP部署已正式关闭；登录旅程发现状态同步问题，下一修复单元先于UPG-04。",
   "nextUnitId": "UPG-04",
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
-    "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
-    "receipt": "operations/evidence/production-upg03-2026-10-10/manifest.json",
-    "receiptSha256": "9d8bb783137356175e70532f252711e201ecfac02c4d953942b4049092038ee3"
+    "releaseSha": "71d39c5648335997679b111af811bafdeb17976b",
+    "platformVersion": "ee4c8457-7590-4d36-b495-7183c91627da",
+    "receipt": "operations/evidence/production-upg03-enable-2026-10-10/manifest.json",
+    "receiptSha256": "dc54cdbf01a1bfaa0911ca150756ff2d2bea2a119d10d1a9fca2602802a2fbbb"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -66,11 +66,19 @@
       "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
       "receipt": "operations/evidence/production-release-2026-10-10.json",
       "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+      "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
+      "receipt": "operations/evidence/production-upg03-2026-10-10/manifest.json",
+      "receiptSha256": "9d8bb783137356175e70532f252711e201ecfac02c4d953942b4049092038ee3"
     }
   ],
   "loginAcceptance": {
-    "status": "SESSION_CONFIRMED",
-    "tabId": "2",
-    "url": "https://pairvu.com/account/products"
+    "status": "FAIL_REPAIR_REQUIRED",
+    "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+    "tabId": "4",
+    "finding": "Archive refresh leaves profile editor enabled; after reload archived then restore refresh leaves profile editor disabled. Server lifecycle correct, local latest state stale."
   }
 }

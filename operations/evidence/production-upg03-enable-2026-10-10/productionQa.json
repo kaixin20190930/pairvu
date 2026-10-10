@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-03-ENABLE",
+  "releaseSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "qaCandidateSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "platformVersion": "ee4c8457-7590-4d36-b495-7183c91627da",
+  "scope": "http",
+  "reviewedAt": "2026-10-10T13:30:31.813Z",
+  "checks": [
+    {
+      "name": "10 independent HTTP and provenance checks",
+      "status": "PASS"
+    }
+  ]
+}

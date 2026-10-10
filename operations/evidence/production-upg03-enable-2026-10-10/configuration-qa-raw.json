@@ -1,0 +1,193 @@
+{
+  "unitId": "UPG-03-ENABLE",
+  "candidateSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "baselineSha": "9dc1cc25f5b6c629bae9bdfe84058313ead38432",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "startedAt": "2026-10-10T13:15:41.660749+00:00",
+  "completedAt": "2026-10-10T13:15:42.120376+00:00",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": {
+        "expected": "71d39c5648335997679b111af811bafdeb17976b",
+        "actual": "71d39c5648335997679b111af811bafdeb17976b",
+        "baselineSha": "9dc1cc25f5b6c629bae9bdfe84058313ead38432"
+      }
+    },
+    {
+      "name": "clean working tree",
+      "status": "PASS",
+      "detail": {
+        "porcelain": ""
+      }
+    },
+    {
+      "name": "exact permitted change scope",
+      "status": "PASS",
+      "detail": {
+        "paths": [
+          "operations/task-registry.json",
+          "wrangler.jsonc"
+        ]
+      }
+    },
+    {
+      "name": "JSON parse and sole production variable delta",
+      "status": "PASS",
+      "detail": {
+        "key": "vars.PRODUCT_PROFILES_ENABLED",
+        "value": "true",
+        "valueType": "str",
+        "allOtherConfigIdentical": true
+      }
+    },
+    {
+      "name": "controller registry unit/model scope",
+      "status": "PASS",
+      "detail": {
+        "unitId": "UPG-03-ENABLE",
+        "baselineSha": "9dc1cc25f5b6c629bae9bdfe84058313ead38432",
+        "qaModelSelection": {
+          "model": "gpt-6.1-sol",
+          "thinking": "medium",
+          "reason": "单一生产配置变更和明确验收流程，medium足够；不是跨模块开发。",
+          "upgradeCondition": "实际跨模块事务缺陷再评估high；权限或登录缺失不升档。",
+          "applied": true
+        },
+        "loginAcceptance": "SESSION_CONFIRMED is controller metadata, not independent login acceptance"
+      }
+    },
+    {
+      "name": "actual fixed-candidate flag and guard positive/negative cases",
+      "status": "PASS",
+      "detail": {
+        "command": "node_modules/.bin/tsx /private/tmp/pairvu-enable-qa-ymtwsgcv/check.ts",
+        "exitCode": 0,
+        "stdout": "{\"results\":[{\"name\":\"literal string true\",\"expected\":true,\"actual\":true,\"status\":\"PASS\"},{\"name\":\"missing\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"string false\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"uppercase TRUE\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"mixed True\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"leading space\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"trailing space\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"empty\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"boolean true\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"number one\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"null\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"},{\"name\":\"undefined\",\"expected\":false,\"actual\":false,\"status\":\"PASS\"}],\"gateTrueAllowed\":true,\"gateFalse403\":true,\"gateUndefinedRejected\":true}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "rollback config preserves every other field",
+      "status": "PASS",
+      "detail": {
+        "method": "Commit a config-only rollback setting string false (or removing key), push, fetch exact SHA, clean tree, verify migrations, deploy that same compatible runtime SHA, smoke. Keep 0020/schema/CAS/snapshots/history; do not DROP tables, erase history, or return to pre-profile runtime."
+      }
+    },
+    {
+      "name": "diff whitespace",
+      "status": "PASS",
+      "detail": {
+        "command": "git diff --check 9dc1cc25f5b6c629bae9bdfe84058313ead38432 71d39c5648335997679b111af811bafdeb17976b"
+      }
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": {
+        "scope": "fixed-candidate config acceptance only",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "fullBuildRepeated": false,
+        "productionOrLoginAcceptance": false
+      }
+    }
+  ],
+  "sourceHashes": {
+    "wrangler.jsonc": "5a0e3807d89e318aedea4d463e592e28a7fde5f93d0115534ad7a64d69ab0ad5",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc"
+  },
+  "actualFlagCases": {
+    "results": [
+      {
+        "name": "literal string true",
+        "expected": true,
+        "actual": true,
+        "status": "PASS"
+      },
+      {
+        "name": "missing",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "string false",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "uppercase TRUE",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "mixed True",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "leading space",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "trailing space",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "empty",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "boolean true",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "number one",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "null",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      },
+      {
+        "name": "undefined",
+        "expected": false,
+        "actual": false,
+        "status": "PASS"
+      }
+    ],
+    "gateTrueAllowed": true,
+    "gateFalse403": true,
+    "gateUndefinedRejected": true
+  },
+  "modelSelection": {
+    "requestedModel": "gpt-6.1-sol",
+    "requestedReasoning": "medium",
+    "reason": "One explicit configuration variable and controller registry; deterministic comparison and actual function boundary checks sufficient; no cross-module defect observed.",
+    "escalationCondition": "A substantive cross-module consistency defect, not permission/session/environment issues."
+  },
+  "limitations": [
+    "No shared repository/control state changes, git commit/push/deploy, or remote writes.",
+    "No full build repeated under contract; release deployment gate must build exact pushed SHA.",
+    "This PASS proves fixed candidate config, not remote feature enablement or real logged-in SKU acceptance. Controller completes these after deployment; UPG-04 remains behind logged-in PASS."
+  ],
+  "rawHarnessPath": "/private/tmp/pairvu-enable-qa-ymtwsgcv/check.ts"
+}

@@ -1,0 +1,61 @@
+{
+  "unitId": "UPG-03-ENABLE",
+  "releaseSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "scope": "authenticated synthetic SKU production journey",
+  "result": "FAIL_REPAIR_REQUIRED",
+  "checkedAt": "2026-10-10T13:38:53.494305+00:00",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "batchId": "e26ebc30-15cc-40ae-872b-d626bbd00cef",
+  "analysisId": "batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+  "checks": [
+    {
+      "name": "real Google session supplied by user",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic product and reference upload",
+      "status": "PASS"
+    },
+    {
+      "name": "profile v1 then v2",
+      "status": "PASS"
+    },
+    {
+      "name": "history v1 still Blue box v1 / QA-1",
+      "status": "PASS"
+    },
+    {
+      "name": "stale editor conflict blocks save and keeps draft",
+      "status": "PASS"
+    },
+    {
+      "name": "load latest keeps draft, explicit confirm produces v3",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/restore persists and preserves history",
+      "status": "PASS"
+    },
+    {
+      "name": "one actual batch completes, quota 10 to 9",
+      "status": "PASS"
+    },
+    {
+      "name": "batch frozen at profile v3/reference v1 after current profile advances to v4",
+      "status": "PASS"
+    }
+  ],
+  "findings": [
+    {
+      "name": "archive/restore profile UI lifecycle stale until browser reload",
+      "status": "FAIL",
+      "repairUnit": "UPG-03-LIFECYCLE-FIX"
+    }
+  ],
+  "limitations": [
+    "Synthetic fixture produced REVIEW with two review items; successful processing is not a claim of model accuracy.",
+    "CSV export requires upgrade on Free plan; no purchase or bypass performed.",
+    "503 retries validated independently locally, not induced in production."
+  ],
+  "nextAction": "Deploy independently accepted lifecycle repair, repeat authenticated lifecycle without manual refresh, then independent journey acceptance before UPG-04."
+}

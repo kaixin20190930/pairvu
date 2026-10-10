@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-10T13:29:00.850Z",
+  "checks": [
+    {
+      "kind": "health",
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "71d39c5648335997679b111af811bafdeb17976b",
+        "platformVersion": "ee4c8457-7590-4d36-b495-7183c91627da"
+      }
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/",
+      "status": 200
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/checks",
+      "status": 200
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/pricing",
+      "status": 200
+    }
+  ]
+}
