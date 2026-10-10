@@ -1,23 +1,39 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-03A",
-  "baselineSha": "0757622a5866794476a00474d41dfd7f6323c3c6",
+  "unitId": "UPG-03B0",
+  "baselineSha": "6695cefa59b9c9412e533d24813c3e3f2814672d",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
-    "clientThreadId": null
+    "clientThreadId": null,
+    "modelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "实际D1事务、并发与回滚反例涉及数据一致性，需要深入推理；范围明确，选择平衡型号而非默认最高档。",
+      "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
+      "applied": true
+    },
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:64",
+    "observedStatus": "waitingOnApproval"
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
     "hostId": "local",
-    "clientThreadId": null
+    "clientThreadId": null,
+    "modelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "实际D1事务、并发与回滚反例涉及数据一致性，需要深入推理；范围明确，选择平衡型号而非默认最高档。",
+      "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
+      "applied": false
+    }
   },
-  "candidateSha": "4362a26c3ea44d10633fe6b323e764267637e37d",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "DEV_ACTIVE",
   "automationId": "pairvu-2",
-  "notes": "UPG-03A固定提交已独立PASS并正式关闭；下一步UPG-03B0本地D1实证。",
-  "nextUnitId": "UPG-03B0",
+  "notes": "UPG-03B0已派开发并持续回收，目前原生任务waitingOnApproval；QA配置为计划选型，取得固定候选后才实际派发。审批不由总控代批。",
+  "nextUnitId": "UPG-03",
   "production": {
     "status": "PROD_VERIFIED",
     "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",

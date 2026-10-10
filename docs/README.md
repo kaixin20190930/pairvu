@@ -101,3 +101,9 @@ Do not expand later product stages solely because calendar time has elapsed.
 
 - [2026-10-10 下一批开发任务](04-roadmap/next-development-batch-2026-10-10.md)：生产状态闭环、SKU版本化、结构化证据与人工审核。
 - [2026-10-10 已完成生产发布证据](../operations/evidence/production-release-2026-10-10.json)：部署SHA、Worker版本、远端核验和独立生产验收。
+
+## 2026-10-10 升级跟踪
+
+- [项目整体进展](04-roadmap/project-progress-2026-10-10.md)
+- [SKU版本化设计契约](01-architecture/sku-versioned-profile-contract.md)
+- [SKU字段矩阵](02-product/sku-profile-field-matrix.md)
