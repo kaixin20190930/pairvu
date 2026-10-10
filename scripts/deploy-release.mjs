@@ -1,20 +1,66 @@
 #!/usr/bin/env node
-import { open, unlink, readFile, readdir, lstat, realpath } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { open, unlink, readFile, readdir, lstat, realpath, readlink } from 'node:fs/promises';
+import { join, resolve, isAbsolute, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { preflight, assertLocalCandidate, parseOptions, isMain, ensure, git } from './release-preflight.mjs';
 import { buildCloudRelease, verifyBuild, run } from './build-release.mjs';
 
 export async function artifactDigest(repo) {
+  const root = join(await realpath(repo), '.open-next');
+  ensure((await lstat(root)).isDirectory(), 'Artifact root must be a real directory');
   const hash = createHash('sha256');
-  async function visit(path, relative) {
-    const stat = await lstat(path);
-    ensure(!stat.isSymbolicLink(), 'Symlink in release artifact');
-    if (stat.isDirectory()) for (const name of (await readdir(path)).sort()) await visit(join(path, name), `${relative}/${name}`);
-    else { ensure(stat.isFile(), 'Unexpected artifact file type'); const bytes = await readFile(path); hash.update(JSON.stringify([relative, bytes.length])); hash.update(bytes); }
+  async function statOrMissing(path) {
+    try { return await lstat(path); }
+    catch (error) { if (error.code === 'ENOENT') return null; throw error; }
   }
-  await readFile(join(repo, '.open-next/worker.js'));
-  await visit(join(repo, '.open-next'), '.open-next');
+  // Resolve components in filesystem order: normalizing a/../ first could hide an
+  // escaping symlink at a. Missing internal components are permitted, never read.
+  async function resolveLink(path, parts, active = new Set()) {
+    ensure(!active.has(path) && active.size < 128, 'Cyclic or excessive artifact symlink chain');
+    const chain = new Set(active).add(path);
+    const target = await readlink(path);
+    let cursor = [...parts];
+    let suffix = target;
+    if (isAbsolute(target)) {
+      ensure(target === root || target.startsWith(root + sep), 'Absolute artifact symlink escapes root');
+      cursor = [];
+      suffix = target.slice(root.length);
+    }
+    for (const component of suffix.split(sep)) {
+      if (!component || component === '.') continue;
+      const parent = await statOrMissing(join(root, ...cursor));
+      ensure(!parent || parent.isDirectory(), 'Artifact symlink traverses a non-directory');
+      if (component === '..') {
+        ensure(cursor.length > 0, 'Artifact symlink escapes root');
+        cursor.pop();
+      } else {
+        const next = join(root, ...cursor, component);
+        const stat = await statOrMissing(next);
+        if (stat?.isSymbolicLink()) cursor = await resolveLink(next, cursor, chain);
+        else cursor.push(component);
+      }
+    }
+    return cursor;
+  }
+  async function visit(path, parts) {
+    const relative = ['.open-next', ...parts].join('/');
+    const stat = await lstat(path);
+    if (stat.isSymbolicLink()) {
+      const target = await readlink(path);
+      await resolveLink(path, parts.slice(0, -1));
+      hash.update(JSON.stringify(['symlink', relative, target]));
+    } else if (stat.isDirectory()) {
+      hash.update(JSON.stringify(['directory', relative]));
+      for (const name of (await readdir(path)).sort()) await visit(join(path, name), [...parts, name]);
+    } else {
+      ensure(stat.isFile(), 'Unexpected artifact file type');
+      const bytes = await readFile(path);
+      hash.update(JSON.stringify(['file', relative, bytes.length])); hash.update(bytes);
+    }
+  }
+  // Never walk through symlinks. Actual target files are hashed at their tree paths.
+  await visit(root, []);
+  await readFile(join(root, 'worker.js'));
   return hash.digest('hex');
 }
 // runner injection is a programmatic test seam only. CLI has no skip/test/runner/env bypass.

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, writeFile, readFile, rm, rename, symlink } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile, rm, rename, symlink, realpath } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { preflight, parseOptions, git } from './release-preflight.mjs';
-import { deployRelease } from './deploy-release.mjs';
+import { deployRelease, artifactDigest } from './deploy-release.mjs';
 const require = createRequire(import.meta.url), root = await mkdtemp(join(tmpdir(), 'pairvu-release-'));
 const repo = join(root, 'repo'), remote = join(root, 'remote.git');
 const source = resolve('.'), tsx = require.resolve('tsx');
@@ -70,6 +70,49 @@ try {
   const started = new Promise(resolve => startedBuild = resolve), paused = new Promise(resolve => releaseBuild = resolve);
   const first = deployRelease(options, runner(async () => { startedBuild(); await paused; })); await started;
   await reject('concurrent release rejected', () => deployRelease(options, runner())); releaseBuild(); await first;
+  const artifactRepo = join(root, 'artifact-fixture'), tree = join(artifactRepo, '.open-next');
+  async function resetTree() {
+    await rm(tree, { recursive: true, force: true });
+    await mkdir(join(tree, 'node_modules/.pnpm/pkg@1/node_modules/pkg'), { recursive: true });
+    await writeFile(join(tree, 'worker.js'), '// worker');
+    await writeFile(join(tree, 'node_modules/.pnpm/pkg@1/node_modules/pkg/index.js'), 'module content');
+  }
+  const digest = () => artifactDigest(artifactRepo);
+  await resetTree();
+  const plain = await digest();
+  await symlink('.pnpm/pkg@1/node_modules/pkg', join(tree, 'node_modules/pkg'));
+  const linked = await digest(); assert.notEqual(linked, plain); assert.equal(await digest(), linked); checks++;
+  await mkdir(join(tree, 'node_modules/.pnpm/pkg@2/node_modules/pkg'), { recursive: true });
+  await writeFile(join(tree, 'node_modules/.pnpm/pkg@2/node_modules/pkg/index.js'), 'module content');
+  const beforeRedirect = await digest();
+  await rm(join(tree, 'node_modules/pkg')); await symlink('.pnpm/pkg@2/node_modules/pkg', join(tree, 'node_modules/pkg'));
+  assert.notEqual(await digest(), beforeRedirect); checks++;
+  const beforeContent = await digest();
+  await writeFile(join(tree, 'node_modules/.pnpm/pkg@2/node_modules/pkg/index.js'), 'changed module content');
+  assert.notEqual(await digest(), beforeContent); checks++;
+  await symlink('.pnpm/semver@7/node_modules/semver', join(tree, 'node_modules/semver'));
+  const dangling = await digest(); assert.equal(await digest(), dangling); checks++;
+  await mkdir(join(tree, 'node_modules/.pnpm/semver@7/node_modules/semver'), { recursive: true });
+  assert.notEqual(await digest(), dangling); checks++;
+  await symlink('pkg', join(tree, 'node_modules/alias')); await digest(); checks++;
+  await symlink('missing', join(tree, 'node_modules/dangling-chain')); await symlink('dangling-chain', join(tree, 'node_modules/chain-start')); await digest(); checks++;
+  await symlink('.', join(tree, 'ancestor')); await digest(); checks++; // no recursive walk through directory links
+  await symlink(join(await realpath(tree), 'worker.js'), join(tree, 'absolute-internal')); await digest(); checks++;
+  const withLink = await digest(); await rm(join(tree, 'absolute-internal')); await writeFile(join(tree, 'absolute-internal'), '// worker'); assert.notEqual(await digest(), withLink); checks++;
+  const escapes = [
+    ['absolute external', async () => symlink(join(repo, 'source.txt'), join(tree, 'escape'))],
+    ['absolute prefix sibling', async () => symlink(tree + '-other/file', join(tree, 'escape'))],
+    ['relative external', async () => symlink('../outside', join(tree, 'escape'))],
+    ['missing target still escapes', async () => symlink('missing/../../outside', join(tree, 'escape'))],
+    ['indirect external directory', async () => { await symlink('z-hop/file', join(tree, 'a-link')); await symlink(repo, join(tree, 'z-hop')); }],
+    ['dotdot cannot hide escaping hop', async () => { await symlink('z-hop/../worker.js', join(tree, 'a-link')); await symlink(repo, join(tree, 'z-hop')); }],
+    ['self cycle', async () => symlink('self', join(tree, 'self'))],
+    ['two-link cycle', async () => { await symlink('b', join(tree, 'a')); await symlink('a', join(tree, 'b')); }],
+    ['growing cycle', async () => symlink('self/child', join(tree, 'self'))],
+  ];
+  for (const [name, setup] of escapes) { await resetTree(); await setup(); await reject(name, digest); }
+  await resetTree(); await symlink('missing-worker', join(tree, 'missing')); await rm(join(tree, 'worker.js')); await symlink('missing', join(tree, 'worker.js')); await reject('required worker cannot be dangling', digest);
+  await rm(tree, { recursive: true, force: true }); await symlink(join(repo, '.open-next'), tree, 'dir'); await reject('artifact root cannot be symlink', digest);
   const cliAlias = join(root, 'preflight-alias.mjs'); await symlink(join(source, 'scripts/release-preflight.mjs'), cliAlias);
   const invocation = spawnSync(process.execPath, [cliAlias], { cwd: repo, encoding: 'utf8' }); assert.equal(invocation.status, 1); assert.match(invocation.stderr, /Required/); checks++;
   const pkg = JSON.parse(await readFile(join(source, 'package.json'), 'utf8'));
