@@ -1,0 +1,243 @@
+{
+  "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "legacy status",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "legacy init idempotent",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "cannot skip deployment",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production transition requires prior stage"
+    },
+    {
+      "name": "runtime cannot close early",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Runtime close requires PROD_VERIFIED"
+    },
+    {
+      "name": "schema1 rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: manifest identity/version mismatch"
+    },
+    {
+      "name": "changed release requires QA",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: changed release requires independent release QA"
+    },
+    {
+      "name": "QA wrong original candidate",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: QA identity/result mismatch"
+    },
+    {
+      "name": "QA developer identity rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: QA identity/result mismatch"
+    },
+    {
+      "name": "QA blocked check rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: QA checks must be unique and all PASS"
+    },
+    {
+      "name": "unauthorized rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: explicit deployment authorization required"
+    },
+    {
+      "name": "not fresh rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: invalid build/fresh remote proof"
+    },
+    {
+      "name": "remote mismatch rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: invalid build/fresh remote proof"
+    },
+    {
+      "name": "upload cannot deploy",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: deployment mismatch; upload is not deploy"
+    },
+    {
+      "name": "untimed no migration needs record",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: invalid migration conclusion"
+    },
+    {
+      "name": "applied cannot have null time",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: invalid UTC timestamp"
+    },
+    {
+      "name": "applied cannot precede fresh",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: evidence chronology mismatch"
+    },
+    {
+      "name": "wrong health SHA",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: health provenance mismatch"
+    },
+    {
+      "name": "wrong health version",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: health provenance mismatch"
+    },
+    {
+      "name": "wrong production reviewer",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: QA identity/result mismatch"
+    },
+    {
+      "name": "QA before smoke",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: evidence chronology mismatch"
+    },
+    {
+      "name": "source bytes changed without digest",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production evidence: build digest mismatch"
+    },
+    {
+      "name": "historical manifest deployment import",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "deployment import idempotent",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "deployed retains slot",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "deployed cannot close",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Runtime close requires PROD_VERIFIED"
+    },
+    {
+      "name": "rewritten source plus updated digest rejected",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production manifest/evidence changed or conflicts with recorded deployment"
+    },
+    {
+      "name": "historical production verification",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "manifest whitespace tamper blocks close",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Production manifest/evidence changed or conflicts with recorded deployment"
+    },
+    {
+      "name": "historical runtime close",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "runtime close idempotent",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "cannot delete closed history",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Unknown/self dependency"
+    },
+    {
+      "name": "cannot rewrite closed plan",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Plan cannot rewrite started unit history"
+    },
+    {
+      "name": "cannot inject state fields",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Plan cannot contain state or unknown fields"
+    },
+    {
+      "name": "cannot sync dependency cycle",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Unknown/self dependency"
+    },
+    {
+      "name": "append backlog after real completion copy",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "claim added fixture",
+      "status": "PASS",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "name": "active dev blocks sync",
+      "status": "PASS",
+      "exitCode": 1,
+      "error": "pairvu-control: Cannot sync during active development/QA"
+    }
+  ],
+  "realStateUnchanged": true,
+  "historicalManifestClosedInTemporaryCopy": true,
+  "manifestSha256": "b63113ff8ac83d7c152eb9ede70cfc6036ad7570d3863411852f39b723c89d15",
+  "limitations": [
+    "Temporary state only; no production actions or real state writes."
+  ],
+  "sourceAudits": {
+    "buildEventsExact": true,
+    "platformVersionAndDeploymentTimeExact": true,
+    "smokeFourChecksMatchOriginalSevenCheckRecord": true,
+    "authorizationNativeUserTurnVerified": true,
+    "qaNativeCompletedTimesVerified": true,
+    "noMigrationDiffAndOriginalQueryVerified": true,
+    "schema2SubsetExcludesButDoesNotAlterOriginal401And308": true
+  }
+}

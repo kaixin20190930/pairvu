@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-01",
+  "unitId": "AUTO-02",
   "baselineSha": "65e204924d9ea2b257e401d0465dd846aec24ef6",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
@@ -13,16 +13,25 @@
     "hostId": "local",
     "clientThreadId": null
   },
-  "candidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
-  "state": "RELEASE_READY",
+  "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "生产已独立验收通过；state保留CLI原始RELEASE_READY，因该工具尚无生产状态命令，禁止手改状态。真实生产结论见production receipt。下一批仅已整理，待AUTO-02受控导入证据与计划同步，不重复部署或索要本次授权。",
-  "nextUnitId": "AUTO-02",
+  "notes": "AUTO-02独立PASS；已通过正式命令导入UPG-01生产证据并CLOSED，plan-sync完成，未直接修改状态。下一项SKU版本化设计。",
+  "nextUnitId": "UPG-03A",
   "production": {
     "status": "PROD_VERIFIED",
     "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
     "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
     "receipt": "operations/evidence/production-release-2026-10-10.json",
     "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
+  },
+  "bootstrap": {
+    "unitId": "AUTO-02",
+    "state": "CLOSED",
+    "baselineSha": "44c362b6fd96df8e51aa2d5314f7a80953b7f742",
+    "developmentThreadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+    "qaThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+    "reason": "CLI尚无production关闭命令，按AUTO-02契约自举，不手改旧状态",
+    "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc"
   }
 }

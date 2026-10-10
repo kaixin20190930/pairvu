@@ -1,0 +1,30 @@
+{
+  "unitId": "AUTO-02",
+  "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "37 independent CLI checks",
+      "status": "PASS"
+    },
+    {
+      "name": "actual manifest cloned state lifecycle",
+      "status": "PASS"
+    },
+    {
+      "name": "111 new checks 87 regression typecheck",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a124f1-9e64-7870-ad8e-ac98a7531f86",
+  "originalReport": "**PASS — AUTO-02 独立验收**\n\n固定候选：`b8510a147d8de62009173f5cdad9ff90abe57adc`  \n基线：`44c362b6fd96df8e51aa2d5314f7a80953b7f742`\n\n实际 checks：\n\n- 5 个允许文件、基线祖先关系及冻结文件一致性通过。\n- `/tmp` 独立 **37 项 CLI 检查**通过，涵盖旧状态兼容、跳级拒绝、角色／候选／remote／smoke 不匹配、upload 拒绝、摘要篡改、重复幂等及 plan-sync 边界。\n- 所有被拒绝操作均保持状态和事件字节不变。\n- 真实历史 manifest 在**复制状态**中完成 RELEASE_READY→DEPLOYED→PROD_VERIFIED→CLOSED；原事件保留，真实状态未改变。\n- 已对照原始 build、部署和 smoke 记录，以及原生授权 turn、release QA／production QA 完成时间。实际 release 与原 QA 候选不同，具备精确 release QA 关联。\n- `not_required + checkedAt=null` 有原始查询引用，基线至 release 无 migration 差分；缺引用及 applied 无时间／时间过早均拒绝。\n- 已审查开发最终 **111 项新增检查、87 项原控制回归及 typecheck** 成功输出。\n\n**severity：** 无阻断项。\n\n原始记录：[independent-results.json](/private/tmp/pairvu-auto02-qa-ajr4akxw/independent-results.json)  \n复现脚本：[pairvu-auto02-qa.py](/tmp/pairvu-auto02-qa.py)\n\n限制：CLI 验证结构与关联，不独立认证平台事实。schema2 转录四项成功 HTTP 检查；原始匿名 401、www 308 仍保留于原报告，未伪装为 2xx。迁移查询时间仍明确未知。\n\n未修改共享文件、真实状态或锁，未访问云、部署或创建任务。"
+}

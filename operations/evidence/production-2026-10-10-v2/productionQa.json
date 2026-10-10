@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-01",
+  "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+  "qaCandidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-10T08:12:30.000Z",
+  "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+  "scope": "http",
+  "checks": [
+    {
+      "name": "independent exact production SHA version and whitelist",
+      "status": "PASS"
+    },
+    {
+      "name": "public pages checker anonymous ownership and www redirect",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh remote actual build deployment and migration review",
+      "status": "PASS"
+    }
+  ]
+}
