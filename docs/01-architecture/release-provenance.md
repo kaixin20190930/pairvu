@@ -22,11 +22,11 @@ SHA 证明源码提交来源，不是对依赖、构建机器、未跟踪环境�
 ```sh
 pnpm release:preflight --candidate FULL_40_CHAR_SHA --remote origin --branch main
 # 仅在另获生产授权并完成必要迁移后执行下面的生产命令：
-pnpm deploy --candidate FULL_40_CHAR_SHA --remote origin --branch main
-pnpm upload --candidate FULL_40_CHAR_SHA --remote origin --branch main
+pnpm run deploy --candidate FULL_40_CHAR_SHA --remote origin --branch main
+pnpm run upload --candidate FULL_40_CHAR_SHA --remote origin --branch main
 ```
 
-`deploy` 和 `upload` 都调用相同发布门禁，不接受透传 flags、skip 检查参数或环境跳过开关。upload 也是生产平台写操作，不能用作无需授权的测试。脚本保留原生产命令语义：deploy 使用 Wrangler；upload 使用 OpenNext upload（包含其远端 cache 工作），并以候选 SHA 标记新版本。upload 完成只代表上传，不代表该版本已接收生产流量。
+必须使用 `pnpm run deploy`，因为 `pnpm deploy` 是 pnpm 内置命令，不会调用本项目脚本。`deploy` 和 `upload` 都调用相同发布门禁，不接受透传 flags、skip 检查参数或环境跳过开关。upload 也是生产平台写操作，不能用作无需授权的测试。脚本保留原生产命令语义：deploy 使用 Wrangler；upload 使用 OpenNext upload（包含其远端 cache 工作），并以候选 SHA 标记新版本。upload 完成只代表上传，不代表该版本已接收生产流量。
 
 支持的生产入口仅为这两个受门禁的 package scripts。拥有本机 shell 和云凭据的人仍可以直接调用 `wrangler` 或 `opennextjs-cloudflare`；本地工具不是权限沙箱，直接发布绕过流程不受支持，也违反仓库规则。没有通过改 Wrangler vars、资源或权限来扩大授权。
 
