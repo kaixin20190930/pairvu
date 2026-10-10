@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
-import { readFile, writeFile, mkdtemp, rm, readdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdtemp, rm, readdir, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { validateDataset } from './verify-upgrade-dataset.mjs';
@@ -40,7 +40,7 @@ const negatives = [
 ];
 for (const [name, mutate] of negatives) reject(name, mutate);
 const root = await mkdtemp(join(tmpdir(), 'pairvu-upgrade-dataset-'));
-function command(args, exit, status) { const r = spawnSync(process.execPath, [cli, ...args], { encoding: 'utf8', cwd: root }); assert.equal(r.status, exit, r.stderr || r.stdout); const output = JSON.parse(r.stdout); assert.equal(output.status, status); checks++; return output; }
+function command(args, exit, status, entry = cli) { const r = spawnSync(process.execPath, [entry, ...args], { encoding: 'utf8', cwd: root }); assert.equal(r.status, exit, r.stderr || r.stdout); const output = JSON.parse(r.stdout); assert.equal(output.status, status); checks++; return output; }
 try {
   const input = join(root, 'input.json'); await writeFile(input, original);
   const before = await readdir(root);
@@ -48,6 +48,14 @@ try {
   assert.equal(await readFile(input, 'utf8'), original); assert.deepEqual(await readdir(root), before); checks++;
   command([], 2, 'BLOCKED'); command(['--input', join(root, 'absent.json')], 2, 'BLOCKED'); command(['--input', root], 2, 'BLOCKED'); command(['--network'], 64, 'INVALID_USAGE'); command(['--input', input, '--extra'], 64, 'INVALID_USAGE');
   for (const bytes of ['', '{broken', 'null', '[]', '{}', JSON.stringify({ ...valid, synthetic: false })]) { await writeFile(input, bytes); command(['--input', input], 1, 'INVALID_INPUT'); }
+  // Explicit aliases reproduce both a linked script and /tmp-style parent-directory links.
+  const fileAlias = join(root, 'validator-alias.mjs'), directoryAlias = join(root, 'scripts-alias');
+  await symlink(cli, fileAlias, 'file'); await symlink(dirname(cli), directoryAlias, 'dir');
+  for (const entry of [fileAlias, join(directoryAlias, basename(cli))]) {
+    command([], 2, 'BLOCKED', entry);
+    await writeFile(input, original); command(['--input', input], 0, 'VALID_SYNTHETIC', entry);
+    await writeFile(input, '{}'); command(['--input', input], 1, 'INVALID_INPUT', entry);
+  }
   const help = spawnSync(process.execPath, [cli, '--help'], { encoding: 'utf8' }); assert.equal(help.status, 0); assert.match(help.stdout, /BLOCKED/); checks++;
 } finally { await rm(root, { recursive: true, force: true }); }
 assert.equal(await readFile(fixture, 'utf8'), original);

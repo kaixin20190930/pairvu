@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { readFile } from 'node:fs/promises';
+import { readFile, realpath } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ID = { workspace: /^ws_[a-f0-9]{16}$/, sku: /^sku_[a-f0-9]{16}$/, packaging: /^pkg_[a-f0-9]{16}$/, annotator: /^ann_[a-f0-9]{16}$/, sample: /^sample_[a-f0-9]{16}$/, authorization: /^auth_[a-f0-9]{16}$/, dataset: /^dataset_[a-f0-9]{16}$/ };
 const HASH = /^[a-f0-9]{64}$/;
@@ -95,4 +95,5 @@ export async function main(args) {
   try { console.log(JSON.stringify(validateDataset(JSON.parse(bytes)), null, 2)); return 0; }
   catch (error) { console.log(JSON.stringify({ status: 'INVALID_INPUT', reason: error.message, qualityEvidence: false })); return 1; }
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) process.exitCode = await main(process.argv.slice(2));
+// Node resolves ESM URLs through symlinks; normalize both paths before identifying the entry point.
+if (process.argv[1] && await realpath(fileURLToPath(import.meta.url)) === await realpath(resolve(process.argv[1]))) process.exitCode = await main(process.argv.slice(2));
