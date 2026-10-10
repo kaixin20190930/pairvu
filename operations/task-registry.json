@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-03-LIFECYCLE-FIX",
-  "baselineSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "unitId": "UPG-04",
+  "baselineSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -10,11 +10,11 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "局部UI需确保生命周期新props、异步保存、草稿与CAS冲突一致，独立验收需反例。",
-      "upgradeCondition": "重复实质并发推理缺陷再评估；环境问题不升级。",
+      "reason": "跨provider/schema/序列化/UI及保守判定边界，需要深入实现推理。",
+      "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
       "applied": true
     },
-    "observedStatus": "completed",
+    "observedStatus": "dispatching",
     "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:121"
   },
   "qa": {
@@ -24,11 +24,11 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "局部UI需确保生命周期新props、异步保存、草稿与CAS冲突一致，独立验收需反例。",
-      "upgradeCondition": "重复实质并发推理缺陷再评估；环境问题不升级。",
-      "applied": true
+      "reason": "独立验证畸形区域、历史兼容和保守判定反例，需要high。",
+      "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
+      "applied": false
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:97",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:150",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -38,17 +38,17 @@
       "applied": true
     }
   },
-  "candidateSha": "9abae260aa09156657d9db5a4abd9beedaf9de4c",
-  "state": "DEV_READY",
+  "candidateSha": null,
+  "state": "DEV_ACTIVE",
   "automationId": "pairvu-2",
-  "notes": "生命周期修复开发10项交互及typecheck/lint通过，冻结最终候选交独立QA；登录门禁仍待生产复验。",
-  "nextUnitId": "UPG-04",
+  "notes": "生命周期修复已生产关闭且独立真实登录PASS，开放UPG-04本地研发，未授权该新功能生产发布。",
+  "nextUnitId": "UPG-05",
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "71d39c5648335997679b111af811bafdeb17976b",
-    "platformVersion": "ee4c8457-7590-4d36-b495-7183c91627da",
-    "receipt": "operations/evidence/production-upg03-enable-2026-10-10/manifest.json",
-    "receiptSha256": "dc54cdbf01a1bfaa0911ca150756ff2d2bea2a119d10d1a9fca2602802a2fbbb"
+    "releaseSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+    "platformVersion": "9263e27f-2448-4a48-9ecd-a176d1cd9ff2",
+    "receipt": "operations/evidence/production-lifecycle-fix-2026-10-10/manifest.json",
+    "receiptSha256": "21397dbd6687902ddbf452e2e4700d629221a7c12233ad80ef4f690c9ff3bffd"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -73,12 +73,22 @@
       "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
       "receipt": "operations/evidence/production-upg03-2026-10-10/manifest.json",
       "receiptSha256": "9d8bb783137356175e70532f252711e201ecfac02c4d953942b4049092038ee3"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "71d39c5648335997679b111af811bafdeb17976b",
+      "platformVersion": "ee4c8457-7590-4d36-b495-7183c91627da",
+      "receipt": "operations/evidence/production-upg03-enable-2026-10-10/manifest.json",
+      "receiptSha256": "dc54cdbf01a1bfaa0911ca150756ff2d2bea2a119d10d1a9fca2602802a2fbbb"
     }
   ],
   "loginAcceptance": {
-    "status": "FAIL_REPAIR_REQUIRED",
+    "status": "PASS",
     "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
-    "tabId": "4",
-    "finding": "Archive refresh leaves profile editor enabled; after reload archived then restore refresh leaves profile editor disabled. Server lifecycle correct, local latest state stale."
+    "receipt": "operations/evidence/production-lifecycle-fix-2026-10-10/login-qa-raw.json",
+    "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+    "currentTextVersion": 5,
+    "frozenBatchTextVersion": 3,
+    "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "releaseSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "qaCandidateSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "platformVersion": "9263e27f-2448-4a48-9ecd-a176d1cd9ff2",
+  "scope": "http",
+  "reviewedAt": "2026-10-10T14:05:04.242Z",
+  "checks": [
+    {
+      "name": "10 independent HTTP release provenance and protection checks",
+      "status": "PASS"
+    }
+  ]
+}

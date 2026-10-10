@@ -1,0 +1,1180 @@
+{
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "gateUnitId": "UPG-03-ENABLE",
+  "kind": "independent real authenticated SKU increment plus review of prior controller journey evidence",
+  "candidateSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "releaseSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "platformVersion": "9263e27f-2448-4a48-9ecd-a176d1cd9ff2",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "startedAt": "2026-10-10T14:06:22.459Z",
+  "completedAt": "2026-10-10T14:12:09.085195+00:00",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "productName": "Pairvu QA Synthetic Blue Box 20261010",
+  "batchId": "e26ebc30-15cc-40ae-872b-d626bbd00cef",
+  "analysisId": "batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+  "personallyExecuted": [
+    {
+      "name": "legitimate authenticated target page and fresh bundle",
+      "status": "PASS",
+      "detail": "Controller tab IDs are chat-isolated. QA opened the exact authorized product URL normally in its own IAB; existing legitimate sign-in worked without credential/cookie/token transfer. Reloaded once before journey; public health confirmed exact deployment. DOM script URLs recorded."
+    },
+    {
+      "name": "pristine archive/restore without browser reload",
+      "status": "PASS",
+      "detail": "On same mounted product page Archive resulted in archived title, read-only Product declarations and no standard-save button. Restore resulted in editable fields and enabled standard save; only ordinary router refresh, no manual browser reload."
+    },
+    {
+      "name": "dirty draft preserved and fresh review required",
+      "status": "PASS",
+      "detail": "Edited Variant to Blue box v5 QA lifecycle retained draft and Packaging version to QA-5 without submitting. Second archive retained both fields read-only; Restore enabled fields but kept save disabled and required Load latest. Manual GET displayed old saved v4 alongside retained draft; explicit Confirm and save retained draft succeeded."
+    },
+    {
+      "name": "new standard v5 saved and final product active",
+      "status": "PASS",
+      "detail": "Text version5 visible, variant and packaging correct, success message and active editable state. Final Archive product action present; no archived title. Exactly one standard save, four lifecycle actions (archive/restore twice) on specified synthetic product; no other product mutation."
+    },
+    {
+      "name": "history v1/v2/v3/v4 immutable after v5",
+      "status": "PASS",
+      "detail": {
+        "oldContentsMatchedBeforeAfter": [
+          "Blue box v1 · 250 ml · QA-1",
+          "Blue box v2 · 250 ml · QA-2",
+          "QA retained conflict draft · 250 ml · QA-1",
+          "Blue box v4 after batch · 250 ml · QA-4"
+        ],
+        "newVersion": 5
+      }
+    },
+    {
+      "name": "fresh old-batch read remains snapshot text3/ref1 after current text5",
+      "status": "PASS",
+      "detail": "Opened and later reloaded existing completed batch. Frozen summary stays text version3/ref version1, QA retained conflict draft / QA-1; one completed item, REVIEW with 2 review items. No new batch or analysis execution."
+    }
+  ],
+  "controllerExecutedPriorScope": {
+    "sourcePath": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/sku-login-2026-10-10/controller-journey-before-fix.json",
+    "sourceSha256": "29a13cca4aa1b4d41a77889dcb6f76cf195beae0371b5b39f0eb70e229704bad",
+    "originalResultPreserved": "FAIL_REPAIR_REQUIRED",
+    "reviewedChecks": [
+      {
+        "name": "real Google session supplied by user",
+        "status": "PASS"
+      },
+      {
+        "name": "synthetic product and reference upload",
+        "status": "PASS"
+      },
+      {
+        "name": "profile v1 then v2",
+        "status": "PASS"
+      },
+      {
+        "name": "history v1 still Blue box v1 / QA-1",
+        "status": "PASS"
+      },
+      {
+        "name": "stale editor conflict blocks save and keeps draft",
+        "status": "PASS"
+      },
+      {
+        "name": "load latest keeps draft, explicit confirm produces v3",
+        "status": "PASS"
+      },
+      {
+        "name": "archive/restore persists and preserves history",
+        "status": "PASS"
+      },
+      {
+        "name": "one actual batch completes, quota 10 to 9",
+        "status": "PASS"
+      },
+      {
+        "name": "batch frozen at profile v3/reference v1 after current profile advances to v4",
+        "status": "PASS"
+      }
+    ],
+    "personallyRepeatedNow": false,
+    "scopeDistinction": "Create/upload, v1→v2, actual stale-editor HTTP409→draft→manual GET/confirmation→v3, one real batch with quota10→9, and v4 were controller-executed. QA independently observed their preserved v1–v4 history and completed frozen batch after v5, and exercised repaired real lifecycle/draft/manual-confirm path. Do not present prior creation/upload/409/credits as QA-executed."
+  },
+  "priorDefectResolution": {
+    "original": "archive/restore profile state stale until browser reload",
+    "localIndependentEvidence": "/tmp/pairvu-lifecycle-qa.json, 16 actual React cases with source hash eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6",
+    "productionIncrement": "same mounted pristine and dirty lifecycle cycles now pass without manual reload"
+  },
+  "httpReport": "/tmp/pairvu-fix-production-qa.json",
+  "finalState": {
+    "productStatus": "active",
+    "textVersion": 5,
+    "referenceVersion": 1,
+    "batchTextVersion": 3,
+    "batchReferenceVersion": 1,
+    "newAnalysisOrModelCalls": 0,
+    "newUploads": 0,
+    "purchaseOrPlanChange": false,
+    "hardDelete": false
+  },
+  "browserHandoff": {
+    "qaProductTabId": "4",
+    "qaBatchTabId": "5",
+    "browserId": "2",
+    "keptOpenForUser": true,
+    "visible": true
+  },
+  "evidenceDirectory": "/private/tmp/pairvu-sku-login-qa-1791641182196",
+  "evidence": {
+    "08-dirty-restored-review-required.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/08-dirty-restored-review-required.png",
+      "sha256": "eb61fa62aa96daebab9bb165bd9ea9dcebefaa622eb0e4623b46b6b03ee62c58"
+    },
+    "05-unsaved-v5-draft.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/05-unsaved-v5-draft.txt",
+      "sha256": "88f61814bdf80e3a8e8ee9664cbaabe29ded360f36dafd4444dfda1515eb18f9"
+    },
+    "12-batch-v3-reference-v1-after-v5.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/12-batch-v3-reference-v1-after-v5.txt",
+      "sha256": "11b86848fbfea66b6eb4cd2e848b105610dac095d3290639869dff2750d47fef"
+    },
+    "01-active-v4-baseline.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/01-active-v4-baseline.txt",
+      "sha256": "230088a55d20406b34d038afb310625cbcccacdb6d19ae9607a9d7d4f5ff16a8"
+    },
+    "02-history-v1-v4-before.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/02-history-v1-v4-before.png",
+      "sha256": "ff4b5edef49a4589ed1f75bdf43995128bd4f77dfe369586ea0f8c5f804e5679"
+    },
+    "04-pristine-restored-no-reload.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/04-pristine-restored-no-reload.png",
+      "sha256": "365dab89cd7301b0fe1570e2f269f6ec857b167da6d079f231b84e190b09518b"
+    },
+    "08-dirty-restored-review-required.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/08-dirty-restored-review-required.txt",
+      "sha256": "e2a95024aa0a8678708326a98cd6ebd62b43b1e687d7160f1e003d2f4ce2c0a5"
+    },
+    "05-unsaved-v5-draft.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/05-unsaved-v5-draft.png",
+      "sha256": "022c34453fce90fc5664cb17e4188a8548ac48fb96f9871e19cc289fd2e70c76"
+    },
+    "12-batch-v3-reference-v1-after-v5.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/12-batch-v3-reference-v1-after-v5.png",
+      "sha256": "04d92799bb7f2a5c90ff63e64a920e2e6a32737f69020e71ee5f5c3f9884b9f2"
+    },
+    "01-active-v4-baseline.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/01-active-v4-baseline.png",
+      "sha256": "9735a4404113c8aec35f7a6a25ecceb274ee97f36aa67605c4a43662206d6f0c"
+    },
+    "04-pristine-restored-no-reload.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/04-pristine-restored-no-reload.txt",
+      "sha256": "4eec7b9b857645396c5d0a7708ba6a2ead0223526e06bae1a69116d53ca3b70e"
+    },
+    "02-history-v1-v4-before.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/02-history-v1-v4-before.txt",
+      "sha256": "035cdac80152971e8842e6db4ae2abd487dd1d4e7f89d02d30724b7a235e898a"
+    },
+    "console-errors.json": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/console-errors.json",
+      "sha256": "b6b78c76bb4b7eacbf1928014b77b0de87b81b36f6b424bfcaa7ce974de29516"
+    },
+    "03-pristine-archived-no-reload.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/03-pristine-archived-no-reload.txt",
+      "sha256": "6386ca234232201bf3c569a7d353dc69a275508997e42f9011fd087697bdc445"
+    },
+    "10-v5-saved-active-without-reload.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/10-v5-saved-active-without-reload.txt",
+      "sha256": "36d8fcfb092e7706a6eb2d8f09e16d750600e8517c5fa0edad9ab53af7491d58"
+    },
+    "steps.json": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/steps.json",
+      "sha256": "c17846729b9417341a3d76f316ea6a719675e7327cd5afa43a0f272c63be7926"
+    },
+    "07-dirty-archived-no-reload.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/07-dirty-archived-no-reload.txt",
+      "sha256": "c73e4cfb07c2e39baab2ce7efd142958db0a006487fa06c5dc6ffa04fa96089a"
+    },
+    "09-latest-v4-draft-v5-explicit-confirmation.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/09-latest-v4-draft-v5-explicit-confirmation.txt",
+      "sha256": "f9f4c8e9a9e124fd26c098cbaf362a76d3f6f5902f4fcba798b262b57c2263e3"
+    },
+    "11-history-v1-v5-preserved-final-active.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/11-history-v1-v5-preserved-final-active.png",
+      "sha256": "7d597d667cc12547e28e328ab7dd6b6f7bffa4763b3453946be5a5ff460f6a80"
+    },
+    "06-batch-v3-reference-v1-before-v5.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/06-batch-v3-reference-v1-before-v5.png",
+      "sha256": "04d92799bb7f2a5c90ff63e64a920e2e6a32737f69020e71ee5f5c3f9884b9f2"
+    },
+    "10-v5-saved-active-without-reload.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/10-v5-saved-active-without-reload.png",
+      "sha256": "1f867848695138e8799d5c47633740065e7d9819e482d63792699df71b23f3d3"
+    },
+    "03-pristine-archived-no-reload.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/03-pristine-archived-no-reload.png",
+      "sha256": "b05696193d545489b96fab649a748cd0e973851f79a2600c581f898dddcc5d44"
+    },
+    "final-product-v5-viewport.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/final-product-v5-viewport.png",
+      "sha256": "917f938f7149c281b29732775ad964d09b9ac266d4c3dedfc7a92673f7bc166c"
+    },
+    "06-batch-v3-reference-v1-before-v5.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/06-batch-v3-reference-v1-before-v5.txt",
+      "sha256": "daf7a2eba14d89a8716e1aabd6396aecc28f6936af4cf9de6f5239798b4fbbaa"
+    },
+    "07-dirty-archived-no-reload.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/07-dirty-archived-no-reload.png",
+      "sha256": "c3bf8bc3876aa0764e016be2865522fed1c1b11c78f5a6722eb313db0a327e35"
+    },
+    "09-latest-v4-draft-v5-explicit-confirmation.png": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/09-latest-v4-draft-v5-explicit-confirmation.png",
+      "sha256": "c51309b59a97b8f2a3373e0512887dc3ba1e48c3d73ae6d1f5559890c2f7f619"
+    },
+    "11-history-v1-v5-preserved-final-active.txt": {
+      "path": "/private/tmp/pairvu-sku-login-qa-1791641182196/11-history-v1-v5-preserved-final-active.txt",
+      "sha256": "17720edb6fd29c00f0b222d0e16ff2aeec77c87ad3326e3edaa4b5df2bb62486"
+    }
+  },
+  "controllerEvidenceHashes": [
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/sku-login-2026-10-10/controller-journey-before-fix.json",
+      "sha256": "29a13cca4aa1b4d41a77889dcb6f76cf195beae0371b5b39f0eb70e229704bad"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/sku-login-2026-10-10/batch-v3.txt",
+      "sha256": "21d911b832ec1bbdf21c7ac0bc341c2f580bd2012022b4d56c43598cdfeab1d0"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/sku-login-2026-10-10/batch-after-v4.txt",
+      "sha256": "3ea0b6c3adbc9f70c06fd2cf5ff869cbadec1ca68a0e686d52d86a6c807cb162"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/sku-login-2026-10-10/product-v4.txt",
+      "sha256": "6e286760915871aa5499b0278805c8478af7d232c83eb486aca4d4fc31c8ee32"
+    }
+  ],
+  "steps": [
+    {
+      "name": "01-active-v4-baseline",
+      "checkedAt": "2026-10-10T14:06:22.459Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/01-active-v4-baseline.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/01-active-v4-baseline.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v4 after batch"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-4"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "observedProduct": "Pairvu QA Synthetic Blue Box 20261010",
+        "textVersion": 4,
+        "referenceVersion": 1,
+        "manualReloadBeforeJourney": true
+      }
+    },
+    {
+      "name": "02-history-v1-v4-before",
+      "checkedAt": "2026-10-10T14:07:00.859Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/02-history-v1-v4-before.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/02-history-v1-v4-before.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v4 after batch"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-4"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "oldHistoryVisible": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "v1": "Blue box v1 / QA-1",
+        "v2": "Blue box v2 / QA-2",
+        "v3": "QA retained conflict draft / QA-1",
+        "v4": "Blue box v4 after batch / QA-4"
+      }
+    },
+    {
+      "name": "03-pristine-archived-no-reload",
+      "checkedAt": "2026-10-10T14:07:28.992Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/03-pristine-archived-no-reload.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/03-pristine-archived-no-reload.png",
+      "dom": {
+        "fieldsetDisabled": true,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v4 after batch"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-4"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "archived": true,
+        "manualReload": false
+      }
+    },
+    {
+      "name": "04-pristine-restored-no-reload",
+      "checkedAt": "2026-10-10T14:08:04.934Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/04-pristine-restored-no-reload.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/04-pristine-restored-no-reload.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v4 after batch"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-4"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "restored": true,
+        "manualReload": false
+      }
+    },
+    {
+      "name": "05-unsaved-v5-draft",
+      "checkedAt": "2026-10-10T14:08:11.279Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/05-unsaved-v5-draft.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/05-unsaved-v5-draft.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "variant": "Blue box v5 QA lifecycle retained draft",
+        "packagingVersion": "QA-5",
+        "submitted": false
+      }
+    },
+    {
+      "name": "07-dirty-archived-no-reload",
+      "checkedAt": "2026-10-10T14:08:34.180Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/07-dirty-archived-no-reload.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/07-dirty-archived-no-reload.png",
+      "dom": {
+        "fieldsetDisabled": true,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "manualReload": false,
+        "draftVariant": "Blue box v5 QA lifecycle retained draft",
+        "draftPackagingVersion": "QA-5",
+        "freshReviewRequired": true
+      }
+    },
+    {
+      "name": "08-dirty-restored-review-required",
+      "checkedAt": "2026-10-10T14:08:54.586Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/08-dirty-restored-review-required.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/08-dirty-restored-review-required.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "manualReload": false,
+        "restored": true,
+        "draftKept": true,
+        "saveDisabledUntilManualReview": true
+      }
+    },
+    {
+      "name": "09-latest-v4-draft-v5-explicit-confirmation",
+      "checkedAt": "2026-10-10T14:09:07.075Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/09-latest-v4-draft-v5-explicit-confirmation.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/09-latest-v4-draft-v5-explicit-confirmation.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "savedTextVersion": 4,
+        "retainedDraftVariant": "Blue box v5 QA lifecycle retained draft",
+        "retainedDraftPackaging": "QA-5",
+        "explicitConfirmationAvailable": true
+      }
+    },
+    {
+      "name": "10-v5-saved-active-without-reload",
+      "checkedAt": "2026-10-10T14:09:36.618Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/10-v5-saved-active-without-reload.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/10-v5-saved-active-without-reload.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "textVersion": 5,
+        "variant": "Blue box v5 QA lifecycle retained draft",
+        "packagingVersion": "QA-5",
+        "active": true,
+        "savedAfterManualConfirmation": true,
+        "manualReloadDuringLifecycle": false
+      }
+    },
+    {
+      "name": "11-history-v1-v5-preserved-final-active",
+      "checkedAt": "2026-10-10T14:09:52.778Z",
+      "axPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/11-history-v1-v5-preserved-final-active.txt",
+      "screenshotPath": "/private/tmp/pairvu-sku-login-qa-1791641182196/11-history-v1-v5-preserved-final-active.png",
+      "dom": {
+        "fieldsetDisabled": false,
+        "profileInputs": [
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic Blue Box 20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "PAIRVU-QA-SYNTH-20261010"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Pairvu QA Synthetic"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "Blue box v5 QA lifecycle retained draft"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "QA-5"
+          },
+          {
+            "disabled": false,
+            "type": "text",
+            "value": "250"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          },
+          {
+            "disabled": false,
+            "type": "checkbox",
+            "value": "on"
+          }
+        ],
+        "scripts": [
+          "https://pairvu.com/_next/static/chunks/3_yrb3xfc2s-u.js",
+          "https://pairvu.com/_next/static/chunks/1l8t_tf67v76z.js",
+          "https://pairvu.com/_next/static/chunks/385-2sf516n4-.js",
+          "https://pairvu.com/_next/static/chunks/turbopack-3f52ovhrl9c5j.js",
+          "https://pairvu.com/_next/static/chunks/12_6afifx99-z.js",
+          "https://pairvu.com/_next/static/chunks/1g_nxoa96zpiv.js",
+          "https://pairvu.com/_next/static/chunks/1lfvyplzhoiau.js",
+          "https://pairvu.com/_next/static/chunks/2vs5hymo138hj.js",
+          "https://pairvu.com/_next/static/chunks/246dyrrgjsfmr.js",
+          "https://pairvu.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "https://pairvu.com/_next/static/chunks/1p3ke1b4b6mxl.js",
+          "https://pairvu.com/_next/static/chunks/1ge9_szr34xne.js",
+          "https://pairvu.com/_next/static/chunks/2aedevc9nlb0r.js",
+          "https://pairvu.com/_next/static/chunks/3ahsjnhw6gryf.js",
+          "https://pairvu.com/_next/static/chunks/13a-m4yf6a6w8.js",
+          "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        ],
+        "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f"
+      },
+      "detail": {
+        "preservedOldTextVersions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "newTextVersion": 5,
+        "finalStatus": "active",
+        "noExtraAnalysis": true
+      }
+    }
+  ],
+  "limitations": [
+    "Production503 or packet reordering not deliberately induced. Exact UUID/body503 retries and late GET/PUT orders are covered by independently accepted local actual-React cases.",
+    "No additional real batch/model/credit execution; original quota10→9 is controller evidence. QA saw9 available when loading batch and did no chargeable action.",
+    "CSV is Free-plan upgrade gated per existing controller evidence; no purchase or bypass.",
+    "Model REVIEW result is successful processing, not a model accuracy claim.",
+    "Two React418 text hydration warnings were observed on initial/reload page loads, saved in console-errors.json; lifecycle and save completed. Existing timestamp rendering was unchanged by this repair; warning not attributed to a new defect.",
+    "No shared repository modifications or deployment by QA; only authorized synthetic product lifecycle/profile UI operations."
+  ],
+  "findings": [],
+  "nextAction": "Controller may import these distinct HTTP and real-login evidence scopes and close lifecycle repair/login gate, then advance separately scoped UPG-04. Preserve original controller FAIL and local attempt evidence."
+}

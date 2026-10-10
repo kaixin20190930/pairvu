@@ -1,0 +1,229 @@
+
+> product-visual-qa-platform@0.1.0 deploy /Users/liukai/Documents/Product Visual QA Platform
+> node scripts/deploy-release.mjs deploy --candidate ce1f2fee7f43735ff6b6f13f3867840943d19471 --remote origin --branch main
+
+
+┌─────────────────────────────┐
+│ OpenNext — Cloudflare build │
+└─────────────────────────────┘
+
+App directory: /Users/liukai/Documents/Product Visual QA Platform
+Next.js version : 16.2.12
+@opennextjs/cloudflare version: 1.20.2
+@opennextjs/aws version: 4.1.0
+workerd compatibility_date: 2026-07-26
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> product-visual-qa-platform@0.1.0 build /Users/liukai/Documents/Product Visual QA Platform
+> node scripts/build-release.mjs
+
+▲ Next.js 16.2.12 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.3s
+  Running TypeScript ...
+  Finished TypeScript in 8.0s ...
+  Collecting page data using 9 workers ...
+  Generating static pages using 9 workers (0/73) ...
+  Generating static pages using 9 workers (18/73) 
+  Generating static pages using 9 workers (36/73) 
+  Generating static pages using 9 workers (54/73) 
+✓ Generating static pages using 9 workers (73/73) in 757ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /account
+├ ƒ /account/batches
+├ ƒ /account/batches/new
+├ ƒ /account/products
+├ ƒ /account/products/[productId]
+├ ƒ /account/products/new
+├ ○ /ai-product-photography
+├ ƒ /api/account/assets
+├ ƒ /api/account/session
+├ ƒ /api/analyses
+├ ƒ /api/analyses/[analysisId]
+├ ƒ /api/analyses/[analysisId]/feedback
+├ ƒ /api/assets/[assetId]
+├ ƒ /api/assets/upload
+├ ƒ /api/auth/[...all]
+├ ƒ /api/batches
+├ ƒ /api/batches/[batchId]
+├ ƒ /api/batches/[batchId]/export
+├ ƒ /api/batches/references
+├ ƒ /api/billing/checkout
+├ ƒ /api/billing/context
+├ ƒ /api/billing/packs/checkout
+├ ƒ /api/billing/packs/status
+├ ƒ /api/billing/portal
+├ ƒ /api/billing/webhook
+├ ƒ /api/events
+├ ƒ /api/health
+├ ƒ /api/products
+├ ƒ /api/products/[productId]
+├ ƒ /api/products/[productId]/profile
+├ ƒ /api/products/[productId]/profiles
+├ ƒ /api/products/[productId]/references
+├ ƒ /api/runtime-config
+├ ○ /categories
+├ ○ /categories/beverage-product-image-qa
+├ ○ /categories/cosmetics-product-image-qa
+├ ○ /categories/household-packaged-goods-image-qa
+├ ○ /categories/packaged-food-product-image-qa
+├ ○ /categories/personal-care-product-image-qa
+├ ○ /categories/skincare-product-image-qa
+├ ○ /checks
+├ ○ /checks/product-color
+├ ○ /checks/product-components
+├ ○ /checks/product-image-observability
+├ ○ /checks/product-label-text
+├ ○ /checks/product-logo
+├ ○ /checks/product-packaging
+├ ○ /checks/product-quantity
+├ ○ /examples
+├ ○ /examples/background-change-ai-product-image
+├ ○ /examples/candle-accessory-outside-crop
+├ ○ /examples/candle-set-component-removed
+├ ○ /examples/candle-set-scene-change
+├ ○ /examples/cold-brew-condensation-change
+├ ○ /examples/cold-brew-flavor-volume-change
+├ ○ /examples/color-change-ai-product-image
+├ ○ /examples/controlled-visual-qa-benchmark
+├ ○ /examples/extra-candle-accessory
+├ ○ /examples/extra-product-component-ai-image
+├ ○ /examples/household-cleaner-background-change
+├ ○ /examples/household-cleaner-capacity-change
+├ ○ /examples/identical-product-images-pass
+├ ○ /examples/label-value-change-ai-product-image
+├ ○ /examples/large-viewpoint-difference-product-image
+├ ○ /examples/laundry-pouch-color-change
+├ ○ /examples/laundry-sheets-back-view-review
+├ ○ /examples/laundry-sheets-background-change
+├ ○ /examples/laundry-sheets-scent-count-change
+├ ○ /examples/lighting-change-product-image
+├ ○ /examples/logo-change-ai-product-image
+├ ○ /examples/missing-product-component-ai-image
+├ ○ /examples/packaging-shape-change-ai-product-image
+├ ○ /examples/partially-hidden-product-logo
+├ ○ /examples/partially-visible-product-image
+├ ○ /examples/product-color-not-observable-label-crop
+├ ○ /examples/product-count-change-ai-image
+├ ○ /examples/product-repositioning-perspective-change
+├ ○ /examples/shadow-reflection-change-product-image
+├ ○ /examples/skincare-package-crop-review
+├ ○ /examples/skincare-product-background-change
+├ ○ /examples/skincare-spf-value-change
+├ ○ /examples/toothpaste-variant-color-change
+├ ○ /examples/unreadable-product-label-text
+├ ○ /guides
+├ ○ /guides/ai-product-photography-checklist
+├ ○ /guides/compare-original-and-ai-product-images
+├ ○ /guides/ecommerce-product-image-requirements
+├ ○ /guides/keep-products-consistent-in-ai-images
+├ ○ /how-pairvu-works
+├ ○ /icon.svg
+├ ○ /manifest.webmanifest
+├ ○ /opengraph-image
+├ ○ /pricing
+├ ○ /privacy
+├ ○ /robots.txt
+├ ƒ /sign-in
+├ ○ /sitemap.xml
+├ ○ /use-cases
+├ ○ /use-cases/amazon-product-image-qa
+├ ○ /use-cases/brands
+├ ○ /use-cases/creative-agencies
+├ ○ /use-cases/ecommerce-product-image-qa
+└ ○ /use-cases/shopify-product-image-qa
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+Applying code patches: 1.972s
+# copyPackageTemplateFiles
+[35m⚙️ Bundling the OpenNext server...
+[0m
+[35mWorker saved in `.open-next/worker.js` 🚀
+[0m
+OpenNext build complete.
+{"event":"release-prepared","candidateSha":"ce1f2fee7f43735ff6b6f13f3867840943d19471","remote":"origin","branch":"main","remoteSha":"ce1f2fee7f43735ff6b6f13f3867840943d19471","checkedAt":"2026-10-10T14:01:27.752Z","action":"deploy","artifactSha256":"e1f35b5569e4e6bc690279df694cbc19bc72ac7916e48dd2bfd26c83e21cebeb","initialCheckedAt":"2026-10-10T14:00:50.961Z"}
+
+ ⛅️ wrangler 4.114.0 (update available 4.149.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 123 files from the assets directory /Users/liukai/Documents/Product Visual QA Platform/.open-next/assets
+🌀 Starting asset upload...
+🌀 Found 2 new or modified static assets to upload. Proceeding with upload...
++ /BUILD_ID
++ /_next/static/chunks/246dyrrgjsfmr.js
+Uploaded 1 of 2 assets
+Uploaded 2 of 2 assets
+✨ Success! Uploaded 2 files (82 already uploaded) (1.93 sec)
+
+Total Upload: 19337.52 KiB / gzip: 4361.45 KiB
+Worker Startup Time: 44 ms
+Your Worker has access to the following bindings:
+Binding                                                                                             Resource                     
+env.BATCH_ANALYSIS_QUEUE (inherited)                                                                Queue                        
+env.BATCH_PRIORITY_ANALYSIS_QUEUE (inherited)                                                       Queue                        
+env.VISUALQA_DB (pairvu-production)                                                                 D1 Database                  
+env.VISUALQA_ASSETS (pairvu-assets-production)                                                      R2 Bucket                    
+env.ASSETS                                                                                          Assets                       
+env.PAIRVU_VERSION_METADATA                                                                         Worker Version Metadata      
+env.NEXTJS_ENV ("production")                                                                       Environment Variable         
+env.PRODUCT_PROFILES_ENABLED ("true")                                                               Environment Variable         
+env.ANONYMOUS_ASSET_RETENTION_HOURS ("24")                                                          Environment Variable         
+env.OPENAI_MODEL ("gpt-4.1-mini")                                                                   Environment Variable         
+env.OPENAI_PROMPT_VERSION ("m0-real-mvp-009")                                                       Environment Variable         
+env.OPENAI_REQUEST_TIMEOUT_MS ("120000")                                                            Environment Variable         
+env.TURNSTILE_SITE_KEY ("0x4AAAAAAEAut-dQfjfNjITa")                                                 Environment Variable         
+env.PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS ("true")                                                 Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_MINUTE_LIMIT ("3")                                                      Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_DAILY_LIMIT ("8")                                                       Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_DAILY_LIMIT ("50")                                                       Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_CONCURRENT_LIMIT ("1")                                                  Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_CONCURRENT_LIMIT ("3")                                                   Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_DAILY_SPEND_LIMIT_USD ("5")                                             Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_DAILY_SPEND_LIMIT_USD ("25")                                             Environment Variable         
+env.PUBLIC_UPLOAD_SESSION_MINUTE_LIMIT ("10")                                                       Environment Variable         
+env.PUBLIC_UPLOAD_SESSION_DAILY_LIMIT ("24")                                                        Environment Variable         
+env.PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE ("false")                                                Environment Variable         
+env.BETTER_AUTH_URL ("https://pairvu.com")                                                          Environment Variable         
+env.AUTH_EMAIL_FROM ("Pairvu <sign-in@pairvu.com>")                                                 Environment Variable         
+env.AUTH_TRUSTED_ORIGINS ("https://pairvu.com,https://www.pairvu...")                               Environment Variable         
+env.STRIPE_PRICE_STARTER ("price_1U4wVaGlvseBpI4P6LKCEoYz")                                         Environment Variable         
+env.STRIPE_PRICE_GROWTH ("price_1U5G9PGlvseBpI4PQlZsQT7v")                                          Environment Variable         
+env.STRIPE_PRICE_AGENCY ("price_1U5GA0GlvseBpI4Phe04i4fi")                                          Environment Variable         
+env.STRIPE_PRICE_PACK_50 ("price_1U65lwGlvseBpI4PVQ7aKUNH")                                         Environment Variable         
+env.STRIPE_PRICE_PACK_200 ("price_1U65mZGlvseBpI4PwdicWZ8g")                                        Environment Variable         
+env.STRIPE_PRICE_PACK_500 ("price_1U65nqGlvseBpI4PqxwtBMGA")                                        Environment Variable         
+
+Uploaded pairvu (19.50 sec)
+Deployed pairvu triggers (8.83 sec)
+  https://pairvu.liukai19911010.workers.dev
+  pairvu.com (custom domain)
+  www.pairvu.com (custom domain)
+  schedule: */15 * * * *
+  Producer for pairvu-batch-analysis
+  Producer for pairvu-batch-priority-analysis
+  Consumer for pairvu-batch-analysis
+  Consumer for pairvu-batch-priority-analysis
+  Consumer for pairvu-batch-dead-letter
+Current Version ID: 9263e27f-2448-4a48-9ecd-a176d1cd9ff2
+{"event":"release-command-completed","candidateSha":"ce1f2fee7f43735ff6b6f13f3867840943d19471","remote":"origin","branch":"main","remoteSha":"ce1f2fee7f43735ff6b6f13f3867840943d19471","checkedAt":"2026-10-10T14:01:27.752Z","action":"deploy","artifactSha256":"e1f35b5569e4e6bc690279df694cbc19bc72ac7916e48dd2bfd26c83e21cebeb","initialCheckedAt":"2026-10-10T14:00:50.961Z","platformVersion":"unknown","smoke":"required"}

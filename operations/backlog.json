@@ -64,7 +64,7 @@
         "UPG-03-LIFECYCLE-FIX"
       ],
       "mode": "runtime",
-      "autoEligible": false,
+      "autoEligible": true,
       "requiredEvidence": [
         "fixed candidate SHA",
         "independent QA report"

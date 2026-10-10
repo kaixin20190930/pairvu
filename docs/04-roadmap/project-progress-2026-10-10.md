@@ -6,9 +6,11 @@
 
 ## 当前生产与验收
 
-发布SHA `71d39c5648335997679b111af811bafdeb17976b`，Cloudflare Worker `ee4c8457-7590-4d36-b495-7183c91627da`。先提交推送GitHub、fresh fetch核验、确认无待迁移、实际构建并部署同SHA。PRODUCT_PROFILES_ENABLED已为字符串true。独立10项HTTP/来源/匿名权限检查通过，部署单元UPG-03-ENABLE已正式CLOSED。
+当前发布SHA `ce1f2fee7f43735ff6b6f13f3867840943d19471`，Cloudflare Worker `9263e27f-2448-4a48-9ecd-a176d1cd9ff2`。先GitHub推送/fresh fetch核验，确认无待迁移，实际构建并部署同SHA。SKU开关已启用。
 
-真实登录会话已完成合成产品创建、标准v1→v2、旧历史内容核对、旧页面冲突保留草稿、载入最新标准并显式确认生成v3。发现归档/恢复后文字编辑器状态未同步的UI缺陷，UPG-03-LIFECYCLE-FIX正在返原开发修复。登录旅程尚未PASS，UPG-04未开放。单项合成批次验收进行中。未购买或修改客户资产。
+真实登录验收发现的归档/恢复文字编辑器状态问题已修复：16项独立组件回归通过，生产独立10项HTTP及真实登录增量均PASS。亲自复验两轮归档/恢复无需手动刷新、草稿保留及显式确认、保存v5、v1–v4历史不变。总控此前已验证创建/上传、真实旧版本冲突及一个批次消耗1额度（10→9）；独立QA再核对旧批次仍固定文字v3/参考v1。测试产品最终active。
+
+UPG-03-ENABLE与UPG-03-LIFECYCLE-FIX均经真实manifest和正式CLI关闭，原失败证据保留。当前Free套餐CSV需升级，未购买或绕过；503重试只在本地独立反例验证。合成批次模型输出REVIEW，不能据此宣称总体准确率。UPG-04登录门禁已满足，自动进入本地研发。
 
 ## 升级交付线
 
@@ -20,8 +22,8 @@
 | AUTO-02 生产证据/计划同步 | 已关闭并用于真实发布 | 状态只经正式CLI推进，不手改 |
 | UPG-03A/03B0 SKU设计与D1实证 | 已独立通过并关闭 | 37专项+11独立反例不等于远端负载验证 |
 | UPG-03 SKU版本化实现 | 73独立用例、3315本地D1请求通过；代码/0020 schema上线 | 标准是用户声明，不自动覆盖图像证据 |
-| UPG-03-ENABLE | 已上线启用，独立HTTP通过 | 登录旅程发现UI缺陷，修复验收尚未关闭 |
-| UPG-04 结构化区域证据 | 下一项，待前项登录PASS | 预期/观测、双方区域、可见性、严重度、版本来源；不编造位置 |
+| UPG-03-ENABLE及生命周期修复 | 已上线启用并生产关闭 | 真实登录独立PASS；原失败和修复证据保留 |
+| UPG-04 结构化区域证据 | 门禁通过，契约开放，本地研发中 | 预期/观测、双方区域、可见性、严重度、版本来源；不编造位置 |
 | UPG-05/06 人审/工作台 | 待开发 | 人工决定与机器结果分离、理由/审计/历史 |
 | UPG-07 视角与影子评测 | 待开发 | 依赖有效样本和可观测性证据 |
 | UPG-08/09 API/Webhook | 待开发 | 鉴权、幂等、额度、重试与签名 |
@@ -35,6 +37,6 @@
 
 ## 下一步做什么
 
-自动回收UPG-03-LIFECYCLE-FIX开发和独立QA，按既有授权先GitHub再Cloudflare发布必要修复，复验归档恢复及登录旅程。登录PASS后自动制定并执行UPG-04最小契约；UPG-04新功能发布不继承SKU修复授权，默认止于RELEASE_READY。
+自动完成UPG-04结构化区域证据的开发、固定SHA独立QA及必要返工；通过后停在RELEASE_READY。它是新的功能版本，生产发布不继承SKU修复授权，需要用户另行授权。随后顺序为UPG-05人工决定、UPG-06工作台、UPG-07评测、UPG-08/09 API/Webhook。
 
-证据：[启用生产manifest](../../operations/evidence/production-upg03-enable-2026-10-10/manifest.json)、[SKU原独立验收](../../operations/evidence/UPG-03/qa-acceptance.md)、[完整升级方案](product-upgrade-plan-2026-10-10.md)、[下一批任务](next-development-batch-2026-10-10.md)。
+证据：[修复生产manifest](../../operations/evidence/production-lifecycle-fix-2026-10-10/manifest.json)、[真实登录独立验收](../../operations/evidence/production-lifecycle-fix-2026-10-10/login-qa-raw.json)、[启用生产manifest](../../operations/evidence/production-upg03-enable-2026-10-10/manifest.json)、[SKU原独立验收](../../operations/evidence/UPG-03/qa-acceptance.md)、[完整升级方案](product-upgrade-plan-2026-10-10.md)、[下一批任务](next-development-batch-2026-10-10.md)。

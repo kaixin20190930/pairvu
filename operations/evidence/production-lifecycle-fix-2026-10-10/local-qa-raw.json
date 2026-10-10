@@ -1,0 +1,196 @@
+{
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "candidateSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "baselineSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "developmentSha": "9abae260aa09156657d9db5a4abd9beedaf9de4c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "completedAt": "2026-10-10T13:59:46.657251+00:00",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": {
+        "head": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+        "cleanWorkingTree": true,
+        "candidateVsDeveloperDelta": [
+          "operations/task-registry.json"
+        ]
+      }
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": {
+        "independentReactInteractionCases": 16,
+        "originalFixtureCases": 10,
+        "additionalCases": 6,
+        "productionComponentSha256": "eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6",
+        "profileRequestCount": 25
+      }
+    },
+    {
+      "name": "permitted runtime and synthetic fixture scope",
+      "status": "PASS",
+      "detail": {
+        "runtimeFiles": [
+          "app/account/products/[productId]/ProductProfileClient.tsx"
+        ],
+        "fixtureFiles": [
+          "fixtures/product-profiles/lifecycle-attempt-1-results.json",
+          "fixtures/product-profiles/lifecycle-checks.json",
+          "fixtures/product-profiles/lifecycle-entry.tsx",
+          "fixtures/product-profiles/lifecycle-results.json",
+          "fixtures/product-profiles/lifecycle-server.mjs"
+        ],
+        "controllerDocsEvidenceExcludedFromRuntimeScope": true,
+        "API/Migration/Credits/Dependencies/ConfigUnchanged": true
+      }
+    },
+    {
+      "name": "actual React archive restore without reload",
+      "status": "PASS",
+      "detail": "same mounted active and initially archived editor refresh permissions/revision, restore accepts save; repeated lifecycle cycles safe."
+    },
+    {
+      "name": "dirty props and 409 require explicit fresh review",
+      "status": "PASS",
+      "detail": "name and non-name profile fields retained; new props do not submit/rebase silently; 409 stays disabled across props and GET failures until successful manual GET and confirmation."
+    },
+    {
+      "name": "503 request identity and asynchronous order",
+      "status": "PASS",
+      "detail": "byte-identical request body/UUID kept for 503 unchanged revision and across newer props/archive/restore; conflict review generates new key; delayed successful PUT and stale follow-up GET cannot revive archived editor or roll back revision."
+    },
+    {
+      "name": "related typecheck",
+      "status": "PASS",
+      "detail": {
+        "command": "./node_modules/.bin/tsc --noEmit",
+        "cwd": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t",
+        "exitCode": 0,
+        "timing": "Ran fixed archive before QA helper additions."
+      }
+    },
+    {
+      "name": "candidate runtime diff check",
+      "status": "PASS",
+      "detail": {
+        "exitCode": 0,
+        "scope": "changed component and product-profile fixtures",
+        "fullDiffNote": "Full baseline delta has only raw controller accessibility .txt evidence trailing spaces; no runtime/fixture whitespace errors."
+      }
+    },
+    {
+      "name": "source and developer evidence lineage",
+      "status": "PASS",
+      "detail": "All 3 developer component/helper hashes match fixed candidate and rerun. Original attempt-1 failure preserved; final late post-save GET case passes."
+    }
+  ],
+  "findings": [],
+  "originalRerunCases": [
+    {
+      "name": "same mounted active editor archives immediately, restores and saves at new revision",
+      "status": "PASS"
+    },
+    {
+      "name": "editor initially mounted archived restores without page reload",
+      "status": "PASS"
+    },
+    {
+      "name": "dirty draft survives archive/restore and requires explicit fresh review",
+      "status": "PASS"
+    },
+    {
+      "name": "409 remains blocked across new props until manual GET and confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "503 retry keeps exact UUID/body despite newer props, then 409 requires review",
+      "status": "PASS"
+    },
+    {
+      "name": "503 unchanged-revision retry is byte-identical and successful",
+      "status": "PASS"
+    },
+    {
+      "name": "out-of-order props cannot regress lifecycle or submission revision",
+      "status": "PASS"
+    },
+    {
+      "name": "late manual GET cannot roll back fresher archived props or permit confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "late post-save GET cannot resurrect editor after newer archive",
+      "status": "PASS"
+    },
+    {
+      "name": "new profile props update pristine draft, but preserve dirty draft and invalidate reviewed confirmation",
+      "status": "PASS"
+    }
+  ],
+  "independentAdditionalCases": [
+    {
+      "name": "QA uncertain PUT 503 arriving after archive and restore retains original retry body",
+      "status": "PASS"
+    },
+    {
+      "name": "QA accepted PUT response after newer archive cannot rebase draft or revive editor",
+      "status": "PASS"
+    },
+    {
+      "name": "QA manual GET 503 and network failure cannot clear 409 or enable confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "QA non-name dirty field survives lifecycle and new profile props",
+      "status": "PASS"
+    },
+    {
+      "name": "QA pristine repeated archive restore cycles advance base without remount",
+      "status": "PASS"
+    },
+    {
+      "name": "QA dirty active props plus stale active manual GET remains blocked",
+      "status": "PASS"
+    }
+  ],
+  "evidence": {
+    "qa-source-hashes.json": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/qa-source-hashes.json",
+      "sha256": "7bf3113b91beaf0e49991ea521294aceb511437effba975370e6c9bdd617402d"
+    },
+    "qa-rerun-results.json": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/qa-rerun-results.json",
+      "sha256": "1394fc603fa05838e6e7b8ef60b03c2ff96789d920e67e6584e46a9220098c76"
+    },
+    "qa-additional-results.json": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/qa-additional-results.json",
+      "sha256": "02a480ff977744d0420bcbb2223f7890b70e59fae53bdb3fc52b91450cda81a4"
+    },
+    "qa-additional-browser.png": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/qa-additional-browser.png",
+      "sha256": "7e552dbd2d8ce8e2bd4d05b6c393689d35864de49f13afa67b7f2732159cb033"
+    },
+    "fixtures/product-profiles/qa-lifecycle-entry.tsx": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/fixtures/product-profiles/qa-lifecycle-entry.tsx",
+      "sha256": "b42594d3e468c6e4b8fa59e72ba3761780ffcde7c5775eafdecba79498af8019"
+    },
+    "fixtures/product-profiles/qa-lifecycle-server.mjs": {
+      "path": "/private/tmp/pairvu-lifecycle-qa-da4rnl7t/fixtures/product-profiles/qa-lifecycle-server.mjs",
+      "sha256": "4728a4f548063cc99a20550eef3fcffaf6081d391e49b61f9fbb68e9ed6c92eb"
+    }
+  },
+  "modelSelection": {
+    "requestedModel": "gpt-6.1-sol",
+    "requestedReasoning": "high",
+    "reason": "Async React props, request identity, monotonic lifecycle/CAS and dirty-draft/order negative scenarios require detailed independent review; no subagents."
+  },
+  "limitations": [
+    "Synthetic actual React DOM component; fetch/router and lifecycle parent props are controlled. Does not prove authenticated production lifecycle flow.",
+    "No full D1/build repeated per contract; controller deployment gate must build exact pushed candidate and independently reverify production synthetic product.",
+    "No shared repository/docs/control state changes, git commit/push, deployment, browser production actions or remote API/database/provider/credit calls.",
+    "Effect follows confirmed fresh server props; no optimistic lifecycle update before server action succeeds."
+  ]
+}
