@@ -1,0 +1,112 @@
+{
+  "unitId": "UPG-04",
+  "candidateSha": "56831832778bfb7754d6be60b8e80fee7163ed1a",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-10T15:09:07.708Z",
+  "schema2ReceiptImportable": false,
+  "reason": "Production schema accepts only PASS; this failed receipt must not be imported as releaseQa.",
+  "changedPaths": [
+    "docs/04-roadmap/next-development-batch-2026-10-10.md",
+    "docs/04-roadmap/project-progress-2026-10-10.md",
+    "operations/README.md",
+    "operations/contracts/UPG-04.md",
+    "operations/controller-prompt.md",
+    "operations/evidence/UPG-04.json",
+    "operations/evidence/UPG-04/archive-index.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/attempt-1-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/browser-desktop-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/browser-narrow-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx",
+    "operations/evidence/UPG-04/persisted-result.json",
+    "operations/evidence/UPG-04/qa-backend-attempt-1.json",
+    "operations/evidence/UPG-04/qa-backend-attempt-2.json",
+    "operations/evidence/UPG-04/qa-backend-results.json",
+    "operations/evidence/UPG-04/qa-browser-desktop.png",
+    "operations/evidence/UPG-04/qa-final-scope.json",
+    "operations/evidence/UPG-04/qa-reviewed-developer-validation.json",
+    "operations/evidence/UPG-04/qa-source-hashes.json",
+    "operations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts",
+    "operations/evidence/production-lifecycle-fix-2026-10-10/deploy-log-original.json",
+    "operations/evidence/production-upg03-enable-2026-10-10/deploy-log-original.json",
+    "operations/task-registry.json"
+  ],
+  "workingTreeCleanAtReview": true,
+  "sourceVerification": {
+    "releaseSha": "56831832778bfb7754d6be60b8e80fee7163ed1a",
+    "originalQaSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+    "sourceHashesMatch": {
+      "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+      "components/ProductChecker.tsx": "40ff53b5611a304f50df27afb51ee8e4f74093ca8c9e60a72f2dd1aa68d86b2a",
+      "components/StructuredEvidence.tsx": "2e1e47c80592372baa6b2fbfb9c2e9e37fcfb1d0e7b7e53bc7927a9a8e924dad",
+      "lib/ai/providers/mock-vision-provider.ts": "f57992a13f83ca4f11dd14f8e30c50473b06a5d96ef54aab5656a4e4759f2c1a",
+      "lib/ai/providers/openai-vision-provider.ts": "343a3e3a1527d5ad6feab461f0455bedc5984d66f49eb61da547729f30ef3856",
+      "lib/analysis/repository.ts": "862cc3cda426b3ddf0630181c41abaecb6b11eaddc112e96fcbaf88f92d5c4e8",
+      "lib/analysis/types.ts": "32d98c63a7afb4ce27e61262b3fb3feef9894ff27c48d3989b2c4784eb2f93a9",
+      "lib/domain/semantics.ts": "49a1a9c56c19a8ff71a3a6a5c23b2d2823b842d8b850ea0fc0c5f2ec8b9108c2",
+      "lib/qa/engine.ts": "b0ff2416c64d0098a3eb0363e5f2b76c2701b1a6c7c8ff165347d41301707a37",
+      "lib/qa/evidence-regions.ts": "8ffb5014cb168d86aa6b21b5f18086c55d096475c44bde0ab5ae9fed3a1bdf07",
+      "package.json": "aa2c5b42f26b282ccd9617d77a332c4bb7095706a705c8d117381276ca912f71",
+      "scripts/verify-structured-evidence.ts": "ca73c5086d3d679b74dc09dd9f39d88a34a42e1b7e3e34c0f7e03440dba38064",
+      "docs/01-architecture/structured-evidence-contract.md": "fec6bb806868c407d91a1070d9dff689018d89e3d3b835c2884dfd37dec980f7"
+    },
+    "all13ArchiveFilesMatchOriginalBytes": true
+  },
+  "originalReport": "/private/tmp/pairvu-upg04-qa.json",
+  "archivedReport": "operations/evidence/UPG-04.json",
+  "findings": [
+    {
+      "priority": 1,
+      "title": "Archived TypeScript QA sources are included in release compilation",
+      "file": "tsconfig.json",
+      "line": 34,
+      "details": "include **/*.ts and **/*.tsx covers newly archived operations/evidence/UPG-04 scripts. Archive ui-entry.tsx has 5 unresolved module imports; archive qa-independent-structured-evidence.ts has 7 unresolved imports plus 3 inferred any errors. Actual fixed release typecheck exits 2 with 15 errors.",
+      "affectedFiles": [
+        "operations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx",
+        "operations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts"
+      ],
+      "reproduction": "git archive release SHA to temp; symlink installed node_modules; pnpm exec tsc --noEmit --incremental false --pretty false",
+      "suggestedRepair": "Exclude operations/evidence/** from application TypeScript compilation while retaining immutable original archive bytes; commit fix and return fixed new release SHA.",
+      "diagnosticOnly": "Same temporary release copy with tsconfig.qa-diagnostic.json excluding only evidence scope passes. This does not fix or approve committed release."
+    }
+  ],
+  "commands": [
+    {
+      "command": "pnpm exec tsc --noEmit --incremental false --pretty false",
+      "cwd": "/private/tmp/pairvu-upg04-release-qa-zvfom0_x",
+      "chunk_id": "2161d2",
+      "wall_time_seconds": 6.820141041,
+      "exit_code": 2,
+      "original_token_count": 657,
+      "output": "operations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx(3,34): error TS2307: Cannot find module '../../components/StructuredEvidence' or its corresponding type declarations.\noperations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx(4,30): error TS2307: Cannot find module '../../components/ProductChecker' or its corresponding type declarations.\noperations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx(5,44): error TS2307: Cannot find module '../../lib/analysis/types' or its corresponding type declarations.\noperations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx(6,40): error TS2307: Cannot find module '../../lib/domain/semantics' or its corresponding type declarations.\noperations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx(7,33): error TS2307: Cannot find module '../../lib/qa/evidence-regions' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(7,125): error TS2307: Cannot find module '../lib/ai/providers/openai-vision-provider' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(8,36): error TS2307: Cannot find module '../lib/ai/providers/mock-vision-provider' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(9,28): error TS2307: Cannot find module '../lib/qa/engine' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(10,102): error TS2307: Cannot find module '../lib/qa/evidence-regions' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(11,81): error TS2307: Cannot find module '../lib/analysis/repository' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(12,54): error TS2307: Cannot find module '../lib/cloudflare/bindings' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(13,57): error TS2307: Cannot find module '../lib/qa/types' or its corresponding type declarations.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(78,339): error TS7006: Parameter 'x' implicitly has an 'any' type.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(78,408): error TS7006: Parameter 'x' implicitly has an 'any' type.\noperations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts(102,135): error TS7019: Rest parameter 'values' implicitly has an 'any[]' type.\n"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit --incremental false --pretty false --project tsconfig.qa-diagnostic.json",
+      "temporaryDiagnosticOnly": true,
+      "sharedRepositoryModified": false,
+      "config": {
+        "extends": "./tsconfig.json",
+        "exclude": [
+          "node_modules",
+          "operations/evidence/**"
+        ]
+      },
+      "chunk_id": "491c80",
+      "wall_time_seconds": 6.03274,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "limits": [
+    "No Next build rerun, no shared source change, commit, push, deploy or production call.",
+    "Runtime files match original accepted 13 hashes. Original 52 backend and 30 browser PASS remain valid for those unchanged files; they cannot approve changed compiler inputs.",
+    "Temporary exclusion was diagnostic only and is not committed."
+  ],
+  "nextAction": {
+    "action": "Controller returns the smallest compiler-input fix to original developer or applies authorized documentation/archive configuration repair, then provides new fixed release SHA for independent delta QA.",
+    "dependency": "Resolve typecheck blocker before GitHub-first release order; current 5683183 must not deploy.",
+    "automatic": true
+  }
+}

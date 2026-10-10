@@ -15,7 +15,14 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:155"
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:162",
+    "releaseModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "已定位两份归档源码误入编译的局部证据包装修复，范围明确且可用字节哈希和typecheck验证。",
+      "upgradeCondition": "若发现应用源码或构建体系额外问题，先缩小定位再评估high。",
+      "applied": true
+    }
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
@@ -36,6 +43,13 @@
       "thinking": "high",
       "reason": "生产真实登录及新provider结构化输出联通验收，涉及持久结果、历史兼容与UI实际映射。",
       "upgradeCondition": "仅定位到重复实质推理不足再评估升级；登录或网络缺失不升级。",
+      "applied": true
+    },
+    "releaseRecheckModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "修复限定归档后缀与索引，字节摘要和typecheck足以核对。",
+      "upgradeCondition": "出现额外运行时差分再评估high。",
       "applied": false
     }
   },

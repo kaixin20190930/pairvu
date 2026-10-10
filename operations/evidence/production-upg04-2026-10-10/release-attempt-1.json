@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "56831832778bfb7754d6be60b8e80fee7163ed1a",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-10T15:09:07.708Z",
+  "checks": [
+    {
+      "name": "release descendant and fixed SHA binding",
+      "status": "PASS"
+    },
+    {
+      "name": "application runtime and original 52 backend 30 browser evidence unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "all 13 archived originals and production hashes preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "release TypeScript inputs are safe",
+      "status": "FAIL"
+    }
+  ]
+}
