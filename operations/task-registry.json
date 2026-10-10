@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-03",
-  "baselineSha": "98f83200b63c93c3b87c4981a95a48b0a886f7aa",
+  "unitId": "UPG-03-ENABLE",
+  "baselineSha": "9dc1cc25f5b6c629bae9bdfe84058313ead38432",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "已明确设计下的跨产品、批次和分析事务集成，需较深推理，选择平衡型号。",
-      "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
+      "thinking": "medium",
+      "reason": "单一生产配置变更和明确验收流程，medium足够；不是跨模块开发。",
+      "upgradeCondition": "实际跨模块事务缺陷再评估high；权限或登录缺失不升档。",
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:103"
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:105"
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
@@ -23,9 +23,9 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "独立核验隔离、幂等、并发、计费释放及UI兼容边界，需要较深推理。",
-      "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
+      "thinking": "medium",
+      "reason": "单一生产配置变更和明确验收流程，medium足够；不是跨模块开发。",
+      "upgradeCondition": "实际跨模块事务缺陷再评估high；权限或登录缺失不升档。",
       "applied": true
     },
     "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:97",
@@ -38,10 +38,10 @@
       "applied": true
     }
   },
-  "candidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "DEV_ACTIVE",
   "automationId": "pairvu-2",
-  "notes": "UPG-03已按本轮授权推送、fresh核验、0020生产迁移、同SHA部署、独立9项HTTP验收；manifest正式导入并CLOSED。功能开关保持默认关闭，后续启用与登录态验收未完成。",
+  "notes": "启用配置开发完成；真实生产登录会话已确认。待冻结含台账的最终候选进行独立QA。",
   "nextUnitId": "UPG-04",
   "production": {
     "status": "PROD_VERIFIED",
@@ -67,5 +67,10 @@
       "receipt": "operations/evidence/production-release-2026-10-10.json",
       "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
     }
-  ]
+  ],
+  "loginAcceptance": {
+    "status": "SESSION_CONFIRMED",
+    "tabId": "2",
+    "url": "https://pairvu.com/account/products"
+  }
 }
