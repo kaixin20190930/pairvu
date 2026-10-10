@@ -1,0 +1,235 @@
+{
+  "candidateSha": "1ec61a1f4f8f614fb78b33eff98c66ed5af4858e",
+  "baseline": "c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "canonical-missing",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs"
+      ],
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "canonical-valid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/fixtures/upgrade-dataset/synthetic-valid.json"
+      ],
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "canonical-invalid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/invalid.json"
+      ],
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "dataset: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "macOS-tmp-alias-missing",
+      "command": [
+        "node",
+        "/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs"
+      ],
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "macOS-tmp-alias-valid",
+      "command": [
+        "node",
+        "/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/fixtures/upgrade-dataset/synthetic-valid.json"
+      ],
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "macOS-tmp-alias-invalid",
+      "command": [
+        "node",
+        "/tmp/pairvu-upg02-recheck-99stjtvq/scripts/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/invalid.json"
+      ],
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "dataset: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "file-symlink-missing",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/file-alias.mjs"
+      ],
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "file-symlink-valid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/file-alias.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/fixtures/upgrade-dataset/synthetic-valid.json"
+      ],
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "file-symlink-invalid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/file-alias.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/invalid.json"
+      ],
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "dataset: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "directory-symlink-missing",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/dir-alias/verify-upgrade-dataset.mjs"
+      ],
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "directory-symlink-valid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/dir-alias/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/fixtures/upgrade-dataset/synthetic-valid.json"
+      ],
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "directory-symlink-invalid",
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/dir-alias/verify-upgrade-dataset.mjs",
+        "--input",
+        "/private/tmp/pairvu-upg02-recheck-99stjtvq/invalid.json"
+      ],
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "dataset: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputsUnchanged": true
+    },
+    {
+      "name": "import-only-no-cli-side-effect",
+      "exitCode": 0,
+      "stdout": "function\n"
+    }
+  ],
+  "priorEvidence": "/private/tmp/pairvu-upg02-qa-prel19t9/independent-results.json",
+  "resolvedFinding": "P2 symlink CLI skipped main",
+  "qualityEvidence": false
+}

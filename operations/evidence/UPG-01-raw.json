@@ -1,0 +1,104 @@
+{
+  "candidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
+  "baseline": "65e204924d9ea2b257e401d0465dd846aec24ef6",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "unpublished prevents build",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "deploy reaches simulated runner",
+      "status": "PASS"
+    },
+    {
+      "name": "upload reaches simulated runner",
+      "status": "PASS"
+    },
+    {
+      "name": "stale remote tracking cannot replace fresh fetch",
+      "status": "PASS"
+    },
+    {
+      "name": "dirty tree prevents build",
+      "status": "PASS"
+    },
+    {
+      "name": "build failure stops release",
+      "status": "PASS"
+    },
+    {
+      "name": "build SHA mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "source drift during build",
+      "status": "PASS"
+    },
+    {
+      "name": "HEAD drift during build",
+      "status": "PASS"
+    },
+    {
+      "name": "artifact drift during second fresh fetch",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /private/tmp/pairvu-upg01-qa-OBU1Un/scripts/release-preflight.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /private/tmp/pairvu-upg01-qa-OBU1Un/alias-release-preflight.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /tmp/pairvu-upg01-qa-OBU1Un/scripts/release-preflight.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /private/tmp/pairvu-upg01-qa-OBU1Un/scripts/deploy-release.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /private/tmp/pairvu-upg01-qa-OBU1Un/alias-deploy-release.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing args fails closed /tmp/pairvu-upg01-qa-OBU1Un/scripts/deploy-release.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "environment cannot override Git build SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "public metadata whitelist",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid metadata and SHA unknown",
+      "status": "PASS"
+    }
+  ],
+  "runnerLogs": [
+    [
+      "{\"event\":\"release-prepared\",\"candidateSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"remote\":\"origin\",\"branch\":\"main\",\"remoteSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"checkedAt\":\"2026-10-10T07:38:15.341Z\",\"action\":\"deploy\",\"artifactSha256\":\"36efefb373a031e679fbd501f7a0835f912005baa109ba11921dadef78917541\",\"initialCheckedAt\":\"2026-10-10T07:38:15.158Z\"}"
+    ],
+    [
+      "{\"event\":\"release-command-completed\",\"candidateSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"remote\":\"origin\",\"branch\":\"main\",\"remoteSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"checkedAt\":\"2026-10-10T07:38:15.341Z\",\"action\":\"deploy\",\"artifactSha256\":\"36efefb373a031e679fbd501f7a0835f912005baa109ba11921dadef78917541\",\"initialCheckedAt\":\"2026-10-10T07:38:15.158Z\",\"platformVersion\":\"unknown\",\"smoke\":\"required\"}"
+    ],
+    [
+      "{\"event\":\"release-prepared\",\"candidateSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"remote\":\"origin\",\"branch\":\"main\",\"remoteSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"checkedAt\":\"2026-10-10T07:38:15.776Z\",\"action\":\"upload\",\"artifactSha256\":\"36efefb373a031e679fbd501f7a0835f912005baa109ba11921dadef78917541\",\"initialCheckedAt\":\"2026-10-10T07:38:15.605Z\"}"
+    ],
+    [
+      "{\"event\":\"release-command-completed\",\"candidateSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"remote\":\"origin\",\"branch\":\"main\",\"remoteSha\":\"54d542a95f3cb47a6db24cf160d8ae28b8ccac65\",\"checkedAt\":\"2026-10-10T07:38:15.776Z\",\"action\":\"upload\",\"artifactSha256\":\"36efefb373a031e679fbd501f7a0835f912005baa109ba11921dadef78917541\",\"initialCheckedAt\":\"2026-10-10T07:38:15.605Z\",\"platformVersion\":\"unknown\",\"smoke\":\"required\"}"
+    ]
+  ],
+  "limitations": [
+    "Only local bare remote; cloud build/deploy/upload simulated."
+  ]
+}

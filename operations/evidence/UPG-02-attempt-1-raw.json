@@ -1,0 +1,313 @@
+{
+  "candidateSha": "21eb54ca731c9d419825c1e32330fb76e9c3d106",
+  "baseline": "c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f",
+  "independentCheckCount": 25,
+  "checks": [
+    {
+      "name": "valid-synthetic",
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "no-input",
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "missing-file",
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Input unavailable; no validation performed.",
+        "code": "ENOENT",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "directory",
+      "exitCode": 2,
+      "output": {
+        "status": "BLOCKED",
+        "reason": "Input unavailable; no validation performed.",
+        "code": "EISDIR",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "cross-split-sku-packaging",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1]: SKU leaks across splits (including packaging versions/workspaces)",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "cross-workspace-sku",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1]: SKU leaks across splits (including packaging versions/workspaces)",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "cross-role-image-leak",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1]: image content leaks across splits",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "duplicate-observation",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[2].observedImageSha256: duplicate",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "duplicate-id",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[2].id: duplicate",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "missing-authorization",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "revoked-authorization",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "authorizationRecords[0]: authorization not granted for offline evaluation",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "wrong-workspace-authorization",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: missing or wrong-workspace authorization",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "same-annotator",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: annotators must differ",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "missing-label",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0].annotations[0]: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "missing-arbitration",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1].adjudication: expected object",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "arbitrator-not-independent",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1]: adjudicator must be a third person",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "invalid-arbitration-label",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[1].adjudication.label: mismatch requires visible defect and severity",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "partial-match",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: match must be fully observable with no defect",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "unobservable-known-severity",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[2]: unknown truth must not imply a match or severity",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "string-boolean",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "dataset: invalid schemaVersion/synthetic",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "mixed-provenance",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: mixed synthetic and real provenance",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "unknown-field-url",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "samples[0]: missing or unknown fields",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "simulated-real-schema-only",
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_REAL_INPUT",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": false,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Input structure is valid; authorization, independent human labels, image integrity and benchmark quality remain unverified."
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "real-claims-synthetic-auth",
+      "exitCode": 1,
+      "output": {
+        "status": "INVALID_INPUT",
+        "reason": "authorizationRecords[0]: invalid authorization record reference",
+        "qualityEvidence": false
+      },
+      "inputUnchanged": true
+    },
+    {
+      "name": "valid-same-split-sku",
+      "exitCode": 0,
+      "output": {
+        "status": "VALID_SYNTHETIC",
+        "schemaVersion": 1,
+        "datasetId": "dataset_0000000000000001",
+        "synthetic": true,
+        "sampleCount": 3,
+        "splits": {
+          "development": 1,
+          "holdout": 2,
+          "adjudicated": 1
+        },
+        "qualityEvidence": false,
+        "message": "Synthetic fixture validates tooling only; real evaluation remains BLOCKED pending authorized real data and independent review."
+      },
+      "inputUnchanged": true
+    }
+  ],
+  "developerSuiteReplay": {
+    "exitCode": 0,
+    "stdout": "PASS: 99 offline positive/negative checks. All samples and identities are synthetic; no real quality evidence, network, images, training, or production writes.\n"
+  },
+  "limitations": [
+    "All inputs are generated test data, including real-schema branch; no real benchmark quality evidence."
+  ],
+  "pathAliasReproduction": [
+    {
+      "command": [
+        "node",
+        "/private/tmp/pairvu-upg02-qa-prel19t9/scripts/verify-upgrade-dataset.mjs"
+      ],
+      "exitCode": 2,
+      "stdout": "{\"status\":\"BLOCKED\",\"reason\":\"Real input not supplied. Provide --input FILE; synthetic fixtures are tooling tests only.\",\"qualityEvidence\":false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "/tmp/pairvu-upg02-qa-prel19t9/scripts/verify-upgrade-dataset.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

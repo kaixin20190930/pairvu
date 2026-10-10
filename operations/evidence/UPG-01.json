@@ -1,0 +1,31 @@
+{
+  "unitId": "UPG-01",
+  "candidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "20 independent release rejection checks",
+      "status": "PASS"
+    },
+    {
+      "name": "artifact mutation blocks publish",
+      "status": "PASS"
+    },
+    {
+      "name": "49 developer tests typecheck build and local health",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a124be-7760-7551-94b5-d92ffd01be6c",
+  "originalReport": "**PASS**\n\n固定候选 SHA：`83b3f2dab9f3df975b570d7eafb83e523abfcaa6`  \n基线：`65e204924d9ea2b257e401d0465dd846aec24ef6`\n\n实际 checks：\n\n| 检查 | 结果 |\n|---|---|\n| 候选、基线关系、10 文件范围及冻结一致性 | PASS |\n| 独立 `/tmp` 验证 20 项 | PASS |\n| 未推送、脏树、fresh fetch 失败／陈旧引用阻断 | PASS |\n| 构建失败、构建 SHA 不符、源码及 HEAD 漂移阻断 | PASS |\n| 第二次 fetch 期间改写产物，阻止发布 runner | PASS |\n| deploy/upload 均经门禁；仅调用模拟 runner | PASS |\n| 无参数、文件 symlink、`/tmp` 别名均非零退出 | PASS |\n| 环境不能覆盖 Git 构建 SHA；公开字段白名单、非法标识 unknown | PASS |\n| 开发原始证据审查：49 项专项、typecheck、一次 Next build、本地 health smoke | PASS |\n\n**severity／复现：** 未发现阻断项。关键负例均按预期拒绝，未触发真实发布。\n\n原始记录：[independent-results.json](/private/tmp/pairvu-upg01-qa-OBU1Un/independent-results.json)  \n复现脚本：[pairvu-upg01-qa.mjs](/tmp/pairvu-upg01-qa.mjs)\n\n**限制：** Cloudflare 实际构建、部署、平台版本及生产 smoke 尚未验证；本次 PASS 仅允许推进 **RELEASE_READY**。门禁不能防御检查后外部进程改写文件，忽略文件和依赖仍属于受信任构建环境。\n\n未修改共享文件或状态，未向项目远端推送，未迁移、部署或重复 build。",
+  "scope": "RELEASE_READY only; production and actual Cloudflare build unverified"
+}

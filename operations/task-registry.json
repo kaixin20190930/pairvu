@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-02",
-  "baselineSha": "c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f",
+  "unitId": "UPG-01",
+  "baselineSha": "65e204924d9ea2b257e401d0465dd846aec24ef6",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -13,9 +13,9 @@
     "hostId": "local",
     "clientThreadId": null
   },
-  "candidateSha": "1ec61a1f4f8f614fb78b33eff98c66ed5af4858e",
-  "state": "CLOSED",
+  "candidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
+  "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG-02 已完成独立 FAIL→原开发修复→固定 SHA 独立 PASS→CLI关闭；下一项 UPG-01。",
-  "nextUnitId": "UPG-01"
+  "notes": "UPG-02 修复后独立PASS并CLOSED；UPG-01开发49项/QA20项检查、typecheck、本地build/health通过，CLI已RELEASE_READY。未执行真实Cloudflare构建、推送、迁移或部署。持续回收修复已通过本轮连续交接验证。",
+  "nextUnitId": null
 }

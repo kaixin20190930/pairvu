@@ -44,8 +44,16 @@ R：文档/离线材料做链接、结构、事实检查。C：运行时代码�
 
 ## 首轮结果
 
-候选 `977eda5dfdb17c67cd411485fd1a48d95fd082c9`，开发专项 87 条 CLI 断言及 typecheck 通过；独立 QA 50 次调用和专项重放通过。重放为 80 条，差异来自并发 claim 胜者分支额外 7 条检查。证据见 [AUTO-01.json](evidence/AUTO-01.json)，包含原始 FAIL、接受的暂停边界及最终 PASS，不删除验收历史。CLI 已实际完成初始化、身份绑定、候选登记、QA 和 close；下一单元 UPG-02，随后 UPG-01。自动化 ID：pairvu-2，既有 Pairvu 外链任务未改动。
+候选 `977eda5dfdb17c67cd411485fd1a48d95fd082c9`，开发专项 87 条 CLI 断言及 typecheck 通过；独立 QA 50 次调用和专项重放通过。重放为 80 条，差异来自并发 claim 胜者分支额外 7 条检查。证据见 [AUTO-01.json](evidence/AUTO-01.json)，包含原始 FAIL、接受的暂停边界及最终 PASS，不删除验收历史。CLI 已实际完成初始化、身份绑定、候选登记、QA 和 close；后续 UPG-02 已关闭，UPG-01 已到 RELEASE_READY，详见下方续交付记录。自动化 ID：pairvu-2，既有 Pairvu 外链任务未改动。
 
 ## 2026-10-10 状态回收修正
 
 原问题：总控派单后只做 timeoutMs=0 快照就结束本轮，开发完成未立即进入 QA；四小时定时任务被误用为正常交接。修正为派单后持续 wait_threads → read_thread → 状态推进；使用游标并只等待当前角色，完成后自动安排 QA/返工/下一授权单元。小时巡检只兜底会话中断，不能替代活跃回收。验收证据以 UPG-02 和 UPG-01 实际连续交接记录为准。
+
+## 连续交付结果（2026-10-10）
+
+- UPG-02：候选 `1ec61a1f4f8f614fb78b33eff98c66ed5af4858e`，105 项开发检查、typecheck；独立 QA 发现 symlink 入口漏执行后返工，13 项增量复验通过。CLI 状态 CLOSED。真实数据质量评测不包含在内。
+- UPG-01：候选 `83b3f2dab9f3df975b570d7eafb83e523abfcaa6`，49 项开发检查、typecheck、一次本地 build 与 health smoke；独立 QA 20 项检查通过。CLI 状态 RELEASE_READY。未推送、未运行真实 Cloudflare 构建、迁移、部署或生产 smoke。
+- 证据及原始反例保存在 evidence/UPG-02-attempt-1.json、UPG-02.json、UPG-01.json 及对应 -raw.json。
+- 回收机制验证：本轮主动取得已完成开发 → 派 QA → 收到 FAIL → 返原开发 → 固定新 SHA 复验 → 关闭 UPG-02 → 自动派 UPG-01 → 独立验收 → RELEASE_READY，无需用户手动搬运结果。中间本地 Git 权限审批正常保留，未绕过。
+- 当前单槽待发布状态暂停后续研发派单。每小时恢复巡检遇相同状态不重复通知；另获发布授权后仍须满足 AGENTS.md，不能直接手改为 CLOSED。

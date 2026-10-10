@@ -82,6 +82,10 @@ Photoroom 已向企业提供可配置检查条件、通过/修复/人工复核�
 
 ## 8. 自动化执行与发布边界
 
-总控维护唯一任务和候选版本；开发按契约提交本地代码；独立验收只审核固定提交，失败返同一开发任务。首个 AUTO-01 用于验证这套机制。每四小时 heartbeat 回收结果并处理一个最小单元；本地机器、Codex 应用和项目须可用。[Codex Scheduled tasks](https://developers.openai.com/codex/automations/)
+总控维护唯一任务和候选版本；开发按契约提交本地代码；独立验收只审核固定提交，失败返同一开发任务。首个 AUTO-01 用于验证这套机制。活跃会话用 wait_threads 持续回收，派单后不结束等待；每小时 heartbeat 只作中断恢复并处理一个最小单元；本地机器、Codex 应用和项目须可用。[Codex Scheduled tasks](https://developers.openai.com/codex/automations/)
 
 当前授权自动研发、离线验证和本地提交；运行时代码到 RELEASE_READY 停止，生产发布须另有明确授权，并完整执行仓库 AGENTS.md 的提交、推送、远端确认、迁移、部署及 smoke 顺序。审核 PASS、GitHub 合并与生产验收是不同事实。
+
+## 执行更新（2026-10-10）
+
+自动化基础 AUTO-01 已关闭；UPG-02 离线协议与样本校验器在修复路径别名问题后独立验收通过、已关闭；UPG-01 发布来源追踪已独立验收通过，停在 RELEASE_READY。新功能均未推送或部署，真实样本评测仍待授权数据。详细证据见 [自动化系统记录](../../operations/README.md)。
