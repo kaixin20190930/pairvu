@@ -1,0 +1,104 @@
+{
+  "candidateSha": "fb38dbef3ace123770915044c1b7dbff2acb6c7e",
+  "baseline": "6695cefa59b9c9412e533d24813c3e3f2814672d",
+  "synthetic": true,
+  "result": "PASS",
+  "runtime": {
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "requests": 88,
+  "cases": [
+    {
+      "name": "concurrent identical request key with different payload: one commit, loser fingerprint conflict",
+      "status": "PASS",
+      "details": [
+        {
+          "worker": "qa-a",
+          "success": true
+        },
+        {
+          "worker": "qa-b",
+          "success": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        }
+      ]
+    },
+    {
+      "name": "two requests both pre-read empty ledger then same-key identical mutation commits once",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy product update racing first initialization cannot overwrite confirmed profile",
+      "status": "PASS",
+      "details": [
+        {
+          "worker": "qa-a",
+          "success": true
+        },
+        {
+          "worker": "qa-b",
+          "success": false,
+          "error": "D1_ERROR: legacy_write_blocked: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_TRIGGER)"
+        }
+      ]
+    },
+    {
+      "name": "old reference multi-statement promotion fully rolls back when guard missing",
+      "status": "PASS",
+      "details": "D1_ERROR: legacy_write_blocked: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_TRIGGER)"
+    },
+    {
+      "name": "guard cannot survive successful transaction and authorize later legacy write",
+      "status": "PASS",
+      "details": "D1_ERROR: legacy_write_blocked: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_TRIGGER)"
+    },
+    {
+      "name": "immutable reference trigger after ledger/supersede rolls entire batch back",
+      "status": "PASS",
+      "details": "D1_ERROR: reference_immutable: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_TRIGGER)"
+    },
+    {
+      "name": "wrong workspace no-op pointer cannot bypass initial guard",
+      "status": "PASS",
+      "details": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+    },
+    {
+      "name": "cross-workspace asset rejection precedes superseding current reference",
+      "status": "PASS",
+      "details": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+    },
+    {
+      "name": "same product pointer id from foreign product rejected with all previous writes rolled back",
+      "status": "PASS",
+      "details": "D1_ERROR: profile_pointer_scope: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_TRIGGER)"
+    },
+    {
+      "name": "no-op stale hash fails even when revision and pointer match",
+      "status": "PASS",
+      "details": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+    },
+    {
+      "name": "reusing a mutation key after later revisions yields original stable ledger result",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "No snapshot binding/API/UI/credits/R2/production migration tests; bounded local two-worker interleavings only."
+  ],
+  "specialtyReplay": {
+    "status": "PASS",
+    "cases": 37,
+    "requestCount": 434,
+    "sourceHashesMatchFixedCandidateAndDeveloperRecord": true,
+    "path": "/private/tmp/pairvu-03b0-qa-vu5j7ln1/specialty-results.json"
+  },
+  "reviewChecks": [
+    "accepted CAS/guard/ledger/trigger transaction order inspected",
+    "profile six/reference seven/lifecycle five write positions independently replayed",
+    "two distinct Worker services use shared D1 binding; no application mutex",
+    "legacy schema SKU/reference uniqueness and scoped profile FK retained",
+    "developer-only commit scope allowed; controller document commits excluded"
+  ]
+}

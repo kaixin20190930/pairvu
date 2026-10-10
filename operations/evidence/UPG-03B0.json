@@ -1,0 +1,26 @@
+{
+  "unitId": "UPG-03B0",
+  "candidateSha": "fb38dbef3ace123770915044c1b7dbff2acb6c7e",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "37 local D1 cases and 18 write-position rollback",
+      "status": "PASS"
+    },
+    {
+      "name": "11 independent concurrency and isolation counterexamples",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a12523-fa5c-7550-bd88-c7a9f1e20308",
+  "originalReport": "**PASS — UPG-03B0 独立验收**\n\n候选：`fb38dbef3ace123770915044c1b7dbff2acb6c7e`  \n基线：`6695cefa59b9c9412e533d24813c3e3f2814672d`\n\n实际 checks：\n\n- 开发提交仅修改允许的 8 个文件；总控文档提交未计为越界。候选冻结、祖先关系及 diff 检查通过。\n- 隔离副本专项实跑：**37 项、434 次本地 HTTP 请求通过**，包含 profile/reference/lifecycle 全部 **18 个写位置**的整组回滚。\n- 另做 **11 项独立反例、88 次请求**：并发同键异内容、同键同内容、旧写与首次初始化交错、旧参考图写保护、跨 workspace、错误指针、过时 no-op hash及失败全表摘要不变，全部通过。\n- 确认使用两个独立 Worker 的真实本地 `env.DB.batch`，未加应用互斥锁。\n- 测试源文件摘要与固定候选、开发记录一致。\n\n运行时：Wrangler `4.114.0`、Miniflare `4.20260722.0`、workerd `1.20260722.1`。\n\n**severity：** 无阻断项。\n\n原始记录：[独立结果](/private/tmp/pairvu-03b0-qa-vu5j7ln1/independent-results.json)、[专项实跑](/private/tmp/pairvu-03b0-qa-vu5j7ln1/specialty-results.json)。\n\n限制：仅证明合成 schema 下的本地事务和受控并发。正式 schema、快照绑定、API/UI、计费、R2及生产行为仍需后续集成验收。未修改共享文件或真实状态，未提交、推送、迁移或部署。"
+}

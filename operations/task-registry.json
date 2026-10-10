@@ -15,7 +15,7 @@
       "applied": true
     },
     "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:64",
-    "observedStatus": "waitingOnApproval"
+    "observedStatus": "completed"
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
@@ -26,13 +26,14 @@
       "thinking": "high",
       "reason": "实际D1事务、并发与回滚反例涉及数据一致性，需要深入推理；范围明确，选择平衡型号而非默认最高档。",
       "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
-      "applied": false
-    }
+      "applied": true
+    },
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:51"
   },
-  "candidateSha": null,
-  "state": "DEV_ACTIVE",
+  "candidateSha": "fb38dbef3ace123770915044c1b7dbff2acb6c7e",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "UPG-03B0已派开发并持续回收，目前原生任务waitingOnApproval；QA配置为计划选型，取得固定候选后才实际派发。审批不由总控代批。",
+  "notes": "UPG-03B0固定候选37专项+11独立反例PASS，正式关闭；准备UPG-03运行时实施。",
   "nextUnitId": "UPG-03",
   "production": {
     "status": "PROD_VERIFIED",
