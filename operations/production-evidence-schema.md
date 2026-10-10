@@ -21,7 +21,7 @@ record-deployment、verify-production 和 runtime close 都重新核对原 QA �
 
 ## 通用格式
 
-下面列出的对象字段全部必填，不允许额外字段，只有 releaseQa 的指定情形可以为 null。UTF-8 JSON；SHA 为 40 位小写十六进制，SHA256 为 64 位小写十六进制，platformVersion 为标准带连字符 UUID。`unknown`、FAIL、BLOCKED 不能充当必需标识或成功结论。
+下面列出的对象字段全部必填，不允许额外字段，只有 releaseQa 及 not_required 的 migration.checkedAt 在下述指定情形可以为 null。UTF-8 JSON；SHA 为 40 位小写十六进制，SHA256 为 64 位小写十六进制，platformVersion 为标准带连字符 UUID。`unknown`、FAIL、BLOCKED 不能充当必需标识或成功结论。
 
 时间使用有效 UTC ISO 字符串 `YYYY-MM-DDTHH:mm:ssZ` 或三位毫秒 `YYYY-MM-DDTHH:mm:ss.sssZ`。路径是本地文件路径，不是 URL；相对路径从 manifest 所在目录解析。引用对象固定为 `{"path":"build.json","sha256":"文件原始字节的64位SHA256"}`，每个引用指向一个下述类型的 JSON 对象。不能用任意非空文本代替。
 
@@ -48,9 +48,9 @@ record-deployment、verify-production 和 runtime close 都重新核对原 QA �
 
 **authorization** 字段：schemaVersion、unitId、releaseSha、environment、origin、action、authorized、recordRef、authorizedAt。environment=production，origin 与 manifest 相同，action=deploy，authorized=true，recordRef 非空。授权必须覆盖这个单元、发布提交、目标站点和生产部署动作；旧发布授权不能自动覆盖新功能。
 
-**build** 字段：schemaVersion、unitId、candidateSha、remoteSha、remote、branch、freshFetch、action、result、checkedAt、completedAt、artifactSha256。candidateSha 和 remoteSha 必须均等于 releaseSha；remote/branch 是非空明确标识；freshFetch=true、action=deploy、result=PASS。checkedAt 是这次发布已保存的 fresh 远端确认时间，completedAt 是构建完成时间，artifactSha256 是实际构建产物摘要。由真实门禁事件及构建日志组装；CLI 只读 Git 验证，不重新 fetch，不把旧 tracking ref 当作新的证据。
+**build** 字段：schemaVersion、unitId、candidateSha、remoteSha、remote、branch、freshFetch、action、result、checkedAt、completedAt、artifactSha256。candidateSha 和 remoteSha 必须均等于 releaseSha；remote/branch 是非空明确标识；freshFetch=true、action=deploy、result=PASS。checkedAt 取构建前远端核验的 initialCheckedAt；completedAt 取构建后 release-prepared 事件的 checkedAt（包含构建后复核，作为已完成构建的观测时间上界），artifactSha256 是实际构建产物摘要。由真实门禁事件及构建日志组装；CLI 只读 Git 验证，不重新 fetch，不把旧 tracking ref 当作新的证据。
 
-**migration** 字段：schemaVersion、unitId、releaseSha、conclusion、result、migrationIds、recordRef、checkedAt。result=PASS，recordRef 指向实际迁移查询/执行记录。conclusion=not_required 时 migrationIds 必须为空数组，表示已确认该发布无待迁移；conclusion=applied 时 migrationIds 为已成功执行的非空、无重复字符串数组。不能仅因本次没运行迁移就写 not_required。
+**migration** 字段：schemaVersion、unitId、releaseSha、conclusion、result、migrationIds、recordRef、checkedAt。result=PASS，recordRef 指向实际迁移查询/执行记录。conclusion=not_required 时 migrationIds 必须为空数组，表示已确认该发布无待迁移；conclusion=applied 时 migrationIds 为已成功执行的非空、无重复字符串数组。不能仅因本次没运行迁移就写 not_required。not_required 可在发布前核实，不要求晚于 fresh 远端确认；已有真实“无待迁移”记录但没有精确时间时 checkedAt 可以为 null，明确表示旧证据时间未记录，不能补造时间。此例仍须非空 recordRef 和空 migrationIds，并额外通过只读 Git diff 验证该单元 baseline 到 releaseSha 的 migrations/ 无差分；有迁移差分时拒绝这种无时间证明。applied 不允许 null，仍要求有效时间在 fresh 远端确认之后且不晚于部署完成。
 
 **deployment** 字段：schemaVersion、unitId、releaseSha、platformVersion、environment、origin、action、result、artifactSha256、completedAt。platformVersion 与 manifest 相同；environment=production，origin 与 manifest 相同，action=deploy，result=PASS；artifactSha256 必须与 build 的摘要一致。upload 不是 deploy，任何 upload 记录都会被拒绝。平台版本、SHA 和目标环境必须来自同一次真实部署。
 
@@ -63,7 +63,7 @@ record-deployment、verify-production 和 runtime close 都重新核对原 QA �
 
 **productionQa** 与 releaseQa 字段相同，额外必须包含 platformVersion 和 scope。platformVersion 与 manifest 相同，scope=http；精确绑定发布 SHA、版本、原 QA 和已绑定独立 QA 身份。与 dev/controller 不同且声明 PASS 并不自动证明人员真实性，仍须总控核对原生任务结果。本版本只承认 HTTP/来源验收，不声称登录、真实付款、图片或业务流程已验收。
 
-时间顺序：授权与 release QA 不晚于 fresh 远端确认；远端确认不晚于构建完成及迁移核验；构建与迁移不晚于部署完成；部署完成 ≤ smoke ≤ production QA ≤ manifest.recordedAt。未发生过或顺序不符的事件不能为导入方便补造。
+时间顺序：授权与 release QA 不晚于 fresh 远端确认；远端确认不晚于构建完成及 applied 迁移执行；构建与有记录时间的迁移核验/执行不晚于部署完成；not_required 可早于远端确认，checkedAt=null 仅按上文旧证据规则导入，不推断未记录的时间；部署完成 ≤ smoke ≤ production QA ≤ manifest.recordedAt。未发生过或顺序不符的事件不能为导入方便补造。
 
 ## plan-sync
 

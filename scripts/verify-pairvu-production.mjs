@@ -51,7 +51,12 @@ try {
     productionQa: { ...qa, platformVersion: version, scope: 'http', reviewedAt: at(8) },
   };
   manifest = { schemaVersion: 2, unitId: 'runtime', qaCandidateSha: baseline, releaseSha: release, platformVersion: version, environment: 'production', origin: 'https://example.invalid', recordedAt: at(9), ...Object.fromEntries(Object.keys(sources).map(k => [k, {}])) };
-  const validateFixture = () => productionEvidence({ repo, controller: 'controller' }, { id: 'runtime', candidate: baseline, roles: { dev: { id: 'dev', pending: false }, qa: { id: 'qa', pending: false } } }, manifestPath, (r, base, sha) => { assert.equal(git('rev-parse', `${sha}^{commit}`), sha); git('merge-base', '--is-ancestor', base, sha); });
+  const validateFixture = () => productionEvidence({ repo, controller: 'controller' }, { id: 'runtime', baseline, candidate: baseline, roles: { dev: { id: 'dev', pending: false }, qa: { id: 'qa', pending: false } } }, manifestPath, (r, base, sha) => { assert.equal(git('rev-parse', `${sha}^{commit}`), sha); git('merge-base', '--is-ancestor', base, sha); });
+  await writeEvidence((m,d) => { d.migration.checkedAt = null; }); await validateFixture(); calls++;
+  await writeEvidence((m,d) => { d.migration.checkedAt = at(0); }); await validateFixture(); calls++;
+  await mkdir(join(repo, 'migrations')); await writeFile(join(repo, 'migrations/fixture.sql'), '-- synthetic migration'); git('add', 'migrations/fixture.sql'); git('commit', '-qm', 'migration fixture'); const migrationRelease = git('rev-parse', 'HEAD');
+  await writeEvidence((m,d) => { m.releaseSha = migrationRelease; d.migration.checkedAt = null; for (const source of Object.values(d)) if ('releaseSha' in source) source.releaseSha = migrationRelease; d.build.candidateSha = migrationRelease; d.build.remoteSha = migrationRelease; d.smoke.checks[0].body.buildSha = migrationRelease; }); await assert.rejects(validateFixture, /unchanged migrations/); calls++;
+  git('checkout', '-q', '--detach', release);
   await writeEvidence((m,d) => { d.migration.conclusion = 'applied'; d.migration.migrationIds = ['001-fixture']; }); await validateFixture(); calls++;
   await writeEvidence((m,d) => { m.releaseSha = baseline; m.releaseQa = null; for (const source of Object.values(d)) if ('releaseSha' in source) source.releaseSha = baseline; d.build.candidateSha = baseline; d.build.remoteSha = baseline; d.smoke.checks[0].body.buildSha = baseline; }); await validateFixture(); calls++;
   await writeEvidence(); await rejected(['verify-production', 'runtime', manifestPath]); await rejected(['close', 'runtime']);
@@ -61,7 +66,7 @@ try {
     (m,d) => d.build.remoteSha = baseline, (m,d) => d.build.freshFetch = false, (m,d) => d.build.candidateSha = baseline, (m,d) => d.build.action = 'upload',
     (m,d) => m.releaseQa = null, (m,d) => d.releaseQa.result = 'FAIL', (m,d) => d.releaseQa.releaseSha = baseline, (m,d) => d.releaseQa.qaCandidateSha = release, (m,d) => d.releaseQa.reviewerThreadId = 'dev', (m,d) => d.releaseQa.checks = [], (m,d) => d.releaseQa.checks[0].status = 'BLOCKED',
     (m,d) => d.deployment.action = 'upload', (m,d) => d.deployment.artifactSha256 = 'b'.repeat(64), (m,d) => d.deployment.platformVersion = '22222222-2222-3333-4444-555555555555',
-    (m,d) => d.migration.conclusion = 'unknown', (m,d) => d.migration.result = 'FAIL', (m,d) => d.migration.conclusion = 'applied',
+    (m,d) => { d.migration.conclusion = 'applied'; d.migration.migrationIds = ['001']; d.migration.checkedAt = null; }, (m,d) => { d.migration.conclusion = 'applied'; d.migration.migrationIds = ['001']; d.migration.checkedAt = at(0); }, (m,d) => d.migration.checkedAt = at(9), (m,d) => { d.migration.checkedAt = null; d.migration.migrationIds = ['001']; }, (m,d) => d.migration.conclusion = 'unknown', (m,d) => d.migration.result = 'FAIL', (m,d) => d.migration.conclusion = 'applied',
     (m,d) => d.smoke.checks[0].body.buildSha = baseline, (m,d) => d.smoke.checks[0].body.platformVersion = 'unknown', (m,d) => d.smoke.checks[0].status = 500, (m,d) => d.smoke.checks[0].url = 'https://wrong.invalid/api/health', (m,d) => d.smoke.checks.shift(), (m,d) => d.smoke.scope = 'payments',
     (m,d) => d.productionQa.reviewerThreadId = 'controller', (m,d) => d.productionQa.platformVersion = 'unknown', (m,d) => d.productionQa.checks[0].status = 'NOT_RUN', (m,d) => d.productionQa.result = 'FAIL', (m,d) => d.productionQa.reviewedAt = at(1),
   ];
