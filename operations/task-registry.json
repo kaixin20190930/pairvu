@@ -14,8 +14,8 @@
       "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
       "applied": true
     },
-    "observedStatus": "dispatching",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:121"
+    "observedStatus": "completed",
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:155"
   },
   "qa": {
     "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
@@ -26,22 +26,16 @@
       "thinking": "high",
       "reason": "独立验证畸形区域、历史兼容和保守判定反例，需要high。",
       "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
-      "applied": false
-    },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:150",
-    "observedStatus": "completed",
-    "releaseModelSelection": {
-      "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "仅已验收候选文档差分及明确生产HTTP来源核验，范围清晰，medium足够。",
-      "upgradeCondition": "若出现运行时差分或难以定位的生产故障，重新评估风险与推理档。",
       "applied": true
-    }
+    },
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:174",
+    "observedStatus": "completed",
+    "receipt": "operations/evidence/UPG-04.json"
   },
-  "candidateSha": null,
-  "state": "DEV_ACTIVE",
+  "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "生命周期修复已生产关闭且独立真实登录PASS，开放UPG-04本地研发，未授权该新功能生产发布。",
+  "notes": "UPG-04固定候选ec5a73d独立PASS：52后端+30浏览器检查；原始报告已归档并经CLI正式RELEASE_READY。生产仍SKU修复ce1f2fe；新功能尚未推送/部署，等待单独发布授权。",
   "nextUnitId": "UPG-05",
   "production": {
     "status": "PROD_VERIFIED",
@@ -90,5 +84,10 @@
     "currentTextVersion": 5,
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
+  },
+  "nextAction": {
+    "action": "UPG-04获得明确发布授权后，按GitHub优先发布规则发布并生产验收；关闭后制定UPG-05最小契约并重新评估角色模型。",
+    "dependency": "UPG-04生产授权；UPG-05依赖UPG-04关闭且契约开放。",
+    "automatic": false
   }
 }

@@ -1,0 +1,231 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "strict provider schema accepts both explicitly declared normalized regions",
+      "status": "PASS"
+    },
+    {
+      "name": "provider forbids supplied asset IDs, extra box fields and extra region fields",
+      "status": "PASS"
+    },
+    {
+      "name": "actual provider mapper binds reference/candidate only to actual inputs and keeps raw evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "bad negative x becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad negative y becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad right overflow becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad bottom overflow becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad zero width becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad zero height becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad negative size becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad NaN becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad Infinity becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad negative Infinity becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad numeric string becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad extra coordinate becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad extra location field becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad wrong coordinate space becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad foreign asset ID becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad missing asset ID becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad missing confidence becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad bad confidence type becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad non-null reason with box becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad null without reason becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad null with invented reason becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad array location becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad null location becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "bad array box becomes explicit invalid_region without clamping",
+      "status": "PASS"
+    },
+    {
+      "name": "box exactly reaching full image boundary remains legal when explicitly supplied",
+      "status": "PASS"
+    },
+    {
+      "name": "all declared null reasons retain no box, and invisible/low-confidence boxes are never shown",
+      "status": "PASS"
+    },
+    {
+      "name": "extra pair fields/schema mismatch/swapped assets degrade safely",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy boundingRegions/raw remain unchanged and do not gain a new coordinate space",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid original coordinates survive normalization, including explicit non-finite markers",
+      "status": "PASS"
+    },
+    {
+      "name": "actual provider transport-to-mapper preserves model/prompt version and structured regions",
+      "status": "PASS"
+    },
+    {
+      "name": "QA SDK request emits strict recursively closed required schemas and correctly orders distinct images",
+      "status": "PASS"
+    },
+    {
+      "name": "QA SDK empty parsed output and transport rejection never fabricate observations",
+      "status": "PASS"
+    },
+    {
+      "name": "QA missing either actual image bypasses SDK with explicit insufficiency",
+      "status": "PASS"
+    },
+    {
+      "name": "QA schema requires both explicit region fields and all four coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "QA one invalid side cannot discard other valid side; raw and source input remain immutable",
+      "status": "PASS"
+    },
+    {
+      "name": "high-confidence visible identity mismatch remains FAIL with unchanged severity/policy",
+      "status": "PASS"
+    },
+    {
+      "name": "missing/null/invalid location alone does not change sufficient match or mismatch verdict",
+      "status": "PASS"
+    },
+    {
+      "name": "insufficient observations cannot PASS even when supplied boxes look precise",
+      "status": "PASS"
+    },
+    {
+      "name": "missing selected and duplicate observations remain REVIEW",
+      "status": "PASS"
+    },
+    {
+      "name": "mock provider returns explicit unavailable regions rather than fictional boxes",
+      "status": "PASS"
+    },
+    {
+      "name": "prompt never treats SKU declarations as visually established facts",
+      "status": "PASS"
+    },
+    {
+      "name": "QA partial coverage and reference not observable cannot PASS with high-confidence precise boxes",
+      "status": "PASS"
+    },
+    {
+      "name": "QA unexpected observations cannot hide missing requested checks or make PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "actual repository writes/reads evidence JSON with regions/raw/versions/observability/severity intact",
+      "status": "PASS"
+    },
+    {
+      "name": "stored wrong asset/extra-field coordinates safely degrade on actual read without changing verdict",
+      "status": "PASS"
+    },
+    {
+      "name": "actual stored legacy observation reads without region backfill",
+      "status": "PASS"
+    },
+    {
+      "name": "QA limitation evidence and existing regionRaw survive write/read/API serialization",
+      "status": "PASS"
+    },
+    {
+      "name": "QA historical malformed JSON roots read safely and are not rewritten in storage",
+      "status": "PASS"
+    },
+    {
+      "name": "QA stored observation and issue visibility independently hide boxes while preserving raw regions",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "lib/domain/semantics.ts": "49a1a9c56c19a8ff71a3a6a5c23b2d2823b842d8b850ea0fc0c5f2ec8b9108c2",
+    "lib/qa/evidence-regions.ts": "8ffb5014cb168d86aa6b21b5f18086c55d096475c44bde0ab5ae9fed3a1bdf07",
+    "lib/qa/engine.ts": "b0ff2416c64d0098a3eb0363e5f2b76c2701b1a6c7c8ff165347d41301707a37",
+    "lib/ai/providers/openai-vision-provider.ts": "343a3e3a1527d5ad6feab461f0455bedc5984d66f49eb61da547729f30ef3856",
+    "lib/ai/providers/mock-vision-provider.ts": "f57992a13f83ca4f11dd14f8e30c50473b06a5d96ef54aab5656a4e4759f2c1a",
+    "lib/analysis/repository.ts": "862cc3cda426b3ddf0630181c41abaecb6b11eaddc112e96fcbaf88f92d5c4e8",
+    "components/StructuredEvidence.tsx": "2e1e47c80592372baa6b2fbfb9c2e9e37fcfb1d0e7b7e53bc7927a9a8e924dad",
+    "components/ProductChecker.tsx": "40ff53b5611a304f50df27afb51ee8e4f74093ca8c9e60a72f2dd1aa68d86b2a",
+    "scripts/verify-structured-evidence.ts": "ca73c5086d3d679b74dc09dd9f39d88a34a42e1b7e3e34c0f7e03440dba38064"
+  },
+  "limitations": [
+    "Controlled OpenAI SDK parse boundary; actual provider mapping, engine, policy and SQLite repository run without network/model/payment.",
+    "SQLite proves existing JSON serialization/read mapping; no migration, D1 transaction or production claim.",
+    "Real browser component geometry is recorded separately; no claim of model localization accuracy."
+  ]
+}

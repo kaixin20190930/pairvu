@@ -29,3 +29,9 @@
 ## 派发门禁已满足
 
 2026-10-10 UPG-03-LIFECYCLE-FIX已正式CLOSED；独立生产登录PASS见operations/evidence/production-lifecycle-fix-2026-10-10/login-qa-raw.json。基线ce1f2fee7f43735ff6b6f13f3867840943d19471，后续总控提交仅证据/计划。UPG-04已允许自动本地研发，生产发布尚未授权。
+
+## UPG-04验收完成与下一步（23:03）
+
+候选ec5a73d2492eb010dc60571ea90a6d2a0a7af815，独立52项后端和30项浏览器检查PASS，原始报告及失败测试记录保存在operations/evidence/UPG-04.json及UPG-04目录。正式CLI已qa PASS→release-ready；当前没有运行中的开发/QA。生产仍为ce1f2fee7f43735ff6b6f13f3867840943d19471，SKU已启用且真实登录PASS。
+
+下一步：等待UPG-04明确发布授权，再按AGENTS顺序推送、远端核验、部署及生产验收；关闭后制定UPG-05最小契约并重新选择角色模型。单槽不得跳过RELEASE_READY或沿用SKU发布授权。无新授权的重复巡检不重复通知。

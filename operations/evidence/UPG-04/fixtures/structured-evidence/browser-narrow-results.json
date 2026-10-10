@@ -1,0 +1,233 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "mode": "narrow",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "both corresponding images show legal regions using their own aspect ratios",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            299,
+            149.5
+          ],
+          "boxFractions": {
+            "x": 0.09999477424749163,
+            "y": 0.19998954849498327,
+            "width": 0.39997909698996653,
+            "height": 0.2999581939799331
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            299,
+            598
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.39999216137123744,
+            "width": 0.5,
+            "height": 0.19998954849498327
+          }
+        }
+      ]
+    },
+    {
+      "name": "medium location is visibly approximate; confidence is not a calibrated probability",
+      "status": "PASS"
+    },
+    {
+      "name": "150 percent image zoom preserves normalized box mapping",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            448.5,
+            224.25
+          ],
+          "boxFractions": {
+            "x": 0.0999860646599777,
+            "y": 0.1999721293199554,
+            "width": 0.39999651616499443,
+            "height": 0.29999303232998886
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            448.5,
+            897
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.39999651616499443,
+            "width": 0.5,
+            "height": 0.19999825808249722
+          }
+        }
+      ]
+    },
+    {
+      "name": "explicit null/non-visible evidence draws no default full-image boxes",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy boundingRegions are not silently interpreted as normalized coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed coordinates/extra fields/wrong asset safely show explicit invalid region",
+      "status": "PASS"
+    },
+    {
+      "name": "unavailable and mismatched preview never displays an overlay on a different image",
+      "status": "PASS"
+    },
+    {
+      "name": "QA 200 percent zoom preserves both aspect ratios and box coordinates inside scrollable viewports",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            598,
+            299
+          ],
+          "boxFractions": {
+            "x": 0.09999477424749163,
+            "y": 0.19998954849498327,
+            "width": 0.39999216137123744,
+            "height": 0.29998432274247494
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            598,
+            1196
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.3999986935618729,
+            "width": 0.5,
+            "height": 0.19999608068561872
+          }
+        }
+      ]
+    },
+    {
+      "name": "QA a valid partner box survives independently invalid opposite coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "QA invisible and low confidence positions produce readable no-box states",
+      "status": "PASS"
+    },
+    {
+      "name": "QA native image decoding failure hides its box without removing valid partner",
+      "status": "PASS"
+    },
+    {
+      "name": "QA changing a failed preview URL recovers image and overlay in same mounted component",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            299,
+            149.5
+          ],
+          "boxFractions": {
+            "x": 0.09999477424749163,
+            "y": 0.19998954849498327,
+            "width": 0.39997909698996653,
+            "height": 0.2999581939799331
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            299,
+            598
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.39999216137123744,
+            "width": 0.5,
+            "height": 0.19998954849498327
+          }
+        }
+      ]
+    },
+    {
+      "name": "responsive layout is two columns on desktop and one at a real narrow frame viewport",
+      "status": "PASS",
+      "detail": {
+        "mode": "narrow",
+        "viewport": [
+          373,
+          1498
+        ],
+        "columns": 1
+      }
+    },
+    {
+      "name": "actual ProductChecker restores serialized result and displays both evidence sides/severity/versions",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed/missing regions never crash the actual React browser components",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Actual React components and native DOM inputs in browser; controlled auth/analytics/fetch boundary. Synthetic SVGs intentionally have different dimensions; not a model accuracy or real API journey."
+  ],
+  "completedAt": "2026-10-10T15:00:18.716Z",
+  "sources": {
+    "components/StructuredEvidence.tsx": "2e1e47c80592372baa6b2fbfb9c2e9e37fcfb1d0e7b7e53bc7927a9a8e924dad",
+    "components/ProductChecker.tsx": "40ff53b5611a304f50df27afb51ee8e4f74093ca8c9e60a72f2dd1aa68d86b2a",
+    "lib/qa/evidence-regions.ts": "8ffb5014cb168d86aa6b21b5f18086c55d096475c44bde0ab5ae9fed3a1bdf07",
+    "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+    "fixtures/structured-evidence/ui-entry.tsx": "75afea5623ae894b3b3e5fe13ce9b16dcb6b1e7a48a8e10aa984d67f8a3e7acf",
+    "fixtures/structured-evidence/ui-server.mjs": "a344c0d18738997fff81f26773f5c16c7544592b936afe76a5def21d6c5cccde",
+    "fixtures/structured-evidence/persisted-result.json": "6bbd7c873e15c84bd3a025e00c39953914ee04d00011a0fbc01303837658def2"
+  }
+}

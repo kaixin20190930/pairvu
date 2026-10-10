@@ -1,0 +1,109 @@
+{
+  "unitId": "UPG-04",
+  "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "baselineSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "role": "independent QA",
+  "result": "PASS",
+  "recordedAt": "2026-10-10T23:02:51.468529+08:00",
+  "synthetic": true,
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "Exact Git archive; 23 implementation files from docs-only intermediate commit. All 13 developer source hashes match candidate and tested production files; shared production files have no diff from candidate.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-source-hashes.json"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": "52 executed backend checks (42 replayed original cases plus 10 independent negatives) and 30 actual-browser component checks (15 each desktop/narrow, including 5 independent cases each). No blocking candidate defect found.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json"
+    },
+    {
+      "name": "provider schema and input binding",
+      "status": "PASS",
+      "detail": "Captured actual SDK request: strict JSON schema, closed objects and all fields required; no model assetId; distinct reference and candidate images ordered with correct labels and detail. Missing either image avoids SDK; empty/rejected SDK output throws instead of inventing observations.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json"
+    },
+    {
+      "name": "coordinate null visibility and untrusted input",
+      "status": "PASS",
+      "detail": "Finite normalized boxes; reject all negative/zero/overflow/extra-field/wrong-ID/missing-field shapes without clamping; null reasons, invisible/low states and legal explicit full frame. One bad side preserves good partner; original raw evidence immutable.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json"
+    },
+    {
+      "name": "serialization readback and legacy compatibility",
+      "status": "PASS",
+      "detail": "Actual existing SQLite migrations/repository write/read/API JSON for observations, issues, limitations, raw, model/prompt/engine/policy versions. Invalid JSON roots and visibility hide boxes without mutating stored historical payloads or verdict; old boundingRegions not reinterpreted.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json"
+    },
+    {
+      "name": "conservative verdict boundaries",
+      "status": "PASS",
+      "detail": "Missing/null/invalid localization alone does not alter sufficiently observed match/mismatch. Partial coverage, reference/candidate not observable, duplicates and missing/unexpected requested checks remain REVIEW. Existing risk policy unchanged.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json"
+    },
+    {
+      "name": "actual component geometry desktop narrow and zoom",
+      "status": "PASS",
+      "detail": "Desktop 1280x720 and real narrow iframe 373x1498; distinct 320x160 and 120x240 images. Native range input 150/200 percent preserves box fractions within .003; scrolling supports zoom, responsive columns 2/1. Native broken-image handling and changed URL recovery on same component, low/invisible no-box states, invalid-opposite side and persisted ProductChecker restored.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/browser-desktop-results.json"
+    },
+    {
+      "name": "required policy regression typecheck and one build",
+      "status": "PASS",
+      "detail": "Reviewed original developer command outputs, exit 0 for policy regression, final typecheck and exactly one Next 16.2.12 production build (73 pages); final indexed source hashes all match candidate. These are reviewed developer executions, not claimed as independent reruns. No broad build rerun.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-reviewed-developer-validation.json"
+    },
+    {
+      "name": "scope and repository preservation",
+      "status": "PASS",
+      "detail": "Runtime change excludes auth, credits, queue, migration, pricing, dependency additions; package only adds test entry. Shared uncommitted controller registry and two original production logs preserved. QA wrote only temp artifacts; no commit/push/deploy/production action.",
+      "evidence": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-final-scope.json"
+    }
+  ],
+  "findings": [],
+  "evidence": {
+    "backend": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json",
+    "browserDesktop": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/browser-desktop-results.json",
+    "browserNarrow": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/browser-narrow-results.json",
+    "screenshot": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-browser-desktop.png",
+    "sourceHashes": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-source-hashes.json",
+    "reviewedDeveloperValidation": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-reviewed-developer-validation.json",
+    "persistedResult": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/persisted-result.json",
+    "qaBackendHarness": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/scripts/qa-independent-structured-evidence.ts",
+    "qaUiHarness": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/ui-entry.tsx"
+  },
+  "originalFailures": [
+    {
+      "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/attempt-1-results.json",
+      "owner": "developer",
+      "cause": "Original test compared undefined JS optional fields to serialized JSON; fixed expectation. Preserved in candidate."
+    },
+    {
+      "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-attempt-1.json",
+      "owner": "independent QA harness",
+      "cause": "QA mutation used nonexistent product_issues table. No candidate defect; actual table analysis_issues."
+    },
+    {
+      "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-attempt-2.json",
+      "owner": "independent QA harness",
+      "cause": "First harness correction still used nonexistent analysis_product_issues table. Diagnosed against repository insert/read SQL and corrected to analysis_issues; original failures retained."
+    }
+  ],
+  "limits": [
+    "Controlled SDK boundary and synthetic images, no real model call or localization accuracy/cost claim.",
+    "Actual repository on in-memory SQLite with existing migrations; not production D1/R2 or transaction verification.",
+    "Browser uses original actual production components with controlled auth/billing/analytics/fetch; narrow validation uses real iframe viewport, not a top-level mobile journey.",
+    "Temp QA harness adds tests; production implementation stays byte-identical to fixed candidate. Typecheck/policy/build accepted from inspected original developer executions with matched source hashes.",
+    "Whole shared tree is not clean: controller-owned registry and original logs are excluded. Production candidate files are clean; release must independently enforce full constitution.",
+    "No production verification or release authorization for UPG-04; local QA PASS permits only RELEASE_READY."
+  ],
+  "nextAction": {
+    "action": "Controller records immutable original report, qa PASS and release-ready for this fixed candidate.",
+    "dependency": "Any production release requires explicit UPG-04 authorization and complete AGENTS GitHub-first release order.",
+    "automatic": true,
+    "productionAutomatic": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "matches": {
+    "app/globals.css": true,
+    "components/ProductChecker.tsx": true,
+    "components/StructuredEvidence.tsx": true,
+    "lib/ai/providers/mock-vision-provider.ts": true,
+    "lib/ai/providers/openai-vision-provider.ts": true,
+    "lib/analysis/repository.ts": true,
+    "lib/analysis/types.ts": true,
+    "lib/domain/semantics.ts": true,
+    "lib/qa/engine.ts": true,
+    "lib/qa/evidence-regions.ts": true,
+    "package.json": true,
+    "scripts/verify-structured-evidence.ts": true,
+    "docs/01-architecture/structured-evidence-contract.md": true
+  }
+}

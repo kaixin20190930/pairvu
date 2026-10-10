@@ -10,7 +10,7 @@
 
 真实登录验收发现的归档/恢复文字编辑器状态问题已修复：16项独立组件回归通过，生产独立10项HTTP及真实登录增量均PASS。亲自复验两轮归档/恢复无需手动刷新、草稿保留及显式确认、保存v5、v1–v4历史不变。总控此前已验证创建/上传、真实旧版本冲突及一个批次消耗1额度（10→9）；独立QA再核对旧批次仍固定文字v3/参考v1。测试产品最终active。
 
-UPG-03-ENABLE与UPG-03-LIFECYCLE-FIX均经真实manifest和正式CLI关闭，原失败证据保留。当前Free套餐CSV需升级，未购买或绕过；503重试只在本地独立反例验证。合成批次模型输出REVIEW，不能据此宣称总体准确率。UPG-04登录门禁已满足，自动进入本地研发。
+UPG-03-ENABLE与UPG-03-LIFECYCLE-FIX均经真实manifest和正式CLI关闭，原失败证据保留。当前Free套餐CSV需升级，未购买或绕过；503重试只在本地独立反例验证。合成批次模型输出REVIEW，不能据此宣称总体准确率。UPG-04已自动完成开发与固定SHA独立验收，正式RELEASE_READY；候选`ec5a73d2492eb010dc60571ea90a6d2a0a7af815`，52项后端、30项浏览器检查通过。未推送或部署，合成验证不代表真实模型定位准确率。
 
 ## 升级交付线
 
@@ -23,7 +23,7 @@ UPG-03-ENABLE与UPG-03-LIFECYCLE-FIX均经真实manifest和正式CLI关闭，原
 | UPG-03A/03B0 SKU设计与D1实证 | 已独立通过并关闭 | 37专项+11独立反例不等于远端负载验证 |
 | UPG-03 SKU版本化实现 | 73独立用例、3315本地D1请求通过；代码/0020 schema上线 | 标准是用户声明，不自动覆盖图像证据 |
 | UPG-03-ENABLE及生命周期修复 | 已上线启用并生产关闭 | 真实登录独立PASS；原失败和修复证据保留 |
-| UPG-04 结构化区域证据 | 门禁通过，契约开放，本地研发中 | 预期/观测、双方区域、可见性、严重度、版本来源；不编造位置 |
+| UPG-04 结构化区域证据 | 开发及独立QA通过，RELEASE_READY | 双图区域/空值原因/历史兼容/缩放已验证；尚待发布授权与生产验收 |
 | UPG-05/06 人审/工作台 | 待开发 | 人工决定与机器结果分离、理由/审计/历史 |
 | UPG-07 视角与影子评测 | 待开发 | 依赖有效样本和可观测性证据 |
 | UPG-08/09 API/Webhook | 待开发 | 鉴权、幂等、额度、重试与签名 |
@@ -37,6 +37,6 @@ UPG-03-ENABLE与UPG-03-LIFECYCLE-FIX均经真实manifest和正式CLI关闭，原
 
 ## 下一步做什么
 
-自动完成UPG-04结构化区域证据的开发、固定SHA独立QA及必要返工；通过后停在RELEASE_READY。它是新的功能版本，生产发布不继承SKU修复授权，需要用户另行授权。随后顺序为UPG-05人工决定、UPG-06工作台、UPG-07评测、UPG-08/09 API/Webhook。
+UPG-04已完成开发与独立QA，下一步是获得用户对该新功能的明确发布授权，再自动按GitHub推送、远端核验、Cloudflare部署、生产验收顺序发布。单槽目前停在RELEASE_READY，不重复派任务。关闭后制定并开放UPG-05人工决定契约，随后UPG-06工作台、UPG-07评测、UPG-08/09 API/Webhook。
 
-证据：[修复生产manifest](../../operations/evidence/production-lifecycle-fix-2026-10-10/manifest.json)、[真实登录独立验收](../../operations/evidence/production-lifecycle-fix-2026-10-10/login-qa-raw.json)、[启用生产manifest](../../operations/evidence/production-upg03-enable-2026-10-10/manifest.json)、[SKU原独立验收](../../operations/evidence/UPG-03/qa-acceptance.md)、[完整升级方案](product-upgrade-plan-2026-10-10.md)、[下一批任务](next-development-batch-2026-10-10.md)。
+证据：[UPG-04独立验收](../../operations/evidence/UPG-04.json)、[修复生产manifest](../../operations/evidence/production-lifecycle-fix-2026-10-10/manifest.json)、[真实登录独立验收](../../operations/evidence/production-lifecycle-fix-2026-10-10/login-qa-raw.json)、[启用生产manifest](../../operations/evidence/production-upg03-enable-2026-10-10/manifest.json)、[SKU原独立验收](../../operations/evidence/UPG-03/qa-acceptance.md)、[完整升级方案](product-upgrade-plan-2026-10-10.md)、[下一批任务](next-development-batch-2026-10-10.md)。
