@@ -1,0 +1,217 @@
+{
+  "unitId": "UPG-03",
+  "kind": "independent production HTTP and release provenance QA",
+  "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+  "qaCandidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+  "expectedPlatformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
+  "startedAt": "2026-10-10T13:00:44.721838+00:00",
+  "completedAt": "2026-10-10T13:00:46.706846+00:00",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:44.721838+00:00",
+      "completedAt": "2026-10-10T13:00:46.199155+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 200,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/health.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/health.headers",
+      "httpStatus": 200,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 1.449587,
+      "bodySha256": "b643bbec704adc179a058c597d2116d94ead361fcf48a0a0f6771ff52e833b4e",
+      "location": null,
+      "health": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+        "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "home",
+      "url": "https://pairvu.com/",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:44.722125+00:00",
+      "completedAt": "2026-10-10T13:00:46.047324+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 200,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/home.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/home.headers",
+      "httpStatus": 200,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 1.296654,
+      "bodySha256": "946455a8833425790509db654c896d233dda22b9c008d3328165abddb176a51a",
+      "location": null,
+      "title": "Pairvu - AI Product Image Checker",
+      "result": "PASS"
+    },
+    {
+      "name": "checks",
+      "url": "https://pairvu.com/checks",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:44.724916+00:00",
+      "completedAt": "2026-10-10T13:00:46.157390+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 200,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/checks.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/checks.headers",
+      "httpStatus": 200,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 1.407469,
+      "bodySha256": "be223cb824530b0a756f93c704a0b6d45cc23effc7aacef2783a142be218938b",
+      "location": null,
+      "title": "AI Product Image Checks for Visible Accuracy | Pairvu",
+      "result": "PASS"
+    },
+    {
+      "name": "pricing",
+      "url": "https://pairvu.com/pricing",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:44.729275+00:00",
+      "completedAt": "2026-10-10T13:00:45.282206+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 200,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/pricing.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/pricing.headers",
+      "httpStatus": 200,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 0.532483,
+      "bodySha256": "2bae05c0711d843bd61b073ccf8e8380730706f83ef9a48c57eea556dd322538",
+      "location": null,
+      "title": "Pairvu Pricing for Product Image QA",
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-products",
+      "url": "https://pairvu.com/api/products",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:45.283112+00:00",
+      "completedAt": "2026-10-10T13:00:45.660599+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 401,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-products.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-products.headers",
+      "httpStatus": 401,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 0.364617,
+      "bodySha256": "29a95f884255f7df76127d8e1da3b8fec236c61a80fe16d0e4fd67933e4afea1",
+      "location": null,
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-batches",
+      "url": "https://pairvu.com/api/batches",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:45.661288+00:00",
+      "completedAt": "2026-10-10T13:00:46.203041+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 401,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-batches.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-batches.headers",
+      "httpStatus": 401,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 0.526398,
+      "bodySha256": "3f6469432e270aea724e5d6626f9696b87e48525a9c50984e3c2fd6798514632",
+      "location": null,
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-profiles",
+      "url": "https://pairvu.com/api/products/11111111-1111-4111-8111-111111111111/profiles",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:46.048389+00:00",
+      "completedAt": "2026-10-10T13:00:46.457186+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 401,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-profiles.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/anonymous-profiles.headers",
+      "httpStatus": 401,
+      "remoteIp": "172.67.170.217",
+      "timeTotalSeconds": 0.390971,
+      "bodySha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "location": null,
+      "responseJson": {
+        "error": "authentication_required"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "www-root",
+      "url": "https://www.pairvu.com/",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:46.158145+00:00",
+      "completedAt": "2026-10-10T13:00:46.702917+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 308,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/www-root.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/www-root.headers",
+      "httpStatus": 308,
+      "remoteIp": "104.21.28.139",
+      "timeTotalSeconds": 0.530487,
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "location": "https://pairvu.com/",
+      "expectedLocation": "https://pairvu.com/",
+      "result": "PASS"
+    },
+    {
+      "name": "www-checks",
+      "url": "https://www.pairvu.com/checks",
+      "method": "GET",
+      "startedAt": "2026-10-10T13:00:46.199549+00:00",
+      "completedAt": "2026-10-10T13:00:46.706454+00:00",
+      "curlExitCode": 0,
+      "expectedStatus": 308,
+      "bodyPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/www-checks.body",
+      "headersPath": "/private/tmp/pairvu-upg03-production-qa-84d5xrmp/www-checks.headers",
+      "httpStatus": 308,
+      "remoteIp": "104.21.28.139",
+      "timeTotalSeconds": 0.494848,
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "location": "https://pairvu.com/checks",
+      "expectedLocation": "https://pairvu.com/checks",
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "GET-only anonymous HTTP checks; no login, upload, model, payment or DB writes.",
+    "Feature flag remains disabled per controller deployment scope; anonymous HTTP does not independently expose or verify its remote value.",
+    "Migration/deployment logs are controller execution evidence, not an independent DB schema/data audit."
+  ],
+  "controllerExecutionEvidence": {
+    "releaseLogCandidateAndRemoteShaMatch": true,
+    "releaseLogWorkerVersionMatch": true,
+    "migration0020ExitCode": 0,
+    "migrationFollowupNoPending": true,
+    "migrationStartedAt": "2026-10-10T12:56:39.996Z",
+    "migrationCompletedAt": "2026-10-10T12:56:42.829Z",
+    "deploymentRemoteCheckedAt": "2026-10-10T12:58:13.627Z",
+    "artifacts": [
+      {
+        "path": "/tmp/pairvu-upg03-deploy.log",
+        "sha256": "f4de70b7eae6d9d13f622c2e80b138d1c77ea613840901d728a71356daa7362c"
+      },
+      {
+        "path": "/tmp/pairvu-upg03-migration.json",
+        "sha256": "f99f84e52ed0b11f448474a5f0943323c3636169f80b58eb66e78b6f6240cacf"
+      },
+      {
+        "path": "/tmp/pairvu-upg03-migration-check.json",
+        "sha256": "100cef645ffe1325abe348ec52f365e5d0707dd4f3d6b0cbb6d5fa2e197742f7"
+      }
+    ],
+    "scope": "Controller logs cross-checked; no independent remote DB read or write."
+  }
+}

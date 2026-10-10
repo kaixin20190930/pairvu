@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-03",
+  "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+  "qaCandidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
+  "scope": "http",
+  "reviewedAt": "2026-10-10T13:01:22.000Z",
+  "checks": [
+    {
+      "name": "9 independent HTTP checks: exact health provenance, pages, auth protection and www redirect",
+      "status": "PASS"
+    }
+  ]
+}

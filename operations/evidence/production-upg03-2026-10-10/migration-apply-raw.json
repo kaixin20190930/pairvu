@@ -1,0 +1,7 @@
+{
+  "startedAt": "2026-10-10T12:56:39.996Z",
+  "completedAt": "2026-10-10T12:56:42.829Z",
+  "exitCode": 0,
+  "stdout": "\n ⛅️ wrangler 4.114.0 (update available 4.149.0)\n───────────────────────────────────────────────\nResource location: remote \n\nMigrations to be applied:\n┌───────────────────────────┐\n│ name                      │\n├───────────────────────────┤\n│ 0020_product_profiles.sql │\n└───────────────────────────┘\n? About to apply 1 migration(s)\nYour database may not be available to serve requests during the migration, continue?\n🤖 Using fallback value in non-interactive context: yes\n🌀 Executing on remote database pairvu-production (2d16e86a-fa00-4990-982a-ce4cc7ea31aa):\n🌀 To execute on your local development database, remove the --remote flag from your wrangler command.\n🚣 Executed 18 commands in 7.90ms\n┌───────────────────────────┬────────┐\n│ name                      │ status │\n├───────────────────────────┼────────┤\n│ 0020_product_profiles.sql │ ✅     │\n└───────────────────────────┴────────┘\n",
+  "stderr": ""
+}

@@ -79,3 +79,7 @@ UPG-03A设计候选4362a26已独立通过；UPG-03B0候选fb38dbe已通过37专�
 ## UPG-03 独立验收完成
 
 候选46d1e38dc8ec5f8398960e4b3a05040376764e6c已独立PASS并正式RELEASE_READY。73唯一用例、3315本地D1请求、UI重试与CSV、typecheck、saved-products回归、固定SHA干净构建通过；[报告](evidence/UPG-03/qa-acceptance.md)。尚未推送/迁移/部署/启用，真实身份/额度/R2仍属发布前边界。此前开发中状态为历史记录；下一单元UPG-04须等本项生产关闭。
+
+## UPG-03 生产关闭
+
+本轮明确授权后，57bc848已推送GitHub并fresh核验，0020迁移成功，同SHA部署Cloudflare版本f62b7502-d05e-413c-86a0-aa435827b7e6，独立9项HTTP检查通过。manifest正式record-deployment→verify-production→close。功能开关仍默认关闭，未声称完整登录验收。详见[evidence](evidence/production-upg03-2026-10-10/manifest.json)。

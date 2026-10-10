@@ -1,0 +1,17 @@
+{
+  "releaseQa": {
+    "id": "01a125e1-8532-7f82-8c28-27f6d43537cf",
+    "at": "2026-10-10T12:55:43.000Z",
+    "report": "发布前增量核验 **PASS**。\n\n`releaseSha`: `57bc84850513b2ba4338fd0933e2d3651158be57`\n\n- 工作树干净，已验收 `46d1e38…` 是其祖先。\n- 16 个差异文件均为总控文档、台账或 QA 证据；运行时、迁移、配置及依赖完全未变。\n- 0020 仍为增量迁移，无历史资料/快照回填。\n- 开关仅字符串 `\"true\"` 开启；缺失或其他值关闭。发布保持关闭，启用另需授权。\n- 完整 `diff --check` 仅原始构建日志空白告警；排除该日志后通过，非发布阻断。\n\n未重跑全量，未提交、推送或部署。远端精确 SHA 核验、正式迁移、同 SHA 部署及生产 smoke 仍须由总控依次完成。"
+  },
+  "prodQa": {
+    "id": "01a125e6-05ea-7183-98cd-e3e23d80fef9",
+    "at": "2026-10-10T13:01:22.000Z",
+    "report": "UPG-03 独立生产 HTTP 验收 **PASS**，9 项检查全部通过。\n\n- releaseSha：`57bc84850513b2ba4338fd0933e2d3651158be57`\n- Worker version：`f62b7502-d05e-413c-86a0-aa435827b7e6`\n- 检查时间：2026-10-10 21:00:44–21:00:46（北京时间）\n\nhealth 精确匹配 SHA/version；主页、checks、pricing 返回 200；匿名 products、batches、新 profiles 接口返回 401；www 返回 308 且保留路径。部署及 0020 迁移日志对应一致。\n\n[原始报告](/private/tmp/pairvu-upg03-production-qa-84d5xrmp/report.json)。仅匿名 GET，无上传、支付或 DB 写入；未验收登录业务流程或功能启用，HTTP 未独立确认远端开关值。"
+  },
+  "auth": {
+    "id": "01a125de-d3e1-7031-91d2-aab21a77a93b",
+    "startedAt": 1791636722
+  },
+  "deploymentObservedAt": "2026-10-10T12:58:59Z"
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-03",
+  "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+  "qaCandidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-10T12:55:43.000Z",
+  "checks": [
+    {
+      "name": "Clean release commit; only documentation and evidence differ from accepted candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "Migration and default-off configuration unchanged",
+      "status": "PASS"
+    }
+  ]
+}

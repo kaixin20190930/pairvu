@@ -1,0 +1,15 @@
+{
+  "id": "cde8888f-9cbc-4fe8-bbe9-5486e6b878d9",
+  "source": "wrangler",
+  "strategy": "percentage",
+  "annotations": {
+    "workers/triggered_by": "deployment"
+  },
+  "versions": [
+    {
+      "version_id": "f62b7502-d05e-413c-86a0-aa435827b7e6",
+      "percentage": 100
+    }
+  ],
+  "created_on": "2026-10-10T12:58:34.394894Z"
+}

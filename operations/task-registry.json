@@ -28,20 +28,27 @@
       "upgradeCondition": "出现可定位的推理不足时先缩小复现和补全输入，再评估升档；环境或权限故障不升档。",
       "applied": true
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:88",
-    "observedStatus": "completed"
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:97",
+    "observedStatus": "completed",
+    "releaseModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "仅已验收候选文档差分及明确生产HTTP来源核验，范围清晰，medium足够。",
+      "upgradeCondition": "若出现运行时差分或难以定位的生产故障，重新评估风险与推理档。",
+      "applied": true
+    }
   },
   "candidateSha": "46d1e38dc8ec5f8398960e4b3a05040376764e6c",
-  "state": "RELEASE_READY",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "UPG-03候选46d1e38独立PASS：73唯一用例、3315本地D1请求、UI/CSV、typecheck/回归、固定SHA构建通过；正式RELEASE_READY。未授权新生产迁移/发布/启用，单槽按规则停止后续实施。",
+  "notes": "UPG-03已按本轮授权推送、fresh核验、0020生产迁移、同SHA部署、独立9项HTTP验收；manifest正式导入并CLOSED。功能开关保持默认关闭，后续启用与登录态验收未完成。",
   "nextUnitId": "UPG-04",
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
-    "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
-    "receipt": "operations/evidence/production-release-2026-10-10.json",
-    "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
+    "releaseSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+    "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6",
+    "receipt": "operations/evidence/production-upg03-2026-10-10/manifest.json",
+    "receiptSha256": "9d8bb783137356175e70532f252711e201ecfac02c4d953942b4049092038ee3"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -51,5 +58,14 @@
     "qaThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
     "reason": "CLI尚无production关闭命令，按AUTO-02契约自举，不手改旧状态",
     "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc"
-  }
+  },
+  "productionHistory": [
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+      "receipt": "operations/evidence/production-release-2026-10-10.json",
+      "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
+    }
+  ]
 }

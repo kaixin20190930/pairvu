@@ -50,3 +50,7 @@ Worker version：`7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5`，发布记录为100%流
 ## 本轮验收完成
 
 UPG-03候选 `46d1e38dc8ec5f8398960e4b3a05040376764e6c` 已通过[独立验收](../../operations/evidence/UPG-03/qa-acceptance.md)。生产基线仍为上述f85bd3e。下一执行顺序：另获新版本生产迁移/发布授权后完成远端核验、0020迁移、同SHA部署与smoke；功能开关启用须明确授权并补受控登录流程。该单元生产验证关闭后，再实施UPG-04结构化区域证据。现有单槽禁止在RELEASE_READY越过前项派新运行时任务。
+
+## 21:00 生产更新（北京时间）
+
+本轮获授权后，UPG-03已发布：`57bc84850513b2ba4338fd0933e2d3651158be57`，Worker `f62b7502-d05e-413c-86a0-aa435827b7e6`，100%流量；0020迁移成功，无待迁移。独立9项HTTP/来源检查通过，正式CLOSED。此前f85bd3e和RELEASE_READY均为历史阶段记录。**代码和schema已上线，PRODUCT_PROFILES_ENABLED保持默认关闭，用户端新标准编辑尚未启用。** 后续受控登录验收与启用、UPG-04结构化区域证据分别列入待办。证据见[本次生产manifest](../../operations/evidence/production-upg03-2026-10-10/manifest.json)。

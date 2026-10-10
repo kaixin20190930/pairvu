@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-10T12:59:03.185Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "expected": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "57bc84850513b2ba4338fd0933e2d3651158be57",
+        "platformVersion": "f62b7502-d05e-413c-86a0-aa435827b7e6"
+      }
+    },
+    {
+      "url": "https://pairvu.com/",
+      "status": 200,
+      "expected": 200,
+      "body": null
+    },
+    {
+      "url": "https://pairvu.com/checks",
+      "status": 200,
+      "expected": 200,
+      "body": null
+    },
+    {
+      "url": "https://pairvu.com/pricing",
+      "status": 200,
+      "expected": 200,
+      "body": null
+    },
+    {
+      "url": "https://pairvu.com/api/products",
+      "status": 401,
+      "expected": 401,
+      "body": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      }
+    },
+    {
+      "url": "https://pairvu.com/api/batches",
+      "status": 401,
+      "expected": 401,
+      "body": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      }
+    },
+    {
+      "url": "https://pairvu.com/api/products/11111111-1111-4111-8111-111111111111/profiles",
+      "status": 401,
+      "expected": 401,
+      "body": {
+        "error": "authentication_required"
+      }
+    }
+  ]
+}

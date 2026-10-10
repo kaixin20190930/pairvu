@@ -1,0 +1,5 @@
+# UPG-03 发布证据口径
+
+用户本轮明确授权推GitHub及Cloudflare部署，授权见task-sources中的原生turn。实际执行顺序为首次fresh远端核验→0020迁移→部署包装器再次fresh核验→Cloudflare构建→再次fresh核验→部署。build.checkedAt使用已保存的首次成功远端核验12:56:26；部署包装器initialCheckedAt为12:57:38，全部原值保存在deploy-output中，不将迁移时间改写为构建后。build.completedAt为release-prepared事件时间。deployment.completedAt为总控收到成功命令后读取时钟的观测上界12:58:59；平台created_on另存platform.json。
+
+生产HTTP与来源通过，不等于完整登录/真实图片/计费验收。部署配置保持PRODUCT_PROFILES_ENABLED缺省关闭；没有启用新资料编辑。匿名401和www308在原始检查中保留，schema2的smoke只容纳200响应，完整9项见独立原始报告。平台版本100%流量，migration复核无待执行项。
