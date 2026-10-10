@@ -1,3 +1,4 @@
+import { readProductSnapshot, sameProductBinding } from "@/lib/products/repository";
 import type { D1Database, R2Bucket, VisualQACloudflareEnv } from "@/lib/cloudflare/bindings";
 import { getAssetMetadataById } from "@/lib/assets/repository";
 import { M0_SUPPORTED_CATEGORIES } from "@/lib/config/product";
@@ -75,6 +76,10 @@ export async function runRealAnalysis(
     candidateAssetId: input.candidateAssetId,
     selectedChecks,
     category: input.category,
+    productBinding: input.productBinding,
+    sourceBatchId: input.sourceBatchId,
+    batchItemId: input.batchItemId,
+    profilesEnabled: input.profilesEnabled,
   };
 
   const created = await createAnalysisRecord(db, analysisInput);
@@ -92,7 +97,8 @@ export async function runRealAnalysis(
       existing.workspaceId === (input.workspaceId ?? null) &&
       existing.anonymousSessionId === (input.anonymousSessionId ?? null) &&
       existing.referenceAssetId === input.referenceAssetId &&
-      existing.candidateAssetId === input.candidateAssetId
+      existing.candidateAssetId === input.candidateAssetId &&
+      (input.sourceBatchId && input.workspaceId ? JSON.stringify(existing.productSnapshot) === JSON.stringify(await readProductSnapshot(db,"batch",input.sourceBatchId,input.workspaceId)) : sameProductBinding(existing.productSnapshot,input.productBinding))
     ) {
       if (input.allowFailedRetry && existing.status === "failed") {
         await prepareFailedAnalysisRetry(db, existing.id);
@@ -245,6 +251,13 @@ async function buildAnalysisInput(
 
   if (reference.status === "deleted" || candidate.status === "deleted") {
     throw new AnalysisExecutionError("asset_deleted", "One or more assets were deleted before analysis.");
+  }
+
+  if (input.productBinding || input.sourceBatchId) {
+    const now = new Date().toISOString();
+    if ([reference,candidate].some(asset => asset.status === "failed" || !asset.retentionExpiresAt || asset.retentionExpiresAt <= now)) {
+      throw new AnalysisExecutionError("asset_deleted", "One or more images are no longer available for this task.");
+    }
   }
 
   const referenceDataUrl = await loadAssetDataUrl(assets, reference.r2KeyOriginal, reference.mimeType);

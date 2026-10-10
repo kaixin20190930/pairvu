@@ -65,6 +65,7 @@ export async function processBatchAnalysisMessage(env: VisualQACloudflareEnv, me
       selectedChecks: getDefaultSelectedChecks(),
       executionTrigger: retrying ? "retry" : "batch_queue",
       batchItemId: item.id,
+      sourceBatchId: item.batchId,
       allowFailedRetry: retrying,
     }, env);
     if (analysis.status !== "completed") throw new Error("Batch analysis did not reach a persisted verdict.");

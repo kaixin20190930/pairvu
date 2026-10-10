@@ -1,3 +1,4 @@
+import { productProfilesEnabled } from "@/lib/products/profile-validation";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -40,6 +41,7 @@ export default async function NewBatchPage({
   return (
     <main className="account-page batch-page">
       <BatchCreationClient
+        profilesEnabled={productProfilesEnabled(env)}
         availableCredits={snapshot.available}
         batchItemLimit={snapshot.batchItemLimit}
         csvExportEnabled={snapshot.csvExportEnabled}

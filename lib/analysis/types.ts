@@ -13,6 +13,9 @@ export type AnalysisStatus = "queued" | "running" | "completed" | "failed";
 export type FeedbackKind = "correct" | "false_alarm" | "missed_something";
 
 export interface AnalysisCreateInput {
+  productBinding?: import("@/lib/products/types").ProductBinding | null;
+  sourceBatchId?: string;
+  profilesEnabled?: boolean;
   analysisId: string;
   idempotencyKey?: string;
   workspaceId?: string;
@@ -27,6 +30,7 @@ export interface AnalysisCreateInput {
 }
 
 export interface PersistedAnalysisSummary {
+  productSnapshot: import("@/lib/products/types").ProductSnapshot | null;
   id: string;
   status: AnalysisStatus;
   verdict: Verdict | null;

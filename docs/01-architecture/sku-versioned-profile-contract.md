@@ -1,8 +1,8 @@
-# SKU 版本化产品标准契约（UPG-03A，待实现）
+# SKU 版本化产品标准契约（UPG-03A 设计，UPG-03 本地实现待验收）
 
 基线 `0757622a5866794476a00474d41dfd7f6323c3c6`，2026-10-10。本文是 03B 的设计输入，不是已上线声明，不授权迁移或发布。字段唯一规范见[字段矩阵](../02-product/sku-profile-field-matrix.md)。03B 只增加资料记录、并发保护与来源快照，不改变当前模型判定、提示词、计费、队列优先级或保留政策。
 
-## 1. 核实的现状与缺口
+## 1. 接受设计时核实的现状与缺口（上述基线）
 
 | 现状与代码入口 | 当前事实 | 设计增量 |
 | --- | --- | --- |
@@ -179,3 +179,25 @@ flag 为服务端 `PRODUCT_PROFILES_ENABLED`，仅字符串 "true" 开启，缺�
 03B 验证预算：针对矩阵的本地 D1 集成与必要 API/UI专项、现有 saved-products 回归、typecheck；涉及页面/路由变更一次 build。原模型输出/计费行为用受控 stub 验证未改变，不跑付费模型或全量无关用例。本03A仅做代码事实、链接、示例和SQL语义审查，没有运行迁移或声称矩阵已执行。
 
 已作选择，不留事务方案给实现猜测；用户“继续接下来的任务”已授权下一批本地研发，无需再次请求研发批准。03B 开始前须由总控落明确派单契约，并先取得本地 D1 guard/trigger/事务回滚及并发实证；生产迁移、发布和功能启用仍须相应明确授权。若 D1 实测不支持该回滚模式，停止交付并带最小复现回设计审查，不能改成两次非原子写入。多参考联合判断、自动视角选择、资料驱动模型规则、硬删除/DAM及多品类模板均不在03B。
+
+
+## 8. UPG-03 本地候选与开发实证（2026-10-10）
+
+已在允许路径完成增量 migration、规范化 validator、共享 revision 的 profile/reference/lifecycle 原子写、稳定幂等结果、批次和单图首次写来源快照、worker 冻结复制、API 与最小 UI。服务端开关仍只接受 `PRODUCT_PROFILES_ENABLED="true"`，本候选没有修改生产变量，缺失时关闭。当前状态是开发完成、待固定 SHA 独立 QA；不是部署或启用记录。
+
+旧 productId-only 批次的 fingerprint 算法保持原样；重放先于新绑定检查。旧产品的名字/SKU 更新也加入一次 guard batch，防止首次初始化竞态出现零行“成功”。分析首次记录和 reference 改成一个 batch。相同请求并发得到 running 结果时返回202，只有 completed 才进入原有 settle；预留金额、计费接口及正常执行顺序保持不变。
+
+开发证据：
+
+- [数据专项](../../fixtures/product-profiles/data-final-results.json)：43个用例、1300次真实本地D1请求。
+- [补充反例](../../fixtures/product-profiles/supplemental-results.json)：2个用例、129次请求，覆盖字段边界和promotion先提交/历史reference不漂移。
+- [API/worker最终专项](../../fixtures/product-profiles/api-last-results.json)：13个用例、733次请求，使用实际route/service/worker及QA engine/policy，身份、credits、queue和provider为受控合成stub。
+- [归属/有效期增量](../../fixtures/product-profiles/ownership-final-results.json)：3个用例、145次请求，覆盖外工作区素材优先404、已存在active batch时仍隔离、到期前后事务检查。
+- [浏览器交互](../../fixtures/product-profiles/browser-evidence.json)：实际编辑器409保留草稿→手动GET/确认→503复用相同UUID与内容→200保存；清空名称不崩溃且禁用提交。
+- [完整覆盖索引](../../fixtures/product-profiles/coverage.json)：F1–X1、命令、证据局限与最终源文件摘要。首轮46项与中间API10项结果另保留为开发历史；后续按变更和新增反例分suite验证，没有在绿灯后机械重复全套。
+
+复现入口 `pnpm test:product-profiles`；可用 `--report /tmp/pairvu-profiles-review.json --suite data|api|supplemental|ownership` 缩小验证，默认执行全部61项。每次使用全新临时Miniflare/workerd D1及两个Worker服务；读取全部20份实际migration，合成旧数据先应用0019再验证0020，无真实凭据、R2、付款或模型调用。普通SQLite的既有Saved Products回归另执行；不以其替代D1原子性。
+
+开发还通过typecheck、定向eslint、Saved Products回归，以及一次本地Next build（73个静态页面；新增profile/profiles动态路由均编译）。构建后的增量修改包括跨workspace任务素材优先404、已绑定批次素材不可用返回409、事务用数据库时钟复查到期；已通过最新API/归属专项、typecheck和扩大后的相关目录eslint。数据最终专项先于最后的错误优先级补强，但其事务SQL未再变更。原始分suite报告的源摘要保留执行时状态，最终源摘要单独记录，不重写旧结果冒充新执行。
+
+此实证不覆盖真实身份系统、真实credits账本/支付、真实R2删除、远端D1副本/负载和完整登录态Next页面浏览器旅程。browser使用纯合成后端检查编辑器交互，不代表生产页面已上线。schema与flag仍需获授权后按提交→推送→远端SHA核验→正式完整schema迁移验证→同SHA部署→生产smoke→独立启用授权执行；合法数据清除仅在临时D1测试，未新增硬删除接口。独立QA之前不得将本节称为通过验收或可直接发布。

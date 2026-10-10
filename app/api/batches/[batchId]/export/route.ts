@@ -25,7 +25,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ bat
     const header = [
       "batch_id", "position", "candidate_label", "status", "verdict", "product_difference_count",
       "review_item_count", "product_difference_types", "review_item_types", "completed_at", "result_url",
-      "error_code", "error_message",
+      "error_code", "error_message", "product_profile_state", "profile_version_id", "profile_version_number", "reference_version_id", "reference_version_number", "product_bound_at", "product_snapshot_json",
     ];
     const rows = batch.items.map((item) => [
       batch.id,
@@ -41,6 +41,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ bat
       item.analysisId ? `https://pairvu.com/?analysis=${item.analysisId}` : "",
       item.terminalErrorCode ?? "",
       item.terminalErrorMessage ?? "",
+      batch.profileState, batch.productSnapshot?.profileVersionId??"", batch.productSnapshot?.profileVersionNumber??"", batch.productSnapshot?.referenceVersionId??"", batch.productSnapshot?.referenceVersionNumber??"", batch.productSnapshot?.boundAt??"", batch.productSnapshot?JSON.stringify(batch.productSnapshot):"",
     ]);
     const csv = [header, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");
     return new NextResponse(csv, {

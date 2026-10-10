@@ -29,13 +29,15 @@ export async function POST(request: NextRequest, context: { params: Promise<{ pr
       productId,
       workspaceId: access.workspaceId,
       referenceAssetId: body.referenceAssetId,
+      requestId: body.requestId as string | undefined,
+      expectedVersion: body.expectedVersion as number | undefined,
       referenceRole: body.referenceRole === undefined ? "front" : body.referenceRole as SavedProductReferenceRole,
     });
     return NextResponse.json(promoted, { status: promoted.resumed ? 200 : 201 });
   } catch (error) {
     if (error instanceof RequestAccessError) return authenticationRequired();
     if (error instanceof SavedProductError) {
-      return NextResponse.json({ error: error.code, message: error.message }, { status: error.status });
+      return NextResponse.json({ error: error.code, message: error.message, ...(error.currentRevision===undefined?{}:{currentRevision:error.currentRevision}) }, { status: error.status });
     }
     console.error("saved_product_reference_promotion_failed", error);
     return NextResponse.json({ error: "reference_promotion_failed", message: "The new reference could not be promoted." }, { status: 500 });

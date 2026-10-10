@@ -1,0 +1,101 @@
+{
+  "unitId": "UPG-03",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "id": "A1",
+      "name": "bound/no-product/anonymous analysis APIs run with unchanged engine input",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "same images different binding conflict without extra credits; replay fixed snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "simultaneous same-key API calls reserve once by source and settle only after completion",
+      "status": "PASS",
+      "detail": {
+        "statuses": [
+          202,
+          201
+        ],
+        "providerCalls": 1,
+        "settlements": 1
+      }
+    },
+    {
+      "id": "A2",
+      "name": "race after credit reserve releases exactly once and never calls provider",
+      "status": "PASS",
+      "detail": {
+        "status": 409,
+        "creditEvents": [
+          {
+            "kind": "reserve",
+            "amount": 1
+          },
+          {
+            "kind": "release"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "name": "missing R2 binary fails original task; releases reservation; no fallback reference",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "disabled API explicitly rejects new profile/binding; history remains available",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "API foreign identifiers return 404 and no revision/content",
+      "status": "PASS"
+    },
+    {
+      "id": "R1",
+      "name": "expired reference before binding and after archive/restore cannot be reused",
+      "status": "PASS"
+    },
+    {
+      "id": "B2",
+      "name": "real batch worker copies saved snapshot, repeated delivery does not call provider twice",
+      "status": "PASS"
+    },
+    {
+      "id": "X1",
+      "name": "report/workspace deletion cascades snapshots without changing retention",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "scripts/verify-product-profiles.ts": "b479bacc832182646eac761c841907f01535884a3c2464ef214fa6ca74b492a4",
+    "migrations/0020_product_profiles.sql": "b3a708722496da8a16090a2669881e6b357601a0c9c4592e5dfcc81c2632cee9",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc",
+    "lib/products/repository.ts": "7de4d15babf9581b6e0ff22004c89aecbc7c691f7d848de49ea5e3551f1e89f7",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/batches/repository.ts": "d187e81c96a7c99eac88f8e099c5ab1c1bee79bca6c7adb0de56d4c1fa23d712",
+    "lib/analysis/repository.ts": "eb2d120d8e2d0c90e8887bad0a51797af69aae20751e260056bb5b8855b2da2a",
+    "lib/analysis/service.ts": "7a1da8fd1746931871b579b3804213e72ed40f257c3eb2e5709dab8708569366",
+    "lib/batches/worker.ts": "92a6789d9e8e2bdc0c039f09a06d5047cbfb4aeddeaa81cea51786304691d71c"
+  },
+  "limitations": [
+    "Real local D1; remote production and replica behavior not verified.",
+    "Authentication, credits, queue, public guards and provider are controlled synthetic stubs; application routes, repositories, analysis service, batch worker and QA engine/policy run unchanged against real local D1.",
+    "Browser UI interaction is recorded separately; no real credentials, images, models, payments or cloud resources used."
+  ],
+  "requestCount": 503,
+  "completedAt": "2026-10-10T11:48:24.496Z"
+}

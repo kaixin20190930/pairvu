@@ -9,6 +9,7 @@ import { captureAcquisitionContext, getAnonymousSessionId, trackProductEvent } f
 import { SAVED_PRODUCT_REFERENCE_ROLE_LABELS, type SavedProductOption, type SavedProductReferenceVersion } from "@/lib/products/types";
 
 interface BatchCreationClientProps {
+  profilesEnabled:boolean;
   availableCredits: number;
   batchItemLimit: number;
   csvExportEnabled: boolean;
@@ -44,9 +45,14 @@ export function BatchCreationClient({
   initialSavedProductId,
   planName,
   retainedReferences,
-  savedProducts,
+  savedProducts:initialProducts,
+  profilesEnabled,
   retentionDays,
 }: BatchCreationClientProps) {
+  const [savedProducts,setSavedProducts]=useState(initialProducts);
+  const [bindingConflict,setBindingConflict]=useState(false);
+  const pendingBatch=useRef<{key:string;body:string}|null>(null);
+  const uploadedFiles=useRef(new Map<File,Map<string,string>>());
   const [creationMode, setCreationMode] = useState<CreationMode>("one_reference_many_candidates");
   const [reference, setReference] = useState<File | null>(null);
   const [retainedReferenceId, setRetainedReferenceId] = useState("");
@@ -68,18 +74,20 @@ export function BatchCreationClient({
   const plannedItemCount = creationMode === "one_reference_many_candidates" ? candidates.length : pairs.length;
   const selectedProduct = useMemo(() => savedProducts.find((product) => product.id === savedProductId), [savedProductId, savedProducts]);
   const selectedProductReference = useMemo(
-    () => selectedProduct?.currentReferences.find((item) => item.assetId === savedReferenceAssetId) ?? selectedProduct?.currentReferences[0],
+    () => selectedProduct?.currentReferences.find((item) => item.assetId === savedReferenceAssetId),
     [savedReferenceAssetId, selectedProduct],
   );
   const preflightError = useMemo(() => {
     if (creationMode === "one_reference_many_candidates" && !reference && !retainedReferenceId && !savedProductId) return "Add or reuse one approved reference image.";
     if (creationMode === "one_reference_many_candidates" && savedProductId && !selectedProductReference) return "Choose an available approved view for this Saved Product.";
+    if (selectedProduct?.currentProfile && !profilesEnabled) return "New tasks with saved product standards are currently unavailable.";
+    if(bindingConflict)return "Product information or reference changed. Load the latest versions and confirm your selection.";
     if (creationMode === "one_reference_many_candidates" && candidates.length === 0) return "Add at least one candidate image.";
     if (creationMode === "explicit_pairs" && pairs.some((pair) => !pair.reference || !pair.candidate)) return "Every row needs one reference and one candidate image.";
     if (plannedItemCount > batchItemLimit) return `Your ${planName} plan supports up to ${batchItemLimit} product checks per batch.`;
     if (plannedItemCount > availableCredits) return `This batch needs ${plannedItemCount} checks, but ${availableCredits} are available.`;
     return null;
-  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId, savedProductId, selectedProductReference]);
+  }, [availableCredits, batchItemLimit, candidates.length, creationMode, pairs, planName, plannedItemCount, reference, retainedReferenceId, savedProductId, selectedProductReference, selectedProduct, profilesEnabled, bindingConflict]);
 
   const stopPolling = useCallback(() => {
     if (pollTimer.current) clearTimeout(pollTimer.current);
@@ -146,6 +154,10 @@ export function BatchCreationClient({
     setPairs((current) => current.map((pair) => pair.id === id ? { ...pair, [field]: file } : pair));
   }
 
+  async function loadLatestProducts(){
+    try {const response=await fetch("/api/products",{cache:"no-store"});const data=await response.json();if(!response.ok||!data.products)throw new Error(data.message??"Products could not be loaded.");setSavedProducts(data.products.map((product:SavedProductOption)=>({...product,currentReferences:product.currentReferences.filter(r=>r.imageAvailable)})));setBindingConflict(false);pendingBatch.current=null;setError("Latest versions loaded. Candidate files were kept. Review the selected text and reference versions before starting again.");}catch(error){setError(error instanceof Error?error.message:"Unable to load products.");}
+  }
+  async function cachedUpload(file:File,kind:"reference"|"candidate") {const cache=uploadedFiles.current.get(file)??new Map<string,string>();if(cache.has(kind))return cache.get(kind)!;const id=await uploadAsset(file,kind);cache.set(kind,id);uploadedFiles.current.set(file,cache);return id;}
   async function startBatch() {
     if (preflightError) {
       setError(preflightError ?? "The batch is not ready.");
@@ -161,10 +173,10 @@ export function BatchCreationClient({
       const mappedItems: Array<{ referenceAssetId: string; candidateAssetId: string; clientLabel: string }> = [];
       if (creationMode === "one_reference_many_candidates") {
         setWorkMessage(reference ? "Uploading the approved reference..." : "Reusing the saved reference...");
-        const referenceAssetId = selectedProductReference?.assetId || retainedReferenceId || await uploadAsset(reference!, "reference");
+        const referenceAssetId = selectedProductReference?.assetId || retainedReferenceId || await cachedUpload(reference!, "reference");
         let uploadedCandidates = 0;
         const candidateItems = await mapWithConcurrency(candidates, 3, async (file) => {
-          const candidateAssetId = await uploadAsset(file, "candidate");
+          const candidateAssetId = await cachedUpload(file, "candidate");
           uploadedCandidates += 1;
           setWorkMessage(`Uploaded ${uploadedCandidates} of ${candidates.length} candidates...`);
           return {
@@ -181,7 +193,7 @@ export function BatchCreationClient({
         ]);
         let uploadedAssets = 0;
         const uploaded = await mapWithConcurrency(uploadJobs, 3, async (job) => {
-          const assetId = await uploadAsset(job.file, job.kind);
+          const assetId = await cachedUpload(job.file, job.kind);
           uploadedAssets += 1;
           setWorkMessage(`Uploaded ${uploadedAssets} of ${uploadJobs.length} batch images...`);
           return { ...job, assetId };
@@ -196,20 +208,14 @@ export function BatchCreationClient({
       }
 
       setWorkMessage("Reserving checks and starting the batch...");
-      const batchId = crypto.randomUUID();
-      const response = await fetch("/api/batches", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          batchId,
-          idempotencyKey: crypto.randomUUID(),
-          mappingMode: creationMode,
-          productId: savedProductId || null,
-          items: mappedItems,
-        }),
-      });
+      const productBinding=selectedProduct?.currentProfile&&selectedProductReference ? {productId:selectedProduct.id,expectedVersion:selectedProduct.revision,profileVersionId:selectedProduct.currentProfile.versionId,referenceVersionId:selectedProductReference.id} : null;
+      const intent=JSON.stringify({mappingMode:creationMode,productId:savedProductId||null,productBinding,items:mappedItems});
+      if(pendingBatch.current?.key!==intent)pendingBatch.current={key:intent,body:JSON.stringify({batchId:crypto.randomUUID(),idempotencyKey:crypto.randomUUID(),mappingMode:creationMode,productId:savedProductId||null,productBinding,items:mappedItems})};
+      const response=await fetch("/api/batches",{method:"POST",headers:{"Content-Type":"application/json"},body:pendingBatch.current.body});
       const payload = await response.json() as { batch?: PersistedBatchWithItems } & ApiErrorPayload;
+      if(response.status===409 && savedProductId)setBindingConflict(true);
       if (!response.ok || !payload.batch) throw new Error(payload.message ?? "The batch could not be started.");
+      pendingBatch.current=null;
 
       setBatch(payload.batch);
       if (savedProductId) {
@@ -347,7 +353,8 @@ export function BatchCreationClient({
                   <option value="">Use a Saved Product</option>
                   {savedProducts.map((product) => <option key={product.id} value={product.id}>{product.name}{product.skuLabel ? ` · ${product.skuLabel}` : ""}</option>)}
                 </select> : null}
-                {selectedProduct && selectedProduct.currentReferences.length > 1 ? <select aria-label="Choose an approved product view" disabled={working} onChange={(event) => setSavedReferenceAssetId(event.target.value)} value={selectedProductReference?.assetId ?? ""}>
+                {selectedProduct && selectedProduct.currentReferences.length > 0 ? <select aria-label="Choose an approved product view" disabled={working} onChange={(event) => setSavedReferenceAssetId(event.target.value)} value={selectedProductReference?.assetId ?? ""}>
+                  <option value="">Choose an approved view</option>
                   {selectedProduct.currentReferences.map((item) => <option key={item.assetId} value={item.assetId}>{SAVED_PRODUCT_REFERENCE_ROLE_LABELS[item.referenceRole]} · version {item.versionNumber}</option>)}
                 </select> : null}
                 {savedProductId ? <SavedProductPreview product={selectedProduct} reference={selectedProductReference} /> : null}
@@ -412,6 +419,7 @@ export function BatchCreationClient({
               <div><dt>Image retention</dt><dd>{retentionDays} days</dd></div>
             </dl>
             <p className="batch-retention-copy">Uploaded originals and analysis derivatives are deleted after your {retentionDays}-day retention period.</p>
+            {bindingConflict?<button type="button" disabled={working} onClick={()=>void loadLatestProducts()}>Load latest versions and keep candidates</button>:null}
             {error ? <p className="batch-error" role="alert">{error}</p> : null}
             <button className="batch-primary-button" disabled={Boolean(preflightError) || working || usableLimit < 1} onClick={() => void startBatch()} type="button">
               {working ? workMessage : `Start ${plannedItemCount || ""} batch check${plannedItemCount === 1 ? "" : "s"}`}
@@ -424,7 +432,8 @@ export function BatchCreationClient({
             <div>
               <p className="eyebrow">Batch status</p>
               <h2>{formatBatchStatus(batch.status)}</h2>
-              {batch.productName ? <p>Saved Product: <Link href={`/account/products/${batch.productId}`}>{batch.productName}</Link>{batch.productSkuLabel ? ` · SKU ${batch.productSkuLabel}` : ""}</p> : null}
+              {batch.productSnapshot?<details><summary>Runtime user standard · text version {batch.productSnapshot.profileVersionNumber} · reference version {batch.productSnapshot.referenceVersionNumber}</summary><p>{batch.productSnapshot.profile.name}{batch.productSnapshot.profile.skuLabel?` · SKU ${batch.productSnapshot.profile.skuLabel}`:""}</p><p>{[batch.productSnapshot.profile.brand,batch.productSnapshot.profile.variant,batch.productSnapshot.profile.capacity?`${batch.productSnapshot.profile.capacity.value} ${batch.productSnapshot.profile.capacity.unit}`:null,batch.productSnapshot.profile.packagingVersion].filter(Boolean).join(" · ")}</p>{batch.productSnapshot.profile.criticalAttributes.map(a=><p key={a.key}>{a.key}: {a.value} · {a.visibility.replaceAll("_"," ")}</p>)}{batch.productSnapshot.profile.allowedChanges.map(a=><p key={a.key}>Allowed {a.key.replaceAll("_"," ")}{a.note?`: ${a.note}`:""}</p>)}<p>Bound {formatShortDate(batch.productSnapshot.boundAt)}. Text declarations do not alter image checks.</p></details>:batch.productId?<p>No runtime standard was saved for this older batch. Current product information is shown below.</p>:null}
+              {batch.productName ? <p>{batch.productSnapshot?"Saved runtime product:":"Current product name (not a runtime snapshot):"} <Link href={`/account/products/${batch.productId}`}>{batch.productName}</Link>{batch.productSkuLabel ? ` · SKU ${batch.productSkuLabel}` : ""}</p> : null}
             </div>
             <strong>{completedCount} of {batch.itemCount} finished</strong>
           </div>
@@ -539,7 +548,7 @@ function SavedProductPreview({ product, reference }: { product?: SavedProductOpt
   if (!product || !reference) return null;
   return <div className="batch-saved-reference">
     <img alt={`${SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]} approved reference for ${product.name}`} src={reference.previewUrl!} />
-    <div><strong>{product.name} · {SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]}</strong><small>Approved version {reference.versionNumber} · available until {formatShortDate(reference.retentionExpiresAt!)}</small></div>
+    <div>{product.currentProfile?<small>Text version {product.currentProfile.versionNumber} · {product.currentProfile.profile.packagingVersion??"No packaging version declared"}</small>:<small>No text standard saved; this task will use the selected image.</small>}<strong>{product.name} · {SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]}</strong><small>Reference version {reference.versionNumber} · available until {formatShortDate(reference.retentionExpiresAt!)}</small></div>
   </div>;
 }
 

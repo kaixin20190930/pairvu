@@ -25,7 +25,7 @@ async function main() {
   for (const migration of [
     "0001_foundation.sql", "0002_analysis_mvp.sql", "0007_identity_workspaces_credits.sql",
     "0010_batch_domain.sql", "0011_batch_retention.sql", "0012_asset_original_filename.sql",
-    "0017_saved_products.sql", "0019_saved_product_reference_views.sql",
+    "0017_saved_products.sql", "0019_saved_product_reference_views.sql", "0020_product_profiles.sql",
   ]) sqlite.exec(await readFile(`migrations/${migration}`, "utf8"));
   seed(sqlite);
   const db = new SqliteD1(sqlite);

@@ -1,3 +1,5 @@
+import { ProductProfileClient } from "./ProductProfileClient";
+import { productProfilesEnabled } from "@/lib/products/profile-validation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
@@ -33,14 +35,15 @@ export default async function SavedProductDetailPage({ params }: { params: Promi
 
     <section className="account-section"><p className="eyebrow">Current approved reference set</p><h2>Use the view that corresponds to the candidate</h2><p>A front view cannot verify hidden back text, and a detail view cannot prove the complete package shape. Select one current view explicitly when starting a batch.</p>{product.currentReferences.length ? <div className="product-reference-grid">{product.currentReferences.map((reference) => <article className="product-reference-card" key={reference.id}>{reference.previewUrl ? <img alt={`${SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]} approved reference for ${product.name}`} src={reference.previewUrl} /> : <div className="product-image-unavailable"><span>Reference image unavailable</span></div>}<div><span className="product-reference-role">{SAVED_PRODUCT_REFERENCE_ROLE_LABELS[reference.referenceRole]}</span><strong>Version {reference.versionNumber}</strong>{reference.imageAvailable ? <small>Available until {formatDate(reference.retentionExpiresAt!)}</small> : <small className="product-warning">Expired or deleted; replace this view before reuse.</small>}</div></article>)}</div> : <p className="product-warning">No current approved views are available. Restore the product and add a reference view before checking candidates.</p>}</section>
 
-    {product.status === "active" ? <PromoteReferenceClient productId={product.id} retentionDays={snapshot.retentionDays} /> : null}
+    {product.status === "active" ? <PromoteReferenceClient revision={product.revision} productId={product.id} retentionDays={snapshot.retentionDays} /> : null}
 
     <section className="account-section"><p className="eyebrow">Reference history</p><h2>Approved versions</h2><div className="product-version-list">
       {product.referenceVersions.map((version) => <article key={version.id}><div><strong>{SAVED_PRODUCT_REFERENCE_ROLE_LABELS[version.referenceRole]} · Version {version.versionNumber}</strong><span className={`product-version-status ${version.status}`}>{version.status}</span></div><p>{version.originalFileName ?? "Approved reference"} · promoted {formatDate(version.promotedAt)}</p><small>{version.imageAvailable ? `Image available until ${formatDate(version.retentionExpiresAt!)}` : "Image expired or deleted; metadata retained."}</small></article>)}
     </div></section>
 
     <section className="account-section"><p className="eyebrow">Product history</p><h2>Associated batches</h2>{product.batches.length === 0 ? <p>No batches have used this Saved Product yet.</p> : <div className="product-batch-list">{product.batches.map((batch) => <Link href={`/account/batches/new?batchId=${batch.id}`} key={batch.id}><strong>{formatStatus(batch.status)}</strong><span>{formatDate(batch.createdAt)} · {batch.itemCount} checks</span></Link>)}</div>}</section>
-    <SavedProductSettingsClient initialName={product.name} initialSkuLabel={product.skuLabel} initialStatus={product.status} productId={product.id} />
+    <ProductProfileClient product={product} enabled={productProfilesEnabled(env)} />
+    <SavedProductSettingsClient revision={product.revision} versioned={!!product.currentProfile} initialName={product.name} initialSkuLabel={product.skuLabel} initialStatus={product.status} productId={product.id} />
   </div></main>;
 }
 

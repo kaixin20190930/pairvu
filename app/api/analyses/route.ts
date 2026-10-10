@@ -1,3 +1,5 @@
+import { normalizeProductBinding, productProfilesEnabled, requireProductProfilesEnabled } from "@/lib/products/profile-validation";
+import { prepareProductSnapshot, SavedProductError, sameProductBinding } from "@/lib/products/repository";
 import { NextRequest, NextResponse } from "next/server";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 import { fetchPersistedAnalysis, runRealAnalysis } from "@/lib/analysis/service";
@@ -23,6 +25,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    const productBinding=normalizeProductBinding(body?.productBinding);
     const referenceAssetId = typeof body?.referenceAssetId === "string" ? body.referenceAssetId : null;
     const candidateAssetId = typeof body?.candidateAssetId === "string" ? body.candidateAssetId : null;
     const anonymousSessionCandidate = body?.anonymousSessionId;
@@ -54,13 +57,14 @@ export async function POST(request: NextRequest) {
 
     const env = getVisualQAEnv();
     const access = await resolveRequestAccess(env, request.headers, anonymousSessionCandidate);
+    if(productBinding&&!access.workspaceId)throw new SavedProductError("authentication_required","Sign in to use a product standard.",401);
     const owner = {
       workspaceId: access.workspaceId ?? undefined,
       anonymousSessionId: access.workspaceId ? undefined : access.anonymousSessionId ?? undefined,
     };
     const existing = await getAnalysisByIdempotencyKey(env.VISUALQA_DB, owner, idempotencyKey);
     if (existing) {
-      if (existing.referenceAssetId !== referenceAssetId || existing.candidateAssetId !== candidateAssetId) {
+      if (existing.referenceAssetId !== referenceAssetId || existing.candidateAssetId !== candidateAssetId || !sameProductBinding(existing.productSnapshot,productBinding)) {
         return NextResponse.json(
           {
             error: "analysis_idempotency_conflict",
@@ -89,6 +93,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if(productBinding) {requireProductProfilesEnabled(productProfilesEnabled(env));await prepareProductSnapshot(env.VISUALQA_DB,{workspaceId:access.workspaceId!,binding:productBinding,referenceAssetId,candidateAssetId});}
     if (access.workspaceId) {
       await enforceAuthenticatedAnalysisGuard(env.VISUALQA_DB, env, {
         workspaceId: access.workspaceId,
@@ -120,10 +125,12 @@ export async function POST(request: NextRequest) {
         analyticsAnonymousSessionId: access.anonymousSessionId ?? undefined,
         analysisId,
         idempotencyKey,
+        productBinding,
+        profilesEnabled:productProfilesEnabled(env),
         selectedChecks: getDefaultSelectedChecks(),
         category,
       });
-      if (reservation) await settleCreditReservation(env.VISUALQA_DB, reservation.id);
+      if (reservation && analysis.status === "completed") await settleCreditReservation(env.VISUALQA_DB, reservation.id);
     } catch (error) {
       if (reservation) await releaseCreditReservation(env.VISUALQA_DB, reservation.id);
       throw error;
@@ -134,6 +141,7 @@ export async function POST(request: NextRequest) {
       { status: analysis.status === "running" || analysis.status === "queued" ? 202 : 201 },
     );
   } catch (error) {
+    if(error instanceof SavedProductError)return NextResponse.json({error:error.code,message:error.message,...(error.currentRevision===undefined?{}:{currentRevision:error.currentRevision})},{status:error.status});
     if (error instanceof RequestAccessError) {
       return NextResponse.json({ error: error.code, message: error.message }, { status: 400 });
     }

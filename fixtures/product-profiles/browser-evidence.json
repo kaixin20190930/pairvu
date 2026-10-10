@@ -1,0 +1,80 @@
+{
+  "synthetic": true,
+  "unitId": "UPG-03",
+  "kind": "browser UI request log",
+  "sources": {
+    "app/account/products/[productId]/ProductProfileClient.tsx": "3670e2b824c13696d12502daee27f8ed1207ca3049e99f6df6f43823cc24a9b7",
+    "app/account/products/[productId]/PromoteReferenceClient.tsx": "2b185d8a7c6d213279b1db23ea96cfc6aa0f938eff0153e21bf5f2b5e1fc5536",
+    "app/account/products/[productId]/SavedProductSettingsClient.tsx": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb",
+    "fixtures/product-profiles/ui-entry.tsx": "75920654d1d37161aea3782b1188c4589eb5e3c431dddf4ee0e902b564518951",
+    "fixtures/product-profiles/ui-server.mjs": "912eb9134b56d1585ea114a3e0896bff3e27a71903153280ca9c7a4f37c0f1c2"
+  },
+  "requests": [
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "8279d10c-87a0-4720-bc7c-ec3db75ce9cb",
+        "expectedVersion": 1,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Retained synthetic draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 409
+    },
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "af33562f-548b-47b9-82d8-a10627d8ff6c",
+        "expectedVersion": 2,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Retained synthetic draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 503
+    },
+    {
+      "method": "PUT",
+      "body": {
+        "requestId": "af33562f-548b-47b9-82d8-a10627d8ff6c",
+        "expectedVersion": 2,
+        "profile": {
+          "profileSchemaVersion": 1,
+          "name": "Retained synthetic draft",
+          "skuLabel": null,
+          "brand": null,
+          "variant": null,
+          "capacity": null,
+          "packagingVersion": null,
+          "criticalAttributes": [],
+          "allowedChanges": []
+        }
+      },
+      "status": 200
+    }
+  ],
+  "result": "PASS",
+  "observedUi": [
+    "409 preserved the edited Product name; save disabled until manual load.",
+    "Manual GET showed text version 2 and Latest server product while retaining Retained synthetic draft.",
+    "Explicit confirm used expectedVersion 2 and a new request UUID.",
+    "503 retry reused the exact request body and succeeded as text version 3.",
+    "Clearing Product name kept the UI mounted and disabled save.",
+    "Reference version 4 remained visibly separate from text version 3."
+  ]
+}

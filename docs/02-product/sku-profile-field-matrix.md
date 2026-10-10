@@ -1,4 +1,4 @@
-# SKU 产品标准字段矩阵（UPG-03A 设计，未实现）
+# SKU 产品标准字段矩阵（UPG-03 本地实现待独立验收）
 
 核对基线：`0757622a5866794476a00474d41dfd7f6323c3c6`。实施与事务约束见[版本化契约](../01-architecture/sku-versioned-profile-contract.md)。本设计只管理用户声明和历史来源，不增加模型输入、自动裁决、计费或图片保留时长；不等同真实商品真值验证。
 
@@ -73,3 +73,10 @@ allowedChanges.key：background / lighting / shadow / placement / camera_angle �
 ```
 
 这里产品和标签均为合成示例，不是真实客户或质量证据。有产品的新任务必须明确选当前 profile 和一个可用 current reference；多个参考图联合判断、自动选角度、从文字生成模型约束仍延后。
+
+
+## 本地实施状态（2026-10-10，待独立QA）
+
+矩阵已接入 `lib/products/profile-validation.ts` 与完整替换profile API；编辑器支持上述有限字段、capacity单位、属性可见性、scene notes和文字版本历史。字段仍只是用户声明，不进入模型输入，不自动核验，也不构成错误豁免。现有产品在明确首次保存前维持NULL profile，过去任务不回填。
+
+[开发覆盖索引](../../fixtures/product-profiles/coverage.json) 关联规范化/边界、真实本地D1、API/worker与浏览器保留草稿证据。开关默认关闭；上线、真实schema迁移与启用尚未执行。当前完整实现只作为固定提交候选交独立验收。

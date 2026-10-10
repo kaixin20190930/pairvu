@@ -1,0 +1,10 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { ProductProfileClient } from "../../app/account/products/[productId]/ProductProfileClient";
+import { PromoteReferenceClient } from "../../app/account/products/[productId]/PromoteReferenceClient";
+import { SavedProductSettingsClient } from "../../app/account/products/[productId]/SavedProductSettingsClient";
+import type { SavedProductDetail } from "../../lib/products/types";
+const id="11111111-1111-4111-8111-111111111111";
+const profile={profileSchemaVersion:1 as const,name:"Initial synthetic product",skuLabel:null,brand:null,variant:null,capacity:null,packagingVersion:null,criticalAttributes:[],allowedChanges:[]};
+const product:SavedProductDetail={id,workspaceId:"22222222-2222-4222-8222-222222222222",name:profile.name,skuLabel:null,status:"active",archivedAt:null,revision:1,profileState:"versioned",currentProfile:{versionId:"33333333-3333-4333-8333-333333333333",versionNumber:1,schemaVersion:1,source:"user_confirmed",createdAt:"2026-10-10T00:00:00.000Z",profile},currentReference:null,currentReferences:[],referenceVersions:[],referenceVersionCount:0,batchCount:0,lastBatchAt:null,batches:[],createdAt:"2026-10-10T00:00:00.000Z",updatedAt:"2026-10-10T00:00:00.000Z"};
+createRoot(document.getElementById("root")!).render(<main><h1>Synthetic product interaction fixture</h1><p>Reference history: Front · Reference version 4 (independent of text version)</p><ProductProfileClient product={product} enabled/><PromoteReferenceClient productId={id} revision={1} retentionDays={7}/><SavedProductSettingsClient productId={id} revision={1} versioned initialName={profile.name} initialSkuLabel={null} initialStatus="active"/></main>);

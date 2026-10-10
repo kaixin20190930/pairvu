@@ -1,0 +1,117 @@
+{
+  "unitId": "UPG-03",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "id": "F1/G1",
+      "name": "successful profile API, stable replay, pagination and disabled CAS compatibility",
+      "status": "PASS"
+    },
+    {
+      "id": "A1",
+      "name": "bound/no-product/anonymous analysis APIs run with unchanged engine input",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "same images different binding conflict without extra credits; replay fixed snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "A2",
+      "name": "simultaneous same-key API calls reserve once by source and settle only after completion",
+      "status": "PASS",
+      "detail": {
+        "statuses": [
+          202,
+          201
+        ],
+        "providerCalls": 1,
+        "settlements": 1
+      }
+    },
+    {
+      "id": "A2",
+      "name": "race after credit reserve releases exactly once and never calls provider",
+      "status": "PASS",
+      "detail": {
+        "status": 409,
+        "creditEvents": [
+          {
+            "kind": "reserve",
+            "amount": 1
+          },
+          {
+            "kind": "release"
+          }
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "name": "missing R2 binary fails original task; releases reservation; no fallback reference",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "disabled API explicitly rejects new profile/binding; history remains available",
+      "status": "PASS"
+    },
+    {
+      "id": "O1",
+      "name": "API foreign identifiers return 404 and no revision/content",
+      "status": "PASS"
+    },
+    {
+      "id": "R1",
+      "name": "expired reference before binding and after archive/restore cannot be reused",
+      "status": "PASS"
+    },
+    {
+      "id": "B2",
+      "name": "real batch worker copies saved snapshot, repeated delivery does not call provider twice",
+      "status": "PASS"
+    },
+    {
+      "id": "B2/R1",
+      "name": "failed worker retry preserves source after profile change and flag closure",
+      "status": "PASS"
+    },
+    {
+      "id": "X1",
+      "name": "report/workspace deletion cascades snapshots without changing retention",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "scripts/verify-product-profiles.ts": "13bba847733d9f5e1c29926adb99f880535be4ce59e5da8385dc41b4425b3f70",
+    "migrations/0020_product_profiles.sql": "b3a708722496da8a16090a2669881e6b357601a0c9c4592e5dfcc81c2632cee9",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc",
+    "lib/products/repository.ts": "7de4d15babf9581b6e0ff22004c89aecbc7c691f7d848de49ea5e3551f1e89f7",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/batches/repository.ts": "d187e81c96a7c99eac88f8e099c5ab1c1bee79bca6c7adb0de56d4c1fa23d712",
+    "lib/analysis/repository.ts": "eb2d120d8e2d0c90e8887bad0a51797af69aae20751e260056bb5b8855b2da2a",
+    "lib/analysis/service.ts": "7a1da8fd1746931871b579b3804213e72ed40f257c3eb2e5709dab8708569366",
+    "lib/batches/worker.ts": "92a6789d9e8e2bdc0c039f09a06d5047cbfb4aeddeaa81cea51786304691d71c",
+    "app/api/analyses/route.ts": "7a21289293783bfdeaa6dd629b2d8cf471788a4cd04946b25ef7343ae551d1ec",
+    "app/api/batches/route.ts": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+    "app/api/products/[productId]/profile/route.ts": "f47b5957a9cb7e29b9099ad579ab135cacd1a56ce2e8d9237946fe3b458a3dc9",
+    "app/api/products/[productId]/profiles/route.ts": "4e784966553b21fe68c1c536c5f8b228a035f09cd1212940988deb5c37ce20cd",
+    "app/api/products/[productId]/route.ts": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+    "app/api/products/[productId]/references/route.ts": "d2ee54506ee48922029ccd0be8920c6492f07dfbbe8da2db386952e545283796"
+  },
+  "limitations": [
+    "Real local D1; remote production and replica behavior not verified.",
+    "Authentication, credits, queue, public guards and provider are controlled synthetic stubs; application routes, repositories, analysis service, batch worker and QA engine/policy run unchanged against real local D1.",
+    "Browser UI interaction is recorded separately; no real credentials, images, models, payments or cloud resources used."
+  ],
+  "requestCount": 687,
+  "completedAt": "2026-10-10T11:51:56.415Z"
+}

@@ -1,8 +1,9 @@
+import { validateMutationIdentity, productProfilesEnabled, requireProductProfilesEnabled } from "@/lib/products/profile-validation";
 import { NextRequest, NextResponse } from "next/server";
 import { isValidAnonymousSessionId } from "@/lib/assets/validation";
 import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
-import { getSavedProductById, SavedProductError, updateSavedProduct } from "@/lib/products/repository";
+import { changeProductLifecycle, getSavedProductById, SavedProductError, updateSavedProduct } from "@/lib/products/repository";
 
 export const dynamic = "force-dynamic";
 
@@ -21,7 +22,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ pro
   } catch (error) {
     if (error instanceof RequestAccessError) return authenticationRequired();
     if (error instanceof SavedProductError) {
-      return NextResponse.json({ error: error.code, message: error.message }, { status: error.status });
+      return NextResponse.json({ error: error.code, message: error.message, ...(error.currentRevision===undefined?{}:{currentRevision:error.currentRevision}) }, { status: error.status });
     }
     console.error("saved_product_read_failed", error);
     return NextResponse.json({ error: "saved_product_failed", message: "The Saved Product could not be loaded." }, { status: 500 });
@@ -38,6 +39,15 @@ export async function PATCH(request: NextRequest, context: { params: Promise<{ p
       return NextResponse.json({ error: "invalid_product_id", message: "A valid productId is required." }, { status: 400 });
     }
     const body = await request.json() as Record<string, unknown>;
+    if(Object.hasOwn(body,"profile") || Object.hasOwn(body,"productBinding")) {requireProductProfilesEnabled(productProfilesEnabled(env));throw new SavedProductError("invalid_profile","Use the product standard editor to save a complete standard.");}
+    const existing=await getSavedProductById(env.VISUALQA_DB,productId,access.workspaceId);
+    if(!existing)throw new SavedProductError("product_not_found","Product not found.",404);
+    if(existing.currentProfile) {
+      if(Object.hasOwn(body,"name")||Object.hasOwn(body,"skuLabel")||body.requestId===undefined||body.expectedVersion===undefined)throw new SavedProductError("product_version_required","Reload and use a versioned status request or the complete standard editor.",428);
+      if(Object.keys(body).some(key=>!["requestId","expectedVersion","status"].includes(key)))throw new SavedProductError("invalid_product_request","Unsupported product status fields.");
+      const result=await changeProductLifecycle(env.VISUALQA_DB,{...validateMutationIdentity(body.requestId,body.expectedVersion),workspaceId:access.workspaceId,productId,actorId:"",status:body.status as "active"|"archived"});
+      return NextResponse.json({product:await getSavedProductById(env.VISUALQA_DB,productId,access.workspaceId),mutationResult:result.mutationResult,resumed:result.resumed});
+    }
     if (typeof body.name !== "string") {
       return NextResponse.json({ error: "invalid_product_request", message: "Product name is required." }, { status: 400 });
     }
@@ -55,7 +65,7 @@ export async function PATCH(request: NextRequest, context: { params: Promise<{ p
   } catch (error) {
     if (error instanceof RequestAccessError) return authenticationRequired();
     if (error instanceof SavedProductError) {
-      return NextResponse.json({ error: error.code, message: error.message }, { status: error.status });
+      return NextResponse.json({ error: error.code, message: error.message, ...(error.currentRevision===undefined?{}:{currentRevision:error.currentRevision}) }, { status: error.status });
     }
     console.error("saved_product_update_failed", error);
     return NextResponse.json({ error: "saved_product_failed", message: "The Saved Product could not be updated." }, { status: 500 });

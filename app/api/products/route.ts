@@ -1,3 +1,4 @@
+import { productProfilesEnabled, requireProductProfilesEnabled } from "@/lib/products/profile-validation";
 import { NextRequest, NextResponse } from "next/server";
 import { isValidAnonymousSessionId } from "@/lib/assets/validation";
 import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
@@ -25,6 +26,7 @@ export async function POST(request: NextRequest) {
     const access = await resolveRequestAccess(env, request.headers, undefined);
     if (!access.workspaceId) return authenticationRequired();
     const body = await request.json() as Record<string, unknown>;
+    if(body && (Object.hasOwn(body,"profile")||Object.hasOwn(body,"productBinding"))){requireProductProfilesEnabled(productProfilesEnabled(env));throw new SavedProductError("invalid_profile","Create the product first, then save its complete standard.");}
     if (!isValidAnonymousSessionId(body.productId) || !isValidAnonymousSessionId(body.referenceAssetId)) {
       return NextResponse.json(
         { error: "invalid_product_request", message: "A valid productId and referenceAssetId are required." },

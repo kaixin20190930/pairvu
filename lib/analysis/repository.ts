@@ -1,3 +1,5 @@
+import { SavedProductError, prepareProductSnapshot, snapshotWriteStatements, readProductSnapshot, atomicProductBatch } from "@/lib/products/repository";
+import { normalizeProductBinding, requireProductProfilesEnabled } from "@/lib/products/profile-validation";
 import type { D1Database } from "@/lib/cloudflare/bindings";
 import type {
   AnalysisCreateInput,
@@ -15,70 +17,35 @@ import type { QAEngineResult } from "@/lib/qa/types";
 type D1Row = Record<string, unknown>;
 
 export async function createAnalysisRecord(db: D1Database, input: AnalysisCreateInput): Promise<boolean> {
+  const prior = input.idempotencyKey ? await getAnalysisByIdempotencyKey(db,input,input.idempotencyKey) : await getAnalysisById(db,input.analysisId);
+  if(prior)return false;
+  const byId=await getAnalysisById(db,input.analysisId);if(byId)return false;
   const now = new Date().toISOString();
-  const result = await db
-    .prepare(
-      `insert or ignore into analyses (
-        id,
-        idempotency_key,
-        workspace_id,
-        anonymous_session_id,
-        reference_asset_id,
-        candidate_asset_id,
-        selected_checks_json,
-        category,
-        status,
-        started_at,
-        created_at,
-        updated_at
-      ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    )
-    .bind(
-      input.analysisId,
-      input.idempotencyKey ?? null,
-      input.workspaceId ?? null,
-      input.anonymousSessionId ?? null,
-      input.referenceAssetId,
-      input.candidateAssetId,
-      JSON.stringify(input.selectedChecks),
-      input.category ?? null,
-      "running",
-      now,
-      now,
-      now,
-    )
-    .run();
-
-  if (!result.success) {
-    throw new Error(result.error ?? "Failed to create analysis record.");
+  const binding=normalizeProductBinding(input.productBinding);
+  if(binding && !input.workspaceId)throw new SavedProductError("authentication_required","Sign in to use a product standard.",401);
+  if(binding && input.sourceBatchId)throw new SavedProductError("invalid_binding","Only one product source is permitted.");
+  if(binding)requireProductProfilesEnabled(input.profilesEnabled);
+  const prepared=binding ? await prepareProductSnapshot(db,{workspaceId:input.workspaceId!,binding,referenceAssetId:input.referenceAssetId,candidateAssetId:input.candidateAssetId}) : null;
+  const statements=[db.prepare(`insert into analyses(id,idempotency_key,workspace_id,anonymous_session_id,reference_asset_id,candidate_asset_id,selected_checks_json,category,status,started_at,created_at,updated_at) values(?,?,?,?,?,?,?,?,'running',?,?,?)`).bind(input.analysisId,input.idempotencyKey??null,input.workspaceId??null,input.anonymousSessionId??null,input.referenceAssetId,input.candidateAssetId,JSON.stringify(input.selectedChecks),input.category??null,now,now,now),db.prepare("insert into analysis_references(id,workspace_id,analysis_id,asset_id,created_at) values(?,?,?,?,?)").bind(crypto.randomUUID(),input.workspaceId??null,input.analysisId,input.referenceAssetId,now)];
+  if(prepared){const snapshotStatements=snapshotWriteStatements(db,{kind:"analysis",id:input.analysisId,workspaceId:input.workspaceId!,prepared,candidateAssetIds:[input.candidateAssetId]});statements.unshift(...snapshotStatements.before);statements.push(...snapshotStatements.after);}
+  if(input.sourceBatchId) {
+    if(!input.workspaceId||!input.batchItemId)throw new SavedProductError("invalid_binding","A valid batch source is required.");
+    const source=await readProductSnapshot(db,"batch",input.sourceBatchId,input.workspaceId);
+    const token=crypto.randomUUID(),last=crypto.randomUUID();
+    // Validate the source item even when the legacy batch has no snapshot.
+    statements.unshift(db.prepare(`insert into product_write_guards(token,workspace_id,product_id,ok) select ?,?,?,case when exists(select 1 from batch_items bi join batches b on b.id=bi.batch_id and b.workspace_id=bi.workspace_id where bi.id=? and bi.batch_id=? and bi.workspace_id=? and bi.reference_asset_id=? and bi.candidate_asset_id=?) then 1 else 0 end`).bind(token,input.workspaceId,source?.productId??"legacy",input.batchItemId,input.sourceBatchId,input.workspaceId,input.referenceAssetId,input.candidateAssetId));
+    if(source) {
+      statements.push(db.prepare(`insert into analysis_product_snapshots(analysis_id,workspace_id,product_id,product_revision,profile_version_id,reference_version_id,snapshot_json,snapshot_sha256,bound_at,source_batch_id) select ?,workspace_id,product_id,product_revision,profile_version_id,reference_version_id,snapshot_json,snapshot_sha256,bound_at,batch_id from batch_product_snapshots where batch_id=? and workspace_id=?`).bind(input.analysisId,input.sourceBatchId,input.workspaceId));
+      statements.push(db.prepare(`insert into product_write_guards(token,workspace_id,product_id,ok) select ?,?,?,case when exists(select 1 from analysis_product_snapshots a join batch_product_snapshots b on b.batch_id=a.source_batch_id and b.workspace_id=a.workspace_id where a.analysis_id=? and a.workspace_id=? and a.snapshot_json=b.snapshot_json and a.snapshot_sha256=b.snapshot_sha256) then 1 else 0 end`).bind(last,input.workspaceId,source.productId,input.analysisId,input.workspaceId));
+    }
+    statements.push(db.prepare("delete from product_write_guards where token in (?,?)").bind(token,last));
   }
-
-  const inserted = await db
-    .prepare(`select created_at as createdAt from analyses where id = ? limit 1`)
-    .bind(input.analysisId)
-    .first<D1Row>();
-
-  if (!inserted || inserted.createdAt !== now) {
-    return false;
+  try {await atomicProductBatch(db,statements);} catch(error) {
+    const existing=input.idempotencyKey ? await getAnalysisByIdempotencyKey(db,input,input.idempotencyKey) : await getAnalysisById(db,input.analysisId);
+    if(existing)return false;
+    if(binding) {await prepareProductSnapshot(db,{workspaceId:input.workspaceId!,binding,referenceAssetId:input.referenceAssetId,candidateAssetId:input.candidateAssetId});throw new SavedProductError("profile_storage_unavailable","Analysis source could not be saved safely.",503);}
+    throw error;
   }
-
-  const referenceInsert = await db
-    .prepare(
-      `insert into analysis_references (
-        id,
-        workspace_id,
-        analysis_id,
-        asset_id,
-        created_at
-      ) values (?, ?, ?, ?, ?)`,
-    )
-    .bind(crypto.randomUUID(), input.workspaceId ?? null, input.analysisId, input.referenceAssetId, now)
-    .run();
-
-  if (!referenceInsert.success) {
-    throw new Error(referenceInsert.error ?? "Failed to create analysis reference record.");
-  }
-
   return true;
 }
 
@@ -266,6 +233,7 @@ export async function getAnalysisById(db: D1Database, analysisId: string): Promi
   const feedback = await loadFeedback(db, analysisId);
 
   return {
+    productSnapshot: analysis.workspaceId ? await readProductSnapshot(db,"analysis",analysisId,String(analysis.workspaceId)) : null,
     id: String(analysis.id),
     workspaceId: (analysis.workspaceId as string | null) ?? null,
     anonymousSessionId: (analysis.anonymousSessionId as string | null) ?? null,

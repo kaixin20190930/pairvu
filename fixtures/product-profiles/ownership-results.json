@@ -1,0 +1,47 @@
+{
+  "unitId": "UPG-03",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "id": "O1",
+      "name": "foreign task images rejected before revision disclosure or snapshot writes",
+      "status": "PASS"
+    },
+    {
+      "id": "R1",
+      "name": "expiry crossing after preparation is rejected by database clock",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "scripts/verify-product-profiles.ts": "2edd26a99f59ff824cc778d2607e1ff8e02c7c41e3a2ca4bb0ee7c0b871eb331",
+    "migrations/0020_product_profiles.sql": "b3a708722496da8a16090a2669881e6b357601a0c9c4592e5dfcc81c2632cee9",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc",
+    "lib/products/repository.ts": "10dfcf1677b7222cf19a2eb53ec58e972eecdeb36ad617589030ce46951b9282",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/batches/repository.ts": "c6b1cf8e11deb404135e522764142472ee70e72229ec6d80256c943ebc9d3dd5",
+    "lib/analysis/repository.ts": "4a254eae0540bd7662d464c2bdb3dc2c2de8127f4569debf9851db4577f7e51e",
+    "lib/analysis/service.ts": "7a1da8fd1746931871b579b3804213e72ed40f257c3eb2e5709dab8708569366",
+    "lib/batches/worker.ts": "92a6789d9e8e2bdc0c039f09a06d5047cbfb4aeddeaa81cea51786304691d71c",
+    "app/api/analyses/route.ts": "3c6b1ef4c6750de703581ff7ba258336b23066f9b9b520119591a15c50fe440a",
+    "app/api/batches/route.ts": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+    "app/api/products/[productId]/profile/route.ts": "f47b5957a9cb7e29b9099ad579ab135cacd1a56ce2e8d9237946fe3b458a3dc9",
+    "app/api/products/[productId]/profiles/route.ts": "4e784966553b21fe68c1c536c5f8b228a035f09cd1212940988deb5c37ce20cd",
+    "app/api/products/[productId]/route.ts": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+    "app/api/products/[productId]/references/route.ts": "d2ee54506ee48922029ccd0be8920c6492f07dfbbe8da2db386952e545283796"
+  },
+  "limitations": [
+    "Real local D1; remote production and replica behavior not verified.",
+    "Authentication, credits, queue, public guards and provider are controlled synthetic stubs; application routes, repositories, analysis service, batch worker and QA engine/policy run unchanged against real local D1.",
+    "Browser UI interaction is recorded separately; no real credentials, images, models, payments or cloud resources used."
+  ],
+  "requestCount": 103,
+  "completedAt": "2026-10-10T12:01:18.172Z"
+}

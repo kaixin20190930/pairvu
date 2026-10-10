@@ -1,0 +1,553 @@
+{
+  "unitId": "UPG-03",
+  "baselineSha": "98f83200b63c93c3b87c4981a95a48b0a886f7aa",
+  "kind": "developer evidence index, not independent acceptance",
+  "status": "DEV_READY_PENDING_FIXED_SHA_QA",
+  "synthetic": true,
+  "createdAt": "2026-10-10T12:06:48.151774+00:00",
+  "casesAcrossSelectedSuites": 61,
+  "d1RequestsAcrossSelectedSuites": 2307,
+  "reports": [
+    {
+      "path": "data-final-results.json",
+      "sha256": "c354f20812a0ccf13c30b135e36f845e9934fcfe61f706a2830a404ab9df3a89",
+      "cases": 43,
+      "requests": 1300,
+      "command": "pnpm test:product-profiles --report fixtures/product-profiles/data-final-results.json --suite data"
+    },
+    {
+      "path": "supplemental-results.json",
+      "sha256": "a99b4a6114720b0f764c75c24bb573aacafb397e8ae9251a48738702abe491f8",
+      "cases": 2,
+      "requests": 129,
+      "command": "pnpm test:product-profiles --report fixtures/product-profiles/supplemental-results.json --suite supplemental"
+    },
+    {
+      "path": "api-last-results.json",
+      "sha256": "e190999c39c68d6bd4e2bf39f11a9c1c7a8dca680ecb77938cb7442ffc3bcd01",
+      "cases": 13,
+      "requests": 733,
+      "command": "pnpm test:product-profiles --report fixtures/product-profiles/api-last-results.json --suite api"
+    },
+    {
+      "path": "ownership-final-results.json",
+      "sha256": "699d661b4136b879ef94a717a64af67d39d88e67e0287f0d4287e3f7c90217ca",
+      "cases": 3,
+      "requests": 145,
+      "command": "pnpm test:product-profiles --report fixtures/product-profiles/ownership-final-results.json --suite ownership"
+    }
+  ],
+  "matrix": [
+    {
+      "id": "F1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 1,
+          "name": "strict fields, limits, Unicode, controls, decimal and canonical hash"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 3,
+          "name": "first saved version, exact hash, audit identifier never in output"
+        },
+        {
+          "report": "supplemental-results.json",
+          "caseIndex": 0,
+          "name": "attribute/note counts, boundaries, primitive types and capacity units"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 0,
+          "name": "successful profile API, stable replay, pagination and disabled CAS compatibility"
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 0,
+          "name": "all 20 real migrations preserve legacy fields; no fabricated versions"
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 25,
+          "name": "two independent Worker requests at same revision: exactly one new profile"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 26,
+          "name": "profile/reference CAS uses one revision and rolls back loser"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 27,
+          "name": "two reference roles race on one revision"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 28,
+          "name": "archive/profile race and loser leaves no partial version"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 31,
+          "name": "same-key concurrent retries and replay after a later version"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 32,
+          "name": "no-op profile, lifecycle and current reference do not increment versions"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 4,
+          "name": "profile injected SQL failure at position 0/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 5,
+          "name": "profile injected SQL failure at position 1/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 6,
+          "name": "profile injected SQL failure at position 2/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 7,
+          "name": "profile injected SQL failure at position 3/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 8,
+          "name": "profile injected SQL failure at position 4/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 9,
+          "name": "profile injected SQL failure at position 5/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 10,
+          "name": "profile injected SQL failure at position 6/6: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 11,
+          "name": "reference injected SQL failure at position 0/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 12,
+          "name": "reference injected SQL failure at position 1/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 13,
+          "name": "reference injected SQL failure at position 2/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 14,
+          "name": "reference injected SQL failure at position 3/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 15,
+          "name": "reference injected SQL failure at position 4/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 16,
+          "name": "reference injected SQL failure at position 5/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 17,
+          "name": "reference injected SQL failure at position 6/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 18,
+          "name": "reference injected SQL failure at position 7/7: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 19,
+          "name": "lifecycle injected SQL failure at position 0/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 20,
+          "name": "lifecycle injected SQL failure at position 1/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 21,
+          "name": "lifecycle injected SQL failure at position 2/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 22,
+          "name": "lifecycle injected SQL failure at position 3/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 23,
+          "name": "lifecycle injected SQL failure at position 4/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 24,
+          "name": "lifecycle injected SQL failure at position 5/5: entire database unchanged"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 29,
+          "name": "zero-row profile UPDATE is detected by final guard"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 30,
+          "name": "SKU conflict rolls back profile and idempotency ledger"
+        }
+      ]
+    },
+    {
+      "id": "O1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 33,
+          "name": "cross-workspace product/profile/reference/asset and reads never leak"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 1,
+          "name": "foreign candidate/ref image API preflight takes no credits and returns 404"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 8,
+          "name": "API foreign identifiers return 404 and no revision/content"
+        },
+        {
+          "report": "ownership-final-results.json",
+          "caseIndex": 0,
+          "name": "foreign task images rejected before revision disclosure or snapshot writes"
+        },
+        {
+          "report": "ownership-final-results.json",
+          "caseIndex": 1,
+          "name": "bound image errors stay scoped even with an active batch"
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 37,
+          "name": "batch SQL failure at every write position is atomic"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 38,
+          "name": "stale pre-read cannot bind after a profile wins the transaction"
+        },
+        {
+          "report": "supplemental-results.json",
+          "caseIndex": 1,
+          "name": "promotion wins stale binding and historical reference remains exact"
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 39,
+          "name": "batch snapshot/replay stays frozen after rename, archive and reference change"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 40,
+          "name": "worker analysis creation copies historical snapshot without current product checks"
+        },
+        {
+          "report": "supplemental-results.json",
+          "caseIndex": 1,
+          "name": "promotion wins stale binding and historical reference remains exact"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 10,
+          "name": "real batch worker copies saved snapshot, repeated delivery does not call provider twice"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 11,
+          "name": "failed worker retry preserves source after profile change and flag closure"
+        }
+      ]
+    },
+    {
+      "id": "A1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 2,
+          "name": "bound/no-product/anonymous analysis APIs run with unchanged engine input"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 41,
+          "name": "analysis/reference/snapshot fail at every SQL position with no partial rows"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 3,
+          "name": "same images different binding conflict without extra credits; replay fixed snapshot"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 4,
+          "name": "simultaneous same-key API calls reserve once by source and settle only after completion"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 5,
+          "name": "race after credit reserve releases exactly once and never calls provider"
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 6,
+          "name": "missing R2 binary fails original task; releases reservation; no fallback reference"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 9,
+          "name": "expired reference before binding and after archive/restore cannot be reused"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 11,
+          "name": "failed worker retry preserves source after profile change and flag closure"
+        },
+        {
+          "report": "ownership-final-results.json",
+          "caseIndex": 1,
+          "name": "bound image errors stay scoped even with an active batch"
+        },
+        {
+          "report": "ownership-final-results.json",
+          "caseIndex": 2,
+          "name": "expiry crossing after preparation is rejected by database clock"
+        }
+      ]
+    },
+    {
+      "id": "L1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 35,
+          "name": "legacy product-only fingerprint replay survives first initialization"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 36,
+          "name": "legacy update racing first profile is rejected rather than zero-row success"
+        }
+      ]
+    },
+    {
+      "id": "G1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 2,
+          "name": "default disabled rejects profile writes with unchanged complete database"
+        },
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 34,
+          "name": "initialized legacy writes blocked by triggers and old API paths"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 0,
+          "name": "successful profile API, stable replay, pagination and disabled CAS compatibility"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 7,
+          "name": "disabled API explicitly rejects new profile/binding; history remains available"
+        }
+      ]
+    },
+    {
+      "id": "U1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "browser-evidence.json",
+          "observations": 6,
+          "requestStatuses": [
+            409,
+            503,
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "id": "X1",
+      "developmentResult": "PASS",
+      "evidence": [
+        {
+          "report": "data-final-results.json",
+          "caseIndex": 42,
+          "name": "snapshot UPDATE forbidden; metadata survives product removal semantics"
+        },
+        {
+          "report": "api-last-results.json",
+          "caseIndex": 12,
+          "name": "report/workspace deletion cascades snapshots without changing retention"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "scope": "latest runtime sources"
+    },
+    {
+      "command": "pnpm exec eslint lib/products lib/batches lib/analysis app/api/products app/api/batches app/api/analyses/route.ts app/account/products/[productId] app/account/batches lib/cloudflare/bindings.ts scripts/verify-product-profiles.ts scripts/verify-m2-saved-products.ts",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 4,
+      "warningRule": "@next/next/no-img-element",
+      "scope": "latest runtime sources; existing native image previews"
+    },
+    {
+      "command": "pnpm test:m2:saved-products",
+      "exitCode": 0,
+      "scope": "run after database-clock/ownership guard change, before final bound-error-priority adjustment; legacy path preserved"
+    },
+    {
+      "command": "pnpm run build",
+      "exitCode": 0,
+      "scope": "one earlier local Next build of new pages/routes, 73 static pages; later server guard changes covered by final typecheck and incremental D1/API checks"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "finalSourceSha256": {
+    "app/account/batches/new/BatchCreationClient.tsx": "b038c49e915a8bf65fd670e5edaf3ab34b07827398d931fa397f6558312055c3",
+    "app/account/batches/new/page.tsx": "efdf9837c5eae4964eefda7691b7e8b6f262f61b48605f49c8a0242be030bf81",
+    "app/account/batches/page.tsx": "63e3fadc00c34673bb04cdf5bb9385b1af2f39dbb13ac54e7a1d39a9cdddb708",
+    "app/account/products/[productId]/ProductProfileClient.tsx": "3670e2b824c13696d12502daee27f8ed1207ca3049e99f6df6f43823cc24a9b7",
+    "app/account/products/[productId]/PromoteReferenceClient.tsx": "2b185d8a7c6d213279b1db23ea96cfc6aa0f938eff0153e21bf5f2b5e1fc5536",
+    "app/account/products/[productId]/SavedProductSettingsClient.tsx": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb",
+    "app/account/products/[productId]/page.tsx": "4a8e2baa4c751b275a58844cc355bfae94cc44c6ebe59ecf2604f0c8613a682e",
+    "app/api/analyses/route.ts": "3c6b1ef4c6750de703581ff7ba258336b23066f9b9b520119591a15c50fe440a",
+    "app/api/batches/[batchId]/export/route.ts": "a4db0cc6b7b492f122969697cb4ae63e84fb037a59acf632360332be82e1b04d",
+    "app/api/batches/route.ts": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+    "app/api/products/[productId]/profile/route.ts": "f47b5957a9cb7e29b9099ad579ab135cacd1a56ce2e8d9237946fe3b458a3dc9",
+    "app/api/products/[productId]/profiles/route.ts": "4e784966553b21fe68c1c536c5f8b228a035f09cd1212940988deb5c37ce20cd",
+    "app/api/products/[productId]/references/route.ts": "d2ee54506ee48922029ccd0be8920c6492f07dfbbe8da2db386952e545283796",
+    "app/api/products/[productId]/route.ts": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+    "app/api/products/route.ts": "2651d41d1d7da29016983823107a6968d4e4e18ecf98450dd956107272fcb1aa",
+    "docs/01-architecture/sku-versioned-profile-contract.md": "8fd05cddb1257e9ec929f23cc9cacc83c21816ff814cfd773fff25d8efbe4a00",
+    "docs/02-product/sku-profile-field-matrix.md": "922691e05d9ed2b614d4d2530384184b3657eaccdfb935fad6607610c438dfc6",
+    "fixtures/product-profiles/api-entry.ts": "57343b059ecf13c242c052e4605eae38e8d56a8cea1c3e1c85d0cb13faadd7eb",
+    "fixtures/product-profiles/sql-worker.mjs": "cf685619748e26e80f1f336a7031eabea55478d43d34bbaa8c38f65d1df264da",
+    "fixtures/product-profiles/ui-entry.tsx": "75920654d1d37161aea3782b1188c4589eb5e3c431dddf4ee0e902b564518951",
+    "fixtures/product-profiles/ui-server.mjs": "912eb9134b56d1585ea114a3e0896bff3e27a71903153280ca9c7a4f37c0f1c2",
+    "lib/analysis/repository.ts": "4a254eae0540bd7662d464c2bdb3dc2c2de8127f4569debf9851db4577f7e51e",
+    "lib/analysis/service.ts": "7a1da8fd1746931871b579b3804213e72ed40f257c3eb2e5709dab8708569366",
+    "lib/analysis/types.ts": "0d7cd1363218ab33515a46fa7c2346341fc3b0b8a5dfca08627c946bf2d6baf3",
+    "lib/batches/repository.ts": "33e938e10f5565f8d86d72f8b6428c1e8d4ae7a89800179bd96fb03e4fd526ec",
+    "lib/batches/types.ts": "ee0d29c64a8c0abfdfb943998cc9f4554e8e6c143a7a9b8479ca719cbce1919c",
+    "lib/batches/validation.ts": "04ec631a8376a34e8fe3dbc8a6ca2ac2cfeea2b3a55b46a23f3f52864b356410",
+    "lib/batches/worker.ts": "92a6789d9e8e2bdc0c039f09a06d5047cbfb4aeddeaa81cea51786304691d71c",
+    "lib/cloudflare/bindings.ts": "781976b79cc903fa79e34f59f80e952939503fef221633cbcef5518a51e7e8b6",
+    "lib/products/profile-validation.ts": "11557e223448a0b1061c2f3f1d2d7d44420ca26c6d3951c8da60ef0976f8f8c5",
+    "lib/products/repository.ts": "e63504a6e6d2ad098c5c53ccdb0ee88b623be5465c1cc8cc2ad53cf7ae548b4a",
+    "lib/products/types.ts": "a333f95ed40758e37b7a9392724531e1c765dc115248f49a8e44466d90c28dfc",
+    "migrations/0020_product_profiles.sql": "b3a708722496da8a16090a2669881e6b357601a0c9c4592e5dfcc81c2632cee9",
+    "package.json": "1919d305a3f2ab8a7a78d01ace7aecbb9d09445bb58c9cea896e7db3d15420bd",
+    "scripts/verify-m2-saved-products.ts": "fa20fcd1b117df48207904b21fc2869e851dbf36219dae3a7c509a5371c755ed",
+    "scripts/verify-product-profiles.ts": "a8261f88c9f102dcc8184a4a1f507bcc50b1cd8c603da7f07ec9baf4d4ecee71"
+  },
+  "evidenceLineage": [
+    "Every raw report preserves execution-time source hashes; no historic result was rewritten.",
+    "Data-final ran after database-clock and candidate guards. The final delta only prioritizes scoped bound asset availability and adds an active-batch negative case; the atomic transaction SQL remains unchanged. API-last and ownership-final run that delta.",
+    "Supplemental tests ran earlier: normalization code is unchanged; reference promotion/frozen snapshot behavior is additionally covered by latest data/API tests.",
+    "Browser evidence source hashes still match the delivered components; actual component mounted with synthetic backend, not full authenticated Next journey.",
+    "First-pass recorded-results.json, data-results.json, API intermediate reports and ownership-results.json are preserved as development history, not added to final case totals."
+  ],
+  "limitations": [
+    "Real local D1/workerd atomicity and two service request concurrency only; remote replicas, load and production not proven.",
+    "Auth/access, credits, queue, R2 and model provider boundaries are controlled synthetic stubs. Actual routes, repositories, service, worker and engine/policy are bundled unchanged. Real auth, credits ledger/payment and object deletion not proven.",
+    "CSV source fields were statically inspected and compiled; no authenticated export-browser journey was run.",
+    "No customer data, real credentials, model call, payment, remote database/R2 write, push, migration or deployment.",
+    "Local controller must bind independent acceptance to the resulting exact commit. Production migration/deploy/flag enable require separate authorization and full repository release order."
+  ]
+}

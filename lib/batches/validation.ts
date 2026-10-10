@@ -78,8 +78,9 @@ export async function fingerprintBatchMapping(
   mappingMode: BatchMappingMode,
   items: Array<{ referenceAssetId: string; candidateAssetId: string; clientLabel: string | null }>,
   productId: string | null = null,
+  productBinding?: import("@/lib/products/types").ProductBinding | null,
 ) {
-  const canonical = JSON.stringify({ mappingMode, productId, items });
+  const canonical = JSON.stringify(productBinding ? { mappingMode, productId, items, productBinding } : { mappingMode, productId, items });
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical));
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }

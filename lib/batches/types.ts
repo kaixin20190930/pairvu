@@ -22,6 +22,8 @@ export interface BatchMappingItemInput {
 }
 
 export interface CreateBatchInput {
+  productBinding?: import("@/lib/products/types").ProductBinding | null;
+  profilesEnabled?: boolean;
   batchId: string;
   workspaceId: string;
   idempotencyKey: string;
@@ -33,6 +35,8 @@ export interface CreateBatchInput {
 }
 
 export interface PersistedBatch {
+  productSnapshot: import("@/lib/products/types").ProductSnapshot | null;
+  profileState: "bound" | "legacy_unbound";
   id: string;
   workspaceId: string;
   mappingMode: BatchMappingMode;

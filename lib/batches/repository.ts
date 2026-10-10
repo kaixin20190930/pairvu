@@ -12,7 +12,8 @@ import {
   fingerprintBatchMapping,
   validateAndNormalizeBatchMapping,
 } from "@/lib/batches/validation";
-import { assertSavedProductBatchReference } from "@/lib/products/repository";
+import { normalizeProductBinding, requireProductProfilesEnabled } from "@/lib/products/profile-validation";
+import { SavedProductError, getSavedProductById, prepareProductSnapshot, snapshotWriteStatements, readProductSnapshot, atomicProductBatch, assertSavedProductBatchReference } from "@/lib/products/repository";
 
 export class BatchIdempotencyConflictError extends Error {
   readonly code = "batch_idempotency_conflict";
@@ -35,26 +36,32 @@ export async function createBatch(
   input: CreateBatchInput,
 ): Promise<{ batch: PersistedBatchWithItems; resumed: boolean }> {
   const items = validateAndNormalizeBatchMapping(input);
-  const productId = input.productId?.trim() || null;
+  const binding=normalizeProductBinding(input.productBinding);
+  const productId = input.productId?.trim() || binding?.productId || null;
+  if(binding && productId!==binding.productId)throw new SavedProductError("invalid_binding","Product selection and binding must match.");
   if (productId && input.mappingMode !== "one_reference_many_candidates") {
     throw new BatchValidationError(
       "product_mapping_mode_invalid",
       "Saved Products can only be used with one product, many images mode.",
     );
   }
-  const fingerprint = await fingerprintBatchMapping(input.mappingMode, items, productId);
+  const fingerprint = await fingerprintBatchMapping(input.mappingMode, items, productId, binding);
   const existing = await getBatchByIdempotencyKey(db, input.workspaceId, input.idempotencyKey);
   if (existing) {
     if (existing.requestFingerprint !== fingerprint) throw new BatchIdempotencyConflictError();
     return { batch: existing, resumed: true };
   }
 
-  const active = await getActiveBatchForWorkspace(db, input.workspaceId);
+  if(binding)requireProductProfilesEnabled(input.profilesEnabled);
+  const active = binding ? null : await getActiveBatchForWorkspace(db, input.workspaceId);
   if (active) throw new ActiveBatchExistsError();
 
   const timestamp = (input.now ?? new Date()).toISOString();
-  const assetRetentionExpiresAt = await assertAssetsBelongToWorkspace(db, input.workspaceId, items, timestamp);
-  if (productId) {
+  const assetRetentionExpiresAt = await assertAssetsBelongToWorkspace(db, input.workspaceId, items, timestamp, !!binding);
+  const prepared=binding ? await prepareProductSnapshot(db,{workspaceId:input.workspaceId,binding,referenceAssetId:items[0].referenceAssetId,now:input.now}) : null;
+  if (productId && !binding) {
+    const product=await getSavedProductById(db,productId,input.workspaceId,input.now);
+    if(product?.currentProfile)throw new SavedProductError("product_binding_required","Select current product and reference versions before starting this batch.",428);
     await assertSavedProductBatchReference(db, {
       productId,
       workspaceId: input.workspaceId,
@@ -62,6 +69,7 @@ export async function createBatch(
       now: input.now,
     });
   }
+  if(binding && await getActiveBatchForWorkspace(db,input.workspaceId))throw new ActiveBatchExistsError();
   const statements = [
     db
       .prepare(
@@ -105,7 +113,24 @@ export async function createBatch(
     ),
   ];
 
-  const results = await db.batch<{ success?: boolean; error?: string }>(statements);
+  const snapshotStatements=prepared ? snapshotWriteStatements(db,{kind:"batch",id:input.batchId,workspaceId:input.workspaceId,prepared,candidateAssetIds:items.map(item=>item.candidateAssetId)}) : null;
+  if(snapshotStatements){statements.unshift(...snapshotStatements.before);statements.push(...snapshotStatements.after);}
+  // Protect the old productId-only path against a concurrent first profile or promotion.
+  else if(productId) {
+    const token=crypto.randomUUID();
+    statements.unshift(db.prepare(`insert into product_write_guards(token,workspace_id,product_id,ok) select ?,?,?,case when exists(select 1 from products p join product_reference_versions r on r.product_id=p.id and r.workspace_id=p.workspace_id join assets a on a.id=r.asset_id where p.id=? and p.workspace_id=? and p.status='active' and p.current_profile_version_id is null and r.asset_id=? and r.status='current' and a.workspace_id=p.workspace_id and a.status not in ('deleted','failed') and a.retention_expires_at>?) then 1 else 0 end`).bind(token,input.workspaceId,productId,productId,input.workspaceId,items[0].referenceAssetId,timestamp));
+    statements.push(db.prepare("delete from product_write_guards where token=?").bind(token));
+  }
+  let results;
+  try {results=await atomicProductBatch(db,statements);} catch(error) {
+    const replay=await getBatchByIdempotencyKey(db,input.workspaceId,input.idempotencyKey);
+    if(replay){if(replay.requestFingerprint!==fingerprint)throw new BatchIdempotencyConflictError();return {batch:replay,resumed:true};}
+    if(binding){await assertAssetsBelongToWorkspace(db,input.workspaceId,items,timestamp,true);await prepareProductSnapshot(db,{workspaceId:input.workspaceId,binding,referenceAssetId:items[0].referenceAssetId,now:input.now});}
+    else if(productId){const current=await getSavedProductById(db,productId,input.workspaceId,input.now);if(current?.currentProfile)throw new SavedProductError("product_binding_required","Reload and select current versions.",428);await assertSavedProductBatchReference(db,{workspaceId:input.workspaceId,productId,referenceAssetId:items[0].referenceAssetId,now:input.now});}
+    if(await getActiveBatchForWorkspace(db,input.workspaceId))throw new ActiveBatchExistsError();
+    if(binding)throw new SavedProductError("profile_storage_unavailable","Task information could not be saved safely.",503);
+    throw error;
+  }
   const failed = results.find((result) => result && result.success === false);
   if (failed) {
     if (String(failed.error).includes("idx_batches_one_active_per_workspace")) {
@@ -126,7 +151,7 @@ export async function getBatchById(
 ): Promise<PersistedBatchWithItems | null> {
   const batch = await db.prepare(batchSelect("b.id = ? and b.workspace_id = ?")).bind(batchId, workspaceId).first<PersistedBatch>();
   if (!batch) return null;
-  return { ...batch, items: await listBatchItems(db, batch.id, workspaceId) };
+  return { ...await withSnapshot(db,batch), items: await listBatchItems(db, batch.id, workspaceId) };
 }
 
 export async function listWorkspaceBatches(
@@ -151,15 +176,15 @@ export async function listWorkspaceBatches(
      from batches b left join products p on p.id = b.product_id
      where b.workspace_id = ? order by b.created_at desc limit ?`,
   ).bind(workspaceId, Math.min(100, Math.max(1, limit))).all<BatchHistoryItem>();
-  return rows.results.map((row) => ({
-    ...row,
+  return Promise.all(rows.results.map(async (row) => ({
+    ...await withSnapshot(db,row),
     itemCount: Number(row.itemCount),
     completedItemCount: Number(row.completedItemCount),
     failedItemCount: Number(row.failedItemCount),
     passCount: Number(row.passCount),
     reviewCount: Number(row.reviewCount),
     failCount: Number(row.failCount),
-  }));
+  })));
 }
 
 export async function listRetainedBatchReferences(
@@ -191,7 +216,7 @@ export async function getBatchByIdempotencyKey(
     .bind(workspaceId, idempotencyKey)
     .first<PersistedBatch>();
   if (!batch) return null;
-  return { ...batch, items: await listBatchItems(db, batch.id, workspaceId) };
+  return { ...await withSnapshot(db,batch), items: await listBatchItems(db, batch.id, workspaceId) };
 }
 
 export async function markBatchFailedBeforeExecution(
@@ -360,22 +385,25 @@ async function assertAssetsBelongToWorkspace(
   workspaceId: string,
   items: Array<{ referenceAssetId: string; candidateAssetId: string }>,
   nowIso: string,
+  bound = false,
 ) {
   const ids = [...new Set(items.flatMap((item) => [item.referenceAssetId, item.candidateAssetId]))];
   const retentionExpiries: string[] = [];
   for (const assetId of ids) {
     const asset = await db
       .prepare(
-        `select id, retention_expires_at as retentionExpiresAt
+        `select id, asset_type as assetType, status, retention_expires_at as retentionExpiresAt
          from assets
-         where id = ? and workspace_id = ? and status != 'deleted'
+         where id = ? and workspace_id = ?
          limit 1`,
       )
       .bind(assetId, workspaceId)
-      .first<{ id: string; retentionExpiresAt: string | null }>();
-    if (!asset) {
+      .first<{ id: string; assetType: string; status: string; retentionExpiresAt: string | null }>();
+    if (!asset || !bound && asset.status === "deleted") {
+      if(bound)throw new SavedProductError("reference_not_found","One or more task images were not found.",404);
       throw new BatchValidationError("batch_asset_not_found", "One or more mapped assets were not found in this workspace.");
     }
+    if(bound && (asset.assetType!=="image" || ["deleted","failed"].includes(asset.status) || !asset.retentionExpiresAt || asset.retentionExpiresAt<=nowIso))throw new SavedProductError("product_reference_unavailable","One or more mapped images are no longer available.",409);
     if (!asset.retentionExpiresAt) {
       throw new BatchValidationError(
         "batch_asset_retention_missing",
@@ -403,4 +431,9 @@ function batchSelect(where: string) {
     b.created_at as createdAt, b.updated_at as updatedAt, b.started_at as startedAt,
     b.completed_at as completedAt from batches b left join products p on p.id = b.product_id
     where ${where} limit 1`;
+}
+
+async function withSnapshot<T extends PersistedBatch>(db:D1Database,batch:T):Promise<T> {
+  const productSnapshot=await readProductSnapshot(db,"batch",batch.id,batch.workspaceId);
+  return {...batch,productSnapshot,profileState:productSnapshot?"bound":"legacy_unbound",productName:productSnapshot?.profile.name??batch.productName,productSkuLabel:productSnapshot?productSnapshot.profile.skuLabel:batch.productSkuLabel};
 }

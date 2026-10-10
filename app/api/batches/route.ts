@@ -1,3 +1,4 @@
+import { normalizeProductBinding, productProfilesEnabled } from "@/lib/products/profile-validation";
 import { NextRequest, NextResponse } from "next/server";
 import { getWorkspaceBatchEntitlement } from "@/lib/accounts/repository";
 import { isValidAnonymousSessionId } from "@/lib/assets/validation";
@@ -47,6 +48,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const productBinding=normalizeProductBinding(body?.productBinding);
     const entitlement = await getWorkspaceBatchEntitlement(env.VISUALQA_DB, access.workspaceId);
     const created = await createBatch(env.VISUALQA_DB, {
       batchId,
@@ -54,6 +56,8 @@ export async function POST(request: NextRequest) {
       idempotencyKey,
       mappingMode,
       productId,
+      productBinding,
+      profilesEnabled:productProfilesEnabled(env),
       items,
       planBatchItemLimit: entitlement.batchItemLimit,
     });
