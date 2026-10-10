@@ -83,3 +83,7 @@ UPG-03A设计候选4362a26已独立通过；UPG-03B0候选fb38dbe已通过37专�
 ## UPG-03 生产关闭
 
 本轮明确授权后，57bc848已推送GitHub并fresh核验，0020迁移成功，同SHA部署Cloudflare版本f62b7502-d05e-413c-86a0-aa435827b7e6，独立9项HTTP检查通过。manifest正式record-deployment→verify-production→close。功能开关仍默认关闭，未声称完整登录验收。详见[evidence](evidence/production-upg03-2026-10-10/manifest.json)。
+
+## 完成汇报要求
+
+每次总控完成汇报必须列出下一步具体动作、依赖或阻塞，以及自动继续/需要用户输入。当前已授权SKU启用和生产登录验收，通过后自动推进UPG-04；不得用HTTP验收代替真实登录流程。

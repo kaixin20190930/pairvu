@@ -61,7 +61,7 @@
       "title": "结构化区域证据与可观测性",
       "priority": 4,
       "dependsOn": [
-        "UPG-03"
+        "UPG-03-ENABLE"
       ],
       "mode": "runtime",
       "autoEligible": false,
@@ -240,6 +240,20 @@
         "UPG-03A"
       ],
       "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-03-ENABLE",
+      "title": "SKU生产启用与登录验收",
+      "priority": 3,
+      "dependsOn": [
+        "UPG-03"
+      ],
+      "mode": "runtime",
       "autoEligible": true,
       "requiredEvidence": [
         "fixed candidate SHA",

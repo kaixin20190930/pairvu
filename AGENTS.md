@@ -47,3 +47,9 @@ actual complexity, risk, and required capability; never default to the most
 expensive model or choose the cheapest solely to save cost. Record each role's
 choice, rationale, and escalation condition in the task registry and contract.
 Reassess each unit without weakening independent acceptance.
+
+## Controller Completion Report
+
+Every controller completion report must include an explicit next action, its
+dependency or blocker, and whether it will proceed automatically or needs user input.
+Distinguish implementation, deployment, feature enablement, and acceptance.
