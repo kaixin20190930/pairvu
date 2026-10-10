@@ -1,0 +1,326 @@
+{
+  "synthetic": true,
+  "unitId": "UPG-03B0",
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1",
+    "compatibilityDate": "2026-07-26",
+    "binding": "real local D1 in workerd",
+    "sqliteVersion": "not exposed by D1",
+    "transport": "two Worker services, HTTP requests to loopback only"
+  },
+  "cases": [
+    {
+      "name": "old data: additive schema preserves exact legacy rows, no invented profile/snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "two independent Worker services share the same real local D1",
+      "status": "PASS",
+      "detail": {
+        "workers": [
+          "request-a",
+          "request-b"
+        ],
+        "meta": {
+          "served_by": "miniflare.db",
+          "duration": 0,
+          "changes": 0,
+          "last_row_id": 1,
+          "changed_db": false,
+          "size_after": 151552,
+          "rows_read": 1,
+          "rows_written": 0
+        }
+      }
+    },
+    {
+      "name": "profile write performs guarded CAS, immutable v1 and compatible columns",
+      "status": "PASS",
+      "detail": {
+        "statementCount": 6
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 1/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 1
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 2/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 2
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 3/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 3
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 4/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 4
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 5/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 5
+      }
+    },
+    {
+      "name": "profile: injected CHECK failure after write position 6/6 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 6
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 1/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 1
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 2/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 2
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 3/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 3
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 4/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 4
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 5/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 5
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 6/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 6
+      }
+    },
+    {
+      "name": "reference: injected CHECK failure after write position 7/7 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 7
+      }
+    },
+    {
+      "name": "lifecycle: injected CHECK failure after write position 1/5 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 1
+      }
+    },
+    {
+      "name": "lifecycle: injected CHECK failure after write position 2/5 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 2
+      }
+    },
+    {
+      "name": "lifecycle: injected CHECK failure after write position 3/5 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 3
+      }
+    },
+    {
+      "name": "lifecycle: injected CHECK failure after write position 4/5 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 4
+      }
+    },
+    {
+      "name": "lifecycle: injected CHECK failure after write position 5/5 rolls back every table",
+      "status": "PASS",
+      "detail": {
+        "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)",
+        "afterStatement": 5
+      }
+    },
+    {
+      "name": "zero-row UPDATE is caught by final guard and rolls back prior inserts",
+      "status": "PASS"
+    },
+    {
+      "name": "stale expectedVersion fails initial guard with unchanged state",
+      "status": "PASS"
+    },
+    {
+      "name": "SKU unique failure rolls back profile, ledger, pointer and revision",
+      "status": "PASS"
+    },
+    {
+      "name": "CAS: two profile requests, same revision, exactly one commit",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        },
+        {
+          "ok": true,
+          "resumed": false
+        }
+      ]
+    },
+    {
+      "name": "CAS: profile vs reference promotion, no split-table lost update",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": true,
+          "resumed": false
+        },
+        {
+          "ok": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        }
+      ]
+    },
+    {
+      "name": "CAS: two reference roles still use one product revision",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": true,
+          "resumed": false
+        },
+        {
+          "ok": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        }
+      ]
+    },
+    {
+      "name": "CAS: archive vs profile, exactly one commit",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": true,
+          "resumed": false
+        },
+        {
+          "ok": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        }
+      ]
+    },
+    {
+      "name": "CAS: archive vs reference, exactly one commit",
+      "status": "PASS",
+      "detail": [
+        {
+          "ok": true,
+          "resumed": false
+        },
+        {
+          "ok": false,
+          "error": "D1_ERROR: CHECK constraint failed: ok=1: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+        }
+      ]
+    },
+    {
+      "name": "same-key concurrent retries commit once and return identical stable result",
+      "status": "PASS",
+      "detail": {
+        "resumed": [
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "name": "same request key with different content is rejected with no writes",
+      "status": "PASS"
+    },
+    {
+      "name": "no-op profile stores idempotency result without version/revision increment",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong workspace product/asset and expired asset are rejected atomically",
+      "status": "PASS"
+    },
+    {
+      "name": "reference UNIQUE and scoped pointer constraints reject partial writes",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy writes blocked on initialized products; immutable profile/reference core",
+      "status": "PASS"
+    },
+    {
+      "name": "archive/restore preserve profile; archived edit is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "legal workspace cascade is compatible with immutable UPDATE triggers",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "base.sql": "9e1cc6fafaa8091d2919bb9a0341c7a9bbc31842d7d68b71a3fdd9d736174fd4",
+    "profile-schema.sql": "cc4c36a33dadbee08bf20fa28f3b3c7d101977f416efdc02d69c8e8fd02abd49",
+    "worker.mjs": "78415d351be7adbe6590edbf6159fb5865428f6e710bdf552ccbd380c2367b38",
+    "transactions.mjs": "788d1d00dddb4ebada9eaacdcc1050f4e9491f808b6304f6f9da3708907cbcd9",
+    "verify-product-profile-d1.mjs": "482c13f1ee2388c0718026363568f974b0dd50f8cdee85d12510c173894ff9fa"
+  },
+  "limitations": [
+    "Synthetic schema fixture, not production migrations.",
+    "No API/UI/credits/model/R2 integration or production behavior verified.",
+    "Concurrency covers bounded two-request interleavings, not remote replica/production load semantics."
+  ],
+  "requestCount": 434,
+  "completedAt": "2026-10-10T09:22:54.994Z"
+}

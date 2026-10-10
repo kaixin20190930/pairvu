@@ -53,7 +53,8 @@
     "test:upgrade-dataset": "node scripts/test-upgrade-dataset.mjs",
     "release:preflight": "node scripts/release-preflight.mjs",
     "test:release-preflight": "node scripts/test-release-preflight.mjs",
-    "test:control-production": "node scripts/verify-pairvu-production.mjs"
+    "test:control-production": "node scripts/verify-pairvu-production.mjs",
+    "test:product-profile-d1": "node scripts/verify-product-profile-d1.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "latest",
