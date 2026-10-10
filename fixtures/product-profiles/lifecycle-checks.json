@@ -1,0 +1,35 @@
+{
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "baselineSha": "71d39c5648335997679b111af811bafdeb17976b",
+  "preCandidateHead": "83d558c153f8e10c6d4d5dc52069bd097bc0a53f",
+  "kind": "Developer evidence; independent exact-commit acceptance pending",
+  "status": "PASS",
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm exec eslint 'app/account/products/[productId]/ProductProfileClient.tsx' fixtures/product-profiles/lifecycle-entry.tsx",
+      "exitCode": 0
+    },
+    {
+      "command": "node fixtures/product-profiles/lifecycle-server.mjs",
+      "browserAction": "Load emitted loopback URL in Codex in-app browser; actual bundled React component runs 10 native DOM input/click/props/async cases using act.",
+      "cases": 10,
+      "profileRequests": 15,
+      "rawReport": "fixtures/product-profiles/lifecycle-results.json"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "originalFailure": "fixtures/product-profiles/lifecycle-attempt-1-results.json",
+  "failureResolution": "First eight cases passed; a late post-save GET exposed draft rebasing while save follow-up was pending. Keep the pending request until its follow-up read completes so intervening props update permissions without rebasing. All ten cases then passed.",
+  "limitations": [
+    "Synthetic browser interaction uses actual production component and React; fetch/router boundaries are controlled. No real authentication, production operation, API/database/credit/provider call performed.",
+    "No new full D1 suite or build: UI-only contract requires targeted interaction/typecheck; controller performs deployment build and real production re-verification.",
+    "Server props reflect completed lifecycle changes through router refresh; this does not add optimistic state before the server confirms a change."
+  ]
+}

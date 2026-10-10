@@ -1,0 +1,105 @@
+{
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "synthetic": true,
+  "kind": "Actual React component in browser; native DOM input/click events, act, controlled fetch/router boundary",
+  "status": "FAIL",
+  "cases": [
+    {
+      "name": "same mounted active editor archives immediately, restores and saves at new revision",
+      "status": "PASS"
+    },
+    {
+      "name": "editor initially mounted archived restores without page reload",
+      "status": "PASS"
+    },
+    {
+      "name": "dirty draft survives archive/restore and requires explicit fresh review",
+      "status": "PASS"
+    },
+    {
+      "name": "409 remains blocked across new props until manual GET and confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "503 retry keeps exact UUID/body despite newer props, then 409 requires review",
+      "status": "PASS"
+    },
+    {
+      "name": "503 unchanged-revision retry is byte-identical and successful",
+      "status": "PASS"
+    },
+    {
+      "name": "out-of-order props cannot regress lifecycle or submission revision",
+      "status": "PASS"
+    },
+    {
+      "name": "late manual GET cannot roll back fresher archived props or permit confirmation",
+      "status": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "body": "{\"requestId\":\"994d10da-f6e3-429b-bbf1-5af6dcb47074\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Restored draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"a54d14e7-5638-4757-8e03-25118118a4d3\",\"expectedVersion\":5,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"After archived mount\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"cef2eb2f-15bc-4ef9-a83a-f1ae1f29480e\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Keep this unsaved draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"87c58f89-65ca-4794-8947-c48d16c46bcc\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"409 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"73830d3e-246e-4163-b146-d018320400a7\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"409 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"b9fadb00-fb2f-403e-8882-bc19b5943fe3\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 503
+    },
+    {
+      "body": "{\"requestId\":\"b9fadb00-fb2f-403e-8882-bc19b5943fe3\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"97e4c56c-8d63-473f-9ae4-bcf60b7df755\",\"expectedVersion\":2,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"dbc4de14-b8cd-4f13-b456-3dcaa5856802\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"  Canonical saved name  \",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 503
+    },
+    {
+      "body": "{\"requestId\":\"dbc4de14-b8cd-4f13-b456-3dcaa5856802\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"  Canonical saved name  \",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"04935091-a9aa-42c6-bd76-c2665c0600dc\",\"expectedVersion\":6,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Monotonic revision\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"5d8a268a-cab5-4d49-9ba3-31829d1d6217\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Late GET draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"077931e8-6d16-4dfb-84ae-93438e6e6113\",\"expectedVersion\":5,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Late GET draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"3b21d997-2e93-4884-9999-06dafa5ff67a\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Saved before archive\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    }
+  ],
+  "failure": "Error: Late successful-save read must not regress state\n    at check (http://127.0.0.1:57015/app.js:21991:20)\n    at http://127.0.0.1:57015/app.js:22171:9\n    at async test (http://127.0.0.1:57015/app.js:22043:5)\n    at async run (http://127.0.0.1:57015/app.js:22157:7)",
+  "completedAt": "2026-10-10T13:40:45.288Z",
+  "sources": {
+    "app/account/products/[productId]/ProductProfileClient.tsx": "db69164c9d04fe72a88c77d7c660c8dc717a3734a1c74891fce8c622805930f4",
+    "fixtures/product-profiles/lifecycle-entry.tsx": "91f660c4e2b7cc30dee45a965517ef11adcd17204850f0ef280b32d8daaccefc",
+    "fixtures/product-profiles/lifecycle-server.mjs": "92c5ac04057de4e0b5f26b16106728459725783e7f40ee03c85fe78b37f0db63"
+  }
+}

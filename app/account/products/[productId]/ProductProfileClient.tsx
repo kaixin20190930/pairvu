@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ProductProfile, ProductProfileVersion, SavedProductDetail } from "@/lib/products/types";
 const allowed=["background","lighting","shadow","placement","camera_angle"] as const;
@@ -9,16 +9,34 @@ export function ProductProfileClient({product,enabled}:{product:SavedProductDeta
   const [latest,setLatest]=useState(product),[working,setWorking]=useState(false),[conflict,setConflict]=useState(false),[reviewed,setReviewed]=useState(false),[message,setMessage]=useState("");
   const [history,setHistory]=useState<ProductProfileVersion[]>([]),[cursor,setCursor]=useState<number|null>(null),[historyLoaded,setHistoryLoaded]=useState(false);
   const pending=useRef<{key:string;body:string}|null>(null);
-  const editable=enabled&&latest.status==="active";
+  const [baseRevision,setBaseRevision]=useState(product.revision);
+  const draftOrigin=useRef(draft),latestSeen=useRef(product);
+  const observeProduct=useCallback((incoming:SavedProductDetail)=>{
+    if(incoming.revision>=latestSeen.current.revision){latestSeen.current=incoming;setLatest(incoming);}
+    return latestSeen.current;
+  },[]);
+  useEffect(()=>{
+    if(product.revision<=latestSeen.current.revision)return;
+    observeProduct(product);
+    // Refresh permissions immediately, but never rebase an uncertain request.
+    if(pending.current){setReviewed(false);return;}
+    if(conflict||JSON.stringify(draft)!==JSON.stringify(draftOrigin.current)){
+      setConflict(true);setReviewed(false);setMessage("Product information or reference changed. Your draft was kept. Load the latest saved standard before confirming your changes.");return;
+    }
+    const profile=product.currentProfile?.profile??{...draft,name:product.name,skuLabel:product.skuLabel};
+    draftOrigin.current=profile;setDraft(profile);setBaseRevision(product.revision);
+  },[product,draft,conflict,observeProduct]);
+  const displayed=product.revision>latest.revision?product:latest;
+  const editable=enabled&&displayed.status==="active";
   function field<K extends keyof ProductProfile>(key:K,value:ProductProfile[K]) {setDraft(current=>({...current,[key]:value}));setMessage("");}
   async function loadLatest() {
-    setWorking(true);try {const response=await fetch(`/api/products/${product.id}`,{cache:"no-store"});const data=await response.json();if(!response.ok||!data.product)throw new Error(data.message??"Latest product could not be loaded.");setLatest(data.product);setReviewed(true);setConflict(false);pending.current=null;setMessage("Latest product loaded. Your draft was kept. Compare the saved standard below, then confirm your changes.");}catch(error){setMessage(error instanceof Error?error.message:"Unable to load product.");}finally{setWorking(false);}
+    setWorking(true);try {const response=await fetch(`/api/products/${product.id}`,{cache:"no-store"});const data=await response.json();if(!response.ok||!data.product)throw new Error(data.message??"Latest product could not be loaded.");if(data.product.revision<latestSeen.current.revision){setConflict(true);setReviewed(false);throw new Error("Newer product information arrived. Load the latest product again; your draft was kept.");}observeProduct(data.product);setBaseRevision(data.product.revision);setReviewed(true);setConflict(false);pending.current=null;setMessage("Latest product loaded. Your draft was kept. Compare the saved standard below, then confirm your changes.");}catch(error){setMessage(error instanceof Error?error.message:"Unable to load product.");}finally{setWorking(false);}
   }
   async function save() {
     if(!editable||conflict)return;setWorking(true);setMessage("");
-    const key=JSON.stringify({expectedVersion:latest.revision,profile:draft});
-    if(pending.current?.key!==key)pending.current={key,body:JSON.stringify({requestId:crypto.randomUUID(),expectedVersion:latest.revision,profile:draft})};
-    try {const response=await fetch(`/api/products/${product.id}/profile`,{method:"PUT",headers:{"Content-Type":"application/json"},body:pending.current.body});const data=await response.json();if(response.status===409){setConflict(true);setReviewed(false);setMessage(data.message??"Product information or reference changed. Your draft was kept. Load the latest saved standard before submitting again.");return;}if(!response.ok)throw new Error(data.message??"Standard could not be saved.");pending.current=null;setReviewed(false);const read=await fetch(`/api/products/${product.id}`,{cache:"no-store"});const current=await read.json();if(read.ok&&current.product)setLatest(current.product);setMessage("Product standard saved. Previous tasks keep their original standard.");setHistoryLoaded(false);setHistory([]);router.refresh();}catch(error){setMessage(error instanceof Error?error.message:"Unable to save. Retry keeps the same request.");}finally{setWorking(false);}
+    const key=JSON.stringify({expectedVersion:baseRevision,profile:draft});
+    if(pending.current?.key!==key)pending.current={key,body:JSON.stringify({requestId:crypto.randomUUID(),expectedVersion:baseRevision,profile:draft})};
+    try {const response=await fetch(`/api/products/${product.id}/profile`,{method:"PUT",headers:{"Content-Type":"application/json"},body:pending.current.body});const data=await response.json();if(response.status===409){setConflict(true);setReviewed(false);setMessage(data.message??"Product information or reference changed. Your draft was kept. Load the latest saved standard before submitting again.");return;}if(!response.ok)throw new Error(data.message??"Standard could not be saved.");setReviewed(false);setBaseRevision(data.mutationResult.revision);draftOrigin.current=draft;const read=await fetch(`/api/products/${product.id}`,{cache:"no-store"});const current=await read.json();pending.current=null;if(read.ok&&current.product)observeProduct(current.product);if(latestSeen.current.revision>data.mutationResult.revision){setConflict(true);}else if(latestSeen.current.revision===data.mutationResult.revision&&latestSeen.current.currentProfile){const saved=latestSeen.current.currentProfile.profile;draftOrigin.current=saved;setDraft(saved);}setMessage("Product standard saved. Previous tasks keep their original standard.");setHistoryLoaded(false);setHistory([]);router.refresh();}catch(error){setMessage(error instanceof Error?error.message:"Unable to save. Retry keeps the same request.");}finally{setWorking(false);}
   }
   async function loadHistory(more=false) {
     setWorking(true);try {const response=await fetch(`/api/products/${product.id}/profiles${more&&cursor?`?beforeVersion=${cursor}`:""}`,{cache:"no-store"});const data=await response.json();if(!response.ok)throw new Error(data.message??"History could not be loaded.");setHistory(current=>more?[...current,...data.profiles]:data.profiles);setCursor(data.nextBeforeVersion);setHistoryLoaded(true);}catch(error){setMessage(error instanceof Error?error.message:"Unable to load history.");}finally{setWorking(false);}
@@ -30,7 +48,7 @@ export function ProductProfileClient({product,enabled}:{product:SavedProductDeta
       <h3>Allowed scene changes</h3><p>Stored as notes only; these do not exempt product differences from image checks.</p>{allowed.map(key=>{const row=draft.allowedChanges.find(change=>change.key===key);return <div key={key}><label><input type="checkbox" checked={!!row} onChange={event=>field("allowedChanges",event.target.checked?[...draft.allowedChanges,{key,note:null}]:draft.allowedChanges.filter(change=>change.key!==key))}/>{key.replaceAll("_"," ")}</label>{row?<label><span>Note</span><input maxLength={160} value={row.note??""} onChange={event=>field("allowedChanges",draft.allowedChanges.map(change=>change.key===key?{...change,note:event.target.value||null}:change))}/></label>:null}</div>;})}
     </fieldset>
     {message?<p role="status">{message}</p>:null}{conflict?<button disabled={working} type="button" onClick={()=>void loadLatest()}>Load latest and keep draft</button>:null}
-    {reviewed&&latest.currentProfile?<details open><summary>Latest saved standard · text version {latest.currentProfile.versionNumber}</summary><ProfileContents profile={latest.currentProfile.profile}/><button disabled={working} onClick={()=>{setDraft(latest.currentProfile!.profile);setReviewed(false);}} type="button">Use this saved standard as my draft</button></details>:null}
+    {reviewed&&latest.currentProfile?<details open><summary>Latest saved standard · text version {latest.currentProfile.versionNumber}</summary><ProfileContents profile={latest.currentProfile.profile}/><button disabled={working} onClick={()=>{draftOrigin.current=latest.currentProfile!.profile;setDraft(draftOrigin.current);setBaseRevision(latest.revision);setReviewed(false);}} type="button">Use this saved standard as my draft</button></details>:null}
     {editable?<button className="secondary-link-button" disabled={working||conflict||!draft.name.trim()} type="button" onClick={()=>void save()}>{working?"Saving…":reviewed?"Confirm and save retained draft":"Save product standard"}</button>:null}
     <div><button disabled={working} type="button" onClick={()=>void loadHistory()}>View text version history</button>{historyLoaded&&history.length===0?<p>No saved text versions.</p>:null}{history.map(version=><details key={version.versionId}><summary>Text version {version.versionNumber} · {new Date(version.createdAt).toLocaleString()}</summary><ProfileContents profile={version.profile}/></details>)}{cursor?<button disabled={working} type="button" onClick={()=>void loadHistory(true)}>More text versions</button>:null}</div>
   </section>;

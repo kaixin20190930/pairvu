@@ -1,0 +1,116 @@
+{
+  "unitId": "UPG-03-LIFECYCLE-FIX",
+  "synthetic": true,
+  "kind": "Actual React component in browser; native DOM input/click events, act, controlled fetch/router boundary",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "same mounted active editor archives immediately, restores and saves at new revision",
+      "status": "PASS"
+    },
+    {
+      "name": "editor initially mounted archived restores without page reload",
+      "status": "PASS"
+    },
+    {
+      "name": "dirty draft survives archive/restore and requires explicit fresh review",
+      "status": "PASS"
+    },
+    {
+      "name": "409 remains blocked across new props until manual GET and confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "503 retry keeps exact UUID/body despite newer props, then 409 requires review",
+      "status": "PASS"
+    },
+    {
+      "name": "503 unchanged-revision retry is byte-identical and successful",
+      "status": "PASS"
+    },
+    {
+      "name": "out-of-order props cannot regress lifecycle or submission revision",
+      "status": "PASS"
+    },
+    {
+      "name": "late manual GET cannot roll back fresher archived props or permit confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "late post-save GET cannot resurrect editor after newer archive",
+      "status": "PASS"
+    },
+    {
+      "name": "new profile props update pristine draft, but preserve dirty draft and invalidate reviewed confirmation",
+      "status": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "body": "{\"requestId\":\"3ee039a7-1b79-44a7-be40-a8cf5ff08a91\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Restored draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"f7943073-8952-4e96-8c1a-a0d9d7ba2f20\",\"expectedVersion\":5,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"After archived mount\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"6f97245a-f526-4479-b879-6d8cc65bf729\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Keep this unsaved draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"a261b5c0-392c-4a25-8c9e-eb5fdd608770\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"409 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"e0921734-7470-41dc-95c4-0af6735bda9b\",\"expectedVersion\":3,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"409 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"05313877-d25a-478d-bbff-b97adffc7f43\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 503
+    },
+    {
+      "body": "{\"requestId\":\"05313877-d25a-478d-bbff-b97adffc7f43\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"d1366cdc-64dc-4df4-9dcb-86e1f60149e4\",\"expectedVersion\":2,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"503 retained\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"305ea02c-4760-4424-9d80-3e7bf4cd1467\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"  Canonical saved name  \",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 503
+    },
+    {
+      "body": "{\"requestId\":\"305ea02c-4760-4424-9d80-3e7bf4cd1467\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"  Canonical saved name  \",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"5b8a920b-6936-4f6f-9416-8e0c709aa8e0\",\"expectedVersion\":6,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Monotonic revision\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"ca74a145-fe84-43f0-9119-c29b0ff10455\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Late GET draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 409
+    },
+    {
+      "body": "{\"requestId\":\"c06656ef-0517-4e09-8f4e-5e279a0d6d63\",\"expectedVersion\":5,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Late GET draft\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"ff2709c9-d2b6-4502-be74-b720d162c9f3\",\"expectedVersion\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Saved before archive\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    },
+    {
+      "body": "{\"requestId\":\"1a85f01a-7422-421c-8a66-f045e65ae1e4\",\"expectedVersion\":4,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"Server profile four\",\"skuLabel\":null,\"brand\":null,\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]}}",
+      "status": 200
+    }
+  ],
+  "completedAt": "2026-10-10T13:46:22.671Z",
+  "sources": {
+    "app/account/products/[productId]/ProductProfileClient.tsx": "eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6",
+    "fixtures/product-profiles/lifecycle-entry.tsx": "91f660c4e2b7cc30dee45a965517ef11adcd17204850f0ef280b32d8daaccefc",
+    "fixtures/product-profiles/lifecycle-server.mjs": "92c5ac04057de4e0b5f26b16106728459725783e7f40ee03c85fe78b37f0db63"
+  }
+}
