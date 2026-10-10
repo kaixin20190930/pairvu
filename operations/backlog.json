@@ -47,7 +47,7 @@
       "title": "SKU版本化产品标准实现（UPG-03B）",
       "priority": 3,
       "dependsOn": [
-        "UPG-03A"
+        "UPG-03B0"
       ],
       "mode": "runtime",
       "autoEligible": false,
@@ -224,6 +224,20 @@
       "priority": 3,
       "dependsOn": [
         "AUTO-02"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-03B0",
+      "title": "本地D1原子性与并发实证",
+      "priority": 3,
+      "dependsOn": [
+        "UPG-03A"
       ],
       "mode": "local_only",
       "autoEligible": true,

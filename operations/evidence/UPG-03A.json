@@ -1,0 +1,30 @@
+{
+  "unitId": "UPG-03A",
+  "candidateSha": "4362a26c3ea44d10633fe6b323e764267637e37d",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "existing code and design consistency",
+      "status": "PASS"
+    },
+    {
+      "name": "23 links 2 JSON examples",
+      "status": "PASS"
+    },
+    {
+      "name": "SQLite guard semantics distinct from D1 validation",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a12501-b3f3-76d1-bee8-81a6802ec571",
+  "originalReport": "**PASS — UPG-03A 设计契约验收**\n\n固定候选：`4362a26c3ea44d10633fe6b323e764267637e37d`  \n基线：`0757622a5866794476a00474d41dfd7f6323c3c6`\n\n实际 checks：\n\n- 仅两份允许文档变化；基线关系、冻结一致性及 diff 检查通过。\n- 核对 products/reference、批次、分析及资产删除代码事实，无阻断性偏差。\n- CAS、幂等账本、旧写入 trigger、快照绑定／重试、workspace 隔离及保留删除方案自洽。\n- flag 默认关闭、旧流程兼容、增量迁移及兼容版本回滚边界明确。\n- **23 个本地链接、2 个 JSON 示例**通过独立检查。\n- SQLite 最小模板验证：CAS miss、错误 workspace、缺产品均触发 CHECK；事务内前序修改随失败回滚。\n- D1 batch 回滚依据已核对[官方文档](https://developers.cloudflare.com/d1/worker-api/d1-database/#batch)。\n\n**severity：** 未发现阻断项。\n\n原始记录：[independent-results.json](/private/tmp/pairvu-upg03a-qa-_6xcrzfm/independent-results.json)。\n\n**限制：** 本次通过的是设计。SQLite 检查不等于 D1 并发实证；03B 仍须先验证实际 D1 guard／trigger／批事务回滚及并发行为。未修改共享文件、运行应用全量测试、build、迁移或部署。"
+}

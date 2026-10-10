@@ -38,3 +38,12 @@ Absent explicit user authorization for a release, runtime units stop at
 RELEASE_READY. Explicit authorization permits the release only through the
 Production Deployment Rule above. Never treat local QA as production verification.
 The Production Deployment Rule above remains mandatory.
+
+## Task-specific Model Selection
+
+Follow `operations/model-selection-policy.md` before creating or reusing a
+development or acceptance task. Choose model and reasoning effort according to
+actual complexity, risk, and required capability; never default to the most
+expensive model or choose the cheapest solely to save cost. Record each role's
+choice, rationale, and escalation condition in the task registry and contract.
+Reassess each unit without weakening independent acceptance.

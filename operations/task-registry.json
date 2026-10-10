@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "AUTO-02",
-  "baselineSha": "65e204924d9ea2b257e401d0465dd846aec24ef6",
+  "unitId": "UPG-03A",
+  "baselineSha": "0757622a5866794476a00474d41dfd7f6323c3c6",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -13,11 +13,11 @@
     "hostId": "local",
     "clientThreadId": null
   },
-  "candidateSha": "b8510a147d8de62009173f5cdad9ff90abe57adc",
+  "candidateSha": "4362a26c3ea44d10633fe6b323e764267637e37d",
   "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "AUTO-02独立PASS；已通过正式命令导入UPG-01生产证据并CLOSED，plan-sync完成，未直接修改状态。下一项SKU版本化设计。",
-  "nextUnitId": "UPG-03A",
+  "notes": "UPG-03A固定提交已独立PASS并正式关闭；下一步UPG-03B0本地D1实证。",
+  "nextUnitId": "UPG-03B0",
   "production": {
     "status": "PROD_VERIFIED",
     "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",

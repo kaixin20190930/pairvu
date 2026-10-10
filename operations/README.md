@@ -67,3 +67,7 @@ R：文档/离线材料做链接、结构、事实检查。C：运行时代码�
 ## AUTO-02 完成与生产状态闭环
 
 候选 `b8510a147d8de62009173f5cdad9ff90abe57adc`：新增111项、原87项检查及typecheck通过，独立37项CLI检查通过。真实历史发布manifest已由QA对照来源并在复制状态验证，再由总控正式导入；UPG-01已CLOSED，AUTO-02已CLOSED，计划同步后UPG-03A可派单。此前“CLI不能关闭生产状态”的限制已解除。新格式见 [production-evidence-schema.md](production-evidence-schema.md)，历史缺失迁移时间明确为null而非伪造。工具仅验证结构与证据关联，不替代真实平台验证或用户发布授权。
+
+## 子任务模型选择
+
+创建与复用子任务前遵守 [模型选择标准](model-selection-policy.md)：按任务难度、风险、所需能力分别决定开发/验收配置，记录理由；不默认最高档，也不单纯选择最便宜档。持续等待与独立验收规则不变。

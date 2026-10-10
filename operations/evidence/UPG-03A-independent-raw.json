@@ -1,0 +1,143 @@
+{
+  "candidateSha": "4362a26c3ea44d10633fe6b323e764267637e37d",
+  "baseline": "0757622a5866794476a00474d41dfd7f6323c3c6",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "local Markdown links resolve",
+      "status": "PASS",
+      "count": 23
+    },
+    {
+      "name": "two JSON examples parsed and field ordering/enums agree with matrix",
+      "status": "PASS",
+      "count": 2
+    },
+    {
+      "name": "SQLite template CAS miss raises CHECK failure",
+      "status": "PASS"
+    },
+    {
+      "name": "SQLite template wrong workspace raises CHECK failure",
+      "status": "PASS"
+    },
+    {
+      "name": "SQLite template missing product raises CHECK failure",
+      "status": "PASS"
+    },
+    {
+      "name": "SQLite transaction rolls back earlier statement after guard failure",
+      "status": "PASS"
+    }
+  ],
+  "links": [
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../02-product/sku-profile-field-matrix.md"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../migrations/0017_saved_products.sql"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../migrations/0019_saved_product_reference_views.sql"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/products/repository.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/products/types.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/api/products/route.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/api/products/[productId]/route.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/api/products/[productId]/references/route.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../migrations/0017_saved_products.sql"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../migrations/0019_saved_product_reference_views.sql"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/batches/repository.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/batches/validation.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/api/batches/route.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/batches/worker.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/api/analyses/route.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/analysis/service.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/analysis/repository.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/assets/deletion.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../lib/assets/repository.ts"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/account/products/[productId]/SavedProductSettingsClient.tsx"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/account/products/[productId]/PromoteReferenceClient.tsx"
+    },
+    {
+      "from": "docs/01-architecture/sku-versioned-profile-contract.md",
+      "target": "../../app/account/batches/new/BatchCreationClient.tsx"
+    },
+    {
+      "from": "docs/02-product/sku-profile-field-matrix.md",
+      "target": "../01-architecture/sku-versioned-profile-contract.md"
+    }
+  ],
+  "manualReview": [
+    "current products/reference/batch/analysis read-write facts",
+    "workspace predicates and triggers",
+    "transaction CAS idempotency and old-writer blocking",
+    "snapshot creation and replay, archive and retention deletion",
+    "flag disabled and schema-compatible rollback",
+    "03B allowed files and F1-X1 acceptance matrix"
+  ],
+  "officialSources": [
+    "https://developers.cloudflare.com/d1/worker-api/d1-database/#batch",
+    "https://developers.cloudflare.com/d1/sql-api/foreign-keys/"
+  ],
+  "limitations": [
+    "SQLite template check is not D1 execution or concurrent validation; 03B must prove local D1 batch/trigger/CAS behavior before implementation acceptance.",
+    "No application code, migrations, build or production changes."
+  ]
+}
