@@ -1,0 +1,23 @@
+{
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reports": [
+    {
+      "turnId": "01a124d8-3733-7161-99ff-2bbba6b0961e",
+      "reports": [
+        "**PASS — 增量独立 QA**\n\n固定候选：`f85bd3eb7046130acaa30f5ae473765e57ec413b`  \n基线：`05e79950abdb6d36deb3867e4ab59e2bde19a526`\n\n实际 checks：\n\n- 仅三个授权文件变化；候选文件一致、工作树干净、diff 检查通过。\n- `/tmp` 独立 **22 项**通过：链接原始文本、同内容目标重定向、目标内容及节点类型变化均改变摘要。\n- 外部绝对路径、相对外逃、中间链接外逃、循环、超长链、非目录穿越均拒绝。\n- 内部 dangling 可确定性计算摘要，目标出现后摘要变化；必需的 `worker.js` 悬空仍拒绝。\n- 规范根目录内的绝对链接按文档允许；产物根自身为 symlink 时拒绝。\n- 已核实开发最终 **70 项专项检查及 typecheck** 原始成功输出。\n- 原 Git／health 门禁未变化，沿用既有 QA 证据。\n\n**severity：** 无阻断项。\n\n原始记录：[independent-results.json](/private/tmp/pairvu-symlink-qa-v8AWgt/independent-results.json)  \n复现脚本：[pairvu-symlink-qa.mjs](/tmp/pairvu-symlink-qa.mjs)\n\n限制：允许内部 dangling 不证明运行时依赖完整；仍需新候选的实际构建及生产 smoke。本轮未修改共享文件或产物，未重建、推送或部署。"
+      ]
+    },
+    {
+      "turnId": "01a124cc-113a-73f0-b42e-90ec59a7bb4a",
+      "reports": [
+        "**PASS**\n\n完整候选 SHA：`05e79950abdb6d36deb3867e4ab59e2bde19a526`\n\n实际核验：\n\n- 相对 `fd6c1b41486b19fd1782fa4964ca9c9150557921`，仅 `release-provenance.md` 三行替换：两处改为 `pnpm run deploy/upload`，一处解释内置命令冲突。\n- 运行时代码、发布门禁、配置及依赖均未变化；原 `83b3f2dab9f3df975b570d7eafb83e523abfcaa6` QA 证据可沿用。\n- HEAD 一致、祖先关系成立、工作树干净、diff 检查通过。\n\n未重测、修改文件或执行发布。本结论不代表生产部署已通过。"
+      ]
+    },
+    {
+      "turnId": "01a124c2-a6b3-72a0-ba28-475d74e04ed9",
+      "reports": [
+        "**PASS — 增量发布候选核验**\n\n完整 HEAD：`fd6c1b41486b19fd1782fa4964ca9c9150557921`  \n原 QA 候选：`83b3f2dab9f3df975b570d7eafb83e523abfcaa6`\n\n实际 checks：\n\n- HEAD 与指定 `fd6c1b4` 一致，且为原候选后代。\n- 差分仅 7 个 docs／operations 文件。\n- 运行时代码、构建／部署脚本、配置和依赖均未变化，可沿用原 QA 证据。\n- 完整工作树及索引干净，包括未跟踪文件和子模块状态。\n- 无新增或修改的 migration。\n- `git diff --check` 通过；已核对保存的 UPG-01 PASS 证据关联原候选。\n\n无新增阻断项。未重复测试或 build，未修改文件、推送、迁移或部署。\n\n本结论仅确认发布候选的增量一致性；fresh 远端核验、实际 Cloudflare 构建／部署及生产 smoke 仍须完成。"
+      ]
+    }
+  ]
+}

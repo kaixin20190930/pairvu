@@ -98,3 +98,6 @@ Do not expand later product stages solely because calendar time has elapsed.
 
 - [2026-10-10 完整产品升级方案](04-roadmap/product-upgrade-plan-2026-10-10.md)：事实校正、SKU 真值、证据、人工审核、API、评测和商业验证。
 - [自动开发与独立验收](../operations/README.md)：总控、开发/QA 任务、机器状态和发布边界。
+
+- [2026-10-10 下一批开发任务](04-roadmap/next-development-batch-2026-10-10.md)：生产状态闭环、SKU版本化、结构化证据与人工审核。
+- [2026-10-10 已完成生产发布证据](../operations/evidence/production-release-2026-10-10.json)：部署SHA、Worker版本、远端核验和独立生产验收。

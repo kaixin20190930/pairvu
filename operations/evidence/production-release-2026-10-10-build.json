@@ -1,0 +1,51 @@
+{
+  "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+  "versionId": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+  "sourceLogSha256": "9cc56d92b8a325a25ddfa040454daeebe9e2c40da4887e4c4f36d42e6c34a998",
+  "events": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "checkedAt": "2026-10-10T08:09:01.927Z",
+      "action": "deploy",
+      "artifactSha256": "bed75069bb79f4588b9288dd0d8e5352a6cb97b0f6e0c34d0f844de7bb3c29d9",
+      "initialCheckedAt": "2026-10-10T08:08:21.371Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "checkedAt": "2026-10-10T08:09:01.927Z",
+      "action": "deploy",
+      "artifactSha256": "bed75069bb79f4588b9288dd0d8e5352a6cb97b0f6e0c34d0f844de7bb3c29d9",
+      "initialCheckedAt": "2026-10-10T08:08:21.371Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "deploymentExcerpt": "Deployed pairvu triggers (10.05 sec)\n  https://pairvu.liukai19911010.workers.dev\n  pairvu.com (custom domain)\n  www.pairvu.com (custom domain)\n  schedule: */15 * * * *\n  Producer for pairvu-batch-analysis\n  Producer for pairvu-batch-priority-analysis\n  Consumer for pairvu-batch-analysis\n  Consumer for pairvu-batch-priority-analysis\n  Consumer for pairvu-batch-dead-letter\nCurrent Version ID: 7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5\n{\"event\":\"release-command-completed\",\"candidateSha\":\"f85bd3eb7046130acaa30f5ae473765e57ec413b\",\"remote\":\"origin\",\"branch\":\"main\",\"remoteSha\":\"f85bd3eb7046130acaa30f5ae473765e57ec413b\",\"checkedAt\":\"2026-10-10T08:09:01.927Z\",\"action\":\"deploy\",\"artifactSha256\":\"bed75069bb79f4588b9288dd0d8e5352a6cb97b0f6e0c34d0f844de7bb3c29d9\",\"initialCheckedAt\":\"2026-10-10T08:08:21.371Z\",\"platformVersion\":\"unknown\",\"smoke\":\"required\"}\n",
+  "platformActiveVersionExcerpt": "T08:09:59.382Z\nAuthor:      undefined\nSource:      Unknown (deployment)\nMessage:     -\nVersion(s):  (100%) 7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5\n                 Created:  2026-10-10T08:09:55.329Z\n                     Tag:  -\n                 Message:  -\n",
+  "migrationCheck": {
+    "result": "No migrations to apply",
+    "releaseMigrationDiff": []
+  },
+  "attempts": [
+    {
+      "candidate": "fd6c1b41486b19fd1782fa4964ca9c9150557921",
+      "result": "pnpm builtin deploy rejected flags before build or production action"
+    },
+    {
+      "candidate": "05e79950abdb6d36deb3867e4ab59e2bde19a526",
+      "result": "Cloudflare build succeeded; artifact symlink check blocked before deployment"
+    },
+    {
+      "candidate": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+      "result": "deployed"
+    }
+  ]
+}

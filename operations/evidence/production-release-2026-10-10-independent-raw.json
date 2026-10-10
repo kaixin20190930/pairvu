@@ -1,0 +1,71 @@
+{
+  "result": "PASS",
+  "candidateSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+  "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+  "checks": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "at": "2026-10-10T08:12:08.753376+00:00",
+      "result": "PASS",
+      "response": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+        "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5"
+      }
+    },
+    {
+      "url": "https://pairvu.com/",
+      "status": 200,
+      "at": "2026-10-10T08:12:08.948820+00:00",
+      "result": "PASS",
+      "checkerAnchorAndNavigation": true
+    },
+    {
+      "url": "https://pairvu.com/checks",
+      "status": 200,
+      "at": "2026-10-10T08:12:09.043385+00:00",
+      "result": "PASS",
+      "htmlDocument": true
+    },
+    {
+      "url": "https://pairvu.com/pricing",
+      "status": 200,
+      "at": "2026-10-10T08:12:09.043479+00:00",
+      "result": "PASS",
+      "htmlDocument": true
+    },
+    {
+      "url": "https://pairvu.com/api/products",
+      "status": 401,
+      "at": "2026-10-10T08:12:08.786805+00:00",
+      "result": "PASS",
+      "response": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      }
+    },
+    {
+      "url": "https://pairvu.com/api/batches",
+      "status": 401,
+      "at": "2026-10-10T08:12:08.773635+00:00",
+      "result": "PASS",
+      "response": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      }
+    },
+    {
+      "url": "https://www.pairvu.com/api/health",
+      "status": 308,
+      "at": "2026-10-10T08:12:08.881494+00:00",
+      "result": "PASS",
+      "location": "https://pairvu.com/api/health"
+    }
+  ],
+  "limitations": [
+    "Read-only HTTP checks; no authenticated upload, payment, credit use or visual browser interaction."
+  ]
+}

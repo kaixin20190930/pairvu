@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "unitId": "UPG-01",
+  "status": "PROD_VERIFIED",
+  "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+  "originalQaCandidate": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
+  "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+  "trafficPercent": 100,
+  "productionUrl": "https://pairvu.com",
+  "authorization": "用户本轮明确授权发布已验收升级、必要修复与生产验收；不包含未来新功能自动部署",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "qaSourceTurn": "01a124de-1d27-73d1-ad7a-062cda996a51",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fresh remote SHA equals candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "clean committed release source",
+      "status": "PASS"
+    },
+    {
+      "name": "no pending migrations and no migration diff",
+      "status": "PASS"
+    },
+    {
+      "name": "actual Cloudflare build and release gates",
+      "status": "PASS"
+    },
+    {
+      "name": "deployed Worker version 100 percent",
+      "status": "PASS"
+    },
+    {
+      "name": "production SHA/version exact match",
+      "status": "PASS"
+    },
+    {
+      "name": "7 targeted HTTP smoke checks",
+      "status": "PASS"
+    },
+    {
+      "name": "independent production QA",
+      "status": "PASS"
+    }
+  ],
+  "evidenceFiles": [
+    "production-release-2026-10-10-preflight-qa.json",
+    "production-release-2026-10-10-build.json",
+    "production-release-2026-10-10-smoke.json"
+  ],
+  "originalReport": "**PASS — 独立只读生产验收**\n\n发布 SHA：`f85bd3eb7046130acaa30f5ae473765e57ec413b`  \nCloudflare version：`7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5`  \n检查时间：2026-10-10 16:12（北京时间）。\n\n实际检查全部通过：\n\n- `/api/health`：200，完整 SHA、version 精确匹配，仅包含五个白名单字段。\n- 首页：200，存在 `checker` 锚点及对应导航。\n- `/checks`、`/pricing`：200，返回 HTML 页面。\n- 匿名 `/api/products`、`/api/batches`：401、`authentication_required`。\n- www health：308，跳转至主域名同路径。\n- 已审查成功 push/fetch 原始输出；远端 SHA 与候选一致。\n- 已审查实际 Cloudflare build、构建前后门禁及部署成功日志；平台列表显示目标 version 承载 100%。\n- 已核实迁移查询“无待迁移”及发布范围无 migration 差分。\n\n初次 `/check` 404 属测试路径错误；源码及线上首页均确认实际入口为 `/#checker`，修正有依据。\n\n原始独立记录：[independent-production-results.json](/private/tmp/pairvu-production-qa-avvd5plj/independent-production-results.json)，同目录保存响应正文和 headers。\n\n**无阻断项。** 本次仅验证指定 HTTP 与发布来源范围；未执行登录、图片上传、额度消费、支付或浏览器交互。未修改共享文件、写生产或重新部署。",
+  "limitations": [
+    "No logged-in workflow/image consumption/payment/browser interaction exercised",
+    "Historical deployments remain without proven SHA",
+    "CLI state schema still stops at RELEASE_READY; this receipt records actual production separately"
+  ]
+}

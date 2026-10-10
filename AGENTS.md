@@ -34,6 +34,7 @@ For automated upgrade work, read `operations/README.md`,
 `operations/controller-prompt.md`, and the active unit contract first.
 Use one controller, one developer, and an independent reviewer. Bind acceptance
 to the exact candidate commit and preserve the original review evidence.
-The local controller has no deployment authority: runtime units stop at
-RELEASE_READY. Never treat local QA as production verification.
+Absent explicit user authorization for a release, runtime units stop at
+RELEASE_READY. Explicit authorization permits the release only through the
+Production Deployment Rule above. Never treat local QA as production verification.
 The Production Deployment Rule above remains mandatory.

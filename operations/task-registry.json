@@ -16,6 +16,13 @@
   "candidateSha": "83b3f2dab9f3df975b570d7eafb83e523abfcaa6",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG-02 修复后独立PASS并CLOSED；UPG-01开发49项/QA20项检查、typecheck、本地build/health通过，CLI已RELEASE_READY。未执行真实Cloudflare构建、推送、迁移或部署。持续回收修复已通过本轮连续交接验证。",
-  "nextUnitId": null
+  "notes": "生产已独立验收通过；state保留CLI原始RELEASE_READY，因该工具尚无生产状态命令，禁止手改状态。真实生产结论见production receipt。下一批仅已整理，待AUTO-02受控导入证据与计划同步，不重复部署或索要本次授权。",
+  "nextUnitId": "AUTO-02",
+  "production": {
+    "status": "PROD_VERIFIED",
+    "releaseSha": "f85bd3eb7046130acaa30f5ae473765e57ec413b",
+    "platformVersion": "7c0bdfaa-4f33-4e94-b8b1-182f63bf29d5",
+    "receipt": "operations/evidence/production-release-2026-10-10.json",
+    "receiptSha256": "39a3e54ad08ce92176aa05d244dfc3018719745eee2b2f803ed425d3a87002d1"
+  }
 }
