@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "AUTO-01",
-  "baselineSha": "87b21ac223852a3fdbea3e2eca567ccb0e2eefec",
+  "unitId": "UPG-02",
+  "baselineSha": "c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -13,9 +13,9 @@
     "hostId": "local",
     "clientThreadId": null
   },
-  "candidateSha": "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+  "candidateSha": "1ec61a1f4f8f614fb78b33eff98c66ed5af4858e",
   "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "AUTO-01 local_only 独立 QA 已通过并由 CLI 关闭。候选未推送/部署。状态详情在 .pairvu-control；台账不是 QA 替代证据。",
-  "nextUnitId": "UPG-02"
+  "notes": "UPG-02 已完成独立 FAIL→原开发修复→固定 SHA 独立 PASS→CLI关闭；下一项 UPG-01。",
+  "nextUnitId": "UPG-01"
 }

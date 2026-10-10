@@ -1,0 +1,31 @@
+{
+  "unitId": "UPG-02",
+  "candidateSha": "1ec61a1f4f8f614fb78b33eff98c66ed5af4858e",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "13 incremental path and import checks",
+      "status": "PASS"
+    },
+    {
+      "name": "105 developer checks and typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "unchanged prior independent evidence",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a124b4-797e-7911-b732-6c2c1ba28e43",
+  "originalReport": "**PASS**\n\n固定候选 SHA：`1ec61a1f4f8f614fb78b33eff98c66ed5af4858e`  \n基线：`c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f`\n\n原 **P2 已修复**：入口双方解析真实路径后，符号链接不再跳过 CLI。\n\n实际 checks：\n\n- 修复仅涉及两个脚本；基线关系、冻结文件一致性通过。\n- 独立复验 13 项通过：规范路径、macOS `/tmp` 别名、文件及目录符号链接，各验证缺输入／有效／无效输入，共 12 项；另验证导入模块不会启动 CLI。\n- 缺输入均返回 `BLOCKED`／exit 2；有效合成输入 exit 0；无效输入 exit 1。输入内容保持不变。\n- 已审查开发原始输出：105 项专项检查及 typecheck 均通过。\n- 其余未变化部分沿用上一轮独立验收证据。\n\n**severity／复现：** 无剩余阻断项。原路径别名复现现在正确返回 BLOCKED。\n\n原始增量记录：[incremental-results.json](/private/tmp/pairvu-upg02-recheck-99stjtvq/incremental-results.json)，包含对上一轮证据的引用。\n\n限制：本结论仅认证协议与离线校验器，不是真实 benchmark 质量成绩。未修改共享文件、operations 状态或锁，未提交、推送、部署。",
+  "priorEvidence": "UPG-02-attempt-1.json"
+}

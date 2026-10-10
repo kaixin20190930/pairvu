@@ -1,0 +1,22 @@
+{
+  "unitId": "UPG-02",
+  "candidateSha": "21eb54ca731c9d419825c1e32330fb76e9c3d106",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "symlink invocation missing input",
+      "status": "FAIL"
+    }
+  ],
+  "sourceTurnId": "01a124af-d40c-7cb0-bb48-0150d3628e07",
+  "originalReport": "**FAIL**\n\n候选 SHA：`21eb54ca731c9d419825c1e32330fb76e9c3d106`  \n基线：`c8c2d0f25981690e0db6c1417ce5f33ff5f8fe2f`\n\n**P2：路径别名导致 CLI 静默跳过执行，无输入错误返回成功。**\n\n[verify-upgrade-dataset.mjs:98](</Users/liukai/Documents/Product Visual QA Platform/scripts/verify-upgrade-dataset.mjs:98>) 将 `import.meta.url` 与未解析符号链接的入口路径直接比较。macOS `/tmp` 指向 `/private/tmp`，两者不相等，`main` 不执行。\n\n同一候选副本复现：\n\n```sh\nnode /private/tmp/pairvu-upg02-qa-prel19t9/scripts/verify-upgrade-dataset.mjs\n# exit 2，输出 BLOCKED\n\nnode /tmp/pairvu-upg02-qa-prel19t9/scripts/verify-upgrade-dataset.mjs\n# exit 0，stdout/stderr 均为空\n```\n\n后者违反“无输入 BLOCKED”的契约。建议规范化入口真实路径，并补充路径别名回归测试。\n\n实际 checks：\n\n| 检查 | 结果 |\n|---|---|\n| SHA、基线祖先关系、5 文件范围、冻结文件一致 | PASS |\n| 协议与字段、枚举、标签组合规则一致 | PASS |\n| 独立 25 项检查，含 SKU 跨 split/workspace/包装版本、重复、授权、双标仲裁、严重度及可观测性负例 | PASS |\n| synthetic／模拟真实 schema 区分、`qualityEvidence=false` | PASS |\n| 输入及目录文件内容只读检查、离线代码审查 | PASS |\n| 临时副本专项重放 | PASS：99 项 |\n| 开发专项及 typecheck 原始输出审查 | PASS |\n| 路径别名下无输入 BLOCKED | FAIL |\n\n原始记录：[independent-results.json](/private/tmp/pairvu-upg02-qa-prel19t9/independent-results.json)；独立脚本：[pairvu-upg02-independent.py](/tmp/pairvu-upg02-independent.py)。\n\n残余限制：所有测试输入均为虚构数据，包括真实 schema 分支；未认证真实授权、人工独立性、图像真实性或 benchmark 质量。未修改共享文件、状态或锁，未提交、推送、部署。"
+}
