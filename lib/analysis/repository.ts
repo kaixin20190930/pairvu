@@ -14,6 +14,8 @@ import type {
 } from "./types";
 import type { QAEngineResult } from "@/lib/qa/types";
 
+import { normalizeBoundEvidence } from "@/lib/qa/evidence-regions";
+
 type D1Row = Record<string, unknown>;
 
 export async function createAnalysisRecord(db: D1Database, input: AnalysisCreateInput): Promise<boolean> {
@@ -255,9 +257,9 @@ export async function getAnalysisById(db: D1Database, analysisId: string): Promi
     updatedAt: String(analysis.updatedAt),
     startedAt: (analysis.startedAt as string | null) ?? null,
     completedAt: (analysis.completedAt as string | null) ?? null,
-    observations,
-    productIssues,
-    limitations,
+    observations: observations.map(item=>({...item,evidence:normalizeBoundEvidence(item.evidence,{referenceAssetId:String(analysis.referenceAssetId),candidateAssetId:String(analysis.candidateAssetId)},{reference:item.observability.reference==="not_observable"?false:item.evidence.referenceVisible,candidate:item.observability.candidate==="not_observable"?false:item.evidence.candidateVisible})})),
+    productIssues: productIssues.map(item=>({...item,evidence:normalizeBoundEvidence(item.evidence,{referenceAssetId:String(analysis.referenceAssetId),candidateAssetId:String(analysis.candidateAssetId)},{reference:item.sourceObservability.reference==="not_observable"?false:item.evidence.referenceVisible,candidate:item.sourceObservability.candidate==="not_observable"?false:item.evidence.candidateVisible})})),
+    limitations: limitations.map(item=>({...item,evidence:normalizeBoundEvidence(item.evidence,{referenceAssetId:String(analysis.referenceAssetId),candidateAssetId:String(analysis.candidateAssetId)},{reference:item.evidence.referenceVisible,candidate:item.evidence.candidateVisible})})),
     modelCalls,
     feedback,
   };

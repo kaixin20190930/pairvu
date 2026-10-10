@@ -1,0 +1,84 @@
+import assert from "node:assert/strict";
+import { DatabaseSync } from "node:sqlite";
+import { readFile, readdir, writeFile } from "node:fs/promises";
+import { createHash, randomUUID } from "node:crypto";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { OpenAIVisionProvider, FidelityResponseSchema, ImageRegionSchema, mapFidelityObservations, buildInstructions } from "../lib/ai/providers/openai-vision-provider";
+import { MockVisionProvider } from "../lib/ai/providers/mock-vision-provider";
+import { M0QAEngine } from "../lib/qa/engine";
+import { normalizeImageRegion, normalizeRegionPair, normalizeBoundEvidence, unavailableRegion } from "../lib/qa/evidence-regions";
+import { createAnalysisRecord, persistCompletedAnalysis, getAnalysisById } from "../lib/analysis/repository";
+import type { D1Database, D1PreparedStatement } from "../lib/cloudflare/bindings";
+import type { M0AnalysisInput, VisionObservation } from "../lib/qa/types";
+
+async function main() {
+  const report:{unitId:string;synthetic:boolean;status:string;cases:Array<{name:string;status:string}>;sources:Record<string,string>;failure?:string;limitations:string[]}={unitId:"UPG-04",synthetic:true,status:"RUNNING",cases:[],sources:{},limitations:["Controlled OpenAI SDK parse boundary; actual provider mapping, engine, policy and SQLite repository run without network/model/payment.","SQLite proves existing JSON serialization/read mapping; no migration, D1 transaction or production claim.","Real browser component geometry is recorded separately; no claim of model localization accuracy."]};
+  const args=process.argv.slice(2),reportPath=args[0]==="--report"?args[1]:join(tmpdir(),`pairvu-structured-evidence-${randomUUID()}.json`);
+  const assets={referenceAssetId:randomUUID(),candidateAssetId:randomUUID()};
+  const input:M0AnalysisInput={analysisId:randomUUID(),reference:{assetId:assets.referenceAssetId,mimeType:"image/png",r2Key:"synthetic/reference",dataUrl:"data:image/png;base64,c3ludGhldGlj"},candidate:{assetId:assets.candidateAssetId,mimeType:"image/png",r2Key:"synthetic/candidate",dataUrl:"data:image/png;base64,c3ludGhldGlj"},selectedChecks:["logo"]};
+  const fixture=FidelityResponseSchema.parse(JSON.parse(await readFile("fixtures/structured-evidence/provider-response.json","utf8")));
+  const valid=fixture.observations[0].evidence.referenceRegion;
+  const stored={...valid,assetId:assets.referenceAssetId};
+  async function test(name:string,fn:()=>unknown|Promise<unknown>){await fn();report.cases.push({name,status:"PASS"});console.log(`PASS ${name}`);}
+  let sqlite:DatabaseSync|undefined;
+  try {
+    await test("strict provider schema accepts both explicitly declared normalized regions",()=>{assert.equal(ImageRegionSchema.parse(valid).coordinateSpace,"analysis_image_normalized");assert.equal(fixture.observations.length,1);});
+    await test("provider forbids supplied asset IDs, extra box fields and extra region fields",()=>{for(const v of [{...valid,assetId:"untrusted"},{...valid,extra:1},{...valid,region:{...valid.region,extra:1}}])assert.equal(ImageRegionSchema.safeParse(v).success,false);});
+    await test("actual provider mapper binds reference/candidate only to actual inputs and keeps raw evidence",()=>{const o=mapFidelityObservations(fixture,input)[0];assert.equal(o.evidence.regions!.reference.assetId,assets.referenceAssetId);assert.equal(o.evidence.regions!.candidate.assetId,assets.candidateAssetId);assert.deepEqual(o.evidence.regions!.reference.region,valid.region);assert.equal(o.evidence.raw,fixture.observations[0].evidence.rawJson);assert.deepEqual(o.evidence.regionRaw,{reference:valid,candidate:fixture.observations[0].evidence.candidateRegion});});
+    const malformed:Array<[string,unknown]>=[
+      ["negative x",{...stored,region:{...stored.region,x:-0.1}}],["negative y",{...stored,region:{...stored.region,y:-0.1}}],
+      ["right overflow",{...stored,region:{...stored.region,x:0.9}}],["bottom overflow",{...stored,region:{...stored.region,y:0.9}}],
+      ["zero width",{...stored,region:{...stored.region,width:0}}],["zero height",{...stored,region:{...stored.region,height:0}}],
+      ["negative size",{...stored,region:{...stored.region,width:-1}}],["NaN",{...stored,region:{...stored.region,x:NaN}}],
+      ["Infinity",{...stored,region:{...stored.region,x:Infinity}}],["negative Infinity",{...stored,region:{...stored.region,height:-Infinity}}],
+      ["numeric string",{...stored,region:{...stored.region,x:"0.1"}}],["extra coordinate",{...stored,region:{...stored.region,z:0}}],
+      ["extra location field",{...stored,extra:true}],["wrong coordinate space",{...stored,coordinateSpace:"pixels"}],
+      ["foreign asset ID",{...stored,assetId:"foreign"}],["missing asset ID",valid],["missing confidence",{...stored,confidence:undefined}],
+      ["bad confidence type",{...stored,confidence:{toString:"high"}}],["non-null reason with box",{...stored,reason:"cannot_locate"}],
+      ["null without reason",{...stored,region:null}],["null with invented reason",{...stored,region:null,reason:"invented",confidence:null}],
+      ["array location",[]],["null location",null],["array box",{...stored,region:[]}],
+    ];
+    for(const [name,value] of malformed)await test(`bad ${name} becomes explicit invalid_region without clamping`,()=>{const normalized=normalizeImageRegion(value,assets.referenceAssetId);assert.equal(normalized.region,null);assert.equal(normalized.reason,"invalid_region");assert.equal(normalized.assetId,assets.referenceAssetId);});
+    await test("box exactly reaching full image boundary remains legal when explicitly supplied",()=>{assert.deepEqual(normalizeImageRegion({...stored,region:{x:0,y:0,width:1,height:1}},assets.referenceAssetId).region,{x:0,y:0,width:1,height:1});});
+    await test("all declared null reasons retain no box, and invisible/low-confidence boxes are never shown",()=>{for(const reason of ["not_visible","insufficient_evidence","not_present","cannot_locate","uncertain_location"] as const){assert.equal(normalizeImageRegion({...stored,region:null,confidence:null,reason},assets.referenceAssetId).reason,reason);}assert.equal(normalizeImageRegion(stored,assets.referenceAssetId,false).reason,"not_visible");assert.equal(normalizeImageRegion({...stored,confidence:"low"},assets.referenceAssetId).reason,"uncertain_location");assert.equal(normalizeImageRegion({...stored,confidence:"medium"},assets.referenceAssetId).confidence,"medium");});
+    await test("extra pair fields/schema mismatch/swapped assets degrade safely",()=>{for(const pair of [{schemaVersion:2,reference:stored,candidate:stored},{schemaVersion:1,reference:stored,candidate:stored,extra:true},null])assert.equal(normalizeRegionPair(pair,assets).reference.region,null);const swapped=normalizeRegionPair({schemaVersion:1,reference:{...stored,assetId:assets.candidateAssetId},candidate:stored},assets);assert.equal(swapped.reference.region,null);assert.equal(swapped.candidate.region,null);});
+    await test("legacy boundingRegions/raw remain unchanged and do not gain a new coordinate space",()=>{const old={referenceObservation:"Old expected",candidateObservation:"Old observed",boundingRegions:[{assetId:assets.referenceAssetId,x:12,y:34,width:90,height:60}],raw:"Original legacy note"};assert.deepEqual(normalizeBoundEvidence(old,assets),old);assert.equal(normalizeBoundEvidence(old,assets).regions,undefined);});
+    await test("invalid original coordinates survive normalization, including explicit non-finite markers",()=>{const original={schemaVersion:1,reference:{...stored,region:{...stored.region,x:NaN}},candidate:{...stored,assetId:assets.candidateAssetId}};const evidence=normalizeBoundEvidence({raw:"untouched",regions:original},assets);assert.equal(evidence.raw,"untouched");assert.deepEqual((evidence.regionRaw as typeof original).reference.region?.x,{nonFiniteNumber:"NaN"});assert.equal(evidence.regions!.reference.region,null);});
+    let transportCalls=0;
+    const provider=new OpenAIVisionProvider({apiKey:"synthetic-no-network",model:"synthetic-model",promptVersion:"baseline-prompt"});
+    Object.defineProperty(provider,"client",{value:{responses:{parse:async(request:{instructions:string;input:unknown;text:unknown})=>{transportCalls++;assert.match(request.instructions,/Never invent OCR, boxes or coordinates/);assert.match(JSON.stringify(request.input),/REFERENCE IMAGE/);return {output_parsed:fixture,usage:{input_tokens:12,output_tokens:8}};}}}});
+    const fidelity=await provider.analyzeProductFidelity(input);
+    await test("actual provider transport-to-mapper preserves model/prompt version and structured regions",()=>{assert.equal(transportCalls,1);assert.equal(fidelity.modelCall.promptVersion,"baseline-prompt+regions-001");assert.equal(fidelity.modelCall.model,"synthetic-model");assert.deepEqual(fidelity.observations[0].evidence.regions!.reference.region,valid.region);});
+    const run=(observations:VisionObservation[],selectedChecks=input.selectedChecks)=>new M0QAEngine({name:"synthetic-provider",analyzeProductFidelity:async()=>({...fidelity,observations})}).analyze({...input,analysisId:randomUUID(),selectedChecks});
+    const base=fidelity.observations[0];
+    const result=await run(fidelity.observations);
+    await test("high-confidence visible identity mismatch remains FAIL with unchanged severity/policy",()=>{assert.equal(result.verdict,"fail");assert.equal(result.productIssues[0].severity,"critical");assert.equal(result.versions.riskPolicyVersion,"m0-risk-policy-003");assert.equal(result.versions.qaEngineVersion,"m0-qa-engine-007");});
+    await test("missing/null/invalid location alone does not change sufficient match or mismatch verdict",async()=>{for(const evidence of [{...base.evidence,regions:undefined},{...base.evidence,regions:{schemaVersion:1,reference:unavailableRegion(assets.referenceAssetId,"cannot_locate"),candidate:unavailableRegion(assets.candidateAssetId,"cannot_locate")}},{...base.evidence,regions:{schemaVersion:1,reference:{...stored,region:{x:2,y:0,width:1,height:1}},candidate:{...stored,assetId:assets.candidateAssetId}}}]){assert.equal((await run([{...base,evidence} as VisionObservation])).verdict,"fail");assert.equal((await run([{...base,status:"match",differenceKind:"none",evidence:{...evidence,differenceKind:"none"}} as VisionObservation])).verdict,"pass");}});
+    await test("insufficient observations cannot PASS even when supplied boxes look precise",async()=>{const r=await run([{...base,status:"match",differenceKind:"none",observability:{reference:"observable",candidate:"not_observable",coverage:"insufficient"}}]);assert.equal(r.verdict,"review");assert.equal(r.observations[0].evidence.regions!.candidate.region,null);assert.equal(r.observations[0].evidence.regions!.candidate.reason,"not_visible");});
+    await test("missing selected and duplicate observations remain REVIEW",async()=>{assert.equal((await run([],input.selectedChecks)).verdict,"review");const match={...base,status:"match" as const,differenceKind:"none" as const,evidence:{...base.evidence,differenceKind:"none" as const}};assert.equal((await run([match,match])).verdict,"review");assert.equal((await run([match],["logo","visible_text"])).verdict,"review");});
+    await test("mock provider returns explicit unavailable regions rather than fictional boxes",async()=>{const mock=await new MockVisionProvider().analyzeProductFidelity(input);assert.equal(mock.observations[0].evidence.regions!.reference.reason,"cannot_locate");});
+    await test("prompt never treats SKU declarations as visually established facts",()=>{assert.match(buildInstructions(input),/SKU declarations are not visually established facts/);assert.equal("productSnapshot" in input,false);});
+    sqlite=new DatabaseSync(":memory:");sqlite.exec("pragma foreign_keys=on");
+    for(const name of (await readdir("migrations")).filter(n=>n.endsWith(".sql")).sort())sqlite.exec(await readFile(`migrations/${name}`,"utf8"));
+    const db=new SqliteD1(sqlite),anonymous=randomUUID(),timestamp=new Date().toISOString();
+    for(const [id,kind] of [[assets.referenceAssetId,"reference"],[assets.candidateAssetId,"candidate"]])sqlite.prepare("insert into assets(id,anonymous_session_id,kind,asset_type,mime_type,file_size_bytes,sha256,r2_key_original,status,created_at,updated_at) values(?,?,?,'image','image/png',1,'synthetic',?,'uploaded',?,?)").run(id,anonymous,kind,`synthetic/${id}`,timestamp,timestamp);
+    const create={analysisId:result.analysisId,anonymousSessionId:anonymous,referenceAssetId:assets.referenceAssetId,candidateAssetId:assets.candidateAssetId,selectedChecks:input.selectedChecks};
+    await createAnalysisRecord(db,create);await persistCompletedAnalysis(db,result,create);
+    await test("actual repository writes/reads evidence JSON with regions/raw/versions/observability/severity intact",async()=>{const loaded=(await getAnalysisById(db,result.analysisId))!;const apiSerialized=JSON.parse(JSON.stringify(loaded));assert.deepEqual(apiSerialized.observations[0].evidence,JSON.parse(JSON.stringify(result.observations[0].evidence)));assert.deepEqual(apiSerialized.productIssues[0].evidence,JSON.parse(JSON.stringify(result.productIssues[0].evidence)));assert.deepEqual(loaded.observations[0].observability,result.observations[0].observability);assert.equal(loaded.productIssues[0].severity,"critical");assert.equal(loaded.modelCalls[0].promptVersion,"baseline-prompt+regions-001");assert.equal(loaded.qaEngineVersion,result.versions.qaEngineVersion);if(args[0]==="--report")await writeFile(join(reportPath.replace(/[^/]+$/,""),"persisted-result.json"),JSON.stringify(apiSerialized,null,2)+"\n");});
+    await test("stored wrong asset/extra-field coordinates safely degrade on actual read without changing verdict",async()=>{const bad={...base.evidence,regions:{schemaVersion:1,reference:{...stored,assetId:"foreign"},candidate:{...stored,assetId:assets.candidateAssetId,extra:true}}};sqlite!.prepare("update analysis_observations set evidence_json=? where analysis_id=?").run(JSON.stringify(bad),result.analysisId);const read=(await getAnalysisById(db,result.analysisId))!;assert.equal(read.verdict,"fail");assert.equal(read.observations[0].evidence.regions!.reference.reason,"invalid_region");assert.equal(read.observations[0].evidence.regions!.candidate.region,null);});
+    await test("actual stored legacy observation reads without region backfill",async()=>{const old={referenceObservation:"Legacy expected",candidateObservation:"Legacy observed",boundingRegions:[{assetId:assets.referenceAssetId,x:120,y:20,width:50,height:80}],raw:"legacy-original"};sqlite!.prepare("update analysis_observations set evidence_json=? where analysis_id=?").run(JSON.stringify(old),result.analysisId);const read=(await getAnalysisById(db,result.analysisId))!;assert.deepEqual(read.observations[0].evidence,old);});
+    report.status="PASS";
+  }catch(error){report.status="FAIL";report.failure=error instanceof Error?error.stack:String(error);throw error;}
+  finally{
+    sqlite?.close();
+    for(const p of ["lib/domain/semantics.ts","lib/qa/evidence-regions.ts","lib/qa/engine.ts","lib/ai/providers/openai-vision-provider.ts","lib/ai/providers/mock-vision-provider.ts","lib/analysis/repository.ts","components/StructuredEvidence.tsx","components/ProductChecker.tsx","scripts/verify-structured-evidence.ts"])report.sources[p]=createHash("sha256").update(await readFile(p)).digest("hex");
+    await writeFile(reportPath,JSON.stringify(report,null,2)+"\n");console.log(`${report.status}: ${report.cases.length} cases; ${reportPath}`);
+  }
+}
+class SqliteD1 implements D1Database {
+  constructor(private sqlite:DatabaseSync){}
+  prepare(sql:string):D1PreparedStatement {let params:unknown[]=[];const sqlite=this.sqlite;const statement:D1PreparedStatement={bind(...values){params=values;return statement;},async first<T>(){return sqlite.prepare(sql).get(...params as never[]) as T??null;},async all<T>(){return {success:true,results:sqlite.prepare(sql).all(...params as never[]) as T[],meta:{}};},async run(){sqlite.prepare(sql).run(...params as never[]);return {success:true,meta:{}};}};return statement;}
+  async batch<T>(statements:D1PreparedStatement[]):Promise<T[]> {this.sqlite.exec("begin");try{const results=[];for(const s of statements)results.push(await s.run());this.sqlite.exec("commit");return results as T[];}catch(e){this.sqlite.exec("rollback");throw e;}}
+}
+void main();

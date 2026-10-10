@@ -1,8 +1,8 @@
 import type {
   AnalysisLimitation,
   Confidence,
-  DifferenceKind,
   Observability,
+  ObservationEvidence,
   ProductIssue,
   Verdict,
 } from "@/lib/domain/semantics";
@@ -136,15 +136,7 @@ export interface AnalysisViewModel extends PersistedAnalysisResult {
     confidence: Confidence;
     checkType: string;
     explanation: string;
-    evidence: {
-      referenceObservation?: string;
-      candidateObservation?: string;
-      differenceKind?: DifferenceKind;
-      comparisonSummary?: string;
-      visibleEvidence?: string[];
-      uncertainReason?: string;
-      referenceVisible?: boolean;
-      candidateVisible?: boolean;
+    evidence: ObservationEvidence & {
       observability: {
         reference: Observability;
         candidate: Observability;

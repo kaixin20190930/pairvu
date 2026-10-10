@@ -1,0 +1,141 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "mode": "desktop",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "both corresponding images show legal regions using their own aspect ratios",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            466,
+            233
+          ],
+          "boxFractions": {
+            "x": 0.09998658798283262,
+            "y": 0.19997317596566525,
+            "width": 0.39999664699570814,
+            "height": 0.29999329399141633
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            466,
+            932
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.39999664699570814,
+            "width": 0.5,
+            "height": 0.19999832349785407
+          }
+        }
+      ]
+    },
+    {
+      "name": "medium location is visibly approximate; confidence is not a calibrated probability",
+      "status": "PASS"
+    },
+    {
+      "name": "150 percent image zoom preserves normalized box mapping",
+      "status": "PASS",
+      "detail": [
+        {
+          "side": "reference",
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            699,
+            349.5
+          ],
+          "boxFractions": {
+            "x": 0.09999776466380543,
+            "y": 0.19999552932761086,
+            "width": 0.3999910586552217,
+            "height": 0.2999821173104435
+          }
+        },
+        {
+          "side": "candidate",
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            699,
+            1398
+          ],
+          "boxFractions": {
+            "x": 0.25,
+            "y": 0.39999664699570814,
+            "width": 0.5,
+            "height": 0.19999552932761086
+          }
+        }
+      ]
+    },
+    {
+      "name": "explicit null/non-visible evidence draws no default full-image boxes",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy boundingRegions are not silently interpreted as normalized coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed coordinates/extra fields/wrong asset safely show explicit invalid region",
+      "status": "PASS"
+    },
+    {
+      "name": "unavailable and mismatched preview never displays an overlay on a different image",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive layout is two columns on desktop and one at a real narrow frame viewport",
+      "status": "PASS",
+      "detail": {
+        "mode": "desktop",
+        "viewport": [
+          1280,
+          720
+        ],
+        "columns": 2
+      }
+    },
+    {
+      "name": "actual ProductChecker restores serialized result and displays both evidence sides/severity/versions",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed/missing regions never crash the actual React browser components",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Actual React components and native DOM inputs in browser; controlled auth/analytics/fetch boundary. Synthetic SVGs intentionally have different dimensions; not a model accuracy or real API journey."
+  ],
+  "completedAt": "2026-10-10T14:47:54.924Z",
+  "sources": {
+    "components/StructuredEvidence.tsx": "2e1e47c80592372baa6b2fbfb9c2e9e37fcfb1d0e7b7e53bc7927a9a8e924dad",
+    "components/ProductChecker.tsx": "40ff53b5611a304f50df27afb51ee8e4f74093ca8c9e60a72f2dd1aa68d86b2a",
+    "lib/qa/evidence-regions.ts": "8ffb5014cb168d86aa6b21b5f18086c55d096475c44bde0ab5ae9fed3a1bdf07",
+    "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+    "fixtures/structured-evidence/ui-entry.tsx": "1c725330f05b6febfb3cae19b1ed66f7865d0aee3c9a4cd7eeb275caf6d1db42",
+    "fixtures/structured-evidence/ui-server.mjs": "a344c0d18738997fff81f26773f5c16c7544592b936afe76a5def21d6c5cccde",
+    "fixtures/structured-evidence/persisted-result.json": "6bbd7c873e15c84bd3a025e00c39953914ee04d00011a0fbc01303837658def2"
+  }
+}

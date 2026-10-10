@@ -1,0 +1,212 @@
+{
+  "productSnapshot": null,
+  "id": "2235aaa0-92af-48ab-9631-649658a60e4a",
+  "workspaceId": null,
+  "anonymousSessionId": "49d407d9-c4c3-4179-8bbc-54736cf2773c",
+  "referenceAssetId": "923e57ef-5f57-4d34-89a6-df1b20926be6",
+  "candidateAssetId": "28e4ff21-ea72-46c9-8015-40ee28e9ebf5",
+  "selectedChecks": [
+    "logo"
+  ],
+  "category": null,
+  "status": "completed",
+  "verdict": "fail",
+  "qaEngineVersion": "m0-qa-engine-007",
+  "riskPolicyVersion": "m0-risk-policy-003",
+  "modelPolicyVersion": "m0-model-policy-002",
+  "analysisLatencyMs": 1,
+  "openaiLatencyMs": 5,
+  "estimatedCostUsd": null,
+  "errorCode": null,
+  "errorMessage": null,
+  "createdAt": "2026-10-10T14:43:09.435Z",
+  "updatedAt": "2026-10-10T14:43:09.435Z",
+  "startedAt": "2026-10-10T14:43:09.435Z",
+  "completedAt": "2026-10-10T14:43:09.435Z",
+  "observations": [
+    {
+      "id": "5134fe67-1b20-4097-9ee3-c1e6f39a82f5",
+      "checkType": "logo",
+      "status": "mismatch",
+      "differenceKind": "brand_changed",
+      "observability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "confidence": "high",
+      "evidence": {
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "923e57ef-5f57-4d34-89a6-df1b20926be6",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "28e4ff21-ea72-46c9-8015-40ee28e9ebf5",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          }
+        },
+        "referenceObservation": "Visible synthetic mark ALPHA",
+        "candidateObservation": "Visible synthetic mark BETA",
+        "differenceKind": "brand_changed",
+        "comparisonSummary": "Directly visible synthetic brand marks differ.",
+        "visibleEvidence": [
+          "Synthetic mark labels"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true,
+        "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+      },
+      "explanation": "Directly visible synthetic brand marks differ."
+    }
+  ],
+  "productIssues": [
+    {
+      "id": "52b0b1ef-ef35-4ea6-bcea-f81a3001d625",
+      "observationId": null,
+      "kind": "product",
+      "type": "logo_mismatch",
+      "sourceCheckType": "logo",
+      "sourceDifferenceKind": "brand_changed",
+      "sourceObservability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "severity": "critical",
+      "confidence": "high",
+      "message": "Directly visible synthetic brand marks differ.",
+      "evidence": {
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "923e57ef-5f57-4d34-89a6-df1b20926be6",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "28e4ff21-ea72-46c9-8015-40ee28e9ebf5",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          }
+        },
+        "referenceObservation": "Visible synthetic mark ALPHA",
+        "candidateObservation": "Visible synthetic mark BETA",
+        "differenceKind": "brand_changed",
+        "comparisonSummary": "Directly visible synthetic brand marks differ.",
+        "visibleEvidence": [
+          "Synthetic mark labels"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true,
+        "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+      }
+    }
+  ],
+  "limitations": [],
+  "modelCalls": [
+    {
+      "id": "d94bade7-68b9-4bae-a942-b768f6157fa9",
+      "provider": "openai",
+      "model": "synthetic-model",
+      "promptVersion": "baseline-prompt+regions-001",
+      "latencyMs": 5,
+      "inputUsage": {
+        "inputTokens": 12,
+        "cachedInputTokens": 0
+      },
+      "outputUsage": {
+        "outputTokens": 8
+      },
+      "modelPolicyVersion": "m0-model-policy-002",
+      "purpose": "analysis",
+      "status": "completed",
+      "errorCode": null,
+      "errorMessage": null,
+      "inputAssetIds": [
+        "923e57ef-5f57-4d34-89a6-df1b20926be6",
+        "28e4ff21-ea72-46c9-8015-40ee28e9ebf5"
+      ]
+    }
+  ],
+  "feedback": null
+}

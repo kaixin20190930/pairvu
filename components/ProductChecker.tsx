@@ -2,6 +2,8 @@
 
 /* eslint-disable @next/next/no-img-element */
 
+import { StructuredEvidence } from "@/components/StructuredEvidence";
+import type { ObservationEvidence, Observability } from "@/lib/domain/semantics";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FeedbackKind, PersistedAnalysisResult } from "@/lib/analysis/types";
 import { PRODUCT_NAME } from "@/lib/config/product";
@@ -1024,7 +1026,7 @@ export function ProductChecker() {
                         {formatCheckType(issue.sourceCheckType)}
                         {issue.sourceDifferenceKind ? ` · ${formatDifferenceKind(issue.sourceDifferenceKind)}` : ""}
                       </p>
-                      <EvidenceBlock evidence={issue.evidence} />
+                      <EvidenceBlock evidence={issue.evidence} reference={reference} candidate={candidate} referenceAssetId={analysis.referenceAssetId} candidateAssetId={analysis.candidateAssetId} observability={issue.sourceObservability}/>
                     </article>
                   ))}
                 </div>
@@ -1045,7 +1047,7 @@ export function ProductChecker() {
                       </strong>
                       <p>{limitation.message}</p>
                       {limitation.sourceCheckType ? <p className="muted">{formatCheckType(limitation.sourceCheckType)}</p> : null}
-                      <EvidenceBlock evidence={limitation.evidence} />
+                      <EvidenceBlock evidence={limitation.evidence} reference={reference} candidate={candidate} referenceAssetId={analysis.referenceAssetId} candidateAssetId={analysis.candidateAssetId} />
                     </article>
                   ))}
                 </div>
@@ -1067,7 +1069,7 @@ export function ProductChecker() {
                           {formatCheckType(observation.checkType)} · Verified · {formatConfidence(observation.confidence)}
                         </strong>
                         <p>{observation.explanation}</p>
-                        <EvidenceBlock evidence={observation.evidence} />
+                        <EvidenceBlock evidence={observation.evidence} reference={reference} candidate={candidate} referenceAssetId={analysis.referenceAssetId} candidateAssetId={analysis.candidateAssetId} observability={observation.observability}/>
                       </article>
                     ))}
                 </div>
@@ -1075,6 +1077,11 @@ export function ProductChecker() {
                 <p className="muted">No checks were cleanly verified.</p>
               )}
             </section>
+
+            <details className="state-panel analysis-provenance"><summary>Analysis provenance</summary>
+              <p>Detector: {analysis.qaEngineVersion??"Not recorded"} · Decision policy: {analysis.riskPolicyVersion??"Not recorded"} · Model policy: {analysis.modelPolicyVersion??"Not recorded"}</p>
+              {analysis.modelCalls.map(call=><p key={call.id}>Model: {call.model} · Prompt: {call.promptVersion} · Provider: {call.provider}</p>)}
+            </details>
 
             <section className="state-panel" aria-labelledby="feedback-title">
               <p className="section-label">Feedback</p>
@@ -1489,28 +1496,19 @@ function feedbackIssueLabel(issue: PersistedAnalysisResult["productIssues"][numb
   return `${formatCheckType(issue.sourceCheckType)}: ${issue.message}`;
 }
 
-function EvidenceBlock({
-  evidence,
-}: {
-  evidence: {
-    referenceObservation?: string;
-    candidateObservation?: string;
-    differenceKind?: string;
-    comparisonSummary?: string;
-    visibleEvidence?: string[];
-    uncertainReason?: string;
-    referenceVisible?: boolean;
-    candidateVisible?: boolean;
-  };
+function EvidenceBlock({evidence,reference,candidate,referenceAssetId,candidateAssetId,observability}: {
+  evidence:ObservationEvidence; reference:UploadState|null; candidate:UploadState|null; referenceAssetId:string; candidateAssetId:string;
+  observability?:{reference:Observability;candidate:Observability;coverage:"sufficient"|"partial"|"insufficient"};
 }) {
   return (
+    <>
     <dl className="evidence-grid">
       <div>
-        <dt>Original image</dt>
+        <dt>Reference · visible expected</dt>
         <dd>{evidence.referenceObservation ?? "—"}</dd>
       </div>
       <div>
-        <dt>Image to check</dt>
+        <dt>Candidate · observed</dt>
         <dd>{evidence.candidateObservation ?? "—"}</dd>
       </div>
       <div>
@@ -1538,6 +1536,9 @@ function EvidenceBlock({
         <dd>{evidence.uncertainReason ?? "—"}</dd>
       </div>
     </dl>
+    {observability?<p className="muted">Reference: {observability.reference.replaceAll("_"," ")} · Candidate: {observability.candidate.replaceAll("_"," ")} · Coverage: {observability.coverage}</p>:null}
+    <StructuredEvidence evidence={evidence} reference={reference} candidate={candidate} referenceAssetId={referenceAssetId} candidateAssetId={candidateAssetId}/>
+    </>
   );
 }
 

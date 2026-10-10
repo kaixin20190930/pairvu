@@ -1,3 +1,4 @@
+import { normalizeBoundEvidence } from "./evidence-regions";
 import { M0RiskPolicy } from "./m0-policy";
 import type {
   AnalysisLimitation,
@@ -10,7 +11,7 @@ import type {
 } from "./types";
 
 export class M0QAEngine implements QAEngine {
-  readonly version = "m0-qa-engine-006";
+  readonly version = "m0-qa-engine-007";
 
   constructor(
     private readonly visionProvider: VisionProvider,
@@ -95,7 +96,14 @@ function validateProviderResult(input: M0AnalysisInput, observations: VisionObse
       });
     }
 
-    normalizedObservations.push(normalizeObservationConsistency(items[0]));
+    const observation=items[0];
+    normalizedObservations.push(normalizeObservationConsistency({
+      ...observation,
+      evidence: normalizeBoundEvidence(observation.evidence, {referenceAssetId:input.reference.assetId,candidateAssetId:input.candidate.assetId}, {
+        reference: observation.observability.reference === "not_observable" ? false : observation.evidence.referenceVisible,
+        candidate: observation.observability.candidate === "not_observable" ? false : observation.evidence.candidateVisible,
+      }),
+    }));
   }
 
   for (const observation of observations) {

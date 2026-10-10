@@ -3671,3 +3671,18 @@ button:not(:disabled):active {
     grid-template-columns: 1fr;
   }
 }
+
+/* Paired evidence overlays follow each image's own intrinsic aspect ratio. */
+.structured-evidence-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+.structured-evidence-figure { min-width: 0; margin: 0; padding: .75rem; border: 1px solid var(--line, #d8dee8); border-radius: .75rem; }
+.structured-evidence-figure figcaption { margin-bottom: .5rem; font-size: .85rem; }
+.structured-evidence-viewport { width: 100%; overflow: auto; }
+.structured-evidence-image { position: relative; line-height: 0; }
+.structured-evidence-image img { display: block; width: 100%; max-width: none; height: auto; }
+.structured-evidence-box { position: absolute; box-sizing: border-box; border: 2px solid #075de8; background: rgba(7, 93, 232, .08); pointer-events: none; }
+.structured-evidence-box.approximate { border-style: dashed; }
+.structured-evidence-note { font-size: .8rem; line-height: 1.5; margin-bottom: 0; }
+.structured-evidence-zoom { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; font-size: .8rem; }
+.structured-evidence-zoom input { min-width: 0; flex: 1; }
+.analysis-provenance { overflow-wrap: anywhere; }
+@media (max-width: 650px) { .structured-evidence-grid { grid-template-columns: minmax(0, 1fr); } }

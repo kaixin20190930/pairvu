@@ -69,7 +69,40 @@ export interface EvidenceRegion {
   height: number;
 }
 
+export interface NormalizedEvidenceBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export type RegionUnavailableReason =
+  | "not_recorded"
+  | "not_visible"
+  | "insufficient_evidence"
+  | "not_present"
+  | "cannot_locate"
+  | "uncertain_location"
+  | "invalid_region";
+
+export interface ImageEvidenceLocation {
+  coordinateSpace: "analysis_image_normalized";
+  assetId: string;
+  region: NormalizedEvidenceBox | null;
+  reason: RegionUnavailableReason | null;
+  confidence: Confidence | null;
+}
+
+export interface PairedEvidenceRegions {
+  schemaVersion: 1;
+  reference: ImageEvidenceLocation;
+  candidate: ImageEvidenceLocation;
+}
+
 export interface ObservationEvidence {
+  regions?: PairedEvidenceRegions;
+  /** Original region payload, kept independently of normalized display coordinates. */
+  regionRaw?: unknown;
   referenceObservation?: string;
   candidateObservation?: string;
   differenceKind?: DifferenceKind;

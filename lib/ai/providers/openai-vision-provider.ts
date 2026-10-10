@@ -1,7 +1,16 @@
+import { normalizeRegionPair, preserveRegionRaw } from "@/lib/qa/evidence-regions";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import type { FidelityResult, M0AnalysisInput, VisionProvider } from "@/lib/qa/types";
+
+export const STRUCTURED_EVIDENCE_PROMPT_SUFFIX = "regions-001";
+export const ImageRegionSchema = z.object({
+  coordinateSpace: z.literal("analysis_image_normalized"),
+  region: z.object({x:z.number(),y:z.number(),width:z.number(),height:z.number()}).strict().nullable(),
+  reason: z.enum(["not_visible","insufficient_evidence","not_present","cannot_locate","uncertain_location"]).nullable(),
+  confidence: z.enum(["high","medium","low"]).nullable(),
+}).strict();
 
 const ObservationEvidenceSchema = z
   .object({
@@ -30,6 +39,8 @@ const ObservationEvidenceSchema = z
     referenceVisible: z.boolean().nullable(),
     candidateVisible: z.boolean().nullable(),
     rawJson: z.string().nullable(),
+    referenceRegion: ImageRegionSchema,
+    candidateRegion: ImageRegionSchema,
   })
   .strict();
 
@@ -95,7 +106,7 @@ const LimitationSchema = z.object({
   evidence: LimitationEvidenceSchema,
 }).strict();
 
-const FidelityResponseSchema = z
+export const FidelityResponseSchema = z
   .object({
     observations: z.array(ObservationSchema),
     limitations: z.array(LimitationSchema),
@@ -145,7 +156,7 @@ export class OpenAIVisionProvider implements VisionProvider {
         modelCall: {
           provider: this.name,
           model: this.options.model,
-          promptVersion: this.options.promptVersion,
+          promptVersion: `${this.options.promptVersion}+${STRUCTURED_EVIDENCE_PROMPT_SUFFIX}`,
           latencyMs: 0,
         },
       };
@@ -200,30 +211,7 @@ export class OpenAIVisionProvider implements VisionProvider {
     const outputTokens = response.usage?.output_tokens;
 
     return {
-      observations: parsed.observations.map((observation) => ({
-        checkType: observation.checkType,
-        status: observation.status,
-        differenceKind: observation.differenceKind ?? undefined,
-        observability: {
-          reference: observation.referenceObservability,
-          candidate: observation.candidateObservability,
-          coverage: observation.coverage,
-        },
-        confidence: observation.confidence,
-        explanation:
-          observation.comparisonSummary ?? observation.referenceObservation ?? observation.candidateObservation ?? "Observation recorded.",
-        evidence: {
-          referenceObservation: observation.referenceObservation ?? undefined,
-          candidateObservation: observation.candidateObservation ?? undefined,
-          differenceKind: observation.differenceKind ?? undefined,
-          comparisonSummary: observation.comparisonSummary ?? undefined,
-          visibleEvidence: observation.visibleEvidence ?? undefined,
-          uncertainReason: observation.uncertainReason ?? undefined,
-          referenceVisible: observation.evidence.referenceVisible ?? undefined,
-          candidateVisible: observation.evidence.candidateVisible ?? undefined,
-          raw: observation.evidence.rawJson ?? undefined,
-        },
-      })),
+      observations: mapFidelityObservations(parsed,input),
       limitations: parsed.limitations.map((limitation) => ({
         kind: "limitation",
         type: limitation.type,
@@ -236,7 +224,7 @@ export class OpenAIVisionProvider implements VisionProvider {
       modelCall: {
         provider: this.name,
         model: this.options.model,
-        promptVersion: this.options.promptVersion,
+        promptVersion: `${this.options.promptVersion}+${STRUCTURED_EVIDENCE_PROMPT_SUFFIX}`,
         latencyMs: Date.now() - startedAt,
         estimatedCostUsd: estimateOpenAICostUsd(this.options.model, {
           inputTokens,
@@ -253,6 +241,36 @@ export class OpenAIVisionProvider implements VisionProvider {
       },
     };
   }
+}
+
+export function mapFidelityObservations(parsed: FidelityResponse, input: M0AnalysisInput) {
+  return parsed.observations.map((observation) => ({
+        checkType: observation.checkType,
+        status: observation.status,
+        differenceKind: observation.differenceKind ?? undefined,
+        observability: {
+          reference: observation.referenceObservability,
+          candidate: observation.candidateObservability,
+          coverage: observation.coverage,
+        },
+        confidence: observation.confidence,
+        explanation:
+          observation.comparisonSummary ?? observation.referenceObservation ?? observation.candidateObservation ?? "Observation recorded.",
+        evidence: {
+          regions: normalizeRegionPair({schemaVersion:1,reference:observation.evidence.referenceRegion,candidate:observation.evidence.candidateRegion},{referenceAssetId:input.reference.assetId,candidateAssetId:input.candidate.assetId},{reference:observation.referenceObservability==="not_observable"?false:observation.evidence.referenceVisible??undefined,candidate:observation.candidateObservability==="not_observable"?false:observation.evidence.candidateVisible??undefined},true),
+          regionRaw: preserveRegionRaw({reference:observation.evidence.referenceRegion,candidate:observation.evidence.candidateRegion}),
+          referenceObservation: observation.referenceObservation ?? undefined,
+          candidateObservation: observation.candidateObservation ?? undefined,
+          differenceKind: observation.differenceKind ?? undefined,
+          comparisonSummary: observation.comparisonSummary ?? undefined,
+          visibleEvidence: observation.visibleEvidence ?? undefined,
+          uncertainReason: observation.uncertainReason ?? undefined,
+          referenceVisible: observation.evidence.referenceVisible ?? undefined,
+          candidateVisible: observation.evidence.candidateVisible ?? undefined,
+          raw: observation.evidence.rawJson ?? undefined,
+        },
+      }));
+
 }
 
 export function estimateOpenAICostUsd(
@@ -333,6 +351,9 @@ export function buildInstructions(input: M0AnalysisInput) {
     "For major_components evidence, referenceObservation and candidateObservation must separately name what is directly visible in each image.",
     "For status = match, use differenceKind = none. Never use a mismatch differenceKind from another check family.",
     "Do not report the same factual change under multiple check families. In particular, a printed capacity or weight change belongs only to visible_text.",
+    "referenceObservation describes only the expected content directly visible in the REFERENCE; candidateObservation describes only what is directly visible in the CANDIDATE. SKU declarations are not visually established facts and must never fill missing observations.",
+    "For evidence.referenceRegion and evidence.candidateRegion separately declare coordinateSpace = analysis_image_normalized. Coordinates x/y/width/height are fractions of that entire corresponding analysis image, with top-left origin, in [0,1], positive size and no right/bottom overflow. Never use product-relative or pixel coordinates. Do not return asset IDs; the application binds each side to its actual input image.",
+    "Only locate directly visible evidence. Never invent OCR, boxes or coordinates for invisible, absent or insufficient evidence. If the region cannot be located reliably, set region and confidence to null and reason to not_visible, insufficient_evidence, not_present, cannot_locate or uncertain_location. For a present region, reason must be null; report location confidence independently of observation confidence. Low location confidence is not a precise location; medium means approximate. Missing location alone does not change an otherwise supported textual observation.",
     "Return evidence as a strict object. If you need to include arbitrary notes, put them into rawJson as a stringified JSON object.",
     `Selected checks: ${input.selectedChecks.join(", ")}.`,
     input.category ? `Category: ${input.category}.` : "Category: M0 CPG packaged product.",

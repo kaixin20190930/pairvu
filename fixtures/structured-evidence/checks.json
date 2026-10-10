@@ -1,0 +1,91 @@
+{
+  "unitId": "UPG-04",
+  "role": "developer",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING",
+  "synthetic": true,
+  "baselineSha": "ce1f2fee7f43735ff6b6f13f3867840943d19471",
+  "preImplementationHead": "717210a0fc5e8f575ef466409709add431f12bef",
+  "recordedAt": "2026-10-10T14:52:22.341406+00:00",
+  "checks": [
+    {
+      "command": "pnpm test:structured-evidence --report fixtures/structured-evidence/results.json",
+      "exitCode": 0,
+      "cases": 42,
+      "evidence": "results.json"
+    },
+    {
+      "command": "pnpm test:m0:policy-boundaries",
+      "exitCode": 0,
+      "scope": "Existing risk-policy regression, unchanged test script"
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "scope": "Final production and browser fixture TypeScript"
+    },
+    {
+      "command": "pnpm exec eslint lib/qa/evidence-regions.ts lib/qa/engine.ts lib/domain/semantics.ts lib/ai/providers/openai-vision-provider.ts lib/ai/providers/mock-vision-provider.ts lib/analysis/repository.ts lib/analysis/types.ts components/StructuredEvidence.tsx components/ProductChecker.tsx scripts/verify-structured-evidence.ts fixtures/structured-evidence/ui-entry.tsx",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm run build",
+      "exitCode": 0,
+      "runs": 1,
+      "scope": "Local Next.js 16.2.12 production build; 73 pages generated; no deployment"
+    },
+    {
+      "command": "node fixtures/structured-evidence/ui-server.mjs + actual in-app browser",
+      "exitCode": 0,
+      "cases": 20,
+      "evidence": [
+        "browser-desktop-results.json",
+        "browser-narrow-results.json"
+      ],
+      "viewport": {
+        "desktop": [
+          1280,
+          720
+        ],
+        "narrowIframe": [
+          373,
+          1498
+        ]
+      },
+      "screenshot": "browser-desktop.png",
+      "sourceHashesVerified": true,
+      "serverClosed": true
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "originalFailure": {
+    "evidence": "attempt-1-results.json",
+    "cause": "Test compared undefined optional JS properties against JSON serialization where keys are omitted",
+    "resolution": "Canonicalize expected JSON in assertion; product write/read logic unchanged"
+  },
+  "limitations": [
+    "Development evidence only; independent reviewer must bind acceptance to final Git candidate SHA.",
+    "Controlled OpenAI SDK boundary; no real model localization, accuracy or cost measurement.",
+    "Actual repository runs on in-memory SQLite under existing migrations; not production D1 verification.",
+    "Actual React components with synthetic auth/billing/fetch/analytics boundaries; not a real login or model API journey.",
+    "No GitHub push, production migration, deploy, production smoke or payment."
+  ],
+  "candidateSourceHashes": {
+    "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+    "components/ProductChecker.tsx": "40ff53b5611a304f50df27afb51ee8e4f74093ca8c9e60a72f2dd1aa68d86b2a",
+    "components/StructuredEvidence.tsx": "2e1e47c80592372baa6b2fbfb9c2e9e37fcfb1d0e7b7e53bc7927a9a8e924dad",
+    "lib/ai/providers/mock-vision-provider.ts": "f57992a13f83ca4f11dd14f8e30c50473b06a5d96ef54aab5656a4e4759f2c1a",
+    "lib/ai/providers/openai-vision-provider.ts": "343a3e3a1527d5ad6feab461f0455bedc5984d66f49eb61da547729f30ef3856",
+    "lib/analysis/repository.ts": "862cc3cda426b3ddf0630181c41abaecb6b11eaddc112e96fcbaf88f92d5c4e8",
+    "lib/analysis/types.ts": "32d98c63a7afb4ce27e61262b3fb3feef9894ff27c48d3989b2c4784eb2f93a9",
+    "lib/domain/semantics.ts": "49a1a9c56c19a8ff71a3a6a5c23b2d2823b842d8b850ea0fc0c5f2ec8b9108c2",
+    "lib/qa/engine.ts": "b0ff2416c64d0098a3eb0363e5f2b76c2701b1a6c7c8ff165347d41301707a37",
+    "lib/qa/evidence-regions.ts": "8ffb5014cb168d86aa6b21b5f18086c55d096475c44bde0ab5ae9fed3a1bdf07",
+    "package.json": "aa2c5b42f26b282ccd9617d77a332c4bb7095706a705c8d117381276ca912f71",
+    "scripts/verify-structured-evidence.ts": "ca73c5086d3d679b74dc09dd9f39d88a34a42e1b7e3e34c0f7e03440dba38064",
+    "docs/01-architecture/structured-evidence-contract.md": "fec6bb806868c407d91a1070d9dff689018d89e3d3b835c2884dfd37dec980f7"
+  }
+}

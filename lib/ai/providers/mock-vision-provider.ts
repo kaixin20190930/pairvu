@@ -1,3 +1,4 @@
+import { unavailableRegion } from "@/lib/qa/evidence-regions";
 import type { FidelityResult, M0AnalysisInput, VisionObservation, VisionProvider } from "@/lib/qa/types";
 
 export class MockVisionProvider implements VisionProvider {
@@ -16,6 +17,7 @@ export class MockVisionProvider implements VisionProvider {
       confidence: "high",
       explanation: `${checkType} appears consistent in the controlled mock provider.`,
       evidence: {
+        regions: {schemaVersion:1,reference:unavailableRegion(input.reference.assetId,"cannot_locate"),candidate:unavailableRegion(input.candidate.assetId,"cannot_locate")},
         referenceObservation: `${checkType} appears unchanged.`,
         candidateObservation: `${checkType} appears unchanged.`,
         differenceKind: "none",
