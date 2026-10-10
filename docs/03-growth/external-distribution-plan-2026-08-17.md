@@ -2,7 +2,14 @@
 
 Status: `READY_TO_EXECUTE`
 
-Start date: 2026-08-17
+Original planned start date: 2026-08-17
+
+Reconciled 2026-10-10: the strategy, UTM convention, and destination map are
+ready. A completed four-week execution log is not established in the repository;
+calendar passage does not mean outreach or publication happened. Current
+execution acceptance is R10 in the
+[production backlog](../04-roadmap/production-status-and-backlog-2026-10-10.md).
+This status update does not authorize sending messages or publishing posts.
 
 ## 1. Objective
 

@@ -27,3 +27,13 @@ The required release order is:
 Do not run a production deployment command from uncommitted code, from a local
 commit that has not been pushed, or while the remote-commit check is
 inconclusive. Stop and report the blocker instead.
+
+## Upgrade Development and Independent Acceptance
+
+For automated upgrade work, read `operations/README.md`,
+`operations/controller-prompt.md`, and the active unit contract first.
+Use one controller, one developer, and an independent reviewer. Bind acceptance
+to the exact candidate commit and preserve the original review evidence.
+The local controller has no deployment authority: runtime units stop at
+RELEASE_READY. Never treat local QA as production verification.
+The Production Deployment Rule above remains mandatory.

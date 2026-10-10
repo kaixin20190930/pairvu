@@ -1,8 +1,12 @@
 # M1 Accounts, Credits, And Batch QA Plan
 
-Status: `IN_PROGRESS`
+Status: `PUBLIC_PAID_BETA_MARKET_VALIDATION`
 
-Last updated: 2026-08-14
+Last updated: 2026-10-10
+
+Engineering phases M1-0 through M1-4 and acceptance M1-5.1 through M1-5.5
+have completed records. Remaining production acceptance and market gates are
+listed in the [production audit](production-status-and-backlog-2026-10-10.md).
 
 ## Purpose
 
@@ -77,7 +81,7 @@ Status: `DONE`
 | ID | Item | Owner | Acceptance evidence |
 | --- | --- | --- | --- |
 | M1-2.1 | Implement Stripe checkout, customer portal, and webhook handling | Engineering | `DONE`: Test Mode checkout, replay-safe webhook processing, subscription activation, customer portal, and founder purchase walkthrough passed in production |
-| M1-2.2 | Implement plan/top-up credit grants | Engineering | `DONE` for M1 subscription grants: Stripe periods grant the exact plan allowance idempotently. One-time top-ups are explicitly deferred until paid batch usage demonstrates demand and are not required for the M1-2 exit gate |
+| M1-2.2 | Implement plan/top-up credit grants | Engineering | `DONE` for implementation: subscription grants are idempotent; one-time Check Packs were added on 2026-08-19 and hardened on 2026-08-20. Production migrations 0013/0014 are confirmed; a real standard-pack purchase remains an acceptance item (R04) |
 | M1-2.3 | Implement reserve/settle/release lifecycle | Engineering | `DONE`: system/provider failure releases credits, completed verdict settles exactly once, and abandoned reservations expire through scheduled maintenance |
 | M1-2.4 | Build quota/upgrade states | Engineering/Product | `DONE`: plan comparison, current-plan state, remaining/used/reserved checks, payment-attention state, accurate retention copy, checkout, and portal actions implemented. Founder verified a paid Starter check at `149 available / 1 used / 0 reserved` |
 | M1-2.5 | Add billing and credit audit tooling | Engineering | `DONE`: immutable usage ledger and webhook journal plus read-only `pnpm run audit:m1:billing` report for ledger mismatches, expired reservations, subscription-period mismatches, webhook failures, and plan totals |
@@ -86,10 +90,12 @@ Exit gate: all billing state transitions are idempotent and a credit balance can
 be reconstructed from ledger rows. Passed through automated reconciliation and
 Stripe lifecycle tests plus the production Starter check described above.
 
-M1-2 does not enable public live-mode billing yet. Stripe remains in Test Mode
-and restricted to founder-approved test accounts until Batch and export benefits
-exist and the public billing checkpoint is accepted. Self-serve plan switching,
-annual billing, and one-time top-ups remain later commercial increments.
+The original Test Mode restriction was superseded by the 2026-08-15 public
+paid-beta decision. Production D1 retains completed Live subscription and
+invoice events from 2026-08-18 and a subscription-deleted event from 2026-09-18.
+Self-service plan switching and one-time Check Packs are implemented. Annual
+billing remains outside the current scope. Live portal presentation and actual
+standard-pack purchase acceptance are tracked separately in R04.
 
 ## Phase M1-3: Batch Domain And Queue
 
@@ -175,7 +181,7 @@ Status: `IN_PROGRESS`
 | M1-5.3 | Billing and privacy adversarial tests | Engineering | `DONE`: replay-safe webhook, workspace ownership, quota, reserve/settle/release, automatic deletion retry, immediate original/derivative deletion, and exclusion of deleted assets from workspace listings pass automated verification. On 2026-08-14 the founder permanently deleted the images for result `batch-analysis-e64a0242-b271-4d6a-a8d8-aa40fa0f63dc`; PASS and all text evidence remained, both previews stopped restoring, the account changed to `Images deleted or expired`, the deleted reference was absent from retained-reference choices, and quota stayed at 119 available / 31 used / 0 reserved. |
 | M1-5.4 | Cost and queue-load smoke test | Engineering | `DONE`: the 2026-08-12 20-item smoke uploaded candidates across 123.9 seconds, then completed 14 analyses before cancellation. Thirteen normal items took 10.8-29.9 seconds each; observed per-analysis cost was `$0.00334-$0.00542`. A suspected nine-minute persistence delay was audited to the execution-attempt level: attempt 1 occupied the provider for 479.9 seconds and ended with no parsed observations; Queue retried after about 31 seconds and attempt 2 completed in 26.8 seconds. Persistence was not stuck. The deployed provider now has a 120-second request ceiling and explicit retry ownership, and the founder accepted a subsequent real single-image production completion on 2026-08-14. |
 | M1-5.5 | Founder acceptance walkthrough | Founder | `DONE`: batch functional, 390px mobile, keyboard, real single-image/provider-timeout, semantic regression, failed-item retry, credit accounting, and immediate deletion walkthroughs passed in production by 2026-08-14. Pairvu is technically cleared for a public paid beta; this does not claim product-market fit. |
-| M1-5.6 | Public paid beta observation window | Founder/Product | `IN_PROGRESS`: self-service registration and paid plans are open without invitations. Review the first 30 days and first 10 paying workspaces, whichever takes longer. Record activation, first batch completion, repeat use, workflow value, paid conversion, cancellation/support reasons, provider reliability, and settled-check cost. |
+| M1-5.6 | Public paid beta observation window | Founder/Product | `IN_PROGRESS`: 2026-10-10 audit found two current Free workspaces, historical Live billing events, and insufficient evidence of ten paying workspaces; elapsed time alone does not complete this gate. Self-service registration and paid plans are open without invitations. Review the first 30 days and first 10 paying workspaces, whichever takes longer. Record activation, first batch completion, repeat use, workflow value, paid conversion, cancellation/support reasons, provider reliability, and settled-check cost. |
 
 Entry gate decision updated on 2026-08-15: `GO FOR PUBLIC PAID BETA`. Technical
 gates 1-6 in the product definition and all founder production walkthroughs are
@@ -202,7 +208,7 @@ it no longer blocks self-service access. See
 Do not start these until M1 public-beta evidence supports them:
 
 1. CSV and ZIP intake.
-2. Product profiles and multiple approved references.
+2. Multi-reference consensus and automatic view matching. Named Saved Products and explicitly selected reference views are already implemented under M2/M2.1; their acceptance/adoption gates remain open.
 3. Teams and approval roles.
 4. Shopify/PIM/DAM/API integrations.
 5. Image-set-level QA and marketplace packs.

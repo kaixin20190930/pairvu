@@ -2,7 +2,12 @@
 
 Status: `FOUNDER_APPROVED`
 
-Last updated: 2026-08-10
+Last reconciled: 2026-10-10. Original scope approved: 2026-08-10.
+
+Implementation and production acceptance are tracked in the
+[production audit](../04-roadmap/production-status-and-backlog-2026-10-10.md).
+The later Check Pack implementation supersedes the original deferred top-up
+proposal; this reconciliation records existing behavior, not a new pricing decision.
 
 ## 1. Decision Summary
 
@@ -175,20 +180,24 @@ until 30 days of paid-usage evidence exists.
 | Starter | $19 / month | 150 | Independent brand or creator | Up to 20 items / batch; history and export |
 | Growth | $49 / month | 600 | Small operations team | Up to 20 items / batch; priority queue |
 | Agency | $99 / month | 1,500 | Agency or multi-brand operator | Up to 20 items / batch; priority queue |
-| Top-up (later increment) | $15 / 100 checks | Never expires | Variable-volume user | Deferred until paid batch demand is observed |
+| Check Pack 50 | $9 one-time | 50 extra checks, valid 365 days | Variable-volume user | Existing plan batch/export limits remain |
+| Check Pack 200 | $29 one-time | 200 extra checks, valid 365 days | Variable-volume user | Existing plan batch/export limits remain |
+| Check Pack 500 | $59 one-time | 500 extra checks, valid 365 days | Variable-volume user | Existing plan batch/export limits remain |
 
-Subscription checks expire at the end of the billing period. M1-2 launches
-without rollover or paid top-ups; both require a separate commercial checkpoint
-after paid batch demand is observed. The proposed future top-up is $15 per 100
-non-expiring checks. Annual pricing, discounts, and enterprise invoicing are
-also deferred.
+Subscription checks expire at the end of the billing period without rollover.
+Check Packs were implemented on 2026-08-19 and hardened on 2026-08-20; the
+old $15/100 non-expiring proposal is superseded. Monthly checks are reserved
+first, followed by active pack lots in expiry order. Packs do not change image
+retention, batch size, priority, or export entitlements. A real standard-pack
+purchase still requires production acceptance (R04). Annual pricing, discounts,
+and enterprise invoicing remain deferred.
 
 This pricing is intentionally based on a check rather than image generation.
 The product's value is the review decision and its evidence, not volume of image
 uploads. Production M0 evidence measured an average provider estimate of
 approximately $0.005 per completed check across 20 calls on 2026-08-08; pricing
 must be revalidated against actual M1 queue, storage, payment, support, and
-failure costs before public billing is enabled.
+failure costs during the public paid beta; current implementation does not establish market validation.
 
 ## 6. Retention, Privacy, And Trust
 

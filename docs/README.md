@@ -2,6 +2,11 @@
 
 This is the working documentation baseline for Pairvu.
 
+Current status reconciled on 2026-10-10:
+[Production verification and prioritized remaining tasks](04-roadmap/production-status-and-backlog-2026-10-10.md).
+Use this report for deployment evidence and open acceptance items; old sprint
+and M0 launch snapshots preserve historical decisions.
+
 ## Recommended Reading Order
 
 1. [Business Analysis](05-business/product-analysis.md)
@@ -33,23 +38,27 @@ This is the working documentation baseline for Pairvu.
 
 ## Current Decision
 
-M0 has passed the core technical-hypothesis checkpoint. The project is now in
-real-behavior and public-beta readiness validation.
+M0 and M1 are implemented, with founder production acceptance recorded by
+2026-08-14 and public paid beta approved on 2026-08-15. M2 Saved Products and
+M2.1 explicit reference views have production schema and usage evidence.
+Commercial validation and complete M2 production walkthroughs remain open.
+
+The 2026-10-10 read-only audit confirmed production migrations 0001–0019,
+Worker version `3117176b-e5d1-410b-88e6-b071fb8d1208`, healthy billing audit
+queries, and 66 sitemap entries. The exact Worker-to-Git-SHA mapping remains
+unverified. Current subscriptions are two Free workspaces; historical live
+subscription events exist, but the paid-beta success gate is not established.
 
 Execution and current status:
 
-- [M0 Public Beta Launch Plan](04-roadmap/m0-public-beta-launch-plan.md)
-- [M0 Public Beta Live Tracker](04-roadmap/m0-public-beta-tracker.md)
-- [Pairvu SEO And GEO Strategy](03-growth/seo-geo-strategy.md)
-- [SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md)
-- [Keyword Ownership And Cannibalization Audit](03-growth/keyword-ownership-and-cannibalization-audit-2026-08-17.md)
-- [External Distribution And Backlink Plan](03-growth/external-distribution-plan-2026-08-17.md)
+- [Production verification and prioritized remaining tasks](04-roadmap/production-status-and-backlog-2026-10-10.md)
+- [M1 paid-beta acceptance](04-roadmap/m1-paid-beta-release-checklist.md)
+- [M1 implementation](04-roadmap/m1-batch-commercial-plan.md)
+- [Approved product expansion roadmap](04-roadmap/product-expansion-roadmap.md)
+- [SEO and GEO implementation](04-roadmap/seo-geo-implementation-plan.md)
 
-M0's checker boundary remains fixed. New commercial and batch work must follow
-the approved [M1 Accounts, Credits, And Batch QA](02-product/m1-batch-commercial-definition.md)
-definition rather than expanding M0 opportunistically.
-Product work after M1 must follow the evidence gates and boundaries in the
-[Pairvu Product Expansion Roadmap](04-roadmap/product-expansion-roadmap.md).
+M0's six-family checker boundary remains fixed. Custom rules, ranking,
+auto-fix, integrations, and monitoring require their separate evidence gates.
 
 ## Core Product Rule
 
@@ -57,13 +66,13 @@ The product is not successful because a model can compare two images. It is succ
 
 ## Current Founder Review Questions
 
-- Does the 16-case real single-variable matrix meet the approved quality gates?
-- Are any real failures caused by prompt interpretation, taxonomy overlap, or
-  RiskPolicy?
-- Is the unfamiliar-user journey usable without onboarding or explanation?
-- Are acquisition, product behavior, model behavior, and feedback traceable?
-- Is 24-hour anonymous deletion verified for originals and derivatives?
-- Do limited public-beta results support broader SEO/social distribution?
+- Is the historical credential-rotation requirement closed with evidence?
+- Can the production Worker be traced to its exact pushed release commit?
+- Have M2 reference views, version promotion, archive/restore, reuse, and expiry
+  passed a recorded signed-in production walkthrough?
+- Has a real standard Check Pack purchase and Live Customer Portal flow passed?
+- Do external users repeat batches and saved references, and pay for that value?
+- Are operational alerts and acquisition-to-completion reporting actionable?
 
 ## Current Organic Acquisition Decision
 
@@ -79,13 +88,13 @@ The product is not successful because a model can compare two images. It is succ
 
 ## Next Implementation Step
 
-Complete production indexing and public-beta hardening in the
-[SEO And GEO Implementation Plan](04-roadmap/seo-geo-implementation-plan.md):
+Follow R01–R07 in the [prioritized backlog](04-roadmap/production-status-and-backlog-2026-10-10.md):
+close safety and release-provenance evidence, finish existing-feature acceptance,
+and review paid use, saved-reference reuse, operations, and search conversion.
+Search Console/Bing setup and migrations 0016–0019 are no longer unstarted tasks.
+Do not expand later product stages solely because calendar time has elapsed.
 
-- deploy and run production crawl, mobile, accessibility, schema, and link QA;
-- verify Google Search Console and Bing Webmaster Tools, then submit the
-  sitemap;
-- export country/language-specific Keyword Planner evidence when account access
-  is available;
-- keep public-beta feedback, guardrail, and operations gates separate from SEO
-  publication progress.
+## 下一阶段升级与自动研发
+
+- [2026-10-10 完整产品升级方案](04-roadmap/product-upgrade-plan-2026-10-10.md)：事实校正、SKU 真值、证据、人工审核、API、评测和商业验证。
+- [自动开发与独立验收](../operations/README.md)：总控、开发/QA 任务、机器状态和发布边界。

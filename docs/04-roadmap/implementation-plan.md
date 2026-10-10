@@ -1,4 +1,4 @@
-# Trackable Implementation Plan And Timeline
+# Historical Implementation Plan And Timeline
 
 > Historical note: this document began before the public single-image product
 > and commercial Batch implementation existed. M0 and the older M2-M9 sequence
@@ -6,7 +6,20 @@
 > [M1 Batch Commercial Plan](m1-batch-commercial-plan.md), and post-M1 product
 > direction is governed by [Pairvu Product Expansion Roadmap](product-expansion-roadmap.md).
 
-## Timeline Assumptions
+## Current status override
+
+Reconciled 2026-10-10. This is a historical planning baseline, not the live task
+tracker. The old phase/sprint `Not Started` and `In Progress` labels below are
+preserved as the original plan and must not be summed as current remaining work.
+M0/M1 are implemented with recorded core production acceptance; M2/M2.1 have
+production usage evidence. Current work is acceptance, provenance, operations,
+and market validation, followed by evidence-gated M3–M6.
+
+Use [Production verification and prioritized backlog](production-status-and-backlog-2026-10-10.md),
+[M1 implementation](m1-batch-commercial-plan.md), and
+[Approved expansion roadmap](product-expansion-roadmap.md).
+
+## Historical Timeline Assumptions
 
 - Small focused team: 1-2 engineers, founder/product owner, design support as needed.
 - Dates are relative to project start.

@@ -1,5 +1,10 @@
 # M0 Public Beta Launch Plan
 
+> Historical M0 launch specification. Reconciled 2026-10-10: its conditional
+> launch dates and GO/NO-GO snapshots were superseded by the M1 public paid-beta
+> decision on 2026-08-15. For current status and unclosed acceptance items use
+> [Production audit and prioritized backlog](production-status-and-backlog-2026-10-10.md).
+
 Document type: Execution baseline
 
 Status: Approved for execution

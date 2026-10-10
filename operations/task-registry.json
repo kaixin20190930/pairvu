@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
+  "unitId": "AUTO-01",
+  "baselineSha": "87b21ac223852a3fdbea3e2eca567ccb0e2eefec",
+  "development": {
+    "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+    "hostId": "local",
+    "clientThreadId": null
+  },
+  "qa": {
+    "threadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+    "hostId": "local",
+    "clientThreadId": null
+  },
+  "candidateSha": "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+  "state": "CLOSED",
+  "automationId": "pairvu-2",
+  "notes": "AUTO-01 local_only 独立 QA 已通过并由 CLI 关闭。候选未推送/部署。状态详情在 .pairvu-control；台账不是 QA 替代证据。",
+  "nextUnitId": "UPG-02"
+}

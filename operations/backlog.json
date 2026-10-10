@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "id": "AUTO-01",
+      "title": "自动化控制与独立验收工具",
+      "priority": 0,
+      "dependsOn": [],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-01",
+      "title": "发布版本标识与来源核验",
+      "priority": 2,
+      "dependsOn": [
+        "AUTO-01",
+        "UPG-02"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-02",
+      "title": "评测契约与离线样本校验器",
+      "priority": 1,
+      "dependsOn": [
+        "AUTO-01"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-03",
+      "title": "现有 SKU 的版本化产品标准",
+      "priority": 3,
+      "dependsOn": [
+        "UPG-01"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-04",
+      "title": "结构化区域证据与可观测性",
+      "priority": 4,
+      "dependsOn": [
+        "UPG-03"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-05",
+      "title": "独立人工决定与审计",
+      "priority": 5,
+      "dependsOn": [
+        "UPG-04"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-06",
+      "title": "发布工作台与规则版本",
+      "priority": 6,
+      "dependsOn": [
+        "UPG-05"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-07",
+      "title": "参考视角匹配 shadow 评测",
+      "priority": 7,
+      "dependsOn": [
+        "UPG-02",
+        "UPG-04"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-08",
+      "title": "API 鉴权异步批次与幂等额度",
+      "priority": 8,
+      "dependsOn": [
+        "UPG-06"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-09",
+      "title": "签名 Webhook outbox 与回放",
+      "priority": 9,
+      "dependsOn": [
+        "UPG-08"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-10",
+      "title": "价值指标与来源工作流分析",
+      "priority": 10,
+      "dependsOn": [
+        "UPG-06"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "HUMAN-01",
+      "title": "访谈设计伙伴和数据使用授权",
+      "priority": 1,
+      "dependsOn": [],
+      "mode": "human",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "真实人工记录与授权"
+      ]
+    },
+    {
+      "id": "HUMAN-02",
+      "title": "真实标准加量包与支付验收",
+      "priority": 2,
+      "dependsOn": [],
+      "mode": "human",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "真实人工记录与授权"
+      ]
+    },
+    {
+      "id": "HUMAN-03",
+      "title": "双人标注留出集与质量评估",
+      "priority": 3,
+      "dependsOn": [
+        "UPG-02",
+        "HUMAN-01"
+      ],
+      "mode": "human",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "真实人工记录与授权"
+      ]
+    },
+    {
+      "id": "HUMAN-04",
+      "title": "试点续用和定价业务决策",
+      "priority": 4,
+      "dependsOn": [
+        "HUMAN-01"
+      ],
+      "mode": "human",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "真实人工记录与授权"
+      ]
+    }
+  ]
+}

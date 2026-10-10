@@ -1,21 +1,18 @@
-# M0 Public Beta Live Tracker
+# M0 Public Beta Tracker and Historical Evidence
 
-Last updated: 2026-07-30 (first public evidence and commerce workflow cluster implemented)
+Last reconciled: 2026-10-10. Original M0 snapshot: 2026-07-30.
 
-Overall release status: `NOT_READY_FOR_PUBLIC_BETA`
+Overall release status: `SUPERSEDED_BY_PUBLIC_PAID_BETA`
 
-Current phase: `WEEK_2_HARDENING`
+M0's original limited/broader launch gates were superseded by the M1 public
+paid-beta GO on 2026-08-15. Current production is live; the old conditional
+August launch dates are historical. Open security/acceptance issues are not
+implicitly closed by that decision.
 
-Next checkpoint: production release GO/NO-GO
-
-Target limited public beta: 2026-08-10 to 2026-08-14, conditional
-
-Target broader public beta: 2026-08-17 to 2026-08-23, conditional
-
-Execution plan:
-
-- [M0 Public Beta Launch Plan](m0-public-beta-launch-plan.md)
-- [Founder MVP Checkpoint](founder-mvp-checkpoint-2026-07-28.md)
+Current execution: [Production audit and prioritized remaining tasks](production-status-and-backlog-2026-10-10.md)
+and [M1 paid-beta checklist](m1-paid-beta-release-checklist.md).
+The original [M0 launch plan](m0-public-beta-launch-plan.md) and dated evidence
+below remain the historical specification.
 
 ## 1. Current Product Decision
 
@@ -24,37 +21,40 @@ Execution plan:
 | Core M0 technical hypothesis | `PASS` | Real 550 ml to 500 ml pair completed through OpenAI, QAEngine, RiskPolicy, persistence, and UI |
 | M0 controlled policy infrastructure | `PASS` | 90 controlled cases; approved gates passed |
 | Real-image behavior matrix | `DONE` | T01-T16 founder-reviewed and valid/correct after scoped prompt fixes through `m0-real-mvp-007` |
-| Limited public beta | `NO_GO` | Feedback detail, key rotation, final guardrail evidence, and final production smoke remain |
-| Broader public beta | `NO_GO` | Limited-beta evidence not yet available |
+| Limited public beta | `SUPERSEDED` | M1 production walkthroughs passed by 2026-08-14; public paid beta approved 2026-08-15 |
+| Broader public beta | `PUBLIC_PAID_BETA` | Current production is live; market validation and specific acceptance gaps remain in R01–R07 |
 
 Formal M0 statement:
 
-> M0 PASS - Core visual QA loop validated. Product launch readiness remains
-> conditional on real behavior, public usability, telemetry, privacy, and
-> operational gates.
+> M0 PASS — Core visual QA loop validated and subsequently released. Current
+> product acceptance, operational gaps, and market validation are tracked
+> separately; the original M0 NO_GO is not the current launch decision.
 
 ## 2. Release Gate Status
 
 | Gate | Status | Blocking items |
 | --- | --- | --- |
 | G0 Internal real analysis | `DONE` | None for the first controlled pair |
-| G1 Limited public beta | `BLOCKED` | Feedback detail, production guardrail validation, key rotation, final release review |
-| G2 Broader public beta | `BLOCKED` | G1 plus public usage evidence, SEO verification, operating stability |
+| G1 Limited public beta | `SUPERSEDED` | Public paid-beta decision replaces this launch gate; historical key-rotation evidence remains R01 |
+| G2 Broader public beta | `SUPERSEDED` | Public access is open; usage evidence and operational follow-up remain R05–R07 |
 
 ## 3. Workstream Summary
 
-| Workstream | Status | Done | Active | Blocked | Not started |
-| --- | --- | ---: | ---: | ---: | ---: |
-| PB-Q QA semantics/result integrity | `IN_PROGRESS` | 5 | 0 | 0 | 2 |
-| PB-A Analytics/journey recording | `IN_PROGRESS` | 5 | 0 | 0 | 3 |
-| PB-F Feedback/user learning | `IN_PROGRESS` | 1 | 0 | 0 | 5 |
-| PB-P Privacy/security/cost controls | `IN_PROGRESS` | 8 | 0 | 0 | 0 |
-| PB-T Testing | `IN_PROGRESS` | 5 | 1 | 0 | 3 |
-| PB-S SEO/social acquisition | `IN_PROGRESS` | 4 | 0 | 0 | 2 |
-| PB-O Production operations | `IN_PROGRESS` | 1 | 0 | 0 | 5 |
-| Documentation/control | `DONE` | 5 | 0 | 0 | 0 |
+The former aggregate counts were stale and are retired. Current M0 carryover:
 
-Counts are task counts, not release-completion percentages.
+- PB-Q05: problem consolidation remains open (R08). PB-Q07 has readable labels
+  in code and awaits usability acceptance.
+- PB-A07 and PB-S05: Search Console setup and the UTM plan are already recorded.
+  GA4 is deferred; first-party analytics are implemented, with attribution
+  acceptance under R07.
+- PB-F04/F05: use-case capture and separate optional contact consent remain open.
+- PB-T04: real-model repeated anchors remain open (R09); core M1 regression and
+  founder acceptance do not automatically certify this separate experiment.
+- PB-O02: billing alert logging exists; complete operator notification and
+  error/cost/deletion handling require evidence (R06). PB-O04 is implemented;
+  a production stop-control exercise remains separate.
+- Credential rotation evidence is still R01. Historical evidence below is not
+  a new 2026-10-10 execution of each old test.
 
 ## 4. Detailed Task Tracker
 
@@ -68,19 +68,19 @@ Counts are task counts, not release-completion percentages.
 | PB-Q04 | P0 | `DONE` | Engineering | None | Real pair evidence visible=true; Verified requires sufficient observability |
 | PB-Q05 | P0 | `NOT_STARTED` | Engineering | PB-T matrix findings | One underlying change renders as one user problem |
 | PB-Q06 | P1 | `DONE` | Engineering | PB-Q01 | Real output uses `No meaningful visible difference detected` |
-| PB-Q07 | P1 | `NOT_STARTED` | Engineering/Product | PB-Q04, PB-Q05 | Founder can understand result without enum field names |
+| PB-Q07 | P1 | `READY_FOR_REVIEW` | Engineering/Product | PB-Q04, PB-Q05 | ProductChecker has readable issue/check/limitation labels; independent user-comprehension acceptance remains R08 |
 
 ### Analytics And Journey Recording
 
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
-| PB-A01 | P0 | `DONE` | Engineering | None | Migration `0003` applied locally and in preview |
+| PB-A01 | P0 | `DONE` | Engineering | None | Production migration 0003 confirmed in the 2026-10-10 audit; later event migrations through 0018 are applied |
 | PB-A02 | P0 | `DONE` | Engineering | PB-A01 | Valid/idempotent/rate-limited writes tested; invalid/server-only events rejected |
 | PB-A03 | P0 | `DONE` | Engineering | PB-A01 | D1 shows start/complete and start/fail; failed record has no verdict |
 | PB-A04 | P0 | `DONE` | Engineering | PB-A02 | One real session persisted the 11-event client/server journey in order |
 | PB-A05 | P0 | `DONE` | Engineering | PB-A01 | First-touch and session UTM persisted through result and second-check events |
-| PB-A06 | P1 | `NOT_STARTED` | Growth/Engineering | Consent/config decision | GA4 receives acquisition events without evidence data |
-| PB-A07 | P1 | `NOT_STARTED` | Growth | Production domain | Search Console ownership and sitemap verified |
+| PB-A06 | P1 | `DEFERRED` | Growth/Engineering | Consent/config decision | GA4 receives acquisition events without evidence data |
+| PB-A07 | P1 | `DONE` | Growth | Production domain | SG-I02/I03 record Search Console verification and Bing import; current sitemap has 66 URLs |
 | PB-A08 | P1 | `DONE` | Engineering/Product | PB-A03 to PB-A05 | `pnpm run beta:daily-report -- --date YYYY-MM-DD` produces a privacy-safe production D1 funnel/quality/cost report |
 
 ### Feedback And User Learning
@@ -115,11 +115,11 @@ Counts are task counts, not release-completion percentages.
 | PB-T02 | P0 | `DONE` | Founder/Product | None | 16 local single-variable pairs and ground truth exist |
 | PB-T03 | P0 | `DONE` | Engineering | PB-T02, PB-Q01 to PB-Q04 | T01-T16 founder-reviewed; final accepted runs match expected behavior |
 | PB-T04 | P0 | `NOT_STARTED` | Engineering | PB-T03 | Four anchor cases, three runs each |
-| PB-T05 | P0 | `IN_PROGRESS` | Engineering | Public-flow implementation | Idempotent create, refresh polling, and secure double-preview restoration verified; founder browser/mobile recheck pending |
-| PB-T06 | P0 | `NOT_STARTED` | Engineering | PB-P01, PB-P04 to PB-P07 | Privacy/security/abuse test report |
+| PB-T05 | P0 | `DONE` | Engineering | Public-flow implementation | M1 records refresh/result restoration, real single-image, mobile and keyboard founder acceptance by 2026-08-14 |
+| PB-T06 | P0 | `IN_PROGRESS` | Engineering | PB-P01, PB-P04 to PB-P07 | M1 privacy/ownership/deletion tests and production deletion acceptance exist; complete abuse/stop exercise and credential evidence remain R06/R01 |
 | PB-T07 | P0 | `DONE` | Engineering | PB-A01 to PB-A05 | Local real-image journey and direct D1 event/attribution audit passed |
-| PB-T08 | P1 | `DONE` | Founder | PB-T03, PB-T04 | Founder checkpoint documented; production recommendation is `NOT_READY_FOR_EARLY_USERS` |
-| PB-T09 | P1 | `NOT_STARTED` | Engineering | All P0 fixes | Final regression report |
+| PB-T08 | P1 | `DONE` | Founder | PB-T03, PB-T04 | Historical 2026-07-28 checkpoint recorded NOT_READY; superseded by M1 public paid-beta GO on 2026-08-15 |
+| PB-T09 | P1 | `DONE` | Engineering | Core release gates | M1 release-gate suite and typecheck pass on 2026-10-10; separate repeated-model/operations acceptance remains open |
 
 ### SEO And Social Acquisition
 
@@ -129,7 +129,7 @@ Counts are task counts, not release-completion percentages.
 | PB-S02 | P1 | `DONE` | Product/Growth | SG technical foundation | Market pillar plus examples/guides/use-case hubs are implemented and pass local route inventory |
 | PB-S03 | P1 | `DONE` | Product/Growth | PB-T fixtures | Logo, printed-value, and packaging-shape controlled case pages use founder-approved static assets without internal telemetry |
 | PB-S04 | P0 | `DONE` | Engineering | Routes finalized | Cloudflare version `8e15c2bc-3a45-4322-b581-1c5e3aaccf41`; 13-route production sitemap, self-canonicals, static images, Googlebot, and OAI Search verified on `pairvu.com` |
-| PB-S05 | P1 | `NOT_STARTED` | Growth | PB-A05 | UTM naming registry and launch links |
+| PB-S05 | P1 | `DONE` | Growth | PB-A05 | External distribution plan defines UTM naming and destinations; actual distribution execution is R10 |
 | PB-S06 | P1 | `NOT_STARTED` | Growth/Product | PB-S03 | Four evidence-based social creatives |
 
 Detailed SEO/GEO tasks and statuses live in
@@ -141,13 +141,13 @@ the public-beta release summary and must not duplicate the detailed tracker.
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
 | PB-O01 | P0 | `DONE` | Engineering | Production environment | Production Worker, custom domain, D1, R2, OpenAI secret, migrations, cron, health, upload, analysis, and feedback path verified |
-| PB-O02 | P0 | `NOT_STARTED` | Engineering | PB-A03, PB-P01, PB-P07 | Error, cost, and deletion alerts |
+| PB-O02 | P0 | `IN_PROGRESS` | Engineering | PB-A03, PB-P01, PB-P07 | Billing anomaly logs and scheduled maintenance exist; full alert delivery and error/cost/deletion response evidence remain R06 |
 | PB-O03 | P0 | `DONE` | Engineering/Product | PB-A08 | Read-only daily launch report documented in `public-beta-telemetry-operations.md` |
-| PB-O04 | P0 | `NOT_STARTED` | Engineering | PB-P07 | New-analysis stop control |
-| PB-O05 | P1 | `NOT_STARTED` | Founder/Engineering | PB-O03 | First-seven-days review checklist |
+| PB-O04 | P0 | `READY_FOR_REVIEW` | Engineering | PB-P07 | PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS is implemented; production runtime exposes it; safe stop-control exercise remains R06 |
+| PB-O05 | P1 | `READY_FOR_REVIEW` | Founder/Engineering | PB-O03 | Telemetry operations document defines the daily routine; completed operating log is not established |
 | PB-O06 | P1 | `NOT_STARTED` | Founder | Public data | Weekly keep/fix/defer decision log |
 
-## 5. Current Evidence
+## 5. Historical M0 Evidence
 
 ### Controlled Infrastructure
 
@@ -387,13 +387,13 @@ Upload-hardening verification:
 - OpenNext production adapter build: passed;
 - Wrangler custom-worker dry run: passed at 1,401.07 KiB gzip.
 
-## 6. Active Blockers
+## 6. Reconciled Historical Blockers
 
-| ID | Severity | Blocker | Required resolution |
-| --- | --- | --- | --- |
-| B-002 | P0 | Analytics migration is not applied in production | Apply PB-A01 through production deployment |
-| B-003 | P0 | Public guardrails require final production release evidence | Complete PB-O04 and record production cap/Turnstile behavior |
-| B-007 | P0 | OpenAI key was present in an example env file | Example sanitized; rotate the affected key before public beta |
+| ID | Current state | Evidence or required follow-up |
+| --- | --- | --- |
+| B-002 | `CLOSED` | Production D1 has analytics migration 0003 and all later migrations through 0019 |
+| B-003 | `PARTIAL_EVIDENCE` | Stop control and caps exist, runtime configuration and Turnstile enablement are visible; complete operational exercise remains R06 |
+| B-007 | `EVIDENCE_REQUIRED` | Historical example-key exposure was recorded; no rotation completion record was found. Confirm old-key revocation and replacement without disclosing credentials (R01) |
 
 ## 7. Risks
 

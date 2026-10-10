@@ -1,8 +1,15 @@
 # Subcategory Evidence Generation Plan
 
-Status: `FOUNDER_ACTION_REQUIRED`
+Status: `PARTIALLY_DELIVERED`
 
-Goal: create 12 new images: three originals and nine edited candidates. Use one
+Reconciled: 2026-10-10. Skincare is published and confirmed in production;
+FOLDWELL examples are delivered. Beverage Can and Cleaning Product category
+pages remain planned and non-indexable. Do not regenerate all original assets
+as though no evidence had been delivered. Complete only missing evidence and
+page acceptance under SG-C12 and R10 of the
+[production backlog](../04-roadmap/production-status-and-backlog-2026-10-10.md).
+
+Original evidence brief: create 12 new images: three originals and nine edited candidates. Use one
 original plus three candidates for each planned subcategory. Do not reuse an
 existing Pairvu test product.
 
@@ -11,6 +18,10 @@ edit, not a new composition. Preserve all pixels and product attributes not
 explicitly named in the edit.
 
 ## 1. Skincare Product Image QA: Portable Sunscreen Stick
+
+Delivery status reconciled on 2026-10-10: `DONE`. The Skincare page and three
+controlled case routes are published in the registry; the category returns 200
+and is in the production sitemap. The prompts below are historical source briefs.
 
 ### Original: `SKINCARE-01-original-sun-stick.png`
 

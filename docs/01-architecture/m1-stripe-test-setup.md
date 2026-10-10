@@ -1,10 +1,17 @@
 # M1 Stripe Test Mode Setup
 
-Status: `DEPLOYED_FOR_FOUNDER_TEST`
+Status: `HISTORICAL_TEST_MODE_SETUP`
+
+Reconciled 2026-10-10: the deployment and restrictions below describe the
+original Test Mode phase, not the current production billing mode. Public paid
+beta was approved on 2026-08-15; production D1 contains Live subscription and
+invoice events. Use the [current production audit](../04-roadmap/production-status-and-backlog-2026-10-10.md)
+and [paid-beta checklist](../04-roadmap/m1-paid-beta-release-checklist.md) for
+current status. Keep this guide for isolated Test Mode verification.
 
 Last updated: 2026-08-19
 
-Production Test Mode deployment:
+Historical production Test Mode deployment:
 
 - Stripe account: `acct_1U35I2K1UJsctvou` (`Pairvu`)
 - Worker version: `9d870e51-6ced-43ca-894e-f1fdac2a6ee7`

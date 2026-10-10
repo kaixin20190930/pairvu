@@ -2,7 +2,12 @@
 
 Status: `FOUNDER_APPROVED_DIRECTION`
 
-Last updated: 2026-09-06
+Last updated: 2026-10-10
+
+Production and acceptance evidence:
+[2026-10-10 audit and prioritized backlog](production-status-and-backlog-2026-10-10.md).
+A deployed feature, a completed user walkthrough, and an adoption gate are
+tracked separately.
 
 ## 1. Roadmap Decision
 
@@ -92,7 +97,7 @@ under them rather than an ever-growing list of top-level check families.
 
 ## 5. M1: Batch Exception Review
 
-Status: `FINAL_VERIFICATION`
+Status: `PUBLIC_PAID_BETA_MARKET_VALIDATION`
 
 Product job:
 
@@ -108,17 +113,20 @@ The main value is not multi-file upload. It is reducing manual review by making
 
 Current next gate:
 
-- complete the remaining M1 verification and deletion walkthroughs;
-- run a founder-approved limited paid beta;
-- measure repeat batches, checks per reference, exception review, export,
-  recheck, provider reliability, cost, and explicit pricing objections.
+- core retry, deletion, mobile, keyboard, and billing walkthroughs passed by
+  2026-08-14; public self-service paid beta was approved on 2026-08-15;
+- complete the observation gate of at least 30 days and 10 paying workspaces;
+  the 2026-10-10 audit shows two current Free workspaces and no current paid
+  subscription, with historical live subscription/payment events;
+- finish real standard Check Pack and Live portal acceptance, then measure
+  repeat batches, exception review, export, recheck, reliability, and cost.
 
 M1 does not include product profiles, multiple approved references, custom
 rules, ranking, automatic fixes, integrations, or monitoring.
 
 ## 6. M2: Saved Products And Approved Reference Versions
 
-Status: `EVIDENCE_GATED_REFERENCE_VIEWS_IMPLEMENTED`
+Status: `PRODUCTION_EVIDENCE_PRESENT_ACCEPTANCE_AND_ADOPTION_OPEN`
 
 Product job:
 
@@ -168,6 +176,12 @@ M2.1 reference-view slice implemented (2026-09-06):
   permanent-delete control;
 - missing corresponding views remain observability gaps. This slice does not
   change the QA engine, model prompt, verdict policy, or RiskPolicy.
+
+Production reconciliation on 2026-10-10 confirms migrations 0017–0019, two
+Saved Products, front and back reference versions, promotions, and one
+product-linked batch. Local M2 verification passes. A complete signed-in
+production walkthrough for view binding, archive/restore, and expiry remains
+open; these records do not establish repeat customer adoption.
 
 This implementation does not mean the M2 evidence gate has passed. It is the
 smallest controlled capability needed to measure the entry and success evidence
@@ -413,7 +427,7 @@ when the prior product produces evidence of the next user problem.
 
 Pairvu should now:
 
-1. Finish M1 verification and production hardening.
+1. Close release provenance, remaining acceptance, and operational evidence in R01–R07 of the production audit; do not repeat already accepted core M1 walkthroughs as if unimplemented.
 2. Run the public paid beta without adding later-phase scope or invitation gates.
 3. Instrument reference reuse, repeat batches, PASS-set inspection, export,
    recheck, feedback, cost, and provider reliability.
@@ -421,3 +435,7 @@ Pairvu should now:
    batches, and history use before expanding reference automation or consensus.
 5. Not begin formal ranking, custom rules, auto-fix, or integrations before the
    corresponding entry evidence is reviewed.
+
+## 2026-10-10 升级方案
+
+后续排序以 [完整产品升级方案](product-upgrade-plan-2026-10-10.md) 的 U0–U4 为当前规划入口；本页 M 阶段保留历史定义，不应据此重复开发已上线的产品保存与复用。

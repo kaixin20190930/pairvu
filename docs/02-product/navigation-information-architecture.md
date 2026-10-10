@@ -2,7 +2,7 @@
 
 Status: `ACTIVE_STANDARD`
 
-Last updated: 2026-08-14
+Last reconciled: 2026-10-10
 
 ## 1. Objective
 
@@ -49,21 +49,26 @@ an in-flow expanded panel; the header must never require horizontal scrolling.
 The signed-in workspace currently uses:
 
 ```text
-Overview | Batches | New batch
+Overview | Products | Batches | New batch
 ```
 
 Single-image checking is not repeated here because it is already the persistent
 global action. Batch history is named `Batches` because the destination includes
 active, completed, canceled, and failed batches rather than history alone.
 
-Future capabilities are added here only after their product gate is approved:
+Products is implemented under M2/M2.1 and has production usage evidence.
+Future capabilities follow the approved expansion roadmap and enter navigation
+only when their evidence gate is met:
 
 ```text
-M2: Products
-M3: Rankings
-M4: Rules
+M3: Rules and channel profiles
+M4: Compare and select
+M5: Selective auto-fix
 M6: Monitoring
 ```
+
+See the [production audit](../04-roadmap/production-status-and-backlog-2026-10-10.md)
+for current acceptance gaps; navigation presence is not a usability sign-off.
 
 They must not be added to the global header merely because they appear on the
 roadmap.
@@ -76,7 +81,7 @@ Breadcrumbs communicate hierarchy, not the current tab twice.
 - No breadcrumb on the Batches index.
 - No breadcrumb on New batch.
 - A saved batch detail uses `Batches / Batch status`.
-- Future product detail uses `Products / Product name`.
+- Product detail uses `Products / Product name`.
 - Future nested rule detail uses `Rules / Rule set / Rule`.
 
 Public SEO pages retain visible breadcrumbs and matching `BreadcrumbList`
@@ -89,6 +94,7 @@ engines.
 | --- | --- | --- |
 | Run a single check | `/#checker` | Global primary action |
 | Understand checks | `/checks/*` | Product |
+| Manage approved products and reference views | `/account/products/*` | Workspace |
 | Run/review batches | `/account/batches/*` | Product entry + workspace |
 | Learn from evidence | `/examples/*` | Learn |
 | Learn workflows | `/guides/*`, `/ai-product-photography` | Learn |

@@ -1,0 +1,53 @@
+{
+  "unitId": "AUTO-01",
+  "candidateSha": "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "allowed file scope",
+      "status": "PASS"
+    },
+    {
+      "name": "50 independent CLI calls",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate test replay",
+      "status": "PASS"
+    },
+    {
+      "name": "developer typecheck evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "accepted queue pause boundary",
+      "status": "PASS"
+    }
+  ],
+  "sourceTurnId": "01a12495-d550-70b0-9e6c-091ebd249203",
+  "scope": "local_only tooling; no production verification",
+  "limitations": [
+    "RELEASE_READY pauses all dispatch",
+    "Task identity depends on controller",
+    "Disk failure not simulated"
+  ],
+  "originalReports": [
+    {
+      "turnId": "01a12495-d550-70b0-9e6c-091ebd249203",
+      "text": "**PASS**\n\n精确候选 SHA：`977eda5dfdb17c67cd411485fd1a48d95fd082c9`  \n基线：`87b21ac223852a3fdbea3e2eca567ccb0e2eefec`\n\n依据总控明确接受的最小范围重新判定；候选未变，无需重复测试。\n\n| checks | 结果 |\n|---|---|\n| fixed candidate SHA：存在、基线祖先关系、冻结文件一致 | PASS |\n| independent QA report：独立审查及临时目录验证 | PASS |\n| 变更范围：仅契约允许的 5 个文件 | PASS |\n| 独立 50 次 CLI 调用：状态机、角色、候选、证据、锁及损坏状态 | PASS |\n| 候选专项脚本独立重放 | PASS：80 条断言及状态/事件检查 |\n| 开发专项与 typecheck 原始输出审查 | PASS：87 条断言、typecheck exit 0 |\n| 实际计划顺序与接受的暂停边界 | PASS |\n\n**severity + 复现：** 无剩余阻断项。此前 P2 已由总控明确接受为本期限制：runtime 到 RELEASE_READY 后，`next` 返回 `[]`，其他单元的 claim 被拒绝。该行为仍存在，不代表已修复。\n\n**残余风险：** RELEASE_READY 后无法继续派单；任务身份真实性由总控保证；未模拟磁盘故障。生产发布不在此 PASS 范围内。\n\n原始检查记录：[independent-results.json](/tmp/pairvu-auto01-qa-ffe5av6_/independent-results.json)。模拟证据仅验证工具行为。\n\n未修改共享代码、文档、QA_ACTIVE 状态或锁；未提交、推送、部署。最终验收证据 JSON 由总控依据本报告保存。"
+    },
+    {
+      "turnId": "01a12492-e935-7762-866a-b94f229d582d",
+      "text": "**FAIL**\n\n候选：`977eda5dfdb17c67cd411485fd1a48d95fd082c9`  \n基线：`87b21ac223852a3fdbea3e2eca567ccb0e2eefec`\n\n唯一阻断项 **P2：RELEASE_READY 永久占用调度槽，无法继续独立离线单元。**\n\n复现：临时计划保留真实 backlog，并添加只依赖 AUTO-01 的 `OFFLINE-FIXTURE`。完成 AUTO-01、UPG-02，将 UPG-01 推进至 RELEASE_READY 后：\n\n- `next` 返回 `[]`。\n- `claim OFFLINE-FIXTURE` 返回 `Another unit is active`。\n- runtime 不能 close，也没有挂起/释放槽命令。\n\n原因见 [control.mjs:120](</Users/liukai/Documents/Product Visual QA Platform/lib/automation/control.mjs:120>)、[control.mjs:164](</Users/liukai/Documents/Product Visual QA Platform/lib/automation/control.mjs:164>)。\n\n验收期间发现总控已把 README 改为“RELEASE_READY 自动暂停队列”，并调整 UPG-02 先于 UPG-01。**当前文档与 CLI 已一致，但这属于缩小原派单要求；按本轮明确要求的“可继续独立离线任务”仍阻断。** 若总控明确接受暂停队列作为本期边界，可以据此重新判定，无需修改代码。\n\n实际 checks：\n\n| 检查 | 结果 |\n|---|---|\n| 固定 SHA、基线祖先关系、5 文件范围、diff whitespace | PASS |\n| 冻结文件与候选一致；未把总控文档计为越界 | PASS |\n| 独立临时状态检查 50 次 CLI 调用 | PASS（上述调度限制已复现） |\n| pending、角色冲突、依赖、无效候选、证据未运行/修改、FAIL 返工、重复调用、锁、损坏状态 | PASS |\n| 候选专项脚本在临时副本重放 | PASS：80 条 CLI 断言及状态/事件检查 |\n| 开发原始专项与 typecheck 输出审查 | PASS：87 条断言；`pnpm typecheck` exit 0 |\n| RELEASE_READY 后继续独立离线任务 | FAIL |\n\n80/87 的差异来自并发 claim 胜者不同，脚本有条件补跑 7 次调用。\n\n原始复现记录：[independent-results.json](/tmp/pairvu-auto01-qa-ffe5av6_/independent-results.json)。其中模拟证据仅用于测试门禁，不能作为实际单元验收证明。\n\n残余风险：任务身份依赖总控提供；未模拟进程崩溃时的磁盘故障。未修改共享文件或状态，未提交、推送、部署、运行无关全量测试或 Next build。"
+    }
+  ]
+}

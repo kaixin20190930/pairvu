@@ -2,7 +2,11 @@
 
 Status: `IN_PROGRESS`
 
-Last updated: 2026-08-20
+Last updated: 2026-10-10
+
+Current production and cross-product acceptance:
+[2026-10-10 audit and prioritized backlog](production-status-and-backlog-2026-10-10.md).
+Published means a deployed content capability, not proven indexation or conversion.
 
 Strategy:
 [Pairvu SEO And GEO Strategy](../03-growth/seo-geo-strategy.md)
@@ -54,14 +58,18 @@ mass publishing or expansion beyond supported CPG products.
 
 ## 4. Workstream Summary
 
+Counts reconciled from the task tracker on 2026-10-10. Active includes
+`IN_PROGRESS` and `READY_FOR_REVIEW`; counts are tasks, not completion percentages.
+
 | Workstream | Status | Done | Active | Blocked | Not started | Deferred |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | Governance | `DONE` | 3 | 0 | 0 | 0 | 0 |
 | Keyword evidence | `IN_PROGRESS` | 3 | 0 | 1 | 0 | 0 |
-| Technical foundation | `IN_PROGRESS` | 7 | 0 | 0 | 1 | 0 |
-| Core pages and content | `IN_PROGRESS` | 8 | 0 | 0 | 1 | 2 |
-| Indexing and launch QA | `IN_PROGRESS` | 0 | 1 | 0 | 3 | 0 |
-| Measurement and iteration | `NOT_STARTED` | 0 | 0 | 1 | 4 | 0 |
+| Technical foundation | `IN_PROGRESS` | 7 | 1 | 0 | 0 | 0 |
+| Core pages and content | `IN_PROGRESS` | 13 | 1 | 0 | 0 | 1 |
+| Indexing and launch QA | `IN_PROGRESS` | 2 | 2 | 0 | 0 | 0 |
+| Measurement and iteration | `IN_PROGRESS` | 5 | 2 | 0 | 3 | 0 |
+| External distribution | `IN_PROGRESS` | 0 | 1 | 0 | 0 | 0 |
 
 ## 5. Task Tracker
 
@@ -79,12 +87,12 @@ mass publishing or expansion beyond supported CPG products.
 | --- | --- | --- | --- | --- | --- |
 | SG-T01 | P0 | `DONE` | Engineering | SG-G02 | Homepage checker remains client-side while metadata and supporting sections render server-side; build and browser checks passed |
 | SG-T02 | P0 | `DONE` | Engineering/Product | SG-T01 | Crawlable responsive header and footer implemented and route-audited |
-| SG-T03 | P0 | `DONE` | Engineering | SG-T01 | Seven public routes have unique metadata and self-canonicals; inherited home canonical removed |
+| SG-T03 | P0 | `DONE` | Engineering | SG-T01 | The original seven-route foundation has expanded to 66 published registry routes; inventory passes and sampled production pages have matching canonicals on 2026-10-10 |
 | SG-T04 | P0 | `DONE` | Engineering | SG-G02 | Typed registry records keyword ownership, hierarchy, publication status, and related routes |
 | SG-T05 | P0 | `DONE` | Engineering | SG-T04 | Registry sitemap and robots implemented; APIs excluded, OAI Search allowed, GPTBot disallowed |
 | SG-T06 | P0 | `DONE` | Engineering | SG-T04 | Organization/WebSite/WebApplication/Article schemas and matching breadcrumbs implemented |
 | SG-T07 | P0 | `DONE` | Engineering | SG-T02 to SG-T06 | `pnpm run test:seo` validates inventory, duplicates, links, orphans, sitemap parity, and crawler policy |
-| SG-T08 | P1 | `NOT_STARTED` | Engineering/Growth | Analytics baseline | Search/AI referral attribution and optional Bing IndexNow implemented without evidence payloads |
+| SG-T08 | P1 | `IN_PROGRESS` | Engineering/Growth | Analytics baseline | First-party UTM/referrer capture and source-to-completion report code exist; complete production attribution walkthrough remains R07. Optional IndexNow is deferred, not a release blocker |
 
 ### Keyword Evidence
 
@@ -117,7 +125,7 @@ mass publishing or expansion beyond supported CPG products.
 
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
-| SG-I01 | P0 | `READY_FOR_REVIEW` | Engineering | SG-T01 to SG-C09 | Local build and 390px/1280px QA pass; production routes, images, canonicals, sitemap, Googlebot, and OAI Search return successfully; focused accessibility review remains |
+| SG-I01 | P0 | `READY_FOR_REVIEW` | Engineering | SG-T01 to SG-C09 | Historical build/mobile checks exist; 2026-10-10 HTTP smoke confirms sampled public pages/canonicals, 66-entry sitemap, robots, and auth boundaries. Current full accessibility/performance/mobile/broken-link acceptance remains R07; HTTP alone does not close it |
 | SG-I02 | P0 | `DONE` | Founder/Engineering | SG-I01 | Google Search Console Domain Property verified and `https://pairvu.com/sitemap.xml` submitted |
 | SG-I03 | P0 | `DONE` | Founder/Engineering | SG-I01 | Bing Webmaster Tools imported from Search Console |
 | SG-I04 | P0 | `IN_PROGRESS` | Engineering | SG-I02, SG-I03 | Sitemap is submitted; discovery/indexation and priority-page baseline are being monitored |
@@ -126,7 +134,7 @@ mass publishing or expansion beyond supported CPG products.
 
 | ID | Priority | Status | Owner | Dependency | Acceptance evidence |
 | --- | --- | --- | --- | --- | --- |
-| SG-M01 | P0 | `IN_PROGRESS` | Growth/Engineering | SG-I04 | First-party source/referral/checker report is active; Search Console query/page export is pending sufficient data |
+| SG-M01 | P0 | `IN_PROGRESS` | Growth/Engineering | SG-I04 | First-party source/referral/checker report is implemented; prior GSC intent review exists. Refresh GSC query/page exports and production attribution acceptance under R07 |
 | SG-M02 | P1 | `NOT_STARTED` | Founder/Growth | 30 days of data | 30-day indexing and query review with keep/improve/consolidate decisions |
 | SG-M03 | P1 | `NOT_STARTED` | Founder/Growth | 60 days of data | 60-day content and conversion review; expansion candidates ranked |
 | SG-M04 | P1 | `NOT_STARTED` | Founder/Product | 90 days of data | 90-day strategy review records brand demand, conversions, citations, and scope compliance |
@@ -136,7 +144,8 @@ mass publishing or expansion beyond supported CPG products.
 | SG-M08 | P2 | `IN_PROGRESS` | Founder/Growth | SG-M07 and sufficient market data | First GSC review completed; Logo and Color intent corrections implemented; continue query-to-page monitoring |
 | SG-M09 | P1 | `DONE` | Engineering/Growth | Published SEO foundation | Technical alignment completed 2026-08-05: branded metadata, OG fallback, stable entity IDs, CollectionPage hubs, one BreadcrumbList per page, owned/supporting keyword separation, contextual homepage links, and expanded SEO inventory checks |
 | SG-M10 | P1 | `DONE` | Engineering/Growth | SG-M08 | Published-route ownership audit completed: unique metadata/intent enforcement, exact keyword collision correction, and semantic overlap report added |
-| SG-C12 | P2 | `BLOCKED` | Founder/Product/Growth | Nine unique controlled comparison pairs | Skincare, Beverage Can, and Cleaning Product subcategory pages pass the category standard and become eligible for indexation |
+| SG-C12 | P2 | `IN_PROGRESS` | Founder/Product/Growth | Per-page unique evidence and acceptance | Split status: Skincare is published/indexable, returns 200 and is in the production sitemap on 2026-10-10. Beverage Can and Cleaning Product remain planned/non-indexable and return expected 404s; their full evidence/page gates remain open |
+| SG-C15 | P1 | `DONE` | Product/Engineering | Corresponding-view guidance and sources | Ecommerce product image requirements guide is deployed, returns 200 with canonical, is included in the 66-entry production sitemap, and passes its focused content check on 2026-10-10 |
 | SG-D01 | P1 | `READY_FOR_REVIEW` | Founder/Growth | Public evidence pages | Four-week external distribution plan, destination map, UTM taxonomy, channel cadence, and anti-spam boundaries documented |
 
 ### FOLDWELL Evidence Delivery Notes
@@ -307,41 +316,30 @@ Before SG-G2:
 | SG-R09 | Medium | Turnstile or Cloudflare blocks crawlers | Informational pages remain ungated; production crawler verification |
 | SG-R10 | Medium | AI-citation reporting is overstated | Record only source-platform data and label inferences |
 | SG-R11 | Medium | Public cases leak internal or private data | Approved static assets and editorial review |
-| SG-R12 | High | Production source cannot be traced to a Git commit because the workspace is entirely untracked | Establish a reviewed initial commit before the next production change |
+| SG-R12 | High | Exact production Worker-to-commit mapping is not recorded | Local/GitHub main match 87b21ac and the workspace was clean at audit start; current Worker has no SHA annotation. Close R02 and record SHA/version on every future release under AGENTS.md |
 
 ## 10. Authentication And Billing Relationship
 
-SEO publication, login, and paid subscriptions are separate release decisions.
+SEO publication, login, paid billing, and market validation remain separate
+claims. M0/M1 authentication, quotas, billing, batch review, and export are
+implemented; the 2026-08-15 public paid-beta decision supersedes the older
+future-login/founder-invitation sequence. M2/M2.1 also have production records.
 
-- Public informational pages must remain readable without login or Turnstile.
-- The current checker may continue as a capped anonymous public beta.
-- SEO indexing can begin before authentication because indexing itself is slow.
-- Active traffic distribution must respect the public-beta analytics, feedback,
-  abuse, cost, and stop-control gates.
-- Login is not part of SG-T or SG-C. It requires a separate approved product and
-  data design for identity, account quotas, result ownership, and migration of
-  anonymous sessions.
-- Paid subscriptions require observed repeat usage, cost data, willingness-to-pay
-  evidence, plan entitlements, billing operations, refund/tax decisions, and a
-  separate founder checkpoint.
-- Do not show a working-looking `Upgrade` or paid-plan promise before those
-  capabilities and policies exist. A waitlist or contact path must be labeled
-  honestly.
-
-Recommended sequence:
-
-1. Indexable SEO/GEO foundation and capped anonymous beta.
-2. Measure qualified traffic, completed checks, repeat use, feedback, and cost.
-3. Founder checkpoint for account/login scope.
-4. Implement authenticated quotas and persistent account history if approved.
-5. Validate willingness to pay.
-6. Founder checkpoint for subscription and billing scope.
-
-This document does not authorize steps 4 or 6.
+- Public informational pages remain readable without login or Turnstile.
+- Current production has historical Live billing events, but no active paid
+  subscription in the 2026-10-10 D1 snapshot. This is not proof of market fit.
+- Active distribution must have usable attribution, feedback, abuse controls,
+  operational response, and truthful capability claims.
+- Real Check Pack purchase and Live portal acceptance remain R04; do not
+  describe them as newly verified from a public Pricing page alone.
+- This SEO plan does not authorize changing product scope, plans, billing,
+  integrations, or later-phase roadmap gates.
 
 ## 11. Expansion Boundary
 
-Do not begin SG-C10, SG-C11, or a new platform cluster automatically.
+SG-C10 and the Skincare portion of SG-C12 are already implemented. Do not
+restart them as unapproved backlog. SG-C11, remaining SG-C12 pages, and any
+new platform cluster require their own evidence and approval.
 
 Expansion requires:
 
@@ -368,3 +366,4 @@ SEO demand alone never authorizes a new M0 product capability.
 | 2026-09-03 | Strengthened high-impression check pages and Amazon workflow intent | Expanded the existing Amazon use case with a validator boundary and controlled evidence; connected logo, color, label-text, and packaging checks to Examples and the benchmark | No synonymous routes or new keyword owners were added; metadata ownership was preserved, and no one-off content analytics event was introduced at current traffic volume | Internal-link changes still require post-deployment crawl and GSC observation; Amazon requirements remain externally controlled | Validate the focused SEO suite, deploy from a pushed commit when authorized, then compare page/query and checker-entry data after 14–21 days |
 | 2026-09-03 | Completed Amazon use-case depth and regression coverage | Added exact-reference guidance, image-role observability, FAIL/PASS/REVIEW routing, visible FAQ schema, and a 1,000-word Amazon use-case quality gate | Reused existing controlled cases and the existing URL; sitemap remains registry-generated with the route modified date | Official Amazon requirements can change independently of Pairvu and still require dated source review | Deploy from a pushed commit when authorized, request recrawl, and review GSC query fit after 14–21 days |
 | 2026-09-06 | Added cross-platform requirements guide and connected M2.1 reference views | Published `/guides/ecommerce-product-image-requirements`; linked Guides, Amazon, Shopify, Ecommerce, Observability, and the FOLDWELL back-view case to corresponding-view guidance | Added one distinct guide intent instead of synonymous platform or check pages; no channel-certification claim and no new detection dimension | Official platform rules remain externally controlled and require periodic source-date review; M2.1 adoption is not yet evidence of product-market fit | Validate registry, sitemap, metadata, source links, M2.1 migrations, and build; deploy only from a pushed commit when separately authorized |
+| 2026-10-10 | Reconciled production and remaining acceptance | Confirmed 66-entry live sitemap, new guide/Amazon/benchmark/Skincare routes, local SEO checks, all 19 DB migrations, and current Worker version | Corrected stale workstream counts, future-login/billing text, and Skincare blocker; full crawl/accessibility/performance and search-backend review are not newly certified | Worker-to-SHA mapping and conversion/adoption evidence remain incomplete | Follow R01–R10 in the production audit; do not republish existing pages as unfinished work |

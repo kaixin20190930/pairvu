@@ -1,0 +1,421 @@
+{
+  "candidate": "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+  "root": "/tmp/pairvu-auto01-qa-ffe5av6_",
+  "cliChecks": 50,
+  "releaseReadyNext": [],
+  "releaseReadyClaimError": "pairvu-control: Another unit is active",
+  "checks": [
+    {
+      "command": [
+        "init"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "init"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "next"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "claim",
+        "UPG-02"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Unit ineligible or dependencies not closed"
+    },
+    {
+      "command": [
+        "claim",
+        "HUMAN-01"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Unit ineligible or dependencies not closed"
+    },
+    {
+      "command": [
+        "claim",
+        "AUTO-01"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "claim",
+        "AUTO-01"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "dev",
+        "pending",
+        "--client-id"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "qa",
+        "pending",
+        "--client-id"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Developer, reviewer, controller must differ"
+    },
+    {
+      "command": [
+        "candidate",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Bind resolved developer first"
+    },
+    {
+      "command": [
+        "bind-role",
+        "dev",
+        "fixture-dev",
+        "--resolve-client-id",
+        "pending"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "qa",
+        "fixture-dev"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Developer, reviewer, controller must differ"
+    },
+    {
+      "command": [
+        "bind-role",
+        "qa",
+        "fixture-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "candidate",
+        "0000000000000000000000000000000000000000"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Git verification failed: rev-parse --verify 0000000000000000000000000000000000000000^{commit}"
+    },
+    {
+      "command": [
+        "candidate",
+        "87b21ac223852a3fdbea3e2eca567ccb0e2eefec"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Git verification failed: merge-base --is-ancestor 977eda5dfdb17c67cd411485fd1a48d95fd082c9 87b21ac223852a3fdbea3e2eca567ccb0e2eefec"
+    },
+    {
+      "command": [
+        "candidate",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/AUTO-01.json"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Start QA before recording review"
+    },
+    {
+      "command": [
+        "start-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/AUTO-01.json"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: PASS requires every check to pass"
+    },
+    {
+      "command": [
+        "qa",
+        "FAIL",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/AUTO-01.json"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "close",
+        "AUTO-01"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Completion requires matching mode and QA_PASS"
+    },
+    {
+      "command": [
+        "rework"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "candidate",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "start-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/AUTO-01.json"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/AUTO-01.json"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "close",
+        "AUTO-01"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Evidence changed since review"
+    },
+    {
+      "command": [
+        "close",
+        "AUTO-01"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "next"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "claim",
+        "UPG-02"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "dev",
+        "fixture-dev"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "qa",
+        "fixture-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "candidate",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "start-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/UPG-02.json"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "close",
+        "UPG-02"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "claim",
+        "UPG-01"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "dev",
+        "fixture-dev"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "bind-role",
+        "qa",
+        "fixture-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "candidate",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "start-qa"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "qa",
+        "PASS",
+        "977eda5dfdb17c67cd411485fd1a48d95fd082c9",
+        "/tmp/pairvu-auto01-qa-ffe5av6_/UPG-01.json"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "release-ready"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "close",
+        "UPG-01"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Completion requires matching mode and QA_PASS"
+    },
+    {
+      "command": [
+        "next"
+      ],
+      "exit": 0,
+      "error": ""
+    },
+    {
+      "command": [
+        "claim",
+        "OFFLINE-FIXTURE"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Another unit is active"
+    },
+    {
+      "command": [
+        "status"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: State locked; inspect owner before manual recovery (never auto-expired)"
+    },
+    {
+      "command": [
+        "init"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+    },
+    {
+      "command": [
+        "status"
+      ],
+      "exit": 1,
+      "error": "pairvu-control: Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+    },
+    {
+      "command": [
+        "status"
+      ],
+      "exit": 0,
+      "error": ""
+    }
+  ]
+}

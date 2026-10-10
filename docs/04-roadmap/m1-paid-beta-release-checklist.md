@@ -2,6 +2,11 @@
 
 Status: `GO FOR PUBLIC PAID BETA`
 
+Last reconciled: 2026-10-10. This is the historical public-release decision,
+not a statement that market validation or every later increment has passed.
+See the [production audit and backlog](production-status-and-backlog-2026-10-10.md)
+for current deployment, database, acceptance, and usage evidence.
+
 Purpose: make the public-beta decision reproducible without turning normal
 release work into a new benchmark project.
 
@@ -126,7 +131,14 @@ longer, measure separately:
 
 These are market-validation and expansion gates, not prerequisites for public
 self-service access and not commercial SLA claims.
-# Stripe production presentation and portal
+## Stripe production presentation and portal
+
+These unchecked items require current Live-account or signed-in UI evidence.
+The 2026-08-20 record below establishes historical Portal price-switching
+configuration, not all presentation/interaction criteria. The locally available
+Stripe key is Test mode; it was not used to certify Live settings. There are no
+current paid subscriptions in production D1, so a new live subscriber walkthrough
+needs a suitable founder-operated session (R04).
 
 - [ ] Stripe live-mode public business name is `Pairvu`; support URL and support email point to Pairvu.
 - [ ] Stripe live-mode branding uses the Pairvu logo, icon, and brand color.
@@ -235,5 +247,23 @@ Activation and quota-recovery hardening implemented on 2026-09-01:
   constraint while preserving all historical rows. The daily aggregate report
   now includes activation and purchase-intent conversion plus offer breakdowns.
 - No detector, prompt, QA policy, entitlement, Stripe price, or webhook behavior
-  changed. Production rollout still requires applying migration `0016` before
-  deploying the application build.
+  changed. Production reconciliation on 2026-10-10 confirms migration `0016`
+  was applied on 2026-09-01 at 19:32:03 Asia/Shanghai; zero-allowance events
+  exist in production. This is no longer a pending migration.
+
+## F. Production reconciliation on 2026-10-10
+
+- Current Worker: `3117176b-e5d1-410b-88e6-b071fb8d1208`, version 98,
+  deployed 2026-09-06 23:44:58 Asia/Shanghai. Exact Git mapping is unverified.
+- Production migrations 0001–0019 are applied, including Saved Products,
+  adoption events, and reference views. Do not reapply them as unfinished work.
+- Billing audit found no ledger, reservation, subscription-period, or webhook
+  processing exceptions. Retention has 121 completed attempts and no expired
+  non-deleted assets in D1; this does not replace fresh object-level tests.
+- Standard purchased pack lots: zero. The one consumed `internal_e2e_1` lot is
+  internal test evidence, not acceptance of a real paid Check Pack.
+- Historical Live checkout and invoice events exist. Current workspaces are
+  two Free accounts; the ten-paying-workspace observation gate is not evidenced.
+- Local M1 release gates, M2 Saved Products, activation, analytics, SEO, and
+  typecheck pass. Signed-in production M2.1 and Live purchase/portal acceptance
+  remain R03/R04; no purchase or destructive walkthrough occurred in this audit.
