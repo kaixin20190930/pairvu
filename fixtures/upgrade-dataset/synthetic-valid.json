@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "dataset_0000000000000001",
+  "synthetic": true,
+  "authorizationRecords": [
+    {
+      "id": "auth_0000000000000001",
+      "workspaceId": "ws_0000000000000001",
+      "recordRef": "synthetic:11111111111111111111111111111111",
+      "permittedUse": "offline_evaluation",
+      "status": "granted"
+    }
+  ],
+  "samples": [
+    {
+      "id": "sample_0000000000000001",
+      "synthetic": true,
+      "workspaceId": "ws_0000000000000001",
+      "skuId": "sku_0000000000000001",
+      "packagingVersionId": "pkg_0000000000000001",
+      "authorizationId": "auth_0000000000000001",
+      "split": "development",
+      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000002",
+      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000003",
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "label": {
+            "verdict": "match",
+            "defectType": "none",
+            "severity": "none",
+            "observability": "observable"
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "label": {
+            "verdict": "match",
+            "defectType": "none",
+            "severity": "none",
+            "observability": "observable"
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "id": "sample_0000000000000002",
+      "synthetic": true,
+      "workspaceId": "ws_0000000000000001",
+      "skuId": "sku_0000000000000002",
+      "packagingVersionId": "pkg_0000000000000001",
+      "authorizationId": "auth_0000000000000001",
+      "split": "holdout",
+      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000004",
+      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000005",
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "label": {
+            "verdict": "match",
+            "defectType": "none",
+            "severity": "none",
+            "observability": "observable"
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "label": {
+            "verdict": "mismatch",
+            "defectType": "packaging",
+            "severity": "major",
+            "observability": "observable"
+          }
+        }
+      ],
+      "adjudication": {
+        "adjudicatorId": "ann_0000000000000003",
+        "reason": "packaging_resolution",
+        "label": {
+          "verdict": "mismatch",
+          "defectType": "packaging",
+          "severity": "major",
+          "observability": "observable"
+        }
+      }
+    },
+    {
+      "id": "sample_0000000000000003",
+      "synthetic": true,
+      "workspaceId": "ws_0000000000000001",
+      "skuId": "sku_0000000000000003",
+      "packagingVersionId": "pkg_0000000000000001",
+      "authorizationId": "auth_0000000000000001",
+      "split": "holdout",
+      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000006",
+      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000007",
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "label": {
+            "verdict": "unobservable",
+            "defectType": "unknown",
+            "severity": "unknown",
+            "observability": "partial"
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "label": {
+            "verdict": "unobservable",
+            "defectType": "unknown",
+            "severity": "unknown",
+            "observability": "partial"
+          }
+        }
+      ],
+      "adjudication": null
+    }
+  ]
+}

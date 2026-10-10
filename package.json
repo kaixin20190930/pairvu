@@ -48,7 +48,9 @@
     "db:migrate:remote": "WRANGLER_LOG_PATH=/tmp/pairvu-wrangler.log wrangler d1 migrations apply pairvu-production --remote",
     "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "control": "node scripts/pairvu-control.mjs",
-    "test:control": "node scripts/verify-pairvu-control.mjs"
+    "test:control": "node scripts/verify-pairvu-control.mjs",
+    "verify:upgrade-dataset": "node scripts/verify-upgrade-dataset.mjs",
+    "test:upgrade-dataset": "node scripts/test-upgrade-dataset.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "latest",
