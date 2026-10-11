@@ -1,0 +1,41 @@
+{
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "commands": [
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts qa-identity55.json",
+      "exitCode": 0,
+      "stdout": "PASS: 55 identity consistency cases including 4 original counterexamples\n",
+      "report": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-identity55.json"
+    },
+    {
+      "command": "pnpm test:structured-evidence --report qa-structured49.json",
+      "exitCode": 0,
+      "stdoutTruncatedInTool": true,
+      "report": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-structured49.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/production-repair/verify-counterexamples.ts qa-production3.json",
+      "exitCode": 0,
+      "stdout": "PASS: 3 production counterexample replays; qa-production3.json\n",
+      "report": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-production3.json"
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-repair2-independent.ts",
+      "exitCode": 0,
+      "stdout": "PASS: 29 independent repair2 cases\n",
+      "report": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-independent-results.json"
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "stdout": "\n> product-visual-qa-platform@0.1.0 typecheck /private/tmp/pairvu-upg04-repair2-qa-cerf6auc\n> tsc --noEmit\n\n",
+      "completionOutput": ""
+    },
+    {
+      "command": "pnpm test:m0:policy-boundaries",
+      "exitCode": 0,
+      "stdout": "\n> product-visual-qa-platform@0.1.0 test:m0:policy-boundaries /private/tmp/pairvu-upg04-repair2-qa-cerf6auc\n> tsx scripts/verify-m0-policy-boundaries.ts\n\nM0 policy boundary checks passed.\nVerified all six check families plus invalid taxonomy, observability, and normalization boundaries.\n"
+    }
+  ],
+  "note": "Captured command metadata and printed outputs; complete case assertions retained in referenced JSON reports. No browser or build executed this round."
+}

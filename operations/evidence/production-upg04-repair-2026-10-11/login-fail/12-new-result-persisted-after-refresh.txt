@@ -1,0 +1,464 @@
+Browser tab: 4, Title: "Pairvu - AI Product Image Checker", URL: "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb".
+1 AXWebArea Pairvu - AI Product Image Checker, URL: pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb
+	2 link Description: Skip to content, Value: pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb#main-content
+	3 container
+		4 link Description: Pairvu home, Value: pairvu.com/
+		5 container site-menu-panel
+			6 container Primary navigation
+				7 pop up button (collapsed) Product, Secondary Actions: Expand
+					8 text Product
+				9 pop up button (collapsed) Learn, Secondary Actions: Expand
+					10 text Learn
+				11 pop up button (collapsed) Solutions, Secondary Actions: Expand
+					12 text Solutions
+			13 link Description: Account, Value: pairvu.com/account
+			14 link Description: Check image, Value: pairvu.com/#checker
+	15 container
+		16 container Did AI change your product?
+			17 container checker
+				18 text PAIRVU AI PRODUCT IMAGE CHECKER
+				19 heading Did AI change your product?, Value: 1, ID: headline
+					20 text Did AI change your product?
+				21 text Quality control for AI product photography.
+				22 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+				23 container Pairvu
+				24 container Use two views that make the same product details observable
+					25 text YOUR FIRST CHECK
+					26 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+						27 text Use two views that make the same product details observable
+					28 content list
+						29 container
+							30 text 1. Approved original Use the product image you trust.
+						31 container
+							32 text 2. Candidate Add the generated, edited, or proposed image.
+						33 container
+							34 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+					35 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+				36 container
+					37 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+					38 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+					39 text Approved original
+					40 image Reference preview
+				41 container
+					42 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+					43 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+					44 text Image checked
+					45 image Candidate preview
+				46 container
+					47 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+					48 link Description: Privacy details, Value: pairvu.com/privacy
+				49 button (disabled) Check image
+				50 button Check another image
+				51 container REVIEW
+					52 text VERDICT
+					53 heading REVIEW, Value: 2, ID: verdict-title
+						54 text REVIEW
+				55 container Actual detected fidelity issues
+					56 text PRODUCT DIFFERENCES
+					57 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+						58 text Actual detected fidelity issues
+					59 text No product issues were confirmed.
+				60 container Observability problems and analysis limitations
+					61 text NEEDS REVIEW / COULD NOT VERIFY
+					62 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+						63 text Observability problems and analysis limitations
+					64 container
+						65 text Not visible enough  ·  High confidence visible_text is not sufficiently observable. Visible text
+						66 definition list
+							67 container REFERENCE · VISIBLE EXPECTED
+								68 text REFERENCE · VISIBLE EXPECTED
+							69 text No readable text visible apart from the implied brand logo features.
+							70 container CANDIDATE · OBSERVED
+								71 text CANDIDATE · OBSERVED
+							72 text No readable text visible apart from the implied brand logo features.
+							73 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								74 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							75 text Not established
+							76 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								77 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							78 text Not established
+							79 container WHAT CHANGED
+								80 text WHAT CHANGED
+							81 text Not visible
+							82 container SUMMARY
+								83 text SUMMARY
+							84 text No readable identity-bearing text visible on the product in either image.
+							85 container ORIGINAL VISIBLE
+								86 text ORIGINAL VISIBLE
+							87 text No
+							88 container CANDIDATE VISIBLE
+								89 text CANDIDATE VISIBLE
+							90 text No
+							91 container VISIBLE EVIDENCE
+								92 text VISIBLE EVIDENCE
+							93 text —
+							94 container WHY UNCERTAIN
+								95 text WHY UNCERTAIN
+							96 text Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check.
+						97 container Reference · visible expected
+							98 text Reference · visible expected
+							99 image Reference · visible expected image
+							100 container
+								101 text Image zoom
+								102 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								103 text 100 %
+							104 text Relevant evidence is not visible.
+						105 container Candidate · observed
+							106 text Candidate · observed
+							107 image Candidate · observed image
+							108 container
+								109 text Image zoom
+								110 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								111 text 100 %
+							112 text Relevant evidence is not visible.
+					113 container
+						114 text Not visible enough  ·  High confidence quantity is not sufficiently observable. Product count
+						115 definition list
+							116 container REFERENCE · VISIBLE EXPECTED
+								117 text REFERENCE · VISIBLE EXPECTED
+							118 text One product is visible in the image.
+							119 container CANDIDATE · OBSERVED
+								120 text CANDIDATE · OBSERVED
+							121 text One product is visible in the image.
+							122 container WHAT CHANGED
+								123 text WHAT CHANGED
+							124 text Not visible
+							125 container SUMMARY
+								126 text SUMMARY
+							127 text Exact quantity of visible products is one in each image but partial product body visible restricts full quantity verification certainty.
+							128 container ORIGINAL VISIBLE
+								129 text ORIGINAL VISIBLE
+							130 text Yes
+							131 container CANDIDATE VISIBLE
+								132 text CANDIDATE VISIBLE
+							133 text Yes
+							134 container VISIBLE EVIDENCE
+								135 text VISIBLE EVIDENCE
+							136 text One single rectangular blue product with black top is visible in each image.
+							137 container WHY UNCERTAIN
+								138 text WHY UNCERTAIN
+							139 text Partial product visibility restricts full quantity assessment.
+						140 container Reference · visible expected
+							141 text Reference · visible expected
+							142 image Reference · visible expected image
+							143 container
+								144 text Image zoom
+								145 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								146 text 100 %
+							147 text Location has not been independently verified; no box is shown.
+						148 container Candidate · observed
+							149 text Candidate · observed
+							150 image Candidate · observed image
+							151 container
+								152 text Image zoom
+								153 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								154 text 100 %
+							155 text Location has not been independently verified; no box is shown.
+					156 container
+						157 text Not visible enough  ·  High confidence major_shape_packaging is not sufficiently observable. Shape and packaging
+						158 definition list
+							159 container REFERENCE · VISIBLE EXPECTED
+								160 text REFERENCE · VISIBLE EXPECTED
+							161 text The product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.
+							162 container CANDIDATE · OBSERVED
+								163 text CANDIDATE · OBSERVED
+							164 text The product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.
+							165 container WHAT CHANGED
+								166 text WHAT CHANGED
+							167 text Not visible
+							168 container SUMMARY
+								169 text SUMMARY
+							170 text No visible difference in major packaging shape and silhouette where visible in both images.
+							171 container ORIGINAL VISIBLE
+								172 text ORIGINAL VISIBLE
+							173 text Yes
+							174 container CANDIDATE VISIBLE
+								175 text CANDIDATE VISIBLE
+							176 text Yes
+							177 container VISIBLE EVIDENCE
+								178 text VISIBLE EVIDENCE
+							179 text Both images show a rectangular cuboid with a flat black top., Some edges are cropped but the shape is visible.
+							180 container WHY UNCERTAIN
+								181 text WHY UNCERTAIN
+							182 text The provider reported a match without sufficient corresponding coverage.
+						183 container Reference · visible expected
+							184 text Reference · visible expected
+							185 image Reference · visible expected image
+							186 container
+								187 text Image zoom
+								188 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								189 text 100 %
+							190 text Location has not been independently verified; no box is shown.
+						191 container Candidate · observed
+							192 text Candidate · observed
+							193 image Candidate · observed image
+							194 container
+								195 text Image zoom
+								196 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								197 text 100 %
+							198 text Location has not been independently verified; no box is shown.
+				199 container Checks the model reports as matching
+					200 text MODEL-SUPPORTED CHECKS
+					201 heading Checks the model reports as matching, Value: 2, ID: verified-title
+						202 text Checks the model reports as matching
+					203 container
+						204 text Logo  · Model reports a match ·  High confidence No visible difference in brand logo presence or identity.
+						205 definition list
+							206 container REFERENCE · VISIBLE EXPECTED
+								207 text REFERENCE · VISIBLE EXPECTED
+							208 text Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.
+							209 container CANDIDATE · OBSERVED
+								210 text CANDIDATE · OBSERVED
+							211 text Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.
+							212 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								213 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							214 text brand_name
+							215 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								216 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							217 text brand_name
+							218 container WHAT CHANGED
+								219 text WHAT CHANGED
+							220 text No meaningful change
+							221 container SUMMARY
+								222 text SUMMARY
+							223 text No visible difference in brand logo presence or identity.
+							224 container ORIGINAL VISIBLE
+								225 text ORIGINAL VISIBLE
+							226 text Yes
+							227 container CANDIDATE VISIBLE
+								228 text CANDIDATE VISIBLE
+							229 text Yes
+							230 container VISIBLE EVIDENCE
+								231 text VISIBLE EVIDENCE
+							232 text Both images show a blue rectangle with a black rectangle on top and a white square in the center.
+							233 container WHY UNCERTAIN
+								234 text WHY UNCERTAIN
+							235 text —
+						236 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						237 container Reference · visible expected
+							238 text Reference · visible expected
+							239 image Reference · visible expected image
+							240 container
+								241 text Image zoom
+								242 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								243 text 100 %
+							244 text Location has not been independently verified; no box is shown.
+						245 container Candidate · observed
+							246 text Candidate · observed
+							247 image Candidate · observed image
+							248 container
+								249 text Image zoom
+								250 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								251 text 100 %
+							252 text Location has not been independently verified; no box is shown.
+					253 container
+						254 text Main color  · Model reports a match ·  High confidence No visible difference in dominant color of product packaging body and top component.
+						255 definition list
+							256 container REFERENCE · VISIBLE EXPECTED
+								257 text REFERENCE · VISIBLE EXPECTED
+							258 text The dominant color of the product packaging is solid medium blue for the body with black on top and white central square.
+							259 container CANDIDATE · OBSERVED
+								260 text CANDIDATE · OBSERVED
+							261 text The dominant color of the product packaging is solid medium blue for the body with black on top and white central square.
+							262 container WHAT CHANGED
+								263 text WHAT CHANGED
+							264 text No meaningful change
+							265 container SUMMARY
+								266 text SUMMARY
+							267 text No visible difference in dominant color of product packaging body and top component.
+							268 container ORIGINAL VISIBLE
+								269 text ORIGINAL VISIBLE
+							270 text Yes
+							271 container CANDIDATE VISIBLE
+								272 text CANDIDATE VISIBLE
+							273 text Yes
+							274 container VISIBLE EVIDENCE
+								275 text VISIBLE EVIDENCE
+							276 text Both products have a medium blue rectangular body, black top section, and a white square area in the center.
+							277 container WHY UNCERTAIN
+								278 text WHY UNCERTAIN
+							279 text —
+						280 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						281 container Reference · visible expected
+							282 text Reference · visible expected
+							283 image Reference · visible expected image
+							284 container
+								285 text Image zoom
+								286 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								287 text 100 %
+							288 text Location has not been independently verified; no box is shown.
+						289 container Candidate · observed
+							290 text Candidate · observed
+							291 image Candidate · observed image
+							292 container
+								293 text Image zoom
+								294 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								295 text 100 %
+							296 text Location has not been independently verified; no box is shown.
+					297 container
+						298 text Major components  · Model reports a match ·  High confidence No visible difference in major components: both have the same main body shape, top component, and label panel.
+						299 definition list
+							300 container REFERENCE · VISIBLE EXPECTED
+								301 text REFERENCE · VISIBLE EXPECTED
+							302 text The visible components include a rectangular main body, a black cap or top, and a central white square panel.
+							303 container CANDIDATE · OBSERVED
+								304 text CANDIDATE · OBSERVED
+							305 text The visible components include a rectangular main body, a black cap or top, and a central white square panel.
+							306 container WHAT CHANGED
+								307 text WHAT CHANGED
+							308 text No meaningful change
+							309 container SUMMARY
+								310 text SUMMARY
+							311 text No visible difference in major components: both have the same main body shape, top component, and label panel.
+							312 container ORIGINAL VISIBLE
+								313 text ORIGINAL VISIBLE
+							314 text Yes
+							315 container CANDIDATE VISIBLE
+								316 text CANDIDATE VISIBLE
+							317 text Yes
+							318 container VISIBLE EVIDENCE
+								319 text VISIBLE EVIDENCE
+							320 text Both images show a blue rectangular body with a black top and a white square panel in the center.
+							321 container WHY UNCERTAIN
+								322 text WHY UNCERTAIN
+							323 text —
+						324 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						325 container Reference · visible expected
+							326 text Reference · visible expected
+							327 image Reference · visible expected image
+							328 container
+								329 text Image zoom
+								330 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								331 text 100 %
+							332 text Location has not been independently verified; no box is shown.
+						333 container Candidate · observed
+							334 text Candidate · observed
+							335 image Candidate · observed image
+							336 container
+								337 text Image zoom
+								338 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								339 text 100 %
+							340 text Location has not been independently verified; no box is shown.
+				460 container
+					461 button (expanded) Analysis provenance, Secondary Actions: Collapse
+						462 text Analysis provenance
+					463 text This is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict. Detector:  m0-qa-engine-008  · Decision policy:  m0-risk-policy-003  · Model policy:  m0-model-policy-002 Model:  gpt-4.1-mini  · Prompt:  m0-real-mvp-009+regions-003  · Provider:  openai
+				343 container Tell us whether this result was right
+					344 text FEEDBACK
+					345 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+						346 text Tell us whether this result was right
+					347 button Correct
+					348 button False alarm
+					349 button Missed something
+		350 container See PASS, REVIEW, and FAIL before your first check
+			351 text CONTROLLED COMPARISON EXAMPLES
+			352 heading See PASS, REVIEW, and FAIL before your first check, Value: 2, ID: home-example-title
+				353 text See PASS, REVIEW, and FAIL before your first check
+			354 text These are controlled examples, not customer case studies or statistical performance claims.
+			355 link Description: View all examples, Value: pairvu.com/examples
+			356 link Description: FAIL Scent and sheet count changed FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS., Value: pairvu.com/examples/laundry-sheets-scent-count-change
+			357 link Value: pairvu.com/examples/laundry-sheets-background-change, Description: PASS Background changed, product matched The approved carton moved into a laundry-room setting without a product change.
+			358 link Value: pairvu.com/examples/laundry-sheets-back-view-review, Description: REVIEW Front details could not be verified The candidate shows the back, so front logo, scent, and count need review.
+			359 container
+				360 text Need the complete test design?
+				361 link Description: Review the Pairvu Controlled Visual QA Benchmark, Value: pairvu.com/examples/controlled-visual-qa-benchmark
+				362 text .
+		363 container Check the product, not just the picture
+			364 text REFERENCE-BASED VISUAL QA
+			365 heading Check the product, not just the picture, Value: 2, ID: how-it-works
+				366 text Check the product, not just the picture
+			367 text Pairvu compares an AI-generated or edited product image with an approved original. It looks for visible changes that can make a product image inaccurate before the image is published.
+			368 content list
+				369 container
+					370 text 1 Add the approved original Use a clear image that represents the product you intend to show.
+				371 container
+					372 text 2 Add the image to check Upload the generated, edited, or otherwise proposed product image.
+				373 container
+					374 text 3 Review visible differences Get a PASS, REVIEW, or FAIL with evidence and observability limits.
+		375 container What Pairvu checks
+			376 text PRODUCT FIDELITY CHECKS
+			377 heading What Pairvu checks, Value: 2, ID: what-pairvu-checks
+				378 text What Pairvu checks
+			379 container
+				380 heading Logo and visible text, Value: 3
+					381 link Description: Logo and visible text, Value: pairvu.com/checks/product-logo
+				382 text Brand marks, product names, label wording, and 
+				383 link Description: printed values, Value: pairvu.com/checks/product-label-text
+				384 text  such as size or capacity.
+			385 container
+				386 heading Product count and components, Value: 3
+					387 link Description: Product count and components, Value: pairvu.com/checks/product-components
+				388 link Description: Visible product units, Value: pairvu.com/checks/product-quantity
+				389 text  and major parts that are missing, added, or materially changed.
+			390 container
+				391 heading Main color and packaging, Value: 3
+					392 link Description: Main color and packaging, Value: pairvu.com/checks/product-color
+				393 text Semantic product colors, container shape, 
+				394 link Description: packaging silhouette, Value: pairvu.com/checks/product-packaging
+				395 text , and major structural changes.
+			396 container
+				397 heading What cannot be verified, Value: 3
+					398 link Description: What cannot be verified, Value: pairvu.com/checks/product-image-observability
+				399 text Occlusion, unreadable text, incomplete coverage, and viewpoint differences are kept in review.
+		400 container Create faster without losing product truth
+			401 text AI PRODUCT PHOTOGRAPHY
+			402 heading Create faster without losing product truth, Value: 2, ID: market-context
+				403 text Create faster without losing product truth
+			404 text AI can change a scene quickly, but it can also alter a label, logo, color, count, component, or package. Pairvu adds a reference-based quality-control step between image creation and publishing.
+			405 link Description: Learn about quality control for AI product photography, Value: pairvu.com/ai-product-photography
+		406 container Build a safer pre-publish workflow
+			407 text LEARN FROM REAL FAILURE MODES
+			408 heading Build a safer pre-publish workflow, Value: 2, ID: explore-pairvu
+				409 text Build a safer pre-publish workflow
+			410 link Description: Comparison examples See the visible changes Pairvu is designed to catch., Value: pairvu.com/examples
+			411 link Value: pairvu.com/checks, Description: Product checks Use Pairvu's evidence rules for logo, text, quantity, color, components, packaging, and observability.
+			412 link Description: Product categories Review category-specific risks across the five supported packaged-goods families., Value: pairvu.com/categories
+			413 link Description: Pre-publish checklist Review product fidelity before an image goes live., Value: pairvu.com/guides/ai-product-photography-checklist
+			414 link Description: How Pairvu works Understand the comparison method, verdicts, and visible-evidence limits., Value: pairvu.com/how-pairvu-works
+			415 link Description: Use cases Fit Pairvu into brand, creative, and commerce workflows., Value: pairvu.com/use-cases
+		416 container About the checker
+			417 text COMMON QUESTIONS
+			418 heading About the checker, Value: 2, ID: home-faq
+				419 text About the checker
+			420 button (collapsed) Does Pairvu generate product images?, Secondary Actions: Expand
+				421 text Does Pairvu generate product images?
+			422 button (collapsed) Does a PASS guarantee marketplace approval?, Secondary Actions: Expand
+				423 text Does a PASS guarantee marketplace approval?
+			424 button (collapsed) What happens when a detail is hidden or unreadable?, Secondary Actions: Expand
+				425 text What happens when a detail is hidden or unreadable?
+	426 container
+		427 link pairvu.com/
+		428 text Quality control for AI product photography.
+		429 heading PRODUCT, Value: 2
+			430 text PRODUCT
+		431 link Description: AI Product Image Checker, Value: pairvu.com/
+		432 link Description: Check Image, Value: pairvu.com/#checker
+		433 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		434 link Description: Pricing, Value: pairvu.com/pricing
+		435 heading LEARN, Value: 2
+			436 text LEARN
+		437 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		438 link Description: Examples, Value: pairvu.com/examples
+		439 link Description: Product Categories, Value: pairvu.com/categories
+		440 link Description: Product Checks, Value: pairvu.com/checks
+		441 link Description: Guides, Value: pairvu.com/guides
+		442 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		443 heading USE CASES, Value: 2
+			444 text USE CASES
+		445 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		446 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		447 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		448 link Description: Brands, Value: pairvu.com/use-cases/brands
+		449 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		450 heading LEGAL, Value: 2
+			451 text LEGAL
+		452 link Description: Privacy, Value: pairvu.com/privacy
+		453 heading OTHER PRODUCTS, Value: 2
+			454 text OTHER PRODUCTS
+		455 link Description: Moxion, Value: moxion.ai/
+		456 link Description: Sigoo, Value: sigoo.ai/
+		457 link Description: AI Best Tool, Value: aibesttool.com/
+		458 link Description: Triptrace, Value: triptrace.ai/
+		459 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 461 button (expanded) Analysis provenance, Secondary Actions: Collapse

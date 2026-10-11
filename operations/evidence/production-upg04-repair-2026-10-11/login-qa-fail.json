@@ -1,0 +1,292 @@
+{
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "platformVersion": "1950d4f8-b54b-443f-b037-23ed4ae3451e",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "kind": "independent authenticated production repair2 journey",
+  "result": "FAIL",
+  "startedAt": "2026-10-11T02:30:26.584Z",
+  "reviewedAt": "2026-10-11T02:48:44.275Z",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "oldBatchId": "e26ebc30-15cc-40ae-872b-d626bbd00cef",
+  "oldAnalysisId": "batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+  "priorErroneousAnalysisId": "batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+  "newBatchId": "c6091777-4045-41c9-bae7-0f598bf36b0c",
+  "newAnalysisId": "batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+  "newAnalysisUrl": "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+  "newMachineVerdict": "review",
+  "syntheticAsset": {
+    "source": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/synthetic-blue-box-source.png",
+    "sha256": "403378be55b174834e5a54479cc1426efedb299e3cd55a1f4c57eb2b383961ab",
+    "dimensions": [
+      512,
+      512
+    ],
+    "meaning": "Existing geometry-only synthetic blue body/black cap/blank white panel, same source bytes as original production counterexample; no readable brand or label text."
+  },
+  "credits": {
+    "before": 8,
+    "after": 7,
+    "analysisSubmissions": 1,
+    "beforeSource": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/07-single-candidate-preflight-eight-credits.txt",
+    "afterSource": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/post-analysis-capacity.json"
+  },
+  "checks": [
+    {
+      "name": "Signed-in existing synthetic SKU textv5/referencev1 only",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/03-existing-synthetic-product-v5.txt"
+    },
+    {
+      "name": "Exactly one new real model analysis completes",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/09-new-batch-completed.txt",
+      "detail": "new batch c6091777/textv5/refv1, one candidate, one submission"
+    },
+    {
+      "name": "Live provider engine and prompt versions",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/12-new-result-persisted-after-refresh.txt",
+      "detail": "openai/gpt-4.1-mini/engine008/regions003/risk003/modelpolicy002"
+    },
+    {
+      "name": "Absent readable identity text cannot contribute matching PASS",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/10-new-logo-kind-token-failure.txt",
+      "detail": "visible_text not observable, identities Not established, explicit absence reason"
+    },
+    {
+      "name": "No unverified region boxes and explicit reasons",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/new-result-after-refresh-dom.json",
+      "detail": "Zero structured-evidence-box elements, visible not_visible/unverified notices; paired images loaded"
+    },
+    {
+      "name": "No established brand identity cannot contribute matching PASS",
+      "status": "FAIL",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/13-persisted-logo-token-failure.png",
+      "detail": "Logo passes with identity strings brand_name/brand_name, only object geometry description, high/observable/sufficient and no uncertainty reason."
+    },
+    {
+      "name": "Persisted reload reproduces same observations and wrong logo claim",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/new-result-after-refresh-dom.json",
+      "detail": "Checker text identical to before refresh; overall REVIEW and zero boxes unchanged."
+    },
+    {
+      "name": "Historical erroneous PASS retained with explicit provenance disclosure",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/02-old-pass-historical-provenance.txt",
+      "detail": "engine007 original PASS retained, old boxes absent, saved machine result/no rerun/history safeguard notices visible after expanding Analysis provenance. Notice initially hidden in collapsed disclosure; no initial visibility claim."
+    },
+    {
+      "name": "Historical engine006 result readable without region backfill",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/06-legacy-engine006-compatible.txt",
+      "detail": "original REVIEW/prompt009/engine006, Region not recorded and history disclosure retained."
+    },
+    {
+      "name": "Old batch v3/referencev1 remains frozen after new analysis",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/15-old-batch-v3-after-new-analysis.txt"
+    },
+    {
+      "name": "One authorized credit only",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/post-analysis-capacity.json",
+      "detail": "8 before, 7 after; 1 candidate and start button clicked once, no retry or payment"
+    },
+    {
+      "name": "Original production raw coordinate proposals independently readable",
+      "status": "NOT_VERIFIED",
+      "detail": "UI exposes suppressed-location causes but does not expose evidence JSON/raw proposals. No direct DB, cookies/tokens or SDK wire extraction. Prior local persistence proof cannot be called independent production raw verification."
+    }
+  ],
+  "findings": [
+    {
+      "priority": 1,
+      "title": "Echoed identity classification token establishes a nonexistent readable brand",
+      "observed": "The geometry-only synthetic image still receives Logo Model reports a match / high confidence / both observable / coverage sufficient. Each model-reported identity field is the literal string brand_name; descriptions list blue rectangle, white square and black top. This supplies no directly observed readable brand identity. Overall REVIEW arises from other families and does not invalidate the erroneous passed logo observation.",
+      "expected": "No directly established readable brand identity must not contribute passedObservations; preserve provider raw and explicit insufficiency reason. Do not treat an enum token or geometry as brand transcription.",
+      "evidence": [
+        "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/13-persisted-logo-token-failure.png",
+        "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/12-new-result-persisted-after-refresh.txt",
+        "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/new-result-after-refresh-dom.json",
+        "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/qa-production-logo-token-replay.json"
+      ],
+      "deterministicReplay": {
+        "command": "pnpm exec tsx scripts/qa-production-logo-token-replay.ts",
+        "cwd": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc",
+        "exitCode": 1,
+        "actualVerdict": "pass",
+        "passedObservations": 1,
+        "assertion": "assert.notEqual(result.verdict, \"pass\")",
+        "sourceKind": "Observed DOM wording, identity strings and flags reconstructed into current strict provider schema. Kind inferred from accepted logo branch; null regions chosen for reconstruction, production original proposals unavailable. Not raw SDK traffic."
+      },
+      "assessment": "Third occurrence of the identity sufficiency class after narrowed repair. Return concrete input to original developer/controller, diagnose structural sufficiency or conservative disablement before further real calls; no QA implementation changes."
+    }
+  ],
+  "steps": [
+    {
+      "name": "01-old-pass-after-deployment-refresh",
+      "at": "2026-10-11T02:30:26.584Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/01-old-pass-after-deployment-refresh.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/01-old-pass-after-deployment-refresh.png"
+    },
+    {
+      "name": "02-old-pass-historical-provenance",
+      "at": "2026-10-11T02:30:51.991Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/02-old-pass-historical-provenance.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/02-old-pass-historical-provenance.png"
+    },
+    {
+      "name": "03-existing-synthetic-product-v5",
+      "at": "2026-10-11T02:31:06.160Z",
+      "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/03-existing-synthetic-product-v5.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/03-existing-synthetic-product-v5.png"
+    },
+    {
+      "name": "04-old-batch-frozen-v3",
+      "at": "2026-10-11T02:31:20.089Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/04-old-batch-frozen-v3.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/04-old-batch-frozen-v3.png"
+    },
+    {
+      "name": "05-old-batch-restored-v3",
+      "at": "2026-10-11T02:31:24.761Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/05-old-batch-restored-v3.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/05-old-batch-restored-v3.png"
+    },
+    {
+      "name": "06-legacy-engine006-compatible",
+      "at": "2026-10-11T02:31:35.973Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/06-legacy-engine006-compatible.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/06-legacy-engine006-compatible.png"
+    },
+    {
+      "name": "07-single-candidate-preflight-eight-credits",
+      "at": "2026-10-11T02:43:49.307Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/07-single-candidate-preflight-eight-credits.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/07-single-candidate-preflight-eight-credits.png"
+    },
+    {
+      "name": "08-single-analysis-submitted",
+      "at": "2026-10-11T02:43:49.809Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/08-single-analysis-submitted.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/08-single-analysis-submitted.png"
+    },
+    {
+      "name": "09-new-batch-completed",
+      "at": "2026-10-11T02:44:36.245Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=c6091777-4045-41c9-bae7-0f598bf36b0c",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/09-new-batch-completed.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/09-new-batch-completed.png"
+    },
+    {
+      "name": "10-new-logo-kind-token-failure",
+      "at": "2026-10-11T02:45:26.162Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/10-new-logo-kind-token-failure.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/10-new-logo-kind-token-failure.png"
+    },
+    {
+      "name": "11-logo-placeholder-brand-name-visible",
+      "at": "2026-10-11T02:45:26.647Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/11-logo-placeholder-brand-name-visible.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/11-logo-placeholder-brand-name-visible.png"
+    },
+    {
+      "name": "12-new-result-persisted-after-refresh",
+      "at": "2026-10-11T02:46:32.081Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/12-new-result-persisted-after-refresh.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/12-new-result-persisted-after-refresh.png"
+    },
+    {
+      "name": "13-persisted-logo-token-failure",
+      "at": "2026-10-11T02:46:32.696Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/13-persisted-logo-token-failure.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/13-persisted-logo-token-failure.png"
+    },
+    {
+      "name": "14-post-analysis-seven-credits",
+      "at": "2026-10-11T02:46:54.959Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/14-post-analysis-seven-credits.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/14-post-analysis-seven-credits.png"
+    },
+    {
+      "name": "15-old-batch-v3-after-new-analysis",
+      "at": "2026-10-11T02:47:04.386Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/15-old-batch-v3-after-new-analysis.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/15-old-batch-v3-after-new-analysis.png"
+    }
+  ],
+  "artifactsDirectory": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256",
+  "sourceIndex": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/source-index.json",
+  "httpAcceptance": {
+    "result": "PASS",
+    "receipt": "/tmp/pairvu-upg04-repair2-production-qa.json",
+    "raw": "/tmp/pairvu-upg04-repair2-production-http-raw.json",
+    "scope": "HTTP only, never overrides functional FAIL"
+  },
+  "limits": [
+    "One real OpenAI analysis with synthetic images; no population accuracy, OCR truth or location calibration claim.",
+    "Full AX snapshots and actual DOM text/box counts before and after reload are primary evidence. No raw SDK response or independent production DB audit.",
+    "DOM reconstruction uses inferred current identity kinds and null regions for a controlled current-schema reproduction; it does not pretend to contain production original coordinate proposals.",
+    "Historical warning is available only after expanding provenance; recorded explicitly, not misrepresented as initially visible.",
+    "Original local acceptance PASS and previous production/local FAIL files remain unchanged; this is new actual production evidence.",
+    "No second analysis, payment, customer data operation, source edit, commit or deployment."
+  ],
+  "toolIncidents": [
+    {
+      "incident": "Undefined old tab binding on initial reload attempt",
+      "productEffect": "No action executed; bound observed existing tab ID7."
+    },
+    {
+      "incident": "Role button locator did not match HTML details summary",
+      "resolution": "Fresh DOM snapshot, click actual Analysis provenance text; full AX and isVisible confirm expanded warning."
+    },
+    {
+      "incident": "Unawaited filechooser listener timed out before any click and reset CUA bindings",
+      "productEffect": "No file selected or analysis submitted then; restored tab4 and used awaited chooser+click."
+    },
+    {
+      "incident": "Native chooser/upload call returned after 673.9 seconds despite requested timeout",
+      "classification": "Tool internal connection/selection latency; not a new user approval requirement. Candidate selection then confirmed; submission performed once."
+    },
+    {
+      "incident": "First reconstruction harness included invalid raw wire evidence property",
+      "evidence": "/private/tmp/pairvu-upg04-repair2-login-qa-1791685826256/qa-production-logo-token-harness-attempt-1.json",
+      "resolution": "Removed QA-only metadata; current strict schema then accepts and deterministic identity assertion fails."
+    }
+  ],
+  "sharedWorkspace": {
+    "qaChanges": false,
+    "preservedControllerChanges": [
+      "operations/task-registry.json",
+      "operations/evidence/production-upg04-repair-2026-10-11/"
+    ]
+  },
+  "nextAction": {
+    "action": "Controller returns this immutable actual production counterexample to original developer for diagnosis and a narrowed conservative identity fix.",
+    "dependency": "UPG-04 remains unclosed and UPG-05 blocked until a new fixed release passes exact-SHA independent review and actual production functional acceptance.",
+    "automatic": true,
+    "userInputRequired": false,
+    "additionalRealAnalysis": "NONE under exhausted one-analysis budget",
+    "deployment": "This tested version is deployed; QA performed no deployment.",
+    "acceptance": "HTTP PASS, authenticated functional FAIL"
+  }
+}

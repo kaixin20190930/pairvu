@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T01:49:08.687Z",
+  "checks": [
+    {
+      "name": "Exact final SHA scope, ancestry and source binding",
+      "status": "PASS"
+    },
+    {
+      "name": "Four archived counterexamples rejected by current schema and REVIEW through legacy mapper replay",
+      "status": "PASS"
+    },
+    {
+      "name": "55 identity consistency replay cases",
+      "status": "PASS"
+    },
+    {
+      "name": "29 independent current-schema identity boundary cases",
+      "status": "PASS"
+    },
+    {
+      "name": "49 structured evidence and actual SQLite persistence cases",
+      "status": "PASS"
+    },
+    {
+      "name": "3 original production counterexample reconstruction cases",
+      "status": "PASS"
+    },
+    {
+      "name": "Independent typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "Unchanged six-family risk policy regression",
+      "status": "PASS"
+    },
+    {
+      "name": "24 prior browser cases reused only for seven unchanged UI/location sources",
+      "status": "PASS"
+    },
+    {
+      "name": "Original FAIL inputs, outputs and reports byte-preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Versioned prompt regions-003 and guard identity-evidence-002",
+      "status": "PASS"
+    },
+    {
+      "name": "Runtime and documentation diff whitespace check",
+      "status": "PASS"
+    }
+  ]
+}

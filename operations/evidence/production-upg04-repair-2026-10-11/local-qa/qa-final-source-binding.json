@@ -1,0 +1,41 @@
+{
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "checks": [
+    {
+      "file": "lib/domain/semantics.ts",
+      "sha256": "c8ddfcad7b42314b27441bc55947c69ca51a23512fa8420766b0c77088969015",
+      "matchesCommit": true
+    },
+    {
+      "file": "lib/qa/identity-evidence.ts",
+      "sha256": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+      "matchesCommit": true
+    },
+    {
+      "file": "lib/qa/engine.ts",
+      "sha256": "043f922ba739dd090ed2a05c41aee8d5e2a393d5c58bbdb8120117d4bbf1d744",
+      "matchesCommit": true
+    },
+    {
+      "file": "lib/ai/providers/openai-vision-provider.ts",
+      "sha256": "2ec665cb661f52fc7b85cce257c86d38f93cf1b859b2447531a8ab4f68210564",
+      "matchesCommit": true
+    },
+    {
+      "file": "scripts/verify-structured-evidence.ts",
+      "sha256": "31cde26127b237f9e9c32c6ff30673aca5ae2c4a5deabcc2579bc7d03e38cb39",
+      "matchesCommit": true
+    },
+    {
+      "file": "docs/01-architecture/structured-evidence-contract.md",
+      "sha256": "ccb557958f7a214eeea1cb1e9c45307f137d303f18f517e3da6bba86cdfe3421",
+      "matchesCommit": true
+    },
+    {
+      "file": "fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts",
+      "sha256": "9708c2e9682afc90e5ce6957000e202349014efa75fe4f7b27940db9e7716f2e",
+      "matchesCommit": true
+    }
+  ],
+  "allMatch": true
+}

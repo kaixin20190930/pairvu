@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "platformVersion": "1950d4f8-b54b-443f-b037-23ed4ae3451e",
+  "scope": "http",
+  "result": "PASS",
+  "checkedAt": "2026-10-11T02:25:45.106Z",
+  "checks": [
+    {
+      "kind": "health",
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+        "platformVersion": "1950d4f8-b54b-443f-b037-23ed4ae3451e"
+      }
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/",
+      "status": 200
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/checks",
+      "status": 200
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/pricing",
+      "status": 200
+    },
+    {
+      "kind": "http",
+      "url": "https://pairvu.com/sign-in",
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "articles": [
+    {
+      "text": "Not visible enough · High confidencevisible_text is not sufficiently observable.Visible textReference · visible expectedNo readable text visible apart from the implied brand logo features.Candidate · observedNo readable text visible apart from the implied brand logo features.Reference · model-reported identity evidenceNot establishedCandidate · model-reported identity evidenceNot establishedWhat changedNot visibleSummaryNo readable identity-bearing text visible on the product in either image.Original visibleNoCandidate visibleNoVisible evidence—Why uncertainReadable identity-bearing text is absent or unreadable; visual similarity cannot verify this check.Reference · visible expectedImage zoom 100%Relevant evidence is not visible.Candidate · observedImage zoom 100%Relevant evidence is not visible."
+    },
+    {
+      "text": "Not visible enough · High confidencequantity is not sufficiently observable.Product countReference · visible expectedOne product is visible in the image.Candidate · observedOne product is visible in the image.What changedNot visibleSummaryExact quantity of visible products is one in each image but partial product body visible restricts full quantity verification certainty.Original visibleYesCandidate visibleYesVisible evidenceOne single rectangular blue product with black top is visible in each image.Why uncertainPartial product visibility restricts full quantity assessment.Reference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown."
+    },
+    {
+      "text": "Not visible enough · High confidencemajor_shape_packaging is not sufficiently observable.Shape and packagingReference · visible expectedThe product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.Candidate · observedThe product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.What changedNot visibleSummaryNo visible difference in major packaging shape and silhouette where visible in both images.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a rectangular cuboid with a flat black top., Some edges are cropped but the shape is visible.Why uncertainThe provider reported a match without sufficient corresponding coverage.Reference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown."
+    },
+    {
+      "text": "Logo · Model reports a match · High confidenceNo visible difference in brand logo presence or identity.Reference · visible expectedBrand logo area is a filled square with a white inner square on blue background and a black rectangle on top.Candidate · observedBrand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.Reference · model-reported identity evidencebrand_nameCandidate · model-reported identity evidencebrand_nameWhat changedNo meaningful changeSummaryNo visible difference in brand logo presence or identity.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a blue rectangle with a black rectangle on top and a white square in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown."
+    },
+    {
+      "text": "Main color · Model reports a match · High confidenceNo visible difference in dominant color of product packaging body and top component.Reference · visible expectedThe dominant color of the product packaging is solid medium blue for the body with black on top and white central square.Candidate · observedThe dominant color of the product packaging is solid medium blue for the body with black on top and white central square.What changedNo meaningful changeSummaryNo visible difference in dominant color of product packaging body and top component.Original visibleYesCandidate visibleYesVisible evidenceBoth products have a medium blue rectangular body, black top section, and a white square area in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown."
+    },
+    {
+      "text": "Major components · Model reports a match · High confidenceNo visible difference in major components: both have the same main body shape, top component, and label panel.Reference · visible expectedThe visible components include a rectangular main body, a black cap or top, and a central white square panel.Candidate · observedThe visible components include a rectangular main body, a black cap or top, and a central white square panel.What changedNo meaningful changeSummaryNo visible difference in major components: both have the same main body shape, top component, and label panel.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a blue rectangular body with a black top and a white square panel in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown."
+    }
+  ],
+  "boxes": [],
+  "checkerText": "Pairvu AI product image checkerDid AI change your product?Quality control for AI product photography.Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.pairvuYour first checkUse two views that make the same product details observable1. Approved originalUse the product image you trust.2. CandidateAdd the generated, edited, or proposed image.3. VerdictReview PASS, REVIEW, or FAIL with visible evidence.For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.Original product imageUpload a real or approved image of the product.Approved originalImage to checkUpload the generated, edited or candidate image.Image checkedAnonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. Privacy detailsCheck imageCheck another imageVerdictREVIEWProduct differencesActual detected fidelity issuesNo product issues were confirmed.Needs review / Could not verifyObservability problems and analysis limitationsNot visible enough · High confidencevisible_text is not sufficiently observable.Visible textReference · visible expectedNo readable text visible apart from the implied brand logo features.Candidate · observedNo readable text visible apart from the implied brand logo features.Reference · model-reported identity evidenceNot establishedCandidate · model-reported identity evidenceNot establishedWhat changedNot visibleSummaryNo readable identity-bearing text visible on the product in either image.Original visibleNoCandidate visibleNoVisible evidence—Why uncertainReadable identity-bearing text is absent or unreadable; visual similarity cannot verify this check.Reference · visible expectedImage zoom 100%Relevant evidence is not visible.Candidate · observedImage zoom 100%Relevant evidence is not visible.Not visible enough · High confidencequantity is not sufficiently observable.Product countReference · visible expectedOne product is visible in the image.Candidate · observedOne product is visible in the image.What changedNot visibleSummaryExact quantity of visible products is one in each image but partial product body visible restricts full quantity verification certainty.Original visibleYesCandidate visibleYesVisible evidenceOne single rectangular blue product with black top is visible in each image.Why uncertainPartial product visibility restricts full quantity assessment.Reference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown.Not visible enough · High confidencemajor_shape_packaging is not sufficiently observable.Shape and packagingReference · visible expectedThe product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.Candidate · observedThe product has a rectangular cuboid shape with a flat black top, visible in the image partly cropped on edges, but sufficient to observe overall shape.What changedNot visibleSummaryNo visible difference in major packaging shape and silhouette where visible in both images.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a rectangular cuboid with a flat black top., Some edges are cropped but the shape is visible.Why uncertainThe provider reported a match without sufficient corresponding coverage.Reference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown.Model-supported checksChecks the model reports as matchingLogo · Model reports a match · High confidenceNo visible difference in brand logo presence or identity.Reference · visible expectedBrand logo area is a filled square with a white inner square on blue background and a black rectangle on top.Candidate · observedBrand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.Reference · model-reported identity evidencebrand_nameCandidate · model-reported identity evidencebrand_nameWhat changedNo meaningful changeSummaryNo visible difference in brand logo presence or identity.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a blue rectangle with a black rectangle on top and a white square in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown.Main color · Model reports a match · High confidenceNo visible difference in dominant color of product packaging body and top component.Reference · visible expectedThe dominant color of the product packaging is solid medium blue for the body with black on top and white central square.Candidate · observedThe dominant color of the product packaging is solid medium blue for the body with black on top and white central square.What changedNo meaningful changeSummaryNo visible difference in dominant color of product packaging body and top component.Original visibleYesCandidate visibleYesVisible evidenceBoth products have a medium blue rectangular body, black top section, and a white square area in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown.Major components · Model reports a match · High confidenceNo visible difference in major components: both have the same main body shape, top component, and label panel.Reference · visible expectedThe visible components include a rectangular main body, a black cap or top, and a central white square panel.Candidate · observedThe visible components include a rectangular main body, a black cap or top, and a central white square panel.What changedNo meaningful changeSummaryNo visible difference in major components: both have the same main body shape, top component, and label panel.Original visibleYesCandidate visibleYesVisible evidenceBoth images show a blue rectangular body with a black top and a white square panel in the center.Why uncertain—Reference: observable · Candidate: observable · Coverage: sufficientReference · visible expectedImage zoom 100%Location has not been independently verified; no box is shown.Candidate · observedImage zoom 100%Location has not been independently verified; no box is shown.Analysis provenanceThis is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.Detector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002Model: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openaiFeedbackTell us whether this result was rightCorrectFalse alarmMissed something",
+  "images": [
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    },
+    {
+      "alt": "Candidate · observed image",
+      "loaded": true,
+      "natural": [
+        512,
+        512
+      ]
+    }
+  ],
+  "provenance": [
+    {
+      "open": true,
+      "text": "Analysis provenanceThis is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.Detector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002Model: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openai"
+    }
+  ],
+  "verdict": "REVIEW"
+}

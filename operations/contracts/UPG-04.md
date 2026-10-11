@@ -63,3 +63,9 @@
 允许lib/qa/identity-evidence.ts、必要provider身份字段/schema及types、engine版本/一致性接入、对应fixture/脚本和架构说明；不改UI或已通过的定位降级策略。规范化应处理Unicode不可见控制/格式字符和空值，保留原始输入；按身份类型处理直接可比文字和数量/单位冲突，不能机械要求所有自然语言描述完全相等。矛盾match至少REVIEW，充分明确mismatch仍FAIL。通用物体几何不得建立logo身份；如需明确身份类型字段，应保守定义并版本化，避免仅靠任意描述声称已识别。仍不宣称视觉验证或准确率。
 
 开发与独立QA继续Sol/high，理由为已定位跨字段语义与Unicode边界，不是无依据升级最高模型；若再出现同类实质推理遗漏，再评估缩小为安全禁用该不可靠身份判定或更高能力模型。环境缺失不升级。专项重放四原反例＋必要正例/Unicode/数量单位变体、typecheck与policy回归；UI无变则复用已真实24浏览器证据并核对源码hash，避免重复build，最终Cloudflare仍实际构建。
+
+### 第三轮必要修复：禁止协议元数据作为身份内容
+
+0b1dd45生产新分析整体REVIEW，文字与无框边界已通过；仍有logo分项把字面量brand_name当品牌并match。原始生产报告operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json。限定lib/qa/identity-evidence.ts及必要共享协议常量/provider版本/专项fixture/架构说明，禁止改UI、定位策略、计费或引入额外模型。拒绝身份类型枚举、字段名、协议占位内容冒充实体身份；规范化大小写/分隔符/不可见字符后的等价元数据也拒绝，不通过有限枚举特判单个brand_name，不用无穷英文词表。保留原值与REVIEW原因，正常品牌/文本正例保持。
+
+开发与本地独立QA本轮各Sol/medium：漏洞已定位为小范围确定性协议字段校验，原跨层验证已具备，不无依据上最贵模型；若实际扩大至架构不一致或再出现语义设计遗漏，回到high并重新缩域。生产旅程QA仍Sol/high。仅重放新反例+协议元数据同类边界+此前关键正反例、typecheck；UI和策略不变可复用hash证据，不重复build。新提交必须独立releaseQa，最终授权修复发布后再至多一次真实受控生产验证。

@@ -1,0 +1,71 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+        "0b1dd45edca0622ae42021eb090434639aa27193"
+      ],
+      "exitCode": 2,
+      "stdout": "operations/evidence/production-upg04-2026-10-10/login-fail/14-full-old-batch-final.txt:29: trailing whitespace.\n+\t\t\t111 text Runtime user standard \u00b7 text version \noperations/evidence/production-upg04-2026-10-10/login-fail/14-full-old-batch-final.txt:31: trailing whitespace.\n+\t\t\t113 text  \u00b7 reference version \noperations/evidence/production-upg04-2026-10-10/login-fail/16-full-new-result-final.txt:48: trailing whitespace.\n+\t\t\t\t\t45 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. \noperations/evidence/production-upg04-2026-10-10/login-fail/16-full-new-result-final.txt:411: trailing whitespace.\n+\t\t\t\t82 text Brand marks, product names, label wording, and \noperations/evidence/production-upg04-2026-10-10/login-fail/16-full-new-result-final.txt:422: trailing whitespace.\n+\t\t\t\t93 text Semantic product colors, container shape, \noperations/evidence/production-upg04-2026-10-10/login-fail/17-full-legacy-analysis-provenance.txt:48: trailing whitespace.\n+\t\t\t\t\t45 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. \noperations/evidence/production-upg04-2026-10-10/login-fail/17-full-legacy-analysis-provenance.txt:374: trailing whitespace.\n+\t\t\t\t82 text Brand marks, product names, label wording, and \noperations/evidence/production-upg04-2026-10-10/login-fail/17-full-legacy-analysis-provenance.txt:385: trailing whitespace.\n+\t\t\t\t93 text Semantic product colors, container shape, \noperations/evidence/upg04-repair-attempt-1/qa-browser-final-full.txt:54: trailing whitespace.\n+\t\t\t53 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. \noperations/evidence/upg04-repair-attempt-1/qa-browser-final-full.txt:224: trailing whitespace.\n+\t\t\t\t\t223 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. \n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+        "0b1dd45edca0622ae42021eb090434639aa27193",
+        "--",
+        "lib",
+        "components",
+        "app",
+        "scripts",
+        "fixtures",
+        "docs",
+        "package.json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+        "0b1dd45edca0622ae42021eb090434639aa27193"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-status",
+        "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+        "0b1dd45edca0622ae42021eb090434639aa27193"
+      ],
+      "exitCode": 0,
+      "stdout": "M\tdocs/01-architecture/structured-evidence-contract.md\nM\tdocs/04-roadmap/project-progress-2026-10-10.md\nA\tfixtures/structured-evidence/identity-consistency-repair/before-fix-results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/browser-reuse-index.json\nA\tfixtures/structured-evidence/identity-consistency-repair/checks.json\nA\tfixtures/structured-evidence/identity-consistency-repair/original-counterexample-results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/original-source-index.json\nA\tfixtures/structured-evidence/identity-consistency-repair/persisted-counterexample.json\nA\tfixtures/structured-evidence/identity-consistency-repair/persisted-result.json\nA\tfixtures/structured-evidence/identity-consistency-repair/production-counterexample-results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/provider-response.json\nA\tfixtures/structured-evidence/identity-consistency-repair/qa-contradictory-logo.json\nA\tfixtures/structured-evidence/identity-consistency-repair/qa-contradictory-visible_text.json\nA\tfixtures/structured-evidence/identity-consistency-repair/qa-generic-cap-identity.json\nA\tfixtures/structured-evidence/identity-consistency-repair/qa-zero-width-identity.json\nA\tfixtures/structured-evidence/identity-consistency-repair/results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/reused-desktop12-results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/reused-narrow12-results.json\nA\tfixtures/structured-evidence/identity-consistency-repair/reused-qa-original.json\nA\tfixtures/structured-evidence/identity-consistency-repair/typecheck-attempt-1.json\nA\tfixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts\nM\tlib/ai/providers/openai-vision-provider.ts\nM\tlib/domain/semantics.ts\nM\tlib/qa/engine.ts\nM\tlib/qa/identity-evidence.ts\nM\toperations/contracts/UPG-04.md\nA\toperations/evidence/upg04-repair-attempt-1/qa-49-replay.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-browser-final-full.txt\nA\toperations/evidence/upg04-repair-attempt-1/qa-browser-final.png\nA\toperations/evidence/upg04-repair-attempt-1/qa-contradictory-logo.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-contradictory-visible_text.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-counterexample-results.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-generic-cap-identity.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-harness-attempt-0.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-independent-negative-results.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-original.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-repair-independent.ts.txt\nA\toperations/evidence/upg04-repair-attempt-1/qa-source-index.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-source-verification.json\nA\toperations/evidence/upg04-repair-attempt-1/qa-zero-width-identity.json\nA\toperations/evidence/upg04-repair-attempt-1/release-qa-fail.json\nM\toperations/task-registry.json\nM\tscripts/verify-structured-evidence.ts\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "nonBlockingFullDiffDiagnostic": "All full-diff whitespace notices are in immutable raw AX evidence snapshots; preserve byte-for-byte originals. Runtime, scripts, fixtures and docs diff check passed."
+}

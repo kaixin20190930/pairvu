@@ -1,0 +1,19 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {FidelityResponseSchema,mapFidelityObservations} from '../lib/ai/providers/openai-vision-provider';
+import {M0QAEngine} from '../lib/qa/engine';
+async function main(){
+ const payload=JSON.parse(await readFile('fixtures/structured-evidence/identity-consistency-repair/provider-response.json','utf8'));
+ const o=payload.observations[0];
+ Object.assign(o,{checkType:'logo',status:'match',differenceKind:'none',referenceObservability:'observable',candidateObservability:'observable',coverage:'sufficient',confidence:'high',referenceObservation:'Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.',candidateObservation:'Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.',comparisonSummary:'No visible difference in brand logo presence or identity.',visibleEvidence:['Both images show a blue rectangle with a black rectangle on top and a white square in the center.']});
+ Object.assign(o.evidence,{referenceIdentity:'brand_name',candidateIdentity:'brand_name',referenceIdentityKind:'brand_name',candidateIdentityKind:'brand_name',referenceObservation:o.referenceObservation,candidateObservation:o.candidateObservation,comparisonSummary:o.comparisonSummary,visibleEvidence:o.visibleEvidence,referenceVisible:true,candidateVisible:true,differenceKind:'none',raw:{source:'Reconstructed observed production DOM; not SDK wire response'}});
+ delete o.evidence.raw;
+ for(const side of ['referenceRegion','candidateRegion'])o.evidence[side]={coordinateSpace:'analysis_image_normalized',region:null,reason:'uncertain_location',confidence:null};
+ const input:any={analysisId:'qa-replay-logo-kind-token',reference:{assetId:'qa-ref',mimeType:'image/png',r2Key:'synthetic/ref'},candidate:{assetId:'qa-cand',mimeType:'image/png',r2Key:'synthetic/cand'},selectedChecks:['logo']};
+ const observations=mapFidelityObservations(FidelityResponseSchema.parse(payload),input);
+ const result=await new M0QAEngine({name:'controlled-production-dom-reconstruction',analyzeProductFidelity:async()=>({observations,limitations:[],modelCall:{provider:'controlled',model:'none',promptVersion:'qa+regions-003',latencyMs:0}})}).analyze(input);
+ let failure=null;try{assert.notEqual(result.verdict,'pass','Classification token echoed as identity is not directly observed readable brand identity in this synthetic geometry-only case');}catch(error){failure=String(error);process.exitCode=1;}
+ await writeFile('qa-production-logo-token-replay.json',JSON.stringify({releaseSha:'0b1dd45edca0622ae42021eb090434639aa27193',productionAnalysisId:'batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb',result:failure?'FAIL':'PASS',synthetic:true,sourceKind:'Observed DOM wording, identity strings and flags reconstructed into current strict provider schema. Kind inferred from accepted logo branch; null regions chosen for reconstruction, production original proposals unavailable. Not raw SDK traffic.',input:payload,actualEngineResult:result,assertion:'assert.notEqual(result.verdict, "pass")',failure},null,2)+'\n');
+ console.log(JSON.stringify({result:failure?'FAIL':'PASS',actualVerdict:result.verdict,passedObservations:result.passedObservations.length,failure}));
+}
+void main();

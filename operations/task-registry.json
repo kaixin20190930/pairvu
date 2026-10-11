@@ -15,7 +15,7 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:206",
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:224",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -35,8 +35,8 @@
       "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:249",
-    "observedStatus": "completed",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:272",
+    "observedStatus": "active",
     "receipt": "operations/evidence/UPG-04.json",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -56,14 +56,15 @@
   "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG04第二轮身份规范化/一致性修复开发完成55+49+3检查；固定提交独立复验，生产仍324a528功能未通过，不放行UPG05。",
+  "notes": "第三轮协议元数据守卫开发完成747+55+49检查，待新最终提交独立复验；生产0b1dd45功能FAIL未关闭。",
   "nextUnitId": "UPG-05",
   "production": {
     "status": "DEPLOYED_FUNCTIONAL_FAIL",
-    "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
-    "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
-    "httpReceipt": "operations/evidence/production-upg04-2026-10-10/productionQa.json",
-    "functionalReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json"
+    "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+    "platformVersion": "1950d4f8-b54b-443f-b037-23ed4ae3451e",
+    "localQaReceipt": "/tmp/pairvu-upg04-repair2-qa.json",
+    "evidenceDirectory": "operations/evidence/production-upg04-repair-2026-10-11",
+    "functionalReceipt": "operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -102,6 +103,13 @@
       "platformVersion": "9263e27f-2448-4a48-9ecd-a176d1cd9ff2",
       "receipt": "operations/evidence/production-lifecycle-fix-2026-10-10/manifest.json",
       "receiptSha256": "21397dbd6687902ddbf452e2e4700d629221a7c12233ad80ef4f690c9ff3bffd"
+    },
+    {
+      "status": "DEPLOYED_FUNCTIONAL_FAIL",
+      "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+      "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
+      "httpReceipt": "operations/evidence/production-upg04-2026-10-10/productionQa.json",
+      "functionalReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json"
     }
   ],
   "loginAcceptance": {
@@ -125,21 +133,22 @@
     "reason": "生产区域位置错误与无可读文字仍PASS，正式单元保持RELEASE_READY未关闭。",
     "developmentModel": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "跨模型定位、保守判定和历史UI呈现，需实质反例修复。",
-      "upgradeCondition": "重复实质推理不足才评估Astra。",
+      "thinking": "medium",
+      "reason": "确定性协议元数据占位值校验，局部范围明确，已有跨层回归证据。",
+      "upgradeCondition": "出现新架构一致性或语义设计缺口才回high并缩域。",
       "applied": true
     },
     "failureReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json",
-    "developmentSha": "0cac3710347294265015f5a4178c961a73eb5187",
+    "developmentSha": "2ea106e45d916c3951aad20b104b938b71b63891",
     "qaModel": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "独立验证真实反例、身份数据保守边界、历史呈现与全链路区域降级。",
-      "upgradeCondition": "反复且可定位推理不足才评估Astra，工具连接/权限不升级。",
-      "applied": true
+      "thinking": "medium",
+      "reason": "独立核对协议字段名/枚举类反例及正例，确定性局部边界。",
+      "upgradeCondition": "出现新架构一致性或语义设计缺口才回high并缩域。",
+      "applied": false
     },
     "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-1/qa-original.json",
-    "attempt": 2
+    "attempt": 3,
+    "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193"
   }
 }

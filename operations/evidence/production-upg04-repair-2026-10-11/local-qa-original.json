@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T01:49:08.687Z",
+  "checks": [
+    {
+      "name": "Exact final SHA scope, ancestry and source binding",
+      "status": "PASS"
+    },
+    {
+      "name": "Four archived counterexamples rejected by current schema and REVIEW through legacy mapper replay",
+      "status": "PASS"
+    },
+    {
+      "name": "55 identity consistency replay cases",
+      "status": "PASS"
+    },
+    {
+      "name": "29 independent current-schema identity boundary cases",
+      "status": "PASS"
+    },
+    {
+      "name": "49 structured evidence and actual SQLite persistence cases",
+      "status": "PASS"
+    },
+    {
+      "name": "3 original production counterexample reconstruction cases",
+      "status": "PASS"
+    },
+    {
+      "name": "Independent typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "Unchanged six-family risk policy regression",
+      "status": "PASS"
+    },
+    {
+      "name": "24 prior browser cases reused only for seven unchanged UI/location sources",
+      "status": "PASS"
+    },
+    {
+      "name": "Original FAIL inputs, outputs and reports byte-preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Versioned prompt regions-003 and guard identity-evidence-002",
+      "status": "PASS"
+    },
+    {
+      "name": "Runtime and documentation diff whitespace check",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Local fixed-SHA second repair acceptance, shared repository read-only; not production acceptance",
+  "findings": [],
+  "counts": {
+    "identityReplay": 55,
+    "independent": 29,
+    "structuredReplay": 49,
+    "productionReconstructionReplay": 3,
+    "browserReused": 24,
+    "browserNew": 0
+  },
+  "independentHarness": {
+    "path": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/scripts/qa-repair2-independent.ts",
+    "command": "pnpm exec tsx scripts/qa-repair2-independent.ts",
+    "report": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-independent-results.json",
+    "inputsAndActualOutputs": "All original/typed negative and positive cases retain exact payload and actual engine result in report.",
+    "replayBoundary": "Old exact untyped payloads fail current strict schema; independently replayed directly through mapper for conservative legacy handling. Typed derivations separately execute current strict schema -> actual mapper -> actual engine."
+  },
+  "sourceIndex": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-source-index.json",
+  "sourceVerification": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-source-verification.json",
+  "finalSourceBinding": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-final-source-binding.json",
+  "commandResults": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-command-results.json",
+  "diffEvidence": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-diff-original.json",
+  "validationEvidenceReuse": {
+    "developerLint": "PASS recorded in fixed-commit checks.json and source hashes independently matched.",
+    "browser": "Original independent actual React desktop12+narrow12 reports byte-equal; UI, CSS, location normalizer, UI entry/server and persisted fixture unchanged. Changed identity dependency retested by backend suites, not claimed unchanged.",
+    "build": "Not run by second-repair contract. Actual final Cloudflare build required at authorized release.",
+    "historicalWarning": "Prior textContent checks establish retained warning content and unchanged implementation; they do not prove initially visible warning in collapsed provenance. No stronger claim."
+  },
+  "reviewConclusions": [
+    "Typed reported-match contradictions produce uncertain/REVIEW while retaining observable flags, exact model identities and original provider status in raw.",
+    "Default-ignorable Unicode-only transcription and geometry/symbol/unknown identity kinds cannot contribute PASS.",
+    "Adequate readable wordmarks, compatible letter forms and exact metric/count/percent unit conversions still support PASS; explicit adequate mismatch remains critical FAIL.",
+    "No new UI, auth, billing, migration, queue, model selection, service or retry-cost changes in this repair.",
+    "Prompt +regions-003 and application identity-evidence-002 are retained through mapper and persisted evidence; engine008/risk003/modelpolicy002 unchanged."
+  ],
+  "nonBlockingDiagnostics": [
+    "Full ancestry diff --check returns 2 only for trailing whitespace inside immutable raw AX archive snapshots. Runtime/scripts/fixtures/docs diff check passes; original evidence bytes remain preserved."
+  ],
+  "limits": [
+    "Identity kind and transcription are still model reports, with no independent visual truth or OCR guarantee; model misclassification/fabrication remains outside this deterministic acceptance.",
+    "Logo sufficiency currently supports directly readable brand names only; symbolic logos remain REVIEW.",
+    "All unverified coordinates stay withheld with raw preserved; validated localization capability is not restored.",
+    "No live model, credit consumption, production query/change, commit, push, deployment or new browser run.",
+    "Supported unit aliases and decimal formats are explicit; no general semantic, locale, brand alias or ounce inference."
+  ],
+  "previousFailures": {
+    "repair1Report": "/tmp/pairvu-upg04-repair-qa.json",
+    "repair1Receipt": "/tmp/pairvu-upg04-repair-release-qa.json",
+    "archive": "operations/evidence/upg04-repair-attempt-1",
+    "unchanged": true,
+    "originalProductionFunctionalFailRemainsHistorical": true
+  },
+  "nextAction": {
+    "action": "Controller may proceed automatically with the authorized release of this exact SHA under GitHub-first order, then targeted production smoke and independent functional acceptance.",
+    "dependency": "Commit already exists locally; push, fresh remote equality check, production-related clean tree, migration verification, actual Cloudflare build/deployment and exact-version production acceptance are still required.",
+    "automatic": true,
+    "userInputRequired": false,
+    "implementationAcceptance": "PASS local only",
+    "deployment": "NOT_PERFORMED_IN_THIS_QA",
+    "featureCapability": "Conservative identity and hidden unverified-region limits remain explicit",
+    "productionAcceptance": "PENDING"
+  }
+}

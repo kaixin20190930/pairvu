@@ -1,0 +1,188 @@
+{
+  "candidateSourceHashes": {
+    "lib/domain/semantics.ts": {
+      "recorded": "c8ddfcad7b42314b27441bc55947c69ca51a23512fa8420766b0c77088969015",
+      "actual": "c8ddfcad7b42314b27441bc55947c69ca51a23512fa8420766b0c77088969015",
+      "matches": true
+    },
+    "lib/qa/identity-evidence.ts": {
+      "recorded": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+      "actual": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+      "matches": true
+    },
+    "lib/qa/engine.ts": {
+      "recorded": "043f922ba739dd090ed2a05c41aee8d5e2a393d5c58bbdb8120117d4bbf1d744",
+      "actual": "043f922ba739dd090ed2a05c41aee8d5e2a393d5c58bbdb8120117d4bbf1d744",
+      "matches": true
+    },
+    "lib/ai/providers/openai-vision-provider.ts": {
+      "recorded": "2ec665cb661f52fc7b85cce257c86d38f93cf1b859b2447531a8ab4f68210564",
+      "actual": "2ec665cb661f52fc7b85cce257c86d38f93cf1b859b2447531a8ab4f68210564",
+      "matches": true
+    },
+    "scripts/verify-structured-evidence.ts": {
+      "recorded": "31cde26127b237f9e9c32c6ff30673aca5ae2c4a5deabcc2579bc7d03e38cb39",
+      "actual": "31cde26127b237f9e9c32c6ff30673aca5ae2c4a5deabcc2579bc7d03e38cb39",
+      "matches": true
+    },
+    "docs/01-architecture/structured-evidence-contract.md": {
+      "recorded": "ccb557958f7a214eeea1cb1e9c45307f137d303f18f517e3da6bba86cdfe3421",
+      "actual": "ccb557958f7a214eeea1cb1e9c45307f137d303f18f517e3da6bba86cdfe3421",
+      "matches": true
+    },
+    "fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts": {
+      "recorded": "9708c2e9682afc90e5ce6957000e202349014efa75fe4f7b27940db9e7716f2e",
+      "actual": "9708c2e9682afc90e5ce6957000e202349014efa75fe4f7b27940db9e7716f2e",
+      "matches": true
+    }
+  },
+  "browserReuse": [
+    {
+      "mode": "desktop",
+      "original": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-desktop-results.json",
+      "archive": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/fixtures/structured-evidence/identity-consistency-repair/reused-desktop12-results.json",
+      "originalSha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "archiveSha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "bytesEqual": true,
+      "sources": {
+        "components/StructuredEvidence.tsx": {
+          "prior": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "current": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        "components/ProductChecker.tsx": {
+          "prior": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "current": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        "lib/qa/evidence-regions.ts": {
+          "prior": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "current": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        "lib/qa/identity-evidence.ts": {
+          "prior": "72ab2c6d88de16ec0d6cedbd8b62bb2bf50051a0c25dd8cd1ebaac92b68121dc",
+          "current": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+          "unchanged": false
+        },
+        "app/globals.css": {
+          "prior": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "current": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/ui-entry.tsx": {
+          "prior": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "current": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/ui-server.mjs": {
+          "prior": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "current": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/persisted-result.json": {
+          "prior": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "current": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      },
+      "reuseScope": "Unchanged UI, CSS, location strategy and harness only; identity helper changed and is retested independently. Historical textContent assertion does not establish initial visibility."
+    },
+    {
+      "mode": "narrow",
+      "original": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-narrow-results.json",
+      "archive": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/fixtures/structured-evidence/identity-consistency-repair/reused-narrow12-results.json",
+      "originalSha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "archiveSha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "bytesEqual": true,
+      "sources": {
+        "components/StructuredEvidence.tsx": {
+          "prior": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "current": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        "components/ProductChecker.tsx": {
+          "prior": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "current": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        "lib/qa/evidence-regions.ts": {
+          "prior": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "current": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        "lib/qa/identity-evidence.ts": {
+          "prior": "72ab2c6d88de16ec0d6cedbd8b62bb2bf50051a0c25dd8cd1ebaac92b68121dc",
+          "current": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+          "unchanged": false
+        },
+        "app/globals.css": {
+          "prior": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "current": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/ui-entry.tsx": {
+          "prior": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "current": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/ui-server.mjs": {
+          "prior": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "current": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        "fixtures/structured-evidence/production-repair/persisted-result.json": {
+          "prior": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "current": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      },
+      "reuseScope": "Unchanged UI, CSS, location strategy and harness only; identity helper changed and is retested independently. Historical textContent assertion does not establish initial visibility."
+    }
+  ],
+  "priorFailuresPreserved": [
+    {
+      "name": "qa-contradictory-logo.json",
+      "original": "f54a009d6e16cc7dbeda16e6dd2e793147e691bd8024be8c4c0dc89eb6b2fdd2",
+      "archive": "f54a009d6e16cc7dbeda16e6dd2e793147e691bd8024be8c4c0dc89eb6b2fdd2",
+      "bytesEqual": true
+    },
+    {
+      "name": "qa-contradictory-visible_text.json",
+      "original": "878650aaa1cc9161c877da65729ff5f687d34f0d20cf851ebaa0d882b81b6dbd",
+      "archive": "878650aaa1cc9161c877da65729ff5f687d34f0d20cf851ebaa0d882b81b6dbd",
+      "bytesEqual": true
+    },
+    {
+      "name": "qa-zero-width-identity.json",
+      "original": "081623e0db4325e8bce4b58660b7845c2feb4f99491166e9119f83b74bf4b13f",
+      "archive": "081623e0db4325e8bce4b58660b7845c2feb4f99491166e9119f83b74bf4b13f",
+      "bytesEqual": true
+    },
+    {
+      "name": "qa-generic-cap-identity.json",
+      "original": "66777b885e28a4781c92bd8d8b4925d5d11862ecf9963687226be54730d17330",
+      "archive": "66777b885e28a4781c92bd8d8b4925d5d11862ecf9963687226be54730d17330",
+      "bytesEqual": true
+    },
+    {
+      "name": "qa-independent-negative-results.json",
+      "original": "b0183aaffb23c12931b2ff0e8a267b5698106c69a325c1a9c541019613d44959",
+      "archive": "b0183aaffb23c12931b2ff0e8a267b5698106c69a325c1a9c541019613d44959",
+      "bytesEqual": true
+    },
+    {
+      "name": "pairvu-upg04-repair-qa.json",
+      "original": "fa97fe6ca30f29ad21c3bb3d36d04274d957c5c0ae07395ac0e55cc6bb2907a9",
+      "archive": "fa97fe6ca30f29ad21c3bb3d36d04274d957c5c0ae07395ac0e55cc6bb2907a9",
+      "bytesEqual": true
+    },
+    {
+      "name": "pairvu-upg04-repair-release-qa.json",
+      "original": "bae8e0711468b06b44a9cedc52ba4b37bd447ac8b7264bec083e986a41655b77",
+      "archive": "bae8e0711468b06b44a9cedc52ba4b37bd447ac8b7264bec083e986a41655b77",
+      "bytesEqual": true
+    }
+  ],
+  "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193"
+}
