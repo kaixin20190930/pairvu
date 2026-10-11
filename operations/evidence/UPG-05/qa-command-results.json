@@ -1,0 +1,109 @@
+{
+  "reviewedAt": "2026-10-11T14:39:50.788908+00:00",
+  "commands": [
+    {
+      "command": "git archive 736e61f7b7c1ffe4e886ef4b5821d79049265621",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "result": "PASS",
+      "detail": "Candidate archive unpacked in isolated /private/tmp; shared node_modules symlink; no shared source writes."
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-upg05-independent.ts --report qa-independent-d1-results.json",
+      "cwd": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+      "exitCode": 0,
+      "result": "PASS",
+      "evidence": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-independent-d1-results.json",
+      "cases": 43,
+      "detail": "Observed successful process completion; 798 actual local D1 transport requests; 8 independently added cases and 35 replayed candidate cases."
+    },
+    {
+      "command": "pnpm test:structured-evidence --report qa-structured-regression.json",
+      "cwd": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+      "exitCode": 0,
+      "result": "PASS",
+      "evidence": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-structured-regression.json",
+      "cases": 49,
+      "detail": "UPG-04 structured-evidence regression suite reused as regression; report retains original unitId UPG-04."
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "cwd": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+      "exitCode": 0,
+      "result": "PASS",
+      "observedStdout": "M1 workspace analysis verification passed.\nVerified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "cwd": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+      "exitCode": 0,
+      "result": "PASS",
+      "detail": "Observed completion with no output, after independent QA fixtures were added."
+    },
+    {
+      "command": "node fixtures/review-decisions/ui-server.mjs",
+      "cwd": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+      "result": "PASS",
+      "url": "http://127.0.0.1:59069",
+      "detail": "Actual React browser tests via CUA. Temporary QA browser tab closed; listener absence verified with lsof after cleanup."
+    },
+    {
+      "command": "CUA browser execution: desktop and same-origin narrow iframe fixture",
+      "result": "PASS",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-desktop-results.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-narrow-results.json"
+      ],
+      "cases": 38,
+      "detail": "19 cases each; 4 independently added per viewport. 375px iframe, 373px content viewport. Older-result test uses actual ProductChecker remount."
+    },
+    {
+      "command": "pnpm run build",
+      "result": "REUSED_DEVELOPER_EVIDENCE",
+      "exitCode": 0,
+      "evidence": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/build-output.json",
+      "rawSha256": "d2d53fb565a86cac10ce24862a509ffe9d75a2d9bc4ea38b43de0cf4b0eae3af",
+      "detail": "Explicitly permitted one developer build; not independently rerun."
+    },
+    {
+      "command": "git diff --check d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065 736e61f7b7c1ffe4e886ef4b5821d79049265621",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "git merge-base --is-ancestor d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065 736e61f7b7c1ffe4e886ef4b5821d79049265621",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "git status --short",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "exitCode": 0,
+      "result": "PASS",
+      "observedStdout": " M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/task-registry.json\n",
+      "detail": "Existing controller documentation/registry edits preserved."
+    },
+    {
+      "command": "lsof -nP -iTCP:59069 -sTCP:LISTEN",
+      "exitCode": 1,
+      "result": "PASS",
+      "detail": "No output/no listening local QA server after cleanup."
+    }
+  ],
+  "rawEvidenceNote": "Reports are original assertion output; observed stdout is included only where retained. No claim of complete raw terminal logs for typecheck/workspace run.",
+  "toolIncidents": [
+    {
+      "scope": "CUA initial tab creation",
+      "detail": "Completed after approximately 501 seconds despite requested 20-second timeout; no actual approval prompt or denial observed."
+    },
+    {
+      "scope": "QA locator",
+      "detail": "Unscoped human-review heading matched main and anonymous fixture; corrected to #checker before click. Test harness locator error, not a product failure."
+    },
+    {
+      "scope": "Initial orchestration",
+      "detail": "One JavaScript syntax error before nested tools executed; corrected before archive creation."
+    }
+  ]
+}

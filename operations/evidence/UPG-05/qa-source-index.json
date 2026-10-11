@@ -1,0 +1,161 @@
+{
+  "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "reviewedAt": "2026-10-11T14:39:50.788908+00:00",
+  "artifacts": [
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-candidate-sha.txt",
+      "sha256": "0d33cf57b21d7951bf2f822365856a3ed8403c68b2d7353efcc2a4f8344c8cd1",
+      "bytes": 41
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-source-verification.json",
+      "sha256": "eedbb087a70a59a41bef7091aadbf63e0e2abd9b6ad91990d2ae4ff8fe36ef37",
+      "bytes": 12902
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-command-results.json",
+      "sha256": "8e76727fe06a72b0d4082382ef7b62de45bbc494c7e783ef4af2af6389a4fac1",
+      "bytes": 4965
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-independent-d1-results.json",
+      "sha256": "312780d6452a142d8a35cc688c942b801d1c4a48839bf09e9ee7bb6ff5b4efa2",
+      "bytes": 13642
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-structured-regression.json",
+      "sha256": "19289f861802685a948a099351208c0f62df4aae12df3951412d0a13bbf4ee97",
+      "bytes": 7804
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/scripts/qa-upg05-independent.ts",
+      "sha256": "cbac60c167e62e059299a77a949b645f8d1bf14e17a186973fb8b3226926c898",
+      "bytes": 26686
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/ui-entry.tsx",
+      "sha256": "2e633afc085418ecb64421b0d22908ac9c5d977091d8e2f2eee55eb61ce55dcf",
+      "bytes": 15294
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/ui-server.mjs",
+      "sha256": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917",
+      "bytes": 3633
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/sql-worker.mjs",
+      "sha256": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+      "bytes": 487
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-desktop-results.json",
+      "sha256": "6b9a4f95b5843029d0096078a291583669c95f9eb4c8973504a8a248a7b33c95",
+      "bytes": 7807
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-narrow-results.json",
+      "sha256": "1ed398e516369267cf03db2cd4840c13a247e57cbca24fd66257bffad86faabd",
+      "bytes": 7797
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-ui-entry.tsx.txt",
+      "sha256": "8f460493977d4b5c82f7a611e145c8c3afb8752787bcf70e2abcd576e3e6e06e",
+      "bytes": 11384
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-browser-full.txt",
+      "sha256": "f14339f649971aadfdadb0fa99832aff6870315cb4822fe379fa277a820e51ea",
+      "bytes": 16464
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-browser-final-dom.json",
+      "sha256": "7900d6934c9ea5d4386810a56b1a03a7781deb40300789054befec716e623e17",
+      "bytes": 755
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-browser-human-panel.png",
+      "sha256": "c005fe6fb90aedf2ddaf10457cb8f91e1bb6a5dcd67de631a6f6a20079b85166",
+      "bytes": 63456
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/build-output.json",
+      "sha256": "2417ceede183fb37765d3e1bb888694a2f73fd797e0f73ba07a28f77b8102ba1",
+      "bytes": 12159
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-desktop-results.json",
+      "sha256": "981e6610e22b0c1eb5d55f7801a5d6efcfc3b875a6d347a0b2f5450a7936439f",
+      "bytes": 5246
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/attempt-1-results.json",
+      "sha256": "f104db28d6fc0d1a516a80a61b57f9e93272f83159b81552cd68cbe75c30e13a",
+      "bytes": 10955
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-desktop-attempt-1-results.json",
+      "sha256": "0e7f3de570292e1bf7e19961a84b8fda06a2de172e3e4df5f84c59bde805efdb",
+      "bytes": 917
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/persisted-result.json",
+      "sha256": "3d46df2bc76293f6d04ef95ee4926926e2683616045823a63722a29fbd04d284",
+      "bytes": 6402
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/results.json",
+      "sha256": "4a5e23f39b9c41d575d22358d358e39851d64e0ab1b2d7e75f5c01d77a9a29c7",
+      "bytes": 10936
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-review-proof.png",
+      "sha256": "f01cfa80eacb3a87b5a395ae73eca8878ba4563d32dc74cb2343f939abadf2c4",
+      "bytes": 72773
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/build-output.json",
+      "sha256": "2417ceede183fb37765d3e1bb888694a2f73fd797e0f73ba07a28f77b8102ba1",
+      "bytes": 12159
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/checks.json",
+      "sha256": "ccae22e88d852fb8967f25cdf1ddf9dcc815c88c7da77b78b1ab4347d59a3d9d",
+      "bytes": 6347
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-narrow-results.json",
+      "sha256": "342ee457e9d0220f95578691dc61aa0c6dabf7a5766fabf5955c754cf21f3818",
+      "bytes": 5239
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/structured-regression-results.json",
+      "sha256": "19289f861802685a948a099351208c0f62df4aae12df3951412d0a13bbf4ee97",
+      "bytes": 7804
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-narrow-attempt-1-results.json",
+      "sha256": "b15ee8094c4bed837a8225d9b83a5c96d5ef0e8081236b09421c29894ae8b686",
+      "bytes": 916
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/persisted-counterexample.json",
+      "sha256": "29b1ce7a2f12f275371f9e75ff939c652edded7433b071ec40de9bc78af9b2fb",
+      "bytes": 22720
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/lint-attempt-1.json",
+      "sha256": "e9468cc62ab7e58fd7b983a58e9acc87114fd7eebef5073badf6037c758b9315",
+      "bytes": 876
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/persisted-result.json",
+      "sha256": "79cb9cee141e0343f6ecb2e55a8e985142f76e21715debe86a79f68c05f21c3c",
+      "bytes": 6402
+    },
+    {
+      "path": "/private/tmp/pairvu-upg05-qa-yfej9sy1/persisted-counterexample.json",
+      "sha256": "f1047fbff268109ec50e744c1b805534a66be515923123dba90a41d21e2ae90c",
+      "bytes": 22720
+    }
+  ]
+}

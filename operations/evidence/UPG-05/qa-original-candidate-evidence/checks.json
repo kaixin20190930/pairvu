@@ -1,0 +1,114 @@
+{
+  "unitId": "UPG-05",
+  "kind": "manual-review-development",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING",
+  "baselineSha": "d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065",
+  "recordedAt": "2026-10-11T10:34:51.338935+00:00",
+  "roles": {
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "reason": "Verified user/workspace ownership, D1 atomic CAS/audit and UI conflict/uncertain retry across layers per active contract"
+  },
+  "checks": [
+    {
+      "command": "pnpm test:review-decisions --report fixtures/review-decisions/results.json",
+      "exitCode": 0,
+      "cases": 35,
+      "localD1Requests": 588,
+      "evidence": "results.json"
+    },
+    {
+      "command": "Actual in-app browser opens local instrumented ProductChecker/ReviewDecision fixture",
+      "status": "PASS",
+      "desktopCases": 15,
+      "narrowCases": 15,
+      "evidence": [
+        "browser-desktop-results.json",
+        "browser-narrow-results.json"
+      ],
+      "bindings": "All five actual UI/CSS/fixture source hashes checked against current working tree"
+    },
+    {
+      "command": "pnpm test:structured-evidence --report fixtures/review-decisions/structured-regression-results.json",
+      "exitCode": 0,
+      "cases": 49,
+      "evidence": "structured-regression-results.json"
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "exitCode": 0,
+      "output": "M1 workspace analysis verification passed. Verified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "Targeted eslint for review/auth/API/test/UI and ProductChecker files",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm run build",
+      "exitCode": 0,
+      "count": 1,
+      "evidence": "build-output.json",
+      "scope": "One necessary local Next build of the current worktree; not a production build/deployment or release SHA claim"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "preservedFailures": [
+    {
+      "evidence": "attempt-1-results.json",
+      "cause": "Rollback assertion compared dynamic D1 result metadata; corrected to compare actual table rows. Original FAIL retained.",
+      "sourceHashLimitation": "Initial script was edited while that yielded run was active; its finally-time source hashes are not asserted to identify the exact original loaded test module."
+    },
+    {
+      "evidence": [
+        "browser-desktop-attempt-1-results.json",
+        "browser-narrow-attempt-1-results.json"
+      ],
+      "cause": "Fixture hardcoded REVIEW while original machine verdict was FAIL; assertion now uses actual source verdict, machine data unchanged."
+    },
+    {
+      "evidence": "lint-attempt-1.json",
+      "cause": "Render ref rule and prefer-const; fixed without weakening lint."
+    }
+  ],
+  "retention": "Existing deletion/expiry updates assets and removes R2 objects, retains analyses. Audit retains metadata and actor ID with restrictive FKs; future account hard deletion requires a separately authorized retention policy. No business purge route added.",
+  "limitations": [
+    "Actual local D1 does not verify remote primary/replica behavior. Session/account snapshot external boundaries were synthetic; actual route, access resolver, owner membership, repository and migrations were executed.",
+    "Browser uses actual React components and DOM with synthetic API/session; 375px same-origin iframe, not an independent mobile browser/device.",
+    "Browser connector navigation had long waits but both actual final browser reports are PASS and match current source bytes. No tool permission request was received.",
+    "No live model, payment, customer assets, production credentials/data, push or deploy. UPG-05 has no production authorization.",
+    "Human approval remains separate from machine verdict and confers no release eligibility.",
+    "The audit is append-only for ordinary business DML; an administrator capable of changing DDL is outside that protection."
+  ],
+  "candidateSourceHashes": {
+    "migrations/0021_review_decisions.sql": "729ef74e7b58f89c621a6e184c4d5f4e7fd75c7ae96ae40021e09dda2ca16ea8",
+    "lib/auth/request-access.ts": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+    "lib/reviews/types.ts": "ad82803ab4e28b7958fc6435dcd8ad4781f265faf2225ab33177bf1e49f1c109",
+    "lib/reviews/validation.ts": "bb8620ddeb5e1b70a23dcebfd4315ea0679061a5b05283bbf140eb806f2005df",
+    "lib/reviews/repository.ts": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+    "lib/reviews/http.ts": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+    "app/api/analyses/[analysisId]/reviews/route.ts": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205",
+    "components/ReviewDecision.tsx": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+    "components/ProductChecker.tsx": "197184f273cf668593c8acfece1a11f6966787c71462c1ff21fd204e22a757af",
+    "app/globals.css": "d3b77169a7c20c79d54ec6eb6e7a177d9d60d955f205dfed42451243109f7d6e",
+    "package.json": "1987903e1546dada4990c4b608d4113d7c79d4967c9eeac7c8427df1e0bc25a0",
+    "scripts/verify-review-decisions.ts": "a973ea4a5dc93bfdfdcdec1c0d079ce517174d4fdb0e5b3bf3b628a9261fc4ea",
+    "fixtures/review-decisions/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "fixtures/review-decisions/ui-entry.tsx": "8f460493977d4b5c82f7a611e145c8c3afb8752787bcf70e2abcd576e3e6e06e",
+    "fixtures/review-decisions/ui-server.mjs": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917",
+    "docs/01-architecture/review-decisions-contract.md": "015c77eca55cc0e216fa8abacd3088bd3640bd0aa1073d8f2b6b9bbd0588b602"
+  },
+  "browserScreenshot": {
+    "path": "fixtures/review-decisions/browser-review-proof.png",
+    "sha256": "f01cfa80eacb3a87b5a395ae73eca8878ba4563d32dc74cb2343f939abadf2c4",
+    "observed": "Machine FAIL remains while human current decision is approve at revision 7; explicit no-release-eligibility text and escaped note visible."
+  },
+  "buildOutputEncoding": "Exact terminal bytes preserved in JSON/base64; cached diff initially flagged terminal CR/trailing spaces in .txt, no code/build change."
+}

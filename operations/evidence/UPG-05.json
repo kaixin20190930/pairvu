@@ -1,0 +1,124 @@
+{
+  "unitId": "UPG-05",
+  "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "baselineSha": "d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T14:39:50.788908+00:00",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "Fixed committed archive at 736e61f7b7c1ffe4e886ef4b5821d79049265621; baseline ancestry, full diff, source hashes and final whitespace checks passed.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-source-verification.json"
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": "Independent reviewer constructed 8 additional D1 and 8 additional viewport UI cases, executed tests in isolated archive, and did not edit shared application source.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-command-results.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-source-index.json"
+      ]
+    },
+    {
+      "name": "authenticated actor and workspace isolation",
+      "status": "PASS",
+      "detail": "Real API route and request-access resolver with controlled session/account boundaries: anonymous/foreign/forged actor/workspace/time rejected; inactive membership and ownership race leave no audit event.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-independent-d1-results.json"
+      ]
+    },
+    {
+      "name": "D1 CAS, idempotency and atomic rollback",
+      "status": "PASS",
+      "detail": "43 cases, 798 local workerd D1 requests; two-worker same-base and same-key payload races; 7 batch failure boundaries, existing-head rollback, zero-row final guard and lost response retries passed.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-independent-d1-results.json"
+      ]
+    },
+    {
+      "name": "append-only audit, revoke and retention",
+      "status": "PASS",
+      "detail": "Approve/reject/revoke/re-decide chain and machine snapshot hash retained; UPDATE/DELETE/REPLACE blocked; parent RESTRICT and existing asset tombstone/expiry compatibility passed.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-independent-d1-results.json"
+      ]
+    },
+    {
+      "name": "actual React browser desktop and narrow",
+      "status": "PASS",
+      "detail": "19 cases per viewport; 409 draft retention/failed refresh/manual reconfirmation, committed and uncommitted 503 stable-payload retry, escaped HTML, anonymous isolation, machine DOM unchanged and older-result remount passed. Narrow content width 373px; panel and scroll width both 339px.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-desktop-results.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/browser-narrow-results.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-browser-human-panel.png"
+      ]
+    },
+    {
+      "name": "related regressions and typecheck",
+      "status": "PASS",
+      "detail": "49 structured-evidence regression cases, workspace-analysis regression and tsc --noEmit passed.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-structured-regression.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-command-results.json"
+      ]
+    },
+    {
+      "name": "one build evidence reuse",
+      "status": "PASS",
+      "detail": "Developer's successful build terminal bytes and bound source hashes verified; no independent QA build rerun.",
+      "evidence": [
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/fixtures/review-decisions/build-output.json",
+        "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-source-verification.json"
+      ]
+    }
+  ],
+  "reviewRole": {
+    "role": "independent acceptance",
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Cross-session ownership, real D1 concurrency/rollback, audit integrity and UI recovery require independent adversarial acceptance.",
+    "escalationCondition": "Repeated failure attributable to reasoning insufficiency; environment failure alone does not justify escalation.",
+    "runtimeSettingNote": "Controller-selected role recorded; QA did not use a model-setting tool or claim to change actual runtime."
+  },
+  "evidenceDirectory": "/private/tmp/pairvu-upg05-qa-yfej9sy1",
+  "sourceIndex": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-source-index.json",
+  "sourceIndexSha256": "54a0824bbb04f558d6c7eb30baa41049e7f23de303810e0094c3b5be81d091db",
+  "commandResults": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-command-results.json",
+  "counts": {
+    "localD1": 43,
+    "localD1TransportRequests": 798,
+    "browserDesktop": 19,
+    "browserNarrow": 19,
+    "structuredRegression": 49,
+    "independentNewD1Cases": 8,
+    "independentNewBrowserCases": 8
+  },
+  "evidencePreservation": {
+    "originalCandidateEvidence": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence",
+    "originalFailureEvidencePreserved": true,
+    "sharedWorkingTreeEditsByQA": false,
+    "details": "Candidate failure and success artifacts preserved byte-for-byte from Git. QA fixture modifications and new test outputs exist only in /private/tmp. Controller registry/roadmap changes preserved."
+  },
+  "limitations": [
+    "Local independent acceptance only. No production deployment, feature enablement or production acceptance claim.",
+    "Actual local workerd D1 and production migrations/repositories/API used; session and account boundaries controlled. No production authentication, remote D1/replicas, model, payment or R2 calls.",
+    "Actual candidate React components rendered with synthetic session/API responses. Narrow screen verified using 375px iframe/373px content viewport, not a separate mobile device.",
+    "Older completed-result isolation verified by actual ProductChecker remount; production parent keys the review component by analysis ID. No claim of an in-place standalone prop-switch test.",
+    "Append-only audit applies to ordinary business SQL constrained by triggers/FKs; privileged schema administrators are outside this guarantee. Future account hard-delete requires an explicit retention policy.",
+    "Build verification reuses developer evidence by explicit budget authorization; it is not an independently executed QA build.",
+    "Raw D1/browser/regression assertion outputs, commands and hashes saved; complete raw stdout for every shell command was not retained."
+  ],
+  "completion": {
+    "implementation": "Independent acceptance PASS for the exact candidate.",
+    "deployment": "Not authorized; not performed.",
+    "featureEnablement": "Not performed in production.",
+    "acceptance": "Local fixed-SHA acceptance PASS; eligible for controller RELEASE_READY, not production verification.",
+    "nextAction": "Controller imports this report, binds it to the exact candidate, and records RELEASE_READY.",
+    "dependency": "Controller report import; production release subsequently requires explicit user authorization and the repository GitHub-first deployment sequence.",
+    "proceedAutomatically": "Controller can automatically record RELEASE_READY; production release requires user input."
+  }
+}

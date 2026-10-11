@@ -1,0 +1,24 @@
+{
+  "unitId": "UPG-05",
+  "synthetic": true,
+  "mode": "desktop",
+  "status": "FAIL",
+  "cases": [],
+  "requests": [
+    {
+      "method": "GET"
+    }
+  ],
+  "errors": [],
+  "failure": "Error: Independent verdict disclaimer",
+  "limitations": [
+    "Actual ProductChecker/ReviewDecision React DOM; synthetic session/API only. Real D1 proof recorded separately."
+  ],
+  "sources": {
+    "components/ReviewDecision.tsx": "e7c54bfd831209a28b55120a360dbcfca8a0bed3af667699ca8fd72e6a08504b",
+    "components/ProductChecker.tsx": "197184f273cf668593c8acfece1a11f6966787c71462c1ff21fd204e22a757af",
+    "app/globals.css": "d3b77169a7c20c79d54ec6eb6e7a177d9d60d955f205dfed42451243109f7d6e",
+    "fixtures/review-decisions/ui-entry.tsx": "0f255ed2029c0fd76151511c2c1427aa3a3a26b1ec70ee07fff94abef18e545a",
+    "fixtures/review-decisions/ui-server.mjs": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917"
+  }
+}

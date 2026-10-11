@@ -1,0 +1,198 @@
+{
+  "unitId": "UPG-05",
+  "synthetic": true,
+  "status": "FAIL",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "name": "all 21 actual migrations preserve exact old completed result and empty human history",
+      "status": "PASS"
+    },
+    {
+      "name": "approve/reject/revoke/re-decide append chain, server clock and original machine snapshot",
+      "status": "PASS",
+      "detail": {
+        "history": [
+          {
+            "id": "af933b6c-b221-4748-8b26-d3d396424349",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "6c871c8d-1440-4c2a-8a13-9d9e6bbacdac",
+            "expectedRevision": 0,
+            "revision": 1,
+            "previousDecisionId": null,
+            "action": "approve",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T09:34:56.682Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T09:34:56.273Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "ebe41f1effec32a3fb44de4750e76c66c59eb5c17fd0bec6f5a8756a73a9cafa"
+          },
+          {
+            "id": "5a830474-115e-4e40-968d-7da2f08c2b26",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "ee29416c-5200-464b-a263-7cb60f22127c",
+            "expectedRevision": 1,
+            "revision": 2,
+            "previousDecisionId": "af933b6c-b221-4748-8b26-d3d396424349",
+            "action": "reject",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T09:34:56.713Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T09:34:56.273Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "ebe41f1effec32a3fb44de4750e76c66c59eb5c17fd0bec6f5a8756a73a9cafa"
+          },
+          {
+            "id": "b7cc9f66-ef4f-441a-aa02-c90816d97a7a",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "bb77c0ff-af6b-4c1f-8a14-b65bc0867afc",
+            "expectedRevision": 2,
+            "revision": 3,
+            "previousDecisionId": "5a830474-115e-4e40-968d-7da2f08c2b26",
+            "action": "revoke",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T09:34:56.746Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T09:34:56.273Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "ebe41f1effec32a3fb44de4750e76c66c59eb5c17fd0bec6f5a8756a73a9cafa"
+          },
+          {
+            "id": "dce10e6d-bf1a-4fdc-be29-1c189abd8623",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "ac843f7c-344f-4c83-8bba-de78f684f980",
+            "expectedRevision": 3,
+            "revision": 4,
+            "previousDecisionId": "b7cc9f66-ef4f-441a-aa02-c90816d97a7a",
+            "action": "approve",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T09:34:56.779Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T09:34:56.273Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "ebe41f1effec32a3fb44de4750e76c66c59eb5c17fd0bec6f5a8756a73a9cafa"
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing current decision and consecutive revoke rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous, foreign workspace, forged actor, missing and unfinished analysis rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "same-key replay after later revision returns original event, new payload conflicts",
+      "status": "PASS"
+    },
+    {
+      "name": "two Worker requests with same base revision commit exactly one event/head",
+      "status": "PASS",
+      "detail": [
+        {
+          "status": "rejected",
+          "error": "review_revision_conflict"
+        },
+        {
+          "status": "fulfilled",
+          "id": "1f36a1f0-ad16-4138-9fbb-38d477732343"
+        }
+      ]
+    },
+    {
+      "name": "same-key concurrent race returns one stable event without duplicate counting",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 0/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 1/6 rolls back audit/head/guards",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n- '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":1,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n"
+    }
+  ],
+  "sources": {
+    "migrations/0021_review_decisions.sql": "f997697414093e0403f58c7de756307d1abb564c5325f650079e1d8681c21157",
+    "lib/auth/request-access.ts": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+    "lib/reviews/types.ts": "ad82803ab4e28b7958fc6435dcd8ad4781f265faf2225ab33177bf1e49f1c109",
+    "lib/reviews/validation.ts": "bb8620ddeb5e1b70a23dcebfd4315ea0679061a5b05283bbf140eb806f2005df",
+    "lib/reviews/repository.ts": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+    "lib/reviews/http.ts": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+    "app/api/analyses/[analysisId]/reviews/route.ts": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205",
+    "scripts/verify-review-decisions.ts": "b7662733fecd4f46e57c1dce04564e1be72c2fbd31e34cbb87e41539edba0b81",
+    "fixtures/review-decisions/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b"
+  },
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-reviews-oI3F6I",
+  "limitations": [
+    "Actual local workerd D1, production migrations, repositories and dedicated API route; synthetic server session and account snapshot boundaries only.",
+    "No remote D1, replica behavior, production auth session, model, R2 or payment calls.",
+    "Browser component verification recorded separately."
+  ],
+  "failure": {
+    "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n- '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":1,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":1,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n- '[{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":1,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":1,\"rows_written\":0},\"results\":[]},{\"success\":true,\"meta\":{\"served_by\":\"miniflare.db\",\"duration\":0,\"changes\":0,\"last_row_id\":12,\"changed_db\":false,\"size_after\":729088,\"rows_read\":0,\"rows_written\":0},\"results\":[]}]'\n\n    at <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-review-decisions.ts:60:341)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-review-decisions.ts:40:79)\n    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-review-decisions.ts:60:47)"
+  },
+  "requestCount": 294
+}

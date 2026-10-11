@@ -1,0 +1,328 @@
+Browser tab: 10, Title: "Pairvu synthetic human review QA", URL: "http://127.0.0.1:59069/?mode=desktop&analysis=qa-older-completed-no-review".
+0 AXWebArea Pairvu synthetic human review QA, URL: 127.0.0.1:59069/?mode=desktop&analysis=qa-older-completed-no-review
+	1 heading Pairvu human review · synthetic QA, Value: 1
+		2 text Pairvu human review · synthetic QA
+	166 text PASS: 19 desktop human review cases
+	167 container checker
+		168 text PAIRVU AI PRODUCT IMAGE CHECKER
+		169 heading Did AI change your product?, Value: 1, ID: headline
+			170 text Did AI change your product?
+		171 text Quality control for AI product photography.
+		172 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+		173 container Pairvu
+		174 container Use two views that make the same product details observable
+			175 text YOUR FIRST CHECK
+			176 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+				177 text Use two views that make the same product details observable
+			178 content list
+				179 container
+					180 text 1. Approved original Use the product image you trust.
+				181 container
+					182 text 2. Candidate Add the generated, edited, or proposed image.
+				183 container
+					184 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+			185 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+		186 container
+			187 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+			188 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+			189 text Approved original
+			190 image Reference preview
+		191 container
+			192 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+			193 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+			194 text Image checked
+			195 image Candidate preview
+		196 container
+			197 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+			198 link Description: Privacy details, Value: 127.0.0.1:59069/privacy
+		199 button Check image
+		200 button Check another image
+		201 container FAIL
+			202 text VERDICT
+			203 heading FAIL, Value: 2, ID: verdict-title
+				204 text FAIL
+		205 container Actual detected fidelity issues
+			206 text PRODUCT DIFFERENCES
+			207 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+				208 text Actual detected fidelity issues
+			209 container
+				210 text Logo changed  ·  Critical  ·  High confidence Directly visible synthetic brand marks differ. Logo  · Brand changed
+				211 definition list
+					212 container REFERENCE · VISIBLE EXPECTED
+						213 text REFERENCE · VISIBLE EXPECTED
+					214 text Visible synthetic mark ALPHA
+					215 container CANDIDATE · OBSERVED
+						216 text CANDIDATE · OBSERVED
+					217 text Visible synthetic mark BETA
+					218 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+						219 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+					220 text ALPHA
+					221 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+						222 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+					223 text BETA
+					224 container WHAT CHANGED
+						225 text WHAT CHANGED
+					226 text Brand changed
+					227 container SUMMARY
+						228 text SUMMARY
+					229 text Directly visible synthetic brand marks differ.
+					230 container ORIGINAL VISIBLE
+						231 text ORIGINAL VISIBLE
+					232 text Yes
+					233 container CANDIDATE VISIBLE
+						234 text CANDIDATE VISIBLE
+					235 text Yes
+					236 container VISIBLE EVIDENCE
+						237 text VISIBLE EVIDENCE
+					238 text Synthetic mark labels
+					239 container WHY UNCERTAIN
+						240 text WHY UNCERTAIN
+					241 text —
+				242 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+				243 container Reference · visible expected
+					244 text Reference · visible expected
+					245 image Reference · visible expected image
+					246 container
+						247 text Image zoom
+						248 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+						249 text 100 %
+					250 text Location has not been independently verified; no box is shown.
+				251 container Candidate · observed
+					252 text Candidate · observed
+					253 image Candidate · observed image
+					254 container
+						255 text Image zoom
+						256 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+						257 text 100 %
+					258 text Location has not been independently verified; no box is shown.
+		259 container Observability problems and analysis limitations
+			260 text NEEDS REVIEW / COULD NOT VERIFY
+			261 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+				262 text Observability problems and analysis limitations
+			263 text No limitations were recorded.
+		264 container Checks the model reports as matching
+			265 text MODEL-SUPPORTED CHECKS
+			266 heading Checks the model reports as matching, Value: 2, ID: verified-title
+				267 text Checks the model reports as matching
+			268 text No checks were cleanly verified.
+		269 button (collapsed) Analysis provenance, Secondary Actions: Expand
+			270 text Analysis provenance
+		271 container Independent human decision
+			272 text HUMAN REVIEW
+			273 heading Independent human decision, Value: 2, ID: human-review-qa-older-completed-no-review
+				274 text Independent human decision
+			275 container
+				276 text Machine verdict:  fail . Human approval does not establish release eligibility.
+			277 container
+				278 text Current human decision:  None  · Revision  0
+			279 container Decision draft
+				280 text Decision draft
+				281 container
+					282 text Decision
+					283 pop up button (collapsed, settable) Description: Human decision, Value: Approve, Secondary Actions: Expand
+						284 menu
+							285 (disabled) Approve
+							286 (disabled) Reject
+							287 (disabled) Revoke current decision
+				288 container
+					289 text Reason category
+					290 pop up button (collapsed, settable) Description: Review category, Value: other, Secondary Actions: Expand
+						291 menu
+							292 (disabled) false positive
+							293 (disabled) false negative
+							294 (disabled) intentional change
+							295 (disabled) wrong reference
+							296 (disabled) insufficient evidence
+							297 (disabled) other
+				298 container
+					299 text Reason (required, up to 1000 characters)
+					300 text entry area (settable) Review reason
+				301 container
+					302 text Optional note (up to 2000 characters)
+					303 text entry area (settable) Review note
+			304 button (disabled) Record human decision
+			305 button Refresh review history
+			306 button (collapsed) Audit history · latest 0 of up to 100 events, Secondary Actions: Expand
+				307 text Audit history · latest 
+				308 text 0
+				309 text  of up to 100 events
+		310 container Tell us whether this result was right
+			311 text FEEDBACK
+			312 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+				313 text Tell us whether this result was right
+			314 button Correct
+			315 button False alarm
+			316 button Missed something
+	317 container Independent human decision
+		318 text HUMAN REVIEW
+		319 heading Independent human decision, Value: 2, ID: human-review-anonymous-old
+			320 text Independent human decision
+		321 container
+			322 text Machine verdict:  review . Human approval does not establish release eligibility.
+		323 text Sign in with the account that owns this analysis to view or record human decisions.
+	160 container narrow
+		161 heading 375px iframe, Value: 2
+			162 text 375px iframe
+		163 AXWebArea Pairvu synthetic human review QA, URL: 127.0.0.1:59069/?mode=narrow&analysis=qa-older-completed-no-review
+			164 heading Pairvu human review · synthetic QA, Value: 1
+				165 text Pairvu human review · synthetic QA
+			324 text PASS: 19 narrow human review cases
+			325 container checker
+				326 text PAIRVU AI PRODUCT IMAGE CHECKER
+				327 heading Did AI change your product?, Value: 1, ID: headline
+					328 text Did AI change your product?
+				329 text Quality control for AI product photography.
+				330 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+				331 container Pairvu
+				332 container Use two views that make the same product details observable
+					333 text YOUR FIRST CHECK
+					334 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+						335 text Use two views that make the same product details observable
+					336 content list
+						337 container
+							338 text 1. Approved original Use the product image you trust.
+						339 container
+							340 text 2. Candidate Add the generated, edited, or proposed image.
+						341 container
+							342 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+					343 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+				344 container
+					345 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+					346 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+					347 text Approved original
+					348 image Reference preview
+				349 container
+					350 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+					351 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+					352 text Image checked
+					353 image Candidate preview
+				354 container
+					355 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+					356 link Description: Privacy details, Value: 127.0.0.1:59069/privacy
+				357 button Check image
+				358 button Check another image
+				359 container FAIL
+					360 text VERDICT
+					361 heading FAIL, Value: 2, ID: verdict-title
+						362 text FAIL
+				363 container Actual detected fidelity issues
+					364 text PRODUCT DIFFERENCES
+					365 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+						366 text Actual detected fidelity issues
+					367 container
+						368 text Logo changed  ·  Critical  ·  High confidence Directly visible synthetic brand marks differ. Logo  · Brand changed
+						369 definition list
+							370 container REFERENCE · VISIBLE EXPECTED
+								371 text REFERENCE · VISIBLE EXPECTED
+							372 text Visible synthetic mark ALPHA
+							373 container CANDIDATE · OBSERVED
+								374 text CANDIDATE · OBSERVED
+							375 text Visible synthetic mark BETA
+							376 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								377 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							378 text ALPHA
+							379 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								380 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							381 text BETA
+							382 container WHAT CHANGED
+								383 text WHAT CHANGED
+							384 text Brand changed
+							385 container SUMMARY
+								386 text SUMMARY
+							387 text Directly visible synthetic brand marks differ.
+							388 container ORIGINAL VISIBLE
+								389 text ORIGINAL VISIBLE
+							390 text Yes
+							391 container CANDIDATE VISIBLE
+								392 text CANDIDATE VISIBLE
+							393 text Yes
+							394 container VISIBLE EVIDENCE
+								395 text VISIBLE EVIDENCE
+							396 text Synthetic mark labels
+							397 container WHY UNCERTAIN
+								398 text WHY UNCERTAIN
+							399 text —
+						400 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						401 container Reference · visible expected
+							402 text Reference · visible expected
+							403 image Reference · visible expected image
+							404 container
+								405 text Image zoom
+								406 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								407 text 100 %
+							408 text Location has not been independently verified; no box is shown.
+						409 container Candidate · observed
+							410 text Candidate · observed
+							411 image Candidate · observed image
+							412 container
+								413 text Image zoom
+								414 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								415 text 100 %
+							416 text Location has not been independently verified; no box is shown.
+				417 container Observability problems and analysis limitations
+					418 text NEEDS REVIEW / COULD NOT VERIFY
+					419 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+						420 text Observability problems and analysis limitations
+					421 text No limitations were recorded.
+				422 container Checks the model reports as matching
+					423 text MODEL-SUPPORTED CHECKS
+					424 heading Checks the model reports as matching, Value: 2, ID: verified-title
+						425 text Checks the model reports as matching
+					426 text No checks were cleanly verified.
+				427 button (collapsed) Analysis provenance, Secondary Actions: Expand
+					428 text Analysis provenance
+				429 container Independent human decision
+					430 text HUMAN REVIEW
+					431 heading Independent human decision, Value: 2, ID: human-review-qa-older-completed-no-review
+						432 text Independent human decision
+					433 container
+						434 text Machine verdict:  fail . Human approval does not establish release eligibility.
+					435 container
+						436 text Current human decision:  None  · Revision  0
+					437 container Decision draft
+						438 text Decision draft
+						439 container
+							440 text Decision
+							441 pop up button (collapsed, settable) Description: Human decision, Value: Approve, Secondary Actions: Expand
+								442 menu
+									443 (disabled) Approve
+									444 (disabled) Reject
+									445 (disabled) Revoke current decision
+						446 container
+							447 text Reason category
+							448 pop up button (collapsed, settable) Description: Review category, Value: other, Secondary Actions: Expand
+								449 menu
+									450 (disabled) false positive
+									451 (disabled) false negative
+									452 (disabled) intentional change
+									453 (disabled) wrong reference
+									454 (disabled) insufficient evidence
+									455 (disabled) other
+						456 container
+							457 text Reason (required, up to 1000 characters)
+							458 text entry area (settable) Review reason
+						459 container
+							460 text Optional note (up to 2000 characters)
+							461 text entry area (settable) Review note
+					462 button (disabled) Record human decision
+					463 button Refresh review history
+					464 button (collapsed) Audit history · latest 0 of up to 100 events, Secondary Actions: Expand
+						465 text Audit history · latest 
+						466 text 0
+						467 text  of up to 100 events
+				468 container Tell us whether this result was right
+					469 text FEEDBACK
+					470 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+						471 text Tell us whether this result was right
+					472 button Correct
+					473 button False alarm
+					474 button Missed something
+			475 container Independent human decision
+				476 text HUMAN REVIEW
+				477 heading Independent human decision, Value: 2, ID: human-review-anonymous-old
+					478 text Independent human decision
+				479 container
+					480 text Machine verdict:  review . Human approval does not establish release eligibility.
+				481 text Sign in with the account that owns this analysis to view or record human decisions.
+
+The focused UI element is 0 AXWebArea Pairvu synthetic human review QA, URL: 127.0.0.1:59069/?mode=desktop&analysis=qa-older-completed-no-review

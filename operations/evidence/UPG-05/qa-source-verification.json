@@ -1,0 +1,219 @@
+{
+  "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "candidateSources": [
+    {
+      "path": "migrations/0021_review_decisions.sql",
+      "sha256": "729ef74e7b58f89c621a6e184c4d5f4e7fd75c7ae96ae40021e09dda2ca16ea8",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "729ef74e7b58f89c621a6e184c4d5f4e7fd75c7ae96ae40021e09dda2ca16ea8",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "lib/auth/request-access.ts",
+      "sha256": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "lib/reviews/types.ts",
+      "sha256": "ad82803ab4e28b7958fc6435dcd8ad4781f265faf2225ab33177bf1e49f1c109",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "ad82803ab4e28b7958fc6435dcd8ad4781f265faf2225ab33177bf1e49f1c109",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "lib/reviews/validation.ts",
+      "sha256": "bb8620ddeb5e1b70a23dcebfd4315ea0679061a5b05283bbf140eb806f2005df",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "bb8620ddeb5e1b70a23dcebfd4315ea0679061a5b05283bbf140eb806f2005df",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "lib/reviews/repository.ts",
+      "sha256": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "lib/reviews/http.ts",
+      "sha256": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "app/api/analyses/[analysisId]/reviews/route.ts",
+      "sha256": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "components/ReviewDecision.tsx",
+      "sha256": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "components/ProductChecker.tsx",
+      "sha256": "197184f273cf668593c8acfece1a11f6966787c71462c1ff21fd204e22a757af",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "197184f273cf668593c8acfece1a11f6966787c71462c1ff21fd204e22a757af",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "d3b77169a7c20c79d54ec6eb6e7a177d9d60d955f205dfed42451243109f7d6e",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "d3b77169a7c20c79d54ec6eb6e7a177d9d60d955f205dfed42451243109f7d6e",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "1987903e1546dada4990c4b608d4113d7c79d4967c9eeac7c8427df1e0bc25a0",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "1987903e1546dada4990c4b608d4113d7c79d4967c9eeac7c8427df1e0bc25a0",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "scripts/verify-review-decisions.ts",
+      "sha256": "a973ea4a5dc93bfdfdcdec1c0d079ce517174d4fdb0e5b3bf3b628a9261fc4ea",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "a973ea4a5dc93bfdfdcdec1c0d079ce517174d4fdb0e5b3bf3b628a9261fc4ea",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "fixtures/review-decisions/sql-worker.mjs",
+      "sha256": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "fixtures/review-decisions/ui-entry.tsx",
+      "sha256": "8f460493977d4b5c82f7a611e145c8c3afb8752787bcf70e2abcd576e3e6e06e",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "2e633afc085418ecb64421b0d22908ac9c5d977091d8e2f2eee55eb61ce55dcf",
+      "currentQaArchiveMatchesCandidate": false
+    },
+    {
+      "path": "fixtures/review-decisions/ui-server.mjs",
+      "sha256": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917",
+      "currentQaArchiveMatchesCandidate": true
+    },
+    {
+      "path": "docs/01-architecture/review-decisions-contract.md",
+      "sha256": "015c77eca55cc0e216fa8abacd3088bd3640bd0aa1073d8f2b6b9bbd0588b602",
+      "matchesCommittedCandidate": true,
+      "currentQaArchiveSha256": "015c77eca55cc0e216fa8abacd3088bd3640bd0aa1073d8f2b6b9bbd0588b602",
+      "currentQaArchiveMatchesCandidate": true
+    }
+  ],
+  "buildReuse": {
+    "path": "fixtures/review-decisions/build-output.json",
+    "result": "PASS",
+    "rawSha256": "d2d53fb565a86cac10ce24862a509ffe9d75a2d9bc4ea38b43de0cf4b0eae3af",
+    "sourcesMatch": true,
+    "limitation": "Existing developer one local build, reused by explicit test budget; QA did not run it and no production build claim.",
+    "verification": "Original terminal bytes SHA-256 and exit code verified; 16 committed source hashes verified before QA test-fixture override. Build was not independently rerun."
+  },
+  "sharedWorkingTreeStatus": " M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/task-registry.json\n",
+  "completeDiff": "A\tapp/api/analyses/[analysisId]/reviews/route.ts\nM\tapp/globals.css\nM\tcomponents/ProductChecker.tsx\nA\tcomponents/ReviewDecision.tsx\nA\tdocs/01-architecture/review-decisions-contract.md\nA\tfixtures/review-decisions/attempt-1-results.json\nA\tfixtures/review-decisions/browser-desktop-attempt-1-results.json\nA\tfixtures/review-decisions/browser-desktop-results.json\nA\tfixtures/review-decisions/browser-narrow-attempt-1-results.json\nA\tfixtures/review-decisions/browser-narrow-results.json\nA\tfixtures/review-decisions/browser-review-proof.png\nA\tfixtures/review-decisions/build-output.json\nA\tfixtures/review-decisions/checks.json\nA\tfixtures/review-decisions/lint-attempt-1.json\nA\tfixtures/review-decisions/persisted-counterexample.json\nA\tfixtures/review-decisions/persisted-result.json\nA\tfixtures/review-decisions/results.json\nA\tfixtures/review-decisions/sql-worker.mjs\nA\tfixtures/review-decisions/structured-regression-results.json\nA\tfixtures/review-decisions/ui-entry.tsx\nA\tfixtures/review-decisions/ui-server.mjs\nM\tlib/auth/request-access.ts\nA\tlib/reviews/http.ts\nA\tlib/reviews/repository.ts\nA\tlib/reviews/types.ts\nA\tlib/reviews/validation.ts\nA\tmigrations/0021_review_decisions.sql\nM\tpackage.json\nA\tscripts/verify-review-decisions.ts\n",
+  "qaFixtureOverrides": [
+    {
+      "path": "fixtures/review-decisions/ui-entry.tsx",
+      "scope": "QA temporary test fixture only; production component source unchanged",
+      "originalSha256": "8f460493977d4b5c82f7a611e145c8c3afb8752787bcf70e2abcd576e3e6e06e",
+      "executedSha256": "2e633afc085418ecb64421b0d22908ac9c5d977091d8e2f2eee55eb61ce55dcf",
+      "originalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-ui-entry.tsx.txt",
+      "reason": "Four independent UI scenarios per viewport added to the controlled test entry."
+    }
+  ],
+  "finalVerifiedAt": "2026-10-11T14:39:50.788908+00:00",
+  "finalSharedWorkingTreeStatus": " M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/task-registry.json\n",
+  "preservedCandidateOriginalEvidence": [
+    {
+      "committedPath": "fixtures/review-decisions/attempt-1-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/attempt-1-results.json",
+      "sha256": "f104db28d6fc0d1a516a80a61b57f9e93272f83159b81552cd68cbe75c30e13a",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/browser-desktop-attempt-1-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-desktop-attempt-1-results.json",
+      "sha256": "0e7f3de570292e1bf7e19961a84b8fda06a2de172e3e4df5f84c59bde805efdb",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/browser-desktop-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-desktop-results.json",
+      "sha256": "981e6610e22b0c1eb5d55f7801a5d6efcfc3b875a6d347a0b2f5450a7936439f",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/browser-narrow-attempt-1-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-narrow-attempt-1-results.json",
+      "sha256": "b15ee8094c4bed837a8225d9b83a5c96d5ef0e8081236b09421c29894ae8b686",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/browser-narrow-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-narrow-results.json",
+      "sha256": "342ee457e9d0220f95578691dc61aa0c6dabf7a5766fabf5955c754cf21f3818",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/browser-review-proof.png",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/browser-review-proof.png",
+      "sha256": "f01cfa80eacb3a87b5a395ae73eca8878ba4563d32dc74cb2343f939abadf2c4",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/build-output.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/build-output.json",
+      "sha256": "2417ceede183fb37765d3e1bb888694a2f73fd797e0f73ba07a28f77b8102ba1",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/checks.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/checks.json",
+      "sha256": "ccae22e88d852fb8967f25cdf1ddf9dcc815c88c7da77b78b1ab4347d59a3d9d",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/lint-attempt-1.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/lint-attempt-1.json",
+      "sha256": "e9468cc62ab7e58fd7b983a58e9acc87114fd7eebef5073badf6037c758b9315",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/persisted-counterexample.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/persisted-counterexample.json",
+      "sha256": "29b1ce7a2f12f275371f9e75ff939c652edded7433b071ec40de9bc78af9b2fb",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/persisted-result.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/persisted-result.json",
+      "sha256": "3d46df2bc76293f6d04ef95ee4926926e2683616045823a63722a29fbd04d284",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/results.json",
+      "sha256": "4a5e23f39b9c41d575d22358d358e39851d64e0ab1b2d7e75f5c01d77a9a29c7",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    },
+    {
+      "committedPath": "fixtures/review-decisions/structured-regression-results.json",
+      "savedOriginalPath": "/private/tmp/pairvu-upg05-qa-yfej9sy1/qa-original-candidate-evidence/structured-regression-results.json",
+      "sha256": "19289f861802685a948a099351208c0f62df4aae12df3951412d0a13bbf4ee97",
+      "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621"
+    }
+  ]
+}

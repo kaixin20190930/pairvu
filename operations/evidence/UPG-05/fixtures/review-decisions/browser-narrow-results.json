@@ -1,0 +1,284 @@
+{
+  "unitId": "UPG-05",
+  "synthetic": true,
+  "mode": "narrow",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "restored actual ProductChecker displays separate machine verdict and human release disclaimer",
+      "status": "PASS"
+    },
+    {
+      "name": "reason required; old completed result has no invented human approval",
+      "status": "PASS"
+    },
+    {
+      "name": "approve with category/reason and HTML note appends visible escaped audit",
+      "status": "PASS"
+    },
+    {
+      "name": "reject is separate from the machine verdict",
+      "status": "PASS"
+    },
+    {
+      "name": "revoke appends history and clears only current human decision",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit re-decision after revoke succeeds",
+      "status": "PASS"
+    },
+    {
+      "name": "409 preserves reason/note and blocks automatic new submission",
+      "status": "PASS"
+    },
+    {
+      "name": "loading latest retains draft and requires explicit renewed confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "renewed confirmation uses latest revision and new request ID",
+      "status": "PASS"
+    },
+    {
+      "name": "503 uncertain outcome locks draft/new submission",
+      "status": "PASS"
+    },
+    {
+      "name": "retry after lost committed response reuses exact payload/key and adds no duplicate",
+      "status": "PASS"
+    },
+    {
+      "name": "all human actions leave actual machine evidence/provenance DOM unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous component exposes no history or mutation controls and sends no review fetch",
+      "status": "PASS"
+    },
+    {
+      "name": "viewport layout has no human-panel horizontal overflow",
+      "status": "PASS",
+      "detail": {
+        "viewport": 373,
+        "panelWidth": 339,
+        "scrollWidth": 339,
+        "columns": "303px"
+      }
+    },
+    {
+      "name": "QA failed refresh after 409 keeps draft locked until successful explicit confirmation",
+      "status": "PASS"
+    },
+    {
+      "name": "QA uncommitted 503 locks payload and retries one stable request exactly once",
+      "status": "PASS",
+      "detail": {
+        "first": {
+          "requestId": "8d816b10-59d4-4753-97f2-4769dde37b74",
+          "expectedRevision": 9,
+          "action": "approve",
+          "category": "other",
+          "reason": "QA retry reason <svg onload=alert(1)>",
+          "note": null
+        },
+        "retry": {
+          "requestId": "8d816b10-59d4-4753-97f2-4769dde37b74",
+          "expectedRevision": 9,
+          "action": "approve",
+          "category": "other",
+          "reason": "QA retry reason <svg onload=alert(1)>",
+          "note": null
+        },
+        "eventsBefore": 9,
+        "eventsAfter": 10
+      }
+    },
+    {
+      "name": "QA original machine DOM still unchanged after extra conflict/retry cases",
+      "status": "PASS"
+    },
+    {
+      "name": "QA older completed result with empty history does not inherit newer approval",
+      "status": "PASS"
+    },
+    {
+      "name": "no browser runtime errors",
+      "status": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET"
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "e1b65f38-c9ea-4ed3-a601-fecaf708d47d",
+        "expectedRevision": 0,
+        "action": "approve",
+        "category": "other",
+        "reason": "Synthetic approval",
+        "note": "<img src=x onerror=alert(1)>"
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "f513af81-ff01-4fc9-ae97-259621af80e9",
+        "expectedRevision": 1,
+        "action": "reject",
+        "category": "other",
+        "reason": "Synthetic rejection",
+        "note": null
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "029b33be-7175-4df6-893e-16bbee46079d",
+        "expectedRevision": 2,
+        "action": "revoke",
+        "category": "other",
+        "reason": "Synthetic revoke",
+        "note": null
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "b6aa4c01-8a4c-4f36-820c-22dc664d3261",
+        "expectedRevision": 3,
+        "action": "approve",
+        "category": "other",
+        "reason": "Synthetic new approval",
+        "note": null
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "f890bc27-853f-42b6-9331-ae30cd2e4f60",
+        "expectedRevision": 4,
+        "action": "approve",
+        "category": "other",
+        "reason": "Conflict draft remains",
+        "note": "Conflict note remains"
+      },
+      "status": 409
+    },
+    {
+      "method": "GET"
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "8266f2c9-fee1-418c-a2e0-89e1bed8616d",
+        "expectedRevision": 5,
+        "action": "approve",
+        "category": "other",
+        "reason": "Conflict draft remains",
+        "note": "Conflict note remains"
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "99c526d5-57f0-497d-8735-0d8b2481f012",
+        "expectedRevision": 6,
+        "action": "approve",
+        "category": "other",
+        "reason": "Ambiguous response decision",
+        "note": null
+      },
+      "status": 503
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "99c526d5-57f0-497d-8735-0d8b2481f012",
+        "expectedRevision": 6,
+        "action": "approve",
+        "category": "other",
+        "reason": "Ambiguous response decision",
+        "note": null
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "32e4b3d9-eeba-42df-9f0c-1ebacf87a72a",
+        "expectedRevision": 7,
+        "action": "approve",
+        "category": "other",
+        "reason": "QA conflict draft",
+        "note": "QA retained note"
+      },
+      "status": 409
+    },
+    {
+      "method": "GET"
+    },
+    {
+      "method": "GET"
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "ea7477e2-6129-4cef-91e0-d97a2292b9fe",
+        "expectedRevision": 8,
+        "action": "approve",
+        "category": "other",
+        "reason": "QA conflict draft",
+        "note": "QA retained note"
+      },
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "8d816b10-59d4-4753-97f2-4769dde37b74",
+        "expectedRevision": 9,
+        "action": "approve",
+        "category": "other",
+        "reason": "QA retry reason <svg onload=alert(1)>",
+        "note": null
+      },
+      "status": 503,
+      "qaNoCommit": true
+    },
+    {
+      "method": "POST",
+      "payload": {
+        "requestId": "8d816b10-59d4-4753-97f2-4769dde37b74",
+        "expectedRevision": 9,
+        "action": "approve",
+        "category": "other",
+        "reason": "QA retry reason <svg onload=alert(1)>",
+        "note": null
+      },
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "scope": "older-empty"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual ProductChecker/ReviewDecision React DOM; synthetic session/API only. Real D1 proof recorded separately."
+  ],
+  "sources": {
+    "components/ReviewDecision.tsx": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+    "components/ProductChecker.tsx": "197184f273cf668593c8acfece1a11f6966787c71462c1ff21fd204e22a757af",
+    "app/globals.css": "d3b77169a7c20c79d54ec6eb6e7a177d9d60d955f205dfed42451243109f7d6e",
+    "fixtures/review-decisions/ui-entry.tsx": "2e633afc085418ecb64421b0d22908ac9c5d977091d8e2f2eee55eb61ce55dcf",
+    "fixtures/review-decisions/ui-server.mjs": "dcf0a5b11da46f75c7b9902a94a4ba6431b66539b1bdf913ccf27e57055ed917"
+  }
+}

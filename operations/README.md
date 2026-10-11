@@ -1,6 +1,6 @@
 # Pairvu 自动开发与独立验收
 
-状态：2026-10-11 UPG-04已GitHub-first发布62787fd/Worker 0da98625-4ba2-4bd9-9609-bba4ad8a6e29，独立HTTP、真实登录及生产raw补证PASS，正式CLI已CLOSED。能力限定为结构证据保存与保守退化，不是可靠定位/完整检测或准确率证明。UPG-05最小契约已开放，复用原开发/QA Sol/high；仅研发及验收授权，生产未授权。后文历史阶段由本段及真实状态覆盖。
+状态：2026-10-11 UPG04已生产验收关闭（62787fd / Worker 0da98625-4ba2-4bd9-9609-bba4ad8a6e29）；UPG05独立本地PASS并正式RELEASE_READY（736e61f），生产未授权。两角色空闲，无活跃回收任务。等待UPG05新授权后按GitHub-first发布；后文带日期记录为历史。
 
 ## 角色与范围
 
@@ -101,3 +101,7 @@ SKU启用及生命周期修复已生产关闭：ce1f2fee7f43735ff6b6f13f38678409
 候选ec5a73d2492eb010dc60571ea90a6d2a0a7af815，独立52项后端和30项浏览器检查PASS，原始报告及失败测试记录保存在operations/evidence/UPG-04.json及UPG-04目录。正式CLI已qa PASS→release-ready；当前没有运行中的开发/QA。生产仍为ce1f2fee7f43735ff6b6f13f3867840943d19471，SKU已启用且真实登录PASS。
 
 下一步：等待UPG-04明确发布授权，再按AGENTS顺序推送、远端核验、部署及生产验收；关闭后制定UPG-05最小契约并重新选择角色模型。单槽不得跳过RELEASE_READY或沿用SKU发布授权。无新授权的重复巡检不重复通知。
+
+## 2026-10-11 UPG05本地独立验收完成
+
+候选736e61f7b7c1ffe4e886ef4b5821d79049265621，原独立QA43项D1/798请求、38项真实组件浏览器、49项结构回归及workspace回归/typecheck PASS，报告operations/evidence/UPG-05.json，原件UPG-05目录。正式qa PASS→release-ready已完成，两角色空闲。UPG05未推送、未生产0021迁移/部署/启用，生产仍62787fd。下一步等待UPG05明确发布授权，再GitHub-first+迁移+Cloudflare+生产登录审计验收；不能继承UPG04授权。无新授权保持RELEASE_READY，不重复派单/部署或跳过依赖启动UPG06，无变化不重复通知。完成报告说明下一步。

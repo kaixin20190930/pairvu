@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "UPG-05",
-  "baselineSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "baselineSha": "d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -12,10 +12,10 @@
       "thinking": "high",
       "reason": "鉴权、D1原子审计与UI冲突处理跨层实现。",
       "upgradeCondition": "仅重复且可定位推理不足再评估更高模型；环境问题不升级。",
-      "applied": false
+      "applied": true
     },
-    "observedStatus": "idle",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:227",
+    "observedStatus": "completed",
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:278",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -33,11 +33,11 @@
       "thinking": "high",
       "reason": "独立验证所有权隔离、并发重放、审计不可变与UI反例。",
       "upgradeCondition": "仅重复且可定位推理不足再评估更高模型；环境问题不升级。",
-      "applied": false
+      "applied": true
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:353",
-    "observedStatus": "idle",
-    "receipt": "operations/evidence/UPG-04.json",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:379",
+    "observedStatus": "completed",
+    "receipt": "operations/evidence/UPG-05.json",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
@@ -60,10 +60,10 @@
       "applied": true
     }
   },
-  "candidateSha": null,
-  "state": "BACKLOG",
+  "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG04生产HTTP/真实登录/只读raw补证PASS，经正式CLI关闭；UPG05最小契约开放，生产未授权。",
+  "notes": "UPG05候选736e61f独立43D1/798请求、38浏览器、49结构回归及typecheck通过，正式RELEASE_READY；未推送部署/生产迁移。生产仍UPG04已验收62787fd。",
   "nextUnitId": "UPG-06",
   "production": {
     "status": "PROD_VERIFIED",
@@ -147,9 +147,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "UPG05单分析人工决定与审计开发→固定SHA独立QA→RELEASE_READY",
-    "dependency": "UPG04已正式CLOSED；UPG05生产需要新授权",
-    "automatic": true
+    "action": "获得UPG05明确发布授权后，GitHub-first核验→0021生产迁移→Cloudflare同SHA部署→生产登录与审计验收",
+    "dependency": "UPG05生产未授权；UPG06须前项关闭及明确契约",
+    "automatic": false
   },
   "completedUnitId": "UPG-04",
   "completedCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
