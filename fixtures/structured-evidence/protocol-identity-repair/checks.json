@@ -1,0 +1,83 @@
+{
+  "unitId": "UPG-04",
+  "kind": "protocol-identity-third-repair-development",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING",
+  "baselineSha": "0b1dd45edca0622ae42021eb090434639aa27193",
+  "recordedAt": "2026-10-11T04:09:22.441542+00:00",
+  "checks": [
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts --original-only fixtures/structured-evidence/protocol-identity-repair/before-fix-results.json",
+      "exitCode": 1,
+      "status": "EXPECTED_FAIL_BEFORE_FIX",
+      "cases": 1,
+      "evidence": "before-fix-results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "cases": 747,
+      "evidence": "results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts fixtures/structured-evidence/protocol-identity-repair/identity-regression-results.json",
+      "exitCode": 0,
+      "status": "PASS",
+      "cases": 55,
+      "evidence": "identity-regression-results.json"
+    },
+    {
+      "command": "pnpm test:structured-evidence --report fixtures/structured-evidence/protocol-identity-repair/structured-regression-results.json",
+      "exitCode": 0,
+      "status": "PASS",
+      "cases": 49,
+      "evidence": "structured-regression-results.json"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm exec eslint lib/qa/identity-evidence.ts lib/qa/identity-protocol.ts lib/ai/providers/openai-vision-provider.ts fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts",
+      "exitCode": 0
+    },
+    {
+      "command": "SHA256 original archive and browser reuse verification",
+      "status": "PASS",
+      "browserCasesReused": 24,
+      "evidence": "browser-reuse-index.json"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "Local build and new browser execution",
+      "status": "NOT_RUN_BY_CONTRACT",
+      "reason": "Unchanged UI/location source hashes verified; final production build remains required."
+    }
+  ],
+  "versions": {
+    "identityGuard": "identity-evidence-003",
+    "promptSuffix": "regions-003",
+    "orchestrator": "m0-qa-engine-008",
+    "riskPolicy": "m0-risk-policy-003",
+    "modelPolicy": "m0-model-policy-002"
+  },
+  "protocolTokenCount": 146,
+  "candidateSourceHashes": {
+    "lib/qa/identity-evidence.ts": "79b16102baf88a5a3fb697e3957adb46d394de2006e495a8be804e535eb6115c",
+    "lib/qa/identity-protocol.ts": "5cfdb03bdec0b46b614fe4eae9e08fe076c50f8fa59e8386186b6dcb32698939",
+    "lib/qa/identity-protocol-catalog.json": "4f2642609390bc81b2af68863d63f5d6c2cf9a5cc307e9edccb9efefb5c17e5a",
+    "lib/ai/providers/openai-vision-provider.ts": "b0e331317cc7c0534897b0a686de883feb273964b38ae3ec922d401400bac090",
+    "docs/01-architecture/structured-evidence-contract.md": "08897a2ba819ee21cc5b1163faa13a1b8a038afa79b9d21f1b70b3dd59e5ac9d",
+    "fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts": "da0ab749183e6cbc04ed5e536244aef9deb50e594621461472af28f8adaa845c"
+  },
+  "limitations": [
+    "Production input is an archived DOM reconstruction, not an original SDK wire payload; replay uses actual schema, mapper and engine with a controlled provider.",
+    "Exact protocol-occupied spellings and template syntax conservatively require human review; no independent visual recognition or model accuracy claim.",
+    "Original production FAIL and complete earlier independent QA FAIL remain preserved; only unchanged 24-case browser evidence reused.",
+    "No UI/location/policy/model/price changes, build/browser rerun, live model traffic, production writes, push or deploy."
+  ]
+}

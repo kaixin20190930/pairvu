@@ -1,0 +1,608 @@
+{
+  "productSnapshot": null,
+  "id": "6760062d-fdc1-4303-a0b0-01e768e8be96",
+  "workspaceId": null,
+  "anonymousSessionId": "d68320bc-ffa4-4b82-97a2-66d329f9fbe4",
+  "referenceAssetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+  "candidateAssetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+  "selectedChecks": [
+    "logo",
+    "visible_text"
+  ],
+  "category": null,
+  "status": "completed",
+  "verdict": "review",
+  "qaEngineVersion": "m0-qa-engine-008",
+  "riskPolicyVersion": "m0-risk-policy-003",
+  "modelPolicyVersion": "m0-model-policy-002",
+  "analysisLatencyMs": 0,
+  "openaiLatencyMs": 6,
+  "estimatedCostUsd": null,
+  "errorCode": null,
+  "errorMessage": null,
+  "createdAt": "2026-10-11T04:08:14.025Z",
+  "updatedAt": "2026-10-11T04:08:14.025Z",
+  "startedAt": "2026-10-11T04:08:14.025Z",
+  "completedAt": "2026-10-11T04:08:14.025Z",
+  "observations": [
+    {
+      "id": "eb582bec-f59b-4865-8ddb-c3eb4921a119",
+      "checkType": "logo",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "confidence": "high",
+      "evidence": {
+        "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+        "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+        "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+        "visibleEvidence": [
+          "black rectangular logo bar at top center"
+        ],
+        "differenceKind": "not_visible",
+        "referenceVisible": false,
+        "candidateVisible": false,
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          }
+        },
+        "raw": {
+          "source": "reconstructed-from-original-DOM-not-SDK-wire",
+          "normalizationReason": "identity_requires_direct_evidence",
+          "identityValidationVersion": "identity-evidence-003",
+          "identityProblemKind": "insufficient",
+          "providerStatus": "match",
+          "providerObservability": {
+            "reference": "observable",
+            "candidate": "observable",
+            "coverage": "sufficient"
+          },
+          "providerEvidence": {
+            "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+            "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+            "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+            "visibleEvidence": [
+              "black rectangular logo bar at top center"
+            ],
+            "differenceKind": "none",
+            "referenceVisible": true,
+            "candidateVisible": true,
+            "regions": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              }
+            },
+            "raw": {
+              "source": "reconstructed-from-original-DOM-not-SDK-wire"
+            },
+            "regionRaw": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+              }
+            }
+          }
+        },
+        "regionRaw": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+          }
+        },
+        "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+      },
+      "explanation": "No meaningful visible difference detected in the logo presence or identity."
+    },
+    {
+      "id": "3b0bd150-3169-42c1-af36-a97d693a8ca6",
+      "checkType": "visible_text",
+      "status": "not_observable",
+      "differenceKind": "not_visible",
+      "observability": {
+        "reference": "not_observable",
+        "candidate": "not_observable",
+        "coverage": "insufficient"
+      },
+      "confidence": "high",
+      "evidence": {
+        "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+        "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+        "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+        "visibleEvidence": [
+          "White square label in center of bottle"
+        ],
+        "differenceKind": "not_visible",
+        "referenceVisible": false,
+        "candidateVisible": false,
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          }
+        },
+        "raw": {
+          "source": "reconstructed-from-original-DOM-not-SDK-wire",
+          "normalizationReason": "identity_requires_direct_evidence",
+          "identityValidationVersion": "identity-evidence-003",
+          "identityProblemKind": "insufficient",
+          "providerStatus": "match",
+          "providerObservability": {
+            "reference": "observable",
+            "candidate": "observable",
+            "coverage": "sufficient"
+          },
+          "providerEvidence": {
+            "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+            "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+            "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+            "visibleEvidence": [
+              "White square label in center of bottle"
+            ],
+            "differenceKind": "none",
+            "referenceVisible": true,
+            "candidateVisible": true,
+            "regions": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              }
+            },
+            "raw": {
+              "source": "reconstructed-from-original-DOM-not-SDK-wire"
+            },
+            "regionRaw": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+              }
+            }
+          }
+        },
+        "regionRaw": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+          }
+        },
+        "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+      },
+      "explanation": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences."
+    }
+  ],
+  "productIssues": [],
+  "limitations": [
+    {
+      "id": "0a9955eb-ea46-4f91-9d91-a84c190867db",
+      "observationId": null,
+      "kind": "limitation",
+      "type": "attribute_not_observable",
+      "sourceCheckType": "logo",
+      "confidence": "high",
+      "message": "logo is not sufficiently observable.",
+      "evidence": {
+        "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+        "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+        "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+        "visibleEvidence": [
+          "black rectangular logo bar at top center"
+        ],
+        "differenceKind": "not_visible",
+        "referenceVisible": false,
+        "candidateVisible": false,
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          }
+        },
+        "raw": {
+          "source": "reconstructed-from-original-DOM-not-SDK-wire",
+          "normalizationReason": "identity_requires_direct_evidence",
+          "identityValidationVersion": "identity-evidence-003",
+          "identityProblemKind": "insufficient",
+          "providerStatus": "match",
+          "providerObservability": {
+            "reference": "observable",
+            "candidate": "observable",
+            "coverage": "sufficient"
+          },
+          "providerEvidence": {
+            "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+            "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+            "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+            "visibleEvidence": [
+              "black rectangular logo bar at top center"
+            ],
+            "differenceKind": "none",
+            "referenceVisible": true,
+            "candidateVisible": true,
+            "regions": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              }
+            },
+            "raw": {
+              "source": "reconstructed-from-original-DOM-not-SDK-wire"
+            },
+            "regionRaw": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+              }
+            }
+          },
+          "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+        },
+        "regionRaw": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+          }
+        },
+        "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+      }
+    },
+    {
+      "id": "4d1b9242-157e-4f41-83c4-1c1976b06649",
+      "observationId": null,
+      "kind": "limitation",
+      "type": "attribute_not_observable",
+      "sourceCheckType": "visible_text",
+      "confidence": "high",
+      "message": "visible_text is not sufficiently observable.",
+      "evidence": {
+        "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+        "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+        "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+        "visibleEvidence": [
+          "White square label in center of bottle"
+        ],
+        "differenceKind": "not_visible",
+        "referenceVisible": false,
+        "candidateVisible": false,
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+            "region": null,
+            "reason": "not_visible",
+            "confidence": null
+          }
+        },
+        "raw": {
+          "source": "reconstructed-from-original-DOM-not-SDK-wire",
+          "normalizationReason": "identity_requires_direct_evidence",
+          "identityValidationVersion": "identity-evidence-003",
+          "identityProblemKind": "insufficient",
+          "providerStatus": "match",
+          "providerObservability": {
+            "reference": "observable",
+            "candidate": "observable",
+            "coverage": "sufficient"
+          },
+          "providerEvidence": {
+            "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+            "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+            "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+            "visibleEvidence": [
+              "White square label in center of bottle"
+            ],
+            "differenceKind": "none",
+            "referenceVisible": true,
+            "candidateVisible": true,
+            "regions": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93",
+                "region": null,
+                "reason": "uncertain_location",
+                "confidence": null
+              }
+            },
+            "raw": {
+              "source": "reconstructed-from-original-DOM-not-SDK-wire"
+            },
+            "regionRaw": {
+              "schemaVersion": 1,
+              "reference": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+              },
+              "candidate": {
+                "coordinateSpace": "analysis_image_normalized",
+                "region": {
+                  "x": 0.35,
+                  "y": 0,
+                  "width": 0.3,
+                  "height": 0.1
+                },
+                "reason": null,
+                "confidence": "high",
+                "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+              }
+            }
+          },
+          "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+        },
+        "regionRaw": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "2ec72e0c-fc97-4aa0-bb59-a27496082adc"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0,
+              "width": 0.3,
+              "height": 0.1
+            },
+            "reason": null,
+            "confidence": "high",
+            "assetId": "87f6a366-de19-438f-ae0c-da31460c1b93"
+          }
+        },
+        "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+      }
+    }
+  ],
+  "modelCalls": [
+    {
+      "id": "01d0a0f6-a0b4-47fb-a641-f3c2b31b9fa7",
+      "provider": "openai",
+      "model": "synthetic-model",
+      "promptVersion": "baseline-prompt+regions-003",
+      "latencyMs": 6,
+      "inputUsage": {
+        "inputTokens": 12,
+        "cachedInputTokens": 0
+      },
+      "outputUsage": {
+        "outputTokens": 8
+      },
+      "modelPolicyVersion": "m0-model-policy-002",
+      "purpose": "analysis",
+      "status": "completed",
+      "errorCode": null,
+      "errorMessage": null,
+      "inputAssetIds": [
+        "2ec72e0c-fc97-4aa0-bb59-a27496082adc",
+        "87f6a366-de19-438f-ae0c-da31460c1b93"
+      ]
+    }
+  ],
+  "feedback": null
+}

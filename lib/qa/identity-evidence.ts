@@ -1,6 +1,7 @@
 import type { VisionObservation } from "./types";
+import { isProtocolIdentity } from "./identity-protocol";
 
-export const IDENTITY_EVIDENCE_VERSION = "identity-evidence-002";
+export const IDENTITY_EVIDENCE_VERSION = "identity-evidence-003";
 
 // Detect explicit absence/illegibility, not generic "no differences" statements.
 const textAbsent = /\b(?:no|without)\s+(?:(?:readable|legible|identity[- ]bearing|visible|any)\s+)*(?:text|words|lettering|characters|values)\b(?!\s+(?:differences?|changes?))|\b(?:text|words|lettering|characters)\b[^.]{0,45}\b(?:unreadable|illegible|not readable|cannot be read)\b/i;
@@ -89,6 +90,9 @@ export function identityEvidenceProblem(observation: VisionObservation): {reason
       return {kind: "insufficient", reason: "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."};
     }
     for (const value of [identity.reference, identity.candidate]) {
+      if (typeof value === "string" && isProtocolIdentity(value)) {
+        return {kind: "insufficient", reason: "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required."};
+      }
       if (typeof value !== "string" || !/[\p{L}\p{N}]/u.test(visibleIdentity(value)) || placeholder.test(visibleIdentity(value)) || absent.test(visibleIdentity(value))) {
         return {kind: "insufficient", reason: "Both images require visible identity evidence; blank, invisible or unreadable content is insufficient."};
       }

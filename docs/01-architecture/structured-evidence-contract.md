@@ -104,3 +104,13 @@ high 仍明确标为模型估计，不是校准概率。medium 用虚线框和 A
 首次专项执行在持久化比较处失败：测试把带 undefined 的内存对象直接与 JSON 读回对象比较。改为比较预期 JSON 序列化结果后通过，产品持久化逻辑未为此改动；原失败保存在 `attempt-1-results.json`。
 
 所有图、字段和 SDK 输出均为合成资料。OpenAI SDK parse 边界、身份、额度及请求被受控替代；实际 mapper、引擎、政策、现有迁移下 SQLite 写读和真实 React 组件执行。没有真实模型、生产 D1/R2、付款、认证或生产 smoke 验证；合成框不能证明模型定位准确率。独立 QA 必须另外绑定最终候选 SHA；独立 PASS 后仍仅到 RELEASE_READY。
+
+## 第三轮身份修复：协议内容不能充当实体身份
+
+生产反例把身份类型 `brand_name` 同时填进双方身份内容，导致 logo 分项错误地通过。`identity-evidence-003` 在既有类型、可见性和一致性校验中增加协议内容检查：协议枚举、字段名、schema 元数据、版本标记和模板占位内容不能建立可读实体身份，必须 REVIEW，并保留原身份内容、raw 和不足原因。旧历史记录不重写。
+
+`lib/qa/identity-protocol.ts` 与 provider 共享身份类型枚举；`identity-protocol-catalog.json` 从实际 OpenAI `zodTextFormat` schema、受控 mapper/engine 输出字段及应用协议版本生成，不是扩充英文实体排除词表。专项脚本会核对生成结果，防止 schema 与目录漂移；协议变化时使用 `pnpm exec tsx fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts --generate` 更新目录，再运行专项验证。
+
+协议拼写比较先执行 NFKC、大小写归一化及不可见控制字符清理，再统一分隔符；还拒绝仅由协议 token 组成的组合、协议字段赋值、JSON 协议包装和 `<…>`、`{{…}}`、`${…}` 模板语法。只出现协议词片段的正常品牌名称仍可通过，例如 `ALPHA Reference`。恰好占用完整协议拼写或模板语法的真实实体文字会保守进入人工 REVIEW；此限制不代表已经验证图片内容，也不能阻止所有虚构转录。
+
+本轮未修改提示词内容或响应字段，因此 prompt 后缀仍为 `regions-003`；guard 版本单独记录为 `identity-evidence-003`，引擎仍为 `m0-qa-engine-008`。UI、定位降级、风险策略、模型配置和费用不变。新反例来自原生产 DOM 的受控重建，并非原始 SDK 响应；原文件摘要和修复前 FAIL 均保留在 `fixtures/structured-evidence/protocol-identity-repair`。开发验证通过不替代固定提交的独立验收或生产复验。

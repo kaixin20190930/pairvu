@@ -1,12 +1,13 @@
 import { normalizeRegionPair, preserveRegionRaw, suppressUnverifiedRegions } from "@/lib/qa/evidence-regions";
 import { IDENTITY_EVIDENCE_VERSION } from "@/lib/qa/identity-evidence";
+import { IDENTITY_EVIDENCE_KINDS } from "@/lib/qa/identity-protocol";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import type { FidelityResult, M0AnalysisInput, VisionProvider } from "@/lib/qa/types";
 
 export const STRUCTURED_EVIDENCE_PROMPT_SUFFIX = "regions-003";
-const IdentityKindSchema = z.enum(["readable_text", "brand_name", "symbol", "geometry", "absent", "unreadable", "unknown", "not_applicable"]);
+const IdentityKindSchema = z.enum(IDENTITY_EVIDENCE_KINDS);
 export const ImageRegionSchema = z.object({
   coordinateSpace: z.literal("analysis_image_normalized"),
   region: z.object({x:z.number(),y:z.number(),width:z.number(),height:z.number()}).strict().nullable(),

@@ -1,0 +1,2028 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "status": "PASS",
+  "inputKind": "Exact archived synthetic QA payload, not new SDK traffic",
+  "cases": [
+    {
+      "name": "qa-contradictory-logo.json",
+      "status": "PASS",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "logo",
+            "status": "not_observable",
+            "differenceKind": "not_visible",
+            "observability": {
+              "reference": "not_observable",
+              "candidate": "not_observable",
+              "coverage": "insufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA",
+                "candidate": "BETA",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA",
+              "candidateObservation": "Direct identity: BETA",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA",
+                "BETA"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA",
+                    "candidate": "BETA",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA",
+                  "candidateObservation": "Direct identity: BETA",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA",
+                    "BETA"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                }
+              }
+            }
+          }
+        ],
+        "verdict": "review",
+        "productIssues": [],
+        "limitations": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "logo",
+            "confidence": "high",
+            "message": "logo is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA",
+                "candidate": "BETA",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA",
+              "candidateObservation": "Direct identity: BETA",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA",
+                "BETA"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA",
+                    "candidate": "BETA",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA",
+                  "candidateObservation": "Direct identity: BETA",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA",
+                    "BETA"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "passedObservations": [],
+        "reviewReasons": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "logo",
+            "confidence": "high",
+            "message": "logo is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA",
+                "candidate": "BETA",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA",
+              "candidateObservation": "Direct identity: BETA",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA",
+                "BETA"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA",
+                    "candidate": "BETA",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA",
+                  "candidateObservation": "Direct identity: BETA",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA",
+                    "BETA"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 0,
+          "insufficientChecks": 1
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "typed-controlled+regions-003",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 1
+      }
+    },
+    {
+      "name": "qa-contradictory-visible_text.json",
+      "status": "PASS",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "visible_text",
+            "status": "not_observable",
+            "differenceKind": "not_visible",
+            "observability": {
+              "reference": "not_observable",
+              "candidate": "not_observable",
+              "coverage": "insufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA 100 ml",
+                "candidate": "ALPHA 200 ml",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA 100 ml",
+              "candidateObservation": "Direct identity: ALPHA 200 ml",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA 100 ml",
+                "ALPHA 200 ml"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA 100 ml",
+                    "candidate": "ALPHA 200 ml",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA 100 ml",
+                  "candidateObservation": "Direct identity: ALPHA 200 ml",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA 100 ml",
+                    "ALPHA 200 ml"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                }
+              }
+            }
+          }
+        ],
+        "verdict": "review",
+        "productIssues": [],
+        "limitations": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "visible_text",
+            "confidence": "high",
+            "message": "visible_text is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA 100 ml",
+                "candidate": "ALPHA 200 ml",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA 100 ml",
+              "candidateObservation": "Direct identity: ALPHA 200 ml",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA 100 ml",
+                "ALPHA 200 ml"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA 100 ml",
+                    "candidate": "ALPHA 200 ml",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA 100 ml",
+                  "candidateObservation": "Direct identity: ALPHA 200 ml",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA 100 ml",
+                    "ALPHA 200 ml"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "passedObservations": [],
+        "reviewReasons": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "visible_text",
+            "confidence": "high",
+            "message": "visible_text is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA 100 ml",
+                "candidate": "ALPHA 200 ml",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ALPHA 100 ml",
+              "candidateObservation": "Direct identity: ALPHA 200 ml",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA 100 ml",
+                "ALPHA 200 ml"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "ALPHA 100 ml",
+                    "candidate": "ALPHA 200 ml",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ALPHA 100 ml",
+                  "candidateObservation": "Direct identity: ALPHA 200 ml",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "ALPHA 100 ml",
+                    "ALPHA 200 ml"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 0,
+          "insufficientChecks": 1
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "typed-controlled+regions-003",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 0
+      }
+    },
+    {
+      "name": "qa-zero-width-identity.json",
+      "status": "PASS",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "visible_text",
+            "status": "not_observable",
+            "differenceKind": "not_visible",
+            "observability": {
+              "reference": "not_observable",
+              "candidate": "not_observable",
+              "coverage": "insufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "​",
+                "candidate": "​",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ​",
+              "candidateObservation": "Direct identity: ​",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "​",
+                "​"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "​",
+                    "candidate": "​",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ​",
+                  "candidateObservation": "Direct identity: ​",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "​",
+                    "​"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                }
+              }
+            }
+          }
+        ],
+        "verdict": "review",
+        "productIssues": [],
+        "limitations": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "visible_text",
+            "confidence": "high",
+            "message": "visible_text is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "​",
+                "candidate": "​",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ​",
+              "candidateObservation": "Direct identity: ​",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "​",
+                "​"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "​",
+                    "candidate": "​",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ​",
+                  "candidateObservation": "Direct identity: ​",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "​",
+                    "​"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "passedObservations": [],
+        "reviewReasons": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "visible_text",
+            "confidence": "high",
+            "message": "visible_text is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "​",
+                "candidate": "​",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: ​",
+              "candidateObservation": "Direct identity: ​",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "​",
+                "​"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "​",
+                    "candidate": "​",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: ​",
+                  "candidateObservation": "Direct identity: ​",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "​",
+                    "​"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 0,
+          "insufficientChecks": 1
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "typed-controlled+regions-003",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 1
+      }
+    },
+    {
+      "name": "qa-generic-cap-identity.json",
+      "status": "PASS",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "logo",
+            "status": "not_observable",
+            "differenceKind": "not_visible",
+            "observability": {
+              "reference": "not_observable",
+              "candidate": "not_observable",
+              "coverage": "insufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "black rectangular cap",
+                "candidate": "black rectangular cap",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: black rectangular cap",
+              "candidateObservation": "Direct identity: black rectangular cap",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "black rectangular cap",
+                "black rectangular cap"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "black rectangular cap",
+                    "candidate": "black rectangular cap",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: black rectangular cap",
+                  "candidateObservation": "Direct identity: black rectangular cap",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "black rectangular cap",
+                    "black rectangular cap"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                }
+              }
+            }
+          }
+        ],
+        "verdict": "review",
+        "productIssues": [],
+        "limitations": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "logo",
+            "confidence": "high",
+            "message": "logo is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "black rectangular cap",
+                "candidate": "black rectangular cap",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: black rectangular cap",
+              "candidateObservation": "Direct identity: black rectangular cap",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "black rectangular cap",
+                "black rectangular cap"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "black rectangular cap",
+                    "candidate": "black rectangular cap",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: black rectangular cap",
+                  "candidateObservation": "Direct identity: black rectangular cap",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "black rectangular cap",
+                    "black rectangular cap"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "passedObservations": [],
+        "reviewReasons": [
+          {
+            "kind": "limitation",
+            "type": "attribute_not_observable",
+            "sourceCheckType": "logo",
+            "confidence": "high",
+            "message": "logo is not sufficiently observable.",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "black rectangular cap",
+                "candidate": "black rectangular cap",
+                "validationVersion": "identity-evidence-003"
+              },
+              "referenceObservation": "Direct identity: black rectangular cap",
+              "candidateObservation": "Direct identity: black rectangular cap",
+              "differenceKind": "not_visible",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "black rectangular cap",
+                "black rectangular cap"
+              ],
+              "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+              "referenceVisible": false,
+              "candidateVisible": false,
+              "raw": {
+                "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+                "normalizationReason": "identity_requires_direct_evidence",
+                "identityValidationVersion": "identity-evidence-003",
+                "identityProblemKind": "insufficient",
+                "providerStatus": "match",
+                "providerObservability": {
+                  "reference": "observable",
+                  "candidate": "observable",
+                  "coverage": "sufficient"
+                },
+                "providerEvidence": {
+                  "regions": {
+                    "schemaVersion": 1,
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-ref",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "assetId": "qa-cand",
+                      "region": null,
+                      "reason": "uncertain_location",
+                      "confidence": null
+                    }
+                  },
+                  "regionRaw": {
+                    "reference": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.1,
+                        "y": 0.2,
+                        "width": 0.4,
+                        "height": 0.3
+                      },
+                      "reason": null,
+                      "confidence": "high"
+                    },
+                    "candidate": {
+                      "coordinateSpace": "analysis_image_normalized",
+                      "region": {
+                        "x": 0.25,
+                        "y": 0.4,
+                        "width": 0.5,
+                        "height": 0.2
+                      },
+                      "reason": null,
+                      "confidence": "medium"
+                    }
+                  },
+                  "identityEvidence": {
+                    "reference": "black rectangular cap",
+                    "candidate": "black rectangular cap",
+                    "validationVersion": "identity-evidence-003"
+                  },
+                  "referenceObservation": "Direct identity: black rectangular cap",
+                  "candidateObservation": "Direct identity: black rectangular cap",
+                  "differenceKind": "none",
+                  "comparisonSummary": "Identity comparison recorded",
+                  "visibleEvidence": [
+                    "black rectangular cap",
+                    "black rectangular cap"
+                  ],
+                  "referenceVisible": true,
+                  "candidateVisible": true,
+                  "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+                },
+                "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+              }
+            }
+          }
+        ],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 0,
+          "insufficientChecks": 1
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "typed-controlled+regions-003",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 0
+      }
+    },
+    {
+      "name": "typed logo direct contradiction requires REVIEW without inventing invisibility",
+      "status": "PASS"
+    },
+    {
+      "name": "typed visible_text direct contradiction requires REVIEW without inventing invisibility",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"​\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"‌‍\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"‮⁩\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"­﻿\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"⁠\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"ㅤ\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"́\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"️\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"\\u0000\\u001f\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \" \\t\\n\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"™\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "invisible/non-identity-only Unicode \"///\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "geometry cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "symbol cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "absent cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "unreadable cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "not_applicable cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "readable_text cannot establish a logo regardless of free-form shape wording",
+      "status": "PASS"
+    },
+    {
+      "name": "typed symbol synonyms do not falsely become identified brands",
+      "status": "PASS"
+    },
+    {
+      "name": "schema requires both kinds and rejects fabricated kind",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA\",\"alpha\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ＡＬＰＨＡ ®\",\"Alpha\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA​\",\"ALPHA\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 100 ml\",\"alpha 0.1 litre\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 100ML\",\"alpha 100 millilitres\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 1000 ml\",\"ALPHA 1 liter\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA .5 L\",\"ALPHA 500 ml\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 250 g\",\"alpha 0.25 kilograms\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 0.1 g\",\"ALPHA 100 mg\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 30 cm\",\"ALPHA 0.3 m\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 6 pcs\",\"ALPHA 6 pieces\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 100 ml 6 pcs\",\"ALPHA 0.1 litres 6 pieces\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "compatible [\"ALPHA 10%\",\"ALPHA 10 percent\"] supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 100 ml\",\"ALPHA 200 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 100 ml\",\"ALPHA 100 g\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 6 pcs\",\"ALPHA 7 pcs\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA -100 ml\",\"ALPHA 100 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA -100\",\"ALPHA 100\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 10%\",\"ALPHA 10\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 100\",\"BETA 100\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 0.3 L\",\"ALPHA 300.0001 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 001\",\"ALPHA 1\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 6 × 100 ml\",\"ALPHA 6 100 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 100 ml\",\"ALPHA quantityvolumepositive1over10\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 1,000 ml\",\"ALPHA 1 0 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "conflicting [\"ALPHA 100 ml 200 ml\",\"ALPHA 200 ml 100 ml\"] cannot support a match",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit sufficient logo mismatch remains critical FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit sufficient visible_text mismatch remains critical FAIL",
+      "status": "PASS"
+    }
+  ]
+}
