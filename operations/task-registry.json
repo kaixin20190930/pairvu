@@ -40,10 +40,10 @@
     "receipt": "operations/evidence/UPG-05.json",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "生产真实登录及新provider结构化输出联通验收，涉及持久结果、历史兼容与UI实际映射。",
-      "upgradeCondition": "仅定位到重复实质推理不足再评估升级；登录或网络缺失不升级。",
-      "applied": true
+      "thinking": "medium",
+      "reason": "已验收候选之后仅文档和证据，固定最终SHA增量与哈希/typecheck核验。",
+      "upgradeCondition": "发现运行时差分或迁移/鉴权问题则high重新评估。",
+      "applied": false
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -58,12 +58,19 @@
       "reason": "已有生产UI独立PASS，仅对精确合成分析的真实D1只读导出核对raw/regionRaw/guard版本与摘要，范围明确。",
       "upgradeCondition": "发现跨层不一致或语义缺口再回high，环境故障不升级。",
       "applied": true
+    },
+    "productionModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "真实登录actor、远端D1审计和UI一致性生产验证。",
+      "upgradeCondition": "重复可定位推理不足再缩域或升级；环境不升级。",
+      "applied": false
     }
   },
   "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG05候选736e61f独立43D1/798请求、38浏览器、49结构回归及typecheck通过，正式RELEASE_READY；未推送部署/生产迁移。生产仍UPG04已验收62787fd。",
+  "notes": "用户已明确授权UPG05发布及必要修复、通过后自动UPG06研发独立QA；准备最终SHA发布增量验收。",
   "nextUnitId": "UPG-06",
   "production": {
     "status": "PROD_VERIFIED",
@@ -147,9 +154,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "获得UPG05明确发布授权后，GitHub-first核验→0021生产迁移→Cloudflare同SHA部署→生产登录与审计验收",
-    "dependency": "UPG05生产未授权；UPG06须前项关闭及明确契约",
-    "automatic": false
+    "action": "UPG05固定最终SHA增量QA→GitHub-first发布/0021迁移→真实生产验收→UPG06研发独立QA",
+    "dependency": "发布增量与生产门禁必须真实通过；UPG06生产未授权",
+    "automatic": true
   },
   "completedUnitId": "UPG-04",
   "completedCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",

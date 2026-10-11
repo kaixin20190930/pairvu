@@ -56,3 +56,9 @@ SKU启用及生命周期修复已生产关闭：ce1f2fee7f43735ff6b6f13f38678409
 ## 2026-10-11 UPG05本地独立验收完成
 
 候选736e61f7b7c1ffe4e886ef4b5821d79049265621，原独立QA43项D1/798请求、38项真实组件浏览器、49项结构回归及workspace回归/typecheck PASS，报告operations/evidence/UPG-05.json，原件UPG-05目录。正式qa PASS→release-ready已完成，两角色空闲。UPG05未推送、未生产0021迁移/部署/启用，生产仍62787fd。下一步等待UPG05明确发布授权，再GitHub-first+迁移+Cloudflare+生产登录审计验收；不能继承UPG04授权。无新授权保持RELEASE_READY，不重复派单/部署或跳过依赖启动UPG06，无变化不重复通知。完成报告说明下一步。
+
+## 2026-10-11 UPG05发布与UPG06研发授权
+
+用户明确授权UPG05人工审核与审计先推GitHub、迁移、Cloudflare部署、生产验收和必要修复；通过后自动推进UPG06发布工作台与规则版本开发及独立验收。来源总控thread 01a0bcd5-909b-7b72-b64b-399e8028c919，turn 01a12b70-1748-7ae0-83a1-626074effcc9，user message 01a12b70-17ab-7863-a0aa-ad0eb2f5df94。此授权不覆盖UPG06生产发布。
+
+UPG05发布增量QA复用原验收，Sol/medium：736e61f后只含原证据及总控文档，需要固定最终SHA差分、哈希和typecheck核验，若发现运行时差分则high重新评估。生产验收Sol/high：真实登录actor、远端0021迁移、append-only决定及UI/历史需要跨层验证。开发仅遇真实失败复用并按具体风险重选，不无故派单。生产测试只用已授权合成分析batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001，最小批准/拒绝/撤销记录，理由明确QA；无新增模型或额度消耗、付款、客户资产。原机器证据不改，验证刷新与审计链、必要安全负向，不在生产故意破坏数据库或注入故障。真实会话缺失则报告，禁止伪造。

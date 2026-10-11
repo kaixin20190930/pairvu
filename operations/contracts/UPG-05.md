@@ -23,3 +23,9 @@ UPG-04生产验收并正式CLOSED后，给已登录workspace内已完成的分�
 
 ## 回传与完成
 开发返回完整候选SHA、允许diff、命令/原始证据/局限；QA返回unitId/candidateSha/reviewerThreadId/result/checks（含fixed candidate SHA、independent QA report）。FAIL返原开发；PASS正式RELEASE_READY。用户当前只授权本单元研发与独立验收，新生产发布需明确授权。
+
+## 2026-10-11 UPG05发布与UPG06研发授权
+
+用户明确授权UPG05人工审核与审计先推GitHub、迁移、Cloudflare部署、生产验收和必要修复；通过后自动推进UPG06发布工作台与规则版本开发及独立验收。来源总控thread 01a0bcd5-909b-7b72-b64b-399e8028c919，turn 01a12b70-1748-7ae0-83a1-626074effcc9，user message 01a12b70-17ab-7863-a0aa-ad0eb2f5df94。此授权不覆盖UPG06生产发布。
+
+UPG05发布增量QA复用原验收，Sol/medium：736e61f后只含原证据及总控文档，需要固定最终SHA差分、哈希和typecheck核验，若发现运行时差分则high重新评估。生产验收Sol/high：真实登录actor、远端0021迁移、append-only决定及UI/历史需要跨层验证。开发仅遇真实失败复用并按具体风险重选，不无故派单。生产测试只用已授权合成分析batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001，最小批准/拒绝/撤销记录，理由明确QA；无新增模型或额度消耗、付款、客户资产。原机器证据不改，验证刷新与审计链、必要安全负向，不在生产故意破坏数据库或注入故障。真实会话缺失则报告，禁止伪造。
