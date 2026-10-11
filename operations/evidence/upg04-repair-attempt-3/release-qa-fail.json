@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-11T04:15:33.494Z",
+  "checks": [
+    {
+      "name": "Exact candidate source binding (6 files)",
+      "status": "PASS"
+    },
+    {
+      "name": "Original brand_name reconstruction through current provider request/mapper/engine",
+      "status": "PASS"
+    },
+    {
+      "name": "Normal literal brand and protocol-substring positive controls",
+      "status": "PASS"
+    },
+    {
+      "name": "Case Unicode unqualified field and JSON protocol controls",
+      "status": "PASS"
+    },
+    {
+      "name": "Qualified protocol field assignment cannot establish entity identity",
+      "status": "FAIL"
+    },
+    {
+      "name": "Unchanged UI/location sources and 24 prior browser receipts byte binding",
+      "status": "PASS"
+    },
+    {
+      "name": "Original actual production FAIL and replay bytes retained",
+      "status": "PASS"
+    }
+  ]
+}

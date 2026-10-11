@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-11T04:15:33.494Z",
+  "checks": [
+    {
+      "name": "Exact candidate source binding (6 files)",
+      "status": "PASS"
+    },
+    {
+      "name": "Original brand_name reconstruction through current provider request/mapper/engine",
+      "status": "PASS"
+    },
+    {
+      "name": "Normal literal brand and protocol-substring positive controls",
+      "status": "PASS"
+    },
+    {
+      "name": "Case Unicode unqualified field and JSON protocol controls",
+      "status": "PASS"
+    },
+    {
+      "name": "Qualified protocol field assignment cannot establish entity identity",
+      "status": "FAIL"
+    },
+    {
+      "name": "Unchanged UI/location sources and 24 prior browser receipts byte binding",
+      "status": "PASS"
+    },
+    {
+      "name": "Original actual production FAIL and replay bytes retained",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Third local repair QA; shared repository read-only; fixed Git archive; stop on first deterministic blocker",
+  "independentCaseCount": 8,
+  "independentPassCount": 7,
+  "independentFailCount": 1,
+  "findings": [
+    {
+      "priority": 1,
+      "title": "Qualified protocol field assignment still passes as literal brand identity",
+      "observed": "Both typed logo identity strings are evidence.referenceIdentity: ALPHA. Current strict schema accepts them, actual provider request/controlled parse -> mapper -> engine yields pass, one passedObservations entry, high confidence, observable/sufficient and no identity insufficiency reason.",
+      "expected": "Protocol field assignment is not a literal observed entity transcription; REVIEW with raw evidence retained, consistent with unqualified Reference Identity: ALPHA negative control.",
+      "source": "lib/qa/identity-protocol.ts:48-49",
+      "cause": "The label matcher accepts dots but fields.has(protocolKey(label)) only recognizes an individual field. The path evidence.referenceIdentity becomes evidencereferenceidentity, which is absent from fields. Whole-string metadata segmentation also fails because ALPHA is ordinary entity text, so the wrapper is accepted as entity content.",
+      "inputAndActualOutput": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-qualified-field-counterexample.json",
+      "assertion": "assert.equal(result.verdict, \"review\")",
+      "actualVerdict": "pass",
+      "reproduction": {
+        "command": "pnpm exec tsx scripts/qa-repair3-independent.ts",
+        "cwd": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y",
+        "exitCode": 1,
+        "report": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-independent-results.json",
+        "stoppedAtFirstDeterministicNegativeFailure": true,
+        "toolOutputSummary": {
+          "result": "FAIL",
+          "cases": 8,
+          "failures": [
+            {
+              "name": "protocol entity wrapper evidence.referenceIdentity: ALPHA",
+              "actualVerdict": "pass",
+              "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n"
+            }
+          ]
+        }
+      },
+      "scopeAssessment": "Same bounded deterministic protocol-wrapper class; no live model or architecture speculation. Normal entity controls still pass, including ALPHA Reference."
+    }
+  ],
+  "sourceVerification": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-source-verification.json",
+  "sourceIndex": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-source-index.json",
+  "rawReport": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-independent-results.json",
+  "harness": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/scripts/qa-repair3-independent.ts",
+  "developerEvidence": {
+    "path": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/fixtures/structured-evidence/protocol-identity-repair/checks.json",
+    "reported": "747 protocol / 55 identity / 49 structure / typecheck / lint PASS",
+    "acceptance": "Recorded developer checks do not override independent deterministic FAIL."
+  },
+  "notRunAfterFailure": [
+    "Further same-class or broader counterexample generation",
+    "Independent full 747/55/49 replay and typecheck",
+    "Independent complete catalog regeneration/drift assertion; developer reported PASS remains developer evidence only",
+    "Build, browser and real production model/credit operations"
+  ],
+  "browserReuse": "Original actual desktop12+narrow12 reports byte-equal; seven stable UI/location sources per report match. This confirms unchanged UI scope only, not fixed identity acceptance.",
+  "versions": {
+    "identityGuard": "identity-evidence-003",
+    "promptSuffix": "regions-003",
+    "engine": "m0-qa-engine-008"
+  },
+  "receiptImportability": "Failed schema2-shaped receipt cannot satisfy production-evidence-schema.md, which accepts only PASS. Do not import or release from this QA.",
+  "limitations": [
+    "OpenAIVisionProvider request and actual mapper/engine executed with stubbed SDK response; no network/model call and no visual accuracy claim.",
+    "Original real-production brand_name payload is a byte-preserved DOM reconstruction, not a raw SDK response.",
+    "Catalog includes actual protocol tokens but this QA stops before independent exhaustive drift verification after the concrete blocker."
+  ],
+  "previousEvidencePreserved": true,
+  "sharedRepositoryChangesByQa": false,
+  "roleSelection": {
+    "dispatch": "Sol/medium per bounded protocol-validation contract",
+    "escalation": "Controller should reassess high or further safe reduction if repeated semantic completeness gaps warrant it; QA does not change model or implement code."
+  },
+  "nextAction": {
+    "action": "Controller returns immutable qualified-field input/result to original developer, diagnoses protocol-path recognition and narrows the repair before another candidate.",
+    "dependency": "New fixed candidate and independent PASS required before an authorized release. UPG-04 remains unclosed and UPG-05 blocked.",
+    "automatic": true,
+    "userInputRequired": false,
+    "implementationAcceptance": "FAIL",
+    "deployment": "NOT_PERFORMED",
+    "featureEnablement": "No change",
+    "productionAcceptance": "Not rechecked; previous actual production functional FAIL retained"
+  }
+}

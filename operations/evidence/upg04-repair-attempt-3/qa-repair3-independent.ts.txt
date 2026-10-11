@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {OpenAIVisionProvider,FidelityResponseSchema} from '../lib/ai/providers/openai-vision-provider';
+import {M0QAEngine} from '../lib/qa/engine';
+async function main(){
+const base=JSON.parse(await readFile('fixtures/structured-evidence/identity-consistency-repair/provider-response.json','utf8'));
+const original=JSON.parse(await readFile('fixtures/structured-evidence/protocol-identity-repair/original-replay.json','utf8'));
+const input:any={analysisId:'qa-independent-repair3',reference:{assetId:'qa-ref',mimeType:'image/png',r2Key:'synthetic/ref',dataUrl:'data:image/png;base64,c3ludGhldGlj'},candidate:{assetId:'qa-cand',mimeType:'image/png',r2Key:'synthetic/cand',dataUrl:'data:image/png;base64,c3ludGhldGlj'},selectedChecks:['logo']};
+const cases:any[]=[];
+async function run(payload:any){
+FidelityResponseSchema.parse(payload);
+const provider=new OpenAIVisionProvider({apiKey:'synthetic-no-network',model:'synthetic',promptVersion:'qa-controlled'});let calls=0;
+Object.defineProperty(provider,'client',{value:{responses:{parse:async(request:any)=>{calls++;assert.ok(request.text.format.schema);return {output_parsed:payload,usage:{input_tokens:1,output_tokens:1}};}}}});
+const result=await new M0QAEngine(provider).analyze(input);assert.equal(calls,1);assert.equal(result.modelCalls[0].promptVersion,'qa-controlled+regions-003');return result;
+}
+async function test(name:string,payload:any,expected:string){let result:any;try{result=await run(payload);assert.equal(result.verdict,expected);assert.equal(result.observations[0].evidence.identityEvidence.validationVersion,'identity-evidence-003');assert.equal(result.observations[0].evidence.identityEvidence.reference,payload.observations[0].evidence.referenceIdentity);if(expected==='review'){assert.equal(result.passedObservations.length,0);assert.equal(result.observations[0].evidence.raw.providerStatus,'match');}cases.push({name,status:'PASS',input:payload,result});}catch(error){cases.push({name,status:'FAIL',input:payload,result,failure:String(error)});}}
+function pair(value:string){const p=structuredClone(base),o=p.observations[0];Object.assign(o,{status:'match',differenceKind:'none',referenceObservation:'Identity content separately supplied.',candidateObservation:'Corresponding identity content separately supplied.',comparisonSummary:'Model reports a match.',visibleEvidence:[value]});Object.assign(o.evidence,{referenceIdentity:value,candidateIdentity:value,referenceIdentityKind:'brand_name',candidateIdentityKind:'brand_name',referenceObservation:o.referenceObservation,candidateObservation:o.candidateObservation,comparisonSummary:o.comparisonSummary,visibleEvidence:o.visibleEvidence,differenceKind:'none'});return p;}
+await test('actual archived brand_name production reconstruction through provider parse and mapper',original.input,'review');
+for(const value of ['ALPHA','ALPHA Reference','Acme Goods'])await test('normal literal entity '+value,pair(value),'pass');
+for(const value of ['bRaNd\u200b-NaMe','Reference Identity: ALPHA','{"referenceIdentity":"ALPHA"}','evidence.referenceIdentity: ALPHA','identityEvidence.reference = ALPHA']){await test('protocol entity wrapper '+value,pair(value),'review');if(cases.at(-1)?.status==='FAIL')break;}
+const report={unitId:'UPG-04',releaseSha:'f7efa17f1b4ff7633173b730bbddf43cf39a8b83',result:cases.some(c=>c.status==='FAIL')?'FAIL':'PASS',cases,synthetic:true,scope:'Current strict schema and actual OpenAIVisionProvider request/parse -> mapper -> engine, with controlled SDK return and zero network/model calls. Stop on first deterministic negative failure.'};await writeFile('qa-independent-results.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({result:report.result,cases:cases.length,failures:cases.filter(c=>c.status==='FAIL').map(c=>({name:c.name,actualVerdict:c.result?.verdict,failure:c.failure}))}));if(report.result==='FAIL')process.exitCode=1;
+}
+void main();

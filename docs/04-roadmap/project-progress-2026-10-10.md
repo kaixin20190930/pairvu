@@ -2,13 +2,17 @@
 
 ## 最新状态（2026-10-11，覆盖下文历史阶段）
 
-UPG-04已按GitHub-first发布324a5283b63a73c8b5c5cd1222f49f757f7a2c3b，Worker ba8e60c0-15b9-4594-877d-3fae8a4942ab。HTTP通过，但真实功能验收FAIL：logo框落空白背景、无文字仍PASS。单元未关闭，不将已部署等同验收通过。
+基础检测、批量队列、账户/额度、自助付费入口与内容体系已上线。AUTO-01/02、UPG-01/02及SKU设计/实现/启用/生命周期修复均正式CLOSED；SKU真实登录验收通过。工程闭环不等于真实模型质量或商业验证完成。
 
-第一版保守修复7162d27（最终复验SHA8870f8c）隐藏未验证模型框、保留原提案，增加身份依据；开发49专项/3反例/回归/typecheck/build通过，但独立QA又发现矛盾身份值、零宽字符和普通帽盖描述可绕过检查，修复尚未发布。原失败证据均保留。区域定位可靠性尚未达标，不能用隐藏框宣称已完成定位能力。
+UPG-04当前生产SHA `0b1dd45edca0622ae42021eb090434639aa27193`，Worker `1950d4f8-b54b-443f-b037-23ed4ae3451e`。HTTP通过，但生产功能FAIL：新分析整体REVIEW，文字缺失与无框退化已生效，logo分项仍将字面量brand_name当品牌依据。此前324a528的错误定位/无文字PASS原始失败也保留。
 
-SKU版本化及其真实登录验收已通过。人工审核与审计UPG-05尚未启动，依赖当前修复及生产复验通过；工作台、视角评测、API/Webhook和指标后续排队。真实付费完整验收、授权双标留出数据、设计伙伴/复用验证仍未完成。
+第三轮本地修复f7efa17又被独立QA发现限定字段路径可绕过，未发布。第四轮6a32c0f已提交，开发149路径专项、747协议回归、typecheck/lint通过；待新最终SHA独立QA。原角色复用，因明确同类语法遗漏从Sol/medium调整Sol/high。正式单元仍RELEASE_READY，未导入生产完成manifest、未关闭。
 
-下一步自动继续：收取独立FAIL→原开发聚焦字段规范化与跨字段一致性返工→固定新SHA独立QA→已授权修复发布与生产复验→通过后启动UPG-05。无需重复发布授权；不推进未通过依赖。
+模型区域框在缺乏独立定位验证时隐藏，保留原提案及原因；这不是可靠定位能力已经完成。真实授权双标留出集、准确率/漏检率评估、真实支付完整验收、设计伙伴与续用验证仍未完成。
+
+下一步自动继续：收取第四轮开发→固定最终SHA独立QA→已授权GitHub-first修复发布→真实生产复验。只有通过后才能关闭UPG-04、启动UPG-05人工审核与审计；之后依次为发布工作台、视角评测、API/Webhook、价值指标。UPG-05开发/验收已获授权，生产发布未授权。
+
+当前证据：[生产功能FAIL](../../operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json)、[第三轮独立FAIL](../../operations/evidence/upg04-repair-attempt-3/qa-original.json)、[第四轮开发检查](../../fixtures/structured-evidence/protocol-path-repair/checks.json)、[实时任务索引](../../operations/task-registry.json)。
 
 以下为SKU验收完成、UPG-04首轮本地PASS时的历史快照，最新进展以上方及task-registry为准。
 

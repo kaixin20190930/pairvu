@@ -1,0 +1,18 @@
+{
+  "command": "pnpm exec tsx scripts/qa-repair3-independent.ts",
+  "cwd": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y",
+  "exitCode": 1,
+  "report": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-independent-results.json",
+  "stoppedAtFirstDeterministicNegativeFailure": true,
+  "toolOutputSummary": {
+    "result": "FAIL",
+    "cases": 8,
+    "failures": [
+      {
+        "name": "protocol entity wrapper evidence.referenceIdentity: ALPHA",
+        "actualVerdict": "pass",
+        "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n"
+      }
+    ]
+  }
+}

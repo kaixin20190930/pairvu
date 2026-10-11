@@ -69,3 +69,9 @@
 0b1dd45生产新分析整体REVIEW，文字与无框边界已通过；仍有logo分项把字面量brand_name当品牌并match。原始生产报告operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json。限定lib/qa/identity-evidence.ts及必要共享协议常量/provider版本/专项fixture/架构说明，禁止改UI、定位策略、计费或引入额外模型。拒绝身份类型枚举、字段名、协议占位内容冒充实体身份；规范化大小写/分隔符/不可见字符后的等价元数据也拒绝，不通过有限枚举特判单个brand_name，不用无穷英文词表。保留原值与REVIEW原因，正常品牌/文本正例保持。
 
 开发与本地独立QA本轮各Sol/medium：漏洞已定位为小范围确定性协议字段校验，原跨层验证已具备，不无依据上最贵模型；若实际扩大至架构不一致或再出现语义设计遗漏，回到high并重新缩域。生产旅程QA仍Sol/high。仅重放新反例+协议元数据同类边界+此前关键正反例、typecheck；UI和策略不变可复用hash证据，不重复build。新提交必须独立releaseQa，最终授权修复发布后再至多一次真实受控生产验证。
+
+### 协议字段路径遗漏返工
+
+f7efa17独立FAIL：evidence.referenceIdentity: ALPHA被当前真实mapper/engine判PASS，原因是仅识别未限定字段名而未识别路径。原件operations/evidence/upg04-repair-attempt-3/qa-original.json。保持第三轮局部范围，修复协议路径/结构赋值语法识别及相关等价表示，不扩大自然语言语义猜测，不仅特判evidence前缀；普通实体包含Reference等单词不能因子串被误拦。保留原raw/明确REVIEW和正例。
+
+本次开发和独立QA升级为Sol/high：medium修复仍遗漏同一类别的结构语法覆盖，已满足记录的升级条件；不默认最昂贵模型，也不重启旧任务。针对已给反例及协议路径规范化/分隔符/括号路径的相关边界，再核对现有747与正例、typecheck；不重复UI/build。

@@ -1,0 +1,175 @@
+{
+  "releaseSha": "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+  "candidateSources": [
+    {
+      "path": "lib/qa/identity-evidence.ts",
+      "sha256": "79b16102baf88a5a3fb697e3957adb46d394de2006e495a8be804e535eb6115c",
+      "matchesCandidateAndDeveloper": true
+    },
+    {
+      "path": "lib/qa/identity-protocol.ts",
+      "sha256": "5cfdb03bdec0b46b614fe4eae9e08fe076c50f8fa59e8386186b6dcb32698939",
+      "matchesCandidateAndDeveloper": true
+    },
+    {
+      "path": "lib/qa/identity-protocol-catalog.json",
+      "sha256": "4f2642609390bc81b2af68863d63f5d6c2cf9a5cc307e9edccb9efefb5c17e5a",
+      "matchesCandidateAndDeveloper": true
+    },
+    {
+      "path": "lib/ai/providers/openai-vision-provider.ts",
+      "sha256": "b0e331317cc7c0534897b0a686de883feb273964b38ae3ec922d401400bac090",
+      "matchesCandidateAndDeveloper": true
+    },
+    {
+      "path": "docs/01-architecture/structured-evidence-contract.md",
+      "sha256": "08897a2ba819ee21cc5b1163faa13a1b8a038afa79b9d21f1b70b3dd59e5ac9d",
+      "matchesCandidateAndDeveloper": true
+    },
+    {
+      "path": "fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts",
+      "sha256": "da0ab749183e6cbc04ed5e536244aef9deb50e594621461472af28f8adaa845c",
+      "matchesCandidateAndDeveloper": true
+    }
+  ],
+  "browserReuse": [
+    {
+      "report": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/fixtures/structured-evidence/identity-consistency-repair/reused-desktop12-results.json",
+      "sha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "byteEqualToOriginal": true,
+      "stableSources": [
+        {
+          "path": "components/StructuredEvidence.tsx",
+          "sha256": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        {
+          "path": "components/ProductChecker.tsx",
+          "sha256": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        {
+          "path": "lib/qa/evidence-regions.ts",
+          "sha256": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        {
+          "path": "app/globals.css",
+          "sha256": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-entry.tsx",
+          "sha256": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-server.mjs",
+          "sha256": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/persisted-result.json",
+          "sha256": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      ],
+      "reuseScope": "Only unchanged UI/location sources; changed identity guard is separately tested."
+    },
+    {
+      "report": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/fixtures/structured-evidence/identity-consistency-repair/reused-narrow12-results.json",
+      "sha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "byteEqualToOriginal": true,
+      "stableSources": [
+        {
+          "path": "components/StructuredEvidence.tsx",
+          "sha256": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        {
+          "path": "components/ProductChecker.tsx",
+          "sha256": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        {
+          "path": "lib/qa/evidence-regions.ts",
+          "sha256": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        {
+          "path": "app/globals.css",
+          "sha256": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-entry.tsx",
+          "sha256": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-server.mjs",
+          "sha256": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/persisted-result.json",
+          "sha256": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      ],
+      "reuseScope": "Only unchanged UI/location sources; changed identity guard is separately tested."
+    }
+  ],
+  "originalsPreserved": [
+    {
+      "original": "/tmp/pairvu-upg04-repair2-login-qa.json",
+      "archive": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json",
+      "originalSha256": "59efb95dafb77c2f2a7dbaf1da76e9a0a2522b6e561e8d3cbd60abf848c53b39",
+      "archiveSha256": "59efb95dafb77c2f2a7dbaf1da76e9a0a2522b6e561e8d3cbd60abf848c53b39",
+      "bytesEqual": true
+    },
+    {
+      "original": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-production-logo-token-replay.json",
+      "archive": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/fixtures/structured-evidence/protocol-identity-repair/original-replay.json",
+      "originalSha256": "b32d1d1eab5ed32747c353cf542dbacdb414cad504a55986d5308aa382a185da",
+      "archiveSha256": "b32d1d1eab5ed32747c353cf542dbacdb414cad504a55986d5308aa382a185da",
+      "bytesEqual": true
+    }
+  ],
+  "sourceCommands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-status",
+        "0b1dd45edca0622ae42021eb090434639aa27193",
+        "f7efa17f1b4ff7633173b730bbddf43cf39a8b83"
+      ],
+      "exitCode": 0,
+      "stdout": "M\tdocs/01-architecture/structured-evidence-contract.md\nA\tfixtures/structured-evidence/protocol-identity-repair/before-fix-results.json\nA\tfixtures/structured-evidence/protocol-identity-repair/browser-reuse-index.json\nA\tfixtures/structured-evidence/protocol-identity-repair/checks.json\nA\tfixtures/structured-evidence/protocol-identity-repair/identity-regression-results.json\nA\tfixtures/structured-evidence/protocol-identity-repair/original-replay.json\nA\tfixtures/structured-evidence/protocol-identity-repair/original-source-index.json\nA\tfixtures/structured-evidence/protocol-identity-repair/persisted-counterexample.json\nA\tfixtures/structured-evidence/protocol-identity-repair/persisted-result.json\nA\tfixtures/structured-evidence/protocol-identity-repair/results.json\nA\tfixtures/structured-evidence/protocol-identity-repair/structured-regression-results.json\nA\tfixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts\nM\tlib/ai/providers/openai-vision-provider.ts\nM\tlib/qa/identity-evidence.ts\nA\tlib/qa/identity-protocol-catalog.json\nA\tlib/qa/identity-protocol.ts\nM\toperations/contracts/UPG-04.md\nA\toperations/evidence/production-upg04-repair-2026-10-11/authorization.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/build.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/deploy-end-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/deploy-log-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/deployment.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-command-results.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-diff-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-final-source-binding.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-identity55.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-independent-results.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-production3.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-repair2-independent.ts.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-source-index.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-source-verification.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/local-qa/qa-structured49.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-archive-index.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/01-old-pass-after-deployment-refresh.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/01-old-pass-after-deployment-refresh.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/02-old-pass-historical-provenance.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/02-old-pass-historical-provenance.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/03-existing-synthetic-product-v5.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/03-existing-synthetic-product-v5.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/04-old-batch-frozen-v3.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/04-old-batch-frozen-v3.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/05-old-batch-restored-v3.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/05-old-batch-restored-v3.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/06-legacy-engine006-compatible.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/06-legacy-engine006-compatible.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/07-single-candidate-preflight-eight-credits.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/07-single-candidate-preflight-eight-credits.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/08-single-analysis-submitted.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/08-single-analysis-submitted.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/09-new-batch-completed.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/09-new-batch-completed.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/10-new-logo-kind-token-failure.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/10-new-logo-kind-token-failure.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/11-logo-placeholder-brand-name-visible.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/11-logo-placeholder-brand-name-visible.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/12-new-result-persisted-after-refresh.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/12-new-result-persisted-after-refresh.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/13-persisted-logo-token-failure.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/13-persisted-logo-token-failure.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/14-post-analysis-seven-credits.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/14-post-analysis-seven-credits.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/15-old-batch-v3-after-new-analysis.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/15-old-batch-v3-after-new-analysis.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/new-result-after-refresh-dom.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/new-result-before-refresh-dom.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/post-analysis-capacity.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/qa-production-logo-token-harness-attempt-1.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/qa-production-logo-token-replay.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/qa-production-logo-token-replay.ts.txt\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/source-index.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/steps.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-fail/synthetic-blue-box-source.png\nA\toperations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/migration-time-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/migration.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/preflight-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/productionQa.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/releaseQa.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/smoke-original.json\nA\toperations/evidence/production-upg04-repair-2026-10-11/smoke.json\nM\toperations/task-registry.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+        "f7efa17f1b4ff7633173b730bbddf43cf39a8b83"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

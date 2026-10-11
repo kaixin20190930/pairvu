@@ -15,7 +15,7 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:224",
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:227",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -35,8 +35,8 @@
       "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:272",
-    "observedStatus": "active",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:288",
+    "observedStatus": "idle",
     "receipt": "operations/evidence/UPG-04.json",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -56,7 +56,7 @@
   "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "第三轮协议元数据守卫开发完成747+55+49检查，待新最终提交独立复验；生产0b1dd45功能FAIL未关闭。",
+  "notes": "第四轮路径语法修复已本地提交6a32c0f，149路径专项及747协议回归通过；待固定最终SHA独立验收，生产仍功能FAIL。",
   "nextUnitId": "UPG-05",
   "production": {
     "status": "DEPLOYED_FUNCTIONAL_FAIL",
@@ -127,28 +127,28 @@
     "automatic": true
   },
   "releaseRepair": {
-    "state": "QA_ACTIVE",
+    "state": "DEV_READY",
     "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
     "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
     "reason": "生产区域位置错误与无可读文字仍PASS，正式单元保持RELEASE_READY未关闭。",
     "developmentModel": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "确定性协议元数据占位值校验，局部范围明确，已有跨层回归证据。",
-      "upgradeCondition": "出现新架构一致性或语义设计缺口才回high并缩域。",
+      "thinking": "high",
+      "reason": "medium修复遗漏协议字段路径的同类结构语法边界，满足已记录升级条件。",
+      "upgradeCondition": "再有同类缺口先明确可支持语法和安全退化，必要时再评估更高能力模型。",
       "applied": true
     },
     "failureReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json",
-    "developmentSha": "2ea106e45d916c3951aad20b104b938b71b63891",
+    "developmentSha": "6a32c0f1a213f2a4db2fe775014d7f228ebe2c74",
     "qaModel": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "独立核对协议字段名/枚举类反例及正例，确定性局部边界。",
-      "upgradeCondition": "出现新架构一致性或语义设计缺口才回high并缩域。",
+      "thinking": "high",
+      "reason": "medium修复遗漏协议字段路径的同类结构语法边界，满足已记录升级条件。",
+      "upgradeCondition": "再有同类缺口先明确可支持语法和安全退化，必要时再评估更高能力模型。",
       "applied": false
     },
-    "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-1/qa-original.json",
-    "attempt": 3,
+    "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-3/qa-original.json",
+    "attempt": 4,
     "releaseSha": "0b1dd45edca0622ae42021eb090434639aa27193"
   }
 }
