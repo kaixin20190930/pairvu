@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-11T00:59:42.510Z",
+  "checks": [
+    {
+      "name": "exact candidate source hash binding (11 files)",
+      "status": "PASS"
+    },
+    {
+      "name": "original structured evidence replay (49 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "production counterexample reconstruction (3 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "independent current-schema mapper and engine (11 cases; 4 failures)",
+      "status": "FAIL"
+    },
+    {
+      "name": "real React desktop fixture (12 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "real React narrow iframe fixture (12 cases)",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Local independent repair QA only; final fixed SHA archived from Git, shared repository read-only",
+  "findings": [
+    {
+      "id": "IDENTITY-CONSISTENCY",
+      "priority": "P1",
+      "summary": "Reported match with contradictory direct identity fields still contributes PASS",
+      "cases": [
+        "logo ALPHA vs BETA",
+        "visible_text ALPHA 100 ml vs ALPHA 200 ml"
+      ],
+      "expected": "Contradictory reported match cannot contribute PASS; retain raw input and explain conflict. Do not require literal identity equality for all valid comparisons.",
+      "actual": "Both verdicts pass; observations remain match / observable / sufficient / high and passedObservations retained.",
+      "code": "lib/qa/identity-evidence.ts:21-28",
+      "inputsAndOutputs": [
+        "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-contradictory-logo.json",
+        "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-contradictory-visible_text.json"
+      ],
+      "assertion": "assert.notEqual(result.verdict, \"pass\")"
+    },
+    {
+      "id": "INVISIBLE-IDENTITY",
+      "priority": "P1",
+      "summary": "U+200B-only identity transcription counts as readable text",
+      "expected": "review for invisible-only identity evidence",
+      "actual": "pass",
+      "code": "lib/qa/identity-evidence.ts:24",
+      "inputsAndOutputs": [
+        "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-zero-width-identity.json"
+      ],
+      "assertion": "assert.equal(result.verdict, \"review\")"
+    },
+    {
+      "id": "SHAPE-AS-LOGO",
+      "priority": "P1",
+      "summary": "Black rectangular cap description establishes logo identity",
+      "expected": "review; generic cap geometry cannot establish recognizable logo identity",
+      "actual": "pass",
+      "code": "lib/qa/identity-evidence.ts:6-8,24",
+      "inputsAndOutputs": [
+        "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-generic-cap-identity.json"
+      ],
+      "assertion": "assert.equal(result.verdict, \"review\")"
+    }
+  ],
+  "reproduction": {
+    "cwd": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym",
+    "command": "pnpm exec tsx scripts/qa-repair-independent.ts",
+    "report": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-independent-negative-results.json",
+    "commandExitCode": 0,
+    "exitCodeMeaning": "Harness collects all assertions and writes aggregate FAIL; exit 0 is not test acceptance.",
+    "inputKind": "Synthetic provider response passed through current FidelityResponseSchema, actual mapFidelityObservations, controlled provider feeding actual M0QAEngine. Not raw SDK traffic, not a live model response.",
+    "originalFixture": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/provider-response.json",
+    "harness": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/scripts/qa-repair-independent.ts",
+    "initialHarnessFailure": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-harness-attempt-0.json"
+  },
+  "sourceIndex": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-source-index.json",
+  "sourceVerification": {
+    "releaseSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+    "candidateSourceHashes": {
+      "components/ProductChecker.tsx": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+      "components/StructuredEvidence.tsx": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+      "lib/ai/providers/openai-vision-provider.ts": "4b82d449012ba8b2246e49d674779935267567e3f818123dfebf691a782c1f38",
+      "lib/domain/semantics.ts": "418507a6e3f5d73ebe3c627f125fe479979fd225b0113fd8685afda13ae6e1bf",
+      "lib/qa/engine.ts": "01acb58508a25169e47e66f5a040b1d94de2c6adad063456b52c2a2d28b40cf6",
+      "lib/qa/evidence-regions.ts": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+      "lib/qa/identity-evidence.ts": "72ab2c6d88de16ec0d6cedbd8b62bb2bf50051a0c25dd8cd1ebaac92b68121dc",
+      "scripts/verify-structured-evidence.ts": "d1ee7b7bfa84e395616282e3d3c7a6abf3f69881da491a805708a95a3e36e98a",
+      "docs/01-architecture/structured-evidence-contract.md": "dedcbc82f8ef285c7e2ce754172b01b727c79e088fe3d54e67498b01bfc10957",
+      "fixtures/structured-evidence/production-repair/ui-entry.tsx": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+      "fixtures/structured-evidence/production-repair/ui-server.mjs": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4"
+    },
+    "matchesAll": true
+  },
+  "rawReports": {
+    "specialist49": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-49-replay.json",
+    "productionReplay3": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-counterexample-results.json",
+    "independent11": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-independent-negative-results.json",
+    "desktop12": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-desktop-results.json",
+    "narrow12": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-narrow-results.json"
+  },
+  "browser": {
+    "alreadyCompletedBeforeStopDispatch": true,
+    "desktopViewport": [
+      1280,
+      720
+    ],
+    "narrowIframeViewport": [
+      373,
+      1498
+    ],
+    "finalFullAX": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-browser-final-full.txt",
+    "finalScreenshot": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-browser-final.png",
+    "serverExitCode": 0,
+    "additionalInvestigationStopped": true,
+    "historicalNoticeLimitation": "Committed UI fixture checks textContent and preserved old PASS; this does not establish that historical warning is visible with provenance details collapsed. No separate visibility finding or PASS claim made."
+  },
+  "validationReuse": {
+    "developerEvidence": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/checks.json",
+    "sourceHashesMatch": true,
+    "typecheckLintRiskPolicyBuild": "Developer recorded PASS; no redundant QA build performed. These cannot override deterministic independent FAIL."
+  },
+  "capabilityLimits": [
+    "All unverified model boxes are withheld, including forged verification extras; raw preserved. This is a conservative restriction, not validated localization capability.",
+    "No live model, credits, production reads/writes, migration or deployment in this repair QA.",
+    "Equal readable text/logo cases still pass; explicit numeric mismatch still critical FAIL; not blanket REVIEW.",
+    "Original production functional FAIL remains valid; original history/results not rewritten."
+  ],
+  "sharedWorkspace": {
+    "qaModifiedRepositoryFiles": false,
+    "observedUserOrControllerChange": [
+      "docs/04-roadmap/project-progress-2026-10-10.md"
+    ],
+    "preserved": true
+  },
+  "receiptImportability": "This FAIL receipt intentionally cannot pass production-evidence-schema.md: schema 2 accepts only PASS receipts. Do not import or release from it.",
+  "nextAction": {
+    "action": "Return evidence to controller and original developer; narrow repair to identity normalization and cross-field consistency, preserving adequate match/mismatch and raw evidence.",
+    "dependency": "New fixed candidate SHA and independent acceptance; no release-ready or production acceptance from this candidate.",
+    "proceedsAutomatically": "Controller will return work to original developer under existing repair authorization; this QA stops now.",
+    "userInputRequired": false
+  }
+}

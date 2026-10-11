@@ -15,7 +15,7 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:186",
+    "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:206",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -35,7 +35,7 @@
       "upgradeCondition": "只有重复且可定位的架构/推理能力不足再评估Astra；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:230",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:249",
     "observedStatus": "completed",
     "receipt": "operations/evidence/UPG-04.json",
     "releaseModelSelection": {
@@ -56,7 +56,7 @@
   "candidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG04生产HTTP通过但登录功能FAIL；同一授权单元后代修复中，不放行UPG05。",
+  "notes": "UPG04第二轮身份规范化/一致性修复开发完成55+49+3检查；固定提交独立复验，生产仍324a528功能未通过，不放行UPG05。",
   "nextUnitId": "UPG-05",
   "production": {
     "status": "DEPLOYED_FUNCTIONAL_FAIL",
@@ -131,13 +131,15 @@
       "applied": true
     },
     "failureReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json",
-    "developmentSha": "7162d2739a91717f1b1bbd39ce7ac39702833685",
+    "developmentSha": "0cac3710347294265015f5a4178c961a73eb5187",
     "qaModel": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
       "reason": "独立验证真实反例、身份数据保守边界、历史呈现与全链路区域降级。",
       "upgradeCondition": "反复且可定位推理不足才评估Astra，工具连接/权限不升级。",
-      "applied": false
-    }
+      "applied": true
+    },
+    "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-1/qa-original.json",
+    "attempt": 2
   }
 }

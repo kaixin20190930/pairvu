@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-11T00:59:42.510Z",
+  "checks": [
+    {
+      "name": "exact candidate source hash binding (11 files)",
+      "status": "PASS"
+    },
+    {
+      "name": "original structured evidence replay (49 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "production counterexample reconstruction (3 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "independent current-schema mapper and engine (11 cases; 4 failures)",
+      "status": "FAIL"
+    },
+    {
+      "name": "real React desktop fixture (12 cases)",
+      "status": "PASS"
+    },
+    {
+      "name": "real React narrow iframe fixture (12 cases)",
+      "status": "PASS"
+    }
+  ]
+}

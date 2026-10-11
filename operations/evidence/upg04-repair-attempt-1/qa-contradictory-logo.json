@@ -1,0 +1,233 @@
+{
+  "input": {
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "referenceObservability": "observable",
+        "candidateObservability": "observable",
+        "coverage": "sufficient",
+        "confidence": "high",
+        "referenceObservation": "Direct identity: ALPHA",
+        "candidateObservation": "Direct identity: BETA",
+        "comparisonSummary": "Identity comparison recorded",
+        "visibleEvidence": [
+          "ALPHA",
+          "BETA"
+        ],
+        "uncertainReason": null,
+        "evidence": {
+          "referenceObservation": "Direct identity: ALPHA",
+          "candidateObservation": "Direct identity: BETA",
+          "differenceKind": "none",
+          "comparisonSummary": "Identity comparison recorded",
+          "visibleEvidence": [
+            "ALPHA",
+            "BETA"
+          ],
+          "uncertainReason": null,
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "rawJson": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+          "referenceRegion": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidateRegion": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          },
+          "referenceIdentity": "ALPHA",
+          "candidateIdentity": "BETA"
+        }
+      }
+    ],
+    "limitations": []
+  },
+  "result": {
+    "analysisId": "qa-independent-repair",
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "observability": {
+          "reference": "observable",
+          "candidate": "observable",
+          "coverage": "sufficient"
+        },
+        "confidence": "high",
+        "explanation": "Identity comparison recorded",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-cand",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.1,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.3
+              },
+              "reason": null,
+              "confidence": "high"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.25,
+                "y": 0.4,
+                "width": 0.5,
+                "height": 0.2
+              },
+              "reason": null,
+              "confidence": "medium"
+            }
+          },
+          "identityEvidence": {
+            "reference": "ALPHA",
+            "candidate": "BETA"
+          },
+          "referenceObservation": "Direct identity: ALPHA",
+          "candidateObservation": "Direct identity: BETA",
+          "differenceKind": "none",
+          "comparisonSummary": "Identity comparison recorded",
+          "visibleEvidence": [
+            "ALPHA",
+            "BETA"
+          ],
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+        }
+      }
+    ],
+    "verdict": "pass",
+    "productIssues": [],
+    "limitations": [],
+    "passedObservations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "observability": {
+          "reference": "observable",
+          "candidate": "observable",
+          "coverage": "sufficient"
+        },
+        "confidence": "high",
+        "explanation": "Identity comparison recorded",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-cand",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.1,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.3
+              },
+              "reason": null,
+              "confidence": "high"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.25,
+                "y": 0.4,
+                "width": 0.5,
+                "height": 0.2
+              },
+              "reason": null,
+              "confidence": "medium"
+            }
+          },
+          "identityEvidence": {
+            "reference": "ALPHA",
+            "candidate": "BETA"
+          },
+          "referenceObservation": "Direct identity: ALPHA",
+          "candidateObservation": "Direct identity: BETA",
+          "differenceKind": "none",
+          "comparisonSummary": "Identity comparison recorded",
+          "visibleEvidence": [
+            "ALPHA",
+            "BETA"
+          ],
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+        }
+      }
+    ],
+    "reviewReasons": [],
+    "failedReasons": [],
+    "coverage": {
+      "selectedChecks": 1,
+      "sufficientlyObservableChecks": 1,
+      "insufficientChecks": 0
+    },
+    "versions": {
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002"
+    },
+    "modelCalls": [
+      {
+        "provider": "controlled",
+        "model": "none",
+        "promptVersion": "qa+regions-002",
+        "latencyMs": 0
+      }
+    ],
+    "latencyMs": 0
+  }
+}

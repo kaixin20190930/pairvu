@@ -1,0 +1,342 @@
+Browser tab: 9, Title: "Pairvu structured evidence local QA", URL: "http://127.0.0.1:64349/?mode=desktop&analysis=08597e0f-65f6-4f81-abc0-e9fbf0255abe".
+0 AXWebArea Pairvu structured evidence local QA, URL: 127.0.0.1:64349/?mode=desktop&analysis=08597e0f-65f6-4f81-abc0-e9fbf0255abe
+	1 heading Pairvu QA · unverified regions withheld, Value: 1
+		2 text Pairvu QA · unverified regions withheld
+	3 text Conservative production repair: raw proposals retained, no location accuracy claim.
+	6 text PASS: 12 desktop component cases
+	5 container gallery
+		7 container Reference · visible expected
+			8 text Reference · visible expected
+			9 image Reference · visible expected image
+			10 container
+				11 text Image zoom
+				12 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+				13 text 100 %
+			14 text Location has not been independently verified; no box is shown.
+		15 container Candidate · observed
+			16 text Candidate · observed
+			17 image Candidate · observed image
+			18 container
+				19 text Image zoom
+				20 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+				21 text 100 %
+			22 text Location has not been independently verified; no box is shown.
+	23 container checker
+		24 text PAIRVU AI PRODUCT IMAGE CHECKER
+		25 heading Did AI change your product?, Value: 1, ID: headline
+			26 text Did AI change your product?
+		27 text Quality control for AI product photography.
+		28 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+		29 container Pairvu
+		30 container Use two views that make the same product details observable
+			31 text YOUR FIRST CHECK
+			32 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+				33 text Use two views that make the same product details observable
+			34 content list
+				35 container
+					36 text 1. Approved original Use the product image you trust.
+				37 container
+					38 text 2. Candidate Add the generated, edited, or proposed image.
+				39 container
+					40 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+			41 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+		42 container
+			43 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+			44 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+			45 text Approved original
+			46 image Reference preview
+		47 container
+			48 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+			49 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+			50 text Image checked
+			51 image Candidate preview
+		52 container
+			53 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+			54 link Description: Privacy details, Value: 127.0.0.1:64349/privacy
+		55 button Check image
+		56 button Check another image
+		57 container REVIEW
+			58 text VERDICT
+			59 heading REVIEW, Value: 2, ID: verdict-title
+				60 text REVIEW
+		61 container Actual detected fidelity issues
+			62 text PRODUCT DIFFERENCES
+			63 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+				64 text Actual detected fidelity issues
+			65 text No product issues were confirmed.
+		66 container Observability problems and analysis limitations
+			67 text NEEDS REVIEW / COULD NOT VERIFY
+			68 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+				69 text Observability problems and analysis limitations
+			70 container
+				71 text Not visible enough  ·  High confidence logo is not sufficiently observable. Logo
+				72 definition list
+					73 container REFERENCE · VISIBLE EXPECTED
+						74 text REFERENCE · VISIBLE EXPECTED
+					75 text A black rectangular logo bar is visible centered at the top of the blue bottle.
+					76 container CANDIDATE · OBSERVED
+						77 text CANDIDATE · OBSERVED
+					78 text A black rectangular logo bar is visible centered at the top of the blue bottle.
+					79 container WHAT CHANGED
+						80 text WHAT CHANGED
+					81 text Not visible
+					82 container SUMMARY
+						83 text SUMMARY
+					84 text No meaningful visible difference detected in the logo presence or identity.
+					85 container ORIGINAL VISIBLE
+						86 text ORIGINAL VISIBLE
+					87 text No
+					88 container CANDIDATE VISIBLE
+						89 text CANDIDATE VISIBLE
+					90 text No
+					91 container VISIBLE EVIDENCE
+						92 text VISIBLE EVIDENCE
+					93 text black rectangular logo bar at top center
+					94 container WHY UNCERTAIN
+						95 text WHY UNCERTAIN
+					96 text A generic geometric bar does not establish a recognizable logo identity.
+				97 container Reference · visible expected
+					98 text Reference · visible expected
+					99 image Reference · visible expected image
+					100 container
+						101 text Image zoom
+						102 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+						103 text 100 %
+					104 text Relevant evidence is not visible.
+				105 container Candidate · observed
+					106 text Candidate · observed
+					107 image Candidate · observed image
+					108 container
+						109 text Image zoom
+						110 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+						111 text 100 %
+					112 text Relevant evidence is not visible.
+			113 container
+				114 text Not visible enough  ·  High confidence visible_text is not sufficiently observable. Visible text
+				115 definition list
+					116 container REFERENCE · VISIBLE EXPECTED
+						117 text REFERENCE · VISIBLE EXPECTED
+					118 text White square label visible in center of blue bottle with no readable text inside.
+					119 container CANDIDATE · OBSERVED
+						120 text CANDIDATE · OBSERVED
+					121 text White square label visible in center of blue bottle with no readable text inside.
+					122 container WHAT CHANGED
+						123 text WHAT CHANGED
+					124 text Not visible
+					125 container SUMMARY
+						126 text SUMMARY
+					127 text Label visible but no readable identity-bearing text or values in either image, so no detected text differences.
+					128 container ORIGINAL VISIBLE
+						129 text ORIGINAL VISIBLE
+					130 text No
+					131 container CANDIDATE VISIBLE
+						132 text CANDIDATE VISIBLE
+					133 text No
+					134 container VISIBLE EVIDENCE
+						135 text VISIBLE EVIDENCE
+					136 text White square label in center of bottle
+					137 container WHY UNCERTAIN
+						138 text WHY UNCERTAIN
+					139 text Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check.
+				140 container Reference · visible expected
+					141 text Reference · visible expected
+					142 image Reference · visible expected image
+					143 container
+						144 text Image zoom
+						145 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+						146 text 100 %
+					147 text Relevant evidence is not visible.
+				148 container Candidate · observed
+					149 text Candidate · observed
+					150 image Candidate · observed image
+					151 container
+						152 text Image zoom
+						153 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+						154 text 100 %
+					155 text Relevant evidence is not visible.
+		156 container Checks the model reports as matching
+			157 text MODEL-SUPPORTED CHECKS
+			158 heading Checks the model reports as matching, Value: 2, ID: verified-title
+				159 text Checks the model reports as matching
+			160 text No checks were cleanly verified.
+		161 button (collapsed) Analysis provenance, Secondary Actions: Expand
+			162 text Analysis provenance
+		163 container Tell us whether this result was right
+			164 text FEEDBACK
+			165 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+				166 text Tell us whether this result was right
+			167 button Correct
+			168 button False alarm
+			169 button Missed something
+	170 container Narrow viewport repair verification
+		171 AXWebArea Pairvu structured evidence local QA, URL: 127.0.0.1:64349/?mode=narrow&analysis=08597e0f-65f6-4f81-abc0-e9fbf0255abe
+			172 heading Pairvu QA · unverified regions withheld, Value: 1
+				173 text Pairvu QA · unverified regions withheld
+			174 text Conservative production repair: raw proposals retained, no location accuracy claim.
+			175 text PASS: 12 narrow component cases
+			176 container gallery
+				177 container Reference · visible expected
+					178 text Reference · visible expected
+					179 image Reference · visible expected image
+					180 container
+						181 text Image zoom
+						182 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+						183 text 100 %
+					184 text Location has not been independently verified; no box is shown.
+				185 container Candidate · observed
+					186 text Candidate · observed
+					187 image Candidate · observed image
+					188 container
+						189 text Image zoom
+						190 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+						191 text 100 %
+					192 text Location has not been independently verified; no box is shown.
+			193 container checker
+				194 text PAIRVU AI PRODUCT IMAGE CHECKER
+				195 heading Did AI change your product?, Value: 1, ID: headline
+					196 text Did AI change your product?
+				197 text Quality control for AI product photography.
+				198 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+				199 container Pairvu
+				200 container Use two views that make the same product details observable
+					201 text YOUR FIRST CHECK
+					202 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+						203 text Use two views that make the same product details observable
+					204 content list
+						205 container
+							206 text 1. Approved original Use the product image you trust.
+						207 container
+							208 text 2. Candidate Add the generated, edited, or proposed image.
+						209 container
+							210 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+					211 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+				212 container
+					213 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+					214 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+					215 text Approved original
+					216 image Reference preview
+				217 container
+					218 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+					219 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+					220 text Image checked
+					221 image Candidate preview
+				222 container
+					223 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+					224 link Description: Privacy details, Value: 127.0.0.1:64349/privacy
+				225 button Check image
+				226 button Check another image
+				227 container REVIEW
+					228 text VERDICT
+					229 heading REVIEW, Value: 2, ID: verdict-title
+						230 text REVIEW
+				231 container Actual detected fidelity issues
+					232 text PRODUCT DIFFERENCES
+					233 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+						234 text Actual detected fidelity issues
+					235 text No product issues were confirmed.
+				236 container Observability problems and analysis limitations
+					237 text NEEDS REVIEW / COULD NOT VERIFY
+					238 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+						239 text Observability problems and analysis limitations
+					240 container
+						241 text Not visible enough  ·  High confidence logo is not sufficiently observable. Logo
+						242 definition list
+							243 container REFERENCE · VISIBLE EXPECTED
+								244 text REFERENCE · VISIBLE EXPECTED
+							245 text A black rectangular logo bar is visible centered at the top of the blue bottle.
+							246 container CANDIDATE · OBSERVED
+								247 text CANDIDATE · OBSERVED
+							248 text A black rectangular logo bar is visible centered at the top of the blue bottle.
+							249 container WHAT CHANGED
+								250 text WHAT CHANGED
+							251 text Not visible
+							252 container SUMMARY
+								253 text SUMMARY
+							254 text No meaningful visible difference detected in the logo presence or identity.
+							255 container ORIGINAL VISIBLE
+								256 text ORIGINAL VISIBLE
+							257 text No
+							258 container CANDIDATE VISIBLE
+								259 text CANDIDATE VISIBLE
+							260 text No
+							261 container VISIBLE EVIDENCE
+								262 text VISIBLE EVIDENCE
+							263 text black rectangular logo bar at top center
+							264 container WHY UNCERTAIN
+								265 text WHY UNCERTAIN
+							266 text A generic geometric bar does not establish a recognizable logo identity.
+						267 container Reference · visible expected
+							268 text Reference · visible expected
+							269 image Reference · visible expected image
+							270 container
+								271 text Image zoom
+								272 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								273 text 100 %
+							274 text Relevant evidence is not visible.
+						275 container Candidate · observed
+							276 text Candidate · observed
+							277 image Candidate · observed image
+							278 container
+								279 text Image zoom
+								280 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								281 text 100 %
+							282 text Relevant evidence is not visible.
+					283 container
+						284 text Not visible enough  ·  High confidence visible_text is not sufficiently observable. Visible text
+						285 definition list
+							286 container REFERENCE · VISIBLE EXPECTED
+								287 text REFERENCE · VISIBLE EXPECTED
+							288 text White square label visible in center of blue bottle with no readable text inside.
+							289 container CANDIDATE · OBSERVED
+								290 text CANDIDATE · OBSERVED
+							291 text White square label visible in center of blue bottle with no readable text inside.
+							292 container WHAT CHANGED
+								293 text WHAT CHANGED
+							294 text Not visible
+							295 container SUMMARY
+								296 text SUMMARY
+							297 text Label visible but no readable identity-bearing text or values in either image, so no detected text differences.
+							298 container ORIGINAL VISIBLE
+								299 text ORIGINAL VISIBLE
+							300 text No
+							301 container CANDIDATE VISIBLE
+								302 text CANDIDATE VISIBLE
+							303 text No
+							304 container VISIBLE EVIDENCE
+								305 text VISIBLE EVIDENCE
+							306 text White square label in center of bottle
+							307 container WHY UNCERTAIN
+								308 text WHY UNCERTAIN
+							309 text Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check.
+						310 container Reference · visible expected
+							311 text Reference · visible expected
+							312 image Reference · visible expected image
+							313 container
+								314 text Image zoom
+								315 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								316 text 100 %
+							317 text Relevant evidence is not visible.
+						318 container Candidate · observed
+							319 text Candidate · observed
+							320 image Candidate · observed image
+							321 container
+								322 text Image zoom
+								323 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								324 text 100 %
+							325 text Relevant evidence is not visible.
+				326 container Checks the model reports as matching
+					327 text MODEL-SUPPORTED CHECKS
+					328 heading Checks the model reports as matching, Value: 2, ID: verified-title
+						329 text Checks the model reports as matching
+					330 text No checks were cleanly verified.
+				331 button (collapsed) Analysis provenance, Secondary Actions: Expand
+					332 text Analysis provenance
+				333 container Tell us whether this result was right
+					334 text FEEDBACK
+					335 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+						336 text Tell us whether this result was right
+					337 button Correct
+					338 button False alarm
+					339 button Missed something
+
+The focused UI element is 0 AXWebArea Pairvu structured evidence local QA, URL: 127.0.0.1:64349/?mode=desktop&analysis=08597e0f-65f6-4f81-abc0-e9fbf0255abe

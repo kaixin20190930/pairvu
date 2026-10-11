@@ -1,0 +1,108 @@
+{
+  "unitId": "UPG-04",
+  "releaseSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+  "createdAt": "2026-10-11T00:59:42.510Z",
+  "root": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym",
+  "files": [
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/scripts/qa-repair-independent.ts",
+      "sha256": "68f0183d6e31f11bf8fc6f02aa8d3b40a768244653236abbb019ad3e87940fe3",
+      "bytes": 5494
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-harness-attempt-0.json",
+      "sha256": "e58470145f80142773085ee57126bfa3e746e3cd6e5707fc31206db7c4201243",
+      "bytes": 242
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-independent-negative-results.json",
+      "sha256": "b0183aaffb23c12931b2ff0e8a267b5698106c69a325c1a9c541019613d44959",
+      "bytes": 2000
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-source-verification.json",
+      "sha256": "ddacfef43453c9076262e2321b2df5cc588de717debc90ffb2eae4eb2397e4d2",
+      "bytes": 1358
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-49-replay.json",
+      "sha256": "1125869322c8aba269b042a39e572f5ee6bc11c69c1c0d6d74e1db7783b2d977",
+      "bytes": 7804
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-counterexample-results.json",
+      "sha256": "09fb4e4c1f7867941473e759f1d419c673f7d37e7d83f5269e0a375a3f617b13",
+      "bytes": 32709
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-contradictory-logo.json",
+      "sha256": "f54a009d6e16cc7dbeda16e6dd2e793147e691bd8024be8c4c0dc89eb6b2fdd2",
+      "bytes": 6942
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-contradictory-visible_text.json",
+      "sha256": "878650aaa1cc9161c877da65729ff5f687d34f0d20cf851ebaa0d882b81b6dbd",
+      "bytes": 7131
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-zero-width-identity.json",
+      "sha256": "081623e0db4325e8bce4b58660b7845c2feb4f99491166e9119f83b74bf4b13f",
+      "bytes": 6933
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-generic-cap-identity.json",
+      "sha256": "66777b885e28a4781c92bd8d8b4925d5d11862ecf9963687226be54730d17330",
+      "bytes": 7305
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-browser-final-full.txt",
+      "sha256": "178dcf9c1af80e7832ad290585b7fd43400413cf40b08675ee01142c54cd2e2f",
+      "bytes": 17364
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/qa-browser-final.png",
+      "sha256": "18ece8803c0a20645275e1451a6640e3a96a8fa32a07ad4a8426c137cfcb6597",
+      "bytes": 47869
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/provider-response.json",
+      "sha256": "beb5b8a6274a325ad68a93129fc69a5d7cc421ac5bde7469f5177280bb352c97",
+      "bytes": 1791
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/persisted-result.json",
+      "sha256": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+      "bytes": 6126
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/persisted-counterexample.json",
+      "sha256": "3e6fb3d09e23b41f5c7c03fddd8b7401042856a4016c8c6492e4ba21c5f54919",
+      "bytes": 22268
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/ui-entry.tsx",
+      "sha256": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+      "bytes": 10027
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/ui-server.mjs",
+      "sha256": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+      "bytes": 4303
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-desktop-results.json",
+      "sha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "bytes": 3174
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-narrow-results.json",
+      "sha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "bytes": 3175
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/checks.json",
+      "sha256": "695c57c26ef1147bbbda2ffd8d74b29d080a02e20e22d134f4ddbfe64f2c3e85",
+      "bytes": 5210
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "unitId": "UPG-04",
+  "releaseSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+  "status": "FAIL",
+  "cases": [
+    {
+      "name": "new strict schema rejects missing either identity field",
+      "status": "PASS"
+    },
+    {
+      "name": "new strict schema rejects object number array identity values",
+      "status": "PASS"
+    },
+    {
+      "name": "ordinary blank or missing-side identity cannot pass current mapper and engine",
+      "status": "PASS"
+    },
+    {
+      "name": "sufficient equal text is not blanket REVIEW",
+      "status": "PASS"
+    },
+    {
+      "name": "sufficient equal logo is not blanket REVIEW",
+      "status": "PASS"
+    },
+    {
+      "name": "sufficient differing numeric text mismatch remains critical FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "contradictory logo identities cannot support reported match",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected \"actual\" to be strictly unequal to:\n\n'pass'"
+    },
+    {
+      "name": "contradictory visible_text identities cannot support reported match",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected \"actual\" to be strictly unequal to:\n\n'pass'"
+    },
+    {
+      "name": "invisible Unicode-only transcription is blank evidence",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n"
+    },
+    {
+      "name": "generic cap shape cannot establish a logo identity",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n"
+    },
+    {
+      "name": "all box proposals including forged verification extras are withheld with raw intact",
+      "status": "PASS"
+    }
+  ],
+  "synthetic": true,
+  "limitations": [
+    "Controlled current strict-schema -> actual mapper -> engine without model/production call. No visual truth or OCR accuracy claim."
+  ]
+}

@@ -55,3 +55,11 @@
 独立QA Sol/high：新最终releaseSha完整差分与反例，原52/30相关回归、typecheck及一次必要构建，真实生产复验仍要通过。旧qaCandidate冻结ec5a73d保持历史；后代新发布必须新releaseQa证明而非旧PASS。原始生产部署/HTTP/功能FAIL均保留，最终PASS才正式manifest导入。理由是provider/判断/UI跨层风险；只因反复可定位推理不足再升级，环境不升级。
 
 总控确认最小保守修复：未独立验证的模型定位不能默认画框，保留raw及明确未验证原因，不伪造定位来源。缺乏充分可读身份文字证据不能贡献PASS；不要用单个案例英文描述特判，应有可判定结构化依据。历史原判不被静默重写，读取时展示降级须明确区分。保留充分证据的match/mismatch，不把所有检查笼统改REVIEW。区域框受限是产品能力限制，必须如实记录，后续定位质量提升需独立样本与验证能力。
+
+### 第二轮必要修复：缩小到身份规范化与一致性
+
+8870f8c独立FAIL：ALPHA/BETA、100ml/200ml矛盾身份被标match，纯U+200B文字，黑色矩形帽盖冒充logo。原49/3及24浏览器通过但不抵销反例。失败见operations/evidence/upg04-repair-attempt-1/qa-original.json。已重复同类问题，先缩小范围并诊断，禁止通过扩大英文排除词表无限补丁来掩盖结构缺口。
+
+允许lib/qa/identity-evidence.ts、必要provider身份字段/schema及types、engine版本/一致性接入、对应fixture/脚本和架构说明；不改UI或已通过的定位降级策略。规范化应处理Unicode不可见控制/格式字符和空值，保留原始输入；按身份类型处理直接可比文字和数量/单位冲突，不能机械要求所有自然语言描述完全相等。矛盾match至少REVIEW，充分明确mismatch仍FAIL。通用物体几何不得建立logo身份；如需明确身份类型字段，应保守定义并版本化，避免仅靠任意描述声称已识别。仍不宣称视觉验证或准确率。
+
+开发与独立QA继续Sol/high，理由为已定位跨字段语义与Unicode边界，不是无依据升级最高模型；若再出现同类实质推理遗漏，再评估缩小为安全禁用该不可靠身份判定或更高能力模型。环境缺失不升级。专项重放四原反例＋必要正例/Unicode/数量单位变体、typecheck与policy回归；UI无变则复用已真实24浏览器证据并核对源码hash，避免重复build，最终Cloudflare仍实际构建。
