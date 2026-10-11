@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-05",
+  "qaCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T14:55:33.283Z",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "complete release diff contains only controller documents and evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate application and migrations identical at release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "archive hashes and original acceptance evidence preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "release typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "archive source excluded from compilation",
+      "status": "PASS"
+    },
+    {
+      "name": "clean release working tree",
+      "status": "PASS"
+    }
+  ]
+}

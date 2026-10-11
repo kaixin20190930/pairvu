@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-05",
+  "qaCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+  "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "authenticated synthetic analysis human review UI",
+  "result": "PENDING_SUPPLEMENT",
+  "uiResult": "PASS",
+  "reviewedAt": "2026-10-11T15:12:37.125Z",
+  "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "origin": "https://pairvu.com",
+  "checks": [
+    {
+      "name": "existing real logged-in browser session, no credential extraction",
+      "status": "PASS",
+      "evidence": "Initial owned history fetched successfully; UI write actions completed and persisted. No sign-in state forged."
+    },
+    {
+      "name": "initial old completed synthetic analysis no invented review",
+      "status": "PASS",
+      "evidence": "Initial loaded human state None revision0; machine REVIEW."
+    },
+    {
+      "name": "approve then reject then revoke appended three QA-marked events",
+      "status": "PASS",
+      "evidence": [
+        {
+          "revision": 1,
+          "action": "approve",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:07:12.915Z"
+        },
+        {
+          "revision": 2,
+          "action": "reject",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:13.448Z"
+        },
+        {
+          "revision": 3,
+          "action": "revoke",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:44.518Z"
+        }
+      ]
+    },
+    {
+      "name": "refresh and whole-page reload retained None revision3 and all events",
+      "status": "PASS",
+      "evidence": "/tmp/pairvu-upg05-production/final-dom.json"
+    },
+    {
+      "name": "machine result evidence and original expanded provenance DOM unchanged",
+      "status": "PASS",
+      "evidence": "Six machine aria-labelled regions and original provenance text byte-identical before actions and after whole-page reload; 24 images loaded."
+    },
+    {
+      "name": "human decision explicitly does not establish release eligibility",
+      "status": "PASS",
+      "evidence": "Actual UI retained Machine verdict review and disclaimer after approve/reject/revoke."
+    },
+    {
+      "name": "HTML audit note escaped as literal text",
+      "status": "PASS",
+      "evidence": "DOM outerHTML contains &lt;b&gt;QA synthetic-only audit note&lt;/b&gt; and screenshot shows literal tags."
+    },
+    {
+      "name": "server-rendered actor/time consistent across all three events",
+      "status": "PASS",
+      "evidence": [
+        {
+          "revision": 1,
+          "action": "approve",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:07:12.915Z"
+        },
+        {
+          "revision": 2,
+          "action": "reject",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:13.448Z"
+        },
+        {
+          "revision": 3,
+          "action": "revoke",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:44.518Z"
+        }
+      ]
+    },
+    {
+      "name": "anonymous read/write denied and final audit count still three",
+      "status": "PASS",
+      "evidence": [
+        "/tmp/pairvu-upg05-production/anonymous-review-read.body",
+        "/tmp/pairvu-upg05-production/anonymous-review-write.body",
+        "/tmp/pairvu-upg05-production/final-dom.json"
+      ]
+    },
+    {
+      "name": "read-only D1 supplement for ownership, prev IDs, snapshot hash and live credits",
+      "status": "PENDING",
+      "evidence": "/tmp/pairvu-upg05-production-d1-read-request.json"
+    }
+  ],
+  "eventsObservedInUI": [
+    {
+      "revision": 1,
+      "action": "approve",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:07:12.915Z"
+    },
+    {
+      "revision": 2,
+      "action": "reject",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:08:13.448Z"
+    },
+    {
+      "revision": 3,
+      "action": "revoke",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:08:44.518Z"
+    }
+  ],
+  "machineDomSha256": "ad96e7a048c0e7c3a854d67306ed8c91b8a6d079f540c56c75a256b9f6c55097",
+  "expectedCredits": 6,
+  "liveCreditsVerification": "Pending controller's exact read; QA performed zero new analyses/model/payment actions.",
+  "evidenceDirectory": "/tmp/pairvu-upg05-production",
+  "screenshots": [
+    "/tmp/pairvu-upg05-production/approve.png",
+    "/tmp/pairvu-upg05-production/reject.png",
+    "/tmp/pairvu-upg05-production/revoke.png",
+    "/tmp/pairvu-upg05-production/final-human-review.png",
+    "/tmp/pairvu-upg05-production/final-audit-chain.png"
+  ],
+  "limitations": [
+    "Authenticated session/API were real; no injected response or simulated session in production.",
+    "HTTP receipt scope=http proves release and reachability only; actual authenticated UI proof is this separate report.",
+    "No production concurrency race, fault injection, rollback corruption, retention deletion, cross-workspace real second account or forced 409/503 tested; those remain fixed-SHA local independent evidence.",
+    "No raw review API JSON read or credentials extracted; UI actor/time source observed. Owner membership, previousEventId, machine JSON/hash and current credits await controller's exact read-only supplement."
+  ],
+  "toolIncidents": [
+    {
+      "kind": "HTTP client",
+      "detail": "Initial Python urllib default user agent received HTTP403 before raw report saved; subsequent ordinary curl Mozilla/5.0 observations succeeded. Original traceback retained in tool history; no security interstitial bypass."
+    },
+    {
+      "kind": "QA locator",
+      "detail": "Native summary was not matched by Playwright role=button; corrected using observed exact summary text before action. Later broad Audit history text matched revoked-status paragraph and summary; corrected exact summary text before click."
+    },
+    {
+      "kind": "reload timing",
+      "detail": "Heading wait returned early timeout while result restoration was still loading; no action repeated. Following state observations and provenance expansion confirmed normal restoration and history revision3."
+    }
+  ],
+  "nextAction": {
+    "action": "Controller supplies exact read-only synthetic D1 supplement; QA binds it to observed UI event chain and finalizes full functional result.",
+    "dependency": "/tmp/pairvu-upg05-production-d1-read-request.json",
+    "automatic": true
+  }
+}

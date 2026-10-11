@@ -1,0 +1,722 @@
+Browser tab: 4, Title: "Pairvu - AI Product Image Checker", URL: "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001".
+1 AXWebArea Pairvu - AI Product Image Checker, URL: pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+	2 link Description: Skip to content, Value: pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001#main-content
+	3 container
+		4 link Description: Pairvu home, Value: pairvu.com/
+		5 container site-menu-panel
+			6 container Primary navigation
+				7 pop up button (collapsed) Product, Secondary Actions: Expand
+					8 text Product
+				9 pop up button (collapsed) Learn, Secondary Actions: Expand
+					10 text Learn
+				11 pop up button (collapsed) Solutions, Secondary Actions: Expand
+					12 text Solutions
+			13 link Description: Account, Value: pairvu.com/account
+			14 link Description: Check image, Value: pairvu.com/#checker
+	15 container
+		16 container Did AI change your product?
+			17 container checker
+				18 text PAIRVU AI PRODUCT IMAGE CHECKER
+				19 heading Did AI change your product?, Value: 1, ID: headline
+					20 text Did AI change your product?
+				21 text Quality control for AI product photography.
+				22 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+				23 container Pairvu
+				24 container Use two views that make the same product details observable
+					25 text YOUR FIRST CHECK
+					26 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+						27 text Use two views that make the same product details observable
+					28 content list
+						29 container
+							30 text 1. Approved original Use the product image you trust.
+						31 container
+							32 text 2. Candidate Add the generated, edited, or proposed image.
+						33 container
+							34 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+					35 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+				36 container
+					37 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+					38 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+					39 text Approved original
+					40 image Reference preview
+				41 container
+					42 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+					43 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked Candidate preview
+					44 text Image checked
+					45 image Candidate preview
+				46 container
+					47 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+					48 link Description: Privacy details, Value: pairvu.com/privacy
+				49 button (disabled) Check image
+				50 button Check another image
+				51 container REVIEW
+					52 text VERDICT
+					53 heading REVIEW, Value: 2, ID: verdict-title
+						54 text REVIEW
+				55 container Actual detected fidelity issues
+					56 text PRODUCT DIFFERENCES
+					57 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+						58 text Actual detected fidelity issues
+					59 text No product issues were confirmed.
+				60 container Observability problems and analysis limitations
+					61 text NEEDS REVIEW / COULD NOT VERIFY
+					62 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+						63 text Observability problems and analysis limitations
+					64 container
+						65 text Could not run a check  ·  High confidence Provider did not return an observation for visible_text. Visible text
+						66 definition list
+							67 container REFERENCE · VISIBLE EXPECTED
+								68 text REFERENCE · VISIBLE EXPECTED
+							69 text —
+							70 container CANDIDATE · OBSERVED
+								71 text CANDIDATE · OBSERVED
+							72 text —
+							73 container WHAT CHANGED
+								74 text WHAT CHANGED
+							75 text —
+							76 container SUMMARY
+								77 text SUMMARY
+							78 text —
+							79 container ORIGINAL VISIBLE
+								80 text ORIGINAL VISIBLE
+							81 text —
+							82 container CANDIDATE VISIBLE
+								83 text CANDIDATE VISIBLE
+							84 text —
+							85 container VISIBLE EVIDENCE
+								86 text VISIBLE EVIDENCE
+							87 text —
+							88 container WHY UNCERTAIN
+								89 text WHY UNCERTAIN
+							90 text —
+						91 container Reference · visible expected
+							92 text Reference · visible expected
+							93 image Reference · visible expected image
+							94 container
+								95 text Image zoom
+								96 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								97 text 100 %
+							98 text Region not recorded for this result.
+						99 container Candidate · observed
+							100 text Candidate · observed
+							101 image Candidate · observed image
+							102 container
+								103 text Image zoom
+								104 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								105 text 100 %
+							106 text Region not recorded for this result.
+					107 container
+						108 text Could not run a check  ·  High confidence Provider did not return an observation for quantity. Product count
+						109 definition list
+							110 container REFERENCE · VISIBLE EXPECTED
+								111 text REFERENCE · VISIBLE EXPECTED
+							112 text —
+							113 container CANDIDATE · OBSERVED
+								114 text CANDIDATE · OBSERVED
+							115 text —
+							116 container WHAT CHANGED
+								117 text WHAT CHANGED
+							118 text —
+							119 container SUMMARY
+								120 text SUMMARY
+							121 text —
+							122 container ORIGINAL VISIBLE
+								123 text ORIGINAL VISIBLE
+							124 text —
+							125 container CANDIDATE VISIBLE
+								126 text CANDIDATE VISIBLE
+							127 text —
+							128 container VISIBLE EVIDENCE
+								129 text VISIBLE EVIDENCE
+							130 text —
+							131 container WHY UNCERTAIN
+								132 text WHY UNCERTAIN
+							133 text —
+						134 container Reference · visible expected
+							135 text Reference · visible expected
+							136 image Reference · visible expected image
+							137 container
+								138 text Image zoom
+								139 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								140 text 100 %
+							141 text Region not recorded for this result.
+						142 container Candidate · observed
+							143 text Candidate · observed
+							144 image Candidate · observed image
+							145 container
+								146 text Image zoom
+								147 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								148 text 100 %
+							149 text Region not recorded for this result.
+					150 container
+						151 text Could not run a check  ·  High confidence Provider did not return an observation for dominant_color. Main color
+						152 definition list
+							153 container REFERENCE · VISIBLE EXPECTED
+								154 text REFERENCE · VISIBLE EXPECTED
+							155 text —
+							156 container CANDIDATE · OBSERVED
+								157 text CANDIDATE · OBSERVED
+							158 text —
+							159 container WHAT CHANGED
+								160 text WHAT CHANGED
+							161 text —
+							162 container SUMMARY
+								163 text SUMMARY
+							164 text —
+							165 container ORIGINAL VISIBLE
+								166 text ORIGINAL VISIBLE
+							167 text —
+							168 container CANDIDATE VISIBLE
+								169 text CANDIDATE VISIBLE
+							170 text —
+							171 container VISIBLE EVIDENCE
+								172 text VISIBLE EVIDENCE
+							173 text —
+							174 container WHY UNCERTAIN
+								175 text WHY UNCERTAIN
+							176 text —
+						177 container Reference · visible expected
+							178 text Reference · visible expected
+							179 image Reference · visible expected image
+							180 container
+								181 text Image zoom
+								182 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								183 text 100 %
+							184 text Region not recorded for this result.
+						185 container Candidate · observed
+							186 text Candidate · observed
+							187 image Candidate · observed image
+							188 container
+								189 text Image zoom
+								190 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								191 text 100 %
+							192 text Region not recorded for this result.
+					193 container
+						194 text Could not run a check  ·  High confidence Provider did not return an observation for major_components. Major components
+						195 definition list
+							196 container REFERENCE · VISIBLE EXPECTED
+								197 text REFERENCE · VISIBLE EXPECTED
+							198 text —
+							199 container CANDIDATE · OBSERVED
+								200 text CANDIDATE · OBSERVED
+							201 text —
+							202 container WHAT CHANGED
+								203 text WHAT CHANGED
+							204 text —
+							205 container SUMMARY
+								206 text SUMMARY
+							207 text —
+							208 container ORIGINAL VISIBLE
+								209 text ORIGINAL VISIBLE
+							210 text —
+							211 container CANDIDATE VISIBLE
+								212 text CANDIDATE VISIBLE
+							213 text —
+							214 container VISIBLE EVIDENCE
+								215 text VISIBLE EVIDENCE
+							216 text —
+							217 container WHY UNCERTAIN
+								218 text WHY UNCERTAIN
+							219 text —
+						220 container Reference · visible expected
+							221 text Reference · visible expected
+							222 image Reference · visible expected image
+							223 container
+								224 text Image zoom
+								225 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								226 text 100 %
+							227 text Region not recorded for this result.
+						228 container Candidate · observed
+							229 text Candidate · observed
+							230 image Candidate · observed image
+							231 container
+								232 text Image zoom
+								233 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								234 text 100 %
+							235 text Region not recorded for this result.
+					236 container
+						237 text Could not run a check  ·  High confidence Provider did not return an observation for major_shape_packaging. Shape and packaging
+						238 definition list
+							239 container REFERENCE · VISIBLE EXPECTED
+								240 text REFERENCE · VISIBLE EXPECTED
+							241 text —
+							242 container CANDIDATE · OBSERVED
+								243 text CANDIDATE · OBSERVED
+							244 text —
+							245 container WHAT CHANGED
+								246 text WHAT CHANGED
+							247 text —
+							248 container SUMMARY
+								249 text SUMMARY
+							250 text —
+							251 container ORIGINAL VISIBLE
+								252 text ORIGINAL VISIBLE
+							253 text —
+							254 container CANDIDATE VISIBLE
+								255 text CANDIDATE VISIBLE
+							256 text —
+							257 container VISIBLE EVIDENCE
+								258 text VISIBLE EVIDENCE
+							259 text —
+							260 container WHY UNCERTAIN
+								261 text WHY UNCERTAIN
+							262 text —
+						263 container Reference · visible expected
+							264 text Reference · visible expected
+							265 image Reference · visible expected image
+							266 container
+								267 text Image zoom
+								268 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								269 text 100 %
+							270 text Region not recorded for this result.
+						271 container Candidate · observed
+							272 text Candidate · observed
+							273 image Candidate · observed image
+							274 container
+								275 text Image zoom
+								276 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								277 text 100 %
+							278 text Region not recorded for this result.
+					279 container
+						280 text Not visible enough  ·  High confidence logo is not sufficiently observable. Logo
+						281 definition list
+							282 container REFERENCE · VISIBLE EXPECTED
+								283 text REFERENCE · VISIBLE EXPECTED
+							284 text Blue rectangular container with black cap and central white label area, but no textual brand name visible
+							285 container CANDIDATE · OBSERVED
+								286 text CANDIDATE · OBSERVED
+							287 text Blue rectangular container with black cap and central white label area, but no textual brand name visible
+							288 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								289 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							290 text absent
+							291 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								292 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							293 text absent
+							294 container WHAT CHANGED
+								295 text WHAT CHANGED
+							296 text Not visible
+							297 container SUMMARY
+								298 text SUMMARY
+							299 text No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.
+							300 container ORIGINAL VISIBLE
+								301 text ORIGINAL VISIBLE
+							302 text No
+							303 container CANDIDATE VISIBLE
+								304 text CANDIDATE VISIBLE
+							305 text No
+							306 container VISIBLE EVIDENCE
+								307 text VISIBLE EVIDENCE
+							308 text blue rectangular container, black cap, white central label area
+							309 container WHY UNCERTAIN
+								310 text WHY UNCERTAIN
+							311 text Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.
+						312 container Reference · visible expected
+							313 text Reference · visible expected
+							314 image Reference · visible expected image
+							315 container
+								316 text Image zoom
+								317 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								318 text 100 %
+							319 text Relevant evidence is not visible.
+						320 container Candidate · observed
+							321 text Candidate · observed
+							322 image Candidate · observed image
+							323 container
+								324 text Image zoom
+								325 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								326 text 100 %
+							327 text Relevant evidence is not visible.
+					328 container
+						329 text Could not run a check  ·  High confidence visible_text was not returned by the provider. Visible text
+						330 definition list
+							331 container REFERENCE · VISIBLE EXPECTED
+								332 text REFERENCE · VISIBLE EXPECTED
+							333 text —
+							334 container CANDIDATE · OBSERVED
+								335 text CANDIDATE · OBSERVED
+							336 text —
+							337 container WHAT CHANGED
+								338 text WHAT CHANGED
+							339 text —
+							340 container SUMMARY
+								341 text SUMMARY
+							342 text —
+							343 container ORIGINAL VISIBLE
+								344 text ORIGINAL VISIBLE
+							345 text —
+							346 container CANDIDATE VISIBLE
+								347 text CANDIDATE VISIBLE
+							348 text —
+							349 container VISIBLE EVIDENCE
+								350 text VISIBLE EVIDENCE
+							351 text —
+							352 container WHY UNCERTAIN
+								353 text WHY UNCERTAIN
+							354 text —
+						355 container Reference · visible expected
+							356 text Reference · visible expected
+							357 image Reference · visible expected image
+							358 container
+								359 text Image zoom
+								360 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								361 text 100 %
+							362 text Region not recorded for this result.
+						363 container Candidate · observed
+							364 text Candidate · observed
+							365 image Candidate · observed image
+							366 container
+								367 text Image zoom
+								368 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								369 text 100 %
+							370 text Region not recorded for this result.
+					371 container
+						372 text Could not run a check  ·  High confidence quantity was not returned by the provider. Product count
+						373 definition list
+							374 container REFERENCE · VISIBLE EXPECTED
+								375 text REFERENCE · VISIBLE EXPECTED
+							376 text —
+							377 container CANDIDATE · OBSERVED
+								378 text CANDIDATE · OBSERVED
+							379 text —
+							380 container WHAT CHANGED
+								381 text WHAT CHANGED
+							382 text —
+							383 container SUMMARY
+								384 text SUMMARY
+							385 text —
+							386 container ORIGINAL VISIBLE
+								387 text ORIGINAL VISIBLE
+							388 text —
+							389 container CANDIDATE VISIBLE
+								390 text CANDIDATE VISIBLE
+							391 text —
+							392 container VISIBLE EVIDENCE
+								393 text VISIBLE EVIDENCE
+							394 text —
+							395 container WHY UNCERTAIN
+								396 text WHY UNCERTAIN
+							397 text —
+						398 container Reference · visible expected
+							399 text Reference · visible expected
+							400 image Reference · visible expected image
+							401 container
+								402 text Image zoom
+								403 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								404 text 100 %
+							405 text Region not recorded for this result.
+						406 container Candidate · observed
+							407 text Candidate · observed
+							408 image Candidate · observed image
+							409 container
+								410 text Image zoom
+								411 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								412 text 100 %
+							413 text Region not recorded for this result.
+					414 container
+						415 text Could not run a check  ·  High confidence dominant_color was not returned by the provider. Main color
+						416 definition list
+							417 container REFERENCE · VISIBLE EXPECTED
+								418 text REFERENCE · VISIBLE EXPECTED
+							419 text —
+							420 container CANDIDATE · OBSERVED
+								421 text CANDIDATE · OBSERVED
+							422 text —
+							423 container WHAT CHANGED
+								424 text WHAT CHANGED
+							425 text —
+							426 container SUMMARY
+								427 text SUMMARY
+							428 text —
+							429 container ORIGINAL VISIBLE
+								430 text ORIGINAL VISIBLE
+							431 text —
+							432 container CANDIDATE VISIBLE
+								433 text CANDIDATE VISIBLE
+							434 text —
+							435 container VISIBLE EVIDENCE
+								436 text VISIBLE EVIDENCE
+							437 text —
+							438 container WHY UNCERTAIN
+								439 text WHY UNCERTAIN
+							440 text —
+						441 container Reference · visible expected
+							442 text Reference · visible expected
+							443 image Reference · visible expected image
+							444 container
+								445 text Image zoom
+								446 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								447 text 100 %
+							448 text Region not recorded for this result.
+						449 container Candidate · observed
+							450 text Candidate · observed
+							451 image Candidate · observed image
+							452 container
+								453 text Image zoom
+								454 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								455 text 100 %
+							456 text Region not recorded for this result.
+					457 container
+						458 text Could not run a check  ·  High confidence major_components was not returned by the provider. Major components
+						459 definition list
+							460 container REFERENCE · VISIBLE EXPECTED
+								461 text REFERENCE · VISIBLE EXPECTED
+							462 text —
+							463 container CANDIDATE · OBSERVED
+								464 text CANDIDATE · OBSERVED
+							465 text —
+							466 container WHAT CHANGED
+								467 text WHAT CHANGED
+							468 text —
+							469 container SUMMARY
+								470 text SUMMARY
+							471 text —
+							472 container ORIGINAL VISIBLE
+								473 text ORIGINAL VISIBLE
+							474 text —
+							475 container CANDIDATE VISIBLE
+								476 text CANDIDATE VISIBLE
+							477 text —
+							478 container VISIBLE EVIDENCE
+								479 text VISIBLE EVIDENCE
+							480 text —
+							481 container WHY UNCERTAIN
+								482 text WHY UNCERTAIN
+							483 text —
+						484 container Reference · visible expected
+							485 text Reference · visible expected
+							486 image Reference · visible expected image
+							487 container
+								488 text Image zoom
+								489 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								490 text 100 %
+							491 text Region not recorded for this result.
+						492 container Candidate · observed
+							493 text Candidate · observed
+							494 image Candidate · observed image
+							495 container
+								496 text Image zoom
+								497 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								498 text 100 %
+							499 text Region not recorded for this result.
+					500 container
+						501 text Could not run a check  ·  High confidence major_shape_packaging was not returned by the provider. Shape and packaging
+						502 definition list
+							503 container REFERENCE · VISIBLE EXPECTED
+								504 text REFERENCE · VISIBLE EXPECTED
+							505 text —
+							506 container CANDIDATE · OBSERVED
+								507 text CANDIDATE · OBSERVED
+							508 text —
+							509 container WHAT CHANGED
+								510 text WHAT CHANGED
+							511 text —
+							512 container SUMMARY
+								513 text SUMMARY
+							514 text —
+							515 container ORIGINAL VISIBLE
+								516 text ORIGINAL VISIBLE
+							517 text —
+							518 container CANDIDATE VISIBLE
+								519 text CANDIDATE VISIBLE
+							520 text —
+							521 container VISIBLE EVIDENCE
+								522 text VISIBLE EVIDENCE
+							523 text —
+							524 container WHY UNCERTAIN
+								525 text WHY UNCERTAIN
+							526 text —
+						527 container Reference · visible expected
+							528 text Reference · visible expected
+							529 image Reference · visible expected image
+							530 container
+								531 text Image zoom
+								532 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								533 text 100 %
+							534 text Region not recorded for this result.
+						535 container Candidate · observed
+							536 text Candidate · observed
+							537 image Candidate · observed image
+							538 container
+								539 text Image zoom
+								540 slider (settable, integer) Description: Candidate · observed image zoom, Value: 100
+								541 text 100 %
+							542 text Region not recorded for this result.
+				543 container Checks the model reports as matching
+					544 text MODEL-SUPPORTED CHECKS
+					545 heading Checks the model reports as matching, Value: 2, ID: verified-title
+						546 text Checks the model reports as matching
+					547 text No checks were cleanly verified.
+				706 container
+					707 button (expanded) Analysis provenance, Secondary Actions: Collapse
+						708 text Analysis provenance
+					709 text This is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict. Detector:  m0-qa-engine-008  · Decision policy:  m0-risk-policy-003  · Model policy:  m0-model-policy-002 Model:  gpt-4.1-mini  · Prompt:  m0-real-mvp-009+regions-003  · Provider:  openai
+				550 container Independent human decision
+					551 text HUMAN REVIEW
+					552 heading Independent human decision, Value: 2, ID: human-review-batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+						553 text Independent human decision
+					554 container
+						555 text Machine verdict:  review . Human approval does not establish release eligibility.
+					556 container
+						557 text Current human decision:  None  · Revision  3
+					710 text The previous decision was revoked. Its audit history is retained.
+					558 container Decision draft
+						559 text Decision draft
+						560 container
+							561 text Decision
+							562 pop up button (collapsed, settable) Description: Human decision, Value: Approve, Secondary Actions: Expand
+								563 menu
+									564 (disabled) Approve
+									565 (disabled) Reject
+									566 (disabled) Revoke current decision
+						567 container
+							568 text Reason category
+							569 pop up button (collapsed, settable) Description: Review category, Value: other, Secondary Actions: Expand
+								570 menu
+									571 (disabled) false positive
+									572 (disabled) false negative
+									573 (disabled) intentional change
+									574 (disabled) wrong reference
+									575 (disabled) insufficient evidence
+									576 (disabled) other
+						577 container
+							578 text Reason (required, up to 1000 characters)
+							579 text entry area (settable) Review reason
+						580 container
+							581 text Optional note (up to 2000 characters)
+							582 text entry area (settable) Review note
+					583 button (disabled) Record human decision
+					584 button Refresh review history
+					711 container
+						712 button (expanded) Audit history · latest 3 of up to 100 events, Secondary Actions: Collapse
+							713 text Audit history · latest 
+							714 text 3
+							715 text  of up to 100 events
+						716 content list
+							717 container
+								718 AXListMarker 1. 
+								719 text Revision  1  ·  approve other  ·  QA UPG-05 production smoke: synthetic blue-box analysis only; test approval does not authorize release. <b>QA synthetic-only audit note</b> Actor  ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz  ·  2026-10-11T15:07:12.915Z Machine source:  review  ·  m0-qa-engine-008
+							720 container
+								721 AXListMarker 2. 
+								722 text Revision  2  ·  reject insufficient evidence  ·  QA UPG-05 production smoke: synthetic-only rejection; original machine REVIEW and insufficient identity evidence remain unchanged. Actor  ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz  ·  2026-10-11T15:08:13.448Z Machine source:  review  ·  m0-qa-engine-008
+							723 container
+								724 AXListMarker 3. 
+								725 text Revision  3  ·  revoke other  ·  QA UPG-05 production smoke complete: revoke the synthetic test decision; retain immutable approval and rejection history. Actor  ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz  ·  2026-10-11T15:08:44.518Z Machine source:  review  ·  m0-qa-engine-008
+				589 container Tell us whether this result was right
+					590 text FEEDBACK
+					591 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+						592 text Tell us whether this result was right
+					593 button Correct
+					594 button False alarm
+					595 button Missed something
+		596 container See PASS, REVIEW, and FAIL before your first check
+			597 text CONTROLLED COMPARISON EXAMPLES
+			598 heading See PASS, REVIEW, and FAIL before your first check, Value: 2, ID: home-example-title
+				599 text See PASS, REVIEW, and FAIL before your first check
+			600 text These are controlled examples, not customer case studies or statistical performance claims.
+			601 link Description: View all examples, Value: pairvu.com/examples
+			602 link Description: FAIL Scent and sheet count changed FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS., Value: pairvu.com/examples/laundry-sheets-scent-count-change
+			603 link Value: pairvu.com/examples/laundry-sheets-background-change, Description: PASS Background changed, product matched The approved carton moved into a laundry-room setting without a product change.
+			604 link Value: pairvu.com/examples/laundry-sheets-back-view-review, Description: REVIEW Front details could not be verified The candidate shows the back, so front logo, scent, and count need review.
+			605 container
+				606 text Need the complete test design?
+				607 link Description: Review the Pairvu Controlled Visual QA Benchmark, Value: pairvu.com/examples/controlled-visual-qa-benchmark
+				608 text .
+		609 container Check the product, not just the picture
+			610 text REFERENCE-BASED VISUAL QA
+			611 heading Check the product, not just the picture, Value: 2, ID: how-it-works
+				612 text Check the product, not just the picture
+			613 text Pairvu compares an AI-generated or edited product image with an approved original. It looks for visible changes that can make a product image inaccurate before the image is published.
+			614 content list
+				615 container
+					616 text 1 Add the approved original Use a clear image that represents the product you intend to show.
+				617 container
+					618 text 2 Add the image to check Upload the generated, edited, or otherwise proposed product image.
+				619 container
+					620 text 3 Review visible differences Get a PASS, REVIEW, or FAIL with evidence and observability limits.
+		621 container What Pairvu checks
+			622 text PRODUCT FIDELITY CHECKS
+			623 heading What Pairvu checks, Value: 2, ID: what-pairvu-checks
+				624 text What Pairvu checks
+			625 container
+				626 heading Logo and visible text, Value: 3
+					627 link Description: Logo and visible text, Value: pairvu.com/checks/product-logo
+				628 text Brand marks, product names, label wording, and 
+				629 link Description: printed values, Value: pairvu.com/checks/product-label-text
+				630 text  such as size or capacity.
+			631 container
+				632 heading Product count and components, Value: 3
+					633 link Description: Product count and components, Value: pairvu.com/checks/product-components
+				634 link Description: Visible product units, Value: pairvu.com/checks/product-quantity
+				635 text  and major parts that are missing, added, or materially changed.
+			636 container
+				637 heading Main color and packaging, Value: 3
+					638 link Description: Main color and packaging, Value: pairvu.com/checks/product-color
+				639 text Semantic product colors, container shape, 
+				640 link Description: packaging silhouette, Value: pairvu.com/checks/product-packaging
+				641 text , and major structural changes.
+			642 container
+				643 heading What cannot be verified, Value: 3
+					644 link Description: What cannot be verified, Value: pairvu.com/checks/product-image-observability
+				645 text Occlusion, unreadable text, incomplete coverage, and viewpoint differences are kept in review.
+		646 container Create faster without losing product truth
+			647 text AI PRODUCT PHOTOGRAPHY
+			648 heading Create faster without losing product truth, Value: 2, ID: market-context
+				649 text Create faster without losing product truth
+			650 text AI can change a scene quickly, but it can also alter a label, logo, color, count, component, or package. Pairvu adds a reference-based quality-control step between image creation and publishing.
+			651 link Description: Learn about quality control for AI product photography, Value: pairvu.com/ai-product-photography
+		652 container Build a safer pre-publish workflow
+			653 text LEARN FROM REAL FAILURE MODES
+			654 heading Build a safer pre-publish workflow, Value: 2, ID: explore-pairvu
+				655 text Build a safer pre-publish workflow
+			656 link Description: Comparison examples See the visible changes Pairvu is designed to catch., Value: pairvu.com/examples
+			657 link Value: pairvu.com/checks, Description: Product checks Use Pairvu's evidence rules for logo, text, quantity, color, components, packaging, and observability.
+			658 link Description: Product categories Review category-specific risks across the five supported packaged-goods families., Value: pairvu.com/categories
+			659 link Description: Pre-publish checklist Review product fidelity before an image goes live., Value: pairvu.com/guides/ai-product-photography-checklist
+			660 link Description: How Pairvu works Understand the comparison method, verdicts, and visible-evidence limits., Value: pairvu.com/how-pairvu-works
+			661 link Description: Use cases Fit Pairvu into brand, creative, and commerce workflows., Value: pairvu.com/use-cases
+		662 container About the checker
+			663 text COMMON QUESTIONS
+			664 heading About the checker, Value: 2, ID: home-faq
+				665 text About the checker
+			666 button (collapsed) Does Pairvu generate product images?, Secondary Actions: Expand
+				667 text Does Pairvu generate product images?
+			668 button (collapsed) Does a PASS guarantee marketplace approval?, Secondary Actions: Expand
+				669 text Does a PASS guarantee marketplace approval?
+			670 button (collapsed) What happens when a detail is hidden or unreadable?, Secondary Actions: Expand
+				671 text What happens when a detail is hidden or unreadable?
+	672 container
+		673 link pairvu.com/
+		674 text Quality control for AI product photography.
+		675 heading PRODUCT, Value: 2
+			676 text PRODUCT
+		677 link Description: AI Product Image Checker, Value: pairvu.com/
+		678 link Description: Check Image, Value: pairvu.com/#checker
+		679 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		680 link Description: Pricing, Value: pairvu.com/pricing
+		681 heading LEARN, Value: 2
+			682 text LEARN
+		683 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		684 link Description: Examples, Value: pairvu.com/examples
+		685 link Description: Product Categories, Value: pairvu.com/categories
+		686 link Description: Product Checks, Value: pairvu.com/checks
+		687 link Description: Guides, Value: pairvu.com/guides
+		688 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		689 heading USE CASES, Value: 2
+			690 text USE CASES
+		691 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		692 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		693 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		694 link Description: Brands, Value: pairvu.com/use-cases/brands
+		695 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		696 heading LEGAL, Value: 2
+			697 text LEGAL
+		698 link Description: Privacy, Value: pairvu.com/privacy
+		699 heading OTHER PRODUCTS, Value: 2
+			700 text OTHER PRODUCTS
+		701 link Description: Moxion, Value: moxion.ai/
+		702 link Description: Sigoo, Value: sigoo.ai/
+		703 link Description: AI Best Tool, Value: aibesttool.com/
+		704 link Description: Triptrace, Value: triptrace.ai/
+		705 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 1 AXWebArea Pairvu - AI Product Image Checker, URL: pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001

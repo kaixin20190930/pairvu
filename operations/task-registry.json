@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-05",
+  "unitId": "UPG-06",
   "baselineSha": "d4c6387a9e05f0da7fc5ab1ef930f4d1b3c2f065",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
@@ -10,11 +10,11 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "鉴权、D1原子审计与UI冲突处理跨层实现。",
-      "upgradeCondition": "仅重复且可定位推理不足再评估更高模型；环境问题不升级。",
-      "applied": true
+      "reason": "UPG06跨租户过滤、规则安全退化、并发读取与CSV权限存在跨模块风险。",
+      "upgradeCondition": "仅重复且定位到推理不足才评估更高模型，先缩域补输入；环境问题不升级。",
+      "applied": false
     },
-    "observedStatus": "completed",
+    "observedStatus": "idle",
     "afterCursor": "e6a820fc-404f-4129-a2ed-444c8f960b9e:278",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -31,19 +31,19 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "独立验证所有权隔离、并发重放、审计不可变与UI反例。",
-      "upgradeCondition": "仅重复且可定位推理不足再评估更高模型；环境问题不升级。",
-      "applied": true
+      "reason": "UPG06需独立构造规则误放行、所有权隔离、分页与并发读取反例，不能因只读而降档。",
+      "upgradeCondition": "仅重复且定位到推理不足才评估更高模型，先缩域补输入；环境问题不升级。",
+      "applied": false
     },
-    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:379",
-    "observedStatus": "completed",
-    "receipt": "operations/evidence/UPG-05.json",
+    "afterCursor": "e6069573-4e0e-4ad6-ac81-e0bf6f486863:412",
+    "observedStatus": "idle",
+    "receipt": "operations/evidence/production-upg05-2026-10-11/production-functional.json",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "已验收候选之后仅文档和证据，固定最终SHA增量与哈希/typecheck核验。",
       "upgradeCondition": "发现运行时差分或迁移/鉴权问题则high重新评估。",
-      "applied": false
+      "applied": true
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -64,22 +64,21 @@
       "thinking": "high",
       "reason": "真实登录actor、远端D1审计和UI一致性生产验证。",
       "upgradeCondition": "重复可定位推理不足再缩域或升级；环境不升级。",
-      "applied": false
+      "applied": true
     }
   },
-  "candidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
-  "state": "RELEASE_READY",
+  "candidateSha": null,
+  "state": "SCOPED",
   "automationId": "pairvu-2",
-  "notes": "用户已明确授权UPG05发布及必要修复、通过后自动UPG06研发独立QA；准备最终SHA发布增量验收。",
+  "notes": "UPG05生产HTTP和15项真实业务独立PASS，正式CLOSED；自动继续UPG06明确契约，最多RELEASE_READY后暂停巡检。",
   "nextUnitId": "UPG-06",
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
-    "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29",
-    "evidenceDirectory": "operations/evidence/production-upg04-repair4-2026-10-11",
-    "localQaReceipt": "operations/evidence/production-upg04-repair4-2026-10-11/local-qa-original.json",
-    "receipt": "operations/evidence/production-upg04-repair4-2026-10-11/manifest.json",
-    "functionalReceipt": "operations/evidence/production-upg04-repair4-2026-10-11/login-qa-final.json"
+    "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+    "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+    "evidenceDirectory": "operations/evidence/production-upg05-2026-10-11",
+    "receipt": "operations/evidence/production-upg05-2026-10-11/manifest.json",
+    "functionalReceipt": "operations/evidence/production-upg05-2026-10-11/production-functional.json"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -142,6 +141,14 @@
       "localQaReceipt": "operations/evidence/production-upg04-repair4-2026-10-11/local-qa-original.json",
       "receipt": "operations/evidence/production-upg04-repair4-2026-10-11/manifest.json",
       "functionalReceipt": "operations/evidence/production-upg04-repair4-2026-10-11/login-qa-final.json"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+      "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+      "evidenceDirectory": "operations/evidence/production-upg05-2026-10-11",
+      "receipt": "operations/evidence/production-upg05-2026-10-11/manifest.json",
+      "functionalReceipt": "operations/evidence/production-upg05-2026-10-11/production-functional.json"
     }
   ],
   "loginAcceptance": {
@@ -154,12 +161,12 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "UPG05固定最终SHA增量QA→GitHub-first发布/0021迁移→真实生产验收→UPG06研发独立QA",
-    "dependency": "发布增量与生产门禁必须真实通过；UPG06生产未授权",
+    "action": "UPG06开发→固定SHA独立QA→RELEASE_READY并暂停pairvu-2",
+    "dependency": "明确契约；生产发布需新授权",
     "automatic": true
   },
-  "completedUnitId": "UPG-04",
-  "completedCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "completedUnitId": "UPG-05",
+  "completedCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
   "completedReleaseRepair": {
     "state": "CLOSED",
     "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
@@ -184,5 +191,11 @@
     "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-3/qa-original.json",
     "attempt": 4,
     "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+  },
+  "automationDecision": {
+    "id": "pairvu-2",
+    "status": "ACTIVE",
+    "pauseAfter": "UPG-06 independent PASS and formal RELEASE_READY",
+    "authorizedBy": "User reply 本轮保留，UPG-06验收后暂停（推荐）"
   }
 }

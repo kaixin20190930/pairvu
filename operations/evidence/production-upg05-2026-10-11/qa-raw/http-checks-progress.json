@@ -1,0 +1,112 @@
+[
+  {
+    "name": "health",
+    "method": "GET",
+    "url": "https://pairvu.com/api/health",
+    "status": 200,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:26.608Z",
+    "checkedAt": "2026-10-11T15:08:28.417Z",
+    "headersPath": "/tmp/pairvu-upg05-production/health.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/health.body",
+    "body": {
+      "ok": true,
+      "service": "pairvu",
+      "release": "public-beta",
+      "buildSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+      "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7"
+    }
+  },
+  {
+    "name": "home",
+    "method": "GET",
+    "url": "https://pairvu.com/",
+    "status": 200,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:28.418Z",
+    "checkedAt": "2026-10-11T15:08:31.266Z",
+    "headersPath": "/tmp/pairvu-upg05-production/home.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/home.body",
+    "body": null
+  },
+  {
+    "name": "checks",
+    "method": "GET",
+    "url": "https://pairvu.com/checks",
+    "status": 200,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:31.267Z",
+    "checkedAt": "2026-10-11T15:08:33.511Z",
+    "headersPath": "/tmp/pairvu-upg05-production/checks.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/checks.body",
+    "body": null
+  },
+  {
+    "name": "pricing",
+    "method": "GET",
+    "url": "https://pairvu.com/pricing",
+    "status": 200,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:33.512Z",
+    "checkedAt": "2026-10-11T15:08:35.908Z",
+    "headersPath": "/tmp/pairvu-upg05-production/pricing.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/pricing.body",
+    "body": null
+  },
+  {
+    "name": "sign-in",
+    "method": "GET",
+    "url": "https://pairvu.com/sign-in",
+    "status": 200,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:35.909Z",
+    "checkedAt": "2026-10-11T15:08:37.988Z",
+    "headersPath": "/tmp/pairvu-upg05-production/sign-in.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/sign-in.body",
+    "body": null
+  },
+  {
+    "name": "anonymous review read",
+    "method": "GET",
+    "url": "https://pairvu.com/api/analyses/batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001/reviews",
+    "status": 401,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:37.988Z",
+    "checkedAt": "2026-10-11T15:08:40.610Z",
+    "headersPath": "/tmp/pairvu-upg05-production/anonymous-review-read.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/anonymous-review-read.body",
+    "body": {
+      "error": "authentication_required",
+      "message": "Sign in to review this analysis."
+    }
+  },
+  {
+    "name": "anonymous review write",
+    "method": "POST",
+    "url": "https://pairvu.com/api/analyses/batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001/reviews",
+    "status": 401,
+    "exitCode": 0,
+    "stderr": "",
+    "startedAt": "2026-10-11T15:08:40.610Z",
+    "checkedAt": "2026-10-11T15:08:42.346Z",
+    "headersPath": "/tmp/pairvu-upg05-production/anonymous-review-write.headers",
+    "bodyPath": "/tmp/pairvu-upg05-production/anonymous-review-write.body",
+    "body": {
+      "error": "authentication_required",
+      "message": "Sign in to review this analysis."
+    },
+    "payload": {
+      "requestId": "a887d66b-b3a5-4333-a506-964844000e40",
+      "expectedRevision": 3,
+      "action": "approve",
+      "category": "other",
+      "reason": "QA negative: anonymous request must be rejected; synthetic analysis only."
+    }
+  }
+]

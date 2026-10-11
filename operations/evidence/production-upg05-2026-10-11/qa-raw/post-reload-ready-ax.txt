@@ -1,0 +1,17 @@
+Browser tab: 4, Title: "Pairvu - AI Product Image Checker", URL: "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 548-549
++				706 container
++					707 button (expanded) Analysis provenance, Secondary Actions: Collapse
++						708 text Analysis provenance
++					709 text This is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict. Detector:  m0-qa-engine-008  · Decision policy:  m0-risk-policy-003  · Model policy:  m0-model-policy-002 Model:  gpt-4.1-mini  · Prompt:  m0-real-mvp-009+regions-003  · Provider:  openai
+~						557 text Current human decision:  None  · Revision  3
++					710 text The previous decision was revoked. Its audit history is retained.
+~							562 pop up button (collapsed, settable) Description: Human decision, Value: Approve, Secondary Actions: Expand
+~							569 pop up button (collapsed, settable) Description: Review category, Value: other, Secondary Actions: Expand
+~							579 text entry area (settable) Review reason
+~							582 text entry area (settable) Review note
+~					584 button Refresh review history
+~					585 button (collapsed) Audit history · latest 3 of up to 100 events, Secondary Actions: Expand
+~						587 text 3
+The focused UI element is 707 button (expanded) Analysis provenance, Secondary Actions: Collapse

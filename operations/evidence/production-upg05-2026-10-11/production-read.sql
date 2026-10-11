@@ -1,0 +1,6 @@
+SELECT id, analysis_id, actor_id, revision, expected_revision, previous_decision_id, action, category, reason, note, machine_snapshot_json, machine_sha256, created_at FROM review_events WHERE analysis_id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001' ORDER BY revision;
+SELECT revision,latest_event_id FROM review_heads WHERE analysis_id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001';
+SELECT a.id,a.status,a.verdict,a.qa_engine_version,a.risk_policy_version,a.model_policy_version,a.updated_at FROM analyses a WHERE a.id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001';
+SELECT analysis_id,check_type,status,evidence_json FROM analysis_observations WHERE analysis_id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001';
+SELECT e.revision,CASE WHEN EXISTS(SELECT 1 FROM workspace_memberships m WHERE m.workspace_id=e.workspace_id AND m.user_id=e.actor_id AND m.role='owner') THEN 1 ELSE 0 END AS actor_is_owner FROM review_events e WHERE e.analysis_id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001';
+SELECT p.period_key,p.allowance,p.rollover_allowance,p.consumed,p.reserved,p.starts_at,p.ends_at FROM workspace_credit_periods p JOIN analyses a ON a.workspace_id=p.workspace_id WHERE a.id='batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001' ORDER BY p.ends_at DESC LIMIT 1;

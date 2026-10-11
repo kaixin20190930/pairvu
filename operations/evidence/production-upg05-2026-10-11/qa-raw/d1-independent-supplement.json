@@ -1,0 +1,130 @@
+{
+  "unitId": "UPG-05",
+  "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+  "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+  "reviewedAt": "2026-10-11T15:15:37.539Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "real remote D1 row export success and SELECT-only scope",
+      "status": "PASS",
+      "detail": "Six groups returned actual rows 3/1/1/1/3/1; rows_written=0 in all six. Controller CLI evidence independently parsed; QA performed no direct remote DB operation."
+    },
+    {
+      "name": "production event chain expected revisions and previous IDs",
+      "status": "PASS",
+      "detail": "Revisions1-3 expectedRevision0-2; each previous_decision_id references the preceding actual event, head3 points at revoke."
+    },
+    {
+      "name": "actual UI actor and server timestamps match D1 owner membership",
+      "status": "PASS",
+      "detail": "All three exact displayed actor/timestamps match raw DB events; actor_is_owner=1 in corresponding workspace for each event."
+    },
+    {
+      "name": "machine snapshots stable and SHA256 recomputed",
+      "status": "PASS",
+      "detail": "All three stored JSON snapshots byte-identical; recomputed SHA256 267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e; original machine completedAt/verdict/versions preserved."
+    },
+    {
+      "name": "original UPG04 production observations unchanged byte-for-byte",
+      "status": "PASS",
+      "detail": "Stored observation fields and evidence_json match prior UPG04 raw read exactly, including regionRaw and identityEvidence."
+    },
+    {
+      "name": "current credit balance six in real UI and D1",
+      "status": "PASS",
+      "detail": "2026-10 allowance10, rollover0, consumed4, reserved0 =>6; actual account UI says Checks available6, no extras."
+    }
+  ],
+  "events": [
+    {
+      "id": "1406d613-9e39-4866-9a60-d2d345e78889",
+      "revision": 1,
+      "expected_revision": 0,
+      "previous_decision_id": null,
+      "action": "approve",
+      "actor_id": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "created_at": "2026-10-11T15:07:12.915Z",
+      "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+    },
+    {
+      "id": "ae33f688-7f90-461f-a882-552456455ab3",
+      "revision": 2,
+      "expected_revision": 1,
+      "previous_decision_id": "1406d613-9e39-4866-9a60-d2d345e78889",
+      "action": "reject",
+      "actor_id": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "created_at": "2026-10-11T15:08:13.448Z",
+      "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+    },
+    {
+      "id": "aaf23dee-7296-4b9b-8976-39f7f0b9462c",
+      "revision": 3,
+      "expected_revision": 2,
+      "previous_decision_id": "ae33f688-7f90-461f-a882-552456455ab3",
+      "action": "revoke",
+      "actor_id": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "created_at": "2026-10-11T15:08:44.518Z",
+      "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+    }
+  ],
+  "head": [
+    {
+      "revision": 3,
+      "latest_event_id": "aaf23dee-7296-4b9b-8976-39f7f0b9462c"
+    }
+  ],
+  "machine": [
+    {
+      "id": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+      "status": "completed",
+      "verdict": "review",
+      "qa_engine_version": "m0-qa-engine-008",
+      "risk_policy_version": "m0-risk-policy-003",
+      "model_policy_version": "m0-model-policy-002",
+      "updated_at": "2026-10-11T08:29:28.295Z"
+    }
+  ],
+  "credits": [
+    {
+      "period_key": "2026-10",
+      "allowance": 10,
+      "rollover_allowance": 0,
+      "consumed": 4,
+      "reserved": 0,
+      "starts_at": "2026-10-01T00:00:00.000Z",
+      "ends_at": "2026-11-01T00:00:00.000Z"
+    }
+  ],
+  "creditsUi": {
+    "observedAt": "2026-10-11T15:13:39.745Z",
+    "text": "Your subscription\n\nReview the current billing period here. Stripe securely handles payment methods, invoices, cancellation, and reactivation.\n\nYour Free workspace is active\n\nCompare monthly capacity on Pricing. Paid checkout starts there after you choose a plan.\n\nView plans\n\nMONTHLY ALLOWANCE\n\nProduct checks\n4 used · 0 reserved\n\nCurrent period ends Nov 1, 2026. Unused checks do not carry forward to the next billing period.\n\nExtra check packs\n\nNo extra checks are currently available.\n\nBuy extra checks\n\nPRIVACY AND RETENTION\n\n",
+    "url": "https://pairvu.com/account",
+    "availableText": "\t\t\t\t728 text Checks available 6 6  monthly ·  0  extra",
+    "checksAvailable": 6
+  },
+  "sources": [
+    {
+      "path": "/tmp/pairvu-upg05-production-d1-rows.json",
+      "sha256": "557957fff4ccab6c5b786b959dd33061513def24153fdb4b161c75cdd5fda913"
+    },
+    {
+      "path": "/tmp/pairvu-upg05-production-read.sql",
+      "sha256": "a19cda9d77de78632322ed05f3f6aa28c56ec09d2da5a75dba771c96c830e1bb"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-production-d1-observations.json",
+      "sha256": "d7deb415d708a7dec7db55f8e5787214c470adaff7210abe3be4099eefb8d40e"
+    },
+    {
+      "path": "/tmp/pairvu-upg05-production/credits-ui.json",
+      "sha256": "18ef2cf52538dea6ac164c916e2a112c1871e5ee8de58c6e5f67a0c9d29775bf"
+    }
+  ],
+  "initialFileImportSummary": {
+    "path": "/tmp/pairvu-upg05-production-d1.json",
+    "sha256": "353d9bf7f3054a30b2b0d8def44c4d238cdb41ef8fd6321b7d153af71a65d578",
+    "use": "Preserved execution summary only; not accepted as SELECT row evidence."
+  }
+}

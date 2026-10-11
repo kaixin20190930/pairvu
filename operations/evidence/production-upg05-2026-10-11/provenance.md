@@ -1,0 +1,3 @@
+UPG05 release pipeline chronology
+
+Build checkedAt uses the actual first fresh remote confirmation in original-preflight.json (15:00:04.646Z), before required migration at 15:01:05.201Z. The deploy wrapper performs additional pre-build (15:02:13.057Z) and post-build (15:03:00.155Z) fresh checks, retained verbatim in original-deploy.log. The schema guide normally maps build.checkedAt to wrapper initialCheckedAt; that later recheck would incorrectly order the already-required migration before the first check. This evidence explicitly records the real pipeline first check, without changing any event timestamp. CompletedAt is the actual post-build check. No runtime evidence is synthesized.

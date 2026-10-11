@@ -1,6 +1,6 @@
 # Pairvu 自动开发与独立验收
 
-状态：2026-10-11 UPG04已生产验收关闭（62787fd / Worker 0da98625-4ba2-4bd9-9609-bba4ad8a6e29）；UPG05独立本地PASS并正式RELEASE_READY（736e61f），生产未授权。两角色空闲，无活跃回收任务。等待UPG05新授权后按GitHub-first发布；后文带日期记录为历史。
+状态：UPG-05已完成GitHub-first发布、0021迁移和Cloudflare部署（2013e22 / Worker 8e0e8aee-2fce-41c6-9435-e157b61af4d7），独立HTTP和15项真实登录业务检查PASS，正式CLOSED。人工审核已启用，机器证据不变，合成分析审计revision1–3及余额6已核验。自动继续UPG-06发布工作台与规则版本研发独立验收，契约operations/contracts/UPG-06.md，开发和QA分别按跨租户/规则/并发风险选择Sol/high。UPG06未授权生产，最多RELEASE_READY；届时按用户选择暂停pairvu-2。 后文日期段为历史。
 
 ## 角色与范围
 

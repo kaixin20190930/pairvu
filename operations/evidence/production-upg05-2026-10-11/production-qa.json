@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-05",
+  "qaCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+  "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "http",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T15:12:37.125Z",
+  "checks": [
+    {
+      "name": "production health exact release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "production health exact Worker version",
+      "status": "PASS"
+    },
+    {
+      "name": "home checks pricing and sign-in HTTP 200",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous review read denied 401 without audit leakage",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous review write denied 401",
+      "status": "PASS"
+    },
+    {
+      "name": "review errors marked no-store",
+      "status": "PASS"
+    },
+    {
+      "name": "independent observation later than controller smoke",
+      "status": "PASS"
+    }
+  ]
+}

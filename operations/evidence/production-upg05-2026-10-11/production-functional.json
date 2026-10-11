@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-05",
+  "qaCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
+  "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "authenticated synthetic analysis human review UI",
+  "result": "PASS",
+  "uiResult": "PASS",
+  "reviewedAt": "2026-10-11T15:15:37.541Z",
+  "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "origin": "https://pairvu.com",
+  "checks": [
+    {
+      "name": "existing real logged-in browser session, no credential extraction",
+      "status": "PASS",
+      "evidence": "Initial owned history fetched successfully; UI write actions completed and persisted. No sign-in state forged."
+    },
+    {
+      "name": "initial old completed synthetic analysis no invented review",
+      "status": "PASS",
+      "evidence": "Initial loaded human state None revision0; machine REVIEW."
+    },
+    {
+      "name": "approve then reject then revoke appended three QA-marked events",
+      "status": "PASS",
+      "evidence": [
+        {
+          "revision": 1,
+          "action": "approve",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:07:12.915Z"
+        },
+        {
+          "revision": 2,
+          "action": "reject",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:13.448Z"
+        },
+        {
+          "revision": 3,
+          "action": "revoke",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:44.518Z"
+        }
+      ]
+    },
+    {
+      "name": "refresh and whole-page reload retained None revision3 and all events",
+      "status": "PASS",
+      "evidence": "/tmp/pairvu-upg05-production/final-dom.json"
+    },
+    {
+      "name": "machine result evidence and original expanded provenance DOM unchanged",
+      "status": "PASS",
+      "evidence": "Six machine aria-labelled regions and original provenance text byte-identical before actions and after whole-page reload; 24 images loaded."
+    },
+    {
+      "name": "human decision explicitly does not establish release eligibility",
+      "status": "PASS",
+      "evidence": "Actual UI retained Machine verdict review and disclaimer after approve/reject/revoke."
+    },
+    {
+      "name": "HTML audit note escaped as literal text",
+      "status": "PASS",
+      "evidence": "DOM outerHTML contains &lt;b&gt;QA synthetic-only audit note&lt;/b&gt; and screenshot shows literal tags."
+    },
+    {
+      "name": "server-rendered actor/time consistent across all three events",
+      "status": "PASS",
+      "evidence": [
+        {
+          "revision": 1,
+          "action": "approve",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:07:12.915Z"
+        },
+        {
+          "revision": 2,
+          "action": "reject",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:13.448Z"
+        },
+        {
+          "revision": 3,
+          "action": "revoke",
+          "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+          "createdAt": "2026-10-11T15:08:44.518Z"
+        }
+      ]
+    },
+    {
+      "name": "anonymous read/write denied and final audit count still three",
+      "status": "PASS",
+      "evidence": [
+        "/tmp/pairvu-upg05-production/anonymous-review-read.body",
+        "/tmp/pairvu-upg05-production/anonymous-review-write.body",
+        "/tmp/pairvu-upg05-production/final-dom.json"
+      ]
+    },
+    {
+      "name": "real remote D1 row export success and SELECT-only scope",
+      "status": "PASS",
+      "detail": "Six groups returned actual rows 3/1/1/1/3/1; rows_written=0 in all six. Controller CLI evidence independently parsed; QA performed no direct remote DB operation."
+    },
+    {
+      "name": "production event chain expected revisions and previous IDs",
+      "status": "PASS",
+      "detail": "Revisions1-3 expectedRevision0-2; each previous_decision_id references the preceding actual event, head3 points at revoke."
+    },
+    {
+      "name": "actual UI actor and server timestamps match D1 owner membership",
+      "status": "PASS",
+      "detail": "All three exact displayed actor/timestamps match raw DB events; actor_is_owner=1 in corresponding workspace for each event."
+    },
+    {
+      "name": "machine snapshots stable and SHA256 recomputed",
+      "status": "PASS",
+      "detail": "All three stored JSON snapshots byte-identical; recomputed SHA256 267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e; original machine completedAt/verdict/versions preserved."
+    },
+    {
+      "name": "original UPG04 production observations unchanged byte-for-byte",
+      "status": "PASS",
+      "detail": "Stored observation fields and evidence_json match prior UPG04 raw read exactly, including regionRaw and identityEvidence."
+    },
+    {
+      "name": "current credit balance six in real UI and D1",
+      "status": "PASS",
+      "detail": "2026-10 allowance10, rollover0, consumed4, reserved0 =>6; actual account UI says Checks available6, no extras."
+    }
+  ],
+  "eventsObservedInUI": [
+    {
+      "revision": 1,
+      "action": "approve",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:07:12.915Z"
+    },
+    {
+      "revision": 2,
+      "action": "reject",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:08:13.448Z"
+    },
+    {
+      "revision": 3,
+      "action": "revoke",
+      "actorId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+      "createdAt": "2026-10-11T15:08:44.518Z"
+    }
+  ],
+  "machineDomSha256": "ad96e7a048c0e7c3a854d67306ed8c91b8a6d079f540c56c75a256b9f6c55097",
+  "expectedCredits": 6,
+  "liveCreditsVerification": {
+    "result": "PASS",
+    "creditsAvailable": 6,
+    "uiEvidence": "/tmp/pairvu-upg05-production/credits-ui.json",
+    "remoteEvidence": "/tmp/pairvu-upg05-production-d1-rows.json"
+  },
+  "evidenceDirectory": "/tmp/pairvu-upg05-production",
+  "screenshots": [
+    "/tmp/pairvu-upg05-production/approve.png",
+    "/tmp/pairvu-upg05-production/reject.png",
+    "/tmp/pairvu-upg05-production/revoke.png",
+    "/tmp/pairvu-upg05-production/final-human-review.png",
+    "/tmp/pairvu-upg05-production/final-audit-chain.png"
+  ],
+  "limitations": [
+    "Authenticated session/API were real; no injected response or simulated session in production.",
+    "HTTP receipt scope=http proves release and reachability only; actual authenticated UI proof is this separate report.",
+    "No production concurrency race, fault injection, rollback corruption, retention deletion, cross-workspace real second account or forced 409/503 tested; those remain fixed-SHA local independent evidence.",
+    "Exact real remote D1 rows were supplied by controller normal read-only CLI and independently checked here. Session credentials were not exported. Full production model SDK wire response was not fetched."
+  ],
+  "toolIncidents": [
+    {
+      "kind": "HTTP client",
+      "detail": "Initial Python urllib default user agent received HTTP403 before raw report saved; subsequent ordinary curl Mozilla/5.0 observations succeeded. Original traceback retained in tool history; no security interstitial bypass."
+    },
+    {
+      "kind": "QA locator",
+      "detail": "Native summary was not matched by Playwright role=button; corrected using observed exact summary text before action. Later broad Audit history text matched revoked-status paragraph and summary; corrected exact summary text before click."
+    },
+    {
+      "kind": "reload timing",
+      "detail": "Heading wait returned early timeout while result restoration was still loading; no action repeated. Following state observations and provenance expansion confirmed normal restoration and history revision3."
+    }
+  ],
+  "nextAction": {
+    "action": "Controller binds the HTTP and functional PASS evidence to the deployed SHA/Worker, then performs formal production record/verify/close. After closure, automatically open UPG-06 development and independent acceptance.",
+    "dependency": "Repository production evidence import/closure gates; UPG-06 production release remains outside the authorization.",
+    "automatic": true
+  },
+  "d1Supplement": "/tmp/pairvu-upg05-production/d1-independent-supplement.json",
+  "initialFunctionalEvidence": {
+    "path": "/tmp/pairvu-upg05-production-functional-initial.json",
+    "sha256": "b2601bb66592125e7443f8eb500dc7c991d993ca74335b4db811d3d5197dc4c5"
+  },
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Real authenticated session, remote D1 audit consistency and UI/machine invariants require cross-layer verification.",
+    "runtimeSettingNote": "Controller-selected role recorded; QA did not change a model setting."
+  }
+}

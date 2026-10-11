@@ -1,0 +1,54 @@
+HUMAN REVIEW
+
+Independent human decision
+
+Machine verdict: review. Human approval does not establish release eligibility.
+
+Current human decision: None · Revision 3
+
+The previous decision was revoked. Its audit history is retained.
+
+Human decision recorded. The machine result is unchanged.
+
+Decision draft
+Decision
+Approve
+Reject
+Revoke current decision
+Reason category
+false positive
+false negative
+intentional change
+wrong reference
+insufficient evidence
+other
+Reason (required, up to 1000 characters)
+Optional note (up to 2000 characters)
+Record human decision
+Refresh review history
+Audit history · latest 3 of up to 100 events
+Revision 1 · approve
+
+other · QA UPG-05 production smoke: synthetic blue-box analysis only; test approval does not authorize release.
+
+<b>QA synthetic-only audit note</b>
+
+Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:07:12.915Z
+
+Machine source: review · m0-qa-engine-008
+
+Revision 2 · reject
+
+insufficient evidence · QA UPG-05 production smoke: synthetic-only rejection; original machine REVIEW and insufficient identity evidence remain unchanged.
+
+Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:08:13.448Z
+
+Machine source: review · m0-qa-engine-008
+
+Revision 3 · revoke
+
+other · QA UPG-05 production smoke complete: revoke the synthetic test decision; retain immutable approval and rejection history.
+
+Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:08:44.518Z
+
+Machine source: review · m0-qa-engine-008
