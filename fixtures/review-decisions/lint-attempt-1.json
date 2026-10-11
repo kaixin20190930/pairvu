@@ -1,0 +1,22 @@
+{
+  "command": "pnpm exec eslint lib/reviews lib/auth/request-access.ts components/ReviewDecision.tsx app/api/analyses/[analysisId]/reviews/route.ts scripts/verify-review-decisions.ts fixtures/review-decisions/ui-entry.tsx",
+  "exitCode": 1,
+  "source": "Original tool output in developer chat; this file records its diagnostic summary, not an independent QA report",
+  "diagnostics": [
+    {
+      "file": "components/ReviewDecision.tsx",
+      "line": 56,
+      "rule": "react-hooks/refs",
+      "message": "Cannot access refs during render",
+      "count": 2
+    },
+    {
+      "file": "fixtures/review-decisions/ui-entry.tsx",
+      "line": 17,
+      "rule": "prefer-const",
+      "message": "historyEvents is never reassigned",
+      "count": 1
+    }
+  ],
+  "resolution": "Use separate state to render pending request ID and const for the audit array; rules retained."
+}

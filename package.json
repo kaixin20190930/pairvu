@@ -56,7 +56,8 @@
     "test:control-production": "node scripts/verify-pairvu-production.mjs",
     "test:product-profile-d1": "node scripts/verify-product-profile-d1.mjs",
     "test:product-profiles": "tsx scripts/verify-product-profiles.ts",
-    "test:structured-evidence": "tsx scripts/verify-structured-evidence.ts"
+    "test:structured-evidence": "tsx scripts/verify-structured-evidence.ts",
+    "test:review-decisions": "tsx scripts/verify-review-decisions.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "latest",

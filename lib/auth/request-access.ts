@@ -4,6 +4,7 @@ import type { VisualQACloudflareEnv } from "@/lib/cloudflare/bindings";
 import { createPairvuAuth } from "@/lib/auth/server";
 
 export interface RequestAccessContext {
+  userId?: string | null;
   workspaceId: string | null;
   anonymousSessionId: string | null;
   retentionDays: number | null;
@@ -39,6 +40,7 @@ export async function resolveRequestAccess(
     const account = await getWorkspaceAccountSnapshot(env.VISUALQA_DB, user);
 
     return {
+      userId: user.id,
       workspaceId: account.workspaceId,
       anonymousSessionId,
       retentionDays: account.retentionDays,
@@ -54,6 +56,7 @@ export async function resolveRequestAccess(
   }
 
   return {
+    userId: null,
     workspaceId: null,
     anonymousSessionId,
     retentionDays: null,

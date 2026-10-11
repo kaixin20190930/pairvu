@@ -3,6 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { StructuredEvidence } from "@/components/StructuredEvidence";
+import { ReviewDecision } from "@/components/ReviewDecision";
 import type { ObservationEvidence, Observability } from "@/lib/domain/semantics";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FeedbackKind, PersistedAnalysisResult } from "@/lib/analysis/types";
@@ -1084,6 +1085,8 @@ export function ProductChecker() {
               <p>Detector: {analysis.qaEngineVersion??"Not recorded"} · Decision policy: {analysis.riskPolicyVersion??"Not recorded"} · Model policy: {analysis.modelPolicyVersion??"Not recorded"}</p>
               {analysis.modelCalls.map(call=><p key={call.id}>Model: {call.model} · Prompt: {call.promptVersion} · Provider: {call.provider}</p>)}
             </details>
+
+            {analysis.status === "completed" ? <ReviewDecision key={analysis.id} analysisId={analysis.id} authenticated={billingContext?.authenticated === true} machineVerdict={analysis.verdict}/> : null}
 
             <section className="state-panel" aria-labelledby="feedback-title">
               <p className="section-label">Feedback</p>

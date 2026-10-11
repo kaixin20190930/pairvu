@@ -1,0 +1,297 @@
+{
+  "unitId": "UPG-05",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0",
+    "workerd": "1.20260722.1"
+  },
+  "cases": [
+    {
+      "name": "all 21 actual migrations preserve exact old completed result and empty human history",
+      "status": "PASS"
+    },
+    {
+      "name": "approve/reject/revoke/re-decide append chain, server clock and original machine snapshot",
+      "status": "PASS",
+      "detail": {
+        "history": [
+          {
+            "id": "f59ca352-d40c-425d-a702-c15fa51f137b",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "4ddb6ca5-eb01-478c-94cb-379e7116a660",
+            "expectedRevision": 0,
+            "revision": 1,
+            "previousDecisionId": null,
+            "action": "approve",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T10:15:01.833Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T10:15:01.154Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "2dbaf88170f4997a2bbeb7d5bcb700a8e7ca76b488dcf068664b9ffe374bff37"
+          },
+          {
+            "id": "a5c68aaf-7072-4f64-bd4a-54346c6dcdc6",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "9baaed1c-fe85-4d2d-a71e-20b7cd72ebb9",
+            "expectedRevision": 1,
+            "revision": 2,
+            "previousDecisionId": "f59ca352-d40c-425d-a702-c15fa51f137b",
+            "action": "reject",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T10:15:01.874Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T10:15:01.154Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "2dbaf88170f4997a2bbeb7d5bcb700a8e7ca76b488dcf068664b9ffe374bff37"
+          },
+          {
+            "id": "20d43863-cfca-40ab-8ddd-9f8100226e86",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "12e0663b-d36b-4aa1-abb0-19b7320bbef6",
+            "expectedRevision": 2,
+            "revision": 3,
+            "previousDecisionId": "a5c68aaf-7072-4f64-bd4a-54346c6dcdc6",
+            "action": "revoke",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T10:15:01.915Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T10:15:01.154Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "2dbaf88170f4997a2bbeb7d5bcb700a8e7ca76b488dcf068664b9ffe374bff37"
+          },
+          {
+            "id": "dd97070a-6d40-422d-b0b9-a577d9009f55",
+            "analysisId": "chain",
+            "workspaceId": "w1",
+            "actorId": "synthetic-user",
+            "requestId": "26b50ba8-407e-4463-8076-768a6ddd01d7",
+            "expectedRevision": 3,
+            "revision": 4,
+            "previousDecisionId": "20d43863-cfca-40ab-8ddd-9f8100226e86",
+            "action": "approve",
+            "category": "other",
+            "reason": "Synthetic explicit review reason",
+            "note": null,
+            "createdAt": "2026-10-11T10:15:01.957Z",
+            "machineSnapshot": {
+              "analysisId": "chain",
+              "verdict": "review",
+              "qaEngineVersion": "engine-synthetic",
+              "riskPolicyVersion": "risk-synthetic",
+              "modelPolicyVersion": "model-synthetic",
+              "completedAt": "2026-10-11T10:15:01.154Z",
+              "observations": [],
+              "productIssues": [],
+              "limitations": [],
+              "modelCalls": []
+            },
+            "machineSha256": "2dbaf88170f4997a2bbeb7d5bcb700a8e7ca76b488dcf068664b9ffe374bff37"
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing current decision and consecutive revoke rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous, foreign workspace, forged actor, missing and unfinished analysis rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "same-key replay after later revision returns original event, new payload conflicts",
+      "status": "PASS"
+    },
+    {
+      "name": "two Worker requests with same base revision commit exactly one event/head",
+      "status": "PASS",
+      "detail": [
+        {
+          "status": "fulfilled",
+          "id": "73fd87e6-5cd7-4ff8-83c2-45754ef04f56"
+        },
+        {
+          "status": "rejected",
+          "error": "review_revision_conflict"
+        }
+      ]
+    },
+    {
+      "name": "same-key concurrent race returns one stable event without duplicate counting",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 0/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 1/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 2/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 3/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 4/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 5/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 CHECK failure at batch boundary 6/6 rolls back audit/head/guards",
+      "status": "PASS"
+    },
+    {
+      "name": "zero-row head update causes final guard rollback",
+      "status": "PASS"
+    },
+    {
+      "name": "lost committed batch response recovers exact event and permits identical retry",
+      "status": "PASS"
+    },
+    {
+      "name": "ordinary UPDATE/DELETE/REPLACE cannot mutate audit; direct head rewrite blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "REPLACE cannot erase existing event even with valid guard and next revision",
+      "status": "PASS"
+    },
+    {
+      "name": "REPLACE cannot rewind head even with valid same-scope write guard",
+      "status": "PASS"
+    },
+    {
+      "name": "restrictive hard parent deletion, image tombstone/expiry compatibility",
+      "status": "PASS"
+    },
+    {
+      "name": "inactive workspace blocks read/write without leaking history",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note -1",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 1.5",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note,workspaceId 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "strict payload expectedRevision,action,requestId,category,reason,note 0",
+      "status": "PASS"
+    },
+    {
+      "name": "length boundary and safe HTML note remain plain persisted strings",
+      "status": "PASS"
+    },
+    {
+      "name": "actual route + actual access resolver use session actor and no-store owned history",
+      "status": "PASS"
+    },
+    {
+      "name": "actual route rejects client actor, foreign/anonymous access and missing Origin",
+      "status": "PASS"
+    },
+    {
+      "name": "API strict oversized JSON and revision conflict are deterministic",
+      "status": "PASS"
+    },
+    {
+      "name": "API 503 rollback retry preserves request identity and commits once",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "migrations/0021_review_decisions.sql": "729ef74e7b58f89c621a6e184c4d5f4e7fd75c7ae96ae40021e09dda2ca16ea8",
+    "lib/auth/request-access.ts": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+    "lib/reviews/types.ts": "ad82803ab4e28b7958fc6435dcd8ad4781f265faf2225ab33177bf1e49f1c109",
+    "lib/reviews/validation.ts": "bb8620ddeb5e1b70a23dcebfd4315ea0679061a5b05283bbf140eb806f2005df",
+    "lib/reviews/repository.ts": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+    "lib/reviews/http.ts": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+    "app/api/analyses/[analysisId]/reviews/route.ts": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205",
+    "scripts/verify-review-decisions.ts": "a973ea4a5dc93bfdfdcdec1c0d079ce517174d4fdb0e5b3bf3b628a9261fc4ea",
+    "fixtures/review-decisions/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b"
+  },
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-reviews-LhKWel",
+  "limitations": [
+    "Actual local workerd D1, production migrations, repositories and dedicated API route; synthetic server session and account snapshot boundaries only.",
+    "No remote D1, replica behavior, production auth session, model, R2 or payment calls.",
+    "Browser component verification recorded separately."
+  ],
+  "requestCount": 588
+}

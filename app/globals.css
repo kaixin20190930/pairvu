@@ -3686,3 +3686,11 @@ button:not(:disabled):active {
 .structured-evidence-zoom input { min-width: 0; flex: 1; }
 .analysis-provenance { overflow-wrap: anywhere; }
 @media (max-width: 650px) { .structured-evidence-grid { grid-template-columns: minmax(0, 1fr); } }
+/* Human decisions are independent of the saved machine verdict. */
+.human-review fieldset { border: 0; padding: 0; margin: 1rem 0; min-width: 0; }
+.review-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.review-form-grid label { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.review-form-grid textarea { min-height: 5rem; width: 100%; box-sizing: border-box; resize: vertical; }
+.review-history { padding-left: 1.5rem; overflow-wrap: anywhere; }
+.human-review { overflow-wrap: anywhere; }
+@media(max-width:650px) { .review-form-grid { grid-template-columns: minmax(0,1fr); } }
