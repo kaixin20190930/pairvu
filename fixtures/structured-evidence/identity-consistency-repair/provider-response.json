@@ -1,0 +1,60 @@
+{
+  "observations": [
+    {
+      "checkType": "logo",
+      "status": "mismatch",
+      "differenceKind": "brand_changed",
+      "referenceObservability": "observable",
+      "candidateObservability": "observable",
+      "coverage": "sufficient",
+      "confidence": "high",
+      "referenceObservation": "Visible synthetic mark ALPHA",
+      "candidateObservation": "Visible synthetic mark BETA",
+      "comparisonSummary": "Directly visible synthetic brand marks differ.",
+      "visibleEvidence": [
+        "Synthetic mark labels"
+      ],
+      "uncertainReason": null,
+      "evidence": {
+        "referenceObservation": "Visible synthetic mark ALPHA",
+        "candidateObservation": "Visible synthetic mark BETA",
+        "differenceKind": "brand_changed",
+        "comparisonSummary": "Directly visible synthetic brand marks differ.",
+        "visibleEvidence": [
+          "Synthetic mark labels"
+        ],
+        "uncertainReason": null,
+        "referenceVisible": true,
+        "candidateVisible": true,
+        "rawJson": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+        "referenceRegion": {
+          "coordinateSpace": "analysis_image_normalized",
+          "region": {
+            "x": 0.1,
+            "y": 0.2,
+            "width": 0.4,
+            "height": 0.3
+          },
+          "reason": null,
+          "confidence": "high"
+        },
+        "candidateRegion": {
+          "coordinateSpace": "analysis_image_normalized",
+          "region": {
+            "x": 0.25,
+            "y": 0.4,
+            "width": 0.5,
+            "height": 0.2
+          },
+          "reason": null,
+          "confidence": "medium"
+        },
+        "referenceIdentity": "ALPHA",
+        "candidateIdentity": "BETA",
+        "referenceIdentityKind": "brand_name",
+        "candidateIdentityKind": "brand_name"
+      }
+    }
+  ],
+  "limitations": []
+}

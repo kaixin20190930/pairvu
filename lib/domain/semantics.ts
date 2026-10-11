@@ -99,9 +99,18 @@ export interface PairedEvidenceRegions {
   candidate: ImageEvidenceLocation;
 }
 
+export type IdentityEvidenceKind = "readable_text" | "brand_name" | "symbol" | "geometry" | "absent" | "unreadable" | "unknown" | "not_applicable";
+
 export interface ObservationEvidence {
   /** Model-reported readable transcription or distinctive logo identity; not independently verified. */
-  identityEvidence?: { reference: string | null; candidate: string | null };
+  identityEvidence?: {
+    reference: string | null;
+    candidate: string | null;
+    referenceKind?: IdentityEvidenceKind;
+    candidateKind?: IdentityEvidenceKind;
+    /** Application-controlled guard version, independent of model-reported content. */
+    validationVersion?: string;
+  };
   regions?: PairedEvidenceRegions;
   /** Original region payload, kept independently of normalized display coordinates. */
   regionRaw?: unknown;

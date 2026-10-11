@@ -1,5 +1,5 @@
 import { normalizeBoundEvidence } from "./evidence-regions";
-import { identityEvidenceProblem } from "./identity-evidence";
+import { identityEvidenceProblem, IDENTITY_EVIDENCE_VERSION } from "./identity-evidence";
 import { M0RiskPolicy } from "./m0-policy";
 import type {
   AnalysisLimitation,
@@ -133,20 +133,23 @@ function validateProviderResult(input: M0AnalysisInput, observations: VisionObse
 function normalizeObservationConsistency(observation: VisionObservation): VisionObservation {
   const identityProblem = identityEvidenceProblem(observation);
   if (identityProblem) {
+    const conflict = identityProblem.kind === "conflict";
     return {
       ...observation,
-      status: "not_observable",
-      differenceKind: "not_visible",
-      observability: { reference: "not_observable", candidate: "not_observable", coverage: "insufficient" },
+      status: conflict ? "uncertain" : "not_observable",
+      differenceKind: conflict ? "uncertain" : "not_visible",
+      observability: conflict ? observation.observability : { reference: "not_observable", candidate: "not_observable", coverage: "insufficient" },
       evidence: {
         ...observation.evidence,
-        referenceVisible: false,
-        candidateVisible: false,
-        differenceKind: "not_visible",
-        uncertainReason: identityProblem,
+        referenceVisible: conflict ? observation.evidence.referenceVisible : false,
+        candidateVisible: conflict ? observation.evidence.candidateVisible : false,
+        differenceKind: conflict ? "uncertain" : "not_visible",
+        uncertainReason: identityProblem.reason,
         raw: {
           ...normalizeEvidenceRaw(observation.evidence.raw),
           normalizationReason: "identity_requires_direct_evidence",
+          identityValidationVersion: IDENTITY_EVIDENCE_VERSION,
+          identityProblemKind: identityProblem.kind,
           providerStatus: observation.status,
           providerObservability: observation.observability,
           providerEvidence: observation.evidence,

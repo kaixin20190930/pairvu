@@ -1,0 +1,35 @@
+{
+  "scope": "24 independent cases for unchanged UI and location strategy only; original complete QA remains FAIL",
+  "sourceQa": "operations/evidence/upg04-repair-attempt-1/qa-original.json",
+  "sourceQaSha256": "fa97fe6ca30f29ad21c3bb3d36d04274d957c5c0ae07395ac0e55cc6bb2907a9",
+  "reports": [
+    {
+      "source": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-desktop-results.json",
+      "archive": "fixtures/structured-evidence/identity-consistency-repair/reused-desktop12-results.json",
+      "sha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "stableSourcesVerified": {
+        "components/StructuredEvidence.tsx": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+        "components/ProductChecker.tsx": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+        "lib/qa/evidence-regions.ts": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+        "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+        "fixtures/structured-evidence/production-repair/ui-entry.tsx": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+        "fixtures/structured-evidence/production-repair/ui-server.mjs": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+        "fixtures/structured-evidence/production-repair/persisted-result.json": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a"
+      }
+    },
+    {
+      "source": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-narrow-results.json",
+      "archive": "fixtures/structured-evidence/identity-consistency-repair/reused-narrow12-results.json",
+      "sha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "stableSourcesVerified": {
+        "components/StructuredEvidence.tsx": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+        "components/ProductChecker.tsx": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+        "lib/qa/evidence-regions.ts": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+        "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+        "fixtures/structured-evidence/production-repair/ui-entry.tsx": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+        "fixtures/structured-evidence/production-repair/ui-server.mjs": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+        "fixtures/structured-evidence/production-repair/persisted-result.json": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a"
+      }
+    }
+  ]
+}

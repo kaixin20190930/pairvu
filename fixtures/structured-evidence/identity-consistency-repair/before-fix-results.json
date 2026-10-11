@@ -1,0 +1,712 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "status": "FAIL",
+  "inputKind": "Exact archived synthetic QA payload, not new SDK traffic",
+  "cases": [
+    {
+      "name": "qa-contradictory-logo.json",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "logo",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA",
+                "candidate": "BETA"
+              },
+              "referenceObservation": "Direct identity: ALPHA",
+              "candidateObservation": "Direct identity: BETA",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA",
+                "BETA"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "verdict": "pass",
+        "productIssues": [],
+        "limitations": [],
+        "passedObservations": [
+          {
+            "checkType": "logo",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA",
+                "candidate": "BETA"
+              },
+              "referenceObservation": "Direct identity: ALPHA",
+              "candidateObservation": "Direct identity: BETA",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA",
+                "BETA"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "reviewReasons": [],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 1,
+          "insufficientChecks": 0
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "archived-replay",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 1
+      }
+    },
+    {
+      "name": "qa-contradictory-visible_text.json",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "visible_text",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA 100 ml",
+                "candidate": "ALPHA 200 ml"
+              },
+              "referenceObservation": "Direct identity: ALPHA 100 ml",
+              "candidateObservation": "Direct identity: ALPHA 200 ml",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA 100 ml",
+                "ALPHA 200 ml"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "verdict": "pass",
+        "productIssues": [],
+        "limitations": [],
+        "passedObservations": [
+          {
+            "checkType": "visible_text",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "ALPHA 100 ml",
+                "candidate": "ALPHA 200 ml"
+              },
+              "referenceObservation": "Direct identity: ALPHA 100 ml",
+              "candidateObservation": "Direct identity: ALPHA 200 ml",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "ALPHA 100 ml",
+                "ALPHA 200 ml"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "reviewReasons": [],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 1,
+          "insufficientChecks": 0
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "archived-replay",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 1
+      }
+    },
+    {
+      "name": "qa-zero-width-identity.json",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "visible_text",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "​",
+                "candidate": "​"
+              },
+              "referenceObservation": "Direct identity: ​",
+              "candidateObservation": "Direct identity: ​",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "​",
+                "​"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "verdict": "pass",
+        "productIssues": [],
+        "limitations": [],
+        "passedObservations": [
+          {
+            "checkType": "visible_text",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "​",
+                "candidate": "​"
+              },
+              "referenceObservation": "Direct identity: ​",
+              "candidateObservation": "Direct identity: ​",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "​",
+                "​"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "reviewReasons": [],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 1,
+          "insufficientChecks": 0
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "archived-replay",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 0
+      }
+    },
+    {
+      "name": "qa-generic-cap-identity.json",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n",
+      "result": {
+        "analysisId": "identity-consistency-replay",
+        "observations": [
+          {
+            "checkType": "logo",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "black rectangular cap",
+                "candidate": "black rectangular cap"
+              },
+              "referenceObservation": "Direct identity: black rectangular cap",
+              "candidateObservation": "Direct identity: black rectangular cap",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "black rectangular cap",
+                "black rectangular cap"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "verdict": "pass",
+        "productIssues": [],
+        "limitations": [],
+        "passedObservations": [
+          {
+            "checkType": "logo",
+            "status": "match",
+            "differenceKind": "none",
+            "observability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "confidence": "high",
+            "explanation": "Identity comparison recorded",
+            "evidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-cand",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.1,
+                    "y": 0.2,
+                    "width": 0.4,
+                    "height": 0.3
+                  },
+                  "reason": null,
+                  "confidence": "high"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.25,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.2
+                  },
+                  "reason": null,
+                  "confidence": "medium"
+                }
+              },
+              "identityEvidence": {
+                "reference": "black rectangular cap",
+                "candidate": "black rectangular cap"
+              },
+              "referenceObservation": "Direct identity: black rectangular cap",
+              "candidateObservation": "Direct identity: black rectangular cap",
+              "differenceKind": "none",
+              "comparisonSummary": "Identity comparison recorded",
+              "visibleEvidence": [
+                "black rectangular cap",
+                "black rectangular cap"
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        ],
+        "reviewReasons": [],
+        "failedReasons": [],
+        "coverage": {
+          "selectedChecks": 1,
+          "sufficientlyObservableChecks": 1,
+          "insufficientChecks": 0
+        },
+        "versions": {
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002"
+        },
+        "modelCalls": [
+          {
+            "provider": "controlled",
+            "model": "none",
+            "promptVersion": "archived-replay",
+            "latencyMs": 0
+          }
+        ],
+        "latencyMs": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "mode": "desktop",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "high and medium model proposals are withheld with explicit unverified explanation",
+      "status": "PASS"
+    },
+    {
+      "name": "distinct image aspect ratios remain correct without artificial full-image boxes",
+      "status": "PASS",
+      "detail": [
+        {
+          "natural": [
+            320,
+            160
+          ],
+          "display": [
+            466,
+            233
+          ]
+        },
+        {
+          "natural": [
+            120,
+            240
+          ],
+          "display": [
+            466,
+            932
+          ]
+        }
+      ]
+    },
+    {
+      "name": "native 150 percent zoom does not manufacture a location",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy coordinates remain unrecorded rather than inferred",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed structure and foreign asset IDs remain safe",
+      "status": "PASS"
+    },
+    {
+      "name": "absent/invisible region has explicit cause",
+      "status": "PASS"
+    },
+    {
+      "name": "mismatched or missing preview never renders unrelated images",
+      "status": "PASS"
+    },
+    {
+      "name": "real desktop and narrow frame viewport use correct columns",
+      "status": "PASS",
+      "detail": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "columns": 2
+      }
+    },
+    {
+      "name": "sufficient brand mismatch still renders critical FAIL and model evidence without boxes",
+      "status": "PASS"
+    },
+    {
+      "name": "persisted production contradiction renders REVIEW, limitations and no verified text",
+      "status": "PASS"
+    },
+    {
+      "name": "historical machine verdict is retained with explicit safeguard and unverified-region disclosure",
+      "status": "PASS"
+    },
+    {
+      "name": "actual React components do not crash under malformed or absent region inputs",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Actual React components with controlled fetch/auth/billing; no real model or production journey; no location accuracy claim."
+  ],
+  "completedAt": "2026-10-11T00:56:46.627Z",
+  "sources": {
+    "components/StructuredEvidence.tsx": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+    "components/ProductChecker.tsx": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+    "lib/qa/evidence-regions.ts": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+    "lib/qa/identity-evidence.ts": "72ab2c6d88de16ec0d6cedbd8b62bb2bf50051a0c25dd8cd1ebaac92b68121dc",
+    "app/globals.css": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+    "fixtures/structured-evidence/production-repair/ui-entry.tsx": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+    "fixtures/structured-evidence/production-repair/ui-server.mjs": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+    "fixtures/structured-evidence/production-repair/persisted-result.json": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "unitId": "UPG-04",
+  "kind": "identity-consistency-second-repair-development",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING",
+  "baselineSha": "8870f8c1bf3d963ef1203d2f68999510f0f794a5",
+  "recordedAt": "2026-10-11T01:18:15.844947+00:00",
+  "checks": [
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts fixtures/structured-evidence/identity-consistency-repair/before-fix-results.json",
+      "exitCode": 1,
+      "status": "EXPECTED_FAIL_BEFORE_FIX",
+      "cases": 4,
+      "evidence": "before-fix-results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts",
+      "exitCode": 0,
+      "cases": 55,
+      "evidence": "original-counterexample-results.json",
+      "scope": "4 exact archived inputs plus typed contradictions, Unicode visibility, explicit kind boundaries, compatible units/wordmarks, mismatches and conservative unknowns"
+    },
+    {
+      "command": "pnpm test:structured-evidence --report fixtures/structured-evidence/identity-consistency-repair/results.json",
+      "exitCode": 0,
+      "cases": 49,
+      "evidence": "results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/production-repair/verify-counterexamples.ts fixtures/structured-evidence/identity-consistency-repair/production-counterexample-results.json",
+      "exitCode": 0,
+      "cases": 3,
+      "evidence": "production-counterexample-results.json"
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "previousFailure": "typecheck-attempt-1.json",
+      "scope": "Existing ES2017 target retained; BigInt constructors instead of literal syntax"
+    },
+    {
+      "command": "pnpm test:m0:policy-boundaries",
+      "exitCode": 0,
+      "scope": "Original unchanged six-family taxonomy/observability/consistency regression"
+    },
+    {
+      "command": "pnpm exec eslint lib/domain/semantics.ts lib/qa/identity-evidence.ts lib/qa/engine.ts lib/ai/providers/openai-vision-provider.ts scripts/verify-structured-evidence.ts fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts",
+      "exitCode": 0
+    },
+    {
+      "command": "SHA256 browser reuse and original archive verification",
+      "status": "PASS",
+      "browserCasesReused": 24,
+      "evidence": "browser-reuse-index.json",
+      "scope": "Only unchanged UI/CSS/region/browser fixture portion; complete original QA FAIL retained"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "Local build and new browser execution",
+      "status": "NOT_RUN_BY_CONTRACT",
+      "reason": "UI and location strategy unchanged; fixed-hash 24-case independent browser proof reused. Final release must still perform actual Cloudflare build."
+    }
+  ],
+  "versions": {
+    "identityGuard": "identity-evidence-002",
+    "promptSuffix": "regions-003",
+    "orchestrator": "m0-qa-engine-008",
+    "riskPolicy": "m0-risk-policy-003",
+    "modelPolicy": "m0-model-policy-002",
+    "explanation": "Guard version stored on evidence and normalization raw; prompt version changed. Orchestrator008 retained to avoid incorrect historical warning in frozen accepted UI."
+  },
+  "positiveFixtureCorrection": "Old location-only match example reused contradictory ALPHA/BETA identities. Match test input now has actually equal identity; verdict expectation unchanged, explicit contradictory input separately requires REVIEW. Original reports and fixtures retained.",
+  "limitations": [
+    "Typed identity kind and transcription remain model-reported; not proof of physical image truth or protection against all fabricated/misclassified content.",
+    "Only direct readable brand names support logo sufficiency; non-text symbols and object geometry remain REVIEW. No full graphic-logo recognition claim.",
+    "Supported unit conversions are explicit metric/count/percent decimal conventions; no inferred brand aliases, locale/ounce conventions or general semantic equivalence.",
+    "Legacy history is not reanalyzed or overwritten; untyped identity evidence is insufficient in new analysis but old custom/provider compatibility remains explicit.",
+    "All unverified regions remain withheld; no UI/location changes, production model call, credit use, push or deploy."
+  ],
+  "candidateSourceHashes": {
+    "lib/domain/semantics.ts": "c8ddfcad7b42314b27441bc55947c69ca51a23512fa8420766b0c77088969015",
+    "lib/qa/identity-evidence.ts": "a1e9368244413ff5b2630c9fb8c6dca4453d7bd96c88da02e101d491e5170a8d",
+    "lib/qa/engine.ts": "043f922ba739dd090ed2a05c41aee8d5e2a393d5c58bbdb8120117d4bbf1d744",
+    "lib/ai/providers/openai-vision-provider.ts": "2ec665cb661f52fc7b85cce257c86d38f93cf1b859b2447531a8ab4f68210564",
+    "scripts/verify-structured-evidence.ts": "31cde26127b237f9e9c32c6ff30673aca5ae2c4a5deabcc2579bc7d03e38cb39",
+    "docs/01-architecture/structured-evidence-contract.md": "ccb557958f7a214eeea1cb1e9c45307f137d303f18f517e3da6bba86cdfe3421",
+    "fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts": "9708c2e9682afc90e5ce6957000e202349014efa75fe4f7b27940db9e7716f2e"
+  }
+}

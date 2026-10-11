@@ -1,5 +1,25 @@
 # UPG-04 双图结构化区域证据
 
+## 2026-10-11 第二轮：类型化身份与直接一致性（当前行为）
+
+本节补充并取代下方第一轮中“任意非空身份描述可支持匹配”的边界。独立 QA `8870f8c1bf3d963ef1203d2f68999510f0f794a5` 的四个原反例先按原字节保存并复现 FAIL，再修复；原整体 QA FAIL 保持有效，没有用通过的浏览器检查抵销。
+
+新严格 provider schema 要求 `referenceIdentityKind`、`candidateIdentityKind`，映射到各侧 identityEvidence kind：`readable_text`（直接文字转录）、`brand_name`（直接可读品牌名/字标）、`symbol`（非文字标识）、`geometry`（物体/颜色/几何描述）、`absent`、`unreadable`、`unknown`、`not_applicable`。visible_text 仅接受双方 readable_text；logo 仅接受双方 brand_name。缺类型、图形符号或普通物体描述不建立充分品牌身份，不再扩充物体英文排除词表。当前不支持仅靠任意非文字图形描述通过 logo 检查；这是一项明确的保守能力限制。
+
+`visibleIdentity` 仅建立检查视图：NFKC、空白折叠、去除 Default_Ignorable_Code_Point、Cc/Cf 和商标装饰；必须剩余可读字母或数字。纯零宽、控制、格式、组合附加符或标点不能充当文字证据。原始 reference/candidate identity 字符串、模型 raw、provider status/observability 不被改写。
+
+仅对**类型化的直接身份内容**比较，不要求双方自然语言观察描述整句相同。品牌名处理大小写、兼容字形和有限标点/空白写法；文字中的明确公制体积、质量、长度和计数单位处理有限别名与精确十进制换算。数量以 BigInt 有理数比较，避免浮点舍入；序列使用带类型分段，防止模型文字与内部标记碰撞，保留数量出现顺序、未知数字格式、负号和裸数字前导零。不猜测地区小数/千分符、盎司约定、任意自然语言同义词或品牌别名。例：`ALPHA 100 ml` 与 `alpha 0.1 litre` 可支持匹配；100ml/200ml、质量/体积冲突或 ALPHA/BETA 不能支持 reported match。
+
+直接内容与 match 矛盾时变为 uncertain，产生 REVIEW 和明确冲突原因，同时保留原可观测性、可见标记及转录，不把可读差异假称不可见。无可读/类型不足的身份仍 not_observable；充分的明确 mismatch 仍由原策略 critical FAIL，不自动把矛盾 match 变成确定 FAIL。其他检查和历史读取行为不变。
+
+新响应/指令版本后缀为 `+regions-003`，应用绑定 `identityEvidence.validationVersion=identity-evidence-002`，失败 normalization raw 同样记录该守卫版本。编排版本保持 engine008、risk003、modelpolicy002；身份守卫以独立版本区分，避免本轮禁止改动的 UI 固定历史版本判断把新结果误标为历史。未改模型、价格、调用次数、服务或客户端展示。
+
+证据见 `fixtures/structured-evidence/identity-consistency-repair/`：四个原始 QA 输入输出及索引、修复前四项 FAIL、55 项原反例/类型/Unicode/数量单位/正例检查、49 项结构化与持久化回归。旧“位置不影响匹配”正例误用了 ALPHA/BETA 的相矛盾身份；本轮将其正例输入改为实际相同身份，保留判定期望，并以独立反例检查相矛盾身份必须 REVIEW。原历史 fixture/report 不覆盖。
+
+本轮 UI、CSS、定位规范化、浏览器脚本和对应持久 fixture 摘要与独立 24 项浏览器证据一致，仅复用其 UI 部分；保存的原完整 QA 仍为 FAIL。执行 typecheck、原 policy 回归和定向 lint；不重复浏览器或本地 build，最终 Cloudflare 构建和生产复验仍留给授权发布阶段。
+
+限制：身份类型和转录仍由模型报告，不能证明图中实际文字或品牌，也不能保证模型不会错误分类或编造字段；不支持图形标识的独立识别、任意跨语言等义判断或真实 OCR/定位准确率。新 schema 所需类型不会补写到历史记录；新 provider 不接受缺类型输出，旧接口/测试输入保持兼容，明确提供但缺类型的 identityEvidence 保守降级。所有坐标仍按已验收策略隐藏，原始机器历史和独立失败证据不修改。
+
 ## 2026-10-11 生产反例后的保守修复（当前行为）
 
 下文最初开发行为与验证记录保留为历史；本节取代其中“合法模型区域即可画框”和“Verified”的现行语义。原候选 `ec5a73d2492eb010dc60571ea90a6d2a0a7af815` 的验收记录不改写。生产 `324a5283b63a73c8b5c5cd1222f49f757f7a2c3b` 的真实单项合成分析证明：坐标数值合法、模型 high confidence、图片映射正确，仍可能把 logo 框画在空白背景；同一结果明确描述无可读文字，却声称充分可观测并 PASS。

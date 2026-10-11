@@ -1,0 +1,7 @@
+{
+  "command": "pnpm typecheck",
+  "exitCode": 2,
+  "errorCode": "TS2737",
+  "cause": "BigInt literal syntax is unavailable at repository ES2017 target",
+  "resolution": "Use BigInt constructor for exact rational arithmetic; do not modify tsconfig or change runtime precision"
+}
