@@ -40,18 +40,51 @@ function pureMetadata(value: string): boolean {
   return reachable.has(key.length);
 }
 
+/** Read an assignment LHS without interpreting code or colons in quoted keys. */
+function assignmentLabel(value: string): string | null {
+  let quote = "";
+  for (let index = 0; index < value.length; index++) {
+    const character = value[index];
+    if (quote) {
+      if (character === "\\") index++;
+      else if (character === quote) quote = "";
+      continue;
+    }
+    if (character === '"' || character === "'") { quote = character; continue; }
+    if (character === ":" && value[index + 1] === ":") { index++; continue; }
+    if (character === ":" || character === "=") return value.slice(0, index).trim();
+  }
+  // An unterminated quoted bracket path is unsupported structure, not a name.
+  if (quote && /[\[\]]/u.test(value) && /[:=]/u.test(value)) return value;
+  return null;
+}
+
+function structuredAssignment(value: string): boolean {
+  let label = assignmentLabel(value);
+  if (!label) return false;
+  if (label.startsWith('"') && label.endsWith('"')) {
+    try { const decoded: unknown = JSON.parse(label); if (typeof decoded === "string") label = decoded; } catch { /* Unsupported quoted path still uses structural fallback. */ }
+  } else if (label.startsWith("'") && label.endsWith("'")) label = label.slice(1, -1);
+  if (fields.has(protocolKey(label)) || pureMetadata(label)) return true;
+  // Explicit qualified/indexed LHS syntax is outside literal entity content.
+  // Unknown or malformed paths also require review; no prefix/word guessing.
+  return /[.\[\]()\/$\\]|::|->/u.test(label);
+}
+
 export function isProtocolIdentity(value: string): boolean {
   if (pureMetadata(value)) return true;
   const normalized = value.normalize("NFKC").replace(/[\p{Default_Ignorable_Code_Point}\p{Cc}\p{Cf}]/gu, "").trim();
   // Template syntax is a class of placeholders; no guessed English entity list.
   if (/^(?:<[^<>]+>|\{\{[^{}]+\}\}|\$\{[^{}]+\})$/u.test(normalized)) return true;
-  const label = normalized.match(/^["']?([\p{L}\p{N}_. -]+?)["']?\s*[:=]/u)?.[1];
-  if (label && fields.has(protocolKey(label))) return true;
+  if (structuredAssignment(normalized)) return true;
+  // Literal identity fields do not carry objects/arrays, even with unknown keys.
+  if (/^[{\[]/u.test(normalized)) return true;
   try {
     const pending: unknown[] = [JSON.parse(normalized)];
     while (pending.length) {
       const node = pending.pop();
-      if (typeof node === "string" && pureMetadata(node)) return true;
+      // JSON string decoding removes one wrapper; apply the same syntax boundary.
+      if (typeof node === "string" && isProtocolIdentity(node)) return true;
       if (Array.isArray(node)) pending.push(...node);
       else if (node && typeof node === "object") {
         if (Object.keys(node).some(pureMetadata)) return true;

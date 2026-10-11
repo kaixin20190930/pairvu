@@ -1,7 +1,7 @@
 import type { VisionObservation } from "./types";
 import { isProtocolIdentity } from "./identity-protocol";
 
-export const IDENTITY_EVIDENCE_VERSION = "identity-evidence-003";
+export const IDENTITY_EVIDENCE_VERSION = "identity-evidence-004";
 
 // Detect explicit absence/illegibility, not generic "no differences" statements.
 const textAbsent = /\b(?:no|without)\s+(?:(?:readable|legible|identity[- ]bearing|visible|any)\s+)*(?:text|words|lettering|characters|values)\b(?!\s+(?:differences?|changes?))|\b(?:text|words|lettering|characters)\b[^.]{0,45}\b(?:unreadable|illegible|not readable|cannot be read)\b/i;

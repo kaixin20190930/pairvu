@@ -114,3 +114,11 @@ high 仍明确标为模型估计，不是校准概率。medium 用虚线框和 A
 协议拼写比较先执行 NFKC、大小写归一化及不可见控制字符清理，再统一分隔符；还拒绝仅由协议 token 组成的组合、协议字段赋值、JSON 协议包装和 `<…>`、`{{…}}`、`${…}` 模板语法。只出现协议词片段的正常品牌名称仍可通过，例如 `ALPHA Reference`。恰好占用完整协议拼写或模板语法的真实实体文字会保守进入人工 REVIEW；此限制不代表已经验证图片内容，也不能阻止所有虚构转录。
 
 本轮未修改提示词内容或响应字段，因此 prompt 后缀仍为 `regions-003`；guard 版本单独记录为 `identity-evidence-003`，引擎仍为 `m0-qa-engine-008`。UI、定位降级、风险策略、模型配置和费用不变。新反例来自原生产 DOM 的受控重建，并非原始 SDK 响应；原文件摘要和修复前 FAIL 均保留在 `fixtures/structured-evidence/protocol-identity-repair`。开发验证通过不替代固定提交的独立验收或生产复验。
+
+### 协议路径赋值修复
+
+独立 QA 发现 `evidence.referenceIdentity: ALPHA` 仍被当成品牌文字。`identity-evidence-004` 根据赋值左侧的结构语法识别路径，而不是把限定路径整体当成单个字段名。支持 `:`、`=`、`:=`、`=>` 赋值，路径可使用点、斜线、反斜线、`::`、`->`、括号/索引、引号及 `$` 根标记；NFKC、大小写和不可见字符的处理沿用协议规范化。JSON 引号包装的路径赋值也不能建立身份。
+
+有显式限定或索引语法的赋值，即使前缀/字段未知或路径畸形，也保守 REVIEW；对象和数组不能代替字段内的字面实体转录。此边界只判断结构，不执行路径或推断自然语言。无赋值的普通实体 `ALPHA Reference`、`Reference Goods`、`ALPHA.Reference` 仍可匹配；未知的无结构单标签文字（例如 `ALPHA: Edition`）不因包含冒号而被猜成协议字段。恰好采用上述结构语法的实际转录需人工复核。
+
+新原反例、修复前 FAIL、路径专项及现有 747 项协议回归保存在 `fixtures/structured-evidence/protocol-path-repair`。原 QA 输入/结果按字节归档；引擎按既有规则把输入 raw 保存到规范化 raw 的 `providerRaw`，保留原身份与不足原因。本轮 guard 版本和对应生成目录同步更新，schema/prompt、UI、定位及策略均未改变，不重复 UI 或构建验证。

@@ -1,0 +1,247 @@
+{
+  "name": "protocol entity wrapper evidence.referenceIdentity: ALPHA",
+  "status": "FAIL",
+  "input": {
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "referenceObservability": "observable",
+        "candidateObservability": "observable",
+        "coverage": "sufficient",
+        "confidence": "high",
+        "referenceObservation": "Identity content separately supplied.",
+        "candidateObservation": "Corresponding identity content separately supplied.",
+        "comparisonSummary": "Model reports a match.",
+        "visibleEvidence": [
+          "evidence.referenceIdentity: ALPHA"
+        ],
+        "uncertainReason": null,
+        "evidence": {
+          "referenceObservation": "Identity content separately supplied.",
+          "candidateObservation": "Corresponding identity content separately supplied.",
+          "differenceKind": "none",
+          "comparisonSummary": "Model reports a match.",
+          "visibleEvidence": [
+            "evidence.referenceIdentity: ALPHA"
+          ],
+          "uncertainReason": null,
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "rawJson": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+          "referenceRegion": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.1,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidateRegion": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.5,
+              "height": 0.2
+            },
+            "reason": null,
+            "confidence": "medium"
+          },
+          "referenceIdentity": "evidence.referenceIdentity: ALPHA",
+          "candidateIdentity": "evidence.referenceIdentity: ALPHA",
+          "referenceIdentityKind": "brand_name",
+          "candidateIdentityKind": "brand_name"
+        }
+      }
+    ],
+    "limitations": []
+  },
+  "result": {
+    "analysisId": "qa-independent-repair3",
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "observability": {
+          "reference": "observable",
+          "candidate": "observable",
+          "coverage": "sufficient"
+        },
+        "confidence": "high",
+        "explanation": "Model reports a match.",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-cand",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.1,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.3
+              },
+              "reason": null,
+              "confidence": "high"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.25,
+                "y": 0.4,
+                "width": 0.5,
+                "height": 0.2
+              },
+              "reason": null,
+              "confidence": "medium"
+            }
+          },
+          "identityEvidence": {
+            "reference": "evidence.referenceIdentity: ALPHA",
+            "candidate": "evidence.referenceIdentity: ALPHA",
+            "referenceKind": "brand_name",
+            "candidateKind": "brand_name",
+            "validationVersion": "identity-evidence-003"
+          },
+          "referenceObservation": "Identity content separately supplied.",
+          "candidateObservation": "Corresponding identity content separately supplied.",
+          "differenceKind": "none",
+          "comparisonSummary": "Model reports a match.",
+          "visibleEvidence": [
+            "evidence.referenceIdentity: ALPHA"
+          ],
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+        }
+      }
+    ],
+    "verdict": "pass",
+    "productIssues": [],
+    "limitations": [],
+    "passedObservations": [
+      {
+        "checkType": "logo",
+        "status": "match",
+        "differenceKind": "none",
+        "observability": {
+          "reference": "observable",
+          "candidate": "observable",
+          "coverage": "sufficient"
+        },
+        "confidence": "high",
+        "explanation": "Model reports a match.",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-cand",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.1,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.3
+              },
+              "reason": null,
+              "confidence": "high"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.25,
+                "y": 0.4,
+                "width": 0.5,
+                "height": 0.2
+              },
+              "reason": null,
+              "confidence": "medium"
+            }
+          },
+          "identityEvidence": {
+            "reference": "evidence.referenceIdentity: ALPHA",
+            "candidate": "evidence.referenceIdentity: ALPHA",
+            "referenceKind": "brand_name",
+            "candidateKind": "brand_name",
+            "validationVersion": "identity-evidence-003"
+          },
+          "referenceObservation": "Identity content separately supplied.",
+          "candidateObservation": "Corresponding identity content separately supplied.",
+          "differenceKind": "none",
+          "comparisonSummary": "Model reports a match.",
+          "visibleEvidence": [
+            "evidence.referenceIdentity: ALPHA"
+          ],
+          "referenceVisible": true,
+          "candidateVisible": true,
+          "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+        }
+      }
+    ],
+    "reviewReasons": [],
+    "failedReasons": [],
+    "coverage": {
+      "selectedChecks": 1,
+      "sufficientlyObservableChecks": 1,
+      "insufficientChecks": 0
+    },
+    "versions": {
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002"
+    },
+    "modelCalls": [
+      {
+        "provider": "openai",
+        "model": "synthetic",
+        "promptVersion": "qa-controlled+regions-003",
+        "latencyMs": 1,
+        "inputUsage": {
+          "inputTokens": 1,
+          "cachedInputTokens": 0
+        },
+        "outputUsage": {
+          "outputTokens": 1
+        }
+      }
+    ],
+    "latencyMs": 1
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'pass' !== 'review'\n"
+}

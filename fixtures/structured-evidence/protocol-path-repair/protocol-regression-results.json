@@ -1,0 +1,3395 @@
+{
+  "unitId": "UPG-04",
+  "synthetic": true,
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "exact production DOM reconstruction cannot pass a protocol enum as identity",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol registry cannot drift from the actual provider and application protocol",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"none\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NONE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"none\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​o​n​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｏｎｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n/a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"N/A\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n/a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​/​a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎ／ａ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"type\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"TYPE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"type\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"t​y​p​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｔｙｐｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"json_schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"JSON_SCHEMA\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"json schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"j​s​o​n​_​s​c​h​e​m​a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｊｓｏｎ＿ｓｃｈｅｍａ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"name\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NAME\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"name\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​a​m​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎａｍｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"fidelity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"FIDELITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"fidelity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"f​i​d​e​l​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｆｉｄｅｌｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"strict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"STRICT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"strict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​t​r​i​c​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｔｒｉｃｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"true\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"TRUE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"true\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"t​r​u​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｔｒｕｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SCHEMA\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​c​h​e​m​a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｃｈｅｍａ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"$schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"$SCHEMA\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"$schema\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"$​s​c​h​e​m​a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"＄ｓｃｈｅｍａ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"object\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"OBJECT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"object\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"o​b​j​e​c​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｏｂｊｅｃｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"properties\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PROPERTIES\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"properties\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​r​o​p​e​r​t​i​e​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐｒｏｐｅｒｔｉｅｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"OBSERVATIONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"o​b​s​e​r​v​a​t​i​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｏｂｓｅｒｖａｔｉｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"array\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ARRAY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"array\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​r​r​a​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｒｒａｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"items\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ITEMS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"items\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​t​e​m​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｔｅｍｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"checkType\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CHECKTYPE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"checkType\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​h​e​c​k​T​y​p​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｈｅｃｋＴｙｐｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"string\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"STRING\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"string\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​t​r​i​n​g\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｔｒｉｎｇ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"enum\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ENUM\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"enum\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"e​n​u​m\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｅｎｕｍ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"logo\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"LOGO\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"logo\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"l​o​g​o\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｌｏｇｏ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"visible_text\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VISIBLE_TEXT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"visible text\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​i​s​i​b​l​e​_​t​e​x​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖｉｓｉｂｌｅ＿ｔｅｘｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"quantity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"QUANTITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"quantity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"q​u​a​n​t​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｑｕａｎｔｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"dominant_color\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"DOMINANT_COLOR\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"dominant color\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"d​o​m​i​n​a​n​t​_​c​o​l​o​r\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｄｏｍｉｎａｎｔ＿ｃｏｌｏｒ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"major_components\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MAJOR_COMPONENTS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"major components\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​a​j​o​r​_​c​o​m​p​o​n​e​n​t​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍａｊｏｒ＿ｃｏｍｐｏｎｅｎｔｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"major_shape_packaging\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MAJOR_SHAPE_PACKAGING\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"major shape packaging\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​a​j​o​r​_​s​h​a​p​e​_​p​a​c​k​a​g​i​n​g\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍａｊｏｒ＿ｓｈａｐｅ＿ｐａｃｋａｇｉｎｇ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"status\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"STATUS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"status\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​t​a​t​u​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｔａｔｕｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"match\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MATCH\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"match\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​a​t​c​h\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍａｔｃｈ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"mismatch\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MISMATCH\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"mismatch\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​i​s​m​a​t​c​h\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｉｓｍａｔｃｈ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNCERTAIN\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​c​e​r​t​a​i​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｃｅｒｔａｉｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not_observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NOT_OBSERVABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​o​t​_​o​b​s​e​r​v​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｏｔ＿ｏｂｓｅｒｖａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not_applicable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NOT_APPLICABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not applicable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​o​t​_​a​p​p​l​i​c​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｏｔ＿ａｐｐｌｉｃａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"differenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"DIFFERENCEKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"differenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"d​i​f​f​e​r​e​n​c​e​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｄｉｆｆｅｒｅｎｃｅＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"anyOf\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ANYOF\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"anyOf\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​n​y​O​f\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｎｙＯｆ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"brand_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"BRAND_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"brand changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"b​r​a​n​d​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｂｒａｎｄ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"text_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"TEXT_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"text changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"t​e​x​t​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｔｅｘｔ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"value_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VALUE_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"value changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​a​l​u​e​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖａｌｕｅ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"count_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COUNT_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"count changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​u​n​t​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｕｎｔ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"color_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COLOR_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"color changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​l​o​r​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｌｏｒ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"component_missing\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COMPONENT_MISSING\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"component missing\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​m​p​o​n​e​n​t​_​m​i​s​s​i​n​g\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｍｐｏｎｅｎｔ＿ｍｉｓｓｉｎｇ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"component_extra\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COMPONENT_EXTRA\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"component extra\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​m​p​o​n​e​n​t​_​e​x​t​r​a\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｍｐｏｎｅｎｔ＿ｅｘｔｒａ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"shape_changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SHAPE_CHANGED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"shape changed\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​h​a​p​e​_​c​h​a​n​g​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｈａｐｅ＿ｃｈａｎｇｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"unreadable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNREADABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"unreadable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​r​e​a​d​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｒｅａｄａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not_visible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NOT_VISIBLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not visible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​o​t​_​v​i​s​i​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｏｔ＿ｖｉｓｉｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"unknown\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNKNOWN\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"unknown\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​k​n​o​w​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｋｎｏｗｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"null\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NULL\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"null\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​u​l​l\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｕｌｌ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEOBSERVABILITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​O​b​s​e​r​v​a​b​i​l​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＯｂｓｅｒｖａｂｉｌｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"OBSERVABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"o​b​s​e​r​v​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｏｂｓｅｒｖａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"partially_observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PARTIALLY_OBSERVABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"partially observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​a​r​t​i​a​l​l​y​_​o​b​s​e​r​v​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐａｒｔｉａｌｌｙ＿ｏｂｓｅｒｖａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEOBSERVABILITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​O​b​s​e​r​v​a​b​i​l​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＯｂｓｅｒｖａｂｉｌｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coverage\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COVERAGE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coverage\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​v​e​r​a​g​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｖｅｒａｇｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SUFFICIENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​u​f​f​i​c​i​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｕｆｆｉｃｉｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"partial\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PARTIAL\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"partial\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​a​r​t​i​a​l\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐａｒｔｉａｌ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"INSUFFICIENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​n​s​u​f​f​i​c​i​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｎｓｕｆｆｉｃｉｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"confidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CONFIDENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"confidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​n​f​i​d​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｎｆｉｄｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"high\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"HIGH\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"high\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"h​i​g​h\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｈｉｇｈ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"medium\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MEDIUM\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"medium\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​e​d​i​u​m\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｅｄｉｕｍ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"low\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"LOW\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"low\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"l​o​w\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｌｏｗ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceObservation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEOBSERVATION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceObservation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​O​b​s​e​r​v​a​t​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＯｂｓｅｒｖａｔｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateObservation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEOBSERVATION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateObservation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​O​b​s​e​r​v​a​t​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＯｂｓｅｒｖａｔｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"comparisonSummary\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COMPARISONSUMMARY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"comparisonSummary\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​m​p​a​r​i​s​o​n​S​u​m​m​a​r​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｍｐａｒｉｓｏｎＳｕｍｍａｒｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"visibleEvidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VISIBLEEVIDENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"visibleEvidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​i​s​i​b​l​e​E​v​i​d​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖｉｓｉｂｌｅＥｖｉｄｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertainReason\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNCERTAINREASON\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertainReason\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​c​e​r​t​a​i​n​R​e​a​s​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｃｅｒｔａｉｎＲｅａｓｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"evidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"EVIDENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"evidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"e​v​i​d​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｅｖｉｄｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceVisible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEVISIBLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceVisible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​V​i​s​i​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＶｉｓｉｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"boolean\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"BOOLEAN\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"boolean\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"b​o​o​l​e​a​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｂｏｏｌｅａｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateVisible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEVISIBLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateVisible\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​V​i​s​i​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＶｉｓｉｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"rawJson\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"RAWJSON\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"rawJson\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​a​w​J​s​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒａｗＪｓｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceRegion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEREGION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceRegion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​R​e​g​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＲｅｇｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coordinateSpace\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COORDINATESPACE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coordinateSpace\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​o​r​d​i​n​a​t​e​S​p​a​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｏｒｄｉｎａｔｅＳｐａｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"const\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CONST\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"const\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​n​s​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｎｓｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"analysis_image_normalized\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ANALYSIS_IMAGE_NORMALIZED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"analysis image normalized\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​n​a​l​y​s​i​s​_​i​m​a​g​e​_​n​o​r​m​a​l​i​z​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｎａｌｙｓｉｓ＿ｉｍａｇｅ＿ｎｏｒｍａｌｉｚｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"region\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REGION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"region\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​g​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｇｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"x\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"X\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"x\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"x\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｘ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"number\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NUMBER\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"number\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​u​m​b​e​r\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｕｍｂｅｒ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"Y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"width\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"WIDTH\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"width\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"w​i​d​t​h\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｗｉｄｔｈ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"height\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"HEIGHT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"height\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"h​e​i​g​h​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｈｅｉｇｈｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"required\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REQUIRED\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"required\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​q​u​i​r​e​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｑｕｉｒｅｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"additionalProperties\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ADDITIONALPROPERTIES\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"additionalProperties\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​d​d​i​t​i​o​n​a​l​P​r​o​p​e​r​t​i​e​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｄｄｉｔｉｏｎａｌＰｒｏｐｅｒｔｉｅｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"false\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"FALSE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"false\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"f​a​l​s​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｆａｌｓｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reason\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REASON\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reason\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​a​s​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅａｓｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficient_evidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"INSUFFICIENT_EVIDENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficient evidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​n​s​u​f​f​i​c​i​e​n​t​_​e​v​i​d​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｎｓｕｆｆｉｃｉｅｎｔ＿ｅｖｉｄｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not_present\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"NOT_PRESENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"not present\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"n​o​t​_​p​r​e​s​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｎｏｔ＿ｐｒｅｓｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"cannot_locate\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANNOT_LOCATE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"cannot locate\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​n​o​t​_​l​o​c​a​t​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｎｏｔ＿ｌｏｃａｔｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain_location\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNCERTAIN_LOCATION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain location\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​c​e​r​t​a​i​n​_​l​o​c​a​t​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｃｅｒｔａｉｎ＿ｌｏｃａｔｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateRegion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEREGION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateRegion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​R​e​g​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＲｅｇｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceIdentity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEIDENTITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceIdentity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​I​d​e​n​t​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＩｄｅｎｔｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateIdentity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEIDENTITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateIdentity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​I​d​e​n​t​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＩｄｅｎｔｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceIdentityKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEIDENTITYKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceIdentityKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​I​d​e​n​t​i​t​y​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＩｄｅｎｔｉｔｙＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"readable_text\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"READABLE_TEXT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"readable text\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​a​d​a​b​l​e​_​t​e​x​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅａｄａｂｌｅ＿ｔｅｘｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"brand_name\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"BRAND_NAME\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"brand name\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"b​r​a​n​d​_​n​a​m​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｂｒａｎｄ＿ｎａｍｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"symbol\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SYMBOL\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"symbol\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​y​m​b​o​l\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｙｍｂｏｌ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"geometry\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"GEOMETRY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"geometry\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"g​e​o​m​e​t​r​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｇｅｏｍｅｔｒｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"absent\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ABSENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"absent\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​b​s​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｂｓｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateIdentityKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEIDENTITYKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateIdentityKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​I​d​e​n​t​i​t​y​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＩｄｅｎｔｉｔｙＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"limitations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"LIMITATIONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"limitations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"l​i​m​i​t​a​t​i​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｌｉｍｉｔａｔｉｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference_insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCE_INSUFFICIENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​_​i​n​s​u​f​f​i​c​i​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅ＿ｉｎｓｕｆｆｉｃｉｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidate_insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATE_INSUFFICIENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidate insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​_​i​n​s​u​f​f​i​c​i​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅ＿ｉｎｓｕｆｆｉｃｉｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference_conflict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCE_CONFLICT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference conflict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​_​c​o​n​f​l​i​c​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅ＿ｃｏｎｆｌｉｃｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"attribute_not_observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ATTRIBUTE_NOT_OBSERVABLE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"attribute not observable\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​t​t​r​i​b​u​t​e​_​n​o​t​_​o​b​s​e​r​v​a​b​l​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｔｔｒｉｂｕｔｅ＿ｎｏｔ＿ｏｂｓｅｒｖａｂｌｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coverage_insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"COVERAGE_INSUFFICIENT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"coverage insufficient\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​o​v​e​r​a​g​e​_​i​n​s​u​f​f​i​c​i​e​n​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃｏｖｅｒａｇｅ＿ｉｎｓｕｆｆｉｃｉｅｎｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain_observation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"UNCERTAIN_OBSERVATION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"uncertain observation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"u​n​c​e​r​t​a​i​n​_​o​b​s​e​r​v​a​t​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｕｎｃｅｒｔａｉｎ＿ｏｂｓｅｒｖａｔｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"provider_output_invalid\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PROVIDER_OUTPUT_INVALID\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"provider output invalid\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​r​o​v​i​d​e​r​_​o​u​t​p​u​t​_​i​n​v​a​l​i​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐｒｏｖｉｄｅｒ＿ｏｕｔｐｕｔ＿ｉｎｖａｌｉｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"missing_requested_check\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MISSING_REQUESTED_CHECK\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"missing requested check\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​i​s​s​i​n​g​_​r​e​q​u​e​s​t​e​d​_​c​h​e​c​k\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｉｓｓｉｎｇ＿ｒｅｑｕｅｓｔｅｄ＿ｃｈｅｃｋ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"message\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MESSAGE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"message\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​e​s​s​a​g​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｅｓｓａｇｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"analysisId\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ANALYSISID\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"analysisId\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​n​a​l​y​s​i​s​I​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｎａｌｙｓｉｓＩｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"OBSERVABILITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"observability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"o​b​s​e​r​v​a​b​i​l​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｏｂｓｅｒｖａｂｉｌｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reference\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidate\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidate\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"explanation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"EXPLANATION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"explanation\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"e​x​p​l​a​n​a​t​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｅｘｐｌａｎａｔｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regions\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REGIONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regions\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​g​i​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｇｉｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"schemaVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SCHEMAVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"schemaVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​c​h​e​m​a​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｃｈｅｍａＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"assetId\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ASSETID\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"assetId\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"a​s​s​e​t​I​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ａｓｓｅｔＩｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regionRaw\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REGIONRAW\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regionRaw\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​g​i​o​n​R​a​w\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｇｉｏｎＲａｗ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"identityEvidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"IDENTITYEVIDENCE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"identityEvidence\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​d​e​n​t​i​t​y​E​v​i​d​e​n​c​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｄｅｎｔｉｔｙＥｖｉｄｅｎｃｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REFERENCEKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"referenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​f​e​r​e​n​c​e​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｆｅｒｅｎｃｅＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"CANDIDATEKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"candidateKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"c​a​n​d​i​d​a​t​e​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｃａｎｄｉｄａｔｅＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"validationVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VALIDATIONVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"validationVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​a​l​i​d​a​t​i​o​n​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖａｌｉｄａｔｉｏｎＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"raw\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"RAW\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"raw\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​a​w\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒａｗ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"verdict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VERDICT\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"verdict\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​e​r​d​i​c​t\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖｅｒｄｉｃｔ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"productIssues\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PRODUCTISSUES\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"productIssues\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​r​o​d​u​c​t​I​s​s​u​e​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐｒｏｄｕｃｔＩｓｓｕｅｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"kind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"KIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"kind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"k​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｋｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceCheckType\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SOURCECHECKTYPE\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceCheckType\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​o​u​r​c​e​C​h​e​c​k​T​y​p​e\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｏｕｒｃｅＣｈｅｃｋＴｙｐｅ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceDifferenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SOURCEDIFFERENCEKIND\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceDifferenceKind\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​o​u​r​c​e​D​i​f​f​e​r​e​n​c​e​K​i​n​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｏｕｒｃｅＤｉｆｆｅｒｅｎｃｅＫｉｎｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SOURCEOBSERVABILITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sourceObservability\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​o​u​r​c​e​O​b​s​e​r​v​a​b​i​l​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｏｕｒｃｅＯｂｓｅｒｖａｂｉｌｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"severity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SEVERITY\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"severity\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​e​v​e​r​i​t​y\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｅｖｅｒｉｔｙ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"passedObservations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PASSEDOBSERVATIONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"passedObservations\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​a​s​s​e​d​O​b​s​e​r​v​a​t​i​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐａｓｓｅｄＯｂｓｅｒｖａｔｉｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reviewReasons\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REVIEWREASONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"reviewReasons\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​v​i​e​w​R​e​a​s​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｖｉｅｗＲｅａｓｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"failedReasons\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"FAILEDREASONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"failedReasons\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"f​a​i​l​e​d​R​e​a​s​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｆａｉｌｅｄＲｅａｓｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"selectedChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SELECTEDCHECKS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"selectedChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​e​l​e​c​t​e​d​C​h​e​c​k​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｅｌｅｃｔｅｄＣｈｅｃｋｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sufficientlyObservableChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"SUFFICIENTLYOBSERVABLECHECKS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"sufficientlyObservableChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"s​u​f​f​i​c​i​e​n​t​l​y​O​b​s​e​r​v​a​b​l​e​C​h​e​c​k​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｓｕｆｆｉｃｉｅｎｔｌｙＯｂｓｅｒｖａｂｌｅＣｈｅｃｋｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficientChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"INSUFFICIENTCHECKS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"insufficientChecks\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​n​s​u​f​f​i​c​i​e​n​t​C​h​e​c​k​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｎｓｕｆｆｉｃｉｅｎｔＣｈｅｃｋｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"versions\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"VERSIONS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"versions\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"v​e​r​s​i​o​n​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｖｅｒｓｉｏｎｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"qaEngineVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"QAENGINEVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"qaEngineVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"q​a​E​n​g​i​n​e​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｑａＥｎｇｉｎｅＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"riskPolicyVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"RISKPOLICYVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"riskPolicyVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​i​s​k​P​o​l​i​c​y​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｉｓｋＰｏｌｉｃｙＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"modelPolicyVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MODELPOLICYVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"modelPolicyVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​o​d​e​l​P​o​l​i​c​y​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｏｄｅｌＰｏｌｉｃｙＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"modelCalls\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MODELCALLS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"modelCalls\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​o​d​e​l​C​a​l​l​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｏｄｅｌＣａｌｌｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"provider\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PROVIDER\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"provider\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​r​o​v​i​d​e​r\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐｒｏｖｉｄｅｒ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"model\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"MODEL\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"model\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​o​d​e​l\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍｏｄｅｌ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"promptVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"PROMPTVERSION\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"promptVersion\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"p​r​o​m​p​t​V​e​r​s​i​o​n\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｐｒｏｍｐｔＶｅｒｓｉｏｎ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"latencyMs\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"LATENCYMS\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"latencyMs\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"l​a​t​e​n​c​y​M​s\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｌａｔｅｎｃｙＭｓ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"estimatedCostUsd\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ESTIMATEDCOSTUSD\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"estimatedCostUsd\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"e​s​t​i​m​a​t​e​d​C​o​s​t​U​s​d\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｅｓｔｉｍａｔｅｄＣｏｓｔＵｓｄ\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0-qa-engine-008\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"M0-QA-ENGINE-008\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0 qa engine 008\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​0​-​q​a​-​e​n​g​i​n​e​-​0​0​8\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍ０－ｑａ－ｅｎｇｉｎｅ－００８\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0-risk-policy-003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"M0-RISK-POLICY-003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0 risk policy 003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​0​-​r​i​s​k​-​p​o​l​i​c​y​-​0​0​3\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍ０－ｒｉｓｋ－ｐｏｌｉｃｙ－００３\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0-model-policy-002\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"M0-MODEL-POLICY-002\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m0 model policy 002\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"m​0​-​m​o​d​e​l​-​p​o​l​i​c​y​-​0​0​2\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｍ０－ｍｏｄｅｌ－ｐｏｌｉｃｙ－００２\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"identity-evidence-004\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"IDENTITY-EVIDENCE-004\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"identity evidence 004\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"i​d​e​n​t​i​t​y​-​e​v​i​d​e​n​c​e​-​0​0​4\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｉｄｅｎｔｉｔｙ－ｅｖｉｄｅｎｃｅ－００４\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regions-003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"REGIONS-003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"regions 003\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"r​e​g​i​o​n​s​-​0​0​3\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata \"ｒｅｇｉｏｎｓ－００３\" is not entity identity",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"referenceIdentity:brand_name\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"{\\\"referenceIdentity\\\":\\\"ALPHA\\\"}\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"[\\\"brand_name\\\",\\\"ALPHA\\\"]\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"\\\"\\\\u0062rand_name\\\"\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"<YOUR_BRAND>\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"{{任意身份}}\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"${identity}\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"brand_name / readable_text\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "protocol wrapper or placeholder \"identity-evidence-999\" is insufficient",
+      "status": "PASS"
+    },
+    {
+      "name": "normal entity ALPHA still supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "normal entity BETA still supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "normal entity Acme Goods still supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "normal entity ALPHA Reference still supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "normal entity ALPHA 100 ml still supports a match",
+      "status": "PASS"
+    },
+    {
+      "name": "text protocol enum cannot masquerade as a readable transcription",
+      "status": "PASS"
+    }
+  ],
+  "sourceKind": "Observed DOM wording, identity strings and flags reconstructed into current strict provider schema. Kind inferred from accepted logo branch; null regions chosen for reconstruction, production original proposals unavailable. Not raw SDK traffic.",
+  "originalResult": {
+    "analysisId": "protocol-identity-replay",
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "not_observable",
+        "differenceKind": "not_visible",
+        "observability": {
+          "reference": "not_observable",
+          "candidate": "not_observable",
+          "coverage": "insufficient"
+        },
+        "confidence": "high",
+        "explanation": "No visible difference in brand logo presence or identity.",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "identityEvidence": {
+            "reference": "brand_name",
+            "candidate": "brand_name",
+            "referenceKind": "brand_name",
+            "candidateKind": "brand_name",
+            "validationVersion": "identity-evidence-004"
+          },
+          "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+          "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+          "differenceKind": "not_visible",
+          "comparisonSummary": "No visible difference in brand logo presence or identity.",
+          "visibleEvidence": [
+            "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+          ],
+          "uncertainReason": "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required.",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "raw": {
+            "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "identityValidationVersion": "identity-evidence-004",
+            "identityProblemKind": "insufficient",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "identityEvidence": {
+                "reference": "brand_name",
+                "candidate": "brand_name",
+                "referenceKind": "brand_name",
+                "candidateKind": "brand_name",
+                "validationVersion": "identity-evidence-004"
+              },
+              "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+              "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+              "differenceKind": "none",
+              "comparisonSummary": "No visible difference in brand logo presence or identity.",
+              "visibleEvidence": [
+                "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            }
+          }
+        }
+      }
+    ],
+    "verdict": "review",
+    "productIssues": [],
+    "limitations": [
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "logo",
+        "confidence": "high",
+        "message": "logo is not sufficiently observable.",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "identityEvidence": {
+            "reference": "brand_name",
+            "candidate": "brand_name",
+            "referenceKind": "brand_name",
+            "candidateKind": "brand_name",
+            "validationVersion": "identity-evidence-004"
+          },
+          "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+          "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+          "differenceKind": "not_visible",
+          "comparisonSummary": "No visible difference in brand logo presence or identity.",
+          "visibleEvidence": [
+            "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+          ],
+          "uncertainReason": "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required.",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "raw": {
+            "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "identityValidationVersion": "identity-evidence-004",
+            "identityProblemKind": "insufficient",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "identityEvidence": {
+                "reference": "brand_name",
+                "candidate": "brand_name",
+                "referenceKind": "brand_name",
+                "candidateKind": "brand_name",
+                "validationVersion": "identity-evidence-004"
+              },
+              "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+              "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+              "differenceKind": "none",
+              "comparisonSummary": "No visible difference in brand logo presence or identity.",
+              "visibleEvidence": [
+                "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            },
+            "uncertainReason": "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required."
+          }
+        }
+      }
+    ],
+    "passedObservations": [],
+    "reviewReasons": [
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "logo",
+        "confidence": "high",
+        "message": "logo is not sufficiently observable.",
+        "evidence": {
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-ref",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "qa-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "regionRaw": {
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "identityEvidence": {
+            "reference": "brand_name",
+            "candidate": "brand_name",
+            "referenceKind": "brand_name",
+            "candidateKind": "brand_name",
+            "validationVersion": "identity-evidence-004"
+          },
+          "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+          "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+          "differenceKind": "not_visible",
+          "comparisonSummary": "No visible difference in brand logo presence or identity.",
+          "visibleEvidence": [
+            "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+          ],
+          "uncertainReason": "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required.",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "raw": {
+            "providerRaw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "identityValidationVersion": "identity-evidence-004",
+            "identityProblemKind": "insufficient",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-ref",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "qa-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "regionRaw": {
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "identityEvidence": {
+                "reference": "brand_name",
+                "candidate": "brand_name",
+                "referenceKind": "brand_name",
+                "candidateKind": "brand_name",
+                "validationVersion": "identity-evidence-004"
+              },
+              "referenceObservation": "Brand logo area is a filled square with a white inner square on blue background and a black rectangle on top.",
+              "candidateObservation": "Brand logo area matches the reference with a filled square with a white inner square on blue background and a black rectangle on top.",
+              "differenceKind": "none",
+              "comparisonSummary": "No visible difference in brand logo presence or identity.",
+              "visibleEvidence": [
+                "Both images show a blue rectangle with a black rectangle on top and a white square in the center."
+              ],
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "raw": "{\"source\":\"synthetic-fixture\",\"noAccuracyClaim\":true}"
+            },
+            "uncertainReason": "Protocol metadata or a template placeholder is not directly observed entity identity; human review is required."
+          }
+        }
+      }
+    ],
+    "failedReasons": [],
+    "coverage": {
+      "selectedChecks": 1,
+      "sufficientlyObservableChecks": 0,
+      "insufficientChecks": 1
+    },
+    "versions": {
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002"
+    },
+    "modelCalls": [
+      {
+        "provider": "controlled",
+        "model": "none",
+        "promptVersion": "controlled+regions-003",
+        "latencyMs": 0
+      }
+    ],
+    "latencyMs": 0
+  },
+  "limitations": [
+    "Controlled schema/mapper/engine only; no model traffic or independent visual verification. Protocol-occupied entity spellings conservatively require review."
+  ]
+}

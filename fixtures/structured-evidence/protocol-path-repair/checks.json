@@ -1,0 +1,82 @@
+{
+  "unitId": "UPG-04",
+  "kind": "protocol-path-repair-development",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING",
+  "baselineSha": "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+  "recordedAt": "2026-10-11T04:25:51.557425+00:00",
+  "roleSelection": {
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "reason": "Controller-authorized escalation after independent qualified-field protocol syntax omission"
+  },
+  "checks": [
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts --original-only fixtures/structured-evidence/protocol-path-repair/before-fix-results.json",
+      "exitCode": 1,
+      "cases": 1,
+      "status": "EXPECTED_FAIL_BEFORE_FIX",
+      "evidence": "before-fix-results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts",
+      "exitCode": 0,
+      "cases": 149,
+      "evidence": "results.json"
+    },
+    {
+      "command": "pnpm exec tsx fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts fixtures/structured-evidence/protocol-path-repair/protocol-regression-results.json",
+      "exitCode": 0,
+      "cases": 747,
+      "evidence": "protocol-regression-results.json",
+      "scope": "Existing protocol cases, actual schema/catalog drift assertion and normal entity controls"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm exec eslint lib/qa/identity-protocol.ts lib/qa/identity-evidence.ts fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts",
+      "exitCode": 0
+    },
+    {
+      "command": "SHA256 original archive and unchanged browser source/report verification",
+      "status": "PASS",
+      "browserCasesReused": 24,
+      "evidence": "browser-reuse-index.json"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "UI/browser/build execution",
+      "status": "NOT_RUN_BY_CONTRACT"
+    }
+  ],
+  "versions": {
+    "identityGuard": "identity-evidence-004",
+    "promptSuffix": "regions-003",
+    "engine": "m0-qa-engine-008"
+  },
+  "firstPostFixTestFailure": {
+    "evidence": "attempt-1-results.json",
+    "cases": 146,
+    "failedCases": 129,
+    "cause": "Test asserted normalized evidence.raw equaled original raw string, but the existing engine retains it under raw.providerRaw. Corrected assertions to the actual preserved location; no raw mapping product change."
+  },
+  "candidateSourceHashes": {
+    "lib/qa/identity-protocol.ts": "8c5eaeda15649d01660ccaa5565ccaf3f3a0a2317bb8712eef7739f6953e8f8d",
+    "lib/qa/identity-evidence.ts": "e7b7928f8d9671b32501b5d63965ba5fe80e8633300f243a2761eefb083a5fd1",
+    "lib/qa/identity-protocol-catalog.json": "268dff260c3ee901b4b83dc66a39eeeb6b33e9134811045a47795f044ab45162",
+    "lib/ai/providers/openai-vision-provider.ts": "b0e331317cc7c0534897b0a686de883feb273964b38ae3ec922d401400bac090",
+    "docs/01-architecture/structured-evidence-contract.md": "314b488b5e45f44b8a895a2d9cc4cffe3c67ca65267bbc3efff8f6d1f7c8629b",
+    "fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts": "2b50df8f358cacb4017ceeabed3df1877535605c4111344f990c45732f074cba"
+  },
+  "limitations": [
+    "Explicit qualified/indexed assignments, unknown or malformed path assignments and object/array payloads conservatively require review; legitimate transcriptions using this syntax need human review.",
+    "Unknown unqualified natural labels are not guessed to be metadata; no entity substring blacklist or visual accuracy guarantee.",
+    "Original independent QA FAIL and previous production FAIL remain preserved; fixed-SHA independent acceptance and authorized release/production verification still required.",
+    "No UI/location/schema/prompt/policy/price changes, build/browser rerun, model traffic, push or deploy."
+  ]
+}
