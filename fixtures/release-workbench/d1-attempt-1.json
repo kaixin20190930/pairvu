@@ -1,0 +1,33 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "FAIL",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0"
+  },
+  "cases": [],
+  "sources": {
+    "lib/releases/policy.ts": "9ac2e208ce4b0eb6d219861722db67aa96a7ae02676d34b40c4bec0654efa2fa",
+    "lib/releases/repository.ts": "38d7bcd0f96a411246ccea1d41040bb79530abeab4e36fe4e4e8beb460b2d4ee",
+    "lib/releases/csv.ts": "fc2e1ade3b96e0ebbc5eab345f8afec714e780725ebc3c5e7d2548b0f7ac677f",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "scripts/verify-release-workbench.ts": "548fdd14e435036b91e072866a893c11122a58f18433cc8cc135c30ad75ceb3b",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+  },
+  "requestCount": 22,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-lrZlDB",
+  "failure": {
+    "message": "Error: D1_ERROR: NOT NULL constraint failed: workspace_subscriptions.provider: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_NOTNULL)",
+    "stack": "Error: D1_ERROR: NOT NULL constraint failed: workspace_subscriptions.provider: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_NOTNULL)\n    at LocalD1.send (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:39:131)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:74:5)"
+  },
+  "limitations": [
+    "Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.",
+    "No production, model, R2 or payment calls; browser proof is recorded separately."
+  ]
+}

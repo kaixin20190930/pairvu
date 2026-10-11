@@ -1,0 +1,149 @@
+{
+  "unitId": "UPG-06",
+  "status": "DEV_READY",
+  "independentAcceptance": "PENDING_FIXED_CANDIDATE_SHA",
+  "baselineSha": "daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5",
+  "developerRole": {
+    "model": "gpt-6.1-sol",
+    "thinking": "high",
+    "reason": "Reassessed cross-workspace filtering, conservative rule integrity, revision snapshot consistency and paid CSV authorization. Interruption did not reduce these risks.",
+    "upgradeCondition": "Repeated identifiable reasoning failures after narrowing scope; environment latency or permission flags are not escalation grounds."
+  },
+  "recordedAt": "2026-10-11T23:41:12.459374+00:00",
+  "commands": [
+    {
+      "command": "pnpm test:release-workbench fixtures/release-workbench/d1-final-3-results.json",
+      "exitCode": 0,
+      "cases": 56,
+      "localD1Requests": 1187
+    },
+    {
+      "command": "node fixtures/release-workbench/ui-server.mjs 49282 + CUA existing tab reload/DOM/screenshot",
+      "status": "PASS",
+      "desktopCases": 20,
+      "narrowCases": 20,
+      "desktopViewport": "1280x720",
+      "narrowIframe": "373x1498 client viewport inside 375px iframe"
+    },
+    {
+      "command": "pnpm test:review-decisions --report fixtures/release-workbench/review-regression.json",
+      "exitCode": 0,
+      "cases": 35,
+      "localD1Requests": 588
+    },
+    {
+      "command": "pnpm test:structured-evidence --report fixtures/release-workbench/structured-regression.json",
+      "exitCode": 0,
+      "cases": 49
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "exitCode": 0,
+      "observedOutput": "M1 workspace analysis verification passed. Verified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring."
+    },
+    {
+      "command": "pnpm typecheck && pnpm exec eslint lib/releases lib/analysis/repository.ts app/account/releases app/api/releases components/AccountWorkspaceNav.tsx 'app/api/batches/[batchId]/export/route.ts' scripts/verify-release-workbench.ts fixtures/release-workbench/ui-entry.tsx",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm run build",
+      "exitCode": 0,
+      "runs": 1,
+      "output": "build-output.json"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "artifacts": {
+    "d1-final-3-results.json": {
+      "sha256": "6a5d84d51c8e8ec152b076c0c4075935b858700a997771fab8540c83726b4012",
+      "status": "PASS",
+      "cases": 56,
+      "requests": 1187,
+      "exitCode": 0
+    },
+    "browser-desktop-results.json": {
+      "sha256": "a861efb0d4657d3358167f9e51bfe30110fb357600a69a475bf2b173dc22eb4f",
+      "status": "PASS",
+      "cases": 20,
+      "requests": null,
+      "exitCode": 0
+    },
+    "browser-narrow-results.json": {
+      "sha256": "83dd22862c00a154730656dcbdfcb8fa02aacfeac373cfbcc0f190ecee427e7d",
+      "status": "PASS",
+      "cases": 20,
+      "requests": null,
+      "exitCode": 0
+    },
+    "review-regression.json": {
+      "sha256": "29018bea05bf74ca7a84426da5003566bb27fb94b7f1800170422e7e3e88a28d",
+      "status": "PASS",
+      "cases": 35,
+      "requests": 588,
+      "exitCode": 0
+    },
+    "structured-regression.json": {
+      "sha256": "536589357efa2ca1ef5fd8599c15b9db976b2be6cf74a0a4bac36c09767d2866",
+      "status": "PASS",
+      "cases": 49,
+      "requests": null,
+      "exitCode": 0
+    },
+    "build-output.json": {
+      "sha256": "073f4a865590e0a0ca642f70df7ea8bdf0ae235ea25ef6d35f02d0832b610d5f",
+      "status": "PASS",
+      "cases": 0,
+      "requests": null,
+      "exitCode": 0
+    }
+  },
+  "sourceSha256": {
+    "lib/releases/repository.ts": "bceff5afffa5af2a14cdfbea8d6e77ee882c9f5f9dff3d575724c4173f8b0aae",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/releases/types.ts": "d74ab50c432bee761a37017ec026e8a00593b73575230b1e6587d7d2e9edadbe",
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "app/account/releases/ReleaseWorkbenchClient.tsx": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+    "app/account/releases/releases.module.css": "c607101013fedfa086931e2e64cb3797fd93ed84d5d65f03a012fd269a04ca68",
+    "app/account/releases/page.tsx": "acb64ebd0c72897bca8d8c2af8b081918516e077ecb4eff2c14182bf91a1ff3f",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "lib/cloudflare/bindings.ts": "2057f4e725bf9667b45e91bb0580ac0e02f52e95eaa12d3d001d49c0b36c64a1",
+    "components/AccountWorkspaceNav.tsx": "540b9dfce49a5af4594c53d21171117b05fd1960a1b19b5326271c90e088c117",
+    "app/api/batches/[batchId]/export/route.ts": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f",
+    "wrangler.jsonc": "120ea4103f58d25747c49e31cbdde9a219fdfecd433e5549da78935ad3605c91",
+    "package.json": "3a68846c26ec69c857d75772f13b49de03837226fcdb8e6b1ce09c967c0eba7f",
+    "scripts/verify-release-workbench.ts": "e37078b06c8207f8f3b91e9542148b819703722e93c5a99eb50cff356a065fef",
+    "docs/01-architecture/release-workbench-contract.md": "f1971703edd128b2ca4ab14c8e904c0a7ba46f2f36471c5e1f6978625ddc309d"
+  },
+  "preservedFailures": [
+    "d1-attempt-1.json: local fixture subscription provider NOT NULL error; corrected synthetic seed before cases executed.",
+    "Initial lint effect-state/fixture prefer-const errors: moved loading resets to explicit UI search/retry actions and corrected fixture declarations; final lint passed. Original tool outputs remain in developer chat."
+  ],
+  "intermediateEvidence": [
+    "d1-attempt-2.json",
+    "d1-final-results.json",
+    "d1-final-2-results.json",
+    "browser-desktop-attempt-1.json",
+    "browser-narrow-attempt-1.json",
+    "desktop-attempt-1-proof.png"
+  ],
+  "limitations": [
+    "Synthetic local sessions/account snapshots; actual production migrations/repositories/routes/React components. No real production authentication, remote D1 replicas, R2 object fetch, model call, payment or customer asset changes.",
+    "Eligibility is current rule evaluation, not external publication. Current risk policy assigns all product differences high/critical, so those results cannot become eligible through approval. Limitations and unknown versions remain blocked.",
+    "Pagination traverses bounded source windows and re-evaluates each request; it is not a frozen whole-workspace search snapshot. More sources can remain behind an empty filtered page.",
+    "Over-limit/inconsistent-owner materializations have sourceComplete=false and no full source hash; CSV refuses to export partial original evidence.",
+    "No migration needed; feature defaults false. No push, deployment, feature enablement or independent acceptance performed.",
+    "Build validates local sources only; production must rebuild the exact pushed release commit through the repository release rule."
+  ],
+  "nextAction": {
+    "action": "Controller binds this exact candidate commit and dispatches original independent QA.",
+    "dependency": "Developer candidate commit plus untouched controller contract/registry.",
+    "proceeds": "automatically under existing UPG06 development/acceptance authorization; production needs separate authorization."
+  }
+}

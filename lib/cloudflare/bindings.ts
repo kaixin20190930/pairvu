@@ -66,6 +66,7 @@ export interface QueueMessageBatch<T = unknown> {
 
 export interface VisualQACloudflareEnv {
   PRODUCT_PROFILES_ENABLED?: string;
+  RELEASE_WORKBENCH_ENABLED?: string;
   VISUALQA_ASSETS: R2Bucket;
   VISUALQA_DB: D1Database;
   BATCH_ANALYSIS_QUEUE: Queue;

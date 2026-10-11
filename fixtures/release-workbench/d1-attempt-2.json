@@ -1,0 +1,250 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0"
+  },
+  "cases": [
+    {
+      "name": "default-off flag is exact and production configuration is false",
+      "status": "PASS"
+    },
+    {
+      "name": "strict query rejects identities, policy overrides, duplicates, lengths and malformed cursors",
+      "status": "PASS"
+    },
+    {
+      "name": "complete actual persisted six-check machine PASS still needs human approval",
+      "status": "PASS"
+    },
+    {
+      "name": "actual UPG05 approval snapshot matches deterministic atomic six-check mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous, forged server workspace, foreign owner and inactive workspace fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown engine remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing risk version remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown model policy remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved running remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing observations remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved no selected checks remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown prompt remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved foreign evidence owner remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing original machine timestamp remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown mismatch cannot masquerade as complete REVIEW without a product issue",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + quantity high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + logo high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "persisted issue severity downgrade is detected",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_identity fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence unknown_guard fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence foreign_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_summary fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence malformed_visible fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence partial fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "machine limitations stay visible and blocked despite approval",
+      "status": "PASS"
+    },
+    {
+      "name": "reject and revoke priorities preserve machine PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "approved deleted image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved expired image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved invalid expiry image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approval source changed after review cannot remain eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen SKU/profile survives current product rename and archive",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid frozen snapshot SHA fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "single and batch filters use owned associations and foreign batch yields empty",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic SQL snapshot remains old revision even if peer commits before JS evaluation",
+      "status": "PASS",
+      "detail": {
+        "oldRevision": 1,
+        "nextRevision": 2,
+        "snapshotSelects": 1
+      }
+    },
+    {
+      "name": "actual routes reject anonymous, disabled flag, forged params and foreign owner",
+      "status": "PASS"
+    },
+    {
+      "name": "actual paid gate denies free/inactive plans and requires explicit bounded export",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV cells protect formulas, Unicode/invisible prefixes and preserve quotes/newlines",
+      "status": "PASS"
+    },
+    {
+      "name": "actual CSV exports original machine/frozen versions, rule hash, reason and consistent revision without private actor/note",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 failure becomes no-store 503 rather than empty or eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "empty bounded blocked scan continues and finds late matches without silent truncation",
+      "status": "PASS",
+      "detail": {
+        "first": {
+          "limit": 10,
+          "scanLimit": 100,
+          "scanned": 100,
+          "scanWindowExhausted": true,
+          "hasMore": true,
+          "nextCursor": "eyJ2ZXJzaW9uIjoxLCJmaWx0ZXJIYXNoIjoiOTk5ZmRhNDEwYThjMTU4Y2FmNDA3Y2IyYmNiMDc5YzFkZmZiYmZmZGU1YTBmYjY5YzNlOTU5Y2E0YWRiYWRlZCIsImNyZWF0ZWRBdCI6IjIwOTktMDEtMDFUMDA6MDA6MDAuMDAwWiIsImlkIjoic2Nhbi0wMTUifQ",
+          "order": "created_at DESC, id DESC"
+        },
+        "lateRows": [
+          "scan-001",
+          "scan-000"
+        ]
+      }
+    },
+    {
+      "name": "full keyset traversal with tied timestamps has no duplicate or skipped sources",
+      "status": "PASS",
+      "detail": {
+        "total": 115,
+        "unique": 115
+      }
+    },
+    {
+      "name": "cursor is tied to ownership and normalized filters",
+      "status": "PASS"
+    },
+    {
+      "name": "bounded CSV explicitly exposes scan continuation including an empty window",
+      "status": "PASS"
+    },
+    {
+      "name": "rule hash deterministic across evaluations and corresponding CSV response",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "lib/releases/policy.ts": "9ac2e208ce4b0eb6d219861722db67aa96a7ae02676d34b40c4bec0654efa2fa",
+    "lib/releases/repository.ts": "38d7bcd0f96a411246ccea1d41040bb79530abeab4e36fe4e4e8beb460b2d4ee",
+    "lib/releases/csv.ts": "fc2e1ade3b96e0ebbc5eab345f8afec714e780725ebc3c5e7d2548b0f7ac677f",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "scripts/verify-release-workbench.ts": "819e4a369ef5302301234b0989967491f74a41f11af21570edeea33daa8dd019",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+  },
+  "requestCount": 1089,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-HUbhDx",
+  "limitations": [
+    "Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.",
+    "No production, model, R2 or payment calls; browser proof is recorded separately."
+  ]
+}

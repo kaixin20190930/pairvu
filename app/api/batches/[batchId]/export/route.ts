@@ -1,3 +1,4 @@
+import { csvCell } from "@/lib/releases/csv";
 import { NextRequest, NextResponse } from "next/server";
 import { getWorkspaceBatchEntitlement } from "@/lib/accounts/repository";
 import { resolveRequestAccess } from "@/lib/auth/request-access";
@@ -55,9 +56,4 @@ export async function GET(request: NextRequest, context: { params: Promise<{ bat
     console.error("batch_csv_export_failed", error);
     return NextResponse.json({ error: "csv_export_failed", message: "The CSV export could not be created." }, { status: 500 });
   }
-}
-
-function csvCell(value: unknown): string {
-  const text = String(value ?? "");
-  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
 }

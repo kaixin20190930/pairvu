@@ -1,0 +1,13 @@
+.workbench{display:grid;gap:1.25rem;color:var(--ink,#182927)}
+.workbench h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:.4rem 0}
+.workbench h2{font-size:1.2rem;margin:0}.workbench h3{font-size:1rem;margin:0 0 .75rem}.workbench p{line-height:1.55;margin:.5rem 0}
+.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:.75rem;align-items:end}
+.filters label{display:grid;gap:.4rem;font-size:.9rem;font-weight:600}.filters input,.filters select{width:100%;min-width:0;border:1px solid #bacbc7;border-radius:.5rem;padding:.7rem;background:#fff;color:#182927;font:inherit}
+.workbench button{border:1px solid #b8c8c4;border-radius:.5rem;padding:.7rem 1rem;background:#193f36;color:#fff;cursor:pointer;font:inherit}.workbench button:disabled{opacity:.5;cursor:default}
+.policy{padding:1rem;border:1px solid #c6d8d0;border-radius:.75rem;background:#eef6f0}
+.rows{display:grid;gap:1rem}.card{border:1px solid #cfdbd6;border-radius:.8rem;padding:1.25rem;background:#fff;min-width:0}.source{border-bottom:1px solid #dbe4df;padding-bottom:1rem}.source a{display:inline-block;margin-top:.3rem;color:#174b3a;font-weight:600}
+.columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin:1.25rem 0}.columns section{min-width:0}.columns strong{text-transform:uppercase}.columns ul{padding-left:1.15rem;font-size:.92rem;line-height:1.5}.columns li{margin-bottom:.6rem}.columns small{display:block;color:#60766c;font-size:.75rem}.eligible{color:#246543}.blocked{color:#875020}
+.actions{display:flex;align-items:center;gap:1rem;justify-content:space-between}.actions button{flex-shrink:0}.pagination{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}.pagination p{flex-basis:100%}
+.workbench code{font-size:.8rem;overflow-wrap:anywhere}.workbench details{font-size:.85rem;overflow-wrap:anywhere}.workbench summary{cursor:pointer;font-weight:600}.card p,.card li{overflow-wrap:anywhere}
+@media(max-width:900px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.columns{grid-template-columns:1fr}.columns section+section{border-top:1px solid #dbe4df;padding-top:1rem}.actions{align-items:stretch;flex-direction:column}}
+@media(max-width:480px){.filters{grid-template-columns:1fr}.card{padding:1rem}.workbench button{max-width:100%}}

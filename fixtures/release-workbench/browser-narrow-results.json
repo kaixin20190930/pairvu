@@ -1,0 +1,301 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "PASS",
+  "mode": "narrow",
+  "viewport": {
+    "width": 373,
+    "height": 1498
+  },
+  "cases": [
+    {
+      "name": "actual workbench separates PASS, approve revision and eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen SKU and standard/reference versions shown without current product join",
+      "status": "PASS"
+    },
+    {
+      "name": "immutable release version, hash and provenance remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "detail returns to existing analysis review and nav marks Releases",
+      "status": "PASS"
+    },
+    {
+      "name": "human approve cannot hide machine FAIL or high-risk block",
+      "status": "PASS"
+    },
+    {
+      "name": "REVIEW limitations visible alongside blocking rule",
+      "status": "PASS"
+    },
+    {
+      "name": "revoke has current revision and needs review",
+      "status": "PASS"
+    },
+    {
+      "name": "deleted image explicitly unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "strict bounded exact filters sent to API without client identity",
+      "status": "PASS"
+    },
+    {
+      "name": "paid export explicitly uses current applied bounded page and scope",
+      "status": "PASS"
+    },
+    {
+      "name": "export permission failure appears visibly",
+      "status": "PASS"
+    },
+    {
+      "name": "empty scan is not presented as complete search",
+      "status": "PASS"
+    },
+    {
+      "name": "continuation finds later rows and reaches explicit end",
+      "status": "PASS"
+    },
+    {
+      "name": "terminal empty state suggests changed filters",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 error has retry without stale eligible rows",
+      "status": "PASS"
+    },
+    {
+      "name": "retry recovers actual component",
+      "status": "PASS"
+    },
+    {
+      "name": "free plan disables CSV but retains readable workbench",
+      "status": "PASS"
+    },
+    {
+      "name": "feature off hides navigation and rejects workbench",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop/narrow layout has no horizontal overflow or clipped cards",
+      "status": "PASS"
+    },
+    {
+      "name": "no unexpected browser errors or machine/review writes",
+      "status": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "=FROZEN-SKU",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/export",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "=FROZEN-SKU",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch",
+        "scope": "page"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/export",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "=FROZEN-SKU",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch",
+        "scope": "page"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "UNAPPLIED-DRAFT",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "UNAPPLIED-DRAFT",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch",
+        "cursor": "synthetic-next"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "UNAPPLIED-DRAFT",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "UNAPPLIED-DRAFT",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "blocked",
+        "limit": "20",
+        "sku": "UNAPPLIED-DRAFT",
+        "productId": "synthetic-product",
+        "batchId": "synthetic-batch"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases/status",
+      "query": {},
+      "method": "GET"
+    },
+    {
+      "path": "/api/releases",
+      "query": {
+        "state": "all",
+        "limit": "20"
+      },
+      "method": "GET"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual React workbench and navigation with controlled API responses and Next Link/navigation boundaries.",
+    "Route/D1 ownership, rule and concurrency proof recorded separately; no production authentication, model, R2 or payment."
+  ],
+  "sources": {
+    "app/account/releases/ReleaseWorkbenchClient.tsx": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+    "app/account/releases/releases.module.css": "c607101013fedfa086931e2e64cb3797fd93ed84d5d65f03a012fd269a04ca68",
+    "components/AccountWorkspaceNav.tsx": "540b9dfce49a5af4594c53d21171117b05fd1960a1b19b5326271c90e088c117",
+    "fixtures/release-workbench/ui-entry.tsx": "1b5d8f0345c6ea3902c5b0e93f5b0a37de0f5ec05d98a0434145cd0bbb196c4b",
+    "fixtures/release-workbench/ui-server.mjs": "ed21ea047e6b16a81cdb1d3fda985c1caeca2801f9edb1d673b6fe4dc7d20595"
+  }
+}

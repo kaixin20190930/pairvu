@@ -509,25 +509,12 @@ async function loadObservations(db: D1Database, analysisId: string): Promise<Per
         explanation
       from analysis_observations
       where analysis_id = ?
-      order by created_at asc`,
+      order by created_at asc, rowid asc`,
     )
     .bind(analysisId)
     .all<D1Row>();
 
-  return (result.results ?? []).map((row) => ({
-    id: String(row.id),
-    checkType: row.checkType as PersistedAnalysisObservation["checkType"],
-    status: row.status as PersistedAnalysisObservation["status"],
-    differenceKind: (row.differenceKind as PersistedAnalysisObservation["differenceKind"]) ?? undefined,
-    observability: {
-      reference: row.referenceObservability as PersistedAnalysisObservation["observability"]["reference"],
-      candidate: row.candidateObservability as PersistedAnalysisObservation["observability"]["candidate"],
-      coverage: row.coverage as PersistedAnalysisObservation["observability"]["coverage"],
-    },
-    confidence: row.confidence as PersistedAnalysisObservation["confidence"],
-    evidence: parseJsonObject(row.evidenceJson),
-    explanation: String(row.explanation ?? ""),
-  }));
+  return (result.results ?? []).map(mapStoredObservation);
 }
 
 async function loadIssues(db: D1Database, analysisId: string): Promise<PersistedAnalysisIssue[]> {
@@ -549,28 +536,12 @@ async function loadIssues(db: D1Database, analysisId: string): Promise<Persisted
         evidence_json as evidenceJson
       from analysis_issues
       where analysis_id = ?
-      order by created_at asc`,
+      order by created_at asc, rowid asc`,
     )
     .bind(analysisId)
     .all<D1Row>();
 
-  return (result.results ?? []).map((row) => ({
-    id: String(row.id),
-    observationId: (row.observationId as string | null) ?? null,
-    kind: row.kind as PersistedAnalysisIssue["kind"],
-    type: row.type as PersistedAnalysisIssue["type"],
-    sourceCheckType: String(row.sourceCheckType ?? ""),
-    sourceDifferenceKind: (row.sourceDifferenceKind as PersistedAnalysisIssue["sourceDifferenceKind"]) ?? undefined,
-    sourceObservability: {
-      reference: row.sourceReferenceObservability as PersistedAnalysisIssue["sourceObservability"]["reference"],
-      candidate: row.sourceCandidateObservability as PersistedAnalysisIssue["sourceObservability"]["candidate"],
-      coverage: row.sourceCoverage as PersistedAnalysisIssue["sourceObservability"]["coverage"],
-    },
-    severity: row.severity as PersistedAnalysisIssue["severity"],
-    confidence: row.confidence as PersistedAnalysisIssue["confidence"],
-    message: String(row.message ?? ""),
-    evidence: parseJsonObject(row.evidenceJson),
-  }));
+  return (result.results ?? []).map(mapStoredIssue);
 }
 
 async function loadLimitations(db: D1Database, analysisId: string): Promise<PersistedAnalysisLimitation[]> {
@@ -586,21 +557,12 @@ async function loadLimitations(db: D1Database, analysisId: string): Promise<Pers
         evidence_json as evidenceJson
       from analysis_limitations
       where analysis_id = ?
-      order by created_at asc`,
+      order by created_at asc, rowid asc`,
     )
     .bind(analysisId)
     .all<D1Row>();
 
-  return (result.results ?? []).map((row) => ({
-    id: String(row.id),
-    observationId: (row.observationId as string | null) ?? null,
-    kind: "limitation",
-    type: row.type as PersistedAnalysisLimitation["type"],
-    sourceCheckType: (row.sourceCheckType as string | null) ?? undefined,
-    confidence: row.confidence as PersistedAnalysisLimitation["confidence"],
-    message: String(row.message ?? ""),
-    evidence: parseJsonObject(row.evidenceJson),
-  }));
+  return (result.results ?? []).map(mapStoredLimitation);
 }
 
 async function loadModelCalls(db: D1Database, analysisId: string): Promise<PersistedAnalysisModelCall[]> {
@@ -622,27 +584,12 @@ async function loadModelCalls(db: D1Database, analysisId: string): Promise<Persi
         estimated_cost_usd as estimatedCostUsd
       from analysis_model_calls
       where analysis_id = ?
-      order by created_at asc`,
+      order by created_at asc, rowid asc`,
     )
     .bind(analysisId)
     .all<D1Row>();
 
-  return (result.results ?? []).map((row) => ({
-    id: String(row.id),
-    provider: String(row.provider),
-    model: String(row.model),
-    promptVersion: String(row.promptVersion),
-    latencyMs: coerceNumber(row.latencyMs) ?? 0,
-    estimatedCostUsd: coerceNumber(row.estimatedCostUsd) ?? undefined,
-    inputUsage: row.inputUsageJson ? parseJsonObject(row.inputUsageJson) : undefined,
-    outputUsage: row.outputUsageJson ? parseJsonObject(row.outputUsageJson) : undefined,
-    modelPolicyVersion: (row.modelPolicyVersion as string | null) ?? null,
-    purpose: String(row.purpose ?? "analysis"),
-    status: row.status as PersistedAnalysisModelCall["status"],
-    errorCode: (row.errorCode as string | null) ?? null,
-    errorMessage: (row.errorMessage as string | null) ?? null,
-    inputAssetIds: parseJsonArray(row.inputAssetIdsJson) as string[],
-  }));
+  return (result.results ?? []).map(mapStoredModelCall);
 }
 
 async function loadFeedback(db: D1Database, analysisId: string): Promise<PersistedAnalysisFeedback | null> {
@@ -726,4 +673,77 @@ function coerceNumber(value: unknown): number | null {
   }
 
   return null;
+}
+
+/** Pure stored-row mapping shared by read-only snapshot consumers. */
+export function mapStoredObservation(row: D1Row): PersistedAnalysisObservation {
+  return {
+    id: String(row.id),
+    checkType: row.checkType as PersistedAnalysisObservation["checkType"],
+    status: row.status as PersistedAnalysisObservation["status"],
+    differenceKind: (row.differenceKind as PersistedAnalysisObservation["differenceKind"]) ?? undefined,
+    observability: {
+      reference: row.referenceObservability as PersistedAnalysisObservation["observability"]["reference"],
+      candidate: row.candidateObservability as PersistedAnalysisObservation["observability"]["candidate"],
+      coverage: row.coverage as PersistedAnalysisObservation["observability"]["coverage"],
+    },
+    confidence: row.confidence as PersistedAnalysisObservation["confidence"],
+    evidence: parseJsonObject(row.evidenceJson),
+    explanation: String(row.explanation ?? ""),
+  };
+}
+
+/** Pure stored-row mapping shared by read-only snapshot consumers. */
+export function mapStoredIssue(row: D1Row): PersistedAnalysisIssue {
+  return {
+    id: String(row.id),
+    observationId: (row.observationId as string | null) ?? null,
+    kind: row.kind as PersistedAnalysisIssue["kind"],
+    type: row.type as PersistedAnalysisIssue["type"],
+    sourceCheckType: String(row.sourceCheckType ?? ""),
+    sourceDifferenceKind: (row.sourceDifferenceKind as PersistedAnalysisIssue["sourceDifferenceKind"]) ?? undefined,
+    sourceObservability: {
+      reference: row.sourceReferenceObservability as PersistedAnalysisIssue["sourceObservability"]["reference"],
+      candidate: row.sourceCandidateObservability as PersistedAnalysisIssue["sourceObservability"]["candidate"],
+      coverage: row.sourceCoverage as PersistedAnalysisIssue["sourceObservability"]["coverage"],
+    },
+    severity: row.severity as PersistedAnalysisIssue["severity"],
+    confidence: row.confidence as PersistedAnalysisIssue["confidence"],
+    message: String(row.message ?? ""),
+    evidence: parseJsonObject(row.evidenceJson),
+  };
+}
+
+/** Pure stored-row mapping shared by read-only snapshot consumers. */
+export function mapStoredLimitation(row: D1Row): PersistedAnalysisLimitation {
+  return {
+    id: String(row.id),
+    observationId: (row.observationId as string | null) ?? null,
+    kind: "limitation",
+    type: row.type as PersistedAnalysisLimitation["type"],
+    sourceCheckType: (row.sourceCheckType as string | null) ?? undefined,
+    confidence: row.confidence as PersistedAnalysisLimitation["confidence"],
+    message: String(row.message ?? ""),
+    evidence: parseJsonObject(row.evidenceJson),
+  };
+}
+
+/** Pure stored-row mapping shared by read-only snapshot consumers. */
+export function mapStoredModelCall(row: D1Row): PersistedAnalysisModelCall {
+  return {
+    id: String(row.id),
+    provider: String(row.provider),
+    model: String(row.model),
+    promptVersion: String(row.promptVersion),
+    latencyMs: coerceNumber(row.latencyMs) ?? 0,
+    estimatedCostUsd: coerceNumber(row.estimatedCostUsd) ?? undefined,
+    inputUsage: row.inputUsageJson ? parseJsonObject(row.inputUsageJson) : undefined,
+    outputUsage: row.outputUsageJson ? parseJsonObject(row.outputUsageJson) : undefined,
+    modelPolicyVersion: (row.modelPolicyVersion as string | null) ?? null,
+    purpose: String(row.purpose ?? "analysis"),
+    status: row.status as PersistedAnalysisModelCall["status"],
+    errorCode: (row.errorCode as string | null) ?? null,
+    errorMessage: (row.errorMessage as string | null) ?? null,
+    inputAssetIds: parseJsonArray(row.inputAssetIdsJson) as string[],
+  };
 }

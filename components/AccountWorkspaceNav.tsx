@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import {useEffect,useState} from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const items = [
@@ -13,10 +14,13 @@ const items = [
 export function AccountWorkspaceNav() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [releasesVisible,setReleasesVisible]=useState(false);
+  useEffect(()=>{const controller=new AbortController();fetch("/api/releases/status",{cache:"no-store",signal:controller.signal}).then(async response=>{const data=response.ok?await response.json():null;if(!controller.signal.aborted)setReleasesVisible(data?.enabled===true);}).catch(()=>{if(!controller.signal.aborted)setReleasesVisible(false);});return ()=>controller.abort();},[pathname]);
   const hasBatch = Boolean(searchParams.get("batchId"));
 
   return (
     <nav aria-label="Workspace" className="account-workspace-nav">
+      {releasesVisible?<Link href="/account/releases" aria-current={pathname.startsWith("/account/releases")?"page":undefined}>Releases</Link>:null}
       {items.map((item) => {
         const current = item.match(pathname, hasBatch);
         return (
