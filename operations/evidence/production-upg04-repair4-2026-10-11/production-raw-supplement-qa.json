@@ -1,0 +1,257 @@
+{
+  "unitId": "UPG-04",
+  "kind": "independent-bounded-production-raw-supplement",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29",
+  "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T09:21:56.676Z",
+  "productionReadAt": "2026-10-11T08:56:11.386Z",
+  "roleSelection": {
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "medium",
+    "basis": "Controller reassessed bounded read-only JSON identity and preservation checks; no new runtime task/settings/tool configuration claimed."
+  },
+  "checks": [
+    {
+      "name": "Successful single-result production read without writes",
+      "status": "PASS",
+      "detail": "Wrangler response success true; changed_db false, rows_written 0. Read was performed by controller, not by QA."
+    },
+    {
+      "name": "Exact authorized synthetic analysis scope",
+      "status": "PASS",
+      "detail": "Read manifest and sole result match batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001."
+    },
+    {
+      "name": "Existing exact SHA and Worker binding remains consistent",
+      "status": "PASS",
+      "detail": "Supplement uses prior independently captured runtime health/release sources; no new version or deployment claimed."
+    },
+    {
+      "name": "Absent typed identity retained under guard004",
+      "status": "PASS",
+      "detail": "Both original identity contents and kinds remain absent; guard004 independently present in production persisted JSON."
+    },
+    {
+      "name": "Original provider match and observability retained",
+      "status": "PASS",
+      "detail": "Original positive claims are preserved for audit while insufficient identity cannot contribute PASS."
+    },
+    {
+      "name": "Normalized result safely not observable",
+      "status": "PASS",
+      "detail": "Persisted normalized status and visibility differ transparently from original provider evidence; original values retained."
+    },
+    {
+      "name": "Original explanation and observed content retained",
+      "status": "PASS",
+      "detail": "Original model observations/summary/evidence preserved; explicit uncertainReason added."
+    },
+    {
+      "name": "reference raw proposal preserved",
+      "status": "PASS",
+      "detail": "Actual high-confidence model coordinates 0.15/0.1/0.7/0.7 remain in both regionRaw locations; no location accuracy assertion."
+    },
+    {
+      "name": "reference rendered location safely withheld",
+      "status": "PASS",
+      "detail": "Bound actual asset ID, null region/confidence and explicit uncertain_location."
+    },
+    {
+      "name": "candidate raw proposal preserved",
+      "status": "PASS",
+      "detail": "Actual high-confidence model coordinates 0.15/0.1/0.7/0.7 remain in both regionRaw locations; no location accuracy assertion."
+    },
+    {
+      "name": "candidate rendered location safely withheld",
+      "status": "PASS",
+      "detail": "Bound actual asset ID, null region/confidence and explicit uncertain_location."
+    },
+    {
+      "name": "Production persisted evidence agrees with saved UI",
+      "status": "PASS",
+      "detail": "JSON fields correspond to stored UI logo details/REVIEW/no box; post-refresh evidence was already captured."
+    },
+    {
+      "name": "Five absent observations remain explicitly limited",
+      "status": "PASS",
+      "detail": "Only logo persisted; the other five checks safely generate missing-observation review entries. No complete visual detection coverage claimed."
+    }
+  ],
+  "decodedEvidence": {
+    "regions": {
+      "schemaVersion": 1,
+      "reference": {
+        "coordinateSpace": "analysis_image_normalized",
+        "assetId": "57e13972-abe1-4607-916a-d72ca98615f6",
+        "region": null,
+        "reason": "uncertain_location",
+        "confidence": null
+      },
+      "candidate": {
+        "coordinateSpace": "analysis_image_normalized",
+        "assetId": "d7169a9e-fc33-4161-a8f2-d0c19aaf5f64",
+        "region": null,
+        "reason": "uncertain_location",
+        "confidence": null
+      }
+    },
+    "regionRaw": {
+      "reference": {
+        "coordinateSpace": "analysis_image_normalized",
+        "region": {
+          "x": 0.15,
+          "y": 0.1,
+          "width": 0.7,
+          "height": 0.7
+        },
+        "reason": null,
+        "confidence": "high"
+      },
+      "candidate": {
+        "coordinateSpace": "analysis_image_normalized",
+        "region": {
+          "x": 0.15,
+          "y": 0.1,
+          "width": 0.7,
+          "height": 0.7
+        },
+        "reason": null,
+        "confidence": "high"
+      }
+    },
+    "identityEvidence": {
+      "reference": "absent",
+      "candidate": "absent",
+      "referenceKind": "absent",
+      "candidateKind": "absent",
+      "validationVersion": "identity-evidence-004"
+    },
+    "referenceObservation": "Blue rectangular container with black cap and central white label area, but no textual brand name visible",
+    "candidateObservation": "Blue rectangular container with black cap and central white label area, but no textual brand name visible",
+    "differenceKind": "not_visible",
+    "comparisonSummary": "No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.",
+    "visibleEvidence": [
+      "blue rectangular container",
+      "black cap",
+      "white central label area"
+    ],
+    "uncertainReason": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.",
+    "referenceVisible": false,
+    "candidateVisible": false,
+    "raw": {
+      "normalizationReason": "identity_requires_direct_evidence",
+      "identityValidationVersion": "identity-evidence-004",
+      "identityProblemKind": "insufficient",
+      "providerStatus": "match",
+      "providerObservability": {
+        "reference": "observable",
+        "candidate": "observable",
+        "coverage": "sufficient"
+      },
+      "providerEvidence": {
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "57e13972-abe1-4607-916a-d72ca98615f6",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "d7169a9e-fc33-4161-a8f2-d0c19aaf5f64",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.15,
+              "y": 0.1,
+              "width": 0.7,
+              "height": 0.7
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.15,
+              "y": 0.1,
+              "width": 0.7,
+              "height": 0.7
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "identityEvidence": {
+          "reference": "absent",
+          "candidate": "absent",
+          "referenceKind": "absent",
+          "candidateKind": "absent",
+          "validationVersion": "identity-evidence-004"
+        },
+        "referenceObservation": "Blue rectangular container with black cap and central white label area, but no textual brand name visible",
+        "candidateObservation": "Blue rectangular container with black cap and central white label area, but no textual brand name visible",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.",
+        "visibleEvidence": [
+          "blue rectangular container",
+          "black cap",
+          "white central label area"
+        ],
+        "referenceVisible": true,
+        "candidateVisible": true
+      }
+    }
+  },
+  "evidenceJsonStringSha256": "9499a2d673917b2a65785a55dbf035fe7c8f36ccd7d4c787a413c60e4d5333ce",
+  "sources": [
+    {
+      "path": "/tmp/pairvu-upg04-repair4-login-qa.json",
+      "sha256": "7a175ace143efcfe191c617a6757ea0b42bb0cb5fb425a482a6151e73ace6354",
+      "bytes": 9931
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-production-d1-observations.json",
+      "sha256": "d7deb415d708a7dec7db55f8e5787214c470adaff7210abe3be4099eefb8d40e",
+      "bytes": 4353
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-production-d1-read-time.json",
+      "sha256": "825dc7b29f2d2aae81c01957f5f821aa1b120ee8343e1442ba08fde08fa40a6b",
+      "bytes": 212
+    },
+    {
+      "path": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/new-result-after-refresh-dom.json",
+      "sha256": "af667ece4627f743b0c9b8efe0c8d16f760b3693ce22f7fb76de0d56bc3a34d3",
+      "bytes": 24989
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-health-during-login.json",
+      "sha256": "0687212d9679f7b79d870dce27d52ba9c56eb5826f94bb788e2849d7a0c03c69",
+      "bytes": 297
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-production-qa.json",
+      "sha256": "d52722da2f75846430d15dea20fca22367d54ed6eaf21d1a112e877a6e2d0ee7",
+      "bytes": 1280
+    }
+  ],
+  "readOrigin": "Controller supplied actual remote D1 SELECT export and real read manifest. QA independently examined original bytes offline; no additional DB/network/browser/model action.",
+  "limits": [
+    "This record includes raw providerStatus, providerObservability and providerEvidence, plus regionRaw proposals. No additional rawJson/providerRaw string is present; provider schema permits nullable rawJson. Full SDK wire response and byte equivalence to it are not available or claimed.",
+    "Only one logo observation exists. Five missing checks are safely in review; this is structural evidence safety/persistence acceptance, not complete detection coverage or model accuracy.",
+    "No path assignment occurred in this real response; exact path behavior remains covered by fixed-SHA local QA.",
+    "Raw export has analysis identity but no intrinsic commit/version field. Binding uses existing exact release health/deployment evidence, analysis URL/ID and guard004 in the record. No post-export network query was run."
+  ]
+}

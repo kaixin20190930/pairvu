@@ -1,0 +1,103 @@
+Browser tab: 5, Title: "New batch check | Pairvu", URL: "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef".
+1 AXWebArea New batch check | Pairvu, URL: pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef
+	2 link Description: Skip to content, Value: pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef#main-content
+	3 container
+		4 link Description: Pairvu home, Value: pairvu.com/
+		5 button (collapsed) Menu, Secondary Actions: Expand
+	6 container
+		7 container Workspace
+			8 link Description: Overview, Value: pairvu.com/account
+			9 link Description: Products, Value: pairvu.com/account/products
+			10 link Description: Batches, Value: pairvu.com/account/batches
+			11 link Description: New batch, Value: pairvu.com/account/batches/new
+		12 text BATCH PRODUCT CHECK
+		13 heading Check one product against many images, Value: 1
+			14 text Check one product against many images
+		15 container
+			16 text Compare one product with many images, or map up to  5  explicit reference and candidate pairs.
+		17 link Description: View batch history, Value: pairvu.com/account/batches
+		18 container How are these images mapped?
+			19 text 1. CHOOSE WORKFLOW
+			20 heading How are these images mapped?, Value: 2, ID: batch-upload-title
+				21 text How are these images mapped?
+			22 container Batch mapping mode
+				23 checkbox (disabled) One product, many images Recommended for one approved product and many candidates., Value: 1
+					24 text One product, many images
+					25 text Recommended for one approved product and many candidates.
+				26 checkbox (disabled) Many product pairs Map every reference directly to its candidate., Value: 0
+					27 text Many product pairs
+					28 text Map every reference directly to its candidate.
+			29 container
+				30 text Approved reference One image that represents the product you intend to show.
+				31 pop up button (disabled, collapsed, settable) Description: Use a Saved Product, Secondary Actions: Expand
+					32 menu
+						33 (disabled) Use a Saved Product
+						34 (disabled) Pairvu QA Synthetic Blue Box 20261010 · PAIRVU-QA-SYNTH-20261010
+				35 button (disabled) Choose File
+				36 text No reference selected
+				37 pop up button (disabled, collapsed, settable) Description: Reuse a retained reference, Value: Or reuse a recent reference, Secondary Actions: Expand
+					38 menu
+						39 (disabled) Or reuse a recent reference
+						40 (disabled) pairvu-qa-synthetic-blue-box.png · last used Oct 11, 2026
+			41 container
+				42 text Candidate images Select 1- 5  generated, edited, or final images.
+				43 button (disabled) Candidate images Select 1-5 generated, edited, or final images. No candidates selected
+				44 text No candidates selected
+		45 container Preflight
+			46 text 2. REVIEW CAPACITY
+			47 heading Preflight, Value: 2, ID: batch-preflight-title
+				48 text Preflight
+			49 definition list
+				50 container Mapped checks
+					51 text Mapped checks
+				52 container
+					53 text 0  /  5
+				54 container Checks required
+					55 text Checks required
+				56 text 0
+				57 container Checks available
+					58 text Checks available
+				59 text 7
+				60 container Image retention
+					61 text Image retention
+				62 container
+					63 text 7  days
+			64 container
+				65 text Uploaded originals and analysis derivatives are deleted after your  7 -day retention period.
+			66 button (disabled) Restoring batch status...
+	67 container
+		68 link pairvu.com/
+		69 text Quality control for AI product photography.
+		70 heading PRODUCT, Value: 2
+			71 text PRODUCT
+		72 link Description: AI Product Image Checker, Value: pairvu.com/
+		73 link Description: Check Image, Value: pairvu.com/#checker
+		74 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		75 link Description: Pricing, Value: pairvu.com/pricing
+		76 heading LEARN, Value: 2
+			77 text LEARN
+		78 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		79 link Description: Examples, Value: pairvu.com/examples
+		80 link Description: Product Categories, Value: pairvu.com/categories
+		81 link Description: Product Checks, Value: pairvu.com/checks
+		82 link Description: Guides, Value: pairvu.com/guides
+		83 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		84 heading USE CASES, Value: 2
+			85 text USE CASES
+		86 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		87 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		88 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		89 link Description: Brands, Value: pairvu.com/use-cases/brands
+		90 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		91 heading LEGAL, Value: 2
+			92 text LEGAL
+		93 link Description: Privacy, Value: pairvu.com/privacy
+		94 heading OTHER PRODUCTS, Value: 2
+			95 text OTHER PRODUCTS
+		96 link Description: Moxion, Value: moxion.ai/
+		97 link Description: Sigoo, Value: sigoo.ai/
+		98 link Description: AI Best Tool, Value: aibesttool.com/
+		99 link Description: Triptrace, Value: triptrace.ai/
+		100 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 1 AXWebArea New batch check | Pairvu, URL: pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef

@@ -1,0 +1,89 @@
+{
+  "initialExecutions": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "path149",
+        "cmd": "pnpm exec tsx fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts qa-path149-results.json",
+        "chunk_id": "1e7cb4",
+        "wall_time_seconds": 0.744197833,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "PASS: 149 protocol path cases\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "protocol747",
+        "cmd": "pnpm exec tsx fixtures/structured-evidence/protocol-identity-repair/verify-protocol-identity.ts qa-protocol747-results.json",
+        "chunk_id": "4cc242",
+        "wall_time_seconds": 0.783937458,
+        "exit_code": 0,
+        "original_token_count": 9,
+        "output": "PASS: 747 protocol identity cases\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "identity55",
+        "cmd": "pnpm exec tsx fixtures/structured-evidence/identity-consistency-repair/verify-identity-consistency.ts qa-identity55-results.json",
+        "chunk_id": "68a0d8",
+        "wall_time_seconds": 0.754916667,
+        "exit_code": 0,
+        "original_token_count": 19,
+        "output": "PASS: 55 identity consistency cases including 4 original counterexamples\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "structure49",
+        "cmd": "pnpm test:structured-evidence --report qa-structure49/report.json",
+        "chunk_id": "85b04a",
+        "wall_time_seconds": 0.804055584,
+        "exit_code": 1,
+        "original_token_count": 1110,
+        "output": "\n> product-visual-qa-platform@0.1.0 test:structured-evidence /private/tmp/pairvu-upg04-repair4-qa-7_yix1zk\n> tsx scripts/verify-structured-evidence.ts --report qa-structure49/report.json\n\n(node:35580) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nPASS strict provider schema accepts both explicitly declared normalized regions\nPASS provider forbids supplied asset IDs, extra box fields and extra region fields\nPASS actual provider mapper binds actual IDs, suppresses unverified locations and preserves raw proposals\nPASS bad negative x becomes explicit invalid_region without clamping\nPASS bad negative y becomes explicit invalid_region without clamping\nPASS bad right overflow becomes explicit invalid_region without clamping\nPASS bad bottom overflow becomes explicit invalid_region without clamping\nPASS bad zero width becomes explicit invalid_region without clamping\nPASS bad zero height becomes explicit invalid_region without clamping\nPASS bad negative size becomes explicit invalid_region without clamping\nPASS bad NaN becomes explicit invalid_region without clamping\nPASS bad Infinity becomes explicit invalid_region without clamping\nPASS bad negative Infinity becomes explicit invalid_region without clamping\nPASS bad numeric string becomes explicit invalid_region without clamping\nPASS bad extra coordinate becomes explicit invalid_region without clamping\nPASS bad extra location field becomes explicit invalid_region without clamping\nPASS bad wrong coordinate space becomes explicit invalid_region without clamping\nPASS bad foreign asset ID becomes explicit invalid_region without clamping\nPASS bad missing asset ID becomes explicit invalid_region without clamping\nPASS bad missing confidence becomes explicit invalid_region without clamping\nPASS bad bad confidence type becomes explicit invalid_region without clamping\nPASS bad non-null reason with box becomes explicit invalid_region without clamping\nPASS bad null without reason becomes explicit invalid_region without clamping\nPASS bad null with invented reason becomes explicit invalid_region without clamping\nPASS bad array location becomes explicit invalid_region without clamping\nPASS bad null location becomes explicit invalid_region without clamping\nPASS bad array box becomes explicit invalid_region without clamping\nPASS box exactly reaching full image boundary remains legal when explicitly supplied\nPASS all declared null reasons retain no box, and invisible/low-confidence boxes are never shown\nPASS extra pair fields/schema mismatch/swapped assets degrade safely\nPASS legacy boundingRegions/raw remain unchanged and do not gain a new coordinate space\nPASS invalid original coordinates survive normalization, including explicit non-finite markers\nPASS actual provider transport-to-mapper preserves model/prompt version and structured regions\nPASS high-confidence visible identity mismatch remains FAIL with unchanged severity/policy\nPASS missing/null/invalid location alone does not change sufficient match or mismatch verdict\nPASS insufficient observations cannot PASS even when supplied boxes look precise\nPASS missing selected and duplicate observations remain REVIEW\nPASS mock provider returns explicit unavailable regions rather than fictional boxes\nPASS prompt never treats SKU declarations as visually established facts\nPASS new provider schema requires separate identity evidence fields\nPASS blank/unreadable identity fields cannot establish a match\nPASS fabricated transcription cannot override explicit no-readable-text descriptions\nPASS blank label and generic logo bar never establish identity\nPASS invented brand identity cannot override a generic logo-bar description\nPASS readable identity text supports match and actual value mismatch remains critical FAIL without location\nnode:internal/fs/promises:639\n  return new FileHandle(await PromisePrototypeThen(\n                        ^\n\nError: ENOENT: no such file or directory, open 'qa-structure49/report.json'\n    at async open (node:internal/fs/promises:639:25)\n    at async writeFile (node:internal/fs/promises:1219:14)\n    at async main (/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/scripts/verify-structured-evidence.ts:83:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'qa-structure49/report.json'\n}\n\nNode.js v22.22.3\n ELIFECYCLE  Command failed with exit code 1.\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "typecheck",
+        "cmd": "pnpm exec tsc --noEmit",
+        "chunk_id": "d31a0b",
+        "wall_time_seconds": 1.002641167,
+        "session_id": 50474,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "completionEvidence": [
+    {
+      "name": "independent85",
+      "command": "pnpm exec tsx scripts/qa-repair4-independent.ts",
+      "exitCode": 0,
+      "summaryFromObservedOutput": "PASS: 85 cases",
+      "output": "{\"result\":\"PASS\",\"cases\":85,\"failures\":[]}\n"
+    },
+    {
+      "name": "structure49-after-creating-report-directory",
+      "command": "pnpm test:structured-evidence --report qa-structure49/report.json",
+      "exitCode": 0,
+      "summaryFromObservedOutput": "PASS: 49 cases; qa-structure49/report.json"
+    },
+    {
+      "name": "typecheck-completion",
+      "sessionId": 50474,
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "notes": [
+    "First independent harness assumed review-specific providerRaw path for PASS evidence; corrected to unchanged PASS raw string and preserved attempt 1.",
+    "First structure49 report path had missing QA-created parent directory. ENOENT occurred before persistence assertions; created directory and full rerun passed. No product change."
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "boxes": 0,
+  "checkerText": "PAIRVU AI PRODUCT IMAGE CHECKER\n\nDid AI change your product?\n\nQuality control for AI product photography.\n\nPairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.\n\npairvu\n\nYOUR FIRST CHECK\n\nUse two views that make the same product details observable\n1. Approved original\nUse the product image you trust.\n2. Candidate\nAdd the generated, edited, or proposed image.\n3. Verdict\nReview PASS, REVIEW, or FAIL with visible evidence.\n\nFor the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.\n\nORIGINAL PRODUCT IMAGE\nUpload a real or approved image of the product.\nApproved original\nIMAGE TO CHECK\nUpload the generated, edited or candidate image.\nImage checked\n\nAnonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. Privacy details\n\nCheck image\nCheck another image\n\nVERDICT\n\nREVIEW\n\nPRODUCT DIFFERENCES\n\nActual detected fidelity issues\n\nNo product issues were confirmed.\n\nNEEDS REVIEW / COULD NOT VERIFY\n\nObservability problems and analysis limitations\nCould not run a check · High confidence\n\nProvider did not return an observation for visible_text.\n\nVisible text\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for quantity.\n\nProduct count\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for dominant_color.\n\nMain color\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for major_components.\n\nMajor components\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for major_shape_packaging.\n\nShape and packaging\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nNot visible enough · High confidence\n\nlogo is not sufficiently observable.\n\nLogo\n\nREFERENCE · VISIBLE EXPECTED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nCANDIDATE · OBSERVED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nREFERENCE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nCANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nWHAT CHANGED\nNot visible\nSUMMARY\nNo meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\nORIGINAL VISIBLE\nNo\nCANDIDATE VISIBLE\nNo\nVISIBLE EVIDENCE\nblue rectangular container, black cap, white central label area\nWHY UNCERTAIN\nIdentity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.\nReference · visible expected\nImage zoom\n100%\n\nRelevant evidence is not visible.\n\nCandidate · observed\nImage zoom\n100%\n\nRelevant evidence is not visible.\n\nCould not run a check · High confidence\n\nvisible_text was not returned by the provider.\n\nVisible text\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nquantity was not returned by the provider.\n\nProduct count\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\ndominant_color was not returned by the provider.\n\nMain color\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nmajor_components was not returned by the provider.\n\nMajor components\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nmajor_shape_packaging was not returned by the provider.\n\nShape and packaging\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nMODEL-SUPPORTED CHECKS\n\nChecks the model reports as matching\n\nNo checks were cleanly verified.\n\nAnalysis provenance\n\nThis is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.\n\nDetector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002\n\nModel: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openai\n\nFEEDBACK\n\nTell us whether this result was right\nCorrect\nFalse alarm\nMissed something",
+  "definitionLists": [
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "Blue rectangular container with black cap and central white label area, but no textual brand name visible"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "Blue rectangular container with black cap and central white label area, but no textual brand name visible"
+        },
+        {
+          "label": "REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE",
+          "value": "absent"
+        },
+        {
+          "label": "CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE",
+          "value": "absent"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "Not visible"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected."
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "No"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "No"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "blue rectangular container, black cap, white central label area"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nCANDIDATE · OBSERVED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nREFERENCE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nCANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nWHAT CHANGED\nNot visible\nSUMMARY\nNo meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\nORIGINAL VISIBLE\nNo\nCANDIDATE VISIBLE\nNo\nVISIBLE EVIDENCE\nblue rectangular container, black cap, white central label area\nWHY UNCERTAIN\nIdentity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity."
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    },
+    {
+      "fields": [
+        {
+          "label": "REFERENCE · VISIBLE EXPECTED",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE · OBSERVED",
+          "value": "—"
+        },
+        {
+          "label": "WHAT CHANGED",
+          "value": "—"
+        },
+        {
+          "label": "SUMMARY",
+          "value": "—"
+        },
+        {
+          "label": "ORIGINAL VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "CANDIDATE VISIBLE",
+          "value": "—"
+        },
+        {
+          "label": "VISIBLE EVIDENCE",
+          "value": "—"
+        },
+        {
+          "label": "WHY UNCERTAIN",
+          "value": "—"
+        }
+      ],
+      "text": "REFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—"
+    }
+  ],
+  "images": [
+    {
+      "alt": "Reference preview",
+      "complete": true,
+      "displayHeight": 280,
+      "displayWidth": 491,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate preview",
+      "complete": true,
+      "displayHeight": 280,
+      "displayWidth": 491,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Reference · visible expected image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    },
+    {
+      "alt": "Candidate · observed image",
+      "complete": true,
+      "displayHeight": 463,
+      "displayWidth": 463,
+      "naturalHeight": 512,
+      "naturalWidth": 512
+    }
+  ],
+  "provenance": [
+    {
+      "open": true,
+      "text": "Analysis provenance\n\nThis is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.\n\nDetector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002\n\nModel: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openai"
+    }
+  ],
+  "url": "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "verdict": "REVIEW"
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "http",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T08:12:13.570Z",
+  "checks": [
+    {
+      "name": "health",
+      "status": "PASS"
+    },
+    {
+      "name": "home",
+      "status": "PASS"
+    },
+    {
+      "name": "checks",
+      "status": "PASS"
+    },
+    {
+      "name": "pricing",
+      "status": "PASS"
+    },
+    {
+      "name": "sign-in",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime-config",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-products",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-batches",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-profiles",
+      "status": "PASS"
+    },
+    {
+      "name": "www-root",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual release log exact pushed SHA and deployed Worker version",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual no pending migrations log and successful deployment completion",
+      "status": "PASS"
+    }
+  ]
+}

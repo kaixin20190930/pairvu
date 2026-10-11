@@ -48,3 +48,7 @@ SKU启用及生命周期修复已生产关闭：ce1f2fee7f43735ff6b6f13f38678409
 ## UPG-04生产反例修复进行中
 
 用户已授权本次UPG-04发布及必要修复。324a528已实际部署，HTTP PASS但真实功能FAIL（logo空白框/无文字PASS）；生产证据在operations/evidence/production-upg04-2026-10-10。正式CLI仍RELEASE_READY，未导入manifest/未关闭，这是等待同一单元后代修复及新releaseQa完整增量验收，不是等待用户授权。先回收registry.releaseRepair对应原开发/QA，持续wait_threads。修复发布需同样GitHub-first，生产功能PASS后才能正式导入最终manifest关闭。保留所有失败发布证据。当前无额外模型调用预算；总控可按必要生产复验给独立QA明确最小一次合成分析范围，不购买。UPG05必须等UPG04真实功能PASS后启动。
+
+## 2026-10-11 UPG04生产正式关闭
+
+62787fdbc93ec3dad93640a46603d5fd745c4b21 / Worker 0da98625-4ba2-4bd9-9609-bba4ad8a6e29，manifest位于operations/evidence/production-upg04-repair4-2026-10-11/manifest.json；独立登录补证PASS，原FAIL/BLOCKED保留。正式record-deployment→verify-production→close已完成，不重复部署。仅结构证据留存/安全退化验收，五项未返回、定位可靠性/质量仍限制。自动继续UPG05契约单分析人审审计，原角色各Sol/high（鉴权+D1并发+UI），固定SHA独立QA后仅RELEASE_READY，UPG05生产没有授权。持续wait/read，失败返原开发。

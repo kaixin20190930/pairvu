@@ -1,0 +1,30 @@
+[
+  {
+    "results": [
+      {
+        "analysis_id": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+        "check_type": "logo",
+        "status": "not_observable",
+        "evidence_json": "{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"not_visible\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"uncertainReason\":\"Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.\",\"referenceVisible\":false,\"candidateVisible\":false,\"raw\":{\"normalizationReason\":\"identity_requires_direct_evidence\",\"identityValidationVersion\":\"identity-evidence-004\",\"identityProblemKind\":\"insufficient\",\"providerStatus\":\"match\",\"providerObservability\":{\"reference\":\"observable\",\"candidate\":\"observable\",\"coverage\":\"sufficient\"},\"providerEvidence\":{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"none\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"referenceVisible\":true,\"candidateVisible\":true}}}"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.6808
+      },
+      "duration": 0.6808,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2088960,
+      "rows_read": 2,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]

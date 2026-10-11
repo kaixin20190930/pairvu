@@ -75,3 +75,7 @@
 f7efa17独立FAIL：evidence.referenceIdentity: ALPHA被当前真实mapper/engine判PASS，原因是仅识别未限定字段名而未识别路径。原件operations/evidence/upg04-repair-attempt-3/qa-original.json。保持第三轮局部范围，修复协议路径/结构赋值语法识别及相关等价表示，不扩大自然语言语义猜测，不仅特判evidence前缀；普通实体包含Reference等单词不能因子串被误拦。保留原raw/明确REVIEW和正例。
 
 本次开发和独立QA升级为Sol/high：medium修复仍遗漏同一类别的结构语法覆盖，已满足记录的升级条件；不默认最昂贵模型，也不重启旧任务。针对已给反例及协议路径规范化/分隔符/括号路径的相关边界，再核对现有747与正例、typecheck；不重复UI/build。
+
+### 生产只读补证验收
+
+62787fd生产UI独立PASS，原raw接口浏览器ERR_BLOCKED_BY_CLIENT，原完整报告BLOCKED保留。总控经Cloudflare CLI正常权限只读查询唯一合成分析batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001的analysis_observations，未写数据库/追加模型调用。独立QA补证采用Sol/medium：只核对真实导出身份、raw/regionRaw、guard004及留存原因；有跨层不一致再high。不重跑浏览器/模型，不把缺失五项的安全REVIEW宣称完整检测。新报告另存，保留原BLOCKED。

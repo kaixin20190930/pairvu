@@ -1,0 +1,244 @@
+{
+  "unitId": "UPG-04",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29",
+  "result": "PASS",
+  "completedAt": "2026-10-11T08:12:13.570Z",
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:08.719Z",
+      "completedAt": "2026-10-11T08:12:11.201Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/health.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/health.headers",
+      "bodySha256": "a0677d16688ffc42ff6189c0ae01ba7f929390b3e020048a1e1d1e890a8826fc",
+      "responseJson": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+        "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29"
+      },
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "home",
+      "url": "https://pairvu.com/",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:08.719Z",
+      "completedAt": "2026-10-11T08:12:10.944Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/home.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/home.headers",
+      "bodySha256": "5e20d0d3ac1f9bf15d7eba350d39790de873864174d86ace3e26ccafdcaa557f",
+      "responseJson": null,
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "checks",
+      "url": "https://pairvu.com/checks",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:08.719Z",
+      "completedAt": "2026-10-11T08:12:11.592Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/checks.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/checks.headers",
+      "bodySha256": "fbb5a3886ebff7d530c65732b9c3ffde9cba8cb5797518f6badd69a491aa6718",
+      "responseJson": null,
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "pricing",
+      "url": "https://pairvu.com/pricing",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:08.719Z",
+      "completedAt": "2026-10-11T08:12:11.350Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/pricing.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/pricing.headers",
+      "bodySha256": "461e9063896240f3039f70e2bd44e13bb13cedcfba2bcb9857735f689e9602e9",
+      "responseJson": null,
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "sign-in",
+      "url": "https://pairvu.com/sign-in",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:08.722Z",
+      "completedAt": "2026-10-11T08:12:11.467Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/sign-in.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/sign-in.headers",
+      "bodySha256": "82531ec2d62d7f7a06f1ec05df92db09667ed7d7975b2d49d13190d6fc6fd59e",
+      "responseJson": null,
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "runtime-config",
+      "url": "https://pairvu.com/api/runtime-config",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 200,
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:10.944Z",
+      "completedAt": "2026-10-11T08:12:12.669Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/runtime-config.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/runtime-config.headers",
+      "bodySha256": "e728c583dce6ea33359993b43812345af4ca98137929eb119026606f5decd5b3",
+      "responseJson": {
+        "analysisAcceptingNewRequests": true,
+        "analysisPauseMessage": "New analyses are temporarily paused.",
+        "turnstileEnabled": true,
+        "turnstileSiteKey": "0x4AAAAAAEAut-dQfjfNjITa",
+        "guardrails": {
+          "analysisSessionMinuteLimit": 3,
+          "analysisSessionDailyLimit": 8,
+          "analysisGlobalDailyLimit": 50,
+          "analysisSessionConcurrentLimit": 1,
+          "analysisGlobalConcurrentLimit": 3,
+          "uploadSessionMinuteLimit": 10,
+          "uploadSessionDailyLimit": 24
+        }
+      },
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-products",
+      "url": "https://pairvu.com/api/products",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 401,
+      "httpStatus": 401,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:11.202Z",
+      "completedAt": "2026-10-11T08:12:13.305Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-products.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-products.headers",
+      "bodySha256": "29a95f884255f7df76127d8e1da3b8fec236c61a80fe16d0e4fd67933e4afea1",
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      },
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-batches",
+      "url": "https://pairvu.com/api/batches",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 401,
+      "httpStatus": 401,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:11.350Z",
+      "completedAt": "2026-10-11T08:12:13.405Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-batches.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-batches.headers",
+      "bodySha256": "3f6469432e270aea724e5d6626f9696b87e48525a9c50984e3c2fd6798514632",
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      },
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous-profiles",
+      "url": "https://pairvu.com/api/products/11111111-1111-4111-8111-111111111111/profiles",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 401,
+      "httpStatus": 401,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:11.467Z",
+      "completedAt": "2026-10-11T08:12:13.303Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-profiles.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/anonymous-profiles.headers",
+      "bodySha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "responseJson": {
+        "error": "authentication_required"
+      },
+      "location": null,
+      "status": "PASS"
+    },
+    {
+      "name": "www-root",
+      "url": "https://www.pairvu.com/",
+      "method": "GET",
+      "credentialsSent": false,
+      "expectedStatus": 308,
+      "httpStatus": 308,
+      "curlExitCode": 0,
+      "stderr": "",
+      "startedAt": "2026-10-11T08:12:11.592Z",
+      "completedAt": "2026-10-11T08:12:13.569Z",
+      "bodyPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/www-root.body",
+      "headersPath": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e/www-root.headers",
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "responseJson": null,
+      "location": "https://pairvu.com/",
+      "status": "PASS"
+    }
+  ],
+  "releaseSources": [
+    {
+      "path": "/tmp/pairvu-upg04-repair4-preflight.json",
+      "sha256": "326e411bb79e9ed259c4b877cb10bb079cfbfd13e061cec6f61d916b7ad45d64"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-migrations.log",
+      "sha256": "593181eaacfc4789e2c35e8ea0037425b179d01e15dafe8cfc9b4615b665cae9"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-migrations-time.json",
+      "sha256": "fe25d1968c681c5ae9ae941c93184751e3d7204c04d9153a391e60679959e8c5"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-deploy.log",
+      "sha256": "2dff0769a9c33994e14ccdc759890e1b7ffeec7e12f99997c8f761e599c80d18"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-deploy-end.json",
+      "sha256": "27c229a9b2c7fa67382bec4238279ab476b925f20675c8dcf211a46904443efd"
+    },
+    {
+      "path": "/tmp/pairvu-upg04-repair4-smoke.json",
+      "sha256": "3646e97a058d93001780b99f8b0f93937f5b6e887ded24b53dab0add06de790a"
+    }
+  ],
+  "rawDirectory": "/private/tmp/pairvu-upg04-repair4-http-68_e8u6e"
+}

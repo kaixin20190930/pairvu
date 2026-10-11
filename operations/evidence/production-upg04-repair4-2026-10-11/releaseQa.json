@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-11T04:43:55Z",
+  "checks": [
+    {
+      "name": "Exact release SHA and complete diff",
+      "status": "PASS"
+    },
+    {
+      "name": "85 independent provider-to-engine protocol boundary checks",
+      "status": "PASS"
+    },
+    {
+      "name": "149 path regression cases",
+      "status": "PASS"
+    },
+    {
+      "name": "747 protocol and actual schema/catalog drift cases",
+      "status": "PASS"
+    },
+    {
+      "name": "55 identity consistency cases including four original failures",
+      "status": "PASS"
+    },
+    {
+      "name": "49 structured evidence and repository persistence cases",
+      "status": "PASS"
+    },
+    {
+      "name": "TypeScript noEmit",
+      "status": "PASS"
+    },
+    {
+      "name": "24 existing browser cases reused after seven source hash checks",
+      "status": "PASS"
+    },
+    {
+      "name": "Five original failure/replay archives byte preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Scoped release diff whitespace check",
+      "status": "PASS"
+    }
+  ]
+}

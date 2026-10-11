@@ -1,0 +1,236 @@
+{
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "result": "PASS",
+  "candidateSources": [
+    {
+      "path": "lib/qa/identity-protocol.ts",
+      "sha256": "8c5eaeda15649d01660ccaa5565ccaf3f3a0a2317bb8712eef7739f6953e8f8d",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    },
+    {
+      "path": "lib/qa/identity-evidence.ts",
+      "sha256": "e7b7928f8d9671b32501b5d63965ba5fe80e8633300f243a2761eefb083a5fd1",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    },
+    {
+      "path": "lib/qa/identity-protocol-catalog.json",
+      "sha256": "268dff260c3ee901b4b83dc66a39eeeb6b33e9134811045a47795f044ab45162",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    },
+    {
+      "path": "lib/ai/providers/openai-vision-provider.ts",
+      "sha256": "b0e331317cc7c0534897b0a686de883feb273964b38ae3ec922d401400bac090",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    },
+    {
+      "path": "docs/01-architecture/structured-evidence-contract.md",
+      "sha256": "314b488b5e45f44b8a895a2d9cc4cffe3c67ca65267bbc3efff8f6d1f7c8629b",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    },
+    {
+      "path": "fixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts",
+      "sha256": "2b50df8f358cacb4017ceeabed3df1877535605c4111344f990c45732f074cba",
+      "matchesCommittedCandidateAndDeveloperHash": true
+    }
+  ],
+  "browserReuse": [
+    {
+      "original": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-desktop-results.json",
+      "archive": "fixtures/structured-evidence/identity-consistency-repair/reused-desktop12-results.json",
+      "sha256": "2ebb347425a70a20a6120bc10464db41045ffeb4804d4e6c048c2dd6161a2211",
+      "cases": 12,
+      "bytesEqual": true,
+      "stableSources": [
+        {
+          "path": "components/StructuredEvidence.tsx",
+          "sha256": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        {
+          "path": "components/ProductChecker.tsx",
+          "sha256": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        {
+          "path": "lib/qa/evidence-regions.ts",
+          "sha256": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        {
+          "path": "app/globals.css",
+          "sha256": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-entry.tsx",
+          "sha256": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-server.mjs",
+          "sha256": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/persisted-result.json",
+          "sha256": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      ],
+      "limitation": "Reuse UI/location only; identity guard independently retested. Historical disclosure tested by text content, not initial visibility."
+    },
+    {
+      "original": "/private/tmp/pairvu-upg04-repair-qa-g2pwykym/fixtures/structured-evidence/production-repair/browser-narrow-results.json",
+      "archive": "fixtures/structured-evidence/identity-consistency-repair/reused-narrow12-results.json",
+      "sha256": "9515860bfc6df7528c2ede9c6b4a1f8508c176c5974533b322baef803110c81e",
+      "cases": 12,
+      "bytesEqual": true,
+      "stableSources": [
+        {
+          "path": "components/StructuredEvidence.tsx",
+          "sha256": "debbadf564846feaf1221ddb20ec8db9c2cd429d26f7fa1b82849cce333c6c1c",
+          "unchanged": true
+        },
+        {
+          "path": "components/ProductChecker.tsx",
+          "sha256": "b1b3ada1b2582b035e43ebbdc172f91a1c7ec9be303b05357af7c779cda5c115",
+          "unchanged": true
+        },
+        {
+          "path": "lib/qa/evidence-regions.ts",
+          "sha256": "6934db003cb08c7c8b01ed7414be034bfae4616b6e3e11ad06c4edff59f7e6ff",
+          "unchanged": true
+        },
+        {
+          "path": "app/globals.css",
+          "sha256": "6eb6e473545652e0b8eea932f73027aaf35b3c92be73a754df28b25d3fe21c5f",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-entry.tsx",
+          "sha256": "43a54cb726d9773f49c5debebd7d506ec25feadb43ed35c04a17f81c2dae87ee",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/ui-server.mjs",
+          "sha256": "4605a4e7a437c054f3d6f56c08642363e9a62c93adea3f4494ade54d76693ba4",
+          "unchanged": true
+        },
+        {
+          "path": "fixtures/structured-evidence/production-repair/persisted-result.json",
+          "sha256": "2928f0da57acbff0b62ba92332f26ec4c1503229200b031ee8a58d03226cd15a",
+          "unchanged": true
+        }
+      ],
+      "limitation": "Reuse UI/location only; identity guard independently retested. Historical disclosure tested by text content, not initial visibility."
+    }
+  ],
+  "originalsPreserved": [
+    {
+      "original": "/tmp/pairvu-upg04-repair3-qa.json",
+      "archive": "operations/evidence/upg04-repair-attempt-3/qa-original.json",
+      "sha256": "f5012fe394d0b648e49203a6c5c98a1a19daa2c0ab5d1b267b36a6748a6e6da6",
+      "bytesEqual": true
+    },
+    {
+      "original": "/private/tmp/pairvu-upg04-repair3-qa-nwhm2u4y/qa-qualified-field-counterexample.json",
+      "archive": "fixtures/structured-evidence/protocol-path-repair/original-counterexample.json",
+      "sha256": "123d74508ce3292f066acce7e84b3dc27af7d3dae976ac1bf2933e31cdf6b8cd",
+      "bytesEqual": true
+    },
+    {
+      "original": "/tmp/pairvu-upg04-repair2-login-qa.json",
+      "archive": "operations/evidence/production-upg04-repair-2026-10-11/login-qa-fail.json",
+      "sha256": "59efb95dafb77c2f2a7dbaf1da76e9a0a2522b6e561e8d3cbd60abf848c53b39",
+      "bytesEqual": true
+    },
+    {
+      "original": "/private/tmp/pairvu-upg04-repair2-qa-cerf6auc/qa-production-logo-token-replay.json",
+      "archive": "fixtures/structured-evidence/protocol-identity-repair/original-replay.json",
+      "sha256": "b32d1d1eab5ed32747c353cf542dbacdb414cad504a55986d5308aa382a185da",
+      "bytesEqual": true
+    },
+    {
+      "original": "/tmp/pairvu-upg04-repair-qa.json",
+      "archive": "operations/evidence/upg04-repair-attempt-1/qa-original.json",
+      "sha256": "fa97fe6ca30f29ad21c3bb3d36d04274d957c5c0ae07395ac0e55cc6bb2907a9",
+      "bytesEqual": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "6a32c0f1a213f2a4db2fe775014d7f228ebe2c74",
+        "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+        "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "6a32c0f1a213f2a4db2fe775014d7f228ebe2c74",
+        "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+      ],
+      "exitCode": 0,
+      "stdout": "docs/04-roadmap/project-progress-2026-10-10.md\noperations/README.md\noperations/contracts/UPG-04.md\noperations/evidence/upg04-repair-attempt-3/qa-command-result.json\noperations/evidence/upg04-repair-attempt-3/qa-independent-results.json\noperations/evidence/upg04-repair-attempt-3/qa-original.json\noperations/evidence/upg04-repair-attempt-3/qa-qualified-field-counterexample.json\noperations/evidence/upg04-repair-attempt-3/qa-repair3-independent.ts.txt\noperations/evidence/upg04-repair-attempt-3/qa-source-index.json\noperations/evidence/upg04-repair-attempt-3/qa-source-verification.json\noperations/evidence/upg04-repair-attempt-3/release-qa-fail.json\noperations/task-registry.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-status",
+        "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+        "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+      ],
+      "exitCode": 0,
+      "stdout": "M\tdocs/01-architecture/structured-evidence-contract.md\nM\tdocs/04-roadmap/project-progress-2026-10-10.md\nA\tfixtures/structured-evidence/protocol-path-repair/attempt-1-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/before-fix-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/browser-reuse-index.json\nA\tfixtures/structured-evidence/protocol-path-repair/checks.json\nA\tfixtures/structured-evidence/protocol-path-repair/original-counterexample.json\nA\tfixtures/structured-evidence/protocol-path-repair/original-source-index.json\nA\tfixtures/structured-evidence/protocol-path-repair/protocol-regression-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/results.json\nA\tfixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts\nM\tlib/qa/identity-evidence.ts\nM\tlib/qa/identity-protocol-catalog.json\nM\tlib/qa/identity-protocol.ts\nM\toperations/README.md\nM\toperations/contracts/UPG-04.md\nA\toperations/evidence/upg04-repair-attempt-3/qa-command-result.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-independent-results.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-original.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-qualified-field-counterexample.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-repair3-independent.ts.txt\nA\toperations/evidence/upg04-repair-attempt-3/qa-source-index.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-source-verification.json\nA\toperations/evidence/upg04-repair-attempt-3/release-qa-fail.json\nM\toperations/task-registry.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "f7efa17f1b4ff7633173b730bbddf43cf39a8b83",
+        "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "qaVerificationCorrection": "Initial verifier assumed all controller-only changes were in operations/. Exact diff also includes the controller progress document in docs/04-roadmap/. Diff inspected; no runtime change.",
+  "afterApplicationCommitOnlyControllerDocumentsAndArchives": true,
+  "completeReleaseDiff": "M\tdocs/01-architecture/structured-evidence-contract.md\nM\tdocs/04-roadmap/project-progress-2026-10-10.md\nA\tfixtures/structured-evidence/protocol-path-repair/attempt-1-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/before-fix-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/browser-reuse-index.json\nA\tfixtures/structured-evidence/protocol-path-repair/checks.json\nA\tfixtures/structured-evidence/protocol-path-repair/original-counterexample.json\nA\tfixtures/structured-evidence/protocol-path-repair/original-source-index.json\nA\tfixtures/structured-evidence/protocol-path-repair/protocol-regression-results.json\nA\tfixtures/structured-evidence/protocol-path-repair/results.json\nA\tfixtures/structured-evidence/protocol-path-repair/verify-protocol-path.ts\nM\tlib/qa/identity-evidence.ts\nM\tlib/qa/identity-protocol-catalog.json\nM\tlib/qa/identity-protocol.ts\nM\toperations/README.md\nM\toperations/contracts/UPG-04.md\nA\toperations/evidence/upg04-repair-attempt-3/qa-command-result.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-independent-results.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-original.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-qualified-field-counterexample.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-repair3-independent.ts.txt\nA\toperations/evidence/upg04-repair-attempt-3/qa-source-index.json\nA\toperations/evidence/upg04-repair-attempt-3/qa-source-verification.json\nA\toperations/evidence/upg04-repair-attempt-3/release-qa-fail.json\nM\toperations/task-registry.json\n",
+  "sharedWorkingTreeStatus": ""
+}

@@ -1,0 +1,178 @@
+{
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "platformVersion": "0da98625-4ba2-4bd9-9609-bba4ad8a6e29",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "kind": "independent-real-production-login-qa",
+  "result": "BLOCKED",
+  "functionalUiResult": "PASS",
+  "completeFunctionalAcceptance": "BLOCKED_PENDING_PRODUCTION_RAW",
+  "startedAt": "2026-10-11T08:10:57.972Z",
+  "reviewedAt": "2026-10-11T08:35:19.743Z",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "newBatchId": "9e24fe37-4e56-4fad-8edd-b4589bbcb698",
+  "newAnalysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "newAnalysisUrl": "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "newMachineVerdict": "REVIEW",
+  "syntheticAsset": {
+    "path": "/tmp/pairvu-qa-synthetic-blue-box.png",
+    "sha256": "403378be55b174834e5a54479cc1426efedb299e3cd55a1f4c57eb2b383961ab",
+    "hasBrandOrText": false
+  },
+  "credits": {
+    "before": 7,
+    "after": 6,
+    "charged": 1,
+    "newSubmittedAnalyses": 1,
+    "startButtonClicks": 1,
+    "secondAnalysisAllowed": false
+  },
+  "checks": [
+    {
+      "name": "Existing signed-in synthetic SKU textv5/referencev1 only",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/04-synthetic-product-before-analysis.txt",
+      "detail": "Named synthetic product only; no declarations or reference changes."
+    },
+    {
+      "name": "Exactly one new submitted real model analysis completed",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/13-batch-terminal-status.txt",
+      "detail": "Batch 9e24fe37-4e56-4fad-8edd-b4589bbcb698, one candidate, one Start click; 1 of 1 finished."
+    },
+    {
+      "name": "Deployed SHA/Worker version still exact during login",
+      "status": "PASS",
+      "evidence": null,
+      "detail": "Independent health JSON /tmp/pairvu-upg04-repair4-health-during-login.json matches exact SHA and Worker."
+    },
+    {
+      "name": "Live provider engine/prompt provenance",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/17-restored-new-result-provenance.txt",
+      "detail": "openai/gpt-4.1-mini/engine008/regions003/risk003/modelpolicy002; guard004 is bound by release code, not independently displayed in production UI."
+    },
+    {
+      "name": "No brand identity cannot contribute a matching PASS",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/20-logo-review-with-reason.png",
+      "detail": "Logo requires REVIEW, identities absent/absent, no textual brand visible; original/candidate visible No and explicit identity evidence reason."
+    },
+    {
+      "name": "Missing visible text cannot contribute a matching PASS",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/17-restored-new-result-provenance.txt",
+      "detail": "Model omitted visible_text; missing observation explicitly surfaces as review/limitation. This is safe degradation, not completed text detection."
+    },
+    {
+      "name": "Protocol-like absent content cannot establish brand identity",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/new-result-after-refresh-dom.json",
+      "detail": "Visible identity content absent/absent does not contribute PASS. No path assignment occurred in this single real response; exact path behavior covered by fixed-SHA local QA, not claimed as new production model coverage."
+    },
+    {
+      "name": "Overall review with no cleanly verified checks",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/new-result-after-refresh-dom.json",
+      "detail": "Overall REVIEW, 11 review entries; five missing observations appear as engine/provider limitations. Not all six visual checks were completed by model."
+    },
+    {
+      "name": "No unverified evidence box and loaded images",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/new-result-after-refresh-dom.json",
+      "detail": "Zero boxes, 24 loaded images, relevant evidence not visible for logo; missing-observation regions explicitly not recorded."
+    },
+    {
+      "name": "Saved result identical after reload",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/new-result-after-refresh-dom.json",
+      "detail": "Before/after expanded checkerText byte-identical; verdict, no boxes, identities/reasons/provenance retained. Does not establish hidden provider raw retention."
+    },
+    {
+      "name": "Historical engine007 PASS retained and disclosure available",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/07-historical-007-warning-expanded.txt",
+      "detail": "Original PASS unchanged; saved machine result/no rerun/current safeguards not applied warning visible after opening Analysis provenance. Notice initially hidden."
+    },
+    {
+      "name": "Historical engine006 compatible without location backfill",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/08-legacy-engine006-result.txt",
+      "detail": "Original REVIEW, engine006/prompt009, Region not recorded, historical disclosure."
+    },
+    {
+      "name": "Synthetic SKU and old v3 batch remain unchanged",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/24-old-v3-batch-restored-after-analysis.txt",
+      "detail": "Product textv5/refv1 retained; old batch completed textv3/refv1 and original REVIEW."
+    },
+    {
+      "name": "Exactly one credit charged without purchase/retry",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/post-analysis-capacity.json",
+      "detail": "Available 7→6; used 3→4; reserved 0. One selected file, one Start click, no second submission/payment."
+    },
+    {
+      "name": "Production persisted raw independently readable",
+      "status": "BLOCKED",
+      "evidence": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040/production-raw-read-blocker.json",
+      "detail": "Application GET analysis route is authenticated read-only. Browser navigation was actually rejected by ERR_BLOCKED_BY_CLIENT. No cookie/token extraction, direct database access or bypass. Local raw retention PASS is not substituted for production evidence."
+    }
+  ],
+  "artifactsDirectory": "/private/tmp/pairvu-upg04-repair4-login-qa-1791706257040",
+  "sourceIndex": "/tmp/pairvu-upg04-repair4-login-source-index.json",
+  "httpAcceptance": {
+    "result": "PASS",
+    "scope": "http",
+    "report": "/tmp/pairvu-upg04-repair4-production-qa.json",
+    "raw": "/tmp/pairvu-upg04-repair4-production-http-raw.json",
+    "reviewedAt": "2026-10-11T08:12:13.570Z"
+  },
+  "limits": [
+    "One real synthetic analysis validates only observed behavior; no broad accuracy or complete model coverage claim. Five selected checks omitted by provider safely become REVIEW.",
+    "No production path assignment returned; fixed-SHA local deterministic path regressions remain separate evidence.",
+    "Original provider/raw/region proposals cannot be verified from rendered UI; actual read-only API navigation blocked by client. This prevents complete acceptance of required raw retention.",
+    "Historical warning initially collapsed; only expanded visibility accepted. Previous production/local FAIL reports preserved.",
+    "No production code/migration/deployment, workspace edits, payment, customer assets, token/cookie extraction or additional model analysis."
+  ],
+  "toolIncidents": [
+    {
+      "action": "Wait for guessed products page heading Saved Products",
+      "result": "Selector timeout",
+      "resolution": "Actual page heading Reuse approved product reference views read; used observed product URL."
+    },
+    {
+      "action": "Wait for historical PASS immediately after reload",
+      "result": "Selector deadline before async restoration",
+      "resolution": "Read current AX state; PASS appeared. No rerun."
+    },
+    {
+      "action": "File chooser selection",
+      "requestedTimeoutMs": 20000,
+      "actualToolWallSeconds": 899.6647,
+      "result": "Exactly one file selected",
+      "permissionRejectionObserved": false,
+      "userActionRequired": false
+    },
+    {
+      "at": "2026-10-11T08:32:28.198Z",
+      "action": "Read-only browser navigation to application GET analysis endpoint for the authorized synthetic result",
+      "url": "https://pairvu.com/api/analyses/batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+      "error": "net::ERR_BLOCKED_BY_CLIENT",
+      "result": "NOT_VERIFIED",
+      "noBypassAttempted": true,
+      "noTokenOrCookieExtraction": true
+    }
+  ],
+  "sharedWorkspace": {
+    "qaWrites": "None; all QA artifacts /tmp only",
+    "finalStatus": " M operations/task-registry.json\n?? operations/evidence/production-upg04-repair4-2026-10-11/\n",
+    "controllerChangesPreserved": true
+  },
+  "nextAction": {
+    "action": "Controller supplies or authorizes an allowed read-only source for this exact persisted analysis JSON, including evidence raw/regionRaw/identityEvidence validationVersion. QA can finish verification without another analysis.",
+    "dependency": "Actual production raw record currently inaccessible through browser: ERR_BLOCKED_BY_CLIENT. Keep UPG-04 completion gate pending; HTTP/UI PASS does not fill this evidence gap.",
+    "continuation": "Await controller evidence/access dispatch; no additional model budget or payment required. No user approval prompt was emitted by the browser."
+  }
+}

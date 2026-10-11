@@ -1,0 +1,136 @@
+{
+  "unitId": "UPG-04",
+  "scope": "Fourth repair fixed-commit independent local QA",
+  "result": "PASS",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21",
+  "applicationRepairSha": "6a32c0f1a213f2a4db2fe775014d7f228ebe2c74",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-11T04:43:55Z",
+  "roleSelection": {
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "basis": "Controller contract escalation for repeated deterministic protocol-path omission; records requested role selection, no runtime settings changed by QA."
+  },
+  "checks": [
+    {
+      "name": "Exact release SHA and complete diff",
+      "status": "PASS"
+    },
+    {
+      "name": "85 independent provider-to-engine protocol boundary checks",
+      "status": "PASS"
+    },
+    {
+      "name": "149 path regression cases",
+      "status": "PASS"
+    },
+    {
+      "name": "747 protocol and actual schema/catalog drift cases",
+      "status": "PASS"
+    },
+    {
+      "name": "55 identity consistency cases including four original failures",
+      "status": "PASS"
+    },
+    {
+      "name": "49 structured evidence and repository persistence cases",
+      "status": "PASS"
+    },
+    {
+      "name": "TypeScript noEmit",
+      "status": "PASS"
+    },
+    {
+      "name": "24 existing browser cases reused after seven source hash checks",
+      "status": "PASS"
+    },
+    {
+      "name": "Five original failure/replay archives byte preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Scoped release diff whitespace check",
+      "status": "PASS"
+    }
+  ],
+  "runs": [
+    {
+      "name": "independent85",
+      "cases": 85,
+      "status": "PASS",
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-independent-results.json"
+    },
+    {
+      "name": "path149",
+      "cases": 149,
+      "status": "PASS",
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-path149-results.json"
+    },
+    {
+      "name": "protocol747",
+      "cases": 747,
+      "status": "PASS",
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-protocol747-results.json"
+    },
+    {
+      "name": "identity55",
+      "cases": 55,
+      "status": "PASS",
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-identity55-results.json"
+    },
+    {
+      "name": "structure49",
+      "cases": 49,
+      "status": "PASS",
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-structure49/report.json"
+    }
+  ],
+  "executedCaseCount": 1085,
+  "reusedBrowserCaseCount": 24,
+  "exactOriginalReplayed": {
+    "qualifiedField": "evidence.referenceIdentity: ALPHA",
+    "currentVerdict": "review",
+    "passedObservations": 0,
+    "productionBrandToken": "brand_name",
+    "currentProductionReconstructionVerdict": "review"
+  },
+  "evidenceRoot": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk",
+  "sourceIndex": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-source-index.json",
+  "sourceVerification": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-source-verification.json",
+  "commandResults": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-command-results.json",
+  "harnessAttempts": [
+    {
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-harness-attempt-1.json",
+      "result": "QA_HARNESS_ERROR",
+      "reason": "PASS evidence retains original raw string; review downgrade wraps providerRaw. Corrected QA assertion and reran all 85."
+    },
+    {
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-command-results.json",
+      "result": "QA_REPORT_PATH_ERROR",
+      "reason": "Missing QA output directory caused ENOENT before persistence checks. Created directory and reran all 49."
+    },
+    {
+      "report": "/private/tmp/pairvu-upg04-repair4-qa-7_yix1zk/qa-source-verification.json",
+      "result": "QA_SCOPE_ASSUMPTION_CORRECTED",
+      "reason": "Controller post-app changes also include docs/04-roadmap progress file; exact diff inspected and documented."
+    }
+  ],
+  "versions": {
+    "identityGuard": "identity-evidence-004",
+    "promptSuffix": "regions-003",
+    "engine": "m0-qa-engine-008"
+  },
+  "limitations": [
+    "Controlled SDK response only; actual strict schema, provider request/parse, mapper and engine. Zero network/model/credit calls. Does not validate visual truth or model accuracy.",
+    "Explicit path/index assignments, objects/arrays and protocol-reserved exact spelling conservatively require review, including real transcriptions that occupy this syntax. Unknown unqualified natural labels are not inferred as metadata.",
+    "UI/location code unchanged: seven hashes and both original twelve-case browser report bytes verified. Changed identity guard separately retested. No build or browser rerun. Historical disclosure reuse checks text content, not initial visible warning.",
+    "Prior production functionality FAIL remains immutable and active until actual authorized production verification. This PASS is local acceptance only.",
+    "Shared repository unchanged by QA, no commit/push/deployment/migration or production calls."
+  ],
+  "nextAction": {
+    "action": "Controller imports this fixed-SHA release QA and proceeds through already authorized GitHub-first release, then dispatches bounded production verification.",
+    "dependency": "Exact pushed release commit, clean production tree, fresh remote proof and same-commit deployment; production feature acceptance still pending.",
+    "continuation": "Automatic controller handoff; QA production actions require a new explicit dispatch and minimal model-call budget. No repeated release authorization needed."
+  }
+}
