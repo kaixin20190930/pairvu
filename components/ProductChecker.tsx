@@ -1057,8 +1057,8 @@ export function ProductChecker() {
             </section>
 
             <section className="state-panel" aria-labelledby="verified-title">
-              <p className="section-label">Verified</p>
-              <h2 id="verified-title">Checks that matched cleanly</h2>
+              <p className="section-label">Model-supported checks</p>
+              <h2 id="verified-title">Checks the model reports as matching</h2>
               {analysis.observations.filter(isVerifiedObservation).length > 0 ? (
                 <div className="list-stack">
                   {analysis.observations
@@ -1066,7 +1066,7 @@ export function ProductChecker() {
                     .map((observation) => (
                       <article key={observation.id} className="list-item">
                         <strong>
-                          {formatCheckType(observation.checkType)} · Verified · {formatConfidence(observation.confidence)}
+                          {formatCheckType(observation.checkType)} · Model reports a match · {formatConfidence(observation.confidence)}
                         </strong>
                         <p>{observation.explanation}</p>
                         <EvidenceBlock evidence={observation.evidence} reference={reference} candidate={candidate} referenceAssetId={analysis.referenceAssetId} candidateAssetId={analysis.candidateAssetId} observability={observation.observability}/>
@@ -1079,6 +1079,8 @@ export function ProductChecker() {
             </section>
 
             <details className="state-panel analysis-provenance"><summary>Analysis provenance</summary>
+              <p>This is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.</p>
+              {analysis.qaEngineVersion !== "m0-qa-engine-008" ? <p>Historical result: the current identity evidence safeguards were not applied to this saved analysis.</p> : null}
               <p>Detector: {analysis.qaEngineVersion??"Not recorded"} · Decision policy: {analysis.riskPolicyVersion??"Not recorded"} · Model policy: {analysis.modelPolicyVersion??"Not recorded"}</p>
               {analysis.modelCalls.map(call=><p key={call.id}>Model: {call.model} · Prompt: {call.promptVersion} · Provider: {call.provider}</p>)}
             </details>
@@ -1511,6 +1513,10 @@ function EvidenceBlock({evidence,reference,candidate,referenceAssetId,candidateA
         <dt>Candidate · observed</dt>
         <dd>{evidence.candidateObservation ?? "—"}</dd>
       </div>
+      {evidence.identityEvidence ? <>
+        <div><dt>Reference · model-reported identity evidence</dt><dd>{evidence.identityEvidence.reference ?? "Not established"}</dd></div>
+        <div><dt>Candidate · model-reported identity evidence</dt><dd>{evidence.identityEvidence.candidate ?? "Not established"}</dd></div>
+      </> : null}
       <div>
         <dt>What changed</dt>
         <dd>{evidence.differenceKind ? formatDifferenceKind(evidence.differenceKind) : "—"}</dd>

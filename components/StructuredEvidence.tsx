@@ -11,7 +11,7 @@ const reasonLabels:Record<RegionUnavailableReason,string>={
   insufficient_evidence:"Visible evidence is insufficient to locate this region.",
   not_present:"The feature is not present; no location was invented.",
   cannot_locate:"The evidence could not be located reliably.",
-  uncertain_location:"Location is too uncertain to draw a box.",
+  uncertain_location:"Location has not been independently verified; no box is shown.",
   invalid_region:"Region data is invalid; no box is shown.",
 };
 export function StructuredEvidence({evidence,referenceAssetId,candidateAssetId,reference,candidate}:{evidence:ObservationEvidence;referenceAssetId:string;candidateAssetId:string;reference:Preview;candidate:Preview}) {

@@ -1,10 +1,10 @@
-import { normalizeRegionPair, preserveRegionRaw } from "@/lib/qa/evidence-regions";
+import { normalizeRegionPair, preserveRegionRaw, suppressUnverifiedRegions } from "@/lib/qa/evidence-regions";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import type { FidelityResult, M0AnalysisInput, VisionProvider } from "@/lib/qa/types";
 
-export const STRUCTURED_EVIDENCE_PROMPT_SUFFIX = "regions-001";
+export const STRUCTURED_EVIDENCE_PROMPT_SUFFIX = "regions-002";
 export const ImageRegionSchema = z.object({
   coordinateSpace: z.literal("analysis_image_normalized"),
   region: z.object({x:z.number(),y:z.number(),width:z.number(),height:z.number()}).strict().nullable(),
@@ -41,6 +41,8 @@ const ObservationEvidenceSchema = z
     rawJson: z.string().nullable(),
     referenceRegion: ImageRegionSchema,
     candidateRegion: ImageRegionSchema,
+    referenceIdentity: z.string().nullable(),
+    candidateIdentity: z.string().nullable(),
   })
   .strict();
 
@@ -257,8 +259,9 @@ export function mapFidelityObservations(parsed: FidelityResponse, input: M0Analy
         explanation:
           observation.comparisonSummary ?? observation.referenceObservation ?? observation.candidateObservation ?? "Observation recorded.",
         evidence: {
-          regions: normalizeRegionPair({schemaVersion:1,reference:observation.evidence.referenceRegion,candidate:observation.evidence.candidateRegion},{referenceAssetId:input.reference.assetId,candidateAssetId:input.candidate.assetId},{reference:observation.referenceObservability==="not_observable"?false:observation.evidence.referenceVisible??undefined,candidate:observation.candidateObservability==="not_observable"?false:observation.evidence.candidateVisible??undefined},true),
+          regions: suppressUnverifiedRegions(normalizeRegionPair({schemaVersion:1,reference:observation.evidence.referenceRegion,candidate:observation.evidence.candidateRegion},{referenceAssetId:input.reference.assetId,candidateAssetId:input.candidate.assetId},{reference:observation.referenceObservability==="not_observable"?false:observation.evidence.referenceVisible??undefined,candidate:observation.candidateObservability==="not_observable"?false:observation.evidence.candidateVisible??undefined},true)),
           regionRaw: preserveRegionRaw({reference:observation.evidence.referenceRegion,candidate:observation.evidence.candidateRegion}),
+          identityEvidence: ["logo", "visible_text"].includes(observation.checkType) ? {reference:observation.evidence.referenceIdentity,candidate:observation.evidence.candidateIdentity} : undefined,
           referenceObservation: observation.referenceObservation ?? undefined,
           candidateObservation: observation.candidateObservation ?? undefined,
           differenceKind: observation.differenceKind ?? undefined,
@@ -352,6 +355,8 @@ export function buildInstructions(input: M0AnalysisInput) {
     "For status = match, use differenceKind = none. Never use a mismatch differenceKind from another check family.",
     "Do not report the same factual change under multiple check families. In particular, a printed capacity or weight change belongs only to visible_text.",
     "referenceObservation describes only the expected content directly visible in the REFERENCE; candidateObservation describes only what is directly visible in the CANDIDATE. SKU declarations are not visually established facts and must never fill missing observations.",
+    "For visible_text, referenceIdentity and candidateIdentity must separately contain exact readable identity-bearing words or values transcribed from each image, or null when absent/unreadable. A blank label, no readable text, or no detected differences cannot establish sufficient text coverage or a match; use not_observable and insufficient coverage. Never infer text from SKU declarations or visual similarity. For logo, these fields must describe the identifiable brand or distinctive mark; a plain bar, cap or geometric rectangle is not a logo identity. Use null and not_observable when identity cannot be established. For other checks set both identity fields to null.",
+    "Location confidence cannot independently verify coordinates. This application currently suppresses unverified model boxes, retaining them only as raw proposals. Prefer region=null with reason=uncertain_location when a reliable location cannot be established; never substitute a default box or product shape for a missing identity feature.",
     "For evidence.referenceRegion and evidence.candidateRegion separately declare coordinateSpace = analysis_image_normalized. Coordinates x/y/width/height are fractions of that entire corresponding analysis image, with top-left origin, in [0,1], positive size and no right/bottom overflow. Never use product-relative or pixel coordinates. Do not return asset IDs; the application binds each side to its actual input image.",
     "Only locate directly visible evidence. Never invent OCR, boxes or coordinates for invisible, absent or insufficient evidence. If the region cannot be located reliably, set region and confidence to null and reason to not_visible, insufficient_evidence, not_present, cannot_locate or uncertain_location. For a present region, reason must be null; report location confidence independently of observation confidence. Low location confidence is not a precise location; medium means approximate. Missing location alone does not change an otherwise supported textual observation.",
     "Return evidence as a strict object. If you need to include arbitrary notes, put them into rawJson as a stringified JSON object.",

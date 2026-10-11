@@ -1,4 +1,5 @@
 import { normalizeBoundEvidence } from "./evidence-regions";
+import { identityEvidenceProblem } from "./identity-evidence";
 import { M0RiskPolicy } from "./m0-policy";
 import type {
   AnalysisLimitation,
@@ -11,7 +12,7 @@ import type {
 } from "./types";
 
 export class M0QAEngine implements QAEngine {
-  readonly version = "m0-qa-engine-007";
+  readonly version = "m0-qa-engine-008";
 
   constructor(
     private readonly visionProvider: VisionProvider,
@@ -130,6 +131,29 @@ function validateProviderResult(input: M0AnalysisInput, observations: VisionObse
 }
 
 function normalizeObservationConsistency(observation: VisionObservation): VisionObservation {
+  const identityProblem = identityEvidenceProblem(observation);
+  if (identityProblem) {
+    return {
+      ...observation,
+      status: "not_observable",
+      differenceKind: "not_visible",
+      observability: { reference: "not_observable", candidate: "not_observable", coverage: "insufficient" },
+      evidence: {
+        ...observation.evidence,
+        referenceVisible: false,
+        candidateVisible: false,
+        differenceKind: "not_visible",
+        uncertainReason: identityProblem,
+        raw: {
+          ...normalizeEvidenceRaw(observation.evidence.raw),
+          normalizationReason: "identity_requires_direct_evidence",
+          providerStatus: observation.status,
+          providerObservability: observation.observability,
+          providerEvidence: observation.evidence,
+        },
+      },
+    };
+  }
   if ((observation.status === "match" || observation.status === "mismatch") && !hasSufficientObservability(observation)) {
     const providerStatus = observation.status;
     const providerDifferenceKind = observation.differenceKind;

@@ -23,7 +23,7 @@ export function normalizeImageRegion(value: unknown, assetId: string, visible?: 
   }
   if (value.region === null) {
     return typeof value.reason === "string" && reasons.has(value.reason as RegionUnavailableReason) && value.confidence === null
-      ? unavailableRegion(assetId, value.reason as RegionUnavailableReason)
+      ? unavailableRegion(assetId, visible === false ? "not_visible" : value.reason as RegionUnavailableReason)
       : unavailableRegion(assetId, "invalid_region");
   }
   const box = value.region;
@@ -50,6 +50,16 @@ export function normalizeRegionPair(value: unknown, assets: Assets, visibility: 
   };
 }
 
+/** Numeric validity and model confidence do not verify what the box contains.
+ * No independent locator is currently available, so retain proposals only in regionRaw.
+ */
+export function suppressUnverifiedRegions(pair: PairedEvidenceRegions): PairedEvidenceRegions {
+  const suppress = (location: ImageEvidenceLocation) => location.region
+    ? unavailableRegion(location.assetId, "uncertain_location")
+    : location;
+  return { ...pair, reference: suppress(pair.reference), candidate: suppress(pair.candidate) };
+}
+
 export function preserveRegionRaw(value: unknown): unknown {
   try {
     return JSON.parse(JSON.stringify(value, (_key, item) => typeof item === "number" && !Number.isFinite(item) ? { nonFiniteNumber: String(item) } : item));
@@ -65,6 +75,6 @@ export function normalizeBoundEvidence(value: unknown, assets: Assets, visibilit
   return {
     ...evidence,
     regionRaw: Object.hasOwn(evidence, "regionRaw") ? evidence.regionRaw : preserveRegionRaw(evidence.regions),
-    regions: normalizeRegionPair(evidence.regions, assets, visibility),
+    regions: suppressUnverifiedRegions(normalizeRegionPair(evidence.regions, assets, visibility)),
   };
 }

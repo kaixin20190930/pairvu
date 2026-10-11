@@ -1,0 +1,852 @@
+{
+  "unitId": "UPG-04",
+  "sourceKind": "Exact observation wording/flags and logo coordinates reconstructed from immutable DOM evidence; not a raw SDK response",
+  "synthetic": true,
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "reported logo box on empty background is never treated as verified location",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit absence of readable text cannot contribute PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "generic rectangular bar does not establish logo identity",
+      "status": "PASS"
+    }
+  ],
+  "result": {
+    "analysisId": "synthetic-production-counterexample",
+    "observations": [
+      {
+        "checkType": "logo",
+        "status": "not_observable",
+        "differenceKind": "not_visible",
+        "observability": {
+          "reference": "not_observable",
+          "candidate": "not_observable",
+          "coverage": "insufficient"
+        },
+        "confidence": "high",
+        "explanation": "No meaningful visible difference detected in the logo presence or identity.",
+        "evidence": {
+          "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+          "visibleEvidence": [
+            "black rectangular logo bar at top center"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+              "visibleEvidence": [
+                "black rectangular logo bar at top center"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            }
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+        }
+      },
+      {
+        "checkType": "visible_text",
+        "status": "not_observable",
+        "differenceKind": "not_visible",
+        "observability": {
+          "reference": "not_observable",
+          "candidate": "not_observable",
+          "coverage": "insufficient"
+        },
+        "confidence": "high",
+        "explanation": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+        "evidence": {
+          "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+          "visibleEvidence": [
+            "White square label in center of bottle"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+              "visibleEvidence": [
+                "White square label in center of bottle"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            }
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+        }
+      }
+    ],
+    "verdict": "review",
+    "productIssues": [],
+    "limitations": [
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "logo",
+        "confidence": "high",
+        "message": "logo is not sufficiently observable.",
+        "evidence": {
+          "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+          "visibleEvidence": [
+            "black rectangular logo bar at top center"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+              "visibleEvidence": [
+                "black rectangular logo bar at top center"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            },
+            "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+        }
+      },
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "visible_text",
+        "confidence": "high",
+        "message": "visible_text is not sufficiently observable.",
+        "evidence": {
+          "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+          "visibleEvidence": [
+            "White square label in center of bottle"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+              "visibleEvidence": [
+                "White square label in center of bottle"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            },
+            "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+        }
+      }
+    ],
+    "passedObservations": [],
+    "reviewReasons": [
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "logo",
+        "confidence": "high",
+        "message": "logo is not sufficiently observable.",
+        "evidence": {
+          "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+          "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+          "visibleEvidence": [
+            "black rectangular logo bar at top center"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "candidateObservation": "A black rectangular logo bar is visible centered at the top of the blue bottle.",
+              "comparisonSummary": "No meaningful visible difference detected in the logo presence or identity.",
+              "visibleEvidence": [
+                "black rectangular logo bar at top center"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            },
+            "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "A generic geometric bar does not establish a recognizable logo identity."
+        }
+      },
+      {
+        "kind": "limitation",
+        "type": "attribute_not_observable",
+        "sourceCheckType": "visible_text",
+        "confidence": "high",
+        "message": "visible_text is not sufficiently observable.",
+        "evidence": {
+          "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+          "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+          "visibleEvidence": [
+            "White square label in center of bottle"
+          ],
+          "differenceKind": "not_visible",
+          "referenceVisible": false,
+          "candidateVisible": false,
+          "regions": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-reference",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "assetId": "synthetic-candidate",
+              "region": null,
+              "reason": "uncertain_location",
+              "confidence": null
+            }
+          },
+          "raw": {
+            "source": "reconstructed-from-original-DOM-not-SDK-wire",
+            "normalizationReason": "identity_requires_direct_evidence",
+            "providerStatus": "match",
+            "providerObservability": {
+              "reference": "observable",
+              "candidate": "observable",
+              "coverage": "sufficient"
+            },
+            "providerEvidence": {
+              "referenceObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "candidateObservation": "White square label visible in center of blue bottle with no readable text inside.",
+              "comparisonSummary": "Label visible but no readable identity-bearing text or values in either image, so no detected text differences.",
+              "visibleEvidence": [
+                "White square label in center of bottle"
+              ],
+              "differenceKind": "none",
+              "referenceVisible": true,
+              "candidateVisible": true,
+              "regions": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-reference",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "assetId": "synthetic-candidate",
+                  "region": null,
+                  "reason": "uncertain_location",
+                  "confidence": null
+                }
+              },
+              "raw": {
+                "source": "reconstructed-from-original-DOM-not-SDK-wire"
+              },
+              "regionRaw": {
+                "schemaVersion": 1,
+                "reference": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-reference"
+                },
+                "candidate": {
+                  "coordinateSpace": "analysis_image_normalized",
+                  "region": {
+                    "x": 0.35,
+                    "y": 0,
+                    "width": 0.3,
+                    "height": 0.1
+                  },
+                  "reason": null,
+                  "confidence": "high",
+                  "assetId": "synthetic-candidate"
+                }
+              }
+            },
+            "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+          },
+          "regionRaw": {
+            "schemaVersion": 1,
+            "reference": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-reference"
+            },
+            "candidate": {
+              "coordinateSpace": "analysis_image_normalized",
+              "region": {
+                "x": 0.35,
+                "y": 0,
+                "width": 0.3,
+                "height": 0.1
+              },
+              "reason": null,
+              "confidence": "high",
+              "assetId": "synthetic-candidate"
+            }
+          },
+          "uncertainReason": "Readable identity-bearing text is absent or unreadable; visual similarity cannot verify this check."
+        }
+      }
+    ],
+    "failedReasons": [],
+    "coverage": {
+      "selectedChecks": 2,
+      "sufficientlyObservableChecks": 0,
+      "insufficientChecks": 2
+    },
+    "versions": {
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002"
+    },
+    "modelCalls": [
+      {
+        "provider": "synthetic-replay",
+        "model": "none",
+        "promptVersion": "DOM-replay",
+        "latencyMs": 0
+      }
+    ],
+    "latencyMs": 1
+  }
+}

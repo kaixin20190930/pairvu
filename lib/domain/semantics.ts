@@ -100,6 +100,8 @@ export interface PairedEvidenceRegions {
 }
 
 export interface ObservationEvidence {
+  /** Model-reported readable transcription or distinctive logo identity; not independently verified. */
+  identityEvidence?: { reference: string | null; candidate: string | null };
   regions?: PairedEvidenceRegions;
   /** Original region payload, kept independently of normalized display coordinates. */
   regionRaw?: unknown;
