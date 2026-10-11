@@ -1,0 +1,2 @@
+# Preserve immutable release evidence bytes, including HTTP CRLF headers.
+operations/evidence/** -text
