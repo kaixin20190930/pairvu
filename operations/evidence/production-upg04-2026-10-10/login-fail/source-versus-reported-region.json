@@ -1,0 +1,29 @@
+{
+  "syntheticOnly": true,
+  "dimensions": [
+    512,
+    512
+  ],
+  "sourceSha256": "403378be55b174834e5a54479cc1426efedb299e3cd55a1f4c57eb2b383961ab",
+  "source": "/tmp/pairvu-qa-synthetic-blue-box.png",
+  "darkTopRectanglePixelBounds": [
+    181,
+    83,
+    330,
+    102
+  ],
+  "darkTopRectangleNormalizedBounds": {
+    "x": 0.353515625,
+    "y": 0.162109375,
+    "width": 0.291015625,
+    "height": 0.037109375
+  },
+  "reportedLogoRegion": {
+    "x": 0.35,
+    "y": 0,
+    "width": 0.3,
+    "height": 0.1
+  },
+  "darkPixelsInsideReportedLogoRegion": 0,
+  "meaning": "The reported logo region is entirely above the actual dark top rectangle and contains no dark pixels. This checks this controlled screenshot target only, not model accuracy statistics."
+}

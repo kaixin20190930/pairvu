@@ -1,0 +1,5 @@
+{
+  "initialSmokeFailure": "Controller used nonexistent /login path; correct repository route is /sign-in. Corrected test only; original FAIL preserved.",
+  "archiveFix": "Two original test-source files had been compiled from evidence archive. Renamed to text without changing bytes; independent release QA PASS.",
+  "credentials": "Initial migration query omitted existing credential environment; retry with repository credential loading confirmed no pending migration. No credentials recorded."
+}

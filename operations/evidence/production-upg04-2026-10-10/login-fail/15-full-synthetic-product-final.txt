@@ -1,0 +1,164 @@
+Browser tab: 4, Title: "Saved Product | Pairvu", URL: "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f".
+0 AXWebArea Saved Product | Pairvu, URL: pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f
+	1 container
+		2 link Description: Skip to content, Value: pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f#main-content
+		3 link Description: Pairvu home, Value: pairvu.com/
+		4 container site-menu-panel
+			5 container Primary navigation
+				6 pop up button (collapsed) Product, Secondary Actions: Expand
+					7 text Product
+				8 pop up button (collapsed) Learn, Secondary Actions: Expand
+					9 text Learn
+				10 pop up button (collapsed) Solutions, Secondary Actions: Expand
+					11 text Solutions
+			12 link Description: Account, Value: pairvu.com/account
+			13 link Description: Check image, Value: pairvu.com/#checker
+		14 container
+			15 container Workspace
+				16 link Description: Overview, Value: pairvu.com/account
+				17 link Description: Products, Value: pairvu.com/account/products
+				18 link Description: Batches, Value: pairvu.com/account/batches
+				19 link Description: New batch, Value: pairvu.com/account/batches/new
+			20 container Breadcrumb
+				21 content list
+					22 container
+						23 link Description: Products, Value: pairvu.com/account/products
+						24 text /
+					25 text Pairvu QA Synthetic Blue Box 20261010
+			26 text SAVED PRODUCT
+			27 heading Pairvu QA Synthetic Blue Box 20261010, Value: 1
+				28 text Pairvu QA Synthetic Blue Box 20261010
+			29 container
+				30 text SKU PAIRVU-QA-SYNTH-20261010 ·  1  current approved view  ·  1  total version .
+			31 link Description: Check new images, Value: pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f
+			32 text CURRENT APPROVED REFERENCE SET
+			33 heading Use the view that corresponds to the candidate, Value: 2
+				34 text Use the view that corresponds to the candidate
+			35 text A front view cannot verify hidden back text, and a detail view cannot prove the complete package shape. Select one current view explicitly when starting a batch.
+			36 container
+				37 image Front approved reference for Pairvu QA Synthetic Blue Box 20261010
+				38 text FRONT Version  1 Available until  Oct 17, 2026
+			39 text APPROVED REFERENCE VIEWS
+			40 heading Add or replace a corresponding view, Value: 2
+				41 text Add or replace a corresponding view
+			42 container
+				43 text Select the face or detail this image represents. Replacing a view preserves its previous version in history. The image follows your  7 -day retention period.
+			44 container
+				45 text Reference view
+				46 pop up button (collapsed, settable) Reference view, Value: Front, Secondary Actions: Expand
+					47 menu
+						48 (selected) Front
+						49 Back
+						50 Left side
+						51 Right side
+						52 Detail
+						53 Other
+			54 container
+				55 text New approved reference
+				56 button New approved reference No image selected
+				57 text No image selected
+			58 button (disabled) Save approved view
+			59 text REFERENCE HISTORY
+			60 heading Approved versions, Value: 2
+				61 text Approved versions
+			62 container
+				63 text Front  · Version  1 CURRENT pairvu-qa-synthetic-blue-box.png  · promoted  Oct 10, 2026 Image available until Oct 17, 2026
+			64 text PRODUCT HISTORY
+			65 heading Associated batches, Value: 2
+				66 text Associated batches
+			67 link Description: Completed Oct 10, 2026 · 1 checks, Value: pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef
+			68 text PRODUCT STANDARD · FOR RECORDS ONLY
+			69 heading Text version 5, Value: 2
+				70 text Text version 5
+			71 text These are your product declarations. Image checks continue to use visible image evidence. Check that the selected reference matches your declared packaging.
+			72 container
+				73 text Saved  10/10/2026, 10:09:10 PM  · user confirmed
+			74 container Product declarations
+				75 text Product declarations
+				76 container
+					77 text Product name
+					78 text field (settable) Product name, Value: Pairvu QA Synthetic Blue Box 20261010
+				79 container
+					80 text SKU
+					81 text field (settable) SKU, Value: PAIRVU-QA-SYNTH-20261010
+				82 container
+					83 text Brand
+					84 text field (settable) Brand, Value: Pairvu QA Synthetic
+				85 container
+					86 text Variant
+					87 text field (settable) Variant, Value: Blue box v5 QA lifecycle retained draft
+				88 container
+					89 text Packaging version
+					90 text field (settable) Packaging version, Value: QA-5
+				91 container
+					92 text Capacity
+					93 text field (settable) Capacity, Value: 250
+				94 container
+					95 text Unit
+					96 pop up button (collapsed, settable) Unit, Value: ml, Secondary Actions: Expand
+						97 menu
+							98 (selected) ml
+							99 l
+							100 g
+							101 kg
+							102 count
+				103 heading Critical attributes, Value: 3
+					104 text Critical attributes
+				105 button Add attribute
+				106 heading Allowed scene changes, Value: 3
+					107 text Allowed scene changes
+				108 text Stored as notes only; these do not exempt product differences from image checks.
+				109 checkbox (settable, integer) Description: background, Value: 0
+				110 checkbox (settable, integer) Description: lighting, Value: 0
+				111 checkbox (settable, integer) Description: shadow, Value: 0
+				112 checkbox (settable, integer) Description: placement, Value: 0
+				113 checkbox (settable, integer) Description: camera angle, Value: 0
+			114 button Save product standard
+			115 button View text version history
+			116 text PRODUCT SETTINGS
+			117 heading Name, SKU, and lifecycle, Value: 2
+				118 text Name, SKU, and lifecycle
+			119 text Archiving removes this product from new batch selection without deleting its references or history.
+			120 container
+				121 text Product name
+				122 text field (disabled) Product name, Value: Pairvu QA Synthetic Blue Box 20261010
+			123 container
+				124 text SKU (optional)
+				125 text field (disabled) SKU (optional), Value: PAIRVU-QA-SYNTH-20261010
+			126 text Edit the name and SKU in the product standard above.
+			127 button Archive product
+		128 link pairvu.com/
+		129 text Quality control for AI product photography.
+		130 heading PRODUCT, Value: 2
+			131 text PRODUCT
+		132 link Description: AI Product Image Checker, Value: pairvu.com/
+		133 link Description: Check Image, Value: pairvu.com/#checker
+		134 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		135 link Description: Pricing, Value: pairvu.com/pricing
+		136 heading LEARN, Value: 2
+			137 text LEARN
+		138 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		139 link Description: Examples, Value: pairvu.com/examples
+		140 link Description: Product Categories, Value: pairvu.com/categories
+		141 link Description: Product Checks, Value: pairvu.com/checks
+		142 link Description: Guides, Value: pairvu.com/guides
+		143 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		144 heading USE CASES, Value: 2
+			145 text USE CASES
+		146 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		147 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		148 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		149 link Description: Brands, Value: pairvu.com/use-cases/brands
+		150 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		151 heading LEGAL, Value: 2
+			152 text LEGAL
+		153 link Description: Privacy, Value: pairvu.com/privacy
+		154 heading OTHER PRODUCTS, Value: 2
+			155 text OTHER PRODUCTS
+		156 link Description: Moxion, Value: moxion.ai/
+		157 link Description: Sigoo, Value: sigoo.ai/
+		158 link Description: AI Best Tool, Value: aibesttool.com/
+		159 link Description: Triptrace, Value: triptrace.ai/
+		160 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 0 AXWebArea Saved Product | Pairvu, URL: pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f

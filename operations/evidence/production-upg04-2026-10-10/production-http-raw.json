@@ -1,0 +1,240 @@
+{
+  "unitId": "UPG-04",
+  "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+  "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "method": "GET",
+      "expectedStatus": 200,
+      "startedAt": "2026-10-10T15:19:00.338Z",
+      "completedAt": "2026-10-10T15:19:01.754Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/health.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/health.headers",
+      "httpStatus": 200,
+      "bodySha256": "ae6050f8412691f9ae0a9affc33aa3a4f8f23a7768dc25cd02c2d5e1f9ff3ca0",
+      "responseJson": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+        "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab"
+      },
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "home",
+      "url": "https://pairvu.com/",
+      "method": "GET",
+      "expectedStatus": 200,
+      "startedAt": "2026-10-10T15:19:00.338Z",
+      "completedAt": "2026-10-10T15:19:01.967Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/home.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/home.headers",
+      "httpStatus": 200,
+      "bodySha256": "7a208afaa381e8e99b486f73a0bc66bbb9a7d3349a8a5d8334e81bd68c0f0b51",
+      "title": "Pairvu - AI Product Image Checker",
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "checks",
+      "url": "https://pairvu.com/checks",
+      "method": "GET",
+      "expectedStatus": 200,
+      "startedAt": "2026-10-10T15:19:00.338Z",
+      "completedAt": "2026-10-10T15:19:01.964Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/checks.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/checks.headers",
+      "httpStatus": 200,
+      "bodySha256": "9e6ffb4964fe77c07f436c63ad2f7c5bf735dd3b365c3cbad402734b7db1938a",
+      "title": "AI Product Image Checks for Visible Accuracy | Pairvu",
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "pricing",
+      "url": "https://pairvu.com/pricing",
+      "method": "GET",
+      "expectedStatus": 200,
+      "startedAt": "2026-10-10T15:19:00.338Z",
+      "completedAt": "2026-10-10T15:19:01.960Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/pricing.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/pricing.headers",
+      "httpStatus": 200,
+      "bodySha256": "3ff83ed315a1b22d44cee93ee987be120324bcb6ea36c90c34304bf71a527766",
+      "title": "Pairvu Pricing for Product Image QA",
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "runtime-config",
+      "url": "https://pairvu.com/api/runtime-config",
+      "method": "GET",
+      "expectedStatus": 200,
+      "startedAt": "2026-10-10T15:19:01.755Z",
+      "completedAt": "2026-10-10T15:19:02.145Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/runtime-config.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/runtime-config.headers",
+      "httpStatus": 200,
+      "bodySha256": "e728c583dce6ea33359993b43812345af4ca98137929eb119026606f5decd5b3",
+      "responseJson": {
+        "analysisAcceptingNewRequests": true,
+        "analysisPauseMessage": "New analyses are temporarily paused.",
+        "turnstileEnabled": true,
+        "turnstileSiteKey": "0x4AAAAAAEAut-dQfjfNjITa",
+        "guardrails": {
+          "analysisSessionMinuteLimit": 3,
+          "analysisSessionDailyLimit": 8,
+          "analysisGlobalDailyLimit": 50,
+          "analysisSessionConcurrentLimit": 1,
+          "analysisGlobalConcurrentLimit": 3,
+          "uploadSessionMinuteLimit": 10,
+          "uploadSessionDailyLimit": 24
+        }
+      },
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-products",
+      "url": "https://pairvu.com/api/products",
+      "method": "GET",
+      "expectedStatus": 401,
+      "startedAt": "2026-10-10T15:19:01.961Z",
+      "completedAt": "2026-10-10T15:19:02.468Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-products.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-products.headers",
+      "httpStatus": 401,
+      "bodySha256": "29a95f884255f7df76127d8e1da3b8fec236c61a80fe16d0e4fd67933e4afea1",
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      },
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-batches",
+      "url": "https://pairvu.com/api/batches",
+      "method": "GET",
+      "expectedStatus": 401,
+      "startedAt": "2026-10-10T15:19:01.964Z",
+      "completedAt": "2026-10-10T15:19:04.097Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-batches.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-batches.headers",
+      "httpStatus": 401,
+      "bodySha256": "3f6469432e270aea724e5d6626f9696b87e48525a9c50984e3c2fd6798514632",
+      "responseJson": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      },
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "anonymous-profiles",
+      "url": "https://pairvu.com/api/products/11111111-1111-4111-8111-111111111111/profiles",
+      "method": "GET",
+      "expectedStatus": 401,
+      "startedAt": "2026-10-10T15:19:01.968Z",
+      "completedAt": "2026-10-10T15:19:03.201Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-profiles.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/anonymous-profiles.headers",
+      "httpStatus": 401,
+      "bodySha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "responseJson": {
+        "error": "authentication_required"
+      },
+      "location": null,
+      "result": "PASS"
+    },
+    {
+      "name": "www-root",
+      "url": "https://www.pairvu.com/",
+      "method": "GET",
+      "expectedStatus": 308,
+      "startedAt": "2026-10-10T15:19:02.146Z",
+      "completedAt": "2026-10-10T15:19:03.180Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/www-root.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/www-root.headers",
+      "httpStatus": 308,
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "title": null,
+      "location": "https://pairvu.com/",
+      "result": "PASS"
+    },
+    {
+      "name": "www-checks",
+      "url": "https://www.pairvu.com/checks",
+      "method": "GET",
+      "expectedStatus": 308,
+      "startedAt": "2026-10-10T15:19:02.469Z",
+      "completedAt": "2026-10-10T15:19:02.880Z",
+      "curlExitCode": 0,
+      "credentialsSent": false,
+      "bodyPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/www-checks.body",
+      "headersPath": "/private/tmp/pairvu-upg04-production-http-lcjlln5k/www-checks.headers",
+      "httpStatus": 308,
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "title": null,
+      "location": "https://pairvu.com/checks",
+      "result": "PASS"
+    }
+  ],
+  "completedAt": "2026-10-10T15:19:04.098Z",
+  "rawDirectory": "/private/tmp/pairvu-upg04-production-http-lcjlln5k",
+  "controllerExecutionEvidence": {
+    "result": "PASS",
+    "sourceLogs": [
+      {
+        "path": "/tmp/pairvu-upg04-deploy.log",
+        "sha256": "c6d562660ec445acd7dbfc48f2a6063abe8d94dd405f460c140c9909f8278fbe"
+      },
+      {
+        "path": "/tmp/pairvu-upg04-deploy-end.json",
+        "sha256": "92d0b1e541f5e344f10ecb3d611789352b4ad05b7e9af31980661d55459cba1d"
+      },
+      {
+        "path": "/tmp/pairvu-upg04-migrations.log",
+        "sha256": "8e53682b36a30caed19517a58efa6159294da8dc1eee246721d2f0937290ea02"
+      }
+    ],
+    "exactCommitAndRemoteMatch": true,
+    "actualVersionFromWranglerMatchesHealth": true,
+    "deployExitCode": 0,
+    "deployCompletedAt": "2026-10-10T15:17:52.635Z",
+    "noPendingMigrations": true,
+    "artifactSha256": "01828694e349bf15ddbce7c38b9e83b2c26c7c69c718542547d0894b995f573b",
+    "freshRemoteCheckedAt": "2026-10-10T15:16:44.151Z",
+    "releasePreparedAt": "2026-10-10T15:17:19.297Z",
+    "receiptVersionUnknownResolvedBy": "Actual Wrangler Current Version ID and independent live health both ba8e60c0-15b9-4594-877d-3fae8a4942ab. No unknown value used in schema2."
+  },
+  "independentReviewedAt": "2026-10-10T15:22:10.550Z",
+  "limits": [
+    "HTTP/source acceptance only. Actual authenticated structured-evidence journey is recorded separately.",
+    "Inspected controller deployment/migration logs and independently queried live origin; no independent direct production DB audit."
+  ]
+}

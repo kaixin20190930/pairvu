@@ -1,0 +1,177 @@
+{
+  "unitId": "UPG-04",
+  "candidateSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-10T15:12:07.452Z",
+  "checks": [
+    {
+      "name": "fixed release SHA descends from accepted QA candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "application source and original 52 backend 30 browser evidence unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "two archived sources renamed only to noncompiled text",
+      "status": "PASS"
+    },
+    {
+      "name": "all 13 original archive hashes and bytes preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "original QA report and tsconfig unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original release FAIL preserved verbatim",
+      "status": "PASS"
+    },
+    {
+      "name": "independent fixed SHA typecheck passes",
+      "status": "PASS"
+    },
+    {
+      "name": "shared tree clean and release diff check passes",
+      "status": "PASS"
+    }
+  ],
+  "reviewedDiffPaths": [
+    "docs/04-roadmap/next-development-batch-2026-10-10.md",
+    "docs/04-roadmap/project-progress-2026-10-10.md",
+    "operations/README.md",
+    "operations/contracts/UPG-04.md",
+    "operations/controller-prompt.md",
+    "operations/evidence/UPG-04.json",
+    "operations/evidence/UPG-04/archive-index.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/attempt-1-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/browser-desktop-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/browser-narrow-results.json",
+    "operations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx.txt",
+    "operations/evidence/UPG-04/persisted-result.json",
+    "operations/evidence/UPG-04/qa-backend-attempt-1.json",
+    "operations/evidence/UPG-04/qa-backend-attempt-2.json",
+    "operations/evidence/UPG-04/qa-backend-results.json",
+    "operations/evidence/UPG-04/qa-browser-desktop.png",
+    "operations/evidence/UPG-04/qa-final-scope.json",
+    "operations/evidence/UPG-04/qa-reviewed-developer-validation.json",
+    "operations/evidence/UPG-04/qa-source-hashes.json",
+    "operations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts.txt",
+    "operations/evidence/production-lifecycle-fix-2026-10-10/deploy-log-original.json",
+    "operations/evidence/production-upg03-enable-2026-10-10/deploy-log-original.json",
+    "operations/evidence/production-upg04-2026-10-10/release-attempt-1-raw.json",
+    "operations/evidence/production-upg04-2026-10-10/release-attempt-1.json",
+    "operations/task-registry.json"
+  ],
+  "verification": {
+    "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+    "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+    "previousReleaseSha": "56831832778bfb7754d6be60b8e80fee7163ed1a",
+    "archiveChecks": [
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/attempt-1-results.json",
+        "archive": "operations/evidence/UPG-04/fixtures/structured-evidence/attempt-1-results.json",
+        "sha256": "9c8d4f423435db0ef04d11b1127318e1fbe5a8623ca0e8d0988bf76d0d1fed05"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/browser-desktop-results.json",
+        "archive": "operations/evidence/UPG-04/fixtures/structured-evidence/browser-desktop-results.json",
+        "sha256": "6eb29c3211ce11f76710a5641934a36fac8320af01af9fc823f68a839f20ed80"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/browser-narrow-results.json",
+        "archive": "operations/evidence/UPG-04/fixtures/structured-evidence/browser-narrow-results.json",
+        "sha256": "a13836e8b7773761d5f05c53a199a1165a04afcaf4844018829ee75100241498"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/fixtures/structured-evidence/ui-entry.tsx",
+        "archive": "operations/evidence/UPG-04/fixtures/structured-evidence/ui-entry.tsx.txt",
+        "sha256": "75afea5623ae894b3b3e5fe13ce9b16dcb6b1e7a48a8e10aa984d67f8a3e7acf"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/persisted-result.json",
+        "archive": "operations/evidence/UPG-04/persisted-result.json",
+        "sha256": "809a87db32d7cc3491ebb5591ec477f6017dfb6b2b0223ebbd5f7a93c00614cb"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-attempt-1.json",
+        "archive": "operations/evidence/UPG-04/qa-backend-attempt-1.json",
+        "sha256": "301049107a2799d6afc884965955e688f93493c04dcba79070b481cba41a8ab0"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-attempt-2.json",
+        "archive": "operations/evidence/UPG-04/qa-backend-attempt-2.json",
+        "sha256": "6032e4037b6076abe377aa59d0a2d07e967ace8419a4e914e677905af1ced7fc"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-backend-results.json",
+        "archive": "operations/evidence/UPG-04/qa-backend-results.json",
+        "sha256": "ad4938e73639e71f8e296badc76991f93f213e28e503db0718f0bee58c2723f6"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-browser-desktop.png",
+        "archive": "operations/evidence/UPG-04/qa-browser-desktop.png",
+        "sha256": "00cf4056cb1b4527fce0cd2cd74788dad56dd9ecbc25ad8a9cd9e4b11b2ed8cd"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-final-scope.json",
+        "archive": "operations/evidence/UPG-04/qa-final-scope.json",
+        "sha256": "1c204ac11d463dee0ac445369d129261b5d566f7c6091a9a014323b090430e14"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-reviewed-developer-validation.json",
+        "archive": "operations/evidence/UPG-04/qa-reviewed-developer-validation.json",
+        "sha256": "5ead8fc1695398a7035879712e2ccbeb619f85f041d319ecc71338c72191620a"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/qa-source-hashes.json",
+        "archive": "operations/evidence/UPG-04/qa-source-hashes.json",
+        "sha256": "2a1245113c33306f3eed1397215e410d992b025840b111d82c9a39a1372b7128"
+      },
+      {
+        "source": "/private/tmp/pairvu-upg04-qa-q9kl_cnk/scripts/qa-independent-structured-evidence.ts",
+        "archive": "operations/evidence/UPG-04/scripts/qa-independent-structured-evidence.ts.txt",
+        "sha256": "6c3115003822241f2beb5f3f6b9a13d5d3f18b95378531dd5b414cc46072326e"
+      }
+    ],
+    "applicationSourceHashesMatch": true,
+    "tsconfigUnchanged": true,
+    "originalQaReportUnchanged": true,
+    "originalReleaseFailuresPreserved": true
+  },
+  "typecheck": {
+    "command": "pnpm exec tsc --noEmit --incremental false --pretty false",
+    "cwd": "/private/tmp/pairvu-upg04-release-reqa-0gysbp38",
+    "fixedSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+    "chunk_id": "0d1eeb",
+    "wall_time_seconds": 6.348124667,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "workingTreeClean": true,
+  "findings": [],
+  "resolvedFinding": {
+    "originalReleaseSha": "56831832778bfb7754d6be60b8e80fee7163ed1a",
+    "originalRaw": "/private/tmp/pairvu-upg04-release-qa-raw.json",
+    "cause": "Archived source .ts/.tsx included in compiler input",
+    "fix": "Only .txt suffix added to two archives; index archive paths updated, raw bytes retained. Original tsconfig unchanged.",
+    "originalFailPreservedAt": [
+      "operations/evidence/production-upg04-2026-10-10/release-attempt-1.json",
+      "operations/evidence/production-upg04-2026-10-10/release-attempt-1-raw.json"
+    ]
+  },
+  "limits": [
+    "Incremental local release QA only, not production PASS.",
+    "No build rerun; original application runtime source and accepted test fixtures match exactly. Actual Cloudflare build remains controller release step.",
+    "No shared repository edit, commit, push, migration, deployment, production or model call."
+  ],
+  "nextAction": {
+    "action": "Return PASS to controller for authorized GitHub-first release of this exact SHA, then receive separate production QA dispatch.",
+    "dependency": "Fresh remote exact-SHA verification, required migration confirmation, actual release build/deploy and smoke remain mandatory before production acceptance.",
+    "automatic": true
+  }
+}

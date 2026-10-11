@@ -1,0 +1,299 @@
+{
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+  "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "kind": "independent real authenticated structured-evidence journey",
+  "result": "FAIL",
+  "startedAt": "2026-10-10T15:20:10.703Z",
+  "reviewedAt": "2026-10-10T15:32:44.108Z",
+  "syntheticAsset": {
+    "syntheticOnly": true,
+    "dimensions": [
+      512,
+      512
+    ],
+    "sourceSha256": "403378be55b174834e5a54479cc1426efedb299e3cd55a1f4c57eb2b383961ab",
+    "source": "/tmp/pairvu-qa-synthetic-blue-box.png",
+    "darkTopRectanglePixelBounds": [
+      181,
+      83,
+      330,
+      102
+    ],
+    "darkTopRectangleNormalizedBounds": {
+      "x": 0.353515625,
+      "y": 0.162109375,
+      "width": 0.291015625,
+      "height": 0.037109375
+    },
+    "reportedLogoRegion": {
+      "x": 0.35,
+      "y": 0,
+      "width": 0.3,
+      "height": 0.1
+    },
+    "darkPixelsInsideReportedLogoRegion": 0,
+    "meaning": "The reported logo region is entirely above the actual dark top rectangle and contains no dark pixels. This checks this controlled screenshot target only, not model accuracy statistics."
+  },
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "oldBatchId": "e26ebc30-15cc-40ae-872b-d626bbd00cef",
+  "oldAnalysisId": "batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+  "newBatchId": "185d65d9-d62a-47e5-b7ec-e2ec614ff96d",
+  "newAnalysisId": "batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+  "newAnalysisUrl": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+  "newModelVerdict": "pass",
+  "credits": {
+    "before": 9,
+    "beforeSource": "Native AX tool output after first navigation to product-bound New batch in this QA turn; required1/candidate1 confirmed before submit.",
+    "after": 8,
+    "afterSource": "/private/tmp/pairvu-upg04-login-qa-1791645610632/post-analysis-preflight-capacity.json",
+    "analysesSubmitted": 1
+  },
+  "checks": [
+    {
+      "name": "valid signed-in existing synthetic SKU only",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/15-full-synthetic-product-final.txt",
+      "detail": "Existing browser session, active synthetic SKU text v5/reference v1; no token/cookie read."
+    },
+    {
+      "name": "historical analysis compatibility",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/17-full-legacy-analysis-provenance.txt",
+      "detail": "Old analysis still REVIEW, engine006/original prompt; Region not recorded on both sides and zero boxes; no history backfill."
+    },
+    {
+      "name": "old batch snapshot immutable",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/14-full-old-batch-final.txt",
+      "detail": "Old e26ebc30 batch still completed with text v3/reference v1 after new analysis."
+    },
+    {
+      "name": "one real new OpenAI analysis completes",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/06-new-batch-completed-text-v5-reference-v1.png",
+      "detail": "One candidate submitted once with saved reference; completed new batch185d65d9/textv5/refv1; actual result records openai/gpt-4.1-mini/new prompt. No schema/transport failure observed."
+    },
+    {
+      "name": "paired structured region shape and display",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/new-result-before-refresh.json",
+      "detail": "Six verified checks render12 valid-shaped bounded boxes on loaded512x512 images. Structural validity alone does not prove semantic correctness."
+    },
+    {
+      "name": "persisted refresh",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/new-result-after-refresh.json",
+      "detail": "Hard browser reload restores identical verdict/observation text,12 box styles and provenance."
+    },
+    {
+      "name": "actual result native zoom mapping",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/native-zoom-125.json",
+      "detail": "Native range input ArrowRight produces125%, fractions unchanged."
+    },
+    {
+      "name": "new model engine and unchanged policy versions",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/new-result-before-refresh.json",
+      "detail": "gpt-4.1-mini; m0-real-mvp-009+regions-001; engine007; risk003/modelpolicy002."
+    },
+    {
+      "name": "maximum one analysis credit",
+      "status": "PASS",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/post-analysis-preflight-capacity.json",
+      "detail": "Before9 seen in native AX on first product-bound preflight; required1/candidate1; submitted once. After8 verified by current native DOM and full AX. No second analysis/payment/other customer operation."
+    },
+    {
+      "name": "absent or unreliable feature must not receive confident fictional location",
+      "status": "FAIL",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/10-logo-box-over-empty-background.png",
+      "detail": "Synthetic image has dark top rectangle and blank panel, no identity logo. Result names black logo bar and high/observable/sufficient; both logo boxes x.35,y0,w.3,h.1 cover empty background. Pixel check: actual dark top y.162109375..19921875, zero dark pixels in returned region. Expected absent/unreliable location has explicit null/reason."
+    },
+    {
+      "name": "absence of readable identity text cannot be verified as sufficient text evidence",
+      "status": "FAIL",
+      "evidence": "/private/tmp/pairvu-upg04-login-qa-1791645610632/11-no-readable-text-marked-verified.png",
+      "detail": "Result explicitly says no readable identity-bearing text or values in either image, but marks Visible text Verified/High confidence/both observable/Coverage sufficient and overall PASS with no limitations. Blank label panel does not establish identity text."
+    }
+  ],
+  "findings": [
+    {
+      "priority": 1,
+      "title": "Confident paired logo regions target empty background",
+      "contract": "Only locate directly visible evidence; absent/insufficient/unreliable locations use null and reason; coordinates refer to entire input image.",
+      "observed": "Synthetic image has dark top rectangle and blank panel, no identity logo. Result names black logo bar and high/observable/sufficient; both logo boxes x.35,y0,w.3,h.1 cover empty background. Pixel check: actual dark top y.162109375..19921875, zero dark pixels in returned region. Expected absent/unreliable location has explicit null/reason.",
+      "evidence": [
+        "/private/tmp/pairvu-upg04-login-qa-1791645610632/10-logo-box-over-empty-background.png",
+        "/private/tmp/pairvu-upg04-login-qa-1791645610632/new-result-before-refresh.json",
+        "/private/tmp/pairvu-upg04-login-qa-1791645610632/source-versus-reported-region.json"
+      ],
+      "assessment": "Actual provider-result semantic/location counterexample. Source review shows both analysis and preview use original assets; native image geometry is correct, not a CSS scale bug. Diagnose minimal remediation in original development role, no QA source fix."
+    },
+    {
+      "priority": 1,
+      "title": "Explicit no-readable-text observation is presented as sufficiently verified",
+      "contract": "Visible observations must support check-family claims; insufficient observations remain REVIEW, region shape cannot supply missing identity evidence.",
+      "observed": "Result explicitly says no readable identity-bearing text or values in either image, but marks Visible text Verified/High confidence/both observable/Coverage sufficient and overall PASS with no limitations. Blank label panel does not establish identity text.",
+      "evidence": [
+        "/private/tmp/pairvu-upg04-login-qa-1791645610632/11-no-readable-text-marked-verified.png",
+        "/private/tmp/pairvu-upg04-login-qa-1791645610632/new-result-after-refresh.json"
+      ],
+      "assessment": "One real persisted provider contradiction, not population accuracy measurement. Keep exact raw case and inspect conservative consistency/absent-feature handling without treating SKU declarations as visual facts."
+    }
+  ],
+  "steps": [
+    {
+      "name": "01-existing-synthetic-product-v5",
+      "at": "2026-10-10T15:20:10.703Z",
+      "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/01-existing-synthetic-product-v5.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/01-existing-synthetic-product-v5.png"
+    },
+    {
+      "name": "02-old-batch-frozen-v3-reference-v1",
+      "at": "2026-10-10T15:20:10.923Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/02-old-batch-frozen-v3-reference-v1.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/02-old-batch-frozen-v3-reference-v1.png"
+    },
+    {
+      "name": "03-legacy-analysis-no-region-backfill",
+      "at": "2026-10-10T15:20:45.936Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/03-legacy-analysis-no-region-backfill.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/03-legacy-analysis-no-region-backfill.png"
+    },
+    {
+      "name": "04-one-candidate-preflight-nine-credits",
+      "at": "2026-10-10T15:21:29.451Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/04-one-candidate-preflight-nine-credits.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/04-one-candidate-preflight-nine-credits.png"
+    },
+    {
+      "name": "05-single-analysis-submitted",
+      "at": "2026-10-10T15:21:33.830Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/05-single-analysis-submitted.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/05-single-analysis-submitted.png"
+    },
+    {
+      "name": "06-new-batch-completed-text-v5-reference-v1",
+      "at": "2026-10-10T15:22:26.692Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=185d65d9-d62a-47e5-b7ec-e2ec614ff96d",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/06-new-batch-completed-text-v5-reference-v1.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/06-new-batch-completed-text-v5-reference-v1.png"
+    },
+    {
+      "name": "07-new-result-structured-regions-and-provenance",
+      "at": "2026-10-10T15:23:16.788Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/07-new-result-structured-regions-and-provenance.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/07-new-result-structured-regions-and-provenance.png"
+    },
+    {
+      "name": "08-real-result-native-zoom-125",
+      "at": "2026-10-10T15:24:12.128Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/08-real-result-native-zoom-125.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/08-real-result-native-zoom-125.png"
+    },
+    {
+      "name": "09-persisted-logo-result-incorrect-target-region",
+      "at": "2026-10-10T15:25:20.788Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/09-persisted-logo-result-incorrect-target-region.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/09-persisted-logo-result-incorrect-target-region.png"
+    },
+    {
+      "name": "10-logo-box-over-empty-background",
+      "at": "2026-10-10T15:25:46.334Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/10-logo-box-over-empty-background.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/10-logo-box-over-empty-background.png"
+    },
+    {
+      "name": "11-no-readable-text-marked-verified",
+      "at": "2026-10-10T15:25:46.952Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/11-no-readable-text-marked-verified.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/11-no-readable-text-marked-verified.png"
+    },
+    {
+      "name": "12-post-analysis-eight-credits",
+      "at": "2026-10-10T15:26:37.431Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/12-post-analysis-eight-credits.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/12-post-analysis-eight-credits.png"
+    },
+    {
+      "name": "13-old-batch-still-frozen-after-new-analysis",
+      "at": "2026-10-10T15:26:58.491Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/13-old-batch-still-frozen-after-new-analysis.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/13-old-batch-still-frozen-after-new-analysis.png"
+    },
+    {
+      "name": "14-full-old-batch-final",
+      "at": "2026-10-10T15:29:56.100Z",
+      "url": "https://pairvu.com/account/batches/new?batchId=e26ebc30-15cc-40ae-872b-d626bbd00cef",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/14-full-old-batch-final.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/14-full-old-batch-final.png"
+    },
+    {
+      "name": "15-full-synthetic-product-final",
+      "at": "2026-10-10T15:29:56.196Z",
+      "url": "https://pairvu.com/account/products/8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/15-full-synthetic-product-final.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/15-full-synthetic-product-final.png"
+    },
+    {
+      "name": "16-full-new-result-final",
+      "at": "2026-10-10T15:29:56.408Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/16-full-new-result-final.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/16-full-new-result-final.png"
+    },
+    {
+      "name": "17-full-legacy-analysis-provenance",
+      "at": "2026-10-10T15:31:13.634Z",
+      "url": "https://pairvu.com/?analysis=batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/17-full-legacy-analysis-provenance.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/17-full-legacy-analysis-provenance.png"
+    },
+    {
+      "name": "18-full-post-analysis-capacity",
+      "at": "2026-10-10T15:31:18.946Z",
+      "url": "https://pairvu.com/account/batches/new?productId=8e023cd4-16b4-4e77-a957-238e7253947f",
+      "ax": "/private/tmp/pairvu-upg04-login-qa-1791645610632/18-full-post-analysis-capacity.txt",
+      "screenshot": "/private/tmp/pairvu-upg04-login-qa-1791645610632/18-full-post-analysis-capacity.png"
+    }
+  ],
+  "artifactsDirectory": "/private/tmp/pairvu-upg04-login-qa-1791645610632",
+  "sourceReview": {
+    "actualInputs": "lib/analysis/service.ts:263-264 loads r2KeyOriginal for provider; asset preview route also reads r2KeyOriginal.",
+    "geometryValidation": "lib/qa/evidence-regions.ts validates numeric shape and declared flags/confidence.",
+    "observabilityConsistency": "lib/qa/engine.ts:188 trusts provider observability/visibility/uncertainty metadata; observed metadata says sufficient while description says no-readable text."
+  },
+  "limits": [
+    "One real OpenAI call with controlled synthetic picture. No aggregate model accuracy, localization calibration or cost measurement claim.",
+    "Direct API navigation was rejected by browser client, no bypass attempted. No raw SDK wire response or direct production DB extraction; actual DOM observations, provenance, styles, screenshot/pixel checks and reload are primary evidence.",
+    "Earlier AX artifacts01..13 are original diffs/no-change snapshots, retained unmodified; supplemental14..18 contain full AX states. Before credit9 is grounded in native tool transcript; after8 is captured as fullAX/DOM JSON.",
+    "A report-assembly assertion originally expected full AX in those diff files; it failed before report writing. Only capture handling was corrected, no product change/test finding hidden.",
+    "No further model call, payment, customer data operation, source edit, deployment, token/cookie access or external message."
+  ],
+  "httpAcceptance": {
+    "result": "PASS",
+    "schema2Receipt": "/private/tmp/pairvu-upg04-production-qa.json",
+    "original": "/private/tmp/pairvu-upg04-production-http-raw.json",
+    "scope": "http only, never overrides functional FAIL"
+  },
+  "nextAction": {
+    "action": "Return this final FAIL and immutable sources to controller/original developer for already-authorized necessary UPG-04 repair. New runtime SHA requires independent delta acceptance and GitHub-first repair release before production recheck.",
+    "dependency": "Keep UPG-04 unclosed and UPG-05 blocked until both product-contract counterexamples are resolved. No further analysis under current one-call budget.",
+    "automatic": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-04",
+  "qaCandidateSha": "ec5a73d2492eb010dc60571ea90a6d2a0a7af815",
+  "releaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-10T15:12:07.452Z",
+  "checks": [
+    {
+      "name": "fixed release SHA descends from accepted QA candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "application source and original 52 backend 30 browser evidence unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "two archived sources renamed only to noncompiled text",
+      "status": "PASS"
+    },
+    {
+      "name": "all 13 original archive hashes and bytes preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "original QA report and tsconfig unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original release FAIL preserved verbatim",
+      "status": "PASS"
+    },
+    {
+      "name": "independent fixed SHA typecheck passes",
+      "status": "PASS"
+    },
+    {
+      "name": "shared tree clean and release diff check passes",
+      "status": "PASS"
+    }
+  ]
+}

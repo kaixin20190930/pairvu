@@ -44,3 +44,7 @@ SKU启用及生命周期修复已生产关闭：ce1f2fee7f43735ff6b6f13f38678409
 用户于2026-10-10明确授权UPG-04推送GitHub、部署Cloudflare、生产验收及必要修复；通过后自动推进UPG-05人工审核与审计开发和独立验收。授权来源：总控thread 01a0bcd5-909b-7b72-b64b-399e8028c919，turn 01a12659-8f1b-7da1-af36-884b74ddb366，user message 01a12659-8f58-79e1-9fec-5e2f99ba7e53。新的授权覆盖本单元发布，不扩展为UPG-05生产授权。
 
 发布QA复用原角色，gpt-6.1-sol/high：真实登录与provider结构、持久结果及历史兼容需要跨层核对；仅反复出现具体推理不足才升级，环境问题不升级。先核对最终发布SHA相对已验收候选的文档/证据差分，再独立验证生产HTTP及受控合成图片流程，最多一个必要分析、不购买，不触碰客户资产；会话失效则如实阻塞。
+
+## UPG-04生产反例修复进行中
+
+用户已授权本次UPG-04发布及必要修复。324a528已实际部署，HTTP PASS但真实功能FAIL（logo空白框/无文字PASS）；生产证据在operations/evidence/production-upg04-2026-10-10。正式CLI仍RELEASE_READY，未导入manifest/未关闭，这是等待同一单元后代修复及新releaseQa完整增量验收，不是等待用户授权。先回收registry.releaseRepair对应原开发/QA，持续wait_threads。修复发布需同样GitHub-first，生产功能PASS后才能正式导入最终manifest关闭。保留所有失败发布证据。当前无额外模型调用预算；总控可按必要生产复验给独立QA明确最小一次合成分析范围，不购买。UPG05必须等UPG04真实功能PASS后启动。
