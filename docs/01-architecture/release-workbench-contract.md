@@ -1,6 +1,6 @@
 # UPG-06 release workbench contract
 
-Developer scope: local implementation and DEV_READY evidence; independent acceptance binds the candidate Git SHA. No production release or feature enablement is authorized. RELEASE_WORKBENCH_ENABLED is exact-string true and defaults false in production config. No schema migration is necessary: workspace analysis, child, snapshot and review-head indexes already support the reads.
+Developer scope: prepare the authorized enablement candidate; independent release review binds its exact Git SHA. On 2026-10-12 the user authorized UPG-06 GitHub-first release, Cloudflare deployment, enablement and real signed-in production verification. The production configuration now sets RELEASE_WORKBENCH_ENABLED to true; this configuration is only effective after the controller completes the repository release sequence. Code still requires the exact string true and rejects missing, false or differently cased values. Local verification does not constitute deployment or production acceptance. No schema migration is necessary: workspace analysis, child, snapshot and review-head indexes already support the reads.
 
 ## Immutable rule and priority
 

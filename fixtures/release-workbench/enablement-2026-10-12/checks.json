@@ -1,0 +1,53 @@
+{
+  "unitId": "UPG-06",
+  "purpose": "Authorized enablement preparation; pending independent release delta QA",
+  "status": "DEV_READY_ENABLEMENT_CANDIDATE",
+  "baselineSha": "d7389b354c69f01c7aad4e5039e127373d230295",
+  "acceptedImplementationCandidate": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "recordedAt": "2026-10-12T03:02:35.781630+00:00",
+  "authorization": "2026-10-12 user release/enablement authorization recorded by controller in operations/contracts/UPG-06.md; developer scope limited to preparing the config commit.",
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "medium",
+    "reason": "One explicit feature flag and matching assertion; no rule, auth, entitlement or route semantics change.",
+    "escalationCondition": "Report additional semantics and reassess high before expanding scope."
+  },
+  "delta": [
+    "wrangler.jsonc RELEASE_WORKBENCH_ENABLED false -> true",
+    "Test production config assertion now expects authorized true; original default-off and exact-case behavior retained",
+    "Architecture first paragraph reflects authorization/config state and separates preparation from deployment/production acceptance"
+  ],
+  "commands": [
+    {
+      "command": "pnpm test:release-workbench fixtures/release-workbench/enablement-2026-10-12/d1-results.json",
+      "exitCode": 0,
+      "cases": 76,
+      "localD1Requests": 1850
+    },
+    {
+      "command": "pnpm typecheck && pnpm exec eslint scripts/verify-release-workbench.ts && git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "sourceSha256": {
+    "wrangler.jsonc": "d5bed57f97285b5fd8bdec8e8bfe6077b0de0f03ebd778a92246fa4cabf895e1",
+    "scripts/verify-release-workbench.ts": "65c66c213bd774dce0acd40c149bc7ec8dd1b8c92965eb8f2ed02205b5307d40",
+    "docs/01-architecture/release-workbench-contract.md": "770fe1cca41bc37261ad44172b5f3ab9c1c58a21212106ca936fd316e4b3cde7"
+  },
+  "reportSha256": "e48984a2359e0fd27e65afb42e5330f22d46ed1e6bdf05003219d8616aa36d38",
+  "retainedNegatives": [
+    "releasesEnabled({}) false",
+    "releasesEnabled uppercase TRUE false",
+    "Anonymous/foreign owner/session-forged params rejected",
+    "Feature-off server page and all API routes rejected",
+    "Existing paid export gate and fail-closed UTF-8 evidence/qualification checks"
+  ],
+  "preservation": "Prior developer and independent reports untouched; new sample/report saved only in this enablement directory. Controller operations files remain unstaged.",
+  "build": "Not repeated as directed: flag/assertion only. Controller must build the exact final pushed release SHA through AGENTS production release order.",
+  "production": "No push, deploy, remote migration, production write, real authentication, model, payment or customer asset operation performed.",
+  "nextAction": {
+    "action": "Controller dispatches fixed-SHA independent release delta review, then performs authorized GitHub-first build/deploy/enablement and real production acceptance.",
+    "dependency": "This candidate commit plus independent release delta QA; exact pushed release SHA and clean production-related tree required before production.",
+    "automatic": true
+  }
+}
