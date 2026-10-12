@@ -1,0 +1,150 @@
+Browser tab: 1, Title: "Pairvu release workbench · synthetic QA", URL: "http://127.0.0.1:50082/".
+0 AXWebArea Pairvu release workbench · synthetic QA, URL: 127.0.0.1:50082/
+	78 text PASS: 26 desktop release UI cases
+	2 container app
+		79 container Workspace
+			80 link Description: Releases, Value: 127.0.0.1:50082/account/releases
+			81 link Description: Overview, Value: 127.0.0.1:50082/account
+			82 link Description: Products, Value: 127.0.0.1:50082/account/products
+			83 link Description: Batches, Value: 127.0.0.1:50082/account/batches
+			84 link Description: New batch, Value: 127.0.0.1:50082/account/batches/new
+		85 container
+			86 text RELEASE WORKBENCH
+			87 heading Review release eligibility, Value: 1
+				88 text Review release eligibility
+			89 text Compare the original machine result, current human decision and release rule. Eligibility does not publish your product.
+		90 container Release search
+			91 container
+				92 text Frozen SKU
+				93 text field (settable) Frozen SKU
+			94 container
+				95 text Product ID
+				96 text field (settable) Product ID
+			97 container
+				98 text Batch ID
+				99 text field (settable) Batch ID
+			100 container
+				101 text Review state
+				102 pop up button (collapsed, settable) Review state, Value: All records, Secondary Actions: Expand
+					103 menu
+						104 (selected) All records
+						105 Needs review
+						106 Blocked by rule
+						107 Current approve or reject
+			108 button Search
+		109 container Release rule
+			110 text release-policy-001
+			111 text Complete supported machine evidence, available images and a current source-matching human approval are required. High/critical differences and limitations block eligibility. Eligibility does not publish externally.
+			112 button (collapsed) Rule and evaluation provenance, Secondary Actions: Expand
+				113 text Rule and evaluation provenance
+		114 container
+			115 text 1  matching record  in this page. Scanned  1  of at most  100  sources. Order: newest first, then analysis ID.
+		116 button Export this search page (CSV)
+		117 text Export is limited to this search window (up to 20 matches). It re-evaluates current decisions; later pages require another export.
+		118 container Release record pass
+			119 heading Frozen synthetic product, Value: 2
+				120 text Frozen synthetic product
+			121 text Frozen SKU: FROZEN-SKU · standard v1 · reference v1
+			122 container
+				123 text Analysis  pass
+			124 link Description: View evidence and human review, Value: 127.0.0.1:50082/?analysis=pass
+			125 container
+				126 heading Machine result, Value: 3
+					127 text Machine result
+				128 text PASS completed  ·  0  product differences Detection:  m0-qa-engine-008
+				129 text Risk:  m0-risk-policy-003
+				130 text Model policy:  m0-model-policy-002 Reference image:  available
+				131 text Candidate image:  available
+			132 container
+				133 heading Human decision, Value: 3
+					134 text Human decision
+				135 text APPROVE Revision  1 Synthetic release QA approval
+			136 container
+				137 heading Rule eligibility, Value: 3
+					138 text Rule eligibility
+				139 text ELIGIBLE
+				140 content list
+					141 container
+						142 AXListMarker • 
+						143 text Complete supported evidence and a current source-matching human approval satisfy this rule. complete_source_approved
+				144 text release-policy-001  · current evaluation
+			145 button (collapsed) Source and decision provenance, Secondary Actions: Expand
+				146 text Source and decision provenance
+		147 text End of the current search.
+	72 container narrow
+		73 heading 375px iframe, Value: 2
+			74 text 375px iframe
+		75 AXWebArea Pairvu release workbench · synthetic QA, URL: 127.0.0.1:50082/?mode=narrow
+			148 text PASS: 26 narrow release UI cases
+			77 container app
+				149 container Workspace
+					150 link Description: Releases, Value: 127.0.0.1:50082/account/releases
+					151 link Description: Overview, Value: 127.0.0.1:50082/account
+					152 link Description: Products, Value: 127.0.0.1:50082/account/products
+					153 link Description: Batches, Value: 127.0.0.1:50082/account/batches
+					154 link Description: New batch, Value: 127.0.0.1:50082/account/batches/new
+				155 container
+					156 text RELEASE WORKBENCH
+					157 heading Review release eligibility, Value: 1
+						158 text Review release eligibility
+					159 text Compare the original machine result, current human decision and release rule. Eligibility does not publish your product.
+				160 container Release search
+					161 container
+						162 text Frozen SKU
+						163 text field (settable) Frozen SKU
+					164 container
+						165 text Product ID
+						166 text field (settable) Product ID
+					167 container
+						168 text Batch ID
+						169 text field (settable) Batch ID
+					170 container
+						171 text Review state
+						172 pop up button (collapsed, settable) Review state, Value: All records, Secondary Actions: Expand
+							173 menu
+								174 (selected) All records
+								175 Needs review
+								176 Blocked by rule
+								177 Current approve or reject
+					178 button Search
+				179 container Release rule
+					180 text release-policy-001
+					181 text Complete supported machine evidence, available images and a current source-matching human approval are required. High/critical differences and limitations block eligibility. Eligibility does not publish externally.
+					182 button (collapsed) Rule and evaluation provenance, Secondary Actions: Expand
+						183 text Rule and evaluation provenance
+				184 container
+					185 text 1  matching record  in this page. Scanned  1  of at most  100  sources. Order: newest first, then analysis ID.
+				186 button Export this search page (CSV)
+				187 text Export is limited to this search window (up to 20 matches). It re-evaluates current decisions; later pages require another export.
+				188 container Release record pass
+					189 heading Frozen synthetic product, Value: 2
+						190 text Frozen synthetic product
+					191 text Frozen SKU: FROZEN-SKU · standard v1 · reference v1
+					192 container
+						193 text Analysis  pass
+					194 link Description: View evidence and human review, Value: 127.0.0.1:50082/?analysis=pass
+					195 container
+						196 heading Machine result, Value: 3
+							197 text Machine result
+						198 text PASS completed  ·  0  product differences Detection:  m0-qa-engine-008
+						199 text Risk:  m0-risk-policy-003
+						200 text Model policy:  m0-model-policy-002 Reference image:  available
+						201 text Candidate image:  available
+					202 container
+						203 heading Human decision, Value: 3
+							204 text Human decision
+						205 text APPROVE Revision  1 Synthetic release QA approval
+					206 container
+						207 heading Rule eligibility, Value: 3
+							208 text Rule eligibility
+						209 text ELIGIBLE
+						210 content list
+							211 container
+								212 AXListMarker • 
+								213 text Complete supported evidence and a current source-matching human approval satisfy this rule. complete_source_approved
+						214 text release-policy-001  · current evaluation
+					215 button (collapsed) Source and decision provenance, Secondary Actions: Expand
+						216 text Source and decision provenance
+				217 text End of the current search.
+
+The focused UI element is 0 AXWebArea Pairvu release workbench · synthetic QA, URL: 127.0.0.1:50082/

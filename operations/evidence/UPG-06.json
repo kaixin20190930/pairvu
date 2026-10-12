@@ -1,0 +1,636 @@
+{
+  "unitId": "UPG-06",
+  "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "baselineSha": "daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5",
+  "rejectedCandidate": "c2740c35da10af34b5524c569211568214b3958c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T02:18:32.989976+00:00",
+  "acceptanceScope": "INDEPENDENT_LOCAL_ACCEPTANCE_ONLY",
+  "reviewerRole": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Full contract still spans tenant isolation, conservative eligibility integrity, atomic snapshots, paid CSV and adversarial source boundaries. Known SQL repair does not reduce acceptance scope.",
+    "escalationCondition": "Repeated identifiable reasoning failures after narrowing scope; environment/tool latency does not justify model escalation.",
+    "runtimeSettingNote": "Recorded controller selection; no model-setting tool used."
+  },
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "result": "PASS",
+      "evidence": "/private/tmp/pairvu-upg06-qa2-jgahpahu/qa-source-verification.json",
+      "detail": "Exact archived candidate, baseline/rejected ancestry, 19 source bindings, actual tested reports and unmodified app UI/CSS/nav sources verified."
+    },
+    {
+      "name": "independent QA report",
+      "result": "PASS",
+      "evidence": "/tmp/pairvu-upg06-qa-attempt2.json",
+      "detail": "Original reviewer independently ran actual local D1/actual server routes and actual React browser tests at this fixed SHA; this report is limited to local acceptance."
+    },
+    {
+      "name": "UPG06-QA-01 original counterexample and UTF-8 boundaries",
+      "result": "PASS",
+      "detail": [
+        {
+          "name": "QA original 72,656-byte Han evidence is blocked with null source hash and CSV409",
+          "status": "PASS",
+          "detail": {
+            "sizes": {
+              "characters": 24656,
+              "bytes": 72656
+            },
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 observation exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 19181,
+            "sourceComplete": true,
+            "eligibility": "eligible",
+            "sourceHash": "9c8bf124931acea37c635b5e04b48ce7859bca8aca3afb0086a0ce74c0dde7ff",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 observation boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 19179,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 issue exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 18996,
+            "sourceComplete": true,
+            "eligibility": "blocked",
+            "sourceHash": "3e6741b6a93febb2c328989f6e95387bdb54c4ff1fdd7c9a924240c6b3aa0654",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 issue boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 18996,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 limitation exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 18541,
+            "sourceComplete": true,
+            "eligibility": "blocked",
+            "sourceHash": "b0d919a4634992bfc30fff1c3437321ae70865e3a203ce09e8488ec526552125",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 limitation boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 18546,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 input_usage exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 18542,
+            "sourceComplete": true,
+            "eligibility": "eligible",
+            "sourceHash": "7f8a97ab7b069ca835cab4cf3b3d135c7da2eb952742ceff2f9c5c350787b2f1",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 input_usage boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 18542,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 output_usage exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 18538,
+            "sourceComplete": true,
+            "eligibility": "eligible",
+            "sourceHash": "ace0715d47c71053560f0e8824ed0eb107e91fffd0232bf4387c1385f08c1f25",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 output_usage boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 18543,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 input_assets exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65536,
+            "sqliteCharacters": 18590,
+            "sourceComplete": true,
+            "eligibility": "blocked",
+            "sourceHash": "f11a2f91faad1c43845b161a2951d4f1e8fafd028485e3540e3331878be60349",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 input_assets boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 65536,
+            "utf8Bytes": 65537,
+            "sqliteCharacters": 18588,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 selected_checks exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 1024,
+            "utf8Bytes": 1024,
+            "sqliteCharacters": 304,
+            "sourceComplete": true,
+            "eligibility": "blocked",
+            "sourceHash": "2246f50be1b68edbccd3d52a524041415640411316be282a2f37d91eaf22e072",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 selected_checks boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 1024,
+            "utf8Bytes": 1025,
+            "sqliteCharacters": 305,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 product_snapshot exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 32768,
+            "utf8Bytes": 32768,
+            "sqliteCharacters": 9793,
+            "sourceComplete": true,
+            "eligibility": "eligible",
+            "sourceHash": "1f00c318e2d936f927d54dd1e8800e95a2424db6edb15799599c2a9c314a77f2",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 product_snapshot boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 32768,
+            "utf8Bytes": 32769,
+            "sqliteCharacters": 9794,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 review_snapshot exact boundary preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 262144,
+            "utf8Bytes": 262144,
+            "sqliteCharacters": 261644,
+            "sourceComplete": true,
+            "eligibility": "eligible",
+            "sourceHash": "565603a0e341a0ffb9f2c7675c85dc0e31ea93771a38914db737012b70c93185",
+            "csvStatus": 200,
+            "revision": 1
+          }
+        },
+        {
+          "name": "UTF-8 review_snapshot boundary+1 preserves source/CSV consistency",
+          "status": "PASS",
+          "detail": {
+            "budget": 262144,
+            "utf8Bytes": 262145,
+            "sqliteCharacters": 261645,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "embedded NUL cannot hide a UTF-8 evidence overflow",
+          "status": "PASS",
+          "detail": {
+            "bytes": 72001,
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "full actual D1 contract and independent counterexamples",
+      "result": "PASS",
+      "cases": 91,
+      "developerCasesIndependentlyRerun": 76,
+      "newIndependentCases": 15,
+      "localD1Requests": 2256,
+      "evidence": "/private/tmp/pairvu-upg06-qa2-jgahpahu/qa-independent-d1-results.json",
+      "newCases": [
+        {
+          "name": "QA combined UTF-8 evidence and model quota counts multiple individually-small fields",
+          "status": "PASS",
+          "detail": {
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 1
+          }
+        },
+        {
+          "name": "QA 24 successful model rows materialize but 25 rows block hash and CSV",
+          "status": "PASS",
+          "detail": {
+            "sourceComplete": false,
+            "eligibility": "blocked",
+            "sourceHash": null,
+            "csvStatus": 409,
+            "revision": 2
+          }
+        },
+        {
+          "name": "QA membership revoked between ownership check and snapshot SELECT yields no records",
+          "status": "PASS"
+        },
+        {
+          "name": "QA machine mutation after snapshot preserves old row and later reads detect stale approve",
+          "status": "PASS",
+          "detail": {
+            "before": "25a7d304185f766988e9e54aed2e45fc385c22d0c32604e7e5f16a45c016791c",
+            "snapshot": "25a7d304185f766988e9e54aed2e45fc385c22d0c32604e7e5f16a45c016791c",
+            "later": "f013e4c5ede7c0e6ca7782fd20c181b5bcadc5a622fd62ffeed0aaeca2f791c7"
+          }
+        },
+        {
+          "name": "QA actual feature routes reject truthy but non-exact enabled values",
+          "status": "PASS"
+        },
+        {
+          "name": "QA paid CSV supports trialing and denies past_due despite visible records",
+          "status": "PASS"
+        },
+        {
+          "name": "QA duplicate scope and identity aliases rejected by actual list/export routes",
+          "status": "PASS"
+        },
+        {
+          "name": "QA tampered cursor version extra key and filter binding rejected by actual route",
+          "status": "PASS"
+        },
+        {
+          "name": "QA changing page limit preserves tied-timestamp traversal without duplicates",
+          "status": "PASS",
+          "detail": {
+            "records": 115,
+            "unique": 115
+          }
+        },
+        {
+          "name": "QA byte-complete not-applicable evidence blocked despite approval",
+          "status": "PASS"
+        },
+        {
+          "name": "QA removed issue cannot masquerade as machine PASS",
+          "status": "PASS"
+        },
+        {
+          "name": "QA foreign model input assets cannot be approved into eligibility",
+          "status": "PASS"
+        },
+        {
+          "name": "QA Unicode control and compatibility formula prefixes escaped in actual CSV",
+          "status": "PASS"
+        },
+        {
+          "name": "QA two empty bounded scan windows still reach late blocked matches",
+          "status": "PASS",
+          "detail": [
+            {
+              "scanned": 100,
+              "matches": 0,
+              "hasMore": true
+            },
+            {
+              "scanned": 100,
+              "matches": 0,
+              "hasMore": true
+            },
+            {
+              "scanned": 25,
+              "matches": 2,
+              "hasMore": false
+            }
+          ]
+        },
+        {
+          "name": "QA list and CSV reads leave analysis and review audit unchanged",
+          "status": "PASS",
+          "detail": {
+            "sha256": "427d5338356e2074a4e3cdbcb49c11f3c747468ce94d96c29d24617cfdd3179f"
+          }
+        }
+      ]
+    },
+    {
+      "name": "actual desktop and narrow React workbench",
+      "result": "PASS",
+      "cases": 52,
+      "desktopCases": 26,
+      "narrowCases": 26,
+      "newIndependentCasesPerViewport": [
+        {
+          "name": "QA markup and long UTF-8 human reason remain escaped and within viewport",
+          "status": "PASS"
+        },
+        {
+          "name": "QA incomplete source is explicitly blocked and has no full source hash",
+          "status": "PASS"
+        },
+        {
+          "name": "QA source-incomplete CSV409 is visible and creates no download",
+          "status": "PASS"
+        },
+        {
+          "name": "QA aborted list after remount cannot overwrite live records with stale error",
+          "status": "PASS"
+        },
+        {
+          "name": "QA export completing after search change produces no stale download or success notice",
+          "status": "PASS"
+        },
+        {
+          "name": "QA unavailable entitlement status fails closed for CSV and navigation",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "/private/tmp/pairvu-upg06-qa2-jgahpahu/fixtures/release-workbench/browser-desktop-results.json",
+        "/private/tmp/pairvu-upg06-qa2-jgahpahu/fixtures/release-workbench/browser-narrow-results.json"
+      ],
+      "detail": "Real app components/navigation/styles bundled from exact candidate; controlled synthetic API/Next boundaries. GET-only captured. Actual Blob/link creation observed; anchor click intercepted, no OS download or production end-to-end claim."
+    },
+    {
+      "name": "review, evidence and workspace regressions",
+      "result": "PASS",
+      "detail": "35 review cases with 588 actual local D1 requests; 49 structured evidence cases; workspace ownership/isolation/retention/idempotency/credit suite passed independently."
+    },
+    {
+      "name": "typecheck, scope and build evidence",
+      "result": "PASS",
+      "detail": "Independent tsc exit0 and full candidate diff check exit0. Single original successful build record raw hash verified and reused; complete repaired candidate was not rebuilt. Only repair runtime delta is UTF-8 SQL predicates; render/routes/interfaces unchanged."
+    },
+    {
+      "name": "preserve evidence and shared work",
+      "result": "PASS",
+      "detail": "Original /tmp FAIL and controller durable FAIL bytes unchanged. Original developer evidence and own failed fixture run retained. No shared repository writes, commit, push, migration, deployment or enablement by QA."
+    }
+  ],
+  "commands": [
+    {
+      "command": "pnpm test:structured-evidence --report qa-structured-regression.json",
+      "exitCode": 0,
+      "cases": 49,
+      "evidence": "qa-structured-regression.json"
+    },
+    {
+      "command": "pnpm test:review-decisions --report qa-review-regression.json",
+      "exitCode": 0,
+      "cases": 35,
+      "localD1Requests": 588,
+      "evidence": "qa-review-regression.json"
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "exitCode": 0,
+      "observedOutput": "M1 workspace analysis verification passed. Verified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "observedOutput": "No diagnostics; independently executed after QA script and UI fixture additions."
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-attempt2.ts qa-independent-d1-results.json",
+      "attempt": 1,
+      "exitCode": 1,
+      "cases": 80,
+      "localD1Requests": 1979,
+      "productFailure": false,
+      "evidence": "qa-independent-d1-attempt1-results.json",
+      "explanation": "Own fixture selected first shared-SKU result instead of analysis pass. Previous report and script preserved; only own new-case query selection corrected."
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-attempt2.ts qa-independent-d1-results.json",
+      "attempt": 2,
+      "exitCode": 0,
+      "cases": 91,
+      "localD1Requests": 2256,
+      "evidence": "qa-independent-d1-results.json",
+      "observedOutput": "PASS: 91 cases, 2256 local D1 requests"
+    },
+    {
+      "command": "node fixtures/release-workbench/ui-server.mjs + CUA local browser tab",
+      "port": 50082,
+      "status": "PASS",
+      "desktopCases": 26,
+      "narrowCases": 26,
+      "serverObservedOutput": [
+        "PASS: 26 desktop cases",
+        "PASS: 26 narrow cases"
+      ],
+      "browser": "Codex In-app Browser ID 2; temporary local tab ID 1",
+      "viewportDesktop": {
+        "width": 1280,
+        "height": 720
+      },
+      "viewportNarrow": {
+        "width": 373,
+        "height": 1498
+      },
+      "evidence": [
+        "fixtures/release-workbench/browser-desktop-results.json",
+        "fixtures/release-workbench/browser-narrow-results.json",
+        "qa-browser-ax.txt",
+        "/tmp/pairvu-upg06-qa-attempt2-ui.png"
+      ],
+      "cleanup": "Own tab closed; own server stopped with Ctrl-C (exit130); lsof port50082 returned exit1 with no listener."
+    },
+    {
+      "command": "python3 qa-bind-sources.py",
+      "exitCode": 0,
+      "sourceBindings": 19,
+      "preservedDeveloperArtifacts": 17,
+      "evidence": "qa-source-verification.json",
+      "instrumentationIncidents": [
+        "Initial binder treated manifest-relative artifact names as repo-relative; corrected prefix.",
+        "Second binder treated original artifact metadata object as a hash string; read sha256 field. Final actual committed hashes matched. Neither indicates a source or application mismatch."
+      ]
+    },
+    {
+      "command": "git diff --check daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5 65a8591710caa92b61db555e6e7abc289fc04767",
+      "exitCode": 0,
+      "evidence": "qa-candidate-diff-check.txt"
+    },
+    {
+      "command": "pnpm run build",
+      "independentlyExecutedThisAttempt": false,
+      "status": "REUSED_ORIGINAL_EVIDENCE",
+      "detail": {
+        "reusedFrom": "c2740c35da10af34b5524c569211568214b3958c",
+        "candidateBuildRerun": false,
+        "artifactSha256": "073f4a865590e0a0ca642f70df7ea8bdf0ae235ea25ef6d35f02d0832b610d5f",
+        "rawSha256": "86cfc41d045e97611cebfc7bb0aecedc0541980bba4f79b931097052f568e93b",
+        "originalExitCode": 0,
+        "reason": "Only runtime repair is SQL UTF-8 byte predicates; React/CSS/navigation/routes/interfaces unchanged. Exact candidate independently typechecked and local D1 executed. Prior build is retained evidence, not a full new candidate build claim."
+      }
+    }
+  ],
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "id": "UPG06-QA-01",
+      "originalFailureSha256": "ca282ba845ab596be4d823328bd1c796af24d9c45b9702ecc921d2de8b7b3eac",
+      "originalFailurePath": "/tmp/pairvu-upg06-qa.json",
+      "actualIndependentCounterexample": {
+        "name": "QA original 72,656-byte Han evidence is blocked with null source hash and CSV409",
+        "status": "PASS",
+        "detail": {
+          "sizes": {
+            "characters": 24656,
+            "bytes": 72656
+          },
+          "sourceComplete": false,
+          "eligibility": "blocked",
+          "sourceHash": null,
+          "csvStatus": 409,
+          "revision": 1
+        }
+      }
+    }
+  ],
+  "preservedIncidents": [
+    {
+      "productFailure": false,
+      "incident": "QA selected rows[0] from a shared SKU containing budget stress fixtures, not target pass. Exact existing owned batch+analysis binding now isolates the intended fixture.",
+      "originalReport": "qa-independent-d1-attempt1-results.json",
+      "originalScript": "qa-independent-d1-attempt1-script.ts.txt"
+    },
+    {
+      "sourceBinderFailures": "Manifest relative-path/metadata format handling corrected in QA helper, application source never changed; actual hash checks all passed."
+    }
+  ],
+  "artifactsRoot": "/private/tmp/pairvu-upg06-qa2-jgahpahu",
+  "sourceVerification": "/private/tmp/pairvu-upg06-qa2-jgahpahu/qa-source-verification.json",
+  "limitations": [
+    "Synthetic local session/account entitlement boundary; actual production migrations, D1 repositories/routes and React components. No remote D1 replica, production authentication, R2 fetch, model/provider payment or customer asset changes.",
+    "API/backend actual local D1 proof and browser controlled-response proof are separate; not a full production end-to-end test. Browser download click intercepted after Blob/link creation.",
+    "Pages are bounded current evaluations; cursor is filter/workspace-bound with strict schema, not cryptographically signed or a frozen whole-workspace snapshot. Multiple empty filtered pages can legitimately precede matches.",
+    "Over-limit sources are diagnostic/incomplete with null full-source hash; export409 rather than partial original source. Valid quota-boundary fixtures can remain semantically blocked for separate integrity reasons.",
+    "Build record is explicitly reused from rejected predecessor, not a new full candidate build PASS; current source independently typechecked, actual SQL and UI rerun. Production release must build/deploy its exact pushed release commit.",
+    "Feature remains default false. No production release, feature enablement or production acceptance authorized or performed."
+  ],
+  "nextAction": {
+    "action": "Controller imports this exact-SHA original report, records formal RELEASE_READY, then pauses pairvu-2 and verifies the requested pause.",
+    "dependency": "Controller evidence import and state transition; no QA blocker remains.",
+    "proceedsAutomatically": true,
+    "userInputRequiredNow": false,
+    "futureRelease": "Needs new explicit user production-release authorization, then GitHub-first release order, feature enablement decision and independent production acceptance.",
+    "qaStateChanges": "None; QA does not alter controller registry or automation."
+  },
+  "artifactIndex": "/private/tmp/pairvu-upg06-qa2-jgahpahu/qa-source-index.json"
+}

@@ -1,0 +1,117 @@
+{
+  "unitId": "UPG-06",
+  "candidateSha": "c2740c35da10af34b5524c569211568214b3958c",
+  "baselineSha": "daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-12T00:53:23.903Z",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "Isolated git archive; baseline ancestry and 19 developer-declared source hashes independently matched committed candidate."
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": "New independently constructed UTF-8 budget counterexample; actual local D1 and actual application CSV route. No developer PASS relabelled."
+    },
+    {
+      "name": "UTF-8 over-limit evidence fails closed and CSV refuses incomplete source",
+      "status": "FAIL",
+      "detail": "72,656-byte evidence classified complete+eligible and exported by HTTP200; contract byte limit is65,536."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UPG06-QA-01",
+      "priority": "P1",
+      "title": "UTF-8 byte limits are implemented as character limits, permitting oversized eligible exports",
+      "file": "lib/releases/repository.ts",
+      "line": 30,
+      "rootCause": "SQLite length(TEXT) counts Unicode characters, while the immutable rule contract specifies KiB byte limits. Evidence/model usage, selected checks, product snapshot and review snapshot size predicates use text length.",
+      "contractRequirement": "Completeness is bounded to 64 KiB evidence/model usage; over-limit source is incomplete/blocked and export rejects with export_source_incomplete (409).",
+      "reproduction": [
+        "Use the actual local D1 with all production migrations and actual repositories/routes; controlled owning session and active paid entitlement.",
+        "Seed a completed supported quantity match with valid original image and model provenance.",
+        "Set evidence.raw.qaMultibyte to 24,000 Han characters, preserving normal comparison evidence. SQLite character length is 24,656 while UTF-8 size is 72,656 bytes.",
+        "Record a normal source-matching synthetic approval through actual submitReview.",
+        "Read actual workbench and call actual paid CSV GET with scope=page."
+      ],
+      "expected": {
+        "eligibility": "blocked",
+        "sourceComplete": false,
+        "sourceHash": null,
+        "reasonCode": "machine_source_over_limit",
+        "csvStatus": 409,
+        "csvError": "export_source_incomplete"
+      },
+      "actual": {
+        "analysisId": "qa-unicode-payload",
+        "evidenceLength": {
+          "sqliteCharacters": 24656,
+          "utf8Bytes": 72656
+        },
+        "eligibility": "eligible",
+        "sourceComplete": true,
+        "sourceHash": "f259d4ca8b91b7869b6ab9a7ba94df3cf7426c328c52d0a74161d6978e123b92",
+        "reasonCodes": [
+          "complete_source_approved"
+        ],
+        "csvStatus": 200,
+        "csvUtf8Bytes": 75435,
+        "csvContainsOversizeSource": true,
+        "policy": "release-policy-001"
+      },
+      "suggestedAcceptanceAfterRepair": "Enforce declared budgets in bytes consistently across all bounded text sources; cover multi-byte evidence/model usage, frozen-product snapshot and reviewed snapshot thresholds, including exact boundary and overflow. Bind renewed QA to a new fixed candidate."
+    }
+  ],
+  "commands": [
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-independent.ts qa-independent-d1-results.json",
+      "cwd": "/private/tmp/pairvu-upg06-qa-nzabm7dr",
+      "exitCode": 1,
+      "independentCases": 1,
+      "localD1Requests": 49,
+      "rawReport": "/private/tmp/pairvu-upg06-qa-nzabm7dr/qa-independent-d1-results.json",
+      "actualCounterexample": "/private/tmp/pairvu-upg06-qa-nzabm7dr/qa-utf8-payload-actual.json"
+    }
+  ],
+  "rawEvidenceDirectory": "/private/tmp/pairvu-upg06-qa-nzabm7dr",
+  "sourceIndex": "/private/tmp/pairvu-upg06-qa-nzabm7dr/qa-source-index.json",
+  "sourceIndexSha256": "fade2e3c4dabb3bc4c732713fb52f9cd8a231c3976aebfa251816725843ddb4f",
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Rule false-eligibility, tenant isolation and bounded source/export consistency require independent adversarial acceptance for UPG-06.",
+    "escalationCondition": "Repeated substantive failures attributable to reasoning insufficiency after narrowing; environment issues do not warrant escalation.",
+    "runtimeSettingNote": "Controller choice recorded; no model-setting tool used."
+  },
+  "preservation": {
+    "sharedSourceEditedByQA": false,
+    "sharedStatus": " M operations/contracts/UPG-06.md\n M operations/task-registry.json\n",
+    "originalCandidateFixturesPreserved": true,
+    "detail": "Candidate fixture failures and success evidence remain intact in the isolated archive and committed original. New QA source and outputs are only under /private/tmp. No shared application edit, commit, push or deployment."
+  },
+  "notExecutedAfterBlocker": [
+    "Remaining independent policy/ownership/pagination/concurrency/CSV edge cases",
+    "Independent browser desktop/narrow tests",
+    "Independent related regressions and typecheck",
+    "Independent build; developer build source binding checked but build was not used as acceptance PASS"
+  ],
+  "limitations": [
+    "Actual local workerd D1, production migrations, actual submitReview/listReleases/CSV routes; synthetic session/account boundaries and synthetic active paid entitlement only.",
+    "No production browser, database, customer asset, model or payment calls.",
+    "Stopped at first deterministic contract failure. Developer's56D1/40UI/35review/49structured regression evidence is not counted as independent QA execution.",
+    "No claim of full UPG06 acceptance or RELEASE_READY, production deployment, feature enablement or automation pause."
+  ],
+  "completion": {
+    "implementation": "Candidate rejected by independent acceptance; repair required.",
+    "deployment": "Not authorized and not performed.",
+    "featureEnablement": "Production default remains false; no enablement performed.",
+    "acceptance": "FAIL exact candidate c2740c35da10af34b5524c569211568214b3958c.",
+    "nextAction": "Controller returns UPG06-QA-01 to the original developer, then dispatches renewed fixed-SHA independent QA.",
+    "dependency": "Correct byte-bound source predicates and a new committed candidate; preserve original failure evidence.",
+    "automatic": "Existing development/acceptance authorization permits automatic repair and recheck. After actual PASS, controller records RELEASE_READY and pauses pairvu-2 as requested. Production still needs separate user authorization."
+  }
+}

@@ -22,3 +22,9 @@ lib/releases/**；app/account/releases/**；app/api/releases/**；components/Acc
 
 ## 回传与完成
 开发完整candidate SHA、允许diff、真实命令/证据/局限；QA unitId/candidateSha/reviewerThreadId/result/checks含fixed candidate SHA与independent QA report及独立反例。FAIL回原开发。通过正式RELEASE_READY，用户未授权UPG06生产。此时总控按用户选择暂停pairvu-2并核验结果，报告下一步：待新发布授权后GitHub-first迁移/部署/启用及真实生产验收。
+
+## 中断恢复
+2026-10-11恢复原开发未完成工作，继续Sol/high：跨租户过滤、保守规则及一致性风险未变，中断不构成升级理由。独立QA仍按本单元风险选Sol/high，候选提交前不验收。
+
+## UPG06-QA-01返工
+独立QA在c2740c3发现length(TEXT)字符计数绕过KiB字节上限。原开发本轮Sol/medium：根因和修改面明确，修正所有受限文本的UTF-8字节预算并补精确边界/超限，原FAIL保留。出现非计数型跨层缺陷再评估high。独立QA复验仍Sol/high，需完成此前因阻断未执行的其余契约验收，不止确认单反例。

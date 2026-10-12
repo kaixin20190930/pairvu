@@ -1,0 +1,104 @@
+{
+  "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "commands": [
+    {
+      "command": "pnpm test:structured-evidence --report qa-structured-regression.json",
+      "exitCode": 0,
+      "cases": 49,
+      "evidence": "qa-structured-regression.json"
+    },
+    {
+      "command": "pnpm test:review-decisions --report qa-review-regression.json",
+      "exitCode": 0,
+      "cases": 35,
+      "localD1Requests": 588,
+      "evidence": "qa-review-regression.json"
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "exitCode": 0,
+      "observedOutput": "M1 workspace analysis verification passed. Verified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "observedOutput": "No diagnostics; independently executed after QA script and UI fixture additions."
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-attempt2.ts qa-independent-d1-results.json",
+      "attempt": 1,
+      "exitCode": 1,
+      "cases": 80,
+      "localD1Requests": 1979,
+      "productFailure": false,
+      "evidence": "qa-independent-d1-attempt1-results.json",
+      "explanation": "Own fixture selected first shared-SKU result instead of analysis pass. Previous report and script preserved; only own new-case query selection corrected."
+    },
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-attempt2.ts qa-independent-d1-results.json",
+      "attempt": 2,
+      "exitCode": 0,
+      "cases": 91,
+      "localD1Requests": 2256,
+      "evidence": "qa-independent-d1-results.json",
+      "observedOutput": "PASS: 91 cases, 2256 local D1 requests"
+    },
+    {
+      "command": "node fixtures/release-workbench/ui-server.mjs + CUA local browser tab",
+      "port": 50082,
+      "status": "PASS",
+      "desktopCases": 26,
+      "narrowCases": 26,
+      "serverObservedOutput": [
+        "PASS: 26 desktop cases",
+        "PASS: 26 narrow cases"
+      ],
+      "browser": "Codex In-app Browser ID 2; temporary local tab ID 1",
+      "viewportDesktop": {
+        "width": 1280,
+        "height": 720
+      },
+      "viewportNarrow": {
+        "width": 373,
+        "height": 1498
+      },
+      "evidence": [
+        "fixtures/release-workbench/browser-desktop-results.json",
+        "fixtures/release-workbench/browser-narrow-results.json",
+        "qa-browser-ax.txt",
+        "/tmp/pairvu-upg06-qa-attempt2-ui.png"
+      ],
+      "cleanup": "Own tab closed; own server stopped with Ctrl-C (exit130); lsof port50082 returned exit1 with no listener."
+    },
+    {
+      "command": "python3 qa-bind-sources.py",
+      "exitCode": 0,
+      "sourceBindings": 19,
+      "preservedDeveloperArtifacts": 17,
+      "evidence": "qa-source-verification.json",
+      "instrumentationIncidents": [
+        "Initial binder treated manifest-relative artifact names as repo-relative; corrected prefix.",
+        "Second binder treated original artifact metadata object as a hash string; read sha256 field. Final actual committed hashes matched. Neither indicates a source or application mismatch."
+      ]
+    },
+    {
+      "command": "git diff --check daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5 65a8591710caa92b61db555e6e7abc289fc04767",
+      "exitCode": 0,
+      "evidence": "qa-candidate-diff-check.txt"
+    },
+    {
+      "command": "pnpm run build",
+      "independentlyExecutedThisAttempt": false,
+      "status": "REUSED_ORIGINAL_EVIDENCE",
+      "detail": {
+        "reusedFrom": "c2740c35da10af34b5524c569211568214b3958c",
+        "candidateBuildRerun": false,
+        "artifactSha256": "073f4a865590e0a0ca642f70df7ea8bdf0ae235ea25ef6d35f02d0832b610d5f",
+        "rawSha256": "86cfc41d045e97611cebfc7bb0aecedc0541980bba4f79b931097052f568e93b",
+        "originalExitCode": 0,
+        "reason": "Only runtime repair is SQL UTF-8 byte predicates; React/CSS/navigation/routes/interfaces unchanged. Exact candidate independently typechecked and local D1 executed. Prior build is retained evidence, not a full new candidate build claim."
+      }
+    }
+  ],
+  "outputNote": "Observed command summaries above; original tool command outputs remain in reviewer chat. JSON case reports and original build raw bytes retained, not fabricated terminal transcripts."
+}

@@ -1,0 +1,106 @@
+import assert from "node:assert/strict";
+import {createRequire} from "node:module";
+import {readFile,writeFile,mkdtemp,readdir} from "node:fs/promises";
+import {tmpdir} from "node:os";
+import {resolve,join} from "node:path";
+import {randomUUID,createHash} from "node:crypto";
+import type {D1Database,D1PreparedStatement} from "../lib/cloudflare/bindings";
+import type {RequestAccessContext} from "../lib/auth/request-access";
+import {submitReview} from "../lib/reviews/repository";
+import {persistCompletedAnalysis} from "../lib/analysis/repository";
+import {M0RiskPolicy} from "../lib/qa/m0-policy";
+import {unavailableRegion} from "../lib/qa/evidence-regions";
+import type {VisionObservation,M0CheckFamily} from "../lib/qa/types";
+import {listReleases,parseReleaseFilters,releasesEnabled} from "../lib/releases/repository";
+import {releasePolicy,sha256,canonical} from "../lib/releases/policy";
+import {csvCell} from "../lib/releases/csv";
+import type {ReleaseRow} from "../lib/releases/types";
+import type {ProductSnapshot} from "../lib/products/types";
+
+async function main() {
+  const require=createRequire(resolve("package.json")),wr=createRequire(require.resolve("wrangler/package.json")),{Miniflare}=wr("miniflare"),esbuild=wr("esbuild");
+  const temp=await mkdtemp(join(tmpdir(),"pairvu-releases-")),reportPath=resolve(process.argv[2]??"qa-independent-d1-results.json");
+  const report={unitId:"UPG-06",synthetic:true,status:"RUNNING",runtime:{node:process.version,wrangler:wr("wrangler/package.json").version,miniflare:wr("miniflare/package.json").version},cases:[] as Array<Record<string,unknown>>,sources:{} as Record<string,string>,requestCount:0,temporaryDirectory:temp,failure:undefined as unknown,limitations:["Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.","No production, model, R2 or payment calls; browser proof is recorded separately."]};
+  let mf:InstanceType<typeof Miniflare>|undefined,baseURL:URL,requests=0;
+  class Prepared implements D1PreparedStatement {
+    constructor(public sql:string,public params:unknown[]=[],public client:LocalD1){}
+    bind(...params:unknown[]){return new Prepared(this.sql,params,this.client);}
+    async all<T>(){return (await this.client.send([this]))[0] as {results:T[];success:boolean;meta:Record<string,unknown>};}
+    async first<T>(){return (await this.all<T>()).results[0]??null;}
+    async run(){return (await this.client.send([this]))[0];}
+  }
+  class LocalD1 implements D1Database {
+    afterSnapshot:(()=>Promise<void>)|null=null;failSnapshot=false;snapshotReads=0;
+    constructor(public worker="a"){}
+    prepare(sql:string){return new Prepared(sql,[],this);}
+    async send(statements:Prepared[]) {
+      const snapshot=statements.some(s=>s.sql.startsWith("SELECT a.id,a.created_at"));if(snapshot){this.snapshotReads++;if(this.failSnapshot){this.failSnapshot=false;throw new Error("Synthetic local D1 unavailable");}}
+      requests++;const response=await fetch(new URL(`/${this.worker}`,baseURL),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({statements:statements.map(s=>({sql:s.sql,params:s.params}))}),signal:AbortSignal.timeout(10000)});
+      const data=await response.json();assert.equal(data.worker,this.worker==="a"?"request-a":"request-b");if(!data.success)throw new Error(data.error);
+      if(snapshot&&this.afterSnapshot){const hook=this.afterSnapshot;this.afterSnapshot=null;await hook();}return data.results;
+    }
+    async batch<T>(statements:D1PreparedStatement[]):Promise<T[]>{return this.send(statements as Prepared[]);}
+  }
+  const db=new LocalD1(),other=new LocalD1("b"),now=new Date().toISOString();
+  const access:RequestAccessContext={authenticated:true,userId:"synthetic-user",workspaceId:"w1",anonymousSessionId:null,retentionDays:7};
+  const foreign={...access,userId:"other-user",workspaceId:"w2"};
+  const sql=async(q:string,...p:unknown[])=>db.prepare(q).bind(...p).all<Record<string,unknown>>();
+  const filters=(query="")=>parseReleaseFilters(new URLSearchParams(query));
+  async function all(query="",owner=access){return listReleases(db,owner,filters(query));}
+  async function row(id:string):Promise<ReleaseRow>{let cursor="";for(let i=0;i<30;i++){const page=await all(`limit=50${cursor?`&cursor=${cursor}`:""}`),found=page.rows.find(r=>r.analysisId===id);if(found)return found;if(!page.pagination.nextCursor)break;cursor=page.pagination.nextCursor;}throw new Error(`Missing fixture ${id}`);}
+  async function review(id:string,revision=0,action:"approve"|"reject"|"revoke"="approve",reason="Synthetic release QA approval",client:D1Database=db){return submitReview(client,id,access,{expectedRevision:revision,action,requestId:randomUUID(),category:"other",reason,note:"PRIVATE synthetic note excluded from release export"});}
+  function statements(source:string){const out:string[]=[];let buffer="",quote=false,comment=false;for(let i=0;i<source.length;i++){const c=source[i];if(comment){if(c==="\n"){comment=false;buffer+="\n";}continue;}if(!quote&&c==="-"&&source[i+1]==="-"){comment=true;i++;continue;}buffer+=c;if(c==="'"){if(quote&&source[i+1]==="'"){buffer+=source[++i];continue;}quote=!quote;}if(c===";"&&!quote&&(!/^\s*create\s+trigger/i.test(buffer)||/\bend\s*;$/i.test(buffer))){out.push(buffer.trim());buffer="";}}if(buffer.trim())out.push(buffer.trim());return out;}
+  async function test(name:string,fn:()=>Promise<unknown>){try{const detail=await fn();report.cases.push({name,status:"PASS",...(detail?{detail}:{})});console.log(`PASS ${name}`);}catch(error){report.cases.push({name,status:"FAIL",failure:String(error)});throw error;}}
+  function observation(checkType:M0CheckFamily,referenceAssetId:string,candidateAssetId:string,mismatch=false):VisionObservation {
+    const identity=checkType==="logo"?{reference:"Northstar",candidate:mismatch?"Southstar":"Northstar",referenceKind:"brand_name" as const,candidateKind:"brand_name" as const,validationVersion:"identity-evidence-004"}:checkType==="visible_text"?{reference:"NORTHSTAR 500 ML",candidate:"NORTHSTAR 500 ML",referenceKind:"readable_text" as const,candidateKind:"readable_text" as const,validationVersion:"identity-evidence-004"}:undefined;
+    return {checkType,status:mismatch?"mismatch":"match",differenceKind:mismatch?(checkType==="logo"?"brand_changed":"count_changed"):"none",observability:{reference:"observable",candidate:"observable",coverage:"sufficient"},confidence:"high",explanation:"Synthetic directly comparable product evidence.",evidence:{referenceObservation:"Northstar label and complete product are visible.",candidateObservation:"Northstar label and complete product are visible.",comparisonSummary:"Synthetic comparison of the visible product.",visibleEvidence:["Readable Northstar brand and visible product."],identityEvidence:identity,regions:{schemaVersion:1,reference:unavailableRegion(referenceAssetId,"uncertain_location"),candidate:unavailableRegion(candidateAssetId,"uncertain_location")}}};
+  }
+  async function seed(id:string,opts:{workspace?:string;checks?:M0CheckFamily[];mismatch?:boolean}={}) {
+    const workspace=opts.workspace??"w1",ref=`${id}-ref`,cand=`${id}-cand`,selected=opts.checks??["logo","visible_text","quantity","dominant_color","major_components","major_shape_packaging"];
+    await db.batch([...[ref,cand].map((asset,i)=>db.prepare("INSERT INTO assets(id,workspace_id,kind,asset_type,mime_type,file_size_bytes,sha256,r2_key_original,status,retention_expires_at,created_at,updated_at) VALUES(?, ?, ?, 'image','image/png',10,'synthetic','synthetic/local-only','analyzed','2099-12-31T00:00:00.000Z',?,?)").bind(asset,workspace,i?"candidate":"reference",now,now)),db.prepare("INSERT INTO analyses(id,workspace_id,reference_asset_id,candidate_asset_id,selected_checks_json,status,created_at,updated_at) VALUES(?,?,?, ?,?,'running',?,?)").bind(id,workspace,ref,cand,JSON.stringify(selected),now,now)]);
+    const observations=selected.map(check=>observation(check,ref,cand,opts.mismatch&&check===selected[0])),risk=new M0RiskPolicy().decide({analysisId:id,selectedChecks:selected,observations,limitations:[]});
+    await persistCompletedAnalysis(db,{...risk,analysisId:id,observations,versions:{qaEngineVersion:"m0-qa-engine-008",riskPolicyVersion:"m0-risk-policy-003",modelPolicyVersion:"m0-model-policy-002"},modelCalls:[{provider:"openai",model:"gpt-4.1-mini",promptVersion:"m0-real-mvp-009+regions-003",latencyMs:1}],latencyMs:1},{workspaceId:workspace,referenceAssetId:ref,candidateAssetId:cand,selectedChecks:selected});return id;
+  }
+  const productId=randomUUID(),profileId=randomUUID(),referenceId=randomUUID();
+  function snapshot(id:string,sku="SKU-FROZEN",pid=productId):ProductSnapshot{return {schemaVersion:1,productId:pid,revision:1,profileVersionId:profileId,profileVersionNumber:1,profile:{profileSchemaVersion:1,name:"Frozen synthetic product",skuLabel:sku,brand:"Northstar",variant:null,capacity:null,packagingVersion:null,criticalAttributes:[],allowedChanges:[]},referenceVersionId:referenceId,referenceVersionNumber:1,referenceRole:"front",referenceAssetId:`${id}-ref`,boundAt:now};}
+  async function bind(id:string,sku="SKU-FROZEN",pid=productId,hash?:string){const s=snapshot(id,sku,pid),json=JSON.stringify(s);await sql("INSERT INTO analysis_product_snapshots(analysis_id,workspace_id,product_id,product_revision,profile_version_id,reference_version_id,snapshot_json,snapshot_sha256,bound_at) VALUES(?,'w1',?,1,?,?, ?,?,?)",id,pid,profileId,referenceId,json,hash??await sha256(json),now);}
+  const routes:Record<string,{GET:(request:Request,context?:unknown)=>Promise<Response>}>={};
+  const globals=globalThis as typeof globalThis & {__releaseEnv?:unknown;__releaseSession?:unknown;__releaseAccount?:unknown};
+  const call=async(path="",query="")=>routes[path].GET(new Request(`https://synthetic.pairvu.test/api/releases${path}?${query}`));
+  try {
+    const options=(name:string)=>({name,modules:true,scriptPath:resolve("fixtures/release-workbench/sql-worker.mjs"),compatibilityDate:"2026-07-26",d1Databases:{DB:"synthetic-releases"},bindings:{NAME:name},outboundService:async()=>new Response("Outbound disabled",{status:403})});
+    mf=new Miniflare({host:"127.0.0.1",port:0,cf:false,d1Persist:join(temp,"d1"),workers:[{...options("request-a"),serviceBindings:{PEER:"request-b"}},options("request-b")]});baseURL=await mf.ready;
+    for(const file of (await readdir("migrations")).filter(f=>f.endsWith(".sql")).sort())await db.batch(statements(await readFile(join("migrations",file),"utf8")).map(s=>db.prepare(s)));
+    await db.batch([db.prepare("INSERT INTO user(id,name,email,emailVerified,createdAt,updatedAt) VALUES('synthetic-user','Synthetic','synthetic@example.test',1,0,0),('other-user','Other','other@example.test',1,0,0)"),...['w1','w2'].map(id=>db.prepare("INSERT INTO workspaces VALUES(?,'personal','Synthetic','active','authenticated_7d',?,?)").bind(id,now,now)),db.prepare("INSERT INTO workspace_memberships VALUES('m1','w1','synthetic-user','owner',?,?),('m2','w2','other-user','owner',?,?)").bind(now,now,now,now),db.prepare("INSERT INTO workspace_subscriptions(id,workspace_id,plan_code,provider,status,current_period_start,current_period_end,created_at,updated_at) VALUES('subscription','w1','free','internal','active','2026-01-01','2099-01-01',?,?)").bind(now,now)]);
+    const stubs:Record<string,string>={"@/lib/cloudflare/bindings":"export const getVisualQAEnv=()=>globalThis.__releaseEnv;","@/lib/auth/server":"export const createPairvuAuth=()=>({api:{getSession:async()=>globalThis.__releaseSession}});","@/lib/accounts/repository":`export const getWorkspaceAccountSnapshot=async()=>globalThis.__releaseAccount;export {getWorkspaceBatchEntitlement} from ${JSON.stringify(resolve("lib/accounts/repository.ts"))};`};
+    for(const path of ["","/status","/export","/batch"]){const entry=resolve(path==="/batch"?"app/api/batches/[batchId]/export/route.ts":`app/api/releases${path}/route.ts`),generated=join(temp,`${path.replaceAll("/","")||"list"}.cjs`);await esbuild.build({entryPoints:[entry],bundle:true,platform:"node",format:"cjs",outfile:generated,plugins:[{name:"synthetic-session-only",setup(b:{onResolve:(o:unknown,f:(a:{path:string})=>unknown)=>void;onLoad:(o:unknown,f:(a:{path:string})=>unknown)=>void}){b.onResolve({filter:/^@\//},a=>stubs[a.path]?{path:a.path,namespace:"session-fixture"}:undefined);b.onLoad({filter:/.*/,namespace:"session-fixture"},a=>({contents:stubs[a.path],loader:"js",resolveDir:resolve(".")}));}}]});routes[path]=require(generated);}
+    const pageGenerated=join(temp,"page.cjs"),pageStubs={...stubs,"next/headers":"export const headers=async()=>new Headers();","next/navigation":"export function redirect(url){throw new Error('REDIRECT:'+url)};export function notFound(){throw new Error('NOT_FOUND')};export const usePathname=()=>'/account/releases';export const useSearchParams=()=>new URLSearchParams();"};
+    await esbuild.build({entryPoints:[resolve("app/account/releases/page.tsx")],bundle:true,platform:"node",format:"cjs",outfile:pageGenerated,plugins:[{name:"synthetic-next-host",setup(b:{onResolve:(o:unknown,f:(a:{path:string})=>unknown)=>void;onLoad:(o:unknown,f:(a:{path:string})=>unknown)=>void}){b.onResolve({filter:/^(@\/|next\/(headers|navigation)$)/},a=>pageStubs[a.path as keyof typeof pageStubs]?{path:a.path,namespace:"page-fixture"}:undefined);b.onLoad({filter:/.*/,namespace:"page-fixture"},a=>({contents:pageStubs[a.path as keyof typeof pageStubs],loader:"js",resolveDir:resolve(".")}));}}]});const page=require(pageGenerated).default;
+    globals.__releaseEnv={VISUALQA_DB:db,RELEASE_WORKBENCH_ENABLED:"true"};globals.__releaseSession={user:{id:"synthetic-user",name:"Synthetic",email:"synthetic@example.test"}};globals.__releaseAccount={workspaceId:"w1",retentionDays:7};
+
+    await sql("UPDATE workspace_subscriptions SET plan_code='starter',status='active' WHERE workspace_id='w1'");
+    await test("QA UTF-8 machine-source byte limit blocks multibyte evidence and refuses actual CSV",async()=>{
+      const id=await seed("qa-unicode-payload",{checks:["quantity"]});
+      const stored=(await sql("SELECT evidence_json FROM analysis_observations WHERE analysis_id=?",id)).results[0];
+      const evidence=JSON.parse(String(stored.evidence_json));evidence.raw={qaMultibyte:"汉".repeat(24000)};
+      const json=JSON.stringify(evidence);
+      await sql("UPDATE analysis_observations SET evidence_json=? WHERE analysis_id=?",json,id);
+      await review(id);
+      const r=await row(id);
+      const size=(await sql("SELECT length(evidence_json) AS sqliteCharacters,length(CAST(evidence_json AS BLOB)) AS utf8Bytes FROM analysis_observations WHERE analysis_id=?",id)).results[0];
+      const response=await call("/export","scope=page");
+      const body=await response.text();
+      const actual={analysisId:id,evidenceLength:size,eligibility:r.eligibility,sourceComplete:r.machine.sourceComplete,sourceHash:r.machine.sourceHash,reasonCodes:r.reasons.map(v=>v.code),csvStatus:response.status,csvUtf8Bytes:Buffer.byteLength(body,"utf8"),csvContainsOversizeSource:body.includes(evidence.raw.qaMultibyte),policy:r.policyVersion};
+      await writeFile("qa-utf8-payload-actual.json",JSON.stringify(actual,null,2)+"\n");
+      assert(Number(size.sqliteCharacters)<65536&&Number(size.utf8Bytes)>65536);
+      assert.equal(r.machine.sourceComplete,false,"64 KiB evidence limit must count UTF-8 bytes; oversized non-ASCII source must not be complete");
+      assert.equal(r.eligibility,"blocked");
+      assert(r.reasons.some(v=>v.code==="machine_source_over_limit"));
+      assert.equal(response.status,409);
+      return actual;
+    });
+    report.status="PASS";
+  }catch(error){report.status="FAIL";report.failure={message:String(error),stack:error instanceof Error?error.stack:undefined};process.exitCode=1;}
+  finally{if(mf)await mf.dispose();report.requestCount=requests;for(const file of ["lib/releases/policy.ts","lib/releases/repository.ts","lib/releases/csv.ts","lib/releases/http.ts","lib/analysis/repository.ts","scripts/verify-release-workbench.ts","scripts/qa-upg06-independent.ts","fixtures/release-workbench/sql-worker.mjs","app/api/releases/route.ts","app/api/releases/status/route.ts","app/api/releases/export/route.ts"])report.sources[file]=createHash("sha256").update(await readFile(file)).digest("hex");await writeFile(reportPath,JSON.stringify(report,null,2)+"\n");console.log(`${report.status}: ${report.cases.length} cases, ${requests} local D1 requests; ${reportPath}`);}
+}
+void main();

@@ -1,0 +1,45 @@
+{
+  "unitId": "UPG-06",
+  "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "UPG06-QA-01 original counterexample and UTF-8 boundaries",
+      "status": "PASS"
+    },
+    {
+      "name": "full actual D1 contract and independent counterexamples",
+      "status": "PASS"
+    },
+    {
+      "name": "actual desktop and narrow React workbench",
+      "status": "PASS"
+    },
+    {
+      "name": "review, evidence and workspace regressions",
+      "status": "PASS"
+    },
+    {
+      "name": "typecheck, scope and build evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "preserve evidence and shared work",
+      "status": "PASS"
+    }
+  ],
+  "sourceReport": {
+    "path": "operations/evidence/UPG-06.json",
+    "sha256": "a7de5a3ebf922a44e51cb86212648ed2851f36437beeef56cfbbb659aa0f0d11"
+  },
+  "normalization": "Controller structural adapter only: original QA checks[].result renamed to CLI-required checks[].status; names and conclusions copied exactly. Original report is byte-preserved; no new validation or PASS inferred."
+}

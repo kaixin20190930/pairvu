@@ -1,0 +1,88 @@
+import React,{act} from "react";
+import {createRoot} from "react-dom/client";
+import {ReleaseWorkbenchClient} from "../../app/account/releases/ReleaseWorkbenchClient";
+import {AccountWorkspaceNav} from "../../components/AccountWorkspaceNav";
+import type {ReleasePage} from "../../lib/releases/types";
+(globalThis as typeof globalThis & {IS_REACT_ACT_ENVIRONMENT:boolean}).IS_REACT_ACT_ENVIRONMENT=true;
+const nativeFetch=globalThis.fetch.bind(globalThis),mode=new URLSearchParams(location.search).get("mode")??"desktop",root=document.getElementById("app")!,cases:Array<Record<string,unknown>>=[],requests:Array<Record<string,unknown>>=[],errors:string[]=[],tick=()=>new Promise(r=>setTimeout(r,25));
+window.addEventListener("error",e=>errors.push(e.message));
+function check(value:unknown,message:string):asserts value {if(!value)throw new Error(message);}
+async function main(){
+ const sample:ReleasePage=await(await nativeFetch("/page.json")).json();let scenario="normal",enabled=true,paid=true,failExport=false,qaStatusFailure=false,qaExportIncomplete=false,qaDeferList=false,qaDeferExport=false;let qaHeldList:((value:Response)=>void)|null=null,qaHeldExport:((value:Response)=>void)|null=null;
+ const output=()=>{const p=structuredClone(sample),r=p.rows[0];p.rows=[r];r.productSnapshot={schemaVersion:1,productId:"synthetic-product",revision:1,profileVersionId:"profile-1",profileVersionNumber:1,profile:{profileSchemaVersion:1,name:"Frozen synthetic product",skuLabel:"FROZEN-SKU",brand:null,variant:null,capacity:null,packagingVersion:null,criticalAttributes:[],allowedChanges:[]},referenceVersionId:"reference-1",referenceVersionNumber:1,referenceRole:"front",referenceAssetId:"synthetic-ref",boundAt:p.evaluatedAt};
+  if(scenario==="blocked"){r.machine.verdict="fail";r.machine.issueCount=1;r.eligibility="blocked";r.reasons=[{code:"high_risk_difference",message:"High or critical machine differences remain blocked even after human approval."}];}
+  if(scenario==="limited"){r.machine.verdict="review";r.machine.limitations=[{type:"candidate_insufficient",message:"Synthetic missing product view."}];r.eligibility="blocked";r.reasons=[{code:"machine_limitations_present",message:"Machine limitations remain unresolved."}];}
+  if(scenario==="revoked"){r.human.action="revoke";r.human.revision=3;r.eligibility="needs_review";r.reasons=[{code:"human_approval_required",message:"Approval was revoked; a new explicit decision is required."}];}
+  if(scenario==="deleted"){r.assets.candidateAvailable=false;r.eligibility="blocked";r.reasons=[{code:"assets_unavailable",message:"Original candidate image is unavailable."}];}
+  if(scenario==="qa-escape"){r.productSnapshot!.profile.name="<svg onload=alert(1)>QA frozen name</svg>";r.human.reason="<img src=x onerror=alert(1)>QA reason "+"汉".repeat(900);}
+  if(scenario==="qa-incomplete"){r.machine.sourceComplete=false;r.machine.sourceHash=null;r.eligibility="blocked";r.reasons=[{code:"machine_source_over_limit",message:"Machine source exceeds the supported UTF-8 byte limit."}];}
+  if(scenario==="empty")p.rows=[];
+  if(scenario==="continuation"){p.rows=[];p.pagination={...p.pagination,hasMore:true,nextCursor:"synthetic-next",scanned:100,scanWindowExhausted:true};}
+  return p;
+ };
+ globalThis.fetch=async(input,init)=>{const url=new URL(String(input),location.origin),json=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}});requests.push({path:url.pathname,query:Object.fromEntries(url.searchParams),method:init?.method??"GET"});
+  if(url.pathname==="/api/releases/status"){if(qaStatusFailure)return json({message:"QA status unavailable"},503);return enabled?json({enabled:true,csvExportEnabled:paid}):json({error:"release_workbench_disabled"},404);}
+  if(url.pathname==="/api/releases/export"){if(qaDeferExport){qaDeferExport=false;return new Promise<Response>(resolve=>{qaHeldExport=resolve;});}if(qaExportIncomplete)return json({error:"export_source_incomplete",message:"Full original source exceeds the UTF-8 limit; this page cannot be exported."},409);if(failExport||!paid)return json({message:"CSV export is included with active paid plans."},403);return new Response('"bounded","synthetic"',{headers:{"Content-Type":"text/csv","X-Release-Has-More":"true"}});}
+  if(url.pathname==="/api/releases"){if(qaDeferList){qaDeferList=false;return new Promise<Response>(resolve=>{qaHeldList=resolve;});}
+   if(!enabled)return json({message:"Release workbench is currently unavailable."},404);
+   if(scenario==="error")return json({message:"Synthetic D1 read unavailable; retry."},503);
+   const p=output();if(scenario==="continuation"&&url.searchParams.get("cursor")){p.rows=structuredClone(sample.rows);p.pagination.hasMore=false;p.pagination.nextCursor=null;}return json(p);
+  }
+  throw new Error(`Unexpected request ${url}`);
+ };
+ // Download behavior is captured without navigating away; actual Blob and link creation still execute.
+ const downloads:string[]=[];const nativeClick=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(this.download){downloads.push(this.download);return;}nativeClick.call(this);};
+ const app=createRoot(root);let key=0;
+ async function mount(){await act(async()=>{app.render(<><AccountWorkspaceNav key={`nav-${key}`}/><ReleaseWorkbenchClient key={`client-${key++}`}/></>);await tick();});await act(tick);}
+ const button=(text:string)=>Array.from(root.querySelectorAll<HTMLButtonElement>("button")).find(b=>b.textContent?.includes(text))!;
+ async function click(element:HTMLElement){check(element,"Missing UI control");await act(async()=>{element.click();await tick();});await act(tick);}
+ async function search(){await click(button("Search"));}
+ async function enter(name:string,value:string){const element=root.querySelector<HTMLInputElement|HTMLSelectElement>(`[name="${name}"]`)!;await act(async()=>{Object.getOwnPropertyDescriptor(element instanceof HTMLSelectElement?HTMLSelectElement.prototype:HTMLInputElement.prototype,"value")!.set!.call(element,value);element.dispatchEvent(new Event(element instanceof HTMLSelectElement?"change":"input",{bubbles:true}));});}
+ async function test(name:string,fn:()=>Promise<void>|void){try{await fn();cases.push({name,status:"PASS"});}catch(error){cases.push({name,status:"FAIL",failure:String(error)});throw error;}}
+ let status="PASS",failure:unknown;
+ try{
+  await mount();
+  await test("actual workbench separates PASS, approve revision and eligible",()=>{for(const v of ["Machine result","PASS","Human decision","approve","Revision 1","Rule eligibility","eligible"])check(root.textContent?.includes(v),v);});
+  await test("frozen SKU and standard/reference versions shown without current product join",()=>{check(root.textContent?.includes("Frozen SKU: FROZEN-SKU"),"SKU missing");check(root.textContent?.includes("standard v1 · reference v1"),"Frozen versions missing");});
+  await test("immutable release version, hash and provenance remain available",async()=>{check(root.textContent?.includes(sample.policy.version),"Rule version missing");await click(root.querySelector("summary")!);check(root.textContent?.includes(sample.policy.hash),"Rule hash missing");check(root.textContent?.includes("Machine SHA-256"),"Machine source hash missing");});
+  await test("detail returns to existing analysis review and nav marks Releases",()=>{const detail=Array.from(root.querySelectorAll("a")).find(a=>a.textContent?.includes("View evidence"))!;check(detail.getAttribute("href")===`/?analysis=${sample.rows[0].analysisId}`,"Wrong existing analysis URL");check(root.querySelector('a[href="/account/releases"]')?.getAttribute("aria-current")==="page","Nav not current");});
+  scenario="blocked";await search();
+  await test("human approve cannot hide machine FAIL or high-risk block",()=>{check(root.textContent?.includes("FAIL"),"FAIL lost");check(root.textContent?.includes("approve"),"Human approve lost");check(root.textContent?.includes("high_risk_difference"),"Block reason missing");});
+  scenario="limited";await search();await test("REVIEW limitations visible alongside blocking rule",()=>{check(root.textContent?.includes("REVIEW"),"REVIEW lost");check(root.textContent?.includes("candidate_insufficient: Synthetic missing product view."),"Limitation hidden");});
+  scenario="revoked";await search();await test("revoke has current revision and needs review",()=>{check(root.textContent?.includes("Revision 3"),"Revision missing");check(root.textContent?.includes("needs review"),"Revoke silently approved");});
+  scenario="deleted";await search();await test("deleted image explicitly unavailable and blocked",()=>{check(root.textContent?.includes("Candidate image: unavailable"),"Deleted image hidden");check(root.textContent?.includes("assets_unavailable"),"Unavailable reason missing");});
+  scenario="normal";await enter("sku","=FROZEN-SKU");await enter("productId","synthetic-product");await enter("batchId","synthetic-batch");await enter("state","blocked");await search();
+  await test("strict bounded exact filters sent to API without client identity",()=>{const req=requests.filter(r=>r.path==="/api/releases").at(-1)!,q=req.query as Record<string,string>;check(q.sku==="=FROZEN-SKU"&&q.productId==="synthetic-product"&&q.batchId==="synthetic-batch"&&q.state==="blocked"&&q.limit==="20","Filters not sent");check(!("workspaceId"in q)&&!("actorId"in q),"Client identity sent");});
+  await enter("sku","UNAPPLIED-DRAFT");await click(button("Export this"));
+  await test("paid export explicitly uses current applied bounded page and scope",()=>{const q=requests.filter(r=>r.path==="/api/releases/export").at(-1)!.query as Record<string,string>;check(q.scope==="page"&&q.sku==="=FROZEN-SKU"&&q.limit==="20","Export mismatch");check(downloads.length===1,"Download missing");check(root.textContent?.includes("More source records remain"),"Export continuation hidden");});
+  failExport=true;await click(button("Export this"));await test("export permission failure appears visibly",()=>check(root.querySelector('[role="alert"]')?.textContent?.includes("active paid plans"),"Export error hidden"));failExport=false;
+  scenario="continuation";await search();await test("empty scan is not presented as complete search",()=>{check(root.textContent?.includes("No matching records in this scan window"),"Empty continuation hidden");check(button("Continue search"),"Missing continuation");check(root.textContent?.includes("not a complete search result"),"Truncation silent");});
+  await click(button("Continue search"));await test("continuation finds later rows and reaches explicit end",()=>{check(root.querySelectorAll("article").length===sample.rows.length,"Late rows skipped");check(root.textContent?.includes("End of the current search"),"End missing");check((requests.filter(r=>r.path==="/api/releases").at(-1)!.query as Record<string,string>).cursor==="synthetic-next","Cursor missing");});
+  scenario="empty";await click(button("Back to first"));await test("terminal empty state suggests changed filters",()=>check(root.textContent?.includes("No matching release records. Try another SKU"),"Empty state missing"));
+  scenario="error";await search();await test("D1 error has retry without stale eligible rows",()=>{check(root.querySelector('[role="alert"]')?.textContent?.includes("Synthetic D1 read unavailable"),"Error hidden");check(root.querySelectorAll("article").length===0,"Stale rows retained");});
+  scenario="normal";await click(button("Retry"));await test("retry recovers actual component",()=>check(root.querySelectorAll("article").length===1,"Retry failed"));
+  paid=false;await mount();await test("free plan disables CSV but retains readable workbench",()=>{check(button("Export this").disabled,"Free export enabled");check(root.textContent?.includes("requires an active paid plan"),"Paid explanation missing");check(root.querySelectorAll("article").length===1,"Free read hidden");});
+  enabled=false;await mount();await test("feature off hides navigation and rejects workbench",()=>{check(!root.querySelector('a[href="/account/releases"]'),"Disabled nav still shown");check(root.textContent?.includes("currently unavailable"),"Disabled route not visible");});
+  enabled=true;paid=true;scenario="normal";await mount();
+
+  scenario="qa-escape";await search();
+  await test("QA markup and long UTF-8 human reason remain escaped and within viewport",()=>{const card=root.querySelector("article")!;check(card.textContent?.includes("<svg onload=alert(1)>QA frozen name</svg>"),"Frozen name not escaped");check(card.textContent?.includes("<img src=x onerror=alert(1)>QA reason"),"Reason not escaped");check(!card.querySelector("svg,img"),"User markup became an element");check(document.documentElement.scrollWidth<=innerWidth+1,"Long UTF-8 text overflows viewport");});
+  scenario="qa-incomplete";await search();
+  await test("QA incomplete source is explicitly blocked and has no full source hash",()=>{check(root.textContent?.includes("bounded diagnostic source"),"Missing null-hash explanation");check(root.textContent?.includes("full original source could not be read"),"Missing completeness explanation");check(root.textContent?.includes("machine_source_over_limit"),"Byte budget reason hidden");});
+  qaExportIncomplete=true;const priorDownloads=downloads.length;await click(button("Export this"));
+  await test("QA source-incomplete CSV409 is visible and creates no download",()=>{check(root.querySelector('[role="alert"]')?.textContent?.includes("cannot be exported"),"Source refusal hidden");check(downloads.length===priorDownloads,"Partial source downloaded");});qaExportIncomplete=false;
+  scenario="normal";qaDeferList=true;await search();check(qaHeldList,"Deferred list not started");await mount();
+  await act(async()=>{(qaHeldList as unknown as (value:Response)=>void)(new Response(JSON.stringify({message:"QA aborted stale list"}),{status:503,headers:{"Content-Type":"application/json"}}));await tick();});await act(tick);
+  await test("QA aborted list after remount cannot overwrite live records with stale error",()=>{check(root.querySelectorAll("article").length===1,"Live record lost");check(!root.textContent?.includes("QA aborted stale list"),"Aborted request overwrote state");});
+  qaDeferExport=true;const beforeStaleExport=downloads.length;await click(button("Export this"));check(qaHeldExport,"Deferred export not started");await enter("sku","QA-NEW-APPLIED-SEARCH");await search();
+  await act(async()=>{(qaHeldExport as unknown as (value:Response)=>void)(new Response('"stale","export"',{headers:{"Content-Type":"text/csv","X-Release-Has-More":"true"}}));await tick();});await act(tick);
+  await test("QA export completing after search change produces no stale download or success notice",()=>{check(downloads.length===beforeStaleExport,"Old search downloaded after new search");check(!root.textContent?.includes("bounded page was exported"),"Old export showed success");});
+  qaStatusFailure=true;await mount();
+  await test("QA unavailable entitlement status fails closed for CSV and navigation",()=>{check(button("Export this").disabled,"CSV granted during status outage");check(!root.querySelector('a[href="/account/releases"]'),"Nav granted on failed status");check(root.querySelectorAll("article").length===1,"Safe list failed unexpectedly");});qaStatusFailure=false;await mount();
+  await test("desktop/narrow layout has no horizontal overflow or clipped cards",()=>{check(document.documentElement.scrollWidth<=window.innerWidth+1,"Horizontal viewport overflow");for(const card of root.querySelectorAll("article")){const rect=card.getBoundingClientRect();check(rect.left>=0&&rect.right<=window.innerWidth+1,"Card clipped");}const cols=root.querySelector('h3')!.parentElement!.parentElement!,layout=getComputedStyle(cols).gridTemplateColumns;if(mode==="narrow")check(layout.split(" ").length===1,"Narrow layout not stacked");else check(layout.split(" ").length===3,"Desktop columns not separate");});
+  await test("no unexpected browser errors or machine/review writes",()=>{check(errors.length===0,errors.join("\n"));check(requests.every(r=>r.method==="GET"),"Workbench wrote a decision");});
+ }catch(error){status="FAIL";failure=String(error);}
+ const report={unitId:"UPG-06",synthetic:true,status,mode,viewport:{width:innerWidth,height:innerHeight},cases,requests,errors,failure,limitations:["Actual React workbench and navigation with controlled API responses and Next Link/navigation boundaries.","Route/D1 ownership, rule and concurrency proof recorded separately; no production authentication, model, R2 or payment."]};
+ await nativeFetch("/__results",{method:"POST",body:JSON.stringify(report)});document.getElementById("summary")!.textContent=`${status}: ${cases.length} ${mode} release UI cases${failure?` — ${failure}`:""}`;
+}
+void main();

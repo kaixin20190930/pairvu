@@ -1,0 +1,197 @@
+{
+  "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "baselineSha": "daaeda7ad55c7b6b065c4c01cf82f53001dd5ba5",
+  "rejectedCandidate": "c2740c35da10af34b5524c569211568214b3958c",
+  "status": "PASS",
+  "bindings": [
+    {
+      "path": "lib/releases/repository.ts",
+      "sha256": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/releases/csv.ts",
+      "sha256": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/releases/http.ts",
+      "sha256": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/releases/types.ts",
+      "sha256": "d74ab50c432bee761a37017ec026e8a00593b73575230b1e6587d7d2e9edadbe",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/releases/policy.ts",
+      "sha256": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/account/releases/ReleaseWorkbenchClient.tsx",
+      "sha256": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/account/releases/releases.module.css",
+      "sha256": "c607101013fedfa086931e2e64cb3797fd93ed84d5d65f03a012fd269a04ca68",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/account/releases/page.tsx",
+      "sha256": "acb64ebd0c72897bca8d8c2af8b081918516e077ecb4eff2c14182bf91a1ff3f",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/api/releases/route.ts",
+      "sha256": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/api/releases/status/route.ts",
+      "sha256": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/api/releases/export/route.ts",
+      "sha256": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/analysis/repository.ts",
+      "sha256": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+      "exactCandidate": true
+    },
+    {
+      "path": "lib/cloudflare/bindings.ts",
+      "sha256": "2057f4e725bf9667b45e91bb0580ac0e02f52e95eaa12d3d001d49c0b36c64a1",
+      "exactCandidate": true
+    },
+    {
+      "path": "components/AccountWorkspaceNav.tsx",
+      "sha256": "540b9dfce49a5af4594c53d21171117b05fd1960a1b19b5326271c90e088c117",
+      "exactCandidate": true
+    },
+    {
+      "path": "app/api/batches/[batchId]/export/route.ts",
+      "sha256": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f",
+      "exactCandidate": true
+    },
+    {
+      "path": "wrangler.jsonc",
+      "sha256": "120ea4103f58d25747c49e31cbdde9a219fdfecd433e5549da78935ad3605c91",
+      "exactCandidate": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "3a68846c26ec69c857d75772f13b49de03837226fcdb8e6b1ce09c967c0eba7f",
+      "exactCandidate": true
+    },
+    {
+      "path": "scripts/verify-release-workbench.ts",
+      "sha256": "f0166e2f22ad2182cc3999dc9becd07d07631637b2340d6563f1acc1a961e73d",
+      "exactCandidate": true
+    },
+    {
+      "path": "docs/01-architecture/release-workbench-contract.md",
+      "sha256": "9d96fb306fee56de0fdf2df8906f1f02607e67eb68e6f8648e8128a1ecab11cb",
+      "exactCandidate": true
+    }
+  ],
+  "verifiedReportSources": true,
+  "repairNonFixturePaths": [
+    "docs/01-architecture/release-workbench-contract.md",
+    "lib/releases/repository.ts",
+    "scripts/verify-release-workbench.ts"
+  ],
+  "build": {
+    "reusedFrom": "c2740c35da10af34b5524c569211568214b3958c",
+    "candidateBuildRerun": false,
+    "artifactSha256": "073f4a865590e0a0ca642f70df7ea8bdf0ae235ea25ef6d35f02d0832b610d5f",
+    "rawSha256": "86cfc41d045e97611cebfc7bb0aecedc0541980bba4f79b931097052f568e93b",
+    "originalExitCode": 0,
+    "reason": "Only runtime repair is SQL UTF-8 byte predicates; React/CSS/navigation/routes/interfaces unchanged. Exact candidate independently typechecked and local D1 executed. Prior build is retained evidence, not a full new candidate build claim."
+  },
+  "originalFailureSha256": "ca282ba845ab596be4d823328bd1c796af24d9c45b9702ecc921d2de8b7b3eac",
+  "preservedDeveloperArtifacts": [
+    {
+      "path": "fixtures/release-workbench/d1-final-3-results.json",
+      "sha256": "6a5d84d51c8e8ec152b076c0c4075935b858700a997771fab8540c83726b4012"
+    },
+    {
+      "path": "fixtures/release-workbench/browser-desktop-results.json",
+      "sha256": "a861efb0d4657d3358167f9e51bfe30110fb357600a69a475bf2b173dc22eb4f"
+    },
+    {
+      "path": "fixtures/release-workbench/browser-narrow-results.json",
+      "sha256": "83dd22862c00a154730656dcbdfcb8fa02aacfeac373cfbcc0f190ecee427e7d"
+    },
+    {
+      "path": "fixtures/release-workbench/review-regression.json",
+      "sha256": "29018bea05bf74ca7a84426da5003566bb27fb94b7f1800170422e7e3e88a28d"
+    },
+    {
+      "path": "fixtures/release-workbench/structured-regression.json",
+      "sha256": "536589357efa2ca1ef5fd8599c15b9db976b2be6cf74a0a4bac36c09767d2866"
+    },
+    {
+      "path": "fixtures/release-workbench/build-output.json",
+      "sha256": "073f4a865590e0a0ca642f70df7ea8bdf0ae235ea25ef6d35f02d0832b610d5f"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/reproduction-path.json",
+      "sha256": "90b2a8b56bdd88ba05a95e7f20e458c51b771667c977392a05a471aca7d77fb7"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/original-reproduction-actual.json",
+      "sha256": "7f11857854047e12be1831c77d8e8b328802104bc23a3c6d22d63316d68bb13e"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/original-reproduction-results.json",
+      "sha256": "f06e9d3918f084642e8fab84ac33049cd7653b70cd4674105f511934505de202"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/original-reproduction-output.json",
+      "sha256": "0273fd222725404ed79459b85203c4deb15f1da01c6ab8aaebdb3142e4890873"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-actual.json",
+      "sha256": "4fcfbd3c947dfdcd406fd7a71ad8d2207e55f89c51ce2723448b6f955eb267d6"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-results.json",
+      "sha256": "2141fdd29cd329d54830ba316fd9ebbf7788016a5ed6e4070085e2c9a3db9d83"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-output.json",
+      "sha256": "c3bde5f4028483ebdafe85be0d5826db180658c01d61d7c7d64a5227b1600ad3"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/d1-attempt-1-results.json",
+      "sha256": "10f41cb1650e464672de3b94406f4a923624a607fa2d64978781b10c234c1c26"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/d1-results.json",
+      "sha256": "51f07f838e7051d87377cdc0478b3309e863b328c0de74edc0887d298dde583d"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/sample-page.json",
+      "sha256": "61f91ff507ee2250b66cc065e83b2179cc46db02378a8f4810e0b1e35c0a18bc"
+    },
+    {
+      "path": "fixtures/release-workbench/utf8-repair-1/qa-original-script.ts.txt",
+      "sha256": "fef87383c0b7d4418fa7bb547f4ce8fe681951c028ebcbcf24892d0fbc50b78e"
+    }
+  ],
+  "fixtureOverrides": {
+    "path": "fixtures/release-workbench/ui-entry.tsx",
+    "candidateSha256": "1b5d8f0345c6ea3902c5b0e93f5b0a37de0f5ec05d98a0434145cd0bbb196c4b",
+    "testedQaSha256": "e69e63bf5242b908a5fca5208b5e2a5ccce525531b4d7c0e6218c2cb0f1a611f",
+    "appSourcesUnchanged": true
+  },
+  "sharedStatus": " M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/contracts/UPG-06.md\n M operations/task-registry.json\n?? operations/evidence/UPG-06-attempt-1/\n",
+  "diffCheckExitCode": 0,
+  "fullDiffSha256": "2a9e2b735d89b04bf7485a92669365548ab60a2d2058cc7dd2efcc4b7224c5ac"
+}

@@ -1,0 +1,661 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "PASS",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0"
+  },
+  "cases": [
+    {
+      "name": "default-off flag is exact and production configuration is false",
+      "status": "PASS"
+    },
+    {
+      "name": "strict query rejects identities, policy overrides, duplicates, lengths and malformed cursors",
+      "status": "PASS"
+    },
+    {
+      "name": "complete actual persisted six-check machine PASS still needs human approval",
+      "status": "PASS"
+    },
+    {
+      "name": "actual UPG05 approval snapshot matches deterministic atomic six-check mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous, forged server workspace, foreign owner and inactive workspace fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown engine remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing risk version remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown model policy remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved running remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing observations remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved no selected checks remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown prompt remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved foreign evidence owner remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing original machine timestamp remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown mismatch cannot masquerade as complete REVIEW without a product issue",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + quantity high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + logo high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "persisted issue severity downgrade is detected",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_identity fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence unknown_guard fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence foreign_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_summary fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence malformed_visible fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence partial fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "machine limitations stay visible and blocked despite approval",
+      "status": "PASS"
+    },
+    {
+      "name": "reject and revoke priorities preserve machine PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "approved deleted image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved expired image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved invalid expiry image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approval source changed after review cannot remain eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen SKU/profile survives current product rename and archive",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid frozen snapshot SHA fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "single and batch filters use owned associations and foreign batch yields empty",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic SQL snapshot remains old revision even if peer commits before JS evaluation",
+      "status": "PASS",
+      "detail": {
+        "oldRevision": 1,
+        "nextRevision": 2,
+        "snapshotSelects": 1
+      }
+    },
+    {
+      "name": "actual server page redirects anonymous and rejects feature-off or foreign owner",
+      "status": "PASS"
+    },
+    {
+      "name": "actual routes reject anonymous, disabled flag, forged params and foreign owner",
+      "status": "PASS"
+    },
+    {
+      "name": "actual paid gate denies free/inactive plans and requires explicit bounded export",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV cells protect formulas, Unicode/invisible prefixes and preserve quotes/newlines",
+      "status": "PASS"
+    },
+    {
+      "name": "actual CSV exports original machine/frozen versions, rule hash, reason and consistent revision without private actor/note",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 failure becomes no-store 503 rather than empty or eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "existing paid batch CSV uses the shared formula/quote/newline protection",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV atomic snapshot does not mix a peer review committed after its SELECT",
+      "status": "PASS"
+    },
+    {
+      "name": "pending_review and decided filters preserve their documented overlap with blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "oversized machine source explicitly blocks rather than quietly truncating evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV refuses a page containing incomplete diagnostic source",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen snapshot with foreign or missing version binding is blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "empty bounded blocked scan continues and finds late matches without silent truncation",
+      "status": "PASS",
+      "detail": {
+        "first": {
+          "limit": 10,
+          "scanLimit": 100,
+          "scanned": 100,
+          "scanWindowExhausted": true,
+          "hasMore": true,
+          "nextCursor": "eyJ2ZXJzaW9uIjoxLCJmaWx0ZXJIYXNoIjoiNjBhNDFhMGU3MTA2Mzk0ZWM4N2E2MmNmZWNlMDk0Zjk3N2M3MzY1YzJkZmIzMjA4ZWU1NDQ3ZmJhYzllNzBkMSIsImNyZWF0ZWRBdCI6IjIwOTktMDEtMDFUMDA6MDA6MDAuMDAwWiIsImlkIjoic2Nhbi0wMTUifQ",
+          "order": "created_at DESC, id DESC"
+        },
+        "lateRows": [
+          "scan-001",
+          "scan-000"
+        ]
+      }
+    },
+    {
+      "name": "full keyset traversal with tied timestamps has no duplicate or skipped sources",
+      "status": "PASS",
+      "detail": {
+        "total": 115,
+        "unique": 115
+      }
+    },
+    {
+      "name": "cursor is tied to ownership and normalized filters",
+      "status": "PASS"
+    },
+    {
+      "name": "bounded CSV explicitly exposes scan continuation including an empty window",
+      "status": "PASS"
+    },
+    {
+      "name": "rule hash deterministic across evaluations and corresponding CSV response",
+      "status": "PASS"
+    },
+    {
+      "name": "QA original 72,656-byte Han evidence is blocked with null source hash and CSV409",
+      "status": "PASS",
+      "detail": {
+        "sizes": {
+          "characters": 24656,
+          "bytes": 72656
+        },
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 observation exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 19181,
+        "sourceComplete": true,
+        "eligibility": "eligible",
+        "sourceHash": "9c8bf124931acea37c635b5e04b48ce7859bca8aca3afb0086a0ce74c0dde7ff",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 observation boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 19179,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 issue exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 18996,
+        "sourceComplete": true,
+        "eligibility": "blocked",
+        "sourceHash": "3e6741b6a93febb2c328989f6e95387bdb54c4ff1fdd7c9a924240c6b3aa0654",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 issue boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 18996,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 limitation exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 18541,
+        "sourceComplete": true,
+        "eligibility": "blocked",
+        "sourceHash": "b0d919a4634992bfc30fff1c3437321ae70865e3a203ce09e8488ec526552125",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 limitation boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 18546,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 input_usage exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 18542,
+        "sourceComplete": true,
+        "eligibility": "eligible",
+        "sourceHash": "7f8a97ab7b069ca835cab4cf3b3d135c7da2eb952742ceff2f9c5c350787b2f1",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 input_usage boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 18542,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 output_usage exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 18538,
+        "sourceComplete": true,
+        "eligibility": "eligible",
+        "sourceHash": "ace0715d47c71053560f0e8824ed0eb107e91fffd0232bf4387c1385f08c1f25",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 output_usage boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 18543,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 input_assets exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65536,
+        "sqliteCharacters": 18590,
+        "sourceComplete": true,
+        "eligibility": "blocked",
+        "sourceHash": "f11a2f91faad1c43845b161a2951d4f1e8fafd028485e3540e3331878be60349",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 input_assets boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 65536,
+        "utf8Bytes": 65537,
+        "sqliteCharacters": 18588,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 selected_checks exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 1024,
+        "utf8Bytes": 1024,
+        "sqliteCharacters": 304,
+        "sourceComplete": true,
+        "eligibility": "blocked",
+        "sourceHash": "2246f50be1b68edbccd3d52a524041415640411316be282a2f37d91eaf22e072",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 selected_checks boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 1024,
+        "utf8Bytes": 1025,
+        "sqliteCharacters": 305,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 product_snapshot exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 32768,
+        "utf8Bytes": 32768,
+        "sqliteCharacters": 9793,
+        "sourceComplete": true,
+        "eligibility": "eligible",
+        "sourceHash": "1f00c318e2d936f927d54dd1e8800e95a2424db6edb15799599c2a9c314a77f2",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 product_snapshot boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 32768,
+        "utf8Bytes": 32769,
+        "sqliteCharacters": 9794,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 review_snapshot exact boundary preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 262144,
+        "utf8Bytes": 262144,
+        "sqliteCharacters": 261644,
+        "sourceComplete": true,
+        "eligibility": "eligible",
+        "sourceHash": "565603a0e341a0ffb9f2c7675c85dc0e31ea93771a38914db737012b70c93185",
+        "csvStatus": 200,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 review_snapshot boundary+1 preserves source/CSV consistency",
+      "status": "PASS",
+      "detail": {
+        "budget": 262144,
+        "utf8Bytes": 262145,
+        "sqliteCharacters": 261645,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "embedded NUL cannot hide a UTF-8 evidence overflow",
+      "status": "PASS",
+      "detail": {
+        "bytes": 72001,
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "QA combined UTF-8 evidence and model quota counts multiple individually-small fields",
+      "status": "PASS",
+      "detail": {
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "QA 24 successful model rows materialize but 25 rows block hash and CSV",
+      "status": "PASS",
+      "detail": {
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 2
+      }
+    },
+    {
+      "name": "QA membership revoked between ownership check and snapshot SELECT yields no records",
+      "status": "PASS"
+    },
+    {
+      "name": "QA machine mutation after snapshot preserves old row and later reads detect stale approve",
+      "status": "PASS",
+      "detail": {
+        "before": "25a7d304185f766988e9e54aed2e45fc385c22d0c32604e7e5f16a45c016791c",
+        "snapshot": "25a7d304185f766988e9e54aed2e45fc385c22d0c32604e7e5f16a45c016791c",
+        "later": "f013e4c5ede7c0e6ca7782fd20c181b5bcadc5a622fd62ffeed0aaeca2f791c7"
+      }
+    },
+    {
+      "name": "QA actual feature routes reject truthy but non-exact enabled values",
+      "status": "PASS"
+    },
+    {
+      "name": "QA paid CSV supports trialing and denies past_due despite visible records",
+      "status": "PASS"
+    },
+    {
+      "name": "QA duplicate scope and identity aliases rejected by actual list/export routes",
+      "status": "PASS"
+    },
+    {
+      "name": "QA tampered cursor version extra key and filter binding rejected by actual route",
+      "status": "PASS"
+    },
+    {
+      "name": "QA changing page limit preserves tied-timestamp traversal without duplicates",
+      "status": "PASS",
+      "detail": {
+        "records": 115,
+        "unique": 115
+      }
+    },
+    {
+      "name": "QA byte-complete not-applicable evidence blocked despite approval",
+      "status": "PASS"
+    },
+    {
+      "name": "QA removed issue cannot masquerade as machine PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "QA foreign model input assets cannot be approved into eligibility",
+      "status": "PASS"
+    },
+    {
+      "name": "QA Unicode control and compatibility formula prefixes escaped in actual CSV",
+      "status": "PASS"
+    },
+    {
+      "name": "QA two empty bounded scan windows still reach late blocked matches",
+      "status": "PASS",
+      "detail": [
+        {
+          "scanned": 100,
+          "matches": 0,
+          "hasMore": true
+        },
+        {
+          "scanned": 100,
+          "matches": 0,
+          "hasMore": true
+        },
+        {
+          "scanned": 25,
+          "matches": 2,
+          "hasMore": false
+        }
+      ]
+    },
+    {
+      "name": "QA list and CSV reads leave analysis and review audit unchanged",
+      "status": "PASS",
+      "detail": {
+        "sha256": "427d5338356e2074a4e3cdbcb49c11f3c747468ce94d96c29d24617cfdd3179f"
+      }
+    }
+  ],
+  "sources": {
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "lib/releases/repository.ts": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "scripts/verify-release-workbench.ts": "f0166e2f22ad2182cc3999dc9becd07d07631637b2340d6563f1acc1a961e73d",
+    "scripts/qa-upg06-attempt2.ts": "55d115a34671dcfdb806375e6e4897c9ba8c31370c8e996e65c15f3e8f26c564",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+  },
+  "requestCount": 2256,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-Ovo9Yy",
+  "limitations": [
+    "Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.",
+    "No production, model, R2 or payment calls; browser proof is recorded separately."
+  ]
+}

@@ -66,3 +66,8 @@ UPG05发布增量QA复用原验收，Sol/medium：736e61f后只含原证据及�
 ## UPG05生产正式关闭与UPG06研发
 
 UPG-05已完成GitHub-first发布、0021迁移和Cloudflare部署（2013e22 / Worker 8e0e8aee-2fce-41c6-9435-e157b61af4d7），独立HTTP和15项真实登录业务检查PASS，正式CLOSED。人工审核已启用，机器证据不变，合成分析审计revision1–3及余额6已核验。自动继续UPG-06发布工作台与规则版本研发独立验收，契约operations/contracts/UPG-06.md，开发和QA分别按跨租户/规则/并发风险选择Sol/high。UPG06未授权生产，最多RELEASE_READY；届时按用户选择暂停pairvu-2。
+
+## 2026-10-12 UPG06独立验收完成，巡检已暂停
+
+2026-10-12：UPG-05人工审核已生产启用并独立验收CLOSED，生产2013e22 / Worker 8e0e8aee-2fce-41c6-9435-e157b61af4d7。UPG-06候选65a8591710caa92b61db555e6e7abc289fc04767已独立PASS并正式RELEASE_READY；91项D1、52项浏览器、35项人审和49项结构证据及workspace/typecheck通过。首轮UTF-8字节上限FAIL已修复，原件保留。UPG06未推送、部署、启用或生产验收，开关默认false，无新增迁移。本轮未重复构建，独立报告明确复用前候选成功构建记录；发布仍须构建精确已推送提交。pairvu-2已按用户选择暂停并核验。
+下一步等待UPG06明确发布/启用授权，不能沿用UPG05授权；不要重复派QA、恢复巡检或提前启动UPG07。新授权后自动遵守GitHub-first及生产门禁。
