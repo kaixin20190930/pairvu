@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "qaCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "report": "/tmp/pairvu-upg10-release-qa.json",
+  "reportSha256": "043500d1944261a08b06da9de1b49c292677ffd6d782984d938b12c38160f0d3",
+  "originalQaReport": {
+    "path": "/tmp/pairvu-upg10-qa.json",
+    "sha256": "3f4f2ab10b524b74d8ac39f5f3e82a7ece27f5ca71f02a7bc53019cbaa6828d0"
+  },
+  "qaDeltaVerification": "/private/tmp/pairvu-upg10-release-qa-ct2k5x8j/qa-delta-verification.json",
+  "commands": [
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "tsx",
+        "scripts/verify-value-metrics.ts",
+        "/private/tmp/pairvu-upg10-release-qa-ct2k5x8j/qa-specialized-results.json"
+      ],
+      "exitCode": 0,
+      "completedAt": "2026-10-12T13:09:38.575538+00:00"
+    },
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "completedAt": "2026-10-12T13:09:43.107025+00:00"
+    }
+  ],
+  "fallbackEvidence": "/private/tmp/pairvu-upg10-release-qa-ct2k5x8j/qa-fallback-stdout.json",
+  "limits": [
+    "Original24 independent D1/573 requests and7 component checks are reused unchanged implementation evidence, not newly executed on release commit.",
+    "No repeated source build; production controller must build exact pushed release commit via OpenNext and verify actual embedded SHA. Prior local archive build embeds unknown and is not release provenance.",
+    "Synthetic fixtures never establish real business value or quality. No production migration/deploy/database/model/payment operations by QA."
+  ],
+  "nextAction": {
+    "action": "Controller proceeds automatically under current UPG-10 authorization with GitHub push/fresh exact SHA check,0022 migration,same pushed commit OpenNext build/deploy and independent real login production QA.",
+    "dependency": "Mandatory GitHub-first production gates and actual platform release evidence; this report does not prove deployment.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "businessClassification": "No actual business-label backfill authorized; historical unknown must remain excluded.",
+    "automation": "pairvu-2 remains paused."
+  }
+}

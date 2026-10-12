@@ -1,0 +1,11 @@
+[
+  {
+    "action": "first standalone preflight",
+    "result": "Git update-ref permission denied; rerun with approved escalation succeeded before migration",
+    "productionActionBeforeSuccess": false
+  },
+  {
+    "action": "initial Python urllib public HTTP smoke",
+    "result": "HTTP403; not accepted as PASS. Independent normal curl health request then200 with exactSHA/version, raw response preserved. No auth credentials or browser warning bypass."
+  }
+]

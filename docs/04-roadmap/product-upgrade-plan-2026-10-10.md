@@ -98,3 +98,12 @@ UPG-01及离线升级工具已随 `f85bd3e` 发布生产，实际Cloudflare构�
 
 2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
 最小指标为去重用量、冻结SKU使用/复用、机器判定、人审覆盖与首次决定等待、检测估算成本。逐analysis受控分类，test/unknown排除；不提供未验证的ROI、人工节省时间或来源模型排名。下一步需明确生产授权后发布及真实登录验收，真实价值依赖受控业务使用记录。
+
+
+## 2026-10-12 UPG-10生产交付与下一步
+
+UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
+
+安全事项HUMAN-05（P0）仍OPEN：我方QA文件检索误将Cloudflare令牌回显到私有工具记录，归档材料扫描未发现凭据值。未执行或验证撤销/轮换，不声称记录已删除。生产密钥变更超出本次功能发布范围，下一步需凭据保管方受控撤销与替换并核验依赖；不能自动关闭。
+
+证据：`operations/evidence/production-upg10-2026-10-12/manifest.json`、`operations/evidence/production-upg10-2026-10-12/production-functional.json`。下一批：先安全闭环，再受控真实业务分类及UPG-07授权双标样本；UPG-08需明确调用方契约，UPG-09依赖API。本轮不自动启动新功能，不重复部署。

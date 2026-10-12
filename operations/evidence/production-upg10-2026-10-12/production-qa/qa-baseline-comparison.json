@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "priorBaseline": "/tmp/pairvu-upg05-production-d1-rows.json",
+  "priorBaselineSha256": "557957fff4ccab6c5b786b959dd33061513def24153fdb4b161c75cdd5fda913",
+  "comparisons": [
+    {
+      "fields": [
+        "status",
+        "verdict",
+        "qa_engine_version",
+        "risk_policy_version",
+        "model_policy_version",
+        "updated_at"
+      ],
+      "rows": 1,
+      "matchesHistoricalVerifiedBaseline": true
+    },
+    {
+      "fields": [
+        "revision",
+        "action",
+        "machine_sha256",
+        "created_at"
+      ],
+      "rows": 3,
+      "matchesHistoricalVerifiedBaseline": true
+    },
+    {
+      "fields": [
+        "revision",
+        "latest_event_id"
+      ],
+      "rows": 1,
+      "matchesHistoricalVerifiedBaseline": true
+    },
+    {
+      "fields": [
+        "allowance",
+        "rollover_allowance",
+        "consumed",
+        "reserved"
+      ],
+      "rows": 1,
+      "matchesHistoricalVerifiedBaseline": true
+    }
+  ],
+  "originalSyntheticObservationDigest": "a8b8990c65d7f16be3b2d413fab6d94d6b7dfa5b90db0083b95dbf83825f40fb",
+  "currentObservationDigestMatches": true,
+  "privacy": "Current archive contains no user name email actor identity reason note or original image contents."
+}

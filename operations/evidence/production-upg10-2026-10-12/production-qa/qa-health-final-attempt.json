@@ -1,0 +1,8 @@
+{
+  "url": "https://pairvu.com/api/health",
+  "status": 403,
+  "client": "Python urllib default User-Agent",
+  "bodyRetained": false,
+  "result": "NOT_DIAGNOSED",
+  "note": "Additional health read raised HTTPError403; exact body and timestamp not captured. Initial explicit-QA User-Agent request was200 and bound the exact SHA/version. No further HTTP requests after controller credential-stop instruction."
+}

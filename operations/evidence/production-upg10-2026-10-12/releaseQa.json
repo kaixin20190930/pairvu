@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-10",
+  "qaCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T13:10:28.445Z",
+  "checks": [
+    {
+      "name": "fixed release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent release QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "complete69 path delta restricted to authorized enable config test and controller evidence docs",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime authentication metrics UI migrations and dependencies unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original fixed candidate PASS and56 raw evidence hashes preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit deployment true and runtime fallback false",
+      "status": "PASS"
+    },
+    {
+      "name": "final release26 specialized checks434 local D1 requests",
+      "status": "PASS"
+    },
+    {
+      "name": "final release typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "no production operations or uncommitted release changes",
+      "status": "PASS"
+    }
+  ]
+}

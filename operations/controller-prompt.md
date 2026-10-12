@@ -105,3 +105,15 @@ UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81
 
 2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
 正式证据operations/evidence/UPG-10.json；本轮56材料按摘要归档。原开发/QA均completed。下一步等待本单元发布/启用授权，再严格GitHub-first、0022迁移、同提交部署和真实登录验收；不能拿UPG06旧授权发布。真实业务分类不是本次合成验收，无真实材料不制造标签，UPG07质量继续BLOCKED。无新授权不重复派单或恢复pairvu-2。
+
+## 凭据输出防护（UPG10生产验收事件后的要求）
+任何角色不得对 .dev.vars、.env 或凭据文件执行会输出匹配行/内容的 rg、grep、cat、head、tail、调试打印；文件发现只列文件名且排除凭据文件。确有已授权CLI需要凭据时，只在进程内按精确键加载到子进程环境，不输出值、请求头或完整环境。验收原件和索引不含凭据；发现误回显立即停止进一步凭据检索，记录不含值的事件并交凭据保管方受控轮换，不能声称删除日志或自动轮换。未完成轮换必须作为独立未关闭事项报告，不以功能PASS覆盖。
+
+
+## 2026-10-12 UPG-10生产交付与下一步
+
+UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
+
+安全事项HUMAN-05（P0）仍OPEN：我方QA文件检索误将Cloudflare令牌回显到私有工具记录，归档材料扫描未发现凭据值。未执行或验证撤销/轮换，不声称记录已删除。生产密钥变更超出本次功能发布范围，下一步需凭据保管方受控撤销与替换并核验依赖；不能自动关闭。
+
+证据：`operations/evidence/production-upg10-2026-10-12/manifest.json`、`operations/evidence/production-upg10-2026-10-12/production-functional.json`。下一批：先安全闭环，再受控真实业务分类及UPG-07授权双标样本；UPG-08需明确调用方契约，UPG-09依赖API。本轮不自动启动新功能，不重复部署。

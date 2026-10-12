@@ -290,6 +290,18 @@
         "fixed candidate SHA",
         "independent QA report"
       ]
+    },
+    {
+      "id": "HUMAN-05",
+      "title": "UPG10生产验收令牌误回显后的受控撤销与替换",
+      "priority": 0,
+      "dependsOn": [],
+      "mode": "human",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "旧令牌撤销与替换真实证据（不含令牌值）",
+        "影响范围及依赖方恢复核验"
+      ]
     }
   ]
 }

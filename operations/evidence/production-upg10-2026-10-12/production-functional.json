@@ -1,0 +1,159 @@
+{
+  "unitId": "UPG-10",
+  "qaCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "scope": "real_login_readonly_existing_account",
+  "reviewedAt": "2026-10-12T13:27:49.953Z",
+  "origin": "https://pairvu.com",
+  "checks": [
+    {
+      "name": "real signed-in account existing balance and target result",
+      "status": "PASS",
+      "detail": {
+        "available": "6",
+        "metricsNav": true,
+        "plan": true,
+        "targetResult": "REVIEW\n11 review items\nOct 11, 2026, 8:29 AM UTC\nImages available",
+        "usage": [
+          "4",
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "real navigation metrics loads and historical unknown excluded",
+      "status": "PASS"
+    },
+    {
+      "name": "business zero explains missing classification not actual zero activity",
+      "status": "PASS"
+    },
+    {
+      "name": "all business rates empty costs and first decision waiting unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "policy source timestamp and no quality value ROI or effort claim",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit UTC window includes historical five unclassified records without promoting business",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid UTC request has explicit error and clears old complete metrics",
+      "status": "PASS"
+    },
+    {
+      "name": "greater than ninety days refuses complete metrics",
+      "status": "PASS"
+    },
+    {
+      "name": "exact ninety-day UTC request recovers complete historical unknown diagnostics",
+      "status": "PASS"
+    },
+    {
+      "name": "native narrow production viewport no document overflow",
+      "status": "PASS",
+      "detail": {
+        "width": 319,
+        "client": 319,
+        "scroll": 319
+      }
+    },
+    {
+      "name": "375px production viewport no document overflow",
+      "status": "PASS",
+      "detail": {
+        "client": 375,
+        "scroll": 375,
+        "width": 375
+      }
+    },
+    {
+      "name": "valid window restores complete report after invalid requests",
+      "status": "PASS"
+    },
+    {
+      "name": "return to real account balance usage and target result unchanged",
+      "status": "PASS",
+      "detail": {
+        "available": "6",
+        "metricsNav": true,
+        "plan": true,
+        "targetResult": "REVIEW\n11 review items\nOct 11, 2026, 8:29 AM UTC\nImages available",
+        "usage": [
+          "4",
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "independent production0022 migration observation",
+      "status": "PASS"
+    },
+    {
+      "name": "unclassified52 historical rows and five-row window agree with UI",
+      "status": "PASS"
+    },
+    {
+      "name": "eighteen production SELECTs write zero and preserve current values",
+      "status": "PASS"
+    },
+    {
+      "name": "original analysis observation digest review chain head and credit baseline unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "archived acceptance material contains no credential values while incident stays open",
+      "status": "PASS"
+    }
+  ],
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "observed": {
+    "defaultCohort": 4,
+    "explicitSeptemberWindowCohort": 5,
+    "exact90DayCohort": 52,
+    "business": 0,
+    "test": 0,
+    "unknownIn90Days": 52,
+    "classificationRecords": 0,
+    "availableChecksBeforeAfter": 6,
+    "usedBeforeAfter": 4,
+    "reservedBeforeAfter": 0,
+    "reviewHeadRevisionBeforeAfter": 3,
+    "currentReviewAction": "revoke",
+    "storedMachineSnapshotHash": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+    "originalSyntheticObservationDigest": "a8b8990c65d7f16be3b2d413fab6d94d6b7dfa5b90db0083b95dbf83825f40fb",
+    "readonlyProductionSelects": 18,
+    "rowsWritten": 0
+  },
+  "rawDirectory": "/private/tmp/pairvu-upg10-production-qa-lztt2vuj",
+  "securityIncident": {
+    "record": "/private/tmp/pairvu-upg10-production-qa-lztt2vuj/qa-security-incident.json",
+    "status": "OPEN_CREDENTIAL_CUSTODIAN_ACTION_REQUIRED",
+    "rotation": "NOT_PERFORMED_NOT_VERIFIED",
+    "separateFromFunctionalAcceptance": true
+  },
+  "limitations": [
+    "No verified real business classification exists in this account. Business positive metrics, real value, ROI, quality and source-generation-model provenance are not production-accepted. No business labels were created.",
+    "Actual authenticated UI fetch successfully loaded complete metrics and server window errors, but direct authenticated API HTTP status/headers and cross-workspace second-account production probes were not captured. Local fixed-candidate negative acceptance remains separate.",
+    "Only selected existing account state and canonical designated synthetic result were read. No new model, analysis, credit use, review, label import, payment, deletion or deployment by QA.",
+    "An additional default Python urllib health request returned403. Body/timestamp were not captured and cause was not diagnosed. Initial explicit-QA User-Agent health was200 with exact SHA/version. No further request after controller stop instruction; do not infer every HTTP client succeeds.",
+    "Browser tab1 in dispatch did not exist; live inventory located existing logged-in tab2. Initial render locator timed out briefly, then fresh UI state showed successful metrics load. These were not product failures.",
+    "Credential incident remains open despite archive pattern scan. No rotation/revocation was performed or verified. Controller and custodian must handle independently."
+  ],
+  "nextAction": {
+    "action": "Controller archives standard HTTP and separate actual-login evidence, decides formal production state using the complete manifest and preserves separate security incident.",
+    "dependency": "Controller source/migration/build/deployment evidence plus these actual observations.",
+    "automaticFunctionalHandoff": true,
+    "userInputForFunctionalAcceptanceNow": false,
+    "securityAction": "Credential custodian must perform controlled rotation and retain actual evidence; requires custodian action, not automatic QA alteration.",
+    "businessDataDependency": "Separate authorized original provenance and actual business classifications needed for real value interpretation.",
+    "automation": "pairvu-2 remains paused."
+  }
+}

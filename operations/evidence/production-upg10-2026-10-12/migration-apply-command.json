@@ -1,0 +1,16 @@
+{
+  "command": [
+    "pnpm",
+    "exec",
+    "wrangler",
+    "d1",
+    "migrations",
+    "apply",
+    "pairvu-production",
+    "--remote"
+  ],
+  "startedAt": "2026-10-12T13:12:15.303Z",
+  "completedAt": "2026-10-12T13:12:20.064Z",
+  "exitCode": 0,
+  "rawLog": "/tmp/pairvu-upg10-migration-apply-raw.txt"
+}

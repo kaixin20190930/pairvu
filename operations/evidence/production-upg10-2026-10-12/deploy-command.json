@@ -1,0 +1,17 @@
+{
+  "command": [
+    "pnpm",
+    "run",
+    "deploy",
+    "--candidate",
+    "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "--remote",
+    "origin",
+    "--branch",
+    "main"
+  ],
+  "startedAt": "2026-10-12T13:12:58.004Z",
+  "completedAt": "2026-10-12T13:14:46.078Z",
+  "exitCode": 0,
+  "rawLog": "/tmp/pairvu-upg10-deploy-raw.txt"
+}

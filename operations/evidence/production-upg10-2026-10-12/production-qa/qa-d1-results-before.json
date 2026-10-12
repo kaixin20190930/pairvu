@@ -1,0 +1,252 @@
+[
+  {
+    "results": [
+      {
+        "name": "0022_value_metrics_classifications.sql",
+        "applied_at": "2026-10-12 13:12:21"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.6211
+      },
+      "duration": 0.6211,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "classification_records": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2211
+      },
+      "duration": 0.2211,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "cohort": 5
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2943
+      },
+      "duration": 0.2943,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "total_analyses": 52,
+        "invalid_creation": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1678
+      },
+      "duration": 0.1678,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "status": "completed",
+        "verdict": "review",
+        "qa_engine_version": "m0-qa-engine-008",
+        "risk_policy_version": "m0-risk-policy-003",
+        "model_policy_version": "m0-model-policy-002",
+        "updated_at": "2026-10-11T08:29:28.295Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1621
+      },
+      "duration": 0.1621,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 1,
+        "action": "approve",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:07:12.915Z"
+      },
+      {
+        "revision": 2,
+        "action": "reject",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:13.448Z"
+      },
+      {
+        "revision": 3,
+        "action": "revoke",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:44.518Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.5955
+      },
+      "duration": 0.5955,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 3,
+        "latest_event_id": "aaf23dee-7296-4b9b-8976-39f7f0b9462c"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1521
+      },
+      "duration": 0.1521,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "allowance": 10,
+        "rollover_allowance": 0,
+        "consumed": 4,
+        "reserved": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.242
+      },
+      "duration": 0.242,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 2,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.5233
+      },
+      "duration": 0.5233,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    },
+    "syntheticObservationDigest": {
+      "count": 1,
+      "sha256": "a8b8990c65d7f16be3b2d413fab6d94d6b7dfa5b90db0083b95dbf83825f40fb"
+    }
+  }
+]

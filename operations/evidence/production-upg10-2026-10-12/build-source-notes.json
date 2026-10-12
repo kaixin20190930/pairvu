@@ -1,0 +1,9 @@
+{
+  "initialReleaseRemoteVerification": "preflight.json",
+  "checkedAt": "2026-10-12T13:11:54.051Z",
+  "meaning": "Actual standalone fresh release gate before migration. Deploy wrapper separately repeats exact-SHA fresh checks before/after build; all actual timestamps preserved.",
+  "deployWrapperInitialCheckedAt": "2026-10-12T13:13:07.526Z",
+  "deployWrapperFinalCheckedAt": "2026-10-12T13:13:51.688Z",
+  "rawLog": "deploy-raw.txt",
+  "notProductionSource": "prior local QA archive build embedded unknown; not used here"
+}

@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-12T13:31:47.616Z",
+  "url": "https://pairvu.com/api/health",
+  "client": "python urllib default",
+  "status": 403,
+  "headers": {
+    "Date": "Mon, 12 Oct 2026 13:31:48 GMT",
+    "Content-Type": "text/plain; charset=UTF-8",
+    "Content-Length": "17",
+    "Connection": "close",
+    "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+    "Expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+    "Referrer-Policy": "same-origin",
+    "Server-Timing": "cfEdge;dur=1,cfOrigin;dur=0",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4QUmdLXqI%2FQllOU%2Fgs4Yam9g5YOxBbSkzNCA8rZGEClx9XWf%2BxJ3evudDdTqwmVv4JjaBIMuaxAhKRYRwqpqA3fEZpJNWCJonmJ7pR3bmnyFR90Sx6rbUcQf5UMF\"}]}",
+    "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "Server": "cloudflare",
+    "CF-RAY": "a496778e5c67e7ec-SYD",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "body": "error code: 1010\n"
+}

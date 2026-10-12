@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-10",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "conclusion": "applied",
+  "result": "PASS",
+  "migrationIds": [
+    "0022_value_metrics_classifications.sql"
+  ],
+  "recordRef": "migration-list-raw.txt + migration-apply-raw.txt + migration-apply-command.json",
+  "checkedAt": "2026-10-12T13:12:20.064Z"
+}

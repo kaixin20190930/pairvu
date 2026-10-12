@@ -1,0 +1,11 @@
+{
+  "command": [
+    "pnpm",
+    "exec",
+    "tsx",
+    "scripts/verify-value-metrics.ts",
+    "/private/tmp/pairvu-upg10-release-qa-ct2k5x8j/qa-specialized-results.json"
+  ],
+  "exitCode": 0,
+  "completedAt": "2026-10-12T13:09:38.575538+00:00"
+}

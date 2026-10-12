@@ -1,0 +1,21 @@
+Releases
+Value metrics
+Overview
+Products
+Batches
+New batch
+Value metrics
+
+Only analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.
+
+Start · UTC, inclusive
+End · UTC, exclusive
+Apply window
+
+Creation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.
+
+Use one start and end in UTC, a positive window of at most 90 days, ending no later than now.
+
+No complete metrics are shown.
+
+Retry

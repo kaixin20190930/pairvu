@@ -1,0 +1,24 @@
+{
+  "id": "UPG10-QA-CREDENTIAL-01",
+  "status": "OPEN_CREDENTIAL_CUSTODIAN_ACTION_REQUIRED",
+  "detectedDuring": "UPG-10 production independent acceptance",
+  "occurredAt": null,
+  "observedUtcInterval": {
+    "after": "2026-10-12T13:17:59.706Z",
+    "before": "2026-10-12T13:19:14.755Z",
+    "precision": "Chronological interval from adjacent observed metrics source timestamps; exact tool timestamp unavailable, not fabricated."
+  },
+  "tool": "functions.exec -> exec_command -> rg file search",
+  "cause": "The QA command passed .dev.vars explicitly while attempting to exclude it with a glob. The explicit search target was still searched, and a Cloudflare API token line appeared in the tool output. This was an agent command construction error.",
+  "exposedCredentialType": "Cloudflare API token",
+  "credentialValueIncluded": false,
+  "exposureSurface": "Private tool trace in this chat; not included in generated acceptance materials. No external message or third-party export performed.",
+  "response": "Notified controller. Controller instructed no additional credential retrieval/output or D1 queries; remaining work used already obtained non-sensitive evidence and read-only UI. No token value re-read for archive scan. Original review evidence preserved.",
+  "rotation": {
+    "status": "NOT_PERFORMED_NOT_VERIFIED",
+    "credentialCustodianRequired": true,
+    "reason": "No authority to revoke or rotate cross-project credentials; do not claim rotation."
+  },
+  "archiveAudit": "/private/tmp/pairvu-upg10-production-qa-lztt2vuj/qa-credential-artifact-scan.json",
+  "nextAction": "Controller reports this separate security matter; credential custodian must carry out controlled rotation and retain actual evidence. Functional metrics acceptance does not resolve this incident."
+}

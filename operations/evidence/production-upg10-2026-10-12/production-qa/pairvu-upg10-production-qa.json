@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-10",
+  "qaCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T13:27:49.953Z",
+  "checks": [
+    {
+      "name": "health exact pushed release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "health exact deployed Worker version",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous metrics401 incomplete and no business data",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous metrics private no-store Cookie variance",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous status200 hides feature and is private no-store Cookie variance",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous page307 sign-in redirect",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous page no-store confidentiality",
+      "status": "PASS"
+    }
+  ],
+  "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+  "scope": "http"
+}

@@ -43,3 +43,12 @@ lib/value-metrics/**、app/account/value-metrics/**、app/api/value-metrics/**�
 用户明确授权UPG10 GitHub-first、fresh远端核验、0022迁移、Cloudflare部署、启用、真实登录独立验收和必要修复。此前待授权段为历史。此授权不含真实业务分类导入、付款、客户外发、新模型调用或下一功能发布。
 原开发Sol/medium：仅启用VALUE_METRICS_ENABLED配置及必要对应断言。原发布增量QASol/medium：固定最终SHA检查差分、原PASS来源、专项及typecheck。若涉及鉴权/口径额外修复再评估high。生产QASol/high：真实会话、unknown排除、API/页面及来源跨层验证；环境问题不升级。
 生产优先只读已有合成QA账户，所有历史默认unknown、business为空是正确预期。不得为验收造business记录；未分类排除、空分母/成本、人审等待说明、时间窗、无效参数、匿名拒绝、导航及原账户状态均需真实观察。缺会话需真实登录，不以匿名HTTP代替。通过后归档manifest正式转换及更新整体进度/下一批，不自行恢复pairvu-2或启动其他单元。
+
+
+## 2026-10-12 UPG-10生产交付与下一步
+
+UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
+
+安全事项HUMAN-05（P0）仍OPEN：我方QA文件检索误将Cloudflare令牌回显到私有工具记录，归档材料扫描未发现凭据值。未执行或验证撤销/轮换，不声称记录已删除。生产密钥变更超出本次功能发布范围，下一步需凭据保管方受控撤销与替换并核验依赖；不能自动关闭。
+
+证据：`operations/evidence/production-upg10-2026-10-12/manifest.json`、`operations/evidence/production-upg10-2026-10-12/production-functional.json`。下一批：先安全闭环，再受控真实业务分类及UPG-07授权双标样本；UPG-08需明确调用方契约，UPG-09依赖API。本轮不自动启动新功能，不重复部署。

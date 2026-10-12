@@ -15,13 +15,13 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "63a5f94a-4031-4617-aba3-fe6eb9db31c5:26",
+    "afterCursor": "63a5f94a-4031-4617-aba3-fe6eb9db31c5:34",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "仅启用已验收VALUE_METRICS配置并调整对应配置断言，范围明确。",
       "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
-      "applied": false
+      "applied": true
     }
   },
   "qa": {
@@ -35,14 +35,14 @@
       "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:48",
+    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:88",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "固定发布SHA检查启用差分及既有验收来源，专项与typecheck足够覆盖此差分。",
       "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
-      "applied": false
+      "applied": true
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -63,7 +63,7 @@
       "thinking": "high",
       "reason": "真实登录、迁移后的unknown排除、API与页面一致性、生产来源核验涉及跨层证据。",
       "upgradeCondition": "可定位反复推理缺陷才重评模型；会话/权限问题不升级。",
-      "applied": false
+      "applied": true
     },
     "environmentIncidents": [
       {
@@ -77,19 +77,19 @@
     "receipt": "operations/evidence/UPG-10.json"
   },
   "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
-  "state": "RELEASE_READY",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "用户已授权UPG10发布启用与必要修复，正在准备启用配置；正式状态保持RELEASE_READY至真实生产证据导入。",
+  "notes": "UPG10已推送、fresh核验、0022迁移、部署启用及限定真实登录独立PASS，正式CLOSED。安全事件HUMAN-05独立OPEN，未轮换。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
-    "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+    "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
     "featureEnabled": true,
-    "evidenceDirectory": "operations/evidence/production-upg06-2026-10-12",
-    "receipt": "operations/evidence/production-upg06-2026-10-12/manifest.json",
-    "functionalReceipt": "operations/evidence/production-upg06-2026-10-12/production-functional.json",
-    "scope": "8 HTTP and 16 real signed-in checks; paid CSV positive/authenticated export403/positive ELIGIBLE not production-covered"
+    "evidenceDirectory": "operations/evidence/production-upg10-2026-10-12",
+    "scope": "7 HTTP + 18 real signed-in checks PASS; no positive business classifications or real value claim",
+    "receipt": "operations/evidence/production-upg10-2026-10-12/manifest.json",
+    "functionalReceipt": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -170,6 +170,16 @@
       "receipt": "operations/evidence/production-upg06-2026-10-12/manifest.json",
       "functionalReceipt": "operations/evidence/production-upg06-2026-10-12/production-functional.json",
       "scope": "8 HTTP and 16 real signed-in checks; paid CSV positive/authenticated export403/positive ELIGIBLE not production-covered"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "featureEnabled": true,
+      "evidenceDirectory": "operations/evidence/production-upg10-2026-10-12",
+      "scope": "7 HTTP + 18 real signed-in checks PASS; no positive business classifications or real value claim",
+      "receipt": "operations/evidence/production-upg10-2026-10-12/manifest.json",
+      "functionalReceipt": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
     }
   ],
   "loginAcceptance": {
@@ -182,12 +192,12 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "启用配置固定SHA增量QA→推送及fresh核验→0022迁移→同SHA部署→生产真实登录独立QA",
-    "dependency": "无新增授权依赖；不导入业务标签，不造真实价值数据",
-    "automatic": true
+    "action": "P0由凭据保管方受控撤销/替换误回显令牌并核验依赖；其后准备真实业务来源与UPG07授权双标样本",
+    "dependency": "生产密钥变更明确授权及负责人参与；真实数据尚缺",
+    "automatic": false
   },
-  "completedUnitId": "UPG-07A",
-  "completedCandidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
+  "completedUnitId": "UPG-10",
+  "completedCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
   "completedReleaseRepair": {
     "state": "CLOSED",
     "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
@@ -230,11 +240,13 @@
   "valueMetrics": {
     "implementation": "COMPLETE",
     "independentAcceptance": "PASS",
-    "deployment": "NOT_DEPLOYED",
-    "featureEnabled": false,
+    "deployment": "DEPLOYED",
+    "featureEnabled": true,
     "valueEvidence": false,
     "classification": "test/unknown excluded, no actual business labels created",
-    "evidence": "operations/evidence/UPG-10.json"
+    "evidence": "operations/evidence/UPG-10.json",
+    "productionAcceptance": "PASS",
+    "productionEvidence": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
   },
   "releaseAuthorization": {
     "unitId": "UPG-10",
@@ -242,5 +254,12 @@
     "authorizedAt": "2026-10-12T13:02:58.753Z",
     "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 user request: 授权发布并启用 UPG-10，按仓库规则先推送 GitHub、核验远端，再执行 0022 迁移、部署 Cloudflare 并完成真实登录独立验收，有问题继续修复。",
     "scope": "UPG10 GitHub-first + 0022 migration + Cloudflare deploy + enable + real login independent QA and necessary repair; no business classification backfill/payment/model calls"
+  },
+  "securityIncident": {
+    "id": "UPG10-QA-CREDENTIAL-01",
+    "status": "OPEN_CREDENTIAL_CUSTODIAN_ACTION_REQUIRED",
+    "rotation": "NOT_PERFORMED_NOT_VERIFIED",
+    "backlogId": "HUMAN-05",
+    "receipt": "operations/evidence/production-upg10-2026-10-12/production-qa/qa-security-incident.json"
   }
 }

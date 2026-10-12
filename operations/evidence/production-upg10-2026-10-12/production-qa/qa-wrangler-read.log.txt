@@ -1,0 +1,652 @@
+
+--- 2026-10-12T13:19:43.103Z debug
+🪵  Writing logs to "/private/tmp/pairvu-upg10-production-qa-lztt2vuj/qa-wrangler-read.log"
+---
+
+--- 2026-10-12T13:19:43.103Z debug
+.env file not found at "/Users/liukai/Documents/Product Visual QA Platform/.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-12T13:19:43.103Z debug
+.env file not found at "/Users/liukai/Documents/Product Visual QA Platform/.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-12T13:19:43.117Z debug
+Metrics dispatcher: Dispatching disabled - would have sent {"deviceId":"b0eb6ab0-af78-42c0-9d82-1fbcec04991c","event":"wrangler command started","timestamp":1791811183117,"properties":{"amplitude_session_id":1791811183110,"amplitude_event_id":0,"wranglerVersion":"4.114.0","wranglerMajorVersion":4,"wranglerMinorVersion":114,"wranglerPatchVersion":0,"osPlatform":"Mac OS","osVersion":"Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000","nodeVersion":22,"packageManager":"pnpm","isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","json","remote"],"argsCombination":"command, json, remote","sanitizedCommand":"d1 execute","sanitizedArgs":{"remote":true,"json":true},"currentAgentSkillsInstalled":false}}.
+---
+
+--- 2026-10-12T13:19:43.118Z log
+🌀 Executing on remote database pairvu-production (2d16e86a-fa00-4990-982a-ce4cc7ea31aa):
+---
+
+--- 2026-10-12T13:19:43.118Z log
+🌀 To execute on your local development database, remove the --remote flag from your wrangler command.
+---
+
+--- 2026-10-12T13:19:43.119Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/accounts/23e53b75ddd6ee2d8b80031f6a1e45e0/d1/database/2d16e86a-fa00-4990-982a-ce4cc7ea31aa/query
+---
+
+--- 2026-10-12T13:19:43.119Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:19:43.119Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:19:43.119Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:19:43.119Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-12T13:19:45.222Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-12T13:19:45.222Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:19:45.222Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:19:45.222Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-12T13:19:45.224Z log
+🚣 Executed 9 commands in 2.98ms
+---
+
+--- 2026-10-12T13:19:45.224Z log
+[
+  {
+    "results": [
+      {
+        "name": "0022_value_metrics_classifications.sql",
+        "applied_at": "2026-10-12 13:12:21"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.6211
+      },
+      "duration": 0.6211,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "classification_records": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2211
+      },
+      "duration": 0.2211,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "cohort": 5
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2943
+      },
+      "duration": 0.2943,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "total_analyses": 52,
+        "invalid_creation": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1678
+      },
+      "duration": 0.1678,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "status": "completed",
+        "verdict": "review",
+        "qa_engine_version": "m0-qa-engine-008",
+        "risk_policy_version": "m0-risk-policy-003",
+        "model_policy_version": "m0-model-policy-002",
+        "updated_at": "2026-10-11T08:29:28.295Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1621
+      },
+      "duration": 0.1621,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 1,
+        "action": "approve",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:07:12.915Z"
+      },
+      {
+        "revision": 2,
+        "action": "reject",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:13.448Z"
+      },
+      {
+        "revision": 3,
+        "action": "revoke",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:44.518Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.5955
+      },
+      "duration": 0.5955,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 3,
+        "latest_event_id": "aaf23dee-7296-4b9b-8976-39f7f0b9462c"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1521
+      },
+      "duration": 0.1521,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "allowance": 10,
+        "rollover_allowance": 0,
+        "consumed": 4,
+        "reserved": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.242
+      },
+      "duration": 0.242,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 2,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "check_type": "logo",
+        "status": "not_observable",
+        "evidence_json": "{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"not_visible\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"uncertainReason\":\"Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.\",\"referenceVisible\":false,\"candidateVisible\":false,\"raw\":{\"normalizationReason\":\"identity_requires_direct_evidence\",\"identityValidationVersion\":\"identity-evidence-004\",\"identityProblemKind\":\"insufficient\",\"providerStatus\":\"match\",\"providerObservability\":{\"reference\":\"observable\",\"candidate\":\"observable\",\"coverage\":\"sufficient\"},\"providerEvidence\":{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"none\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"referenceVisible\":true,\"candidateVisible\":true}}}"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.5233
+      },
+      "duration": 0.5233,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]
+---
+
+--- 2026-10-12T13:19:45.225Z debug
+Metrics dispatcher: Dispatching disabled - would have sent {"deviceId":"b0eb6ab0-af78-42c0-9d82-1fbcec04991c","event":"wrangler command completed","timestamp":1791811185225,"properties":{"amplitude_session_id":1791811183110,"amplitude_event_id":1,"wranglerVersion":"4.114.0","wranglerMajorVersion":4,"wranglerMinorVersion":114,"wranglerPatchVersion":0,"osPlatform":"Mac OS","osVersion":"Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000","nodeVersion":22,"packageManager":"pnpm","isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","json","remote"],"argsCombination":"command, json, remote","sanitizedCommand":"d1 execute","sanitizedArgs":{"remote":true,"json":true},"durationMs":2120,"currentAgentSkillsInstalled":false}}.
+---
+
+--- 2026-10-12T13:22:42.276Z debug
+🪵  Writing logs to "/private/tmp/pairvu-upg10-production-qa-lztt2vuj/qa-wrangler-read.log"
+---
+
+--- 2026-10-12T13:22:42.275Z debug
+.env file not found at "/Users/liukai/Documents/Product Visual QA Platform/.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-12T13:22:42.276Z debug
+.env file not found at "/Users/liukai/Documents/Product Visual QA Platform/.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-12T13:22:42.294Z debug
+Metrics dispatcher: Dispatching disabled - would have sent {"deviceId":"b0eb6ab0-af78-42c0-9d82-1fbcec04991c","event":"wrangler command started","timestamp":1791811362294,"properties":{"amplitude_session_id":1791811362285,"amplitude_event_id":0,"wranglerVersion":"4.114.0","wranglerMajorVersion":4,"wranglerMinorVersion":114,"wranglerPatchVersion":0,"osPlatform":"Mac OS","osVersion":"Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000","nodeVersion":22,"packageManager":"pnpm","isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","json","remote"],"argsCombination":"command, json, remote","sanitizedCommand":"d1 execute","sanitizedArgs":{"remote":true,"json":true},"currentAgentSkillsInstalled":false}}.
+---
+
+--- 2026-10-12T13:22:42.295Z log
+🌀 Executing on remote database pairvu-production (2d16e86a-fa00-4990-982a-ce4cc7ea31aa):
+---
+
+--- 2026-10-12T13:22:42.295Z log
+🌀 To execute on your local development database, remove the --remote flag from your wrangler command.
+---
+
+--- 2026-10-12T13:22:42.296Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/accounts/23e53b75ddd6ee2d8b80031f6a1e45e0/d1/database/2d16e86a-fa00-4990-982a-ce4cc7ea31aa/query
+---
+
+--- 2026-10-12T13:22:42.296Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:22:42.296Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:22:42.296Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:22:42.296Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-12T13:22:44.843Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-12T13:22:44.844Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:22:44.844Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-12T13:22:44.844Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-12T13:22:44.844Z log
+🚣 Executed 9 commands in 4.22ms
+---
+
+--- 2026-10-12T13:22:44.844Z log
+[
+  {
+    "results": [
+      {
+        "name": "0022_value_metrics_classifications.sql",
+        "applied_at": "2026-10-12 13:12:21"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.3128
+      },
+      "duration": 0.3128,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "classification_records": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2096
+      },
+      "duration": 0.2096,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "cohort": 5
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2469
+      },
+      "duration": 0.2469,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "total_analyses": 52,
+        "invalid_creation": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1607
+      },
+      "duration": 0.1607,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 53,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "status": "completed",
+        "verdict": "review",
+        "qa_engine_version": "m0-qa-engine-008",
+        "risk_policy_version": "m0-risk-policy-003",
+        "model_policy_version": "m0-model-policy-002",
+        "updated_at": "2026-10-11T08:29:28.295Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.1385
+      },
+      "duration": 0.1385,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 1,
+        "action": "approve",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:07:12.915Z"
+      },
+      {
+        "revision": 2,
+        "action": "reject",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:13.448Z"
+      },
+      {
+        "revision": 3,
+        "action": "revoke",
+        "machine_sha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+        "created_at": "2026-10-11T15:08:44.518Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.3643
+      },
+      "duration": 0.3643,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "revision": 3,
+        "latest_event_id": "aaf23dee-7296-4b9b-8976-39f7f0b9462c"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 2.2996
+      },
+      "duration": 2.2996,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 1,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "allowance": 10,
+        "rollover_allowance": 0,
+        "consumed": 4,
+        "reserved": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2697
+      },
+      "duration": 0.2697,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 2,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "check_type": "logo",
+        "status": "not_observable",
+        "evidence_json": "{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"not_visible\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"uncertainReason\":\"Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.\",\"referenceVisible\":false,\"candidateVisible\":false,\"raw\":{\"normalizationReason\":\"identity_requires_direct_evidence\",\"identityValidationVersion\":\"identity-evidence-004\",\"identityProblemKind\":\"insufficient\",\"providerStatus\":\"match\",\"providerObservability\":{\"reference\":\"observable\",\"candidate\":\"observable\",\"coverage\":\"sufficient\"},\"providerEvidence\":{\"regions\":{\"schemaVersion\":1,\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"57e13972-abe1-4607-916a-d72ca98615f6\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"assetId\":\"d7169a9e-fc33-4161-a8f2-d0c19aaf5f64\",\"region\":null,\"reason\":\"uncertain_location\",\"confidence\":null}},\"regionRaw\":{\"reference\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"},\"candidate\":{\"coordinateSpace\":\"analysis_image_normalized\",\"region\":{\"x\":0.15,\"y\":0.1,\"width\":0.7,\"height\":0.7},\"reason\":null,\"confidence\":\"high\"}},\"identityEvidence\":{\"reference\":\"absent\",\"candidate\":\"absent\",\"referenceKind\":\"absent\",\"candidateKind\":\"absent\",\"validationVersion\":\"identity-evidence-004\"},\"referenceObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"candidateObservation\":\"Blue rectangular container with black cap and central white label area, but no textual brand name visible\",\"differenceKind\":\"none\",\"comparisonSummary\":\"No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\",\"visibleEvidence\":[\"blue rectangular container\",\"black cap\",\"white central label area\"],\"referenceVisible\":true,\"candidateVisible\":true}}}"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "WNAM",
+      "served_by_colo": "SEA",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2181
+      },
+      "duration": 0.2181,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2195456,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]
+---
+
+--- 2026-10-12T13:22:44.845Z debug
+Metrics dispatcher: Dispatching disabled - would have sent {"deviceId":"b0eb6ab0-af78-42c0-9d82-1fbcec04991c","event":"wrangler command completed","timestamp":1791811364845,"properties":{"amplitude_session_id":1791811362285,"amplitude_event_id":1,"wranglerVersion":"4.114.0","wranglerMajorVersion":4,"wranglerMinorVersion":114,"wranglerPatchVersion":0,"osPlatform":"Mac OS","osVersion":"Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000","nodeVersion":22,"packageManager":"pnpm","isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","json","remote"],"argsCombination":"command, json, remote","sanitizedCommand":"d1 execute","sanitizedArgs":{"remote":true,"json":true},"durationMs":2567,"currentAgentSkillsInstalled":false}}.
+---

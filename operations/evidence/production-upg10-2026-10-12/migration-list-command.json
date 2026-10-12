@@ -1,0 +1,16 @@
+{
+  "command": [
+    "pnpm",
+    "exec",
+    "wrangler",
+    "d1",
+    "migrations",
+    "list",
+    "pairvu-production",
+    "--remote"
+  ],
+  "startedAt": "2026-10-12T13:12:03.319Z",
+  "completedAt": "2026-10-12T13:12:08.328Z",
+  "exitCode": 0,
+  "rawLog": "/tmp/pairvu-upg10-migration-list-raw.txt"
+}

@@ -1,0 +1,13 @@
+from pathlib import Path
+import subprocess,os,json,datetime,hashlib
+r=Path(__file__).parent;env=dict(os.environ);
+for line in (Path('/Users/liukai/Documents/Product Visual QA Platform')/'.dev.vars').read_text().splitlines():
+ key,sep,value=line.partition('=')
+ if sep and key in ['CLOUDFLARE_API_TOKEN','CLOUDFLARE_ACCOUNT_ID']:env[key]=value.strip().strip(chr(34)).strip(chr(39))
+env['WRANGLER_LOG_PATH']=str(r/'qa-wrangler-read.log');sql=(r/'qa-readonly-queries.sql').read_text();assert all(q.strip().upper().startswith('SELECT') for q in sql.split(';') if q.strip())
+p=subprocess.run(['pnpm','exec','wrangler','d1','execute','pairvu-production','--remote','--command',sql,'--json'],cwd='/Users/liukai/Documents/Product Visual QA Platform',env=env,capture_output=True,text=True);(r/'qa-d1-stderr.txt').write_text(p.stderr);command={'exitCode':p.returncode,'command':'wrangler d1 execute pairvu-production --remote --command [qa-readonly-queries.sql] --json','completedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'readOnlySelectCount':9};(r/'qa-d1-command.json').write_text(json.dumps(command,indent=2))
+if p.returncode:print('D1 read failed; see sanitized local stderr');raise SystemExit(p.returncode)
+raw=json.loads(p.stdout);assert all(x['success'] and x['meta'].get('rows_written',0)==0 for x in raw)
+# Observe only canonical synthetic original evidence; archive digests, never original customer fields or personal identity.
+observations=raw[-1].pop('results');raw[-1]['syntheticObservationDigest']={'count':len(observations),'sha256':hashlib.sha256(json.dumps(observations,sort_keys=True,separators=(',',':')).encode()).hexdigest()}
+(r/'qa-d1-results.json').write_text(json.dumps(raw,indent=2)+'\n');print(json.dumps({'exitCode':0,'selects':len(raw),'rowsWritten':[x['meta'].get('rows_written',0) for x in raw],'results':[x.get('results',x.get('syntheticObservationDigest')) for x in raw]}))

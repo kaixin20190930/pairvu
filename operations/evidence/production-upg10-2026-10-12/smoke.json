@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-10",
+  "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+  "scope": "http",
+  "result": "PASS",
+  "checkedAt": "2026-10-12T13:17:57.499Z",
+  "checks": [
+    {
+      "kind": "health",
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+        "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+      }
+    }
+  ]
+}

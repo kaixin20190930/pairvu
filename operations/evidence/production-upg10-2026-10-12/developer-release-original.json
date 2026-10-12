@@ -1,0 +1,58 @@
+{
+  "unitId": "UPG-10",
+  "role": "developer",
+  "stage": "RELEASE_CANDIDATE_PENDING_INCREMENTAL_QA",
+  "baselineSha": "78eb1cdc328b77ad5f0a983799a708cddffb31ee",
+  "acceptedOriginalCandidate": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "candidateSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "medium",
+  "rationale": "Explicit one-flag deployment configuration change with matching assertion; no auth or metric semantics change.",
+  "escalationCondition": "Any required auth, metric or provenance change must be reported and high reassessed first.",
+  "diffFiles": [
+    "wrangler.jsonc",
+    "scripts/verify-value-metrics.ts"
+  ],
+  "sourceHashes": {
+    "wrangler.jsonc": "2b8e71c157bbcb10aa483f8e5ff807e8997bb318b0ecf52071cd620c12cebf82",
+    "scripts/verify-value-metrics.ts": "3d7e6565e016315bf6cb3b6d031f56770e23a6133a3a863c515148aee4a78f75",
+    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f"
+  },
+  "checks": [
+    {
+      "command": "pnpm exec tsx scripts/verify-value-metrics.ts /private/tmp/pairvu-upg10-release-d1-results.json",
+      "exitCode": 0,
+      "count": 26,
+      "localD1Requests": 434,
+      "report": "/private/tmp/pairvu-upg10-release-d1-results.json",
+      "stdout": "/private/tmp/pairvu-upg10-release-d1-raw.txt"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "stdout": "/private/tmp/pairvu-upg10-release-typecheck-raw.txt"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "configuration": {
+    "deploymentEnabled": true,
+    "absentCodeFallback": false,
+    "caseSensitiveExactTrueOnly": true
+  },
+  "production": {
+    "pushed": false,
+    "migrationApplied": false,
+    "deployed": false,
+    "realBusinessClassificationImported": false
+  },
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "nextAction": "Controller automatically runs fixed-SHA independent incremental QA, then owns authorized GitHub-first production release and real-login acceptance.",
+  "committedAt": "2026-10-12T13:07:39.199Z",
+  "commitDiff": "scripts/verify-value-metrics.ts | 2 +-\n wrangler.jsonc                  | 2 +-\n 2 files changed, 2 insertions(+), 2 deletions(-)",
+  "workingTreeStatus": ""
+}

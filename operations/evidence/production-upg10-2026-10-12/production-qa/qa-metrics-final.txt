@@ -1,0 +1,67 @@
+Releases
+Value metrics
+Overview
+Products
+Batches
+New batch
+Value metrics
+
+Only analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.
+
+Start · UTC, inclusive
+End · UTC, exclusive
+Apply window
+
+Creation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.
+
+Policy value-metrics-001 · generated 2026-10-12T13:25:25.622Z · source snapshot 2026-10-12T13:25:25.841Z
+
+Included and excluded
+
+0 business · 0 test excluded · 4 unknown excluded · 4 cohort analyses
+
+Classification coverage: 0 / 4 · 0.0%. Unclassified: 4; invalid source records: 0; invalid creation dates outside this cohort: 0.
+
+No business records are included. This does not mean all actual business activity is zero. Controlled source classification is required.
+
+Analysis usage
+
+0 included · 0 completed · 0 failed · 0 pending
+
+Invalid completion times: 0; unknown status: 0.
+
+Workflow: 0 single · 0 batch · 0 unknown. Generation model: unknown for all 0 analyses.
+
+Machine decisions
+
+0 PASS · 0 REVIEW · 0 FAIL · 0 unknown
+
+REVIEW / valid completed verdicts: 0 / 0 · Not available.
+
+Frozen SKU usage
+
+Linked / business completed: 0 / 0 · Not available. Missing or invalid snapshots: 0.
+
+0 distinct product/reference workflow uses · 0 subsequent uses inside this window. Batch items count once per invocation.
+
+Unknown workflow among linked analyses: 0. First window use is excluded from reuse; no lifetime reuse or ranking.
+
+Human decisions
+
+Valid audit coverage: 0 / 0 · Not available. Current 0 approve · 0 reject · 0 revoke.
+
+No audit: 0; invalid audit: 0. Decisions are not ground truth.
+
+First-decision waiting time: Not available · 0 valid samples; 0 missing (0 no valid decision, 0 invalid/negative).
+
+This is elapsed waiting time, not human effort. Time saved: not evaluated.
+
+Detection estimated cost
+
+Not available known estimate
+
+Known coverage: 0 / 0 · Not available; missing estimates: 0. Unknown costs are not zero.
+
+Not an invoice, profit or revenue. ROI: not evaluated.
+
+Low samples and missing sources limit interpretation. No quality improvement, commercial target or model ranking has been established.
