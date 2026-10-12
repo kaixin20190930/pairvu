@@ -15,12 +15,12 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:14",
+    "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:22",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
-      "reason": "已定位两份归档源码误入编译的局部证据包装修复，范围明确且可用字节哈希和typecheck验证。",
-      "upgradeCondition": "若发现应用源码或构建体系额外问题，先缩小定位再评估high。",
+      "reason": "仅生产功能开关及对应配置断言，范围明确。",
+      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
       "applied": true
     }
   },
@@ -41,8 +41,8 @@
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
-      "reason": "已验收候选之后仅文档和证据，固定最终SHA增量与哈希/typecheck核验。",
-      "upgradeCondition": "发现运行时差分或迁移/鉴权问题则high重新评估。",
+      "reason": "固定最终SHA核对启用差分、原证据与专项/typecheck。",
+      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
       "applied": true
     },
     "releaseRecheckModelSelection": {
@@ -62,16 +62,16 @@
     "productionModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "真实登录actor、远端D1审计和UI一致性生产验证。",
-      "upgradeCondition": "重复可定位推理不足再缩域或升级；环境不升级。",
-      "applied": true
+      "reason": "真实会话、规则/机器/人审分离、冻结SKU来源与权限跨层验收。",
+      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
+      "applied": false
     },
     "cliReceipt": "operations/evidence/UPG-06-cli.json"
   },
   "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "UPG06 65a8591独立PASS，正式RELEASE_READY；原UTF8 FAIL及修复前后证据保留。pairvu-2按用户选择已暂停并核验。UPG06未推送/部署/启用。",
+  "notes": "UPG06启用候选a7cec389已完成76专项/typecheck，准备固定最终发布SHA增量QA；当前未推送部署。",
   "nextUnitId": "UPG-06",
   "production": {
     "status": "PROD_VERIFIED",
@@ -162,9 +162,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "获得UPG06新的发布与启用授权后，最终SHA增量复核、GitHub-first推送fresh核验、构建部署与真实生产验收",
-    "dependency": "用户明确UPG06生产发布与启用授权；当前默认false，无迁移",
-    "automatic": false
+    "action": "启用提交→固定SHA增量QA→GitHub-first→Cloudflare部署→真实登录独立验收→整理下一批",
+    "dependency": "真实发布和生产门禁；付费正向导出不能伪造",
+    "automatic": true
   },
   "completedUnitId": "UPG-05",
   "completedCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
