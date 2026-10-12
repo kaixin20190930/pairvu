@@ -51,6 +51,8 @@
     "test:control": "node scripts/verify-pairvu-control.mjs",
     "verify:upgrade-dataset": "node scripts/verify-upgrade-dataset.mjs",
     "test:upgrade-dataset": "node scripts/test-upgrade-dataset.mjs",
+    "evaluate:reference-view-shadow": "node scripts/evaluate-reference-view-shadow.mjs",
+    "test:reference-view-shadow": "node scripts/test-reference-view-shadow.mjs",
     "release:preflight": "node scripts/release-preflight.mjs",
     "test:release-preflight": "node scripts/test-release-preflight.mjs",
     "test:control-production": "node scripts/verify-pairvu-production.mjs",

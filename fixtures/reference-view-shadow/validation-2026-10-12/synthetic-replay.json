@@ -1,0 +1,655 @@
+{
+  "status": "VALID",
+  "schemaVersion": 1,
+  "unitId": "UPG-07A",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "evidenceKind": "synthetic_test",
+  "message": "Engineering validation and declaration diagnostics only. No authorization, human provenance, model execution, image integrity or real benchmark quality has been verified.",
+  "inputDeclarations": {
+    "synthetic": true,
+    "authorization": "UNVERIFIED",
+    "independentHumanLabels": "UNVERIFIED",
+    "imageIntegrityAndNearDuplicates": "UNVERIFIED",
+    "runOrigins": "UNVERIFIED"
+  },
+  "inputHashes": {
+    "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
+    "extensionSha256": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
+    "predictionsSha256": "871e6f921d9c651611b9d790a2272fddd9176fb4f11353ebb0402ae015488079"
+  },
+  "policy": {
+    "version": "reference-view-conservative-001",
+    "sha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
+    "manifest": {
+      "version": "reference-view-conservative-001",
+      "views": [
+        "front",
+        "back",
+        "side",
+        "top",
+        "bottom",
+        "detail",
+        "unknown"
+      ],
+      "observability": [
+        "observable",
+        "partial",
+        "unobservable"
+      ],
+      "maxReferencesPerSample": 16,
+      "candidateRule": "resolved-compatible-truth;known-observable-view;same-view;available-observable-reference;same-source",
+      "ambiguityRule": "sorted-set;never-choose-unique-by-order",
+      "qualityEvidence": "always-false;external-declarations-not-authenticated",
+      "externalRunPolicyRule": "explicit-version-and-hash;declarations-only;no-inferred-provenance",
+      "criticalRule": "UPG02-resolved-critical-and-observability-not-unobservable;quality-ALLOW-is-missed",
+      "predictionCombinations": {
+        "MATCH": [
+          "ALLOW",
+          "REVIEW",
+          "BLOCK"
+        ],
+        "REVIEW": [
+          "REVIEW",
+          "BLOCK"
+        ],
+        "NO_MATCH": [
+          "BLOCK"
+        ]
+      }
+    }
+  },
+  "runMetadata": {
+    "baseline": {
+      "runId": "run_0000000000000001",
+      "codeSha": "1111111111111111111111111111111111111111",
+      "model": {
+        "provider": "synthetic-provider",
+        "modelId": "synthetic-no-model"
+      },
+      "promptVersion": "synthetic-prompt-1",
+      "policyVersion": "synthetic-external-policy-1",
+      "policySha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "candidate": {
+      "runId": "run_0000000000000002",
+      "codeSha": "2222222222222222222222222222222222222222",
+      "model": {
+        "provider": "synthetic-provider",
+        "modelId": "synthetic-no-model"
+      },
+      "promptVersion": "synthetic-prompt-2",
+      "policyVersion": "synthetic-external-policy-2",
+      "policySha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    }
+  },
+  "splits": {
+    "development": {
+      "sampleCount": 4,
+      "decidableDenominator": 3,
+      "criticalDenominator": 1,
+      "runs": {
+        "baseline": {
+          "sampleDenominator": 4,
+          "counts": {
+            "correctMatch": 1,
+            "wrongMatch": 2,
+            "correctNoMatch": 0,
+            "wrongNoMatch": 0,
+            "abstain": 0,
+            "unevaluable": 1,
+            "match": 4,
+            "review": 0,
+            "noMatch": 0,
+            "unsafeMatchOnInsufficient": 1,
+            "criticalAllowed": 1,
+            "criticalQualityReview": 0,
+            "criticalBlocked": 0,
+            "criticalMatchReview": 0,
+            "qualityAllow": 3,
+            "qualityReview": 0,
+            "qualityBlock": 1
+          },
+          "declaredCorrectRate": {
+            "numerator": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "reason": null
+          },
+          "coverage": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "reason": null
+          },
+          "reviewRate": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "reason": null
+          },
+          "criticalMissedAllowRate": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1,
+            "reason": null
+          },
+          "criticalQualityReviewRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0,
+            "reason": null
+          }
+        },
+        "candidate": {
+          "sampleDenominator": 4,
+          "counts": {
+            "correctMatch": 1,
+            "wrongMatch": 0,
+            "correctNoMatch": 1,
+            "wrongNoMatch": 0,
+            "abstain": 2,
+            "unevaluable": 0,
+            "match": 1,
+            "review": 2,
+            "noMatch": 1,
+            "unsafeMatchOnInsufficient": 0,
+            "criticalAllowed": 0,
+            "criticalQualityReview": 1,
+            "criticalBlocked": 0,
+            "criticalMatchReview": 0,
+            "qualityAllow": 0,
+            "qualityReview": 3,
+            "qualityBlock": 1
+          },
+          "declaredCorrectRate": {
+            "numerator": 2,
+            "denominator": 3,
+            "value": 0.6666666666666666,
+            "reason": null
+          },
+          "coverage": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5,
+            "reason": null
+          },
+          "reviewRate": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5,
+            "reason": null
+          },
+          "criticalMissedAllowRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0,
+            "reason": null
+          },
+          "criticalQualityReviewRate": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1,
+            "reason": null
+          }
+        }
+      },
+      "differences": {
+        "comparedSampleCount": 4,
+        "selectionChanged": 4,
+        "matchDecisionChanged": 3,
+        "qualityDecisionChanged": 3,
+        "becameCorrect": 2,
+        "ceasedCorrect": 1
+      },
+      "skuSampleCounts": {
+        "sku_0000000000000001": 1,
+        "sku_0000000000000002": 1,
+        "sku_0000000000000003": 1,
+        "sku_0000000000000004": 1
+      },
+      "defectTypeSampleCounts": {
+        "none": 3,
+        "packaging": 1
+      },
+      "rankings": "NOT_SUPPORTED"
+    },
+    "holdout": {
+      "sampleCount": 4,
+      "decidableDenominator": 2,
+      "criticalDenominator": 1,
+      "runs": {
+        "baseline": {
+          "sampleDenominator": 4,
+          "counts": {
+            "correctMatch": 0,
+            "wrongMatch": 1,
+            "correctNoMatch": 0,
+            "wrongNoMatch": 1,
+            "abstain": 2,
+            "unevaluable": 0,
+            "match": 1,
+            "review": 2,
+            "noMatch": 1,
+            "unsafeMatchOnInsufficient": 0,
+            "criticalAllowed": 1,
+            "criticalQualityReview": 0,
+            "criticalBlocked": 0,
+            "criticalMatchReview": 0,
+            "qualityAllow": 1,
+            "qualityReview": 1,
+            "qualityBlock": 2
+          },
+          "declaredCorrectRate": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0,
+            "reason": null
+          },
+          "coverage": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5,
+            "reason": null
+          },
+          "reviewRate": {
+            "numerator": 2,
+            "denominator": 4,
+            "value": 0.5,
+            "reason": null
+          },
+          "criticalMissedAllowRate": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1,
+            "reason": null
+          },
+          "criticalQualityReviewRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0,
+            "reason": null
+          }
+        },
+        "candidate": {
+          "sampleDenominator": 4,
+          "counts": {
+            "correctMatch": 2,
+            "wrongMatch": 0,
+            "correctNoMatch": 0,
+            "wrongNoMatch": 0,
+            "abstain": 1,
+            "unevaluable": 1,
+            "match": 3,
+            "review": 1,
+            "noMatch": 0,
+            "unsafeMatchOnInsufficient": 1,
+            "criticalAllowed": 0,
+            "criticalQualityReview": 0,
+            "criticalBlocked": 1,
+            "criticalMatchReview": 0,
+            "qualityAllow": 1,
+            "qualityReview": 1,
+            "qualityBlock": 2
+          },
+          "declaredCorrectRate": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1,
+            "reason": null
+          },
+          "coverage": {
+            "numerator": 3,
+            "denominator": 4,
+            "value": 0.75,
+            "reason": null
+          },
+          "reviewRate": {
+            "numerator": 1,
+            "denominator": 4,
+            "value": 0.25,
+            "reason": null
+          },
+          "criticalMissedAllowRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0,
+            "reason": null
+          },
+          "criticalQualityReviewRate": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0,
+            "reason": null
+          }
+        }
+      },
+      "differences": {
+        "comparedSampleCount": 4,
+        "selectionChanged": 3,
+        "matchDecisionChanged": 2,
+        "qualityDecisionChanged": 4,
+        "becameCorrect": 2,
+        "ceasedCorrect": 0
+      },
+      "skuSampleCounts": {
+        "sku_0000000000000005": 1,
+        "sku_0000000000000006": 1,
+        "sku_0000000000000007": 1,
+        "sku_0000000000000008": 1
+      },
+      "defectTypeSampleCounts": {
+        "none": 3,
+        "packaging": 1
+      },
+      "rankings": "NOT_SUPPORTED"
+    }
+  },
+  "samples": [
+    {
+      "sampleId": "sample_0000000000000001",
+      "split": "development",
+      "skuId": "sku_0000000000000001",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "front",
+        "observability": "observable",
+        "conclusion": "compatible",
+        "acceptableReferenceIds": [
+          "ref_000000000000000a"
+        ]
+      },
+      "recommendation": {
+        "candidateReferenceIds": [
+          "ref_000000000000000a"
+        ],
+        "uniqueReferenceId": "ref_000000000000000a",
+        "reason": "SINGLE_COMPATIBLE_REFERENCE",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000001",
+          "selection": "ref_000000000000000a",
+          "matchDecision": "MATCH",
+          "qualityDecision": "ALLOW",
+          "outcome": "correctMatch"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000001",
+          "selection": null,
+          "matchDecision": "REVIEW",
+          "qualityDecision": "REVIEW",
+          "outcome": "abstain"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000002",
+      "split": "development",
+      "skuId": "sku_0000000000000002",
+      "defectType": "packaging",
+      "critical": true,
+      "truth": {
+        "observedView": "front",
+        "observability": "observable",
+        "conclusion": "compatible",
+        "acceptableReferenceIds": [
+          "ref_0000000000000014",
+          "ref_0000000000000016"
+        ]
+      },
+      "recommendation": {
+        "candidateReferenceIds": [
+          "ref_0000000000000014",
+          "ref_0000000000000016"
+        ],
+        "uniqueReferenceId": null,
+        "reason": "MULTIPLE_COMPATIBLE_REFERENCES",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000002",
+          "selection": "ref_0000000000000017",
+          "matchDecision": "MATCH",
+          "qualityDecision": "ALLOW",
+          "outcome": "wrongMatch"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000002",
+          "selection": "ref_0000000000000016",
+          "matchDecision": "MATCH",
+          "qualityDecision": "REVIEW",
+          "outcome": "correctMatch"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000003",
+      "split": "development",
+      "skuId": "sku_0000000000000003",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "unknown",
+        "observability": "partial",
+        "conclusion": "insufficient",
+        "acceptableReferenceIds": []
+      },
+      "recommendation": {
+        "candidateReferenceIds": [],
+        "uniqueReferenceId": null,
+        "reason": "UNKNOWN_OBSERVED_VIEW",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000003",
+          "selection": "ref_000000000000001e",
+          "matchDecision": "MATCH",
+          "qualityDecision": "ALLOW",
+          "outcome": "unevaluable"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000003",
+          "selection": null,
+          "matchDecision": "REVIEW",
+          "qualityDecision": "REVIEW",
+          "outcome": "abstain"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000004",
+      "split": "development",
+      "skuId": "sku_0000000000000004",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "front",
+        "observability": "observable",
+        "conclusion": "no_match",
+        "acceptableReferenceIds": []
+      },
+      "recommendation": {
+        "candidateReferenceIds": [],
+        "uniqueReferenceId": null,
+        "reason": "DECLARED_NO_MATCH",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000004",
+          "selection": "ref_0000000000000028",
+          "matchDecision": "MATCH",
+          "qualityDecision": "BLOCK",
+          "outcome": "wrongMatch"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000004",
+          "selection": null,
+          "matchDecision": "NO_MATCH",
+          "qualityDecision": "BLOCK",
+          "outcome": "correctNoMatch"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000005",
+      "split": "holdout",
+      "skuId": "sku_0000000000000005",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "side",
+        "observability": "observable",
+        "conclusion": "compatible",
+        "acceptableReferenceIds": [
+          "ref_0000000000000032"
+        ]
+      },
+      "recommendation": {
+        "candidateReferenceIds": [
+          "ref_0000000000000032"
+        ],
+        "uniqueReferenceId": "ref_0000000000000032",
+        "reason": "SINGLE_COMPATIBLE_REFERENCE",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000005",
+          "selection": null,
+          "matchDecision": "NO_MATCH",
+          "qualityDecision": "BLOCK",
+          "outcome": "wrongNoMatch"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000005",
+          "selection": "ref_0000000000000032",
+          "matchDecision": "MATCH",
+          "qualityDecision": "ALLOW",
+          "outcome": "correctMatch"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000006",
+      "split": "holdout",
+      "skuId": "sku_0000000000000006",
+      "defectType": "packaging",
+      "critical": true,
+      "truth": {
+        "observedView": "back",
+        "observability": "observable",
+        "conclusion": "compatible",
+        "acceptableReferenceIds": [
+          "ref_000000000000003c"
+        ]
+      },
+      "recommendation": {
+        "candidateReferenceIds": [
+          "ref_000000000000003c"
+        ],
+        "uniqueReferenceId": "ref_000000000000003c",
+        "reason": "SINGLE_COMPATIBLE_REFERENCE",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000006",
+          "selection": "ref_000000000000003e",
+          "matchDecision": "MATCH",
+          "qualityDecision": "ALLOW",
+          "outcome": "wrongMatch"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000006",
+          "selection": "ref_000000000000003c",
+          "matchDecision": "MATCH",
+          "qualityDecision": "BLOCK",
+          "outcome": "correctMatch"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000007",
+      "split": "holdout",
+      "skuId": "sku_0000000000000007",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "bottom",
+        "observability": "partial",
+        "conclusion": "insufficient",
+        "acceptableReferenceIds": []
+      },
+      "recommendation": {
+        "candidateReferenceIds": [],
+        "uniqueReferenceId": null,
+        "reason": "LOW_OBSERVABILITY",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000007",
+          "selection": null,
+          "matchDecision": "REVIEW",
+          "qualityDecision": "REVIEW",
+          "outcome": "abstain"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000007",
+          "selection": "ref_0000000000000048",
+          "matchDecision": "MATCH",
+          "qualityDecision": "BLOCK",
+          "outcome": "unevaluable"
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000008",
+      "split": "holdout",
+      "skuId": "sku_0000000000000008",
+      "defectType": "none",
+      "critical": false,
+      "truth": {
+        "observedView": "front",
+        "observability": "observable",
+        "conclusion": "insufficient",
+        "acceptableReferenceIds": []
+      },
+      "recommendation": {
+        "candidateReferenceIds": [],
+        "uniqueReferenceId": null,
+        "reason": "INSUFFICIENT_EVIDENCE",
+        "confirmedMatch": false
+      },
+      "predictions": {
+        "baseline": {
+          "sampleId": "sample_0000000000000008",
+          "selection": null,
+          "matchDecision": "REVIEW",
+          "qualityDecision": "BLOCK",
+          "outcome": "abstain"
+        },
+        "candidate": {
+          "sampleId": "sample_0000000000000008",
+          "selection": null,
+          "matchDecision": "REVIEW",
+          "qualityDecision": "REVIEW",
+          "outcome": "abstain"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No combined development/holdout headline, quality thresholds, statistical significance or SKU/category rankings.",
+    "Declarations of blind annotation and authorization are not identity or consent verification.",
+    "Known-view same-view reference sets are conservative diagnostics, never confirmed visual matches.",
+    "Coverage counts all non-REVIEW outputs, including incorrect and unevaluable outputs. REVIEW is never scored correct.",
+    "UPG02 critical truth is independent of view truth; partial visible critical defects remain in the critical denominator."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "unitId": "UPG-07A",
+  "role": "developer",
+  "stage": "DEV_READY_PENDING_INDEPENDENT_QA",
+  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
+  "createdAt": "2026-10-12T05:51:12.730Z",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "realSampleReadiness": "NOT_PROVIDED",
+  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
+  "sourceHashes": {
+    "scripts/evaluate-reference-view-shadow.mjs": "4742556e15fe73c1c527b23e14216c28fb12ec9f2a1da730135056bc6aa67cd2",
+    "scripts/test-reference-view-shadow.mjs": "beaa38028ea1f586229b8e069b37674da3423b551120945478f22f3f748cf48d",
+    "scripts/reference-view-shadow/synthetic-fixture.mjs": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
+    "package.json": "31a4c1b963c7fe8aefb9d41b65c5a19300fef77cbe5935b5f150a342402ab33d",
+    "docs/05-evaluation/reference-view-shadow-protocol.md": "4ffaf674daae56605b79af87680f9708efe0da1ba8139f9fba30df1c764a81f4",
+    "docs/05-evaluation/reference-view-sample-readiness.md": "4e99abb18f1bfc9e04ab73b1071eee648efc7678e909b2d5abb2d2d9df4702d7",
+    "fixtures/reference-view-shadow/synthetic/dataset.json": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
+    "fixtures/reference-view-shadow/synthetic/views.json": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
+    "fixtures/reference-view-shadow/synthetic/predictions.json": "871e6f921d9c651611b9d790a2272fddd9176fb4f11353ebb0402ae015488079"
+  },
+  "commands": [
+    {
+      "command": "pnpm test:reference-view-shadow",
+      "exitCode": 0,
+      "checkCount": 177,
+      "cliInvocations": 21,
+      "stdout": "specialized-raw.txt"
+    },
+    {
+      "command": "pnpm test:upgrade-dataset",
+      "exitCode": 0,
+      "checkCount": 105,
+      "stdout": "upg02-regression-raw.txt"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "stdout": "typecheck-raw.txt"
+    },
+    {
+      "command": "node scripts/evaluate-reference-view-shadow.mjs --dataset fixtures/reference-view-shadow/synthetic/dataset.json --views fixtures/reference-view-shadow/synthetic/views.json --predictions fixtures/reference-view-shadow/synthetic/predictions.json",
+      "exitCode": 0,
+      "stdout": "synthetic-replay.json"
+    },
+    {
+      "command": "node scripts/evaluate-reference-view-shadow.mjs",
+      "exitCode": 2,
+      "stdout": "missing-input.json"
+    }
+  ],
+  "harnessCorrections": [
+    {
+      "attempt": 1,
+      "summary": "Missing-field test initially rebound a deleted datasetSha256 in its synthetic fixture helper; helper now preserves absence."
+    },
+    {
+      "attempt": 2,
+      "summary": "Missing sampleId rejection occurs at sample-set validation before object-field validation; corrected expected error code."
+    }
+  ],
+  "limitations": [
+    "Developer validation is not independent acceptance. Controller must bind QA to exact committed candidate SHA.",
+    "All inputs are explicitly synthetic test metadata with no actual images, authorization, humans or model runs.",
+    "No build, browser, network, model, production, push or deployment used.",
+    "Real quality remains BLOCKED even for synthetic=false input declarations.",
+    "Runtime UPG-07 is not implemented or enabled."
+  ]
+}

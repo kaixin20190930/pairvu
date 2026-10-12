@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "dataset_0000000000000007",
+  "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
+  "synthetic": true,
+  "policyVersion": "reference-view-conservative-001",
+  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
+  "samples": [
+    {
+      "sampleId": "sample_0000000000000001",
+      "references": [
+        {
+          "id": "ref_000000000000000a",
+          "imageSha256": "000000000000000000000000000000000000000000000000000000000000000a",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000001",
+            "packagingVersionId": "pkg_0000000000000001",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_000000000000000a"
+            ]
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_000000000000000a"
+            ]
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000002",
+      "references": [
+        {
+          "id": "ref_0000000000000014",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000014",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000002",
+            "packagingVersionId": "pkg_0000000000000002",
+            "authorizationId": "auth_0000000000000001"
+          }
+        },
+        {
+          "id": "ref_0000000000000016",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000016",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000002",
+            "packagingVersionId": "pkg_0000000000000002",
+            "authorizationId": "auth_0000000000000001"
+          }
+        },
+        {
+          "id": "ref_0000000000000017",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000017",
+          "view": "back",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000002",
+            "packagingVersionId": "pkg_0000000000000002",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_0000000000000014",
+              "ref_0000000000000016"
+            ]
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_0000000000000014",
+              "ref_0000000000000016"
+            ]
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000003",
+      "references": [
+        {
+          "id": "ref_000000000000001e",
+          "imageSha256": "000000000000000000000000000000000000000000000000000000000000001e",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000003",
+            "packagingVersionId": "pkg_0000000000000003",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "unknown",
+            "observability": "partial",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "unknown",
+            "observability": "partial",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000004",
+      "references": [
+        {
+          "id": "ref_0000000000000028",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000028",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000004",
+            "packagingVersionId": "pkg_0000000000000004",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "no_match",
+            "acceptableReferenceIds": []
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "no_match",
+            "acceptableReferenceIds": []
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000005",
+      "references": [
+        {
+          "id": "ref_0000000000000032",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000032",
+          "view": "side",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000005",
+            "packagingVersionId": "pkg_0000000000000005",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "side",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_0000000000000032"
+            ]
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "side",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_0000000000000032"
+            ]
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000006",
+      "references": [
+        {
+          "id": "ref_000000000000003c",
+          "imageSha256": "000000000000000000000000000000000000000000000000000000000000003c",
+          "view": "back",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000006",
+            "packagingVersionId": "pkg_0000000000000006",
+            "authorizationId": "auth_0000000000000001"
+          }
+        },
+        {
+          "id": "ref_000000000000003e",
+          "imageSha256": "000000000000000000000000000000000000000000000000000000000000003e",
+          "view": "front",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000006",
+            "packagingVersionId": "pkg_0000000000000006",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_000000000000003e"
+            ]
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "back",
+            "observability": "observable",
+            "conclusion": "compatible",
+            "acceptableReferenceIds": [
+              "ref_000000000000003c"
+            ]
+          }
+        }
+      ],
+      "adjudication": {
+        "adjudicatorId": "ann_0000000000000003",
+        "reason": "view_resolution",
+        "label": {
+          "observedView": "back",
+          "observability": "observable",
+          "conclusion": "compatible",
+          "acceptableReferenceIds": [
+            "ref_000000000000003c"
+          ]
+        }
+      }
+    },
+    {
+      "sampleId": "sample_0000000000000007",
+      "references": [
+        {
+          "id": "ref_0000000000000046",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000046",
+          "view": "bottom",
+          "observability": "observable",
+          "status": "invalidated",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000007",
+            "packagingVersionId": "pkg_0000000000000007",
+            "authorizationId": "auth_0000000000000001"
+          }
+        },
+        {
+          "id": "ref_0000000000000048",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000048",
+          "view": "top",
+          "observability": "observable",
+          "status": "available",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000007",
+            "packagingVersionId": "pkg_0000000000000007",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "bottom",
+            "observability": "partial",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "bottom",
+            "observability": "partial",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        }
+      ],
+      "adjudication": null
+    },
+    {
+      "sampleId": "sample_0000000000000008",
+      "references": [
+        {
+          "id": "ref_0000000000000050",
+          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000050",
+          "view": "front",
+          "observability": "observable",
+          "status": "invalidated",
+          "source": {
+            "workspaceId": "ws_0000000000000001",
+            "skuId": "sku_0000000000000008",
+            "packagingVersionId": "pkg_0000000000000008",
+            "authorizationId": "auth_0000000000000001"
+          }
+        }
+      ],
+      "annotations": [
+        {
+          "annotatorId": "ann_0000000000000001",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        },
+        {
+          "annotatorId": "ann_0000000000000002",
+          "independent": true,
+          "blind": true,
+          "label": {
+            "observedView": "front",
+            "observability": "observable",
+            "conclusion": "insufficient",
+            "acceptableReferenceIds": []
+          }
+        }
+      ],
+      "adjudication": null
+    }
+  ]
+}

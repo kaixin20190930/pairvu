@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "dataset_0000000000000007",
+  "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
+  "extensionSha256": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
+  "synthetic": true,
+  "policyVersion": "reference-view-conservative-001",
+  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
+  "baseline": {
+    "metadata": {
+      "runId": "run_0000000000000001",
+      "codeSha": "1111111111111111111111111111111111111111",
+      "model": {
+        "provider": "synthetic-provider",
+        "modelId": "synthetic-no-model"
+      },
+      "promptVersion": "synthetic-prompt-1",
+      "policyVersion": "synthetic-external-policy-1",
+      "policySha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "samples": [
+      {
+        "sampleId": "sample_0000000000000001",
+        "selection": "ref_000000000000000a",
+        "matchDecision": "MATCH",
+        "qualityDecision": "ALLOW"
+      },
+      {
+        "sampleId": "sample_0000000000000002",
+        "selection": "ref_0000000000000017",
+        "matchDecision": "MATCH",
+        "qualityDecision": "ALLOW"
+      },
+      {
+        "sampleId": "sample_0000000000000003",
+        "selection": "ref_000000000000001e",
+        "matchDecision": "MATCH",
+        "qualityDecision": "ALLOW"
+      },
+      {
+        "sampleId": "sample_0000000000000004",
+        "selection": "ref_0000000000000028",
+        "matchDecision": "MATCH",
+        "qualityDecision": "BLOCK"
+      },
+      {
+        "sampleId": "sample_0000000000000005",
+        "selection": null,
+        "matchDecision": "NO_MATCH",
+        "qualityDecision": "BLOCK"
+      },
+      {
+        "sampleId": "sample_0000000000000006",
+        "selection": "ref_000000000000003e",
+        "matchDecision": "MATCH",
+        "qualityDecision": "ALLOW"
+      },
+      {
+        "sampleId": "sample_0000000000000007",
+        "selection": null,
+        "matchDecision": "REVIEW",
+        "qualityDecision": "REVIEW"
+      },
+      {
+        "sampleId": "sample_0000000000000008",
+        "selection": null,
+        "matchDecision": "REVIEW",
+        "qualityDecision": "BLOCK"
+      }
+    ]
+  },
+  "candidate": {
+    "metadata": {
+      "runId": "run_0000000000000002",
+      "codeSha": "2222222222222222222222222222222222222222",
+      "model": {
+        "provider": "synthetic-provider",
+        "modelId": "synthetic-no-model"
+      },
+      "promptVersion": "synthetic-prompt-2",
+      "policyVersion": "synthetic-external-policy-2",
+      "policySha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    "samples": [
+      {
+        "sampleId": "sample_0000000000000001",
+        "selection": null,
+        "matchDecision": "REVIEW",
+        "qualityDecision": "REVIEW"
+      },
+      {
+        "sampleId": "sample_0000000000000002",
+        "selection": "ref_0000000000000016",
+        "matchDecision": "MATCH",
+        "qualityDecision": "REVIEW"
+      },
+      {
+        "sampleId": "sample_0000000000000003",
+        "selection": null,
+        "matchDecision": "REVIEW",
+        "qualityDecision": "REVIEW"
+      },
+      {
+        "sampleId": "sample_0000000000000004",
+        "selection": null,
+        "matchDecision": "NO_MATCH",
+        "qualityDecision": "BLOCK"
+      },
+      {
+        "sampleId": "sample_0000000000000005",
+        "selection": "ref_0000000000000032",
+        "matchDecision": "MATCH",
+        "qualityDecision": "ALLOW"
+      },
+      {
+        "sampleId": "sample_0000000000000006",
+        "selection": "ref_000000000000003c",
+        "matchDecision": "MATCH",
+        "qualityDecision": "BLOCK"
+      },
+      {
+        "sampleId": "sample_0000000000000007",
+        "selection": "ref_0000000000000048",
+        "matchDecision": "MATCH",
+        "qualityDecision": "BLOCK"
+      },
+      {
+        "sampleId": "sample_0000000000000008",
+        "selection": null,
+        "matchDecision": "REVIEW",
+        "qualityDecision": "REVIEW"
+      }
+    ]
+  }
+}

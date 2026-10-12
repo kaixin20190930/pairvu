@@ -1,0 +1,722 @@
+
+> product-visual-qa-platform@0.1.0 test:reference-view-shadow /Users/liukai/Documents/Product Visual QA Platform
+> node scripts/test-reference-view-shadow.mjs
+
+{
+  "status": "PASS",
+  "unitId": "UPG-07A",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "checkCount": 177,
+  "cliInvocations": 21,
+  "checks": [
+    {
+      "name": "split counts and full outcome partitions retain REVIEW and insufficient samples",
+      "status": "PASS"
+    },
+    {
+      "name": "independent critical truth counts both observable and partial defects; REVIEW is separate",
+      "status": "PASS"
+    },
+    {
+      "name": "multi solution retains sorted candidate set and never selects unique by order",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown, low visibility, no_match and invalidated references never recommend a match",
+      "status": "PASS"
+    },
+    {
+      "name": "same frozen samples compare changed output and correctness without headline",
+      "status": "PASS"
+    },
+    {
+      "name": "byte hashes bind all three files and fixed policy manifest",
+      "status": "PASS"
+    },
+    {
+      "name": "false synthetic declaration does not certify real provenance or quality",
+      "status": "PASS"
+    },
+    {
+      "name": "no critical examples has null missed-error rate, never success zero",
+      "status": "PASS"
+    },
+    {
+      "name": "only development yields explicit zero holdout and null denominators",
+      "status": "PASS"
+    },
+    {
+      "name": "all view truth insufficient leaves zero decidable denominator with abstentions retained",
+      "status": "PASS"
+    },
+    {
+      "name": "distinct external run policy versions and hashes are declared, never inferred",
+      "status": "PASS"
+    },
+    {
+      "name": "same-source frozen reference can be reused by distinct observations within one split",
+      "status": "PASS"
+    },
+    {
+      "name": "adjudicated decision can resolve to no_match while keeping original two labels",
+      "status": "PASS"
+    },
+    {
+      "name": "acceptable-ID set order agreement requires no arbitration",
+      "status": "PASS"
+    },
+    {
+      "name": "semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order",
+      "status": "PASS"
+    },
+    {
+      "name": "UPG02 dataset validation is reused for ownership and labels",
+      "status": "PASS"
+    },
+    {
+      "name": "extension dataset ID mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction dataset ID mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong extension schema",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong prediction schema",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed extension provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed predictions provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported strategy version",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported strategy hash",
+      "status": "PASS"
+    },
+    {
+      "name": "missing extension sample",
+      "status": "PASS"
+    },
+    {
+      "name": "extra extension sample",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate extension sample",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown extension sample",
+      "status": "PASS"
+    },
+    {
+      "name": "original reference cannot be omitted",
+      "status": "PASS"
+    },
+    {
+      "name": "empty reference set",
+      "status": "PASS"
+    },
+    {
+      "name": "reference set bounded at 16",
+      "status": "PASS"
+    },
+    {
+      "name": "observed cannot be own reference",
+      "status": "PASS"
+    },
+    {
+      "name": "reference image crossed holdout split",
+      "status": "PASS"
+    },
+    {
+      "name": "new reference crossed holdout observed role",
+      "status": "PASS"
+    },
+    {
+      "name": "two newly added images leak across split",
+      "status": "PASS"
+    },
+    {
+      "name": "image content reused under different SKU within split",
+      "status": "PASS"
+    },
+    {
+      "name": "reference ID conflicting metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate reference ID",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate reference hash",
+      "status": "PASS"
+    },
+    {
+      "name": "reference hash malformed",
+      "status": "PASS"
+    },
+    {
+      "name": "arbitrary view not supported",
+      "status": "PASS"
+    },
+    {
+      "name": "reference state unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "same view annotator",
+      "status": "PASS"
+    },
+    {
+      "name": "view labeling not independent",
+      "status": "PASS"
+    },
+    {
+      "name": "view labeling not blind",
+      "status": "PASS"
+    },
+    {
+      "name": "only one view annotation",
+      "status": "PASS"
+    },
+    {
+      "name": "missing required adjudication",
+      "status": "PASS"
+    },
+    {
+      "name": "arbitration not third person",
+      "status": "PASS"
+    },
+    {
+      "name": "unexpected adjudication removes original agreement",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown acceptable reference",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-view acceptable reference",
+      "status": "PASS"
+    },
+    {
+      "name": "invalidated reference cannot be acceptable",
+      "status": "PASS"
+    },
+    {
+      "name": "partial reference cannot be acceptable",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown view cannot assert compatible truth",
+      "status": "PASS"
+    },
+    {
+      "name": "partial observed view cannot assert compatible truth",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown view cannot assert no_match truth",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate acceptable reference",
+      "status": "PASS"
+    },
+    {
+      "name": "run ID not independent",
+      "status": "PASS"
+    },
+    {
+      "name": "abbreviated code SHA not accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "unidentified model cannot be guessed",
+      "status": "PASS"
+    },
+    {
+      "name": "unidentified prompt cannot be guessed",
+      "status": "PASS"
+    },
+    {
+      "name": "run policy hash malformed",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source workspaceId mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source skuId mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source packagingVersionId mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source authorizationId mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline missing prediction cannot vanish from denominator",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline extra prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline duplicate prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline unknown sample prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline cross-SKU reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline unknown reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline arbitrary match decision",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline arbitrary quality decision",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline invalidated reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline unsupported REVIEW/ALLOW",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline MATCH without selection",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline NO_MATCH with selection",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate missing prediction cannot vanish from denominator",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate extra prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate duplicate prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate unknown sample prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate cross-SKU reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate unknown reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate arbitrary match decision",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate arbitrary quality decision",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate invalidated reference prediction",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate unsupported REVIEW/ALLOW",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate MATCH without selection",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate NO_MATCH with selection",
+      "status": "PASS"
+    },
+    {
+      "name": "extension unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing schemaVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing datasetId",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing datasetSha256",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing synthetic",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing policyVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing policySha256",
+      "status": "PASS"
+    },
+    {
+      "name": "extension missing samples",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing schemaVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing datasetId",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing datasetSha256",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing extensionSha256",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing synthetic",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing policyVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing policySha256",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction root missing candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "view sample unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "view sample missing sampleId",
+      "status": "PASS"
+    },
+    {
+      "name": "view sample missing references",
+      "status": "PASS"
+    },
+    {
+      "name": "view sample missing annotations",
+      "status": "PASS"
+    },
+    {
+      "name": "view sample missing adjudication",
+      "status": "PASS"
+    },
+    {
+      "name": "reference unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing id",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing imageSha256",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing view",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing observability",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing status",
+      "status": "PASS"
+    },
+    {
+      "name": "reference missing source",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source missing workspaceId",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source missing skuId",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source missing packagingVersionId",
+      "status": "PASS"
+    },
+    {
+      "name": "reference source missing authorizationId",
+      "status": "PASS"
+    },
+    {
+      "name": "view annotation unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "view annotation missing annotatorId",
+      "status": "PASS"
+    },
+    {
+      "name": "view annotation missing independent",
+      "status": "PASS"
+    },
+    {
+      "name": "view annotation missing blind",
+      "status": "PASS"
+    },
+    {
+      "name": "view annotation missing label",
+      "status": "PASS"
+    },
+    {
+      "name": "view truth unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "view truth missing observedView",
+      "status": "PASS"
+    },
+    {
+      "name": "view truth missing observability",
+      "status": "PASS"
+    },
+    {
+      "name": "view truth missing conclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "view truth missing acceptableReferenceIds",
+      "status": "PASS"
+    },
+    {
+      "name": "adjudication unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "adjudication missing adjudicatorId",
+      "status": "PASS"
+    },
+    {
+      "name": "adjudication missing reason",
+      "status": "PASS"
+    },
+    {
+      "name": "adjudication missing label",
+      "status": "PASS"
+    },
+    {
+      "name": "run unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "run missing metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "run missing samples",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing runId",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing codeSha",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing model",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing promptVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing policyVersion",
+      "status": "PASS"
+    },
+    {
+      "name": "run metadata missing policySha256",
+      "status": "PASS"
+    },
+    {
+      "name": "model metadata unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "model metadata missing provider",
+      "status": "PASS"
+    },
+    {
+      "name": "model metadata missing modelId",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction sample unknown fields rejected (including qualityEvidence override)",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction sample missing sampleId",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction sample missing selection",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction sample missing matchDecision",
+      "status": "PASS"
+    },
+    {
+      "name": "prediction sample missing qualityDecision",
+      "status": "PASS"
+    },
+    {
+      "name": "raw dataset whitespace tampering invalidates binding even if parsed meaning is same",
+      "status": "PASS"
+    },
+    {
+      "name": "raw view whitespace tampering invalidates prediction binding",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong dataset byte hash is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate JSON keys including escaped aliases are rejected before overwrite",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI entry direct",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI entry file symlink",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI entry parent symlink",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid input executes through linked CLI alias.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid input executes through linked CLI evaluate-reference-view-shadow.mjs",
+      "status": "PASS"
+    },
+    {
+      "name": "missing file blocks without path or content echo",
+      "status": "PASS"
+    },
+    {
+      "name": "partial flags invalid and do not fall back to fixtures",
+      "status": "PASS"
+    },
+    {
+      "name": "directory input blocks",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid JSON/UPG02 input sanitized {",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid JSON/UPG02 input sanitized n",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid JSON/UPG02 input sanitized [",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid JSON/UPG02 input sanitized {",
+      "status": "PASS"
+    },
+    {
+      "name": "semantic errors never echo arbitrary input values",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI creates no files and preserves input byte contents",
+      "status": "PASS"
+    },
+    {
+      "name": "help states engineering/real-quality distinction and exit codes",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit committed fixtures replay exactly, without overwriting them",
+      "status": "PASS"
+    }
+  ]
+}
