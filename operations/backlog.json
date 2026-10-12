@@ -302,6 +302,26 @@
         "其他设备和外部CI完整依赖清单及恢复核验",
         "审计覆盖限制核实与最小权限方案"
       ]
+    },
+    {
+      "id": "JRN-01",
+      "title": "核心生产旅程补验清单与可执行范围",
+      "priority": 1,
+      "dependsOn": [
+        "UPG-03",
+        "UPG-04",
+        "UPG-05",
+        "UPG-06",
+        "UPG-10"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "available scope completed",
+        "blocked coverage explicitly documented"
+      ]
     }
   ]
 }

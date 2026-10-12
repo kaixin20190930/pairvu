@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-10",
+  "unitId": "JRN-01",
   "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
@@ -9,9 +9,9 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "跨表指标口径、分类来源及租户隔离需联合推理。",
-      "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
+      "thinking": "medium",
+      "reason": "已有实现的精确场景梳理与有限回归，范围明确",
+      "upgradeCondition": "跨模块安全/计费/并发缺陷进入独立修复单后重评high",
       "applied": true
     },
     "observedStatus": "completed",
@@ -31,9 +31,9 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "本轮完整独立验收需跨表口径、来源分类、原子迁移、租户隔离及真实组件反例，Sol/high足以覆盖。",
-      "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
-      "applied": true
+      "reason": "真实生产身份、快照、人审资格及隔离需跨层独立核对",
+      "upgradeCondition": "同类实质推理缺口重复且缩域仍不足才重评；账号/环境问题不升级",
+      "applied": false
     },
     "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:95",
     "observedStatus": "completed",
@@ -76,10 +76,10 @@
     ],
     "receipt": "operations/evidence/UPG-10.json"
   },
-  "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "SCOPED",
   "automationId": "pairvu-2",
-  "notes": "UPG10生产CLOSED；本轮令牌旧值失效、新值与服务验证及独立12项PASS。安全事件按已知范围处置完成，外部依赖/审计覆盖/最小权限跟进保留。",
+  "notes": "启动JRN-01；本轮清单与可执行范围交付不等于完整生产旅程PASS。运行时修复另按明确契约固定SHA验收，发布需新授权。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -192,9 +192,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "确认其他设备/外部CI依赖，并设计移除非必要权限的方案；补齐审计覆盖。当前轮换已完成，不重复轮换或部署。",
-    "dependency": "凭据保管方的完整依赖清单；改变凭据策略时需受控用户交接",
-    "automatic": false
+    "action": "原开发清单和本地回归→固定SHA独立QA及实际生产可执行项目；FAIL返工",
+    "dependency": "第二账号/付费会话/付款授权缺口单列，不阻塞其他项目",
+    "automatic": true
   },
   "completedUnitId": "UPG-10",
   "completedCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
