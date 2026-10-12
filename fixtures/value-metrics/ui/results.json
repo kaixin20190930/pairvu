@@ -1,0 +1,120 @@
+{
+  "unitId": "UPG-10",
+  "role": "developer",
+  "status": "PASS",
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "checkCount": 13,
+  "checks": [
+    {
+      "name": "Desktop real component shows included/excluded, cost missing and waiting-time limits",
+      "status": "PASS"
+    },
+    {
+      "name": "375px page/input overflow fixed; table scroll remains contained",
+      "status": "PASS",
+      "detail": {
+        "buttonRight": 158.8359375,
+        "inputs": [
+          351,
+          351
+        ],
+        "scrollWidth": 375,
+        "viewport": 375
+      }
+    },
+    {
+      "name": "Empty state distinguishes no classified business from zero actual business, ratios unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "503 error clears all complete metrics and shows retry",
+      "status": "PASS"
+    },
+    {
+      "name": "Retry recovers actual client from error to complete report",
+      "status": "PASS"
+    },
+    {
+      "name": "Disabled status hides actual AccountWorkspaceNav metrics link",
+      "status": "PASS"
+    },
+    {
+      "name": "Final React/CSS source narrow populated render remains bounded",
+      "status": "PASS",
+      "detail": {
+        "scrollWidth": 375,
+        "viewport": 375
+      }
+    },
+    {
+      "name": "Final React source error suppresses all complete metric tiles",
+      "status": "PASS"
+    },
+    {
+      "name": "Final retry clears error/data, disables Apply and shows loading before async recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "Fresh visible DOM confirms recovery after delayed response",
+      "status": "PASS"
+    },
+    {
+      "name": "Final source empty state preserves missing/null semantics",
+      "status": "PASS"
+    },
+    {
+      "name": "Final populated rendering and frozen group table bounded at 375px",
+      "status": "PASS",
+      "detail": {
+        "scrollWidth": 375,
+        "viewport": 375
+      }
+    },
+    {
+      "name": "1280px desktop real component populated render remains bounded",
+      "status": "PASS",
+      "detail": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "inputs": [
+          560.578125,
+          1029.1640625
+        ]
+      }
+    }
+  ],
+  "sourceHashes": {
+    "app/account/value-metrics/ValueMetricsClient.tsx": "ddc12a5301e48a530e0fc4fc91f7a730ae0fb93ab0387b1b70c9017a0edf68e6",
+    "app/account/value-metrics/value-metrics.module.css": "ed307f89e00dd4ed97864caec1f75eaa154ff2268a21cb1ce9d5d09ed750c7a7",
+    "components/AccountWorkspaceNav.tsx": "6d510e750e099f71b6565d56f119dda7ae5e2fcd8e2d1807b54e6aafd4d0c1ca",
+    "scripts/value-metrics-ui.mjs": "ed12ebab0994182489ead13a85d55d5c0c345fd25779dfd80b46eb4a6b5fc865",
+    "fixtures/value-metrics/ui/sample-report.json": "9889e5bdc50d1766f6f366ff75b5d0a4531ed819d3dba35e8233fc55247a2df6"
+  },
+  "initialFailure": {
+    "name": "Narrow table intrinsic grid track overflow",
+    "measurements": {
+      "buttonRight": 158.8359375,
+      "inputs": [
+        318,
+        624
+      ],
+      "scrollWidth": 624,
+      "viewport": 375
+    },
+    "fixedBy": "Explicit minmax(0,1fr) root grid track and section min-width:0; actual375px recheck passed"
+  },
+  "observations": [
+    "5-second fixture response exceeded one locator backend deadline; subsequent fresh DOM verified recovery.",
+    "Actual React clients and CSS; navigation framework stubs and synthetic API responses, not production login acceptance.",
+    "Evidence audit corrected the formerly desktop-labelled final 375px capture; added a separate measured 1280px desktop check. Original check detail is preserved. Screenshot bytes are JPEG and now use .jpg extensions."
+  ],
+  "screenshots": [
+    "desktop-1280.jpg",
+    "populated-final-375.jpg",
+    "narrow.jpg",
+    "empty.jpg",
+    "error.jpg"
+  ]
+}

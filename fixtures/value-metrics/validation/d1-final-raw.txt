@@ -1,0 +1,31 @@
+
+> product-visual-qa-platform@0.1.0 test:value-metrics /Users/liukai/Documents/Product Visual QA Platform
+> tsx scripts/verify-value-metrics.ts
+
+PASS strict UTC defaults and malformed requests
+PASS flag exact true; default false
+PASS empty source returns null denominators and no cost rather than zero invoices
+PASS mixed provenance excludes every business amount, group, audit and denominator
+PASS forged and repeated client completion/reuse events do not affect metrics
+PASS session owner scope and missing/inactive membership rejection
+PASS classification correction appends and removes formerly business from all metrics
+PASS classification stale imports and cross-scope/REPLACE/update/delete blocked atomically
+PASS UTC start inclusive/end exclusive; finish after window end still in cohort
+PASS invalid completion time is missing, invalid creation time unwindowable
+PASS batch items count one invocation, repeated independent batch counts subsequent use
+PASS current product rename/archive does not change frozen groups
+PASS copied batch hash cannot hide mismatching source snapshot JSON or inflate reuse
+PASS atomic read does not incorporate later classification update
+PASS zero business completed leaves empty rates despite populated unknown cohort
+PASS controlled classification material rejects spoofing/conflicts/metadata and byte mismatch
+PASS actual routes auth/no-store/flag/status do not trust client parameters
+PASS DB failures return explicit incomplete 503 without fake zero report
+PASS actual SSR page redirects anonymous, hides disabled/foreign scope and renders enabled owner
+PASS classification CLI real entry, symlink and readonly exact local files
+PASS cohort limit refuses complete ratios; exact bound remains supported
+PASS negative first-decision wait and corrupt audit hashes are excluded with missing counts
+PASS business UTF8 snapshot byte overflow rejects; excluded unknown large snapshot does not alter business report
+PASS 101 audit events reject complete metrics without truncating history to a ratio
+PASS finite cost values whose sum overflows reject rather than emitting Infinity or zero
+PASS total business snapshot byte budget rejects even when each record fits its own cap
+PASS: 26 cases, 434 actual local D1 requests; /Users/liukai/Documents/Product Visual QA Platform/fixtures/value-metrics/d1-results.json

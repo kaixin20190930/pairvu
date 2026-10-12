@@ -60,7 +60,9 @@
     "test:product-profiles": "tsx scripts/verify-product-profiles.ts",
     "test:structured-evidence": "tsx scripts/verify-structured-evidence.ts",
     "test:review-decisions": "tsx scripts/verify-review-decisions.ts",
-    "test:release-workbench": "tsx scripts/verify-release-workbench.ts"
+    "test:release-workbench": "tsx scripts/verify-release-workbench.ts",
+    "test:value-metrics": "tsx scripts/verify-value-metrics.ts",
+    "value-metrics:prepare-classification": "tsx scripts/value-metrics-classification.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "latest",

@@ -1,0 +1,6 @@
+lib/value-metrics/calculate.ts(33,40): error TS18047: 'previous' is possibly 'null'.
+lib/value-metrics/classification.ts(17,23): error TS18046: 'inventory.analyses' is of type 'unknown'.
+lib/value-metrics/classification.ts(17,303): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+lib/value-metrics/classification.ts(19,23): error TS18046: 'm.records' is of type 'unknown'.
+lib/value-metrics/classification.ts(20,314): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+lib/value-metrics/classification.ts(20,518): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.

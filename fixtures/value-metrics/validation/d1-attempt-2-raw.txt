@@ -1,0 +1,58 @@
+
+> product-visual-qa-platform@0.1.0 test:value-metrics /Users/liukai/Documents/Product Visual QA Platform
+> tsx scripts/verify-value-metrics.ts
+
+PASS strict UTC defaults and malformed requests
+PASS flag exact true; default false
+PASS empty source returns null denominators and no cost rather than zero invoices
+PASS mixed provenance excludes every business amount, group, audit and denominator
+PASS session owner scope and missing/inactive membership rejection
+PASS classification correction appends and removes formerly business from all metrics
+PASS classification stale imports and cross-scope/REPLACE/update/delete blocked atomically
+PASS UTC start inclusive/end exclusive; finish after window end still in cohort
+PASS invalid completion time is missing, invalid creation time unwindowable
+PASS batch items count one invocation, repeated independent batch counts subsequent use
+PASS current product rename/archive does not change frozen groups
+PASS atomic read does not incorporate later classification update
+PASS zero business completed leaves empty rates despite populated unknown cohort
+PASS controlled classification material rejects spoofing/conflicts/metadata and byte mismatch
+PASS actual routes auth/no-store/flag/status do not trust client parameters
+PASS DB failures return explicit incomplete 503 without fake zero report
+FAIL: 17 cases, 183 actual local D1 requests; /Users/liukai/Documents/Product Visual QA Platform/fixtures/value-metrics/d1-results.json
+AssertionError [ERR_ASSERTION]: node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+Error: Transform failed with 3 errors:
+/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:20: ERROR: Top-level await is currently not supported with the "cjs" output format
+/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:69: ERROR: Top-level await is currently not supported with the "cjs" output format
+/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:127: ERROR: Top-level await is currently not supported with the "cjs" output format
+    at failureErrorWithLog (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1748:15)
+    at /Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1017:50
+    at responseCallbacks.<computed> (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:884:9)
+    at handleIncomingPacket (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:939:12)
+    at Socket.readFromStdout (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:862:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {
+  name: 'TransformError'
+}
+
+Node.js v22.22.3
+
+
+1 !== 0
+
+    at <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:72:604)
+    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:28:76)
+    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:72:3) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+ ELIFECYCLE  Command failed with exit code 1.

@@ -1,0 +1,1 @@
+export default {async fetch(request,env){try{const {statements}=await request.json();const results=await env.DB.batch(statements.map(s=>env.DB.prepare(s.sql).bind(...s.params)));return Response.json({success:true,results});}catch(error){return Response.json({success:false,error:error.message});}}};

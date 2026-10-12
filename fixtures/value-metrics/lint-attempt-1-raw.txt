@@ -1,0 +1,21 @@
+
+/Users/liukai/Documents/Product Visual QA Platform/app/account/value-metrics/ValueMetricsClient.tsx
+  8:57  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/liukai/Documents/Product Visual QA Platform/app/account/value-metrics/ValueMetricsClient.tsx:8:57
+   6 | export function ValueMetricsClient(){
+   7 |   const [query,setQuery]=useState(""),[retry,setRetry]=useState(0),[data,setData]=useState<ValueReport|null>(null),[error,setError]=useState<string|null>(null),[loading,setLoading]=useState(true),[start,setStart]=useState(""),[end,setEnd]=useState("");
+>  8 |   useEffect(()=>{const controller=new AbortController();setLoading(true);setError(null);setData(null);
+     |                                                         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+   9 |     fetch("/api/value-metrics"+query,{cache:"no-store",signal:controller.signal}).then(async response=>{const body=await response.json();if(!response.ok||body.complete!==true)throw new Error(body.message??"Metrics could not be loaded.");if(!controller.signal.aborted){setData(body);setStart(body.window.start);setEnd(body.window.end);}}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:"Metrics could not be loaded.");}).finally(()=>{if(!controller.signal.aborted)setLoading(false);});return()=>controller.abort();
+  10 |   },[query,retry]);
+  11 |   return <section className={styles.panel}><h1>Value metrics</h1><p>Only analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.</p>  react-hooks/set-state-in-effect
+
+✖ 1 problem (1 error, 0 warnings)
+

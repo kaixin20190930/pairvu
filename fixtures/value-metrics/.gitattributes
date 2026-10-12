@@ -1,0 +1,3 @@
+# Preserve original validation output bytes for the evidence hashes.
+validation/*-raw.txt -text -diff
+lint-attempt-1-raw.txt -text -diff

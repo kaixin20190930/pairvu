@@ -1,0 +1,156 @@
+{
+  "unitId": "UPG-10",
+  "status": "FAIL",
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-9mdcOG",
+  "checks": [
+    {
+      "name": "strict UTC defaults and malformed requests",
+      "status": "PASS"
+    },
+    {
+      "name": "flag exact true; default false",
+      "status": "PASS"
+    },
+    {
+      "name": "empty source returns null denominators and no cost rather than zero invoices",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed provenance excludes every business amount, group, audit and denominator",
+      "status": "PASS"
+    },
+    {
+      "name": "session owner scope and missing/inactive/member rejection",
+      "status": "FAIL",
+      "error": "Error: D1_ERROR: CHECK constraint failed: role in ('owner'): SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+    }
+  ],
+  "sources": {
+    "lib/value-metrics/repository.ts": "6c29023c5b4c3b469439a187de3777ba9ec95e38065193170c2bc898d10e26b3",
+    "lib/value-metrics/calculate.ts": "3acfaeace12e279f789e8072b618db6fd1d66ab9ba6b73190f68974d90ed7742",
+    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
+    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
+    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
+    "scripts/verify-value-metrics.ts": "7716eb477f74ce5b7f695b446bf35b7804ca73ed57cbef331cdac24553f7a493"
+  },
+  "requestCount": 109,
+  "sampleReport": {
+    "version": "value-metrics-001",
+    "complete": true,
+    "generatedAt": "2026-10-12T08:37:15.579Z",
+    "sourceAsOf": "2026-10-12T08:37:16.308Z",
+    "window": {
+      "start": "2026-10-01T00:00:00.000Z",
+      "end": "2026-10-02T00:00:00.000Z"
+    },
+    "valueEvidence": false,
+    "qualityEvidence": false,
+    "scope": {
+      "cohort": 6,
+      "unwindowable": 0,
+      "business": 4,
+      "test": 1,
+      "unknown": 1,
+      "unclassified": 1,
+      "invalidClassification": 0,
+      "classificationCoverage": {
+        "numerator": 5,
+        "denominator": 6,
+        "value": 0.8333333333333334
+      }
+    },
+    "usage": {
+      "total": 4,
+      "completed": 2,
+      "failed": 1,
+      "pending": 1,
+      "completedTimeInvalid": 0,
+      "unknownStatus": 0
+    },
+    "machine": {
+      "pass": 1,
+      "review": 1,
+      "fail": 0,
+      "unknown": 0,
+      "reviewRate": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      }
+    },
+    "sku": {
+      "linked": 2,
+      "missing": 0,
+      "coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1
+      },
+      "workflowMissing": 0,
+      "invocations": 2,
+      "reuses": 1,
+      "groups": [
+        {
+          "productId": "33eee62c-ee7c-434d-bb79-bf1176034ca0",
+          "referenceVersionId": "3b1ce954-14c5-4e7b-8d02-455bf3206b92",
+          "skuLabels": [
+            "SKU-FROZEN"
+          ],
+          "analyses": 2,
+          "invocations": 2,
+          "reuses": 1
+        }
+      ]
+    },
+    "reviews": {
+      "covered": 1,
+      "none": 1,
+      "invalid": 0,
+      "approve": 0,
+      "reject": 0,
+      "revoke": 1,
+      "coverage": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "wait": {
+        "count": 1,
+        "meanMs": 974236168,
+        "missing": 1,
+        "noDecision": 1,
+        "invalidOrNegative": 0
+      }
+    },
+    "detectionCost": {
+      "known": 2,
+      "missing": 2,
+      "sumUsd": 1,
+      "coverage": {
+        "numerator": 2,
+        "denominator": 4,
+        "value": 0.5
+      }
+    },
+    "workflow": {
+      "single": 4,
+      "batch": 0,
+      "unknown": 0
+    },
+    "generationModel": {
+      "unknown": 4
+    },
+    "limitations": [
+      "Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.",
+      "Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.",
+      "SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.",
+      "First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.",
+      "Detection estimates are not invoices, profit or revenue. Generation model source is unknown.",
+      "Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."
+    ]
+  },
+  "failure": "Error: D1_ERROR: CHECK constraint failed: role in ('owner'): SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
+}

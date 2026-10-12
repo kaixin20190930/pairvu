@@ -1,0 +1,147 @@
+{
+  "unitId": "UPG-10",
+  "role": "developer",
+  "developerThreadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+  "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
+  "candidateBinding": "The enclosing Git commit and final developer handoff provide candidateSha; no self-referential SHA is embedded in this committed manifest.",
+  "stage": "DEV_READY_PENDING_INDEPENDENT_QA",
+  "createdAt": "2026-10-12T11:24:12.966Z",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "rationale": "Cross-table metric semantics, controlled provenance and tenant isolation require joint reasoning.",
+    "escalationCondition": "Repeated substantive reasoning failures after narrowing scope and clarifying contract; environment errors do not justify escalation."
+  },
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "defaultFeatureEnabled": false,
+  "production": {
+    "migrationApplied": false,
+    "deployed": false,
+    "enabled": false,
+    "loginAccepted": false,
+    "realBusinessLabelsCreated": false,
+    "pushed": false
+  },
+  "checks": [
+    {
+      "command": "pnpm test:value-metrics",
+      "exitCode": 0,
+      "checks": 26,
+      "localD1Requests": 434,
+      "evidence": "../d1-results.json",
+      "stdout": "d1-final-raw.txt",
+      "scope": "Actual isolated Miniflare/workerd D1, production migrations, real repository/reducer/routes/SSR with controlled env/session fixtures; no external models."
+    },
+    {
+      "command": "Browser real-component local fixture checks",
+      "checks": 13,
+      "evidence": "../ui/results.json",
+      "scope": "Actual React client/CSS/navigation components, framework stubs and synthetic local responses; measured 375px and 1280px. Not full production login."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "stdout": "typecheck-final-raw.txt"
+    },
+    {
+      "command": "pnpm test:m1:workspace-analysis",
+      "exitCode": 0,
+      "stdout": "workspace-regression-raw.txt"
+    },
+    {
+      "command": "pnpm exec eslint lib/value-metrics app/account/value-metrics app/api/value-metrics components/AccountWorkspaceNav.tsx scripts/verify-value-metrics.ts scripts/value-metrics-classification.mjs scripts/value-metrics-ui.mjs",
+      "exitCode": 0,
+      "stdout": "lint-final-raw.txt"
+    },
+    {
+      "command": "pnpm run build",
+      "exitCode": 0,
+      "stdout": "build-raw.txt",
+      "scope": "One local Next build; preceded final source-batch snapshot consistency strengthening in repository.ts and calculate.ts. Final changes were D1/typecheck/lint tested. This is not an exact-candidate release build or deployment artifact."
+    }
+  ],
+  "preservedAttempts": [
+    {
+      "evidence": "../d1-attempt-1-results.json",
+      "stdout": "d1-attempt-1-raw.txt",
+      "resolution": "Fixture membership role corrected to match legacy owner-only schema; missing membership remains a rejection test."
+    },
+    {
+      "evidence": "../d1-attempt-2-results.json",
+      "stdout": "d1-attempt-2-raw.txt",
+      "resolution": "Readonly classification CLI changed from CommonJS-classified .ts entry to .mjs; actual entry and symlink tests passed."
+    },
+    {
+      "stdout": "typecheck-attempt-1-raw.txt",
+      "resolution": "Strict null and unknown narrowing corrected; final typecheck passed."
+    },
+    {
+      "stdout": "../lint-attempt-1-raw.txt",
+      "resolution": "Loading/reset updates moved to user refresh handlers; effect only fetches; final lint passed."
+    },
+    {
+      "evidence": "../ui/results.json",
+      "resolution": "Original 624px intrinsic grid overflow at 375px corrected and remeasured; metadata audit corrected one narrow capture label and added real 1280px check."
+    }
+  ],
+  "sourceHashes": {
+    "app/account/value-metrics/ValueMetricsClient.tsx": "ddc12a5301e48a530e0fc4fc91f7a730ae0fb93ab0387b1b70c9017a0edf68e6",
+    "app/account/value-metrics/error.tsx": "7fe7c941e83d37ce809831480ecaa825f79a166a4ab93ebdd8d9fdc8c9aa9e98",
+    "app/account/value-metrics/page.tsx": "9925b3443047503bcb6f96d33e0d7b9f1656f11138d2ed36304053efd6026400",
+    "app/account/value-metrics/value-metrics.module.css": "ed307f89e00dd4ed97864caec1f75eaa154ff2268a21cb1ce9d5d09ed750c7a7",
+    "app/api/value-metrics/route.ts": "8fe3318d5ec41f420c3a9e7e418ee8211ebcee95148270eee1ee73da3387dcbc",
+    "app/api/value-metrics/status/route.ts": "ad146627086279b873066686fec0c21aff6c480a56aae79faebb7d85645b7693",
+    "components/AccountWorkspaceNav.tsx": "6d510e750e099f71b6565d56f119dda7ae5e2fcd8e2d1807b54e6aafd4d0c1ca",
+    "docs/01-architecture/value-metrics-contract.md": "3c0fbe491e4454e3ca1211e47473475a1fc0f6d3297025535533157939d469b8",
+    "fixtures/value-metrics/classification-template.json": "f2e60976c55e3e69a228fa4692daa2e6197f1ff9ace1bf2f0d02b7d35b45d7d8",
+    "fixtures/value-metrics/inventory-template.json": "87a60327ac010f8660ded5ea924229ba8f28a421420a5db810eafd6416cc48b7",
+    "fixtures/value-metrics/sql-worker.mjs": "106b61890adf4a43e709920164a655a6b658eb2dae93a4c3211ff2866c972d87",
+    "lib/cloudflare/bindings.ts": "6f877e5c8c3d3fc7a604195168efc68a3bf197a11e641c5a91476638d47a661b",
+    "lib/value-metrics/calculate.ts": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94",
+    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
+    "lib/value-metrics/http.ts": "82fae2e4b40b5b66cd59324eb3086b0e6394c26f1cab28c7455aecc679321cdb",
+    "lib/value-metrics/repository.ts": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876",
+    "lib/value-metrics/types.ts": "d34d97403c682ddf2ff2b0e809de3e5d135d4266d6495be0a7204b8b5c1e610f",
+    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
+    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
+    "package.json": "294426b6b36d7839b649043d9293aebd2021b024f73cb36ceee800c93aee1e1b",
+    "scripts/value-metrics-classification.mjs": "ad367adc94668950021d287e72153481754f3b94ba0faa4aa92d955113edbc56",
+    "scripts/value-metrics-ui.mjs": "ed12ebab0994182489ead13a85d55d5c0c345fd25779dfd80b46eb4a6b5fc865",
+    "scripts/verify-value-metrics.ts": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7",
+    "wrangler.jsonc": "4d23732c0b8b2af648abe7d20d096f750599d307270b7d3f3bccb5cc0b84768f",
+    "fixtures/value-metrics/.gitattributes": "b40fa60438986becc83c13d89eaf3405e06f80e4146a581ebe871c53fa3e401d"
+  },
+  "evidenceHashes": {
+    "fixtures/value-metrics/d1-results.json": "38a5b7589a1262547bb6f10f0a2ea5291859071842c1900bcbd026e3ed759a75",
+    "fixtures/value-metrics/ui/desktop-1280.jpg": "1437ccffd7096fc48372cbd4fc506eff6922e6c0fea0fd49961eb8e986bb24dc",
+    "fixtures/value-metrics/ui/empty.jpg": "88ae30b773af57dd9512dfb30d6a310258b8f9fc46e186827ace185fa37c2779",
+    "fixtures/value-metrics/ui/error.jpg": "abba1391734a667806469358b2a35e663dabe16bf4a8d2ab9e5a268ecb1ce32c",
+    "fixtures/value-metrics/ui/narrow.jpg": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f",
+    "fixtures/value-metrics/ui/populated-final-375.jpg": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f",
+    "fixtures/value-metrics/ui/results.json": "98dcd5b17078b13e5d0fae8e372b4339cc4514a8ee108959d934ab67c140b4b7",
+    "fixtures/value-metrics/ui/sample-report.json": "9889e5bdc50d1766f6f366ff75b5d0a4531ed819d3dba35e8233fc55247a2df6",
+    "fixtures/value-metrics/validation/build-raw.txt": "09152746f3de60d086a64f44204893eebd4b7ddacb2e5e57696ad8695b8063f4",
+    "fixtures/value-metrics/validation/d1-attempt-1-raw.txt": "cec14133e44ee0b3b9ce6f78043c253a23002f8527efba0e8dbc79169eb547ab",
+    "fixtures/value-metrics/validation/d1-attempt-2-raw.txt": "039364a43e1d780e54186b6a880e835aefbf1f39d38474a8cf3383b381f3e1e6",
+    "fixtures/value-metrics/validation/d1-final-raw.txt": "60f1e33907dba75a36ecc50943b30c4319c4a4d413dea36fa938ac034cd64091",
+    "fixtures/value-metrics/validation/lint-final-raw.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt": "4f44d4ea7e1b14418033eaf0c196ff7238561859308bafc98192fa077c6fc826",
+    "fixtures/value-metrics/validation/typecheck-final-raw.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/value-metrics/validation/workspace-regression-raw.txt": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb"
+  },
+  "limitations": [
+    "Developer PASS does not establish independent acceptance or production verification.",
+    "All business/test classifications here are synthetic test fixtures; no real customer source evidence was assessed.",
+    "Classification CLI only prepares a reviewable atomic D1 batch plan; it does not authenticate verifiers or execute production writes.",
+    "Current sourceAsOf snapshot reports creation-time cohort; no historical status reconstruction, actual effort/ROI, invoices or quality claims.",
+    "Generation image-model provenance remains unknown."
+  ],
+  "nextAction": {
+    "action": "Independent QA reviews the exact candidate SHA and creates its own negative fixtures.",
+    "dependency": "Developer local commit; controller dispatches existing independent reviewer.",
+    "proceedsAutomatically": true,
+    "releaseBoundary": "Independent PASS may yield RELEASE_READY only. Production release/enablement/login acceptance require new user authorization and mandatory GitHub-first sequence; real value additionally requires controlled actual business provenance."
+  }
+}

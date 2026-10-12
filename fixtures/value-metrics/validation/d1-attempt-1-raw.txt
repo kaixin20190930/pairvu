@@ -1,0 +1,18 @@
+
+> product-visual-qa-platform@0.1.0 test:value-metrics /Users/liukai/Documents/Product Visual QA Platform
+> tsx scripts/verify-value-metrics.ts
+
+PASS strict UTC defaults and malformed requests
+PASS flag exact true; default false
+PASS empty source returns null denominators and no cost rather than zero invoices
+PASS mixed provenance excludes every business amount, group, audit and denominator
+FAIL: 5 cases, 109 actual local D1 requests; /Users/liukai/Documents/Product Visual QA Platform/fixtures/value-metrics/d1-results.json
+Error: D1_ERROR: CHECK constraint failed: role in ('owner'): SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)
+    at DB.send (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:23:451)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Prepared.all (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:22:194)
+    at async sql (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:24:57)
+    at async <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:53:321)
+    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:28:76)
+    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-value-metrics.ts:53:3)
+ ELIFECYCLE  Command failed with exit code 1.
