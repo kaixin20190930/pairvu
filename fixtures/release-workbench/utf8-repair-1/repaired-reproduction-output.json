@@ -1,0 +1,7 @@
+{
+  "command": "pnpm exec tsx scripts/qa-upg06-independent.ts",
+  "cwd": "/private/tmp/pairvu-utf8-reproduction-r13oswa2",
+  "exitCode": 0,
+  "classification": "Developer replay of QA original script, not independent acceptance",
+  "output": "PASS QA UTF-8 machine-source byte limit blocks multibyte evidence and refuses actual CSV\nPASS: 1 cases, 49 local D1 requests; /Users/liukai/Documents/Product Visual QA Platform/fixtures/release-workbench/utf8-repair-1/repaired-reproduction-results.json\n"
+}

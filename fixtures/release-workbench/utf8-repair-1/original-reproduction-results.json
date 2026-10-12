@@ -1,0 +1,40 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "FAIL",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0"
+  },
+  "cases": [
+    {
+      "name": "QA UTF-8 machine-source byte limit blocks multibyte evidence and refuses actual CSV",
+      "status": "FAIL",
+      "failure": "AssertionError [ERR_ASSERTION]: 64 KiB evidence limit must count UTF-8 bytes; oversized non-ASCII source must not be complete\n\ntrue !== false\n"
+    }
+  ],
+  "sources": {
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "lib/releases/repository.ts": "bceff5afffa5af2a14cdfbea8d6e77ee882c9f5f9dff3d575724c4173f8b0aae",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "scripts/verify-release-workbench.ts": "e37078b06c8207f8f3b91e9542148b819703722e93c5a99eb50cff356a065fef",
+    "scripts/qa-upg06-independent.ts": "fef87383c0b7d4418fa7bb547f4ce8fe681951c028ebcbcf24892d0fbc50b78e",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+  },
+  "requestCount": 49,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-nwKiiu",
+  "failure": {
+    "message": "AssertionError [ERR_ASSERTION]: 64 KiB evidence limit must count UTF-8 bytes; oversized non-ASCII source must not be complete\n\ntrue !== false\n",
+    "stack": "AssertionError [ERR_ASSERTION]: 64 KiB evidence limit must count UTF-8 bytes; oversized non-ASCII source must not be complete\n\ntrue !== false\n\n    at <anonymous> (/private/tmp/pairvu-utf8-reproduction-r13oswa2/scripts/qa-upg06-independent.ts:96:14)\n    at async test (/private/tmp/pairvu-utf8-reproduction-r13oswa2/scripts/qa-upg06-independent.ts:53:77)\n    at async main (/private/tmp/pairvu-utf8-reproduction-r13oswa2/scripts/qa-upg06-independent.ts:82:5)"
+  },
+  "limitations": [
+    "Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.",
+    "No production, model, R2 or payment calls; browser proof is recorded separately."
+  ]
+}

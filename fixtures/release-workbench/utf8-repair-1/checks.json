@@ -1,0 +1,92 @@
+{
+  "unitId": "UPG-06",
+  "findingId": "UPG06-QA-01",
+  "status": "DEV_READY_REPAIR",
+  "independentAcceptance": "PENDING_NEW_FIXED_CANDIDATE_AND_FULL_INDEPENDENT_QA",
+  "rejectedCandidate": "c2740c35da10af34b5524c569211568214b3958c",
+  "originalIndependentFailure": "operations/evidence/UPG-06-attempt-1/qa-original.json",
+  "recordedAt": "2026-10-12T01:48:40.886352+00:00",
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "medium",
+    "rationale": "Known SQLite TEXT character-count root cause and a limited SQL-predicate repair; no rule, rendering, route, ownership or transaction changes.",
+    "escalationCondition": "Reassess high if a non-counting cross-layer defect emerges.",
+    "runtimeSettingNote": "Selection comes from controller delegation and contract; no model-setting tool was used."
+  },
+  "change": "All source storage budgets and matching materialization projections share length(CAST(text AS BLOB)); total evidence/model JSON quota and selected/product/review quotas count UTF-8 bytes, including embedded NUL.",
+  "commands": [
+    {
+      "command": "Developer isolated replay of QA original script on archived rejected SHA",
+      "exitCode": 1,
+      "cases": 1,
+      "localD1Requests": 49,
+      "expectedReproduction": "Original 72,656-byte payload classified eligible/sourceComplete=true/CSV200; prior FAIL preserved."
+    },
+    {
+      "command": "Developer isolated replay of unchanged QA original script with repaired repository.ts",
+      "exitCode": 0,
+      "cases": 1,
+      "localD1Requests": 49,
+      "result": "Same 72,656-byte payload blocked/sourceComplete=false/sourceHash=null/CSV409. This is developer reproduction, not independent acceptance."
+    },
+    {
+      "command": "pnpm test:release-workbench fixtures/release-workbench/utf8-repair-1/d1-results.json",
+      "exitCode": 0,
+      "cases": 76,
+      "localD1Requests": 1850,
+      "detail": "56 existing contract regressions plus original counterexample, 18 UTF-8 exact/overflow tests and embedded NUL overflow; actual local workerd D1 and actual CSV route."
+    },
+    {
+      "command": "pnpm typecheck && pnpm exec eslint lib/releases/repository.ts scripts/verify-release-workbench.ts && git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "byteBoundaries": {
+    "combinedObservationIssueLimitationAndModelInputOutputAssetsJson": 65536,
+    "selectedChecksJson": 1024,
+    "productSnapshotJson": 32768,
+    "reviewSnapshotJson": 262144,
+    "checks": "Exact boundaries fully materialize/hash/export; boundary+1 is incomplete/blocked/null hash/CSV409. Valid complete observation/model/product/review exact-boundary fixtures retain eligibility; intentionally semantically invalid issue/limitation/selection/asset fixtures retain their separate rule blocks."
+  },
+  "sourceConsistency": "Boundary cases assert canonical machine source hash and corresponding CSV hashes; the review snapshot uses alternate equivalent JSON encoding with the same canonical machine data and correct original-text SHA256, through actual review SQL, without audit UPDATE/DELETE.",
+  "artifacts": {
+    "fixtures/release-workbench/utf8-repair-1/reproduction-path.json": "90b2a8b56bdd88ba05a95e7f20e458c51b771667c977392a05a471aca7d77fb7",
+    "fixtures/release-workbench/utf8-repair-1/original-reproduction-actual.json": "7f11857854047e12be1831c77d8e8b328802104bc23a3c6d22d63316d68bb13e",
+    "fixtures/release-workbench/utf8-repair-1/original-reproduction-results.json": "f06e9d3918f084642e8fab84ac33049cd7653b70cd4674105f511934505de202",
+    "fixtures/release-workbench/utf8-repair-1/original-reproduction-output.json": "0273fd222725404ed79459b85203c4deb15f1da01c6ab8aaebdb3142e4890873",
+    "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-actual.json": "4fcfbd3c947dfdcd406fd7a71ad8d2207e55f89c51ce2723448b6f955eb267d6",
+    "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-results.json": "2141fdd29cd329d54830ba316fd9ebbf7788016a5ed6e4070085e2c9a3db9d83",
+    "fixtures/release-workbench/utf8-repair-1/repaired-reproduction-output.json": "c3bde5f4028483ebdafe85be0d5826db180658c01d61d7c7d64a5227b1600ad3",
+    "fixtures/release-workbench/utf8-repair-1/d1-attempt-1-results.json": "10f41cb1650e464672de3b94406f4a923624a607fa2d64978781b10c234c1c26",
+    "fixtures/release-workbench/utf8-repair-1/d1-results.json": "51f07f838e7051d87377cdc0478b3309e863b328c0de74edc0887d298dde583d",
+    "fixtures/release-workbench/utf8-repair-1/sample-page.json": "61f91ff507ee2250b66cc065e83b2179cc46db02378a8f4810e0b1e35c0a18bc",
+    "fixtures/release-workbench/utf8-repair-1/qa-original-script.ts.txt": "fef87383c0b7d4418fa7bb547f4ce8fe681951c028ebcbcf24892d0fbc50b78e"
+  },
+  "sourceSha256": {
+    "lib/releases/repository.ts": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+    "scripts/verify-release-workbench.ts": "f0166e2f22ad2182cc3999dc9becd07d07631637b2340d6563f1acc1a961e73d",
+    "docs/01-architecture/release-workbench-contract.md": "9d96fb306fee56de0fdf2df8906f1f02607e67eb68e6f8648e8128a1ecab11cb"
+  },
+  "preservedFailures": [
+    "Original independent FAIL and all prior committed evidence remain untouched.",
+    "d1-attempt-1-results.json preserves added fixture failure: actual local D1 compound SELECT limit. Fixture expectation calculation now uses four statements; application logic was not changed to hide it."
+  ],
+  "validationBudget": {
+    "build": "Not repeated: SQL byte predicates only, no rendering/route/interface change. Prior build remains baseline evidence, not a new candidate build PASS.",
+    "browser": "Not repeated: app/account/releases, navigation, CSS and browser fixture sources unchanged. Full independent acceptance remains required.",
+    "reviewAndStructuredRegressions": "Not mechanically repeated; no analysis/review mapping or QA semantics changes. Relevant ownership, snapshot concurrency, paid gate, pagination, CSV and rule regressions rerun in the 76-case suite."
+  },
+  "limitations": [
+    "Actual local D1/actual routes with synthetic session/account and paid entitlement only; no remote DB, production auth, R2/model/payment/customer calls.",
+    "Some quota stress fixtures add synthetic metadata or invalid selections/asset entries to isolate materialization boundaries; existing semantic blocks remain separately asserted.",
+    "Developer replay is not independent QA PASS; original reviewer must complete the remaining full contract at the new fixed SHA."
+  ],
+  "deployment": "Not performed or authorized; flag remains default false, no push or production migration.",
+  "nextAction": {
+    "action": "Controller binds the new repair commit and resumes original independent reviewer for the entire UPG06 contract.",
+    "dependency": "New exact candidate SHA, original FAIL retained.",
+    "automatic": true,
+    "production": "Needs separate explicit authorization after actual independent acceptance."
+  },
+  "replayedOriginalScriptSha256": "fef87383c0b7d4418fa7bb547f4ce8fe681951c028ebcbcf24892d0fbc50b78e"
+}

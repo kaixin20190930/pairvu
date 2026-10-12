@@ -1,0 +1,7 @@
+{
+  "command": "pnpm exec tsx scripts/qa-upg06-independent.ts",
+  "cwd": "/private/tmp/pairvu-utf8-reproduction-r13oswa2",
+  "exitCode": 1,
+  "sourceCandidate": "c2740c35da10af34b5524c569211568214b3958c",
+  "output": "FAIL: 1 cases, 49 local D1 requests; /Users/liukai/Documents/Product Visual QA Platform/fixtures/release-workbench/utf8-repair-1/original-reproduction-results.json\n"
+}

@@ -1,0 +1,302 @@
+{
+  "unitId": "UPG-06",
+  "synthetic": true,
+  "status": "FAIL",
+  "runtime": {
+    "node": "v22.22.3",
+    "wrangler": "4.114.0",
+    "miniflare": "4.20260722.0"
+  },
+  "cases": [
+    {
+      "name": "default-off flag is exact and production configuration is false",
+      "status": "PASS"
+    },
+    {
+      "name": "strict query rejects identities, policy overrides, duplicates, lengths and malformed cursors",
+      "status": "PASS"
+    },
+    {
+      "name": "complete actual persisted six-check machine PASS still needs human approval",
+      "status": "PASS"
+    },
+    {
+      "name": "actual UPG05 approval snapshot matches deterministic atomic six-check mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous, forged server workspace, foreign owner and inactive workspace fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown engine remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing risk version remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown model policy remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved running remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing observations remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved no selected checks remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved unknown prompt remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing model call remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved foreign evidence owner remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved missing original machine timestamp remains blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown mismatch cannot masquerade as complete REVIEW without a product issue",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + quantity high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "approve + logo high/critical mismatch cannot release",
+      "status": "PASS"
+    },
+    {
+      "name": "persisted issue severity downgrade is detected",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_identity fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence unknown_guard fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence foreign_regions fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence missing_summary fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence malformed_visible fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "approved malformed evidence partial fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "machine limitations stay visible and blocked despite approval",
+      "status": "PASS"
+    },
+    {
+      "name": "reject and revoke priorities preserve machine PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "approved deleted image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved expired image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved invalid expiry image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approved failed image is unavailable and blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "approval source changed after review cannot remain eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen SKU/profile survives current product rename and archive",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid frozen snapshot SHA fails closed",
+      "status": "PASS"
+    },
+    {
+      "name": "single and batch filters use owned associations and foreign batch yields empty",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic SQL snapshot remains old revision even if peer commits before JS evaluation",
+      "status": "PASS",
+      "detail": {
+        "oldRevision": 1,
+        "nextRevision": 2,
+        "snapshotSelects": 1
+      }
+    },
+    {
+      "name": "actual server page redirects anonymous and rejects feature-off or foreign owner",
+      "status": "PASS"
+    },
+    {
+      "name": "actual routes reject anonymous, disabled flag, forged params and foreign owner",
+      "status": "PASS"
+    },
+    {
+      "name": "actual paid gate denies free/inactive plans and requires explicit bounded export",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV cells protect formulas, Unicode/invisible prefixes and preserve quotes/newlines",
+      "status": "PASS"
+    },
+    {
+      "name": "actual CSV exports original machine/frozen versions, rule hash, reason and consistent revision without private actor/note",
+      "status": "PASS"
+    },
+    {
+      "name": "D1 failure becomes no-store 503 rather than empty or eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "existing paid batch CSV uses the shared formula/quote/newline protection",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV atomic snapshot does not mix a peer review committed after its SELECT",
+      "status": "PASS"
+    },
+    {
+      "name": "pending_review and decided filters preserve their documented overlap with blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "oversized machine source explicitly blocks rather than quietly truncating evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV refuses a page containing incomplete diagnostic source",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen snapshot with foreign or missing version binding is blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "empty bounded blocked scan continues and finds late matches without silent truncation",
+      "status": "PASS",
+      "detail": {
+        "first": {
+          "limit": 10,
+          "scanLimit": 100,
+          "scanned": 100,
+          "scanWindowExhausted": true,
+          "hasMore": true,
+          "nextCursor": "eyJ2ZXJzaW9uIjoxLCJmaWx0ZXJIYXNoIjoiYjc2ODU2ZWNiNmM3ZmIyNTZjODNkMjkxMGY1ZTllYjJmNmRlZWY4ODRhNGFlYjA4ZDllYTZlZTQzZDg3Nzc3MSIsImNyZWF0ZWRBdCI6IjIwOTktMDEtMDFUMDA6MDA6MDAuMDAwWiIsImlkIjoic2Nhbi0wMTUifQ",
+          "order": "created_at DESC, id DESC"
+        },
+        "lateRows": [
+          "scan-001",
+          "scan-000"
+        ]
+      }
+    },
+    {
+      "name": "full keyset traversal with tied timestamps has no duplicate or skipped sources",
+      "status": "PASS",
+      "detail": {
+        "total": 115,
+        "unique": 115
+      }
+    },
+    {
+      "name": "cursor is tied to ownership and normalized filters",
+      "status": "PASS"
+    },
+    {
+      "name": "bounded CSV explicitly exposes scan continuation including an empty window",
+      "status": "PASS"
+    },
+    {
+      "name": "rule hash deterministic across evaluations and corresponding CSV response",
+      "status": "PASS"
+    },
+    {
+      "name": "QA original 72,656-byte Han evidence is blocked with null source hash and CSV409",
+      "status": "PASS",
+      "detail": {
+        "sizes": {
+          "characters": 24656,
+          "bytes": 72656
+        },
+        "sourceComplete": false,
+        "eligibility": "blocked",
+        "sourceHash": null,
+        "csvStatus": 409,
+        "revision": 1
+      }
+    },
+    {
+      "name": "UTF-8 observation exact boundary preserves source/CSV consistency",
+      "status": "FAIL",
+      "failure": "Error: D1_ERROR: too many terms in compound SELECT: SQLITE_ERROR"
+    }
+  ],
+  "sources": {
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "lib/releases/repository.ts": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "scripts/verify-release-workbench.ts": "ab4ce5bf0e7fcbff824805855caea9720a102fe04e77153e022e0eae271fab48",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+  },
+  "requestCount": 1227,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-4ELY7B",
+  "failure": {
+    "message": "Error: D1_ERROR: too many terms in compound SELECT: SQLITE_ERROR",
+    "stack": "Error: D1_ERROR: too many terms in compound SELECT: SQLITE_ERROR\n    at LocalD1.send (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:39:131)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Prepared.all (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:28:28)\n    at async sourceBytes (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:149:55)\n    at async <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:162:26)\n    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:53:77)\n    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:153:199)"
+  },
+  "limitations": [
+    "Actual local workerd D1, all production migrations, actual repositories and API routes; synthetic session/account identity boundaries only.",
+    "No production, model, R2 or payment calls; browser proof is recorded separately."
+  ]
+}

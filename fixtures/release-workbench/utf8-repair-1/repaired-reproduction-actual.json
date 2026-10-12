@@ -1,0 +1,21 @@
+{
+  "analysisId": "qa-unicode-payload",
+  "evidenceLength": {
+    "sqliteCharacters": 24656,
+    "utf8Bytes": 72656
+  },
+  "eligibility": "blocked",
+  "sourceComplete": false,
+  "sourceHash": null,
+  "reasonCodes": [
+    "machine_source_over_limit",
+    "selected_checks_incomplete",
+    "model_source_unsupported",
+    "machine_derivation_invalid",
+    "review_source_changed"
+  ],
+  "csvStatus": 409,
+  "csvUtf8Bytes": 208,
+  "csvContainsOversizeSource": false,
+  "policy": "release-policy-001"
+}
