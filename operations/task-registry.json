@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "UPG-07A",
-  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
+  "unitId": "UPG-10",
+  "baselineSha": null,
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "独立QA已定位100000上限覆盖，范围为单点边界修复与精确上限/超限复验。",
-      "upgradeCondition": "发现额外来源/指标语义差异再评估high；环境问题不升级。",
-      "applied": true
+      "thinking": "high",
+      "reason": "跨表指标口径、分类来源及租户隔离需联合推理。",
+      "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
+      "applied": false
     },
-    "observedStatus": "completed",
+    "observedStatus": "idle",
     "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:63",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -30,13 +30,13 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "独立QA已定位100000上限覆盖，范围为单点边界修复与精确上限/超限复验。",
-      "upgradeCondition": "发现额外来源/指标语义差异再评估high；环境问题不升级。",
-      "applied": true
+      "thinking": "high",
+      "reason": "独立构造遗漏排除、重复分母、迁移及跨租户反例。",
+      "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
+      "applied": false
     },
     "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:113",
-    "observedStatus": "completed",
+    "observedStatus": "idle",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -77,11 +77,11 @@
     ],
     "receipt": "operations/evidence/UPG-07A.json"
   },
-  "candidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "SCOPED",
   "automationId": "pairvu-2",
-  "notes": "UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。 用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。",
-  "nextUnitId": "UPG-07",
+  "notes": "用户授权UPG10本地开发和独立验收，默认排除测试及unknown；没有发布授权。",
+  "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
     "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
@@ -183,9 +183,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "准备并独立核实真实授权样本/双标/留出集，另立UPG07实际评测及线上接入契约",
-    "dependency": "用户已确认暂无真实样本，质量BLOCKED；本地工具已CLOSED",
-    "automatic": false
+    "action": "UPG10开发→固定SHA独立QA→必要返工→RELEASE_READY",
+    "dependency": "无真实业务分类时保留空指标/缺口，真实样本仍缺失",
+    "automatic": true
   },
   "completedUnitId": "UPG-07A",
   "completedCandidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
