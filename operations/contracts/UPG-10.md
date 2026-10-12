@@ -31,3 +31,10 @@ lib/value-metrics/**、app/account/value-metrics/**、app/api/value-metrics/**�
 
 ## 回传和完成
 开发回完整candidate SHA、diff、真实测试证据/局限；仅提交允许文件，不push/deploy。QA原件unitId/candidateSha/reviewerThreadId/result/checks含fixed candidate SHA和independent QA report，列独立反例及原始材料索引，只索引本轮新材料，勿递归包含整个repo。FAIL原角色返工保留原件。PASS正式RELEASE_READY，不CLOSED/不发布。总控持续wait_threads带cursor，完成read_thread立即推进；最终更新整体进度，下一步为获新授权后GitHub-first迁移/部署/启用/真实登录验收，真实价值仍需受控业务分类与实际使用；pairvu-2保持暂停。
+
+## 本轮固定候选独立验收
+用户处理审批后开发已交付3f6447c1c5e3af159ae86be3f7a413a31db1a169，QA重新评估选Sol/high：完整来源分类、DB隔离、原子导入、口径与组件跨层验收，开发原构建早于最后查询补强，需补固定SHA构建。环境故障不升级，失败仍原开发。
+
+## 完成结果
+2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
+开发已修复CLI的CJS/top-level await兼容及375px溢出；独立报告operations/evidence/UPG-10.json。无待返工产品缺陷，固定源码归档build成功但嵌入SHA unknown，后续生产必须重新从已推送提交构建。下一步依赖明确发布/启用授权，不自动部署；业务标签待真实来源核实。

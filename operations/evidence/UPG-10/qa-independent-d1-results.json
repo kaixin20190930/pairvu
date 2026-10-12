@@ -1,0 +1,219 @@
+{
+  "unitId": "UPG-10",
+  "status": "PASS",
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B",
+  "checks": [
+    {
+      "name": "independent hand oracle of ten business analyses with actual D1",
+      "status": "PASS"
+    },
+    {
+      "name": "test and historical unknown change no business numerator denominator cost wait or group",
+      "status": "PASS"
+    },
+    {
+      "name": "actual latest classification removes former business from all metrics",
+      "status": "PASS"
+    },
+    {
+      "name": "forged client event cannot promote unknown or increase usage",
+      "status": "PASS"
+    },
+    {
+      "name": "two workspace isolation regardless of active client identity",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic classification batch rolls back earlier valid append on stale later revision",
+      "status": "PASS"
+    },
+    {
+      "name": "database blocks foreign classification update delete replacement and skipped revision",
+      "status": "PASS"
+    },
+    {
+      "name": "snapshot remains frozen after current product archive rename",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate batch items cannot become multiple reuse invocations",
+      "status": "PASS"
+    },
+    {
+      "name": "ambiguous multiple canonical batches remove workflow from reuse",
+      "status": "PASS"
+    },
+    {
+      "name": "window UTC exact boundary selection and end-window later completion",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown verdict retained as completed but excluded from valid verdict rate",
+      "status": "PASS"
+    },
+    {
+      "name": "hash-corrupt audit excluded not treated as first-decision ground truth",
+      "status": "PASS"
+    },
+    {
+      "name": "no-business populated cohort has no invented cost or complete ratios",
+      "status": "PASS"
+    },
+    {
+      "name": "actual API parameter spoofing and duplicate scope inputs are rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "actual API anonymous foreign owner feature disabled and DB failure stay explicit",
+      "status": "PASS"
+    },
+    {
+      "name": "window exact 90 days permitted and excess or non-roundtrip UTC rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "material source ownership revision evidence and nested keys cannot be fabricated",
+      "status": "PASS"
+    },
+    {
+      "name": "classification CLI bytes readonly symlink and fixed sanitized failures",
+      "status": "PASS"
+    },
+    {
+      "name": "UTF8 budget ignores unknown snapshot and rejects same bytes once business",
+      "status": "PASS"
+    },
+    {
+      "name": "100 classifications supported 101 refuses without partial rates",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "lib/value-metrics/repository.ts": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876",
+    "lib/value-metrics/calculate.ts": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94",
+    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
+    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
+    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
+    "scripts/verify-value-metrics.ts": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7"
+  },
+  "requestCount": 274,
+  "sampleReport": {
+    "version": "value-metrics-001",
+    "complete": true,
+    "generatedAt": "2026-10-12T12:44:08.743Z",
+    "sourceAsOf": "2026-10-12T12:44:09.100Z",
+    "window": {
+      "start": "2026-10-01T00:00:00.000Z",
+      "end": "2026-10-02T00:00:00.000Z"
+    },
+    "valueEvidence": false,
+    "qualityEvidence": false,
+    "scope": {
+      "cohort": 10,
+      "unwindowable": 0,
+      "business": 10,
+      "test": 0,
+      "unknown": 0,
+      "unclassified": 0,
+      "invalidClassification": 0,
+      "classificationCoverage": {
+        "numerator": 10,
+        "denominator": 10,
+        "value": 1
+      }
+    },
+    "usage": {
+      "total": 10,
+      "completed": 6,
+      "failed": 1,
+      "pending": 2,
+      "completedTimeInvalid": 1,
+      "unknownStatus": 0
+    },
+    "machine": {
+      "pass": 2,
+      "review": 1,
+      "fail": 2,
+      "unknown": 1,
+      "reviewRate": {
+        "numerator": 1,
+        "denominator": 5,
+        "value": 0.2
+      }
+    },
+    "sku": {
+      "linked": 4,
+      "missing": 2,
+      "coverage": {
+        "numerator": 4,
+        "denominator": 6,
+        "value": 0.6666666666666666
+      },
+      "workflowMissing": 0,
+      "invocations": 3,
+      "reuses": 2,
+      "groups": [
+        {
+          "productId": "362931c3-b7dd-4fa5-a601-e049af391c81",
+          "referenceVersionId": "11c3fce5-0286-493f-a07a-92c13ce8d32f",
+          "skuLabels": [
+            "SKU-FROZEN"
+          ],
+          "analyses": 4,
+          "invocations": 3,
+          "reuses": 2
+        }
+      ]
+    },
+    "reviews": {
+      "covered": 2,
+      "none": 4,
+      "invalid": 0,
+      "approve": 1,
+      "reject": 0,
+      "revoke": 1,
+      "coverage": {
+        "numerator": 2,
+        "denominator": 6,
+        "value": 0.3333333333333333
+      },
+      "wait": {
+        "count": 1,
+        "meanMs": 60000,
+        "missing": 5,
+        "noDecision": 4,
+        "invalidOrNegative": 1
+      }
+    },
+    "detectionCost": {
+      "known": 7,
+      "missing": 3,
+      "sumUsd": 4.75,
+      "coverage": {
+        "numerator": 7,
+        "denominator": 10,
+        "value": 0.7
+      }
+    },
+    "workflow": {
+      "single": 7,
+      "batch": 3,
+      "unknown": 0
+    },
+    "generationModel": {
+      "unknown": 10
+    },
+    "limitations": [
+      "Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.",
+      "Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.",
+      "SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.",
+      "First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.",
+      "Detection estimates are not invoices, profit or revenue. Generation model source is unknown.",
+      "Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."
+    ]
+  },
+  "failure": null
+}

@@ -1,49 +1,47 @@
 # Pairvu 项目整体进展（更新于2026-10-12）
 
+UPG-10价值指标已完成开发与独立验收，正式 **RELEASE_READY，尚未发布或启用**。生产仍为UPG-06：`da0e3554b9168d528f6ac2e985e6e4b9ad498838` / Worker `c329c189-df72-4e94-9abc-f2a0c6e63616`。工程完成不等于真实质量或客户价值验证完成。
 
-基础检测、SKU标准、结构化证据、人工审核审计和发布工作台已形成生产流程。UPG-01至UPG-06均已正式关闭；UPG-02是离线工具，其余运行时升级有相应生产证据。工程完成仍不等于真实检测准确率和商业验证完成。
-
-## 当前生产与本轮交付
-
-2026-10-12：UPG-06发布工作台已发布、启用并通过本轮真实登录独立验收，正式CLOSED。生产SHA `da0e3554b9168d528f6ac2e985e6e4b9ad498838` / Worker `c329c189-df72-4e94-9abc-f2a0c6e63616`。GitHub-first fresh核验、无待迁移确认、精确SHA构建部署完成；8项独立HTTP、16项真实登录业务检查PASS。付费CSV正向及登录导出HTTP403未生产实测，完整ELIGIBLE正向仅本地验收，不泛化为全业务路径覆盖。pairvu-2继续暂停。
-
-发布前独立增量77项D1/1853请求与typecheck通过；原实现91项D1/52项浏览器及相关回归证据保留。启用配置已随发布提交推送，代码缺省仍安全关闭。本次生产无待迁移，原0021已在UPG-05应用。构建、fresh远端核验、Cloudflare版本和健康接口均绑定同一SHA。
-
-| 模块 | 当前状态 | 实证边界 |
+| 模块 | 实现、上线与验收状态 | 实证边界 |
 |---|---|---|
-| 基础检测、批次、账户额度、付费入口和内容体系 | 已上线 | 完整真实付款及商业验证未完成 |
-| AUTO-01/02 总控、开发、独立QA与证据状态闭环 | CLOSED | 活跃wait/read交接；pairvu-2已暂停 |
-| UPG-01 发布来源追踪 | 生产通过/CLOSED | SHA与Worker版本可核对 |
+| 基础检测、批次、账户额度、付费入口和内容 | 已上线 | 完整真实付款及商业验证未完成 |
+| AUTO-01/02 总控与独立验收系统 | CLOSED | 本轮主动wait/read已完成开发→独立QA→RELEASE_READY；pairvu-2保持暂停 |
+| UPG-01 发布版本追踪 | 生产通过/CLOSED | SHA、Worker来源可核对 |
 | UPG-02 评测契约与离线校验 | 本地独立通过/CLOSED | 真实授权双标留出集仍缺 |
-| UPG-03 SKU版本化及启用/生命周期修复 | 生产真实登录通过/CLOSED | 历史保留、旧批次v3、当前标准v5 |
-| UPG-04 结构化证据 | 生产通过/CLOSED | 留存与安全退化通过；可靠定位与完整检测仍待提升 |
-| UPG-05 人工审核与审计 | 生产真实登录通过/CLOSED | 批准/拒绝/撤销、审计链和机器证据保留 |
-| UPG-06 发布工作台与规则版本 | 已发布、启用、限定生产验收PASS/CLOSED | 规则来源、机器/人工/资格分离、SKU/批次筛选、分页及Free UI门禁通过 |
-| UPG-07A 离线参考视角评测工具 | 独立PASS / local_only CLOSED | 协议、只读校验、对比诊断与15项样本缺口；不构成真实质量证据 |
-| UPG-07/10/08/09 | BACKLOG，未开工 | 线上视角匹配/实际评测、价值指标、API、Webhook |
+| UPG-03 SKU版本及生命周期 | 已发布、启用，生产登录通过/CLOSED | 版本历史、旧批次冻结和归档恢复通过 |
+| UPG-04 结构化区域证据 | 生产通过/CLOSED | 证据留存与安全退化通过；可靠定位和完整检测质量未证实 |
+| UPG-05 人工审核与审计 | 已发布、启用，生产登录通过/CLOSED | 批准/拒绝/撤销、审计链和原机器证据保留 |
+| UPG-06 发布工作台与规则版本 | 已发布、启用，限定生产验收PASS/CLOSED | 机器/人工/资格分离、筛选、分页和Free UI门禁；不是外部电商发布 |
+| UPG-07A 离线参考视角评测工具 | 独立PASS/local_only CLOSED | 协议及工具完成；真实质量仍BLOCKED |
+| UPG-10 价值指标 | 独立PASS/RELEASE_READY | 未推送、未迁移0022、未部署、未启用；没有真实价值结论 |
+| UPG-07运行时、UPG-08 API、UPG-09 Webhook | BACKLOG，未实施 | 分别等待真实评测输入、明确调用方契约、前置API |
 
-## 真实登录验收与限制
+## UPG-10本轮结果
 
-本轮复用真实Free会话和指定合成SKU。工作台显示机器REVIEW、人工REVOKE revision3、规则BLOCKED；缺失观察与限制明示，rule `release-policy-001` 及hash和源码一致。指定SKU冻结v3/v5与reference v1、批次、筛选空态、两页各20条无重复及返回首页、详情和审计均通过。六组精确远端D1 SELECT写入0行，原机器快照/原观察、审计revision1–3与上一轮完全一致，额度仍6。没有新模型调用、付款或审核变更。
+候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`。提供workspace内只读指标页/API、追加式来源分类和离线分类材料校验/导入准备。统计去重用量、冻结SKU使用与复用、机器分布、人审覆盖与首次决定等待、检测估算成本。批次多张图片不重复算复用；客户端埋点不能扩大分母；test和unknown从所有业务分子、分母、分组、成本、等待时间中排除。零分母为null，缺失成本不是零，审核等待不等于实际人工工时，图片生成模型未知不以检测模型冒充。
 
-Free导出按钮禁用已验证，匿名API401已独立验证。浏览器直接API导航受阻，因此真实登录导出HTTP403未观测；真实付费CSV正向、生产完整批准后的ELIGIBLE转移、第二账号跨租户生产探测未覆盖。这些不能以本地合成反例PASS替代；本轮PASS只适用于报告列出的16项业务检查。生产实际窄屏319px通过，桌面完整组件验收复用未变化源码的本地记录。
+开发26项D1/434请求、13项组件及typecheck/lint/最小回归通过。独立24项D1/573请求、7项组件、5次分类CLI调用、固定候选源码build及类型/lint/相关回归通过；另重跑26项开发专项。独立验证含两租户、伪造参数/埋点、分类更正、原子回滚、批次去重、审核等待、空态/错误恢复、375px/1280px、5000/5001 cohort、100/101分类和审核事件、UTF8上限及读取间撤销归属。
 
-UPG-04真实模型仅返回logo观察，另五项缺失转REVIEW；原位置提案保留但未经独立验证的框隐藏，可靠区域定位尚未实现。单张合成测试不证明真实准确率、漏检率或SKU覆盖。自定义规则编辑器、外部电商发布、自动修图均不在当前UPG-06交付范围。
+本地浏览器使用实际组件/CSS与合成API/导航夹具；API/SSR/DB另行本地验证。归档源码构建因无Git元数据嵌入SHA unknown，仅为本地固定源码构建成功，不是可部署的GitHub-first发布产物。没有生产登录验收、模型调用、付款或真实业务分类。
 
-## UPG-07首阶段完成与下一步
+[独立原报告](../../operations/evidence/UPG-10.json)、[56份原始材料与摘要映射](../../operations/evidence/UPG-10/archive-index.json)、[指标与分类口径](../01-architecture/value-metrics-contract.md)、[开发自测与失败记录](../../fixtures/value-metrics/validation/README.md)。正式CLI已qa PASS→release-ready，当前没有运行中的开发/QA。
 
-UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。
+## 哪些失败已修，哪些仍未验证
 
-工具以三份显式本地文件绑定数据集、视角真值和预测回放；复用UPG-02协议，对新增参考检查来源/跨集合泄漏，保留独立双标与仲裁，分别统计两个split、critical分母与REVIEW覆盖，空分母为null。声明为real也不会自动形成质量证据。
+- 已修复：UPG-03归档恢复状态；UPG-04错误位置及缺失证据误PASS；UPG-06 Unicode字节预算；UPG-07A 100000上限；UPG-10 CLI模块兼容、类型检查、测试夹具和窄屏溢出。原始失败保留，当前UPG-10没有待返工产品阻断。
+- 未验证：真实准确率、critical误放行、可靠区域定位与参考视角提升。用户确认暂无真实授权样本/双标，不用合成数据替代结论。
+- 生产覆盖仍缺：真实付费CSV正向、登录导出HTTP403实测、完整ELIGIBLE正向、第二账号跨租户，以及更广的素材保留/多SKU/付款旅程。UPG-06本轮8项HTTP及16项真实登录PASS只覆盖其报告范围。
+- 商业与人工事项仍缺：受控真实业务来源和持续使用、设计伙伴/授权数据/双标留出集、标准加量包/Live portal、试点续用及定价复盘；历史密钥轮换闭环记录待负责人核实。
 
-开发最终181专项/23CLI、105旧回归及typecheck通过；独立首轮31反例/10CLI和原专项通过，后因超限反例FAIL；修复后独立4个evaluator/4个CLI边界及typecheck通过，未变化原验收证据明确复用。
+UPG-04生产合成案例仅有logo观察，另外五项缺失明确进入REVIEW；未验证框已隐藏，不能宣称完整六项检测或可靠定位已完成。人工批准也不等于对外发布。
 
-用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。
+## 下一步做什么
 
-下一步：按样本缺口清单由用户/数据保管方准备授权记录、真实图像及参考集合、SKU分割、双人盲标/仲裁、独立留出集和baseline/candidate实际运行来源。总控本轮工程收尾已自动完成；因用户确认暂无样本，不自动开展真实质量评测或线上UPG-07接入，也不启动其他单元。样本就绪后先独立核实来源、冻结输入，再制定实际评测/线上接入最小契约；任何新增模型调用和生产发布另需相应授权。
+1. **首要工程动作：发布并启用UPG-10。需要新的明确授权，当前不自动执行。** 授权后提交配置并验证，推GitHub、fresh核对精确提交，执行0022迁移，同SHA部署Cloudflare，做真实登录独立验收；失败继续修复。没有待补的本地QA阻断。
+2. **真实价值数据准备：需要业务负责人提供可核查来源和授权。** 历史默认unknown；受控逐条分类后才能形成业务指标。测试/合成数据不能标业务；没有材料时允许页面为空，不造数。
+3. **UPG-07真实评测：等待授权样本、双人盲标/仲裁及冻结留出集。** 15项缺口见[清单](../05-evaluation/reference-view-sample-readiness.md)。材料就绪先独立核查，模型调用与线上接入另定范围。
+4. UPG-08 API、UPG-09 Webhook在具体调用方需求和前置依赖明确后再排；本轮不自动启动。
 
-并行人工事项：历史密钥轮换闭环记录；设计伙伴、授权数据和双标留出集；真实标准加量包/Live portal及付费CSV；试点续用与定价复盘。付款、客户外发及客户资产需要对应授权，不能虚构完成。当前control next返回空列表，后续runtime autoEligible保持false。
+本轮总控已自动完成工程验收与进度同步；下一步被发布授权/真实数据输入约束。定时恢复任务pairvu-2按既有决定继续PAUSED。
 
-证据：[生产manifest](../../operations/evidence/production-upg06-2026-10-12/manifest.json)、[真实功能与限制](../../operations/evidence/production-upg06-2026-10-12/production-functional.json)、[独立HTTP](../../operations/evidence/production-upg06-2026-10-12/productionQa.json)、[本地独立原报告](../../operations/evidence/UPG-06.json)、[原始FAIL](../../operations/evidence/UPG-06-attempt-1/qa-original.json)、[下一批清单](next-development-batch-2026-10-10.md)、[完整方案](product-upgrade-plan-2026-10-10.md)、[任务台账](../../operations/task-registry.json)。原始失败、工具受限及重试记录均保留；CLI适配不改原报告结论。
-
-UPG-07A：[协议](../05-evaluation/reference-view-shadow-protocol.md)、[15项真实样本缺口](../05-evaluation/reference-view-sample-readiness.md)、[独立验收](../../operations/evidence/UPG-07A.json)。
+生产依据：[UPG-06 manifest](../../operations/evidence/production-upg06-2026-10-12/manifest.json)、[真实登录验收范围](../../operations/evidence/production-upg06-2026-10-12/production-functional.json)。另见[完整升级方案](product-upgrade-plan-2026-10-10.md)、[剩余清单](next-development-batch-2026-10-10.md)、[任务台账](../../operations/task-registry.json)。

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "UPG-10",
-  "baselineSha": null,
+  "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -12,10 +12,10 @@
       "thinking": "high",
       "reason": "跨表指标口径、分类来源及租户隔离需联合推理。",
       "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
-      "applied": false
+      "applied": true
     },
-    "observedStatus": "idle",
-    "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:63",
+    "observedStatus": "completed",
+    "afterCursor": "63a5f94a-4031-4617-aba3-fe6eb9db31c5:26",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -31,12 +31,12 @@
     "modelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "独立构造遗漏排除、重复分母、迁移及跨租户反例。",
+      "reason": "本轮完整独立验收需跨表口径、来源分类、原子迁移、租户隔离及真实组件反例，Sol/high足以覆盖。",
       "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
-      "applied": false
+      "applied": true
     },
-    "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:113",
-    "observedStatus": "idle",
+    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:48",
+    "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -65,7 +65,6 @@
       "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
       "applied": true
     },
-    "failureReceipt": "operations/evidence/UPG-07A-attempt-1/qa-original.json",
     "environmentIncidents": [
       {
         "turnId": "01a12ed0-7e53-79b1-94cf-f1d21dacf6ae",
@@ -75,12 +74,12 @@
         "action": "resume same QA role/model/scope; no replacement or duplicate"
       }
     ],
-    "receipt": "operations/evidence/UPG-07A.json"
+    "receipt": "operations/evidence/UPG-10.json"
   },
-  "candidateSha": null,
-  "state": "SCOPED",
+  "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "用户授权UPG10本地开发和独立验收，默认排除测试及unknown；没有发布授权。",
+  "notes": "2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -183,9 +182,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "UPG10开发→固定SHA独立QA→必要返工→RELEASE_READY",
-    "dependency": "无真实业务分类时保留空指标/缺口，真实样本仍缺失",
-    "automatic": true
+    "action": "获UPG10发布与启用授权后：提交配置/验证→推GitHub→fresh核验→0022迁移→同SHA Cloudflare部署→真实登录独立验收",
+    "dependency": "本单元生产发布/启用尚未授权；真实业务来源分类及实际使用另需受控材料",
+    "automatic": false
   },
   "completedUnitId": "UPG-07A",
   "completedCandidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
@@ -227,5 +226,14 @@
     "samples": "NOT_PROVIDED",
     "userConfirmed": true,
     "readiness": "docs/05-evaluation/reference-view-sample-readiness.md"
+  },
+  "valueMetrics": {
+    "implementation": "COMPLETE",
+    "independentAcceptance": "PASS",
+    "deployment": "NOT_DEPLOYED",
+    "featureEnabled": false,
+    "valueEvidence": false,
+    "classification": "test/unknown excluded, no actual business labels created",
+    "evidence": "operations/evidence/UPG-10.json"
   }
 }

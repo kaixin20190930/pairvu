@@ -1,0 +1,8 @@
+Error: D1_ERROR: UNIQUE constraint failed: batch_items.batch_id, batch_items.candidate_asset_id: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_UNIQUE)
+    at DB.send (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:24:482)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Prepared.all (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:23:194)
+    at async sql (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:25:57)
+    at async <anonymous> (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:65:120)
+    at async test (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:29:76)
+    at async main (/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1.ts:65:3)

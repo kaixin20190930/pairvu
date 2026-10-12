@@ -1,0 +1,1652 @@
+diff --git a/app/account/value-metrics/ValueMetricsClient.tsx b/app/account/value-metrics/ValueMetricsClient.tsx
+new file mode 100644
+index 0000000..b0a142e
+--- /dev/null
++++ b/app/account/value-metrics/ValueMetricsClient.tsx
+@@ -0,0 +1,31 @@
++"use client";
++import {useEffect,useState} from "react";
++import type {MetricRatio,ValueReport} from "@/lib/value-metrics/types";
++import styles from "./value-metrics.module.css";
++const proportion=(r:MetricRatio)=>`${r.numerator} / ${r.denominator} · ${r.value===null?"Not available":(r.value*100).toFixed(1)+"%"}`;
++export function ValueMetricsClient(){
++  const [query,setQuery]=useState(""),[retry,setRetry]=useState(0),[data,setData]=useState<ValueReport|null>(null),[error,setError]=useState<string|null>(null),[loading,setLoading]=useState(true),[start,setStart]=useState(""),[end,setEnd]=useState("");
++  function refresh(){setLoading(true);setError(null);setData(null);setRetry(n=>n+1);}
++  useEffect(()=>{const controller=new AbortController();
++    fetch("/api/value-metrics"+query,{cache:"no-store",signal:controller.signal}).then(async response=>{const body=await response.json();if(!response.ok||body.complete!==true)throw new Error(body.message??"Metrics could not be loaded.");if(!controller.signal.aborted){setData(body);setStart(body.window.start);setEnd(body.window.end);}}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:"Metrics could not be loaded.");}).finally(()=>{if(!controller.signal.aborted)setLoading(false);});return()=>controller.abort();
++  },[query,retry]);
++  return <section className={styles.panel}><h1>Value metrics</h1><p>Only analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.</p>
++    <form className={styles.window} onSubmit={e=>{e.preventDefault();if(!start||!end){setError("Provide both UTC timestamps.");return;}setQuery("?"+new URLSearchParams({start,end}).toString());refresh();}}>
++      <label>Start · UTC, inclusive<input value={start} onChange={e=>setStart(e.target.value)} placeholder="2026-10-01T00:00:00.000Z" required/></label><label>End · UTC, exclusive<input value={end} onChange={e=>setEnd(e.target.value)} placeholder="2026-10-12T00:00:00.000Z" required/></label><button disabled={loading}>Apply window</button>
++    </form><p className={styles.meta}>Creation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.</p>
++    {loading?<p role="status">Loading metrics…</p>:null}
++    {error?<div role="alert" className={styles.notice}><p>{error}</p><p>No complete metrics are shown.</p><button onClick={refresh}>Retry</button></div>:null}
++    {data?<><p className={styles.meta}>Policy {data.version} · generated {data.generatedAt} · source snapshot {data.sourceAsOf}</p>
++      <section className={styles.notice}><h2>Included and excluded</h2><p>{data.scope.business} business · {data.scope.test} test excluded · {data.scope.unknown} unknown excluded · {data.scope.cohort} cohort analyses</p><p>Classification coverage: {proportion(data.scope.classificationCoverage)}. Unclassified: {data.scope.unclassified}; invalid source records: {data.scope.invalidClassification}; invalid creation dates outside this cohort: {data.scope.unwindowable}.</p>{!data.scope.business?<p><strong>No business records are included.</strong> This does not mean all actual business activity is zero. Controlled source classification is required.</p>:null}</section>
++      <div className={styles.grid}>
++        <section><h2>Analysis usage</h2><p>{data.usage.total} included · {data.usage.completed} completed · {data.usage.failed} failed · {data.usage.pending} pending</p><p>Invalid completion times: {data.usage.completedTimeInvalid}; unknown status: {data.usage.unknownStatus}.</p><p>Workflow: {data.workflow.single} single · {data.workflow.batch} batch · {data.workflow.unknown} unknown. Generation model: unknown for all {data.generationModel.unknown} analyses.</p></section>
++        <section><h2>Machine decisions</h2><p>{data.machine.pass} PASS · {data.machine.review} REVIEW · {data.machine.fail} FAIL · {data.machine.unknown} unknown</p><p>REVIEW / valid completed verdicts: {proportion(data.machine.reviewRate)}.</p></section>
++        <section><h2>Frozen SKU usage</h2><p>Linked / business completed: {proportion(data.sku.coverage)}. Missing or invalid snapshots: {data.sku.missing}.</p><p>{data.sku.invocations} distinct product/reference workflow uses · {data.sku.reuses} subsequent uses inside this window. Batch items count once per invocation.</p><p>Unknown workflow among linked analyses: {data.sku.workflowMissing}. First window use is excluded from reuse; no lifetime reuse or ranking.</p></section>
++        <section><h2>Human decisions</h2><p>Valid audit coverage: {proportion(data.reviews.coverage)}. Current {data.reviews.approve} approve · {data.reviews.reject} reject · {data.reviews.revoke} revoke.</p><p>No audit: {data.reviews.none}; invalid audit: {data.reviews.invalid}. Decisions are not ground truth.</p><p>First-decision waiting time: {data.reviews.wait.meanMs===null?"Not available":(data.reviews.wait.meanMs/60000).toFixed(1)+" min mean"} · {data.reviews.wait.count} valid samples; {data.reviews.wait.missing} missing ({data.reviews.wait.noDecision} no valid decision, {data.reviews.wait.invalidOrNegative} invalid/negative).</p><p>This is elapsed waiting time, not human effort. Time saved: not evaluated.</p></section>
++        <section><h2>Detection estimated cost</h2><p>{data.detectionCost.sumUsd===null?"Not available":"USD "+data.detectionCost.sumUsd.toFixed(6)} known estimate</p><p>Known coverage: {proportion(data.detectionCost.coverage)}; missing estimates: {data.detectionCost.missing}. Unknown costs are not zero.</p><p>Not an invoice, profit or revenue. ROI: not evaluated.</p></section>
++      </div>
++      {data.sku.groups.length?<section><h2>Frozen product/reference groups</h2><div className={styles.tableWrap}><table><thead><tr><th>Frozen SKU</th><th>Product / reference</th><th>Completed analyses</th><th>Workflow uses</th><th>Subsequent uses</th></tr></thead><tbody>{data.sku.groups.map(g=><tr key={g.productId+":"+g.referenceVersionId}><td>{g.skuLabels.map(s=>s??"Unspecified SKU").join(" / ")}</td><td>{g.productId}<br/>{g.referenceVersionId}</td><td>{g.analyses}</td><td>{g.invocations}</td><td>{g.reuses}</td></tr>)}</tbody></table></div></section>:null}
++      <p className={styles.meta}>Low samples and missing sources limit interpretation. No quality improvement, commercial target or model ranking has been established.</p>
++    </>:null}
++  </section>;
++}
+diff --git a/app/account/value-metrics/error.tsx b/app/account/value-metrics/error.tsx
+new file mode 100644
+index 0000000..34aeb3c
+--- /dev/null
++++ b/app/account/value-metrics/error.tsx
+@@ -0,0 +1,2 @@
++"use client";
++export default function ValueMetricsError({reset}:{reset:()=>void}){return <section role="alert"><h1>Value metrics unavailable</h1><p>No complete metrics could be loaded. Please try again.</p><button onClick={reset}>Retry</button></section>;}
+diff --git a/app/account/value-metrics/page.tsx b/app/account/value-metrics/page.tsx
+new file mode 100644
+index 0000000..db295ae
+--- /dev/null
++++ b/app/account/value-metrics/page.tsx
+@@ -0,0 +1,18 @@
++import type {Metadata} from "next";
++import {headers} from "next/headers";
++import {notFound,redirect} from "next/navigation";
++import {getVisualQAEnv} from "@/lib/cloudflare/bindings";
++import {resolveRequestAccess,RequestAccessError} from "@/lib/auth/request-access";
++import {requireValueOwner} from "@/lib/value-metrics/repository";
++import {valueMetricsEnabled} from "@/lib/value-metrics/validation";
++import {ValueMetricsError} from "@/lib/value-metrics/types";
++import {AccountWorkspaceNav} from "@/components/AccountWorkspaceNav";
++import {ValueMetricsClient} from "./ValueMetricsClient";
++export const dynamic="force-dynamic";
++export const metadata:Metadata={title:"Value metrics",robots:{index:false,follow:false}};
++export default async function ValueMetricsPage(){const env=getVisualQAEnv();let access;
++  try{access=await resolveRequestAccess(env,await headers(),undefined);}catch(e){if(e instanceof RequestAccessError)redirect("/sign-in?next=/account/value-metrics");throw e;}
++  if(!valueMetricsEnabled(env))notFound();
++  try{await requireValueOwner(env.VISUALQA_DB,access);}catch(e){if(e instanceof ValueMetricsError)notFound();throw e;}
++  return <main className="account-page"><div className="account-shell"><AccountWorkspaceNav/><ValueMetricsClient/></div></main>;
++}
+diff --git a/app/account/value-metrics/value-metrics.module.css b/app/account/value-metrics/value-metrics.module.css
+new file mode 100644
+index 0000000..5b9e733
+--- /dev/null
++++ b/app/account/value-metrics/value-metrics.module.css
+@@ -0,0 +1,3 @@
++.panel{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;min-width:0;color:#183233}.panel h1{font-size:30px;margin:0}.panel h2{font-size:18px;margin:0 0 10px}.panel p{line-height:1.55;margin:6px 0;overflow-wrap:anywhere}.window{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.window label{display:grid;gap:6px;flex:1 1 250px;min-width:0}.window input{font:inherit;padding:10px;border:1px solid #abbdbd;border-radius:8px;width:100%;box-sizing:border-box}.panel button{font:inherit;padding:10px 16px;border:1px solid #486f6d;background:#173f3b;color:white;border-radius:8px;cursor:pointer}.panel button:disabled{opacity:.5;cursor:wait}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:14px}.grid section,.notice{background:#f3f8f6;border:1px solid #cfdddd;border-radius:12px;padding:18px;min-width:0}.meta{font-size:13px;color:#526a68}.tableWrap{max-width:100%;overflow-x:auto}.panel table{border-collapse:collapse;font-size:14px;width:100%;min-width:600px}.panel th,.panel td{text-align:left;padding:10px;border-bottom:1px solid #dae4e1;overflow-wrap:anywhere;max-width:250px}
++
++.panel>section{min-width:0}
+diff --git a/app/api/value-metrics/route.ts b/app/api/value-metrics/route.ts
+new file mode 100644
+index 0000000..43107a0
+--- /dev/null
++++ b/app/api/value-metrics/route.ts
+@@ -0,0 +1,9 @@
++import {NextResponse} from "next/server";
++import {metricsAccess,metricsFailure,metricsHeaders} from "@/lib/value-metrics/http";
++import {parseValueWindow} from "@/lib/value-metrics/validation";
++import {readValueMetrics} from "@/lib/value-metrics/repository";
++export const dynamic="force-dynamic";
++export async function GET(request:Request) {
++  try{const {env,access}=await metricsAccess(request);return NextResponse.json(await readValueMetrics(env.VISUALQA_DB,access,parseValueWindow(new URL(request.url).searchParams)),{headers:metricsHeaders});}
++  catch(error){return metricsFailure(error);}
++}
+diff --git a/app/api/value-metrics/status/route.ts b/app/api/value-metrics/status/route.ts
+new file mode 100644
+index 0000000..948e135
+--- /dev/null
++++ b/app/api/value-metrics/status/route.ts
+@@ -0,0 +1,4 @@
++import {NextResponse} from "next/server";
++import {metricsAccess,metricsHeaders} from "@/lib/value-metrics/http";
++export const dynamic="force-dynamic";
++export async function GET(request:Request){try{await metricsAccess(request);return NextResponse.json({enabled:true},{headers:metricsHeaders});}catch{return NextResponse.json({enabled:false},{headers:metricsHeaders});}}
+diff --git a/components/AccountWorkspaceNav.tsx b/components/AccountWorkspaceNav.tsx
+index ac01e9b..38c67fd 100644
+--- a/components/AccountWorkspaceNav.tsx
++++ b/components/AccountWorkspaceNav.tsx
+@@ -15,12 +15,15 @@ export function AccountWorkspaceNav() {
+   const pathname = usePathname();
+   const searchParams = useSearchParams();
+   const [releasesVisible,setReleasesVisible]=useState(false);
++  const [metricsVisible,setMetricsVisible]=useState(false);
++  useEffect(()=>{const controller=new AbortController();fetch("/api/value-metrics/status",{cache:"no-store",signal:controller.signal}).then(async response=>{const data=response.ok?await response.json():null;if(!controller.signal.aborted)setMetricsVisible(data?.enabled===true);}).catch(()=>{if(!controller.signal.aborted)setMetricsVisible(false);});return()=>controller.abort();},[pathname]);
+   useEffect(()=>{const controller=new AbortController();fetch("/api/releases/status",{cache:"no-store",signal:controller.signal}).then(async response=>{const data=response.ok?await response.json():null;if(!controller.signal.aborted)setReleasesVisible(data?.enabled===true);}).catch(()=>{if(!controller.signal.aborted)setReleasesVisible(false);});return ()=>controller.abort();},[pathname]);
+   const hasBatch = Boolean(searchParams.get("batchId"));
+ 
+   return (
+     <nav aria-label="Workspace" className="account-workspace-nav">
+       {releasesVisible?<Link href="/account/releases" aria-current={pathname.startsWith("/account/releases")?"page":undefined}>Releases</Link>:null}
++      {metricsVisible?<Link href="/account/value-metrics" aria-current={pathname.startsWith("/account/value-metrics")?"page":undefined}>Value metrics</Link>:null}
+       {items.map((item) => {
+         const current = item.match(pathname, hasBatch);
+         return (
+diff --git a/docs/01-architecture/value-metrics-contract.md b/docs/01-architecture/value-metrics-contract.md
+new file mode 100644
+index 0000000..a9ed03c
+--- /dev/null
++++ b/docs/01-architecture/value-metrics-contract.md
+@@ -0,0 +1,61 @@
++# UPG-10 价值指标契约 v1
++
++基线 `eb7c279ca1015d4f25a9009c5ef1c72d15e9e424`。本轮仅本地开发与独立验收，默认 `VALUE_METRICS_ENABLED=false`；无生产迁移、发布、启用或真实来源补标授权。口径版本 `value-metrics-001`。这是只读用量诊断，质量、商业价值、ROI、节省时间均未验证。
++
++## 身份、窗口与一致性
++
++`GET /api/value-metrics` 和 `/account/value-metrics` 仅服务端 session 的 active workspace owner。无客户端 workspace/classification 授权参数。匿名 401、无有效归属 404；关闭时页面 404、API 404、导航隐藏；状态入口只给 enabled。所有响应 private/no-store、Vary Cookie。无分类写 API、CSV 或发送功能。
++
++参数只允许各一次 `start,end`，严格 UTC `YYYY-MM-DDTHH:mm:ss.sssZ`，Date roundtrip 必须相同。起含止不含，start<end，最大 90×24 小时，end 不晚于服务端生成时间；默认 end 为生成时间、start 为此前 30×24 小时。参数缺一个、重复、未知、非法日期均 400。cohort 为 canonical analyses.created_at（SQLite UTC julianday）落在窗口的 distinct analysis；无效创建时间不能定位窗口，另给 workspace 级 unwindowable 数量，不混入 cohort。时间窗不是完成日期筛选。
++
++数据是一条 SQL SELECT 的一致快照（归属在同条 SQL 再核查），返回 sourceAsOf=SQLite 当前 UTC；completion/review/classification 均为这一读取时点的状态，**不支持历史状态重建**。请求 generatedAt 与 sourceAsOf 分开显示。只统计完成时间有效、≥created_at、≤sourceAsOf 的 completed 结果；状态 completed 但时间不合法列 completedTimeInvalid，不参与 completed 指标。failed 单列，queued/running 为 pending。结束窗控制 cohort，结束窗后至 sourceAsOf 的完成/审计可被纳入，页面明确说明。
++
++最大 cohort 5000（读取第 5001 条仅检测超限），每 business analysis 最多 100 个 review events、每冻结 snapshot≤32768 UTF8 字节、每 review snapshot≤262144 字节；全部 business snapshot/review snapshot 总预算 16 MiB。超任何预算 API 422 `metrics_budget_exceeded`、complete=false，不返回部分总体或完整比率。数据库失败 503，绝不退化为业务零。非业务行不加载原始 snapshot/audit、不影响业务数据预算。窗口内 classification 与 batch linkage 计数仍须有界（每 analysis≤100）；超限同样拒绝，防止相关子查询无限聚合。
++
++## 逐 analysis 来源分类与受控操作
++
++新增 append-only `analysis_value_classifications`，无历史回填。缺记录默认 unknown；每条记录明确 analysis_id+workspace_id、revision、classification=business/test/unknown、evidence_ref、verified_by、verified_at、material_sha256、created_at。数据库触发器拒绝跨归属、非连续 revision、修改/删除已有记录。更正用新的完整来源核查记录追加 revision，不改历史。每 analysis 最新 revision 是当前分类；元数据损坏或未来时间则 unknown，不回退旧 business。当前分类不是历史值；新分类可能改变同一创建时间窗的诊断，API 显示分类快照时间。
++
++business 仅代表受控保管方已核查来源的标记，不能因生产环境、已登录、名字不含 QA、没有 test 标签、客户端事件而推定。test 含合成/内部 QA。unknown 含未验证历史和缺分类。test/unknown 从**所有**业务量、分组、分母、成本、等待时间中排除。分类覆盖=(有效 business+test+显式 unknown 记录)/全部 cohort；显示未分类/无效记录及 business/test/unknown 排除数量。business=0 时只能说“没有经受控分类纳入的业务记录”，不能说全部业务为零。
++
++离线入口 `pnpm value-metrics:prepare-classification -- --input FILE --inventory FILE`：只读两个显式 JSON，输出可审查 SQL 方案，不连接数据库、不执行导入。材料根恰好 `{schemaVersion:1,workspaceId,inventorySha256,records}`；inventory 原始字节 hash 必须相等。inventory 根 `{schemaVersion:1,workspaceId,asOf,analyses}`；元素 `{analysisId,workspaceId,classificationRevision}`，完整 ID、归属、非负安全 revision。材料 records 元素恰好 `{analysisId,classification,evidenceRef,verifiedBy,verifiedAt,expectedRevision}`，最多 500，精确 analysis ID 必须在 inventory 中，workspace 相同、revision 一致。两文件各层禁止未知/缺字段、重复 ID、冲突；无输入 BLOCKED，未知选项 INVALID_USAGE，非法材料 INVALID_INPUT，不回显输入值。
++
++ID/核实者为 1–128 位字母数字下划线连字符 token；evidenceRef 为 `evidence:`+64 位小写 hash，指向受控真实来源核查材料（用途、合成/业务判别与核查过程）。verifiedAt 和 inventory.asOf 是上述严格 UTC，核实时间≤inventory.asOf，inventory.asOf 不晚于本地校验时间。所有分类都需材料与核实者，尤其拒绝无依据 business。CLI 不认证这些人的身份或材料真实性，输出 preparationOnly=true、valueEvidence=false；模板中的占位字段不能用于真实导入。
++
++上线后的受控操作步骤：获本单元发布授权后按 AGENTS GitHub-first 迁移与部署；获具体数据分类操作授权后，由数据库保管方用只读 inventory SQL 导出精确 workspace 的 analysis IDs 与当前分类 revision，冻结 JSON 字节；两位受控人员核查业务/测试来源和 evidenceRef 对应材料，准备文件；离线校验生成 SQL，逐条审查；才由获授权的数据库操作员在明确 workspace 执行原子导入。触发器在执行时再次检查归属和 revision，过期方案冲突失败，不能静默漏导。导入后的原始材料、SQL/hash、操作者与实际执行证据另受控保管；本轮只准备，不执行生产操作，不制造真实 business 标签。分类权限依赖受控 D1 写权限，客户端不能获此权限。小型合成例仅用于测试。
++
++inventory 只读查询模板（`:workspace` 为获准的精确 workspace，不能用客户端参数授权；记录同次数据库读取的 UTC asOf）：
++
++```sql
++SELECT a.id AS analysisId,a.workspace_id AS workspaceId,
++ COALESCE((SELECT MAX(c.revision) FROM analysis_value_classifications c
++  WHERE c.analysis_id=a.id AND c.workspace_id=a.workspace_id),0) AS classificationRevision
++FROM analyses a WHERE a.workspace_id=:workspace ORDER BY a.id;
++```
++
++按 schema 封装此结果并冻结原始 JSON 字节，最多 10000 个 inventory 条目。CLI 每份文件最多 8 MiB；输出含 SQL 与参数的 statements 方案，必须作为单个 `D1Database.batch` 原子执行（本地已验证失败回滚），不可拆成逐条写入或当作可自动执行的公开 API。空的 [分类模板](../../fixtures/value-metrics/classification-template.json) 和 [inventory 模板](../../fixtures/value-metrics/inventory-template.json) 仅含 null/空集合，占位材料不满足校验，不存在虚构真实记录。
++
++## 业务公式与缺失
++
++令 B 为有效 business 分类 cohort，C 为其中 status=completed 且完成时间有效的 analysis。所有 count 每 analysis 一次，不 join 放大。
++
++| 指标 | 精确公式 / 缺失 |
++|---|---|
++| 用量 | total=\|B\|；completed=\|C\|，failed、queued/running pending 单列；completedTimeInvalid 单列，不假装完成 |
++| 机器分布 | C 中 canonical verdict pass/review/fail 各一次；unknown 独列；REVIEW 比例=review/(pass+review+fail)，空分母 null |
++| 冻结 SKU 覆盖 | C 中有效 owned frozen snapshot 的数量/\|C\|；要求 SHA、schema、canonical profile、product/profile/reference/asset 绑定正确；当前名字、归档、current pointer 不改历史 |
++| SKU 使用/复用 | 以 workspace+冻结 productId+referenceVersionId 分组；同一 distinct batch invocation 的多 item 只算一次，单次 workflow 用 canonical analysis ID；source batch 的原始 snapshot JSON/hash、product/revision/profile/reference/bound_at 必须与 analysis 冻结记录完全一致，不仅比 hash 声明；批次冻结来源不一致的 snapshot 不计 SKU 关联。batch membership 不唯一则 workflow unknown，不计复用；窗口内 group uses=独立 invocation 数、reuses=max(uses−1,0)，首次使用不算复用，不声称跨窗口首次。分组按 ID 排序，不排名，披露缺失 workflow 数 |
++| 人审覆盖 | C 中存在完整有效审计链（连续 revision、前驱、动作、拥有者 scope、snapshot hash/analysis identity/verdict/versions，最新 head 一致）的 distinct analysis 数/\|C\|；approve/reject/revoke 为最新有效动作；无审计、无效审计单列。动作不是真值标签 |
++| 首次决定等待时间 | 完整有效链中首个 approve/reject.created_at−analysis.completed_at，单位毫秒；首决定无效日期或负时差时该 analysis 缺失，不能改选后续决定。后续 revoke 不抹除首次时间；给有效样本数、均值、缺失原因，不等于实际人工工作耗时，无基线节省时间=未评估 |
++| 检测估算成本 | B 中 canonical analyses.estimated_cost_usd 的非负有限值求和（包括失败/待完成时已存估算），零值有效，null/负/非法值为缺失；给已知数量/\|B\|、已知总额 USD 与缺失数量。不能 null 当 0；无已知值金额=null；求和溢出拒绝结果，不发 Infinity。不是实际账单、收益或利润，不重复加 model call 成本 |
++| 来源工作流/生成模型 | B 内可靠 batch/single/unknown 工作流分布；图片生成模型全部 unknown（现有检测模型不能冒充生成模型）；不做来源模型排行 |
++
++比例均输出 numerator/denominator/value，分母 0 的 value=null。API 仅汇总，不返回原始图片、用户、审核文本、分类依据、人工身份或 machine snapshot。每项给缺失/排除计数与口径；只按有效 business 形成分组。不设置商业目标达标判断，不以合成 QA fixture 或业务分类声明证明真实质量/商业价值。
++
++## 验证与验收门槛
++
++隔离本地 D1 使用完整迁移、实际查询/路由与受控 session 夹具；反例涵盖两 workspace、混合来源、重复事件/多 batch item、冻结改名归档、时窗边界、空/零/负/未知、审计异常、来源材料/归属/冲突、预算和 DB 失败。真实组件验证正常/空/错误/关闭导航和窄屏。typecheck 与一次必要本地 build。开发证据不能代替独立固定 SHA 验收；PASS 最多 RELEASE_READY，无 production verification。
++
++本轮开发验证索引见 [开发报告](../../fixtures/value-metrics/validation/README.md) 和 [结构化清单](../../fixtures/value-metrics/validation/developer-validation.json)。最终隔离 D1 26 项检查、434 次请求；真实 React 组件 13 项检查，包括 375px 与 1280px、空态、错误、重试与导航关闭。保留首次失败与修复记录。组件浏览器夹具采用实际组件/CSS，但框架导航和 API 数据为本地合成夹具；SSR/session 路由另在实际 D1 测试中校验。这不是完整生产登录或真实客户价值验收。
++
++本地 Next build 成功后，补强了 source batch snapshot 与 analysis snapshot 的完全一致检查；该最终查询/计算变更已通过实际 D1、typecheck 和 lint，未把先前 build 冒称为固定候选发布构建。下一步由独立 QA 绑定提交 SHA 验收；生产迁移、部署、功能启用、真实登录以及真实业务来源分类均未执行，须分别遵守授权与 GitHub-first 发布门禁。
+diff --git a/fixtures/value-metrics/.gitattributes b/fixtures/value-metrics/.gitattributes
+new file mode 100644
+index 0000000..e578210
+--- /dev/null
++++ b/fixtures/value-metrics/.gitattributes
+@@ -0,0 +1,3 @@
++# Preserve original validation output bytes for the evidence hashes.
++validation/*-raw.txt -text -diff
++lint-attempt-1-raw.txt -text -diff
+diff --git a/fixtures/value-metrics/classification-template.json b/fixtures/value-metrics/classification-template.json
+new file mode 100644
+index 0000000..333980d
+--- /dev/null
++++ b/fixtures/value-metrics/classification-template.json
+@@ -0,0 +1 @@
++{"schemaVersion":1,"workspaceId":null,"inventorySha256":null,"records":[]}
+diff --git a/fixtures/value-metrics/d1-attempt-1-results.json b/fixtures/value-metrics/d1-attempt-1-results.json
+new file mode 100644
+index 0000000..98905ce
+--- /dev/null
++++ b/fixtures/value-metrics/d1-attempt-1-results.json
+@@ -0,0 +1,156 @@
++{
++  "unitId": "UPG-10",
++  "status": "FAIL",
++  "synthetic": true,
++  "valueEvidence": false,
++  "qualityEvidence": false,
++  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-9mdcOG",
++  "checks": [
++    {
++      "name": "strict UTC defaults and malformed requests",
++      "status": "PASS"
++    },
++    {
++      "name": "flag exact true; default false",
++      "status": "PASS"
++    },
++    {
++      "name": "empty source returns null denominators and no cost rather than zero invoices",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed provenance excludes every business amount, group, audit and denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "session owner scope and missing/inactive/member rejection",
++      "status": "FAIL",
++      "error": "Error: D1_ERROR: CHECK constraint failed: role in ('owner'): SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
++    }
++  ],
++  "sources": {
++    "lib/value-metrics/repository.ts": "6c29023c5b4c3b469439a187de3777ba9ec95e38065193170c2bc898d10e26b3",
++    "lib/value-metrics/calculate.ts": "3acfaeace12e279f789e8072b618db6fd1d66ab9ba6b73190f68974d90ed7742",
++    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
++    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
++    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
++    "scripts/verify-value-metrics.ts": "7716eb477f74ce5b7f695b446bf35b7804ca73ed57cbef331cdac24553f7a493"
++  },
++  "requestCount": 109,
++  "sampleReport": {
++    "version": "value-metrics-001",
++    "complete": true,
++    "generatedAt": "2026-10-12T08:37:15.579Z",
++    "sourceAsOf": "2026-10-12T08:37:16.308Z",
++    "window": {
++      "start": "2026-10-01T00:00:00.000Z",
++      "end": "2026-10-02T00:00:00.000Z"
++    },
++    "valueEvidence": false,
++    "qualityEvidence": false,
++    "scope": {
++      "cohort": 6,
++      "unwindowable": 0,
++      "business": 4,
++      "test": 1,
++      "unknown": 1,
++      "unclassified": 1,
++      "invalidClassification": 0,
++      "classificationCoverage": {
++        "numerator": 5,
++        "denominator": 6,
++        "value": 0.8333333333333334
++      }
++    },
++    "usage": {
++      "total": 4,
++      "completed": 2,
++      "failed": 1,
++      "pending": 1,
++      "completedTimeInvalid": 0,
++      "unknownStatus": 0
++    },
++    "machine": {
++      "pass": 1,
++      "review": 1,
++      "fail": 0,
++      "unknown": 0,
++      "reviewRate": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      }
++    },
++    "sku": {
++      "linked": 2,
++      "missing": 0,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 2,
++        "value": 1
++      },
++      "workflowMissing": 0,
++      "invocations": 2,
++      "reuses": 1,
++      "groups": [
++        {
++          "productId": "33eee62c-ee7c-434d-bb79-bf1176034ca0",
++          "referenceVersionId": "3b1ce954-14c5-4e7b-8d02-455bf3206b92",
++          "skuLabels": [
++            "SKU-FROZEN"
++          ],
++          "analyses": 2,
++          "invocations": 2,
++          "reuses": 1
++        }
++      ]
++    },
++    "reviews": {
++      "covered": 1,
++      "none": 1,
++      "invalid": 0,
++      "approve": 0,
++      "reject": 0,
++      "revoke": 1,
++      "coverage": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      },
++      "wait": {
++        "count": 1,
++        "meanMs": 974236168,
++        "missing": 1,
++        "noDecision": 1,
++        "invalidOrNegative": 0
++      }
++    },
++    "detectionCost": {
++      "known": 2,
++      "missing": 2,
++      "sumUsd": 1,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 4,
++        "value": 0.5
++      }
++    },
++    "workflow": {
++      "single": 4,
++      "batch": 0,
++      "unknown": 0
++    },
++    "generationModel": {
++      "unknown": 4
++    },
++    "limitations": [
++      "Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.",
++      "Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.",
++      "SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.",
++      "First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.",
++      "Detection estimates are not invoices, profit or revenue. Generation model source is unknown.",
++      "Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."
++    ]
++  },
++  "failure": "Error: D1_ERROR: CHECK constraint failed: role in ('owner'): SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_CHECK)"
++}
+diff --git a/fixtures/value-metrics/d1-attempt-2-results.json b/fixtures/value-metrics/d1-attempt-2-results.json
+new file mode 100644
+index 0000000..797ed88
+--- /dev/null
++++ b/fixtures/value-metrics/d1-attempt-2-results.json
+@@ -0,0 +1,204 @@
++{
++  "unitId": "UPG-10",
++  "status": "FAIL",
++  "synthetic": true,
++  "valueEvidence": false,
++  "qualityEvidence": false,
++  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rMMhS3",
++  "checks": [
++    {
++      "name": "strict UTC defaults and malformed requests",
++      "status": "PASS"
++    },
++    {
++      "name": "flag exact true; default false",
++      "status": "PASS"
++    },
++    {
++      "name": "empty source returns null denominators and no cost rather than zero invoices",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed provenance excludes every business amount, group, audit and denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "session owner scope and missing/inactive membership rejection",
++      "status": "PASS"
++    },
++    {
++      "name": "classification correction appends and removes formerly business from all metrics",
++      "status": "PASS"
++    },
++    {
++      "name": "classification stale imports and cross-scope/REPLACE/update/delete blocked atomically",
++      "status": "PASS"
++    },
++    {
++      "name": "UTC start inclusive/end exclusive; finish after window end still in cohort",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid completion time is missing, invalid creation time unwindowable",
++      "status": "PASS"
++    },
++    {
++      "name": "batch items count one invocation, repeated independent batch counts subsequent use",
++      "status": "PASS"
++    },
++    {
++      "name": "current product rename/archive does not change frozen groups",
++      "status": "PASS"
++    },
++    {
++      "name": "atomic read does not incorporate later classification update",
++      "status": "PASS"
++    },
++    {
++      "name": "zero business completed leaves empty rates despite populated unknown cohort",
++      "status": "PASS"
++    },
++    {
++      "name": "controlled classification material rejects spoofing/conflicts/metadata and byte mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "actual routes auth/no-store/flag/status do not trust client parameters",
++      "status": "PASS"
++    },
++    {
++      "name": "DB failures return explicit incomplete 503 without fake zero report",
++      "status": "PASS"
++    },
++    {
++      "name": "classification CLI real entry, symlink and readonly exact local files",
++      "status": "FAIL",
++      "error": "AssertionError [ERR_ASSERTION]: node:internal/modules/run_main:123\n    triggerUncaughtException(\n    ^\n\nError: Transform failed with 3 errors:\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:20: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:69: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:127: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n    at failureErrorWithLog (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1748:15)\n    at /Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1017:50\n    at responseCallbacks.<computed> (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:884:9)\n    at handleIncomingPacket (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:939:12)\n    at Socket.readFromStdout (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:862:7)\n    at Socket.emit (node:events:519:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {\n  name: 'TransformError'\n}\n\nNode.js v22.22.3\n\n\n1 !== 0\n"
++    }
++  ],
++  "sources": {
++    "lib/value-metrics/repository.ts": "6c29023c5b4c3b469439a187de3777ba9ec95e38065193170c2bc898d10e26b3",
++    "lib/value-metrics/calculate.ts": "3acfaeace12e279f789e8072b618db6fd1d66ab9ba6b73190f68974d90ed7742",
++    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
++    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
++    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
++    "scripts/verify-value-metrics.ts": "b9c75f1d37a81682db272e172b671ea80101f1a1469fd32196b022c90ba16575"
++  },
++  "requestCount": 183,
++  "sampleReport": {
++    "version": "value-metrics-001",
++    "complete": true,
++    "generatedAt": "2026-10-12T08:38:40.082Z",
++    "sourceAsOf": "2026-10-12T08:38:40.743Z",
++    "window": {
++      "start": "2026-10-01T00:00:00.000Z",
++      "end": "2026-10-02T00:00:00.000Z"
++    },
++    "valueEvidence": false,
++    "qualityEvidence": false,
++    "scope": {
++      "cohort": 6,
++      "unwindowable": 0,
++      "business": 4,
++      "test": 1,
++      "unknown": 1,
++      "unclassified": 1,
++      "invalidClassification": 0,
++      "classificationCoverage": {
++        "numerator": 5,
++        "denominator": 6,
++        "value": 0.8333333333333334
++      }
++    },
++    "usage": {
++      "total": 4,
++      "completed": 2,
++      "failed": 1,
++      "pending": 1,
++      "completedTimeInvalid": 0,
++      "unknownStatus": 0
++    },
++    "machine": {
++      "pass": 1,
++      "review": 1,
++      "fail": 0,
++      "unknown": 0,
++      "reviewRate": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      }
++    },
++    "sku": {
++      "linked": 2,
++      "missing": 0,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 2,
++        "value": 1
++      },
++      "workflowMissing": 0,
++      "invocations": 2,
++      "reuses": 1,
++      "groups": [
++        {
++          "productId": "62a9ea19-0f76-4cb0-93da-aa0884662210",
++          "referenceVersionId": "ae52deb1-63de-4815-9c78-3c20fa557e40",
++          "skuLabels": [
++            "SKU-FROZEN"
++          ],
++          "analyses": 2,
++          "invocations": 2,
++          "reuses": 1
++        }
++      ]
++    },
++    "reviews": {
++      "covered": 1,
++      "none": 1,
++      "invalid": 0,
++      "approve": 0,
++      "reject": 0,
++      "revoke": 1,
++      "coverage": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      },
++      "wait": {
++        "count": 1,
++        "meanMs": 974320590,
++        "missing": 1,
++        "noDecision": 1,
++        "invalidOrNegative": 0
++      }
++    },
++    "detectionCost": {
++      "known": 2,
++      "missing": 2,
++      "sumUsd": 1,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 4,
++        "value": 0.5
++      }
++    },
++    "workflow": {
++      "single": 4,
++      "batch": 0,
++      "unknown": 0
++    },
++    "generationModel": {
++      "unknown": 4
++    },
++    "limitations": [
++      "Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.",
++      "Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.",
++      "SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.",
++      "First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.",
++      "Detection estimates are not invoices, profit or revenue. Generation model source is unknown.",
++      "Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."
++    ]
++  },
++  "failure": "AssertionError [ERR_ASSERTION]: node:internal/modules/run_main:123\n    triggerUncaughtException(\n    ^\n\nError: Transform failed with 3 errors:\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:20: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:69: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n/Users/liukai/Documents/Product Visual QA Platform/scripts/value-metrics-classification.ts:15:127: ERROR: Top-level await is currently not supported with the \"cjs\" output format\n    at failureErrorWithLog (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1748:15)\n    at /Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:1017:50\n    at responseCallbacks.<computed> (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:884:9)\n    at handleIncomingPacket (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:939:12)\n    at Socket.readFromStdout (/Users/liukai/Documents/Product Visual QA Platform/node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild/lib/main.js:862:7)\n    at Socket.emit (node:events:519:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {\n  name: 'TransformError'\n}\n\nNode.js v22.22.3\n\n\n1 !== 0\n"
++}
+diff --git a/fixtures/value-metrics/d1-results.json b/fixtures/value-metrics/d1-results.json
+new file mode 100644
+index 0000000..d500ddf
+--- /dev/null
++++ b/fixtures/value-metrics/d1-results.json
+@@ -0,0 +1,245 @@
++{
++  "unitId": "UPG-10",
++  "status": "PASS",
++  "synthetic": true,
++  "valueEvidence": false,
++  "qualityEvidence": false,
++  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-31csrX",
++  "checks": [
++    {
++      "name": "strict UTC defaults and malformed requests",
++      "status": "PASS"
++    },
++    {
++      "name": "flag exact true; default false",
++      "status": "PASS"
++    },
++    {
++      "name": "empty source returns null denominators and no cost rather than zero invoices",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed provenance excludes every business amount, group, audit and denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "forged and repeated client completion/reuse events do not affect metrics",
++      "status": "PASS"
++    },
++    {
++      "name": "session owner scope and missing/inactive membership rejection",
++      "status": "PASS"
++    },
++    {
++      "name": "classification correction appends and removes formerly business from all metrics",
++      "status": "PASS"
++    },
++    {
++      "name": "classification stale imports and cross-scope/REPLACE/update/delete blocked atomically",
++      "status": "PASS"
++    },
++    {
++      "name": "UTC start inclusive/end exclusive; finish after window end still in cohort",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid completion time is missing, invalid creation time unwindowable",
++      "status": "PASS"
++    },
++    {
++      "name": "batch items count one invocation, repeated independent batch counts subsequent use",
++      "status": "PASS"
++    },
++    {
++      "name": "current product rename/archive does not change frozen groups",
++      "status": "PASS"
++    },
++    {
++      "name": "copied batch hash cannot hide mismatching source snapshot JSON or inflate reuse",
++      "status": "PASS"
++    },
++    {
++      "name": "atomic read does not incorporate later classification update",
++      "status": "PASS"
++    },
++    {
++      "name": "zero business completed leaves empty rates despite populated unknown cohort",
++      "status": "PASS"
++    },
++    {
++      "name": "controlled classification material rejects spoofing/conflicts/metadata and byte mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "actual routes auth/no-store/flag/status do not trust client parameters",
++      "status": "PASS"
++    },
++    {
++      "name": "DB failures return explicit incomplete 503 without fake zero report",
++      "status": "PASS"
++    },
++    {
++      "name": "actual SSR page redirects anonymous, hides disabled/foreign scope and renders enabled owner",
++      "status": "PASS"
++    },
++    {
++      "name": "classification CLI real entry, symlink and readonly exact local files",
++      "status": "PASS"
++    },
++    {
++      "name": "cohort limit refuses complete ratios; exact bound remains supported",
++      "status": "PASS"
++    },
++    {
++      "name": "negative first-decision wait and corrupt audit hashes are excluded with missing counts",
++      "status": "PASS"
++    },
++    {
++      "name": "business UTF8 snapshot byte overflow rejects; excluded unknown large snapshot does not alter business report",
++      "status": "PASS"
++    },
++    {
++      "name": "101 audit events reject complete metrics without truncating history to a ratio",
++      "status": "PASS"
++    },
++    {
++      "name": "finite cost values whose sum overflows reject rather than emitting Infinity or zero",
++      "status": "PASS"
++    },
++    {
++      "name": "total business snapshot byte budget rejects even when each record fits its own cap",
++      "status": "PASS",
++      "detail": {
++        "generatedBusinessAnalyses": 550,
++        "bytesPerSnapshot": 31558,
++        "totalSnapshotBytes": 17356900,
++        "cap": 16777216
++      }
++    }
++  ],
++  "sources": {
++    "lib/value-metrics/repository.ts": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876",
++    "lib/value-metrics/calculate.ts": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94",
++    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
++    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
++    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
++    "scripts/verify-value-metrics.ts": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7"
++  },
++  "requestCount": 434,
++  "sampleReport": {
++    "version": "value-metrics-001",
++    "complete": true,
++    "generatedAt": "2026-10-12T11:14:45.351Z",
++    "sourceAsOf": "2026-10-12T11:14:46.287Z",
++    "window": {
++      "start": "2026-10-01T00:00:00.000Z",
++      "end": "2026-10-02T00:00:00.000Z"
++    },
++    "valueEvidence": false,
++    "qualityEvidence": false,
++    "scope": {
++      "cohort": 6,
++      "unwindowable": 0,
++      "business": 4,
++      "test": 1,
++      "unknown": 1,
++      "unclassified": 1,
++      "invalidClassification": 0,
++      "classificationCoverage": {
++        "numerator": 5,
++        "denominator": 6,
++        "value": 0.8333333333333334
++      }
++    },
++    "usage": {
++      "total": 4,
++      "completed": 2,
++      "failed": 1,
++      "pending": 1,
++      "completedTimeInvalid": 0,
++      "unknownStatus": 0
++    },
++    "machine": {
++      "pass": 1,
++      "review": 1,
++      "fail": 0,
++      "unknown": 0,
++      "reviewRate": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      }
++    },
++    "sku": {
++      "linked": 2,
++      "missing": 0,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 2,
++        "value": 1
++      },
++      "workflowMissing": 0,
++      "invocations": 2,
++      "reuses": 1,
++      "groups": [
++        {
++          "productId": "168347fc-ea27-4f94-a0cb-67a8d7335196",
++          "referenceVersionId": "0681710e-2652-4e9b-974c-21b83a607947",
++          "skuLabels": [
++            "SKU-FROZEN"
++          ],
++          "analyses": 2,
++          "invocations": 2,
++          "reuses": 1
++        }
++      ]
++    },
++    "reviews": {
++      "covered": 1,
++      "none": 1,
++      "invalid": 0,
++      "approve": 0,
++      "reject": 0,
++      "revoke": 1,
++      "coverage": {
++        "numerator": 1,
++        "denominator": 2,
++        "value": 0.5
++      },
++      "wait": {
++        "count": 1,
++        "meanMs": 983686091,
++        "missing": 1,
++        "noDecision": 1,
++        "invalidOrNegative": 0
++      }
++    },
++    "detectionCost": {
++      "known": 2,
++      "missing": 2,
++      "sumUsd": 1,
++      "coverage": {
++        "numerator": 2,
++        "denominator": 4,
++        "value": 0.5
++      }
++    },
++    "workflow": {
++      "single": 4,
++      "batch": 0,
++      "unknown": 0
++    },
++    "generationModel": {
++      "unknown": 4
++    },
++    "limitations": [
++      "Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.",
++      "Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.",
++      "SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.",
++      "First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.",
++      "Detection estimates are not invoices, profit or revenue. Generation model source is unknown.",
++      "Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."
++    ]
++  },
++  "failure": null
++}
+diff --git a/fixtures/value-metrics/inventory-template.json b/fixtures/value-metrics/inventory-template.json
+new file mode 100644
+index 0000000..f7ee9ed
+--- /dev/null
++++ b/fixtures/value-metrics/inventory-template.json
+@@ -0,0 +1 @@
++{"schemaVersion":1,"workspaceId":null,"asOf":null,"analyses":[]}
+diff --git a/fixtures/value-metrics/lint-attempt-1-raw.txt b/fixtures/value-metrics/lint-attempt-1-raw.txt
+new file mode 100644
+index 0000000..2dc8678
+Binary files /dev/null and b/fixtures/value-metrics/lint-attempt-1-raw.txt differ
+diff --git a/fixtures/value-metrics/sql-worker.mjs b/fixtures/value-metrics/sql-worker.mjs
+new file mode 100644
+index 0000000..060328c
+--- /dev/null
++++ b/fixtures/value-metrics/sql-worker.mjs
+@@ -0,0 +1 @@
++export default {async fetch(request,env){try{const {statements}=await request.json();const results=await env.DB.batch(statements.map(s=>env.DB.prepare(s.sql).bind(...s.params)));return Response.json({success:true,results});}catch(error){return Response.json({success:false,error:error.message});}}};
+diff --git a/fixtures/value-metrics/ui/desktop-1280.jpg b/fixtures/value-metrics/ui/desktop-1280.jpg
+new file mode 100644
+index 0000000..5f00c56
+Binary files /dev/null and b/fixtures/value-metrics/ui/desktop-1280.jpg differ
+diff --git a/fixtures/value-metrics/ui/empty.jpg b/fixtures/value-metrics/ui/empty.jpg
+new file mode 100644
+index 0000000..8248be8
+Binary files /dev/null and b/fixtures/value-metrics/ui/empty.jpg differ
+diff --git a/fixtures/value-metrics/ui/error.jpg b/fixtures/value-metrics/ui/error.jpg
+new file mode 100644
+index 0000000..aeb5e1b
+Binary files /dev/null and b/fixtures/value-metrics/ui/error.jpg differ
+diff --git a/fixtures/value-metrics/ui/narrow.jpg b/fixtures/value-metrics/ui/narrow.jpg
+new file mode 100644
+index 0000000..1da11b7
+Binary files /dev/null and b/fixtures/value-metrics/ui/narrow.jpg differ
+diff --git a/fixtures/value-metrics/ui/populated-final-375.jpg b/fixtures/value-metrics/ui/populated-final-375.jpg
+new file mode 100644
+index 0000000..1da11b7
+Binary files /dev/null and b/fixtures/value-metrics/ui/populated-final-375.jpg differ
+diff --git a/fixtures/value-metrics/ui/results.json b/fixtures/value-metrics/ui/results.json
+new file mode 100644
+index 0000000..fc287ce
+--- /dev/null
++++ b/fixtures/value-metrics/ui/results.json
+@@ -0,0 +1,120 @@
++{
++  "unitId": "UPG-10",
++  "role": "developer",
++  "status": "PASS",
++  "synthetic": true,
++  "valueEvidence": false,
++  "qualityEvidence": false,
++  "checkCount": 13,
++  "checks": [
++    {
++      "name": "Desktop real component shows included/excluded, cost missing and waiting-time limits",
++      "status": "PASS"
++    },
++    {
++      "name": "375px page/input overflow fixed; table scroll remains contained",
++      "status": "PASS",
++      "detail": {
++        "buttonRight": 158.8359375,
++        "inputs": [
++          351,
++          351
++        ],
++        "scrollWidth": 375,
++        "viewport": 375
++      }
++    },
++    {
++      "name": "Empty state distinguishes no classified business from zero actual business, ratios unavailable",
++      "status": "PASS"
++    },
++    {
++      "name": "503 error clears all complete metrics and shows retry",
++      "status": "PASS"
++    },
++    {
++      "name": "Retry recovers actual client from error to complete report",
++      "status": "PASS"
++    },
++    {
++      "name": "Disabled status hides actual AccountWorkspaceNav metrics link",
++      "status": "PASS"
++    },
++    {
++      "name": "Final React/CSS source narrow populated render remains bounded",
++      "status": "PASS",
++      "detail": {
++        "scrollWidth": 375,
++        "viewport": 375
++      }
++    },
++    {
++      "name": "Final React source error suppresses all complete metric tiles",
++      "status": "PASS"
++    },
++    {
++      "name": "Final retry clears error/data, disables Apply and shows loading before async recovery",
++      "status": "PASS"
++    },
++    {
++      "name": "Fresh visible DOM confirms recovery after delayed response",
++      "status": "PASS"
++    },
++    {
++      "name": "Final source empty state preserves missing/null semantics",
++      "status": "PASS"
++    },
++    {
++      "name": "Final populated rendering and frozen group table bounded at 375px",
++      "status": "PASS",
++      "detail": {
++        "scrollWidth": 375,
++        "viewport": 375
++      }
++    },
++    {
++      "name": "1280px desktop real component populated render remains bounded",
++      "status": "PASS",
++      "detail": {
++        "viewport": 1280,
++        "scrollWidth": 1280,
++        "inputs": [
++          560.578125,
++          1029.1640625
++        ]
++      }
++    }
++  ],
++  "sourceHashes": {
++    "app/account/value-metrics/ValueMetricsClient.tsx": "ddc12a5301e48a530e0fc4fc91f7a730ae0fb93ab0387b1b70c9017a0edf68e6",
++    "app/account/value-metrics/value-metrics.module.css": "ed307f89e00dd4ed97864caec1f75eaa154ff2268a21cb1ce9d5d09ed750c7a7",
++    "components/AccountWorkspaceNav.tsx": "6d510e750e099f71b6565d56f119dda7ae5e2fcd8e2d1807b54e6aafd4d0c1ca",
++    "scripts/value-metrics-ui.mjs": "ed12ebab0994182489ead13a85d55d5c0c345fd25779dfd80b46eb4a6b5fc865",
++    "fixtures/value-metrics/ui/sample-report.json": "9889e5bdc50d1766f6f366ff75b5d0a4531ed819d3dba35e8233fc55247a2df6"
++  },
++  "initialFailure": {
++    "name": "Narrow table intrinsic grid track overflow",
++    "measurements": {
++      "buttonRight": 158.8359375,
++      "inputs": [
++        318,
++        624
++      ],
++      "scrollWidth": 624,
++      "viewport": 375
++    },
++    "fixedBy": "Explicit minmax(0,1fr) root grid track and section min-width:0; actual375px recheck passed"
++  },
++  "observations": [
++    "5-second fixture response exceeded one locator backend deadline; subsequent fresh DOM verified recovery.",
++    "Actual React clients and CSS; navigation framework stubs and synthetic API responses, not production login acceptance.",
++    "Evidence audit corrected the formerly desktop-labelled final 375px capture; added a separate measured 1280px desktop check. Original check detail is preserved. Screenshot bytes are JPEG and now use .jpg extensions."
++  ],
++  "screenshots": [
++    "desktop-1280.jpg",
++    "populated-final-375.jpg",
++    "narrow.jpg",
++    "empty.jpg",
++    "error.jpg"
++  ]
++}
+diff --git a/fixtures/value-metrics/ui/sample-report.json b/fixtures/value-metrics/ui/sample-report.json
+new file mode 100644
+index 0000000..dd43e19
+--- /dev/null
++++ b/fixtures/value-metrics/ui/sample-report.json
+@@ -0,0 +1 @@
++{"version":"value-metrics-001","complete":true,"generatedAt":"2026-10-12T09:17:34.254Z","sourceAsOf":"2026-10-12T09:17:34.980Z","window":{"start":"2026-10-01T00:00:00.000Z","end":"2026-10-02T00:00:00.000Z"},"valueEvidence":false,"qualityEvidence":false,"scope":{"cohort":6,"unwindowable":0,"business":4,"test":1,"unknown":1,"unclassified":1,"invalidClassification":0,"classificationCoverage":{"numerator":5,"denominator":6,"value":0.8333333333333334}},"usage":{"total":4,"completed":2,"failed":1,"pending":1,"completedTimeInvalid":0,"unknownStatus":0},"machine":{"pass":1,"review":1,"fail":0,"unknown":0,"reviewRate":{"numerator":1,"denominator":2,"value":0.5}},"sku":{"linked":2,"missing":0,"coverage":{"numerator":2,"denominator":2,"value":1},"workflowMissing":0,"invocations":2,"reuses":1,"groups":[{"productId":"420fd818-3dcd-4e5b-8b2e-4f590a97d37d","referenceVersionId":"87897ddd-6dcd-44a6-ab5b-38ca18cf8dda","skuLabels":["SKU-FROZEN"],"analyses":2,"invocations":2,"reuses":1}]},"reviews":{"covered":1,"none":1,"invalid":0,"approve":0,"reject":0,"revoke":1,"coverage":{"numerator":1,"denominator":2,"value":0.5},"wait":{"count":1,"meanMs":976654841,"missing":1,"noDecision":1,"invalidOrNegative":0}},"detectionCost":{"known":2,"missing":2,"sumUsd":1,"coverage":{"numerator":2,"denominator":4,"value":0.5}},"workflow":{"single":4,"batch":0,"unknown":0},"generationModel":{"unknown":4},"limitations":["Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.","Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.","SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.","First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.","Detection estimates are not invoices, profit or revenue. Generation model source is unknown.","Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."]}
+\ No newline at end of file
+diff --git a/fixtures/value-metrics/validation/README.md b/fixtures/value-metrics/validation/README.md
+new file mode 100644
+index 0000000..8f90432
+--- /dev/null
++++ b/fixtures/value-metrics/validation/README.md
+@@ -0,0 +1,20 @@
++# UPG-10 开发验证记录
++
++状态：DEV_READY_PENDING_INDEPENDENT_QA。这是开发自测，不是独立验收、发布或真实价值验证。基线为 `eb7c279ca1015d4f25a9009c5ef1c72d15e9e424`；候选绑定此目录所在 Git 提交及开发回传的完整 SHA。
++
++实现包含默认关闭的 workspace owner 只读指标页/API、追加式 analysis 来源分类迁移、只读离线分类材料校验/原子导入方案准备。所有测试及 unknown 从业务数量、比率分母、分组、复用、成本和等待时间排除；没有制造真实 business 标签。精确口径见 [架构契约](../../../docs/01-architecture/value-metrics-contract.md)。
++
++| 验证 | 结果与原始证据 |
++| --- | --- |
++| 实际隔离 D1 | 26 项 PASS，434 次本地请求；[结果](../d1-results.json)、[输出](d1-final-raw.txt) |
++| 实际 React 组件 | 13 项 PASS；[结果及原始失败测量](../ui/results.json)、[1280px](../ui/desktop-1280.jpg)、[375px](../ui/narrow.jpg)、[空态](../ui/empty.jpg)、[错误](../ui/error.jpg) |
++| TypeScript | exit 0；[输出](typecheck-final-raw.txt)（成功无输出） |
++| workspace-analysis 最小回归 | exit 0；[输出](workspace-regression-raw.txt) |
++| 最终 lint | exit 0；[输出](lint-final-raw.txt)（成功无输出） |
++| 一次本地 Next build | exit 0；[输出](build-raw.txt) |
++
++构建先于最后的 source batch snapshot 完全一致检查补强（查询/计算）；最终变更通过实际 D1、typecheck 和 lint，未再次构建。因此这次 build 仅证明本地路由/页面构建成功，不是固定候选发布构建。浏览器采用实际组件和 CSS，但通用页面外壳、框架导航和 API 响应为本地夹具；实际 SSR/session/API 另在隔离 D1 中测试。全部数据为合成，未运行生产登录、生产迁移、外部模型、付款或真实客户资产操作。
++
++首次 D1 fixture schema 失败、CLI 模块格式失败、类型检查失败、lint 失败和 375px 溢出已修复；原始材料均保留。[结构化清单](developer-validation.json) 列出命令、原件索引、当前源文件 SHA-256、证据 SHA-256 和局限。截图内容原为 JPEG，整理时修正扩展名；一张误标桌面的 375px 截图保留为 populated-final-375.jpg，随后另做 1280px 测量并保存截图。
++
++下一步：总控自动交给现有独立 QA，验收固定 candidate SHA；依赖开发提交完成。独立 PASS 最多到 RELEASE_READY。生产迁移、部署、功能启用与真实登录需要新的用户授权并遵守 GitHub-first；真实价值仍依赖受控真实业务来源分类与实际使用证据。
+diff --git a/fixtures/value-metrics/validation/build-raw.txt b/fixtures/value-metrics/validation/build-raw.txt
+new file mode 100644
+index 0000000..2eb1022
+Binary files /dev/null and b/fixtures/value-metrics/validation/build-raw.txt differ
+diff --git a/fixtures/value-metrics/validation/d1-attempt-1-raw.txt b/fixtures/value-metrics/validation/d1-attempt-1-raw.txt
+new file mode 100644
+index 0000000..ebae7ff
+Binary files /dev/null and b/fixtures/value-metrics/validation/d1-attempt-1-raw.txt differ
+diff --git a/fixtures/value-metrics/validation/d1-attempt-2-raw.txt b/fixtures/value-metrics/validation/d1-attempt-2-raw.txt
+new file mode 100644
+index 0000000..f4e3f8a
+Binary files /dev/null and b/fixtures/value-metrics/validation/d1-attempt-2-raw.txt differ
+diff --git a/fixtures/value-metrics/validation/d1-final-raw.txt b/fixtures/value-metrics/validation/d1-final-raw.txt
+new file mode 100644
+index 0000000..83604e3
+Binary files /dev/null and b/fixtures/value-metrics/validation/d1-final-raw.txt differ
+diff --git a/fixtures/value-metrics/validation/developer-validation.json b/fixtures/value-metrics/validation/developer-validation.json
+new file mode 100644
+index 0000000..2a79f02
+--- /dev/null
++++ b/fixtures/value-metrics/validation/developer-validation.json
+@@ -0,0 +1,147 @@
++{
++  "unitId": "UPG-10",
++  "role": "developer",
++  "developerThreadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
++  "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
++  "candidateBinding": "The enclosing Git commit and final developer handoff provide candidateSha; no self-referential SHA is embedded in this committed manifest.",
++  "stage": "DEV_READY_PENDING_INDEPENDENT_QA",
++  "createdAt": "2026-10-12T11:24:12.966Z",
++  "model": {
++    "name": "gpt-6.1-sol",
++    "reasoningEffort": "high",
++    "rationale": "Cross-table metric semantics, controlled provenance and tenant isolation require joint reasoning.",
++    "escalationCondition": "Repeated substantive reasoning failures after narrowing scope and clarifying contract; environment errors do not justify escalation."
++  },
++  "synthetic": true,
++  "valueEvidence": false,
++  "qualityEvidence": false,
++  "defaultFeatureEnabled": false,
++  "production": {
++    "migrationApplied": false,
++    "deployed": false,
++    "enabled": false,
++    "loginAccepted": false,
++    "realBusinessLabelsCreated": false,
++    "pushed": false
++  },
++  "checks": [
++    {
++      "command": "pnpm test:value-metrics",
++      "exitCode": 0,
++      "checks": 26,
++      "localD1Requests": 434,
++      "evidence": "../d1-results.json",
++      "stdout": "d1-final-raw.txt",
++      "scope": "Actual isolated Miniflare/workerd D1, production migrations, real repository/reducer/routes/SSR with controlled env/session fixtures; no external models."
++    },
++    {
++      "command": "Browser real-component local fixture checks",
++      "checks": 13,
++      "evidence": "../ui/results.json",
++      "scope": "Actual React client/CSS/navigation components, framework stubs and synthetic local responses; measured 375px and 1280px. Not full production login."
++    },
++    {
++      "command": "pnpm exec tsc --noEmit",
++      "exitCode": 0,
++      "stdout": "typecheck-final-raw.txt"
++    },
++    {
++      "command": "pnpm test:m1:workspace-analysis",
++      "exitCode": 0,
++      "stdout": "workspace-regression-raw.txt"
++    },
++    {
++      "command": "pnpm exec eslint lib/value-metrics app/account/value-metrics app/api/value-metrics components/AccountWorkspaceNav.tsx scripts/verify-value-metrics.ts scripts/value-metrics-classification.mjs scripts/value-metrics-ui.mjs",
++      "exitCode": 0,
++      "stdout": "lint-final-raw.txt"
++    },
++    {
++      "command": "pnpm run build",
++      "exitCode": 0,
++      "stdout": "build-raw.txt",
++      "scope": "One local Next build; preceded final source-batch snapshot consistency strengthening in repository.ts and calculate.ts. Final changes were D1/typecheck/lint tested. This is not an exact-candidate release build or deployment artifact."
++    }
++  ],
++  "preservedAttempts": [
++    {
++      "evidence": "../d1-attempt-1-results.json",
++      "stdout": "d1-attempt-1-raw.txt",
++      "resolution": "Fixture membership role corrected to match legacy owner-only schema; missing membership remains a rejection test."
++    },
++    {
++      "evidence": "../d1-attempt-2-results.json",
++      "stdout": "d1-attempt-2-raw.txt",
++      "resolution": "Readonly classification CLI changed from CommonJS-classified .ts entry to .mjs; actual entry and symlink tests passed."
++    },
++    {
++      "stdout": "typecheck-attempt-1-raw.txt",
++      "resolution": "Strict null and unknown narrowing corrected; final typecheck passed."
++    },
++    {
++      "stdout": "../lint-attempt-1-raw.txt",
++      "resolution": "Loading/reset updates moved to user refresh handlers; effect only fetches; final lint passed."
++    },
++    {
++      "evidence": "../ui/results.json",
++      "resolution": "Original 624px intrinsic grid overflow at 375px corrected and remeasured; metadata audit corrected one narrow capture label and added real 1280px check."
++    }
++  ],
++  "sourceHashes": {
++    "app/account/value-metrics/ValueMetricsClient.tsx": "ddc12a5301e48a530e0fc4fc91f7a730ae0fb93ab0387b1b70c9017a0edf68e6",
++    "app/account/value-metrics/error.tsx": "7fe7c941e83d37ce809831480ecaa825f79a166a4ab93ebdd8d9fdc8c9aa9e98",
++    "app/account/value-metrics/page.tsx": "9925b3443047503bcb6f96d33e0d7b9f1656f11138d2ed36304053efd6026400",
++    "app/account/value-metrics/value-metrics.module.css": "ed307f89e00dd4ed97864caec1f75eaa154ff2268a21cb1ce9d5d09ed750c7a7",
++    "app/api/value-metrics/route.ts": "8fe3318d5ec41f420c3a9e7e418ee8211ebcee95148270eee1ee73da3387dcbc",
++    "app/api/value-metrics/status/route.ts": "ad146627086279b873066686fec0c21aff6c480a56aae79faebb7d85645b7693",
++    "components/AccountWorkspaceNav.tsx": "6d510e750e099f71b6565d56f119dda7ae5e2fcd8e2d1807b54e6aafd4d0c1ca",
++    "docs/01-architecture/value-metrics-contract.md": "3c0fbe491e4454e3ca1211e47473475a1fc0f6d3297025535533157939d469b8",
++    "fixtures/value-metrics/classification-template.json": "f2e60976c55e3e69a228fa4692daa2e6197f1ff9ace1bf2f0d02b7d35b45d7d8",
++    "fixtures/value-metrics/inventory-template.json": "87a60327ac010f8660ded5ea924229ba8f28a421420a5db810eafd6416cc48b7",
++    "fixtures/value-metrics/sql-worker.mjs": "106b61890adf4a43e709920164a655a6b658eb2dae93a4c3211ff2866c972d87",
++    "lib/cloudflare/bindings.ts": "6f877e5c8c3d3fc7a604195168efc68a3bf197a11e641c5a91476638d47a661b",
++    "lib/value-metrics/calculate.ts": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94",
++    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
++    "lib/value-metrics/http.ts": "82fae2e4b40b5b66cd59324eb3086b0e6394c26f1cab28c7455aecc679321cdb",
++    "lib/value-metrics/repository.ts": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876",
++    "lib/value-metrics/types.ts": "d34d97403c682ddf2ff2b0e809de3e5d135d4266d6495be0a7204b8b5c1e610f",
++    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
++    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
++    "package.json": "294426b6b36d7839b649043d9293aebd2021b024f73cb36ceee800c93aee1e1b",
++    "scripts/value-metrics-classification.mjs": "ad367adc94668950021d287e72153481754f3b94ba0faa4aa92d955113edbc56",
++    "scripts/value-metrics-ui.mjs": "ed12ebab0994182489ead13a85d55d5c0c345fd25779dfd80b46eb4a6b5fc865",
++    "scripts/verify-value-metrics.ts": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7",
++    "wrangler.jsonc": "4d23732c0b8b2af648abe7d20d096f750599d307270b7d3f3bccb5cc0b84768f",
++    "fixtures/value-metrics/.gitattributes": "b40fa60438986becc83c13d89eaf3405e06f80e4146a581ebe871c53fa3e401d"
++  },
++  "evidenceHashes": {
++    "fixtures/value-metrics/d1-results.json": "38a5b7589a1262547bb6f10f0a2ea5291859071842c1900bcbd026e3ed759a75",
++    "fixtures/value-metrics/ui/desktop-1280.jpg": "1437ccffd7096fc48372cbd4fc506eff6922e6c0fea0fd49961eb8e986bb24dc",
++    "fixtures/value-metrics/ui/empty.jpg": "88ae30b773af57dd9512dfb30d6a310258b8f9fc46e186827ace185fa37c2779",
++    "fixtures/value-metrics/ui/error.jpg": "abba1391734a667806469358b2a35e663dabe16bf4a8d2ab9e5a268ecb1ce32c",
++    "fixtures/value-metrics/ui/narrow.jpg": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f",
++    "fixtures/value-metrics/ui/populated-final-375.jpg": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f",
++    "fixtures/value-metrics/ui/results.json": "98dcd5b17078b13e5d0fae8e372b4339cc4514a8ee108959d934ab67c140b4b7",
++    "fixtures/value-metrics/ui/sample-report.json": "9889e5bdc50d1766f6f366ff75b5d0a4531ed819d3dba35e8233fc55247a2df6",
++    "fixtures/value-metrics/validation/build-raw.txt": "09152746f3de60d086a64f44204893eebd4b7ddacb2e5e57696ad8695b8063f4",
++    "fixtures/value-metrics/validation/d1-attempt-1-raw.txt": "cec14133e44ee0b3b9ce6f78043c253a23002f8527efba0e8dbc79169eb547ab",
++    "fixtures/value-metrics/validation/d1-attempt-2-raw.txt": "039364a43e1d780e54186b6a880e835aefbf1f39d38474a8cf3383b381f3e1e6",
++    "fixtures/value-metrics/validation/d1-final-raw.txt": "60f1e33907dba75a36ecc50943b30c4319c4a4d413dea36fa938ac034cd64091",
++    "fixtures/value-metrics/validation/lint-final-raw.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
++    "fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt": "4f44d4ea7e1b14418033eaf0c196ff7238561859308bafc98192fa077c6fc826",
++    "fixtures/value-metrics/validation/typecheck-final-raw.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
++    "fixtures/value-metrics/validation/workspace-regression-raw.txt": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb"
++  },
++  "limitations": [
++    "Developer PASS does not establish independent acceptance or production verification.",
++    "All business/test classifications here are synthetic test fixtures; no real customer source evidence was assessed.",
++    "Classification CLI only prepares a reviewable atomic D1 batch plan; it does not authenticate verifiers or execute production writes.",
++    "Current sourceAsOf snapshot reports creation-time cohort; no historical status reconstruction, actual effort/ROI, invoices or quality claims.",
++    "Generation image-model provenance remains unknown."
++  ],
++  "nextAction": {
++    "action": "Independent QA reviews the exact candidate SHA and creates its own negative fixtures.",
++    "dependency": "Developer local commit; controller dispatches existing independent reviewer.",
++    "proceedsAutomatically": true,
++    "releaseBoundary": "Independent PASS may yield RELEASE_READY only. Production release/enablement/login acceptance require new user authorization and mandatory GitHub-first sequence; real value additionally requires controlled actual business provenance."
++  }
++}
+diff --git a/fixtures/value-metrics/validation/lint-final-raw.txt b/fixtures/value-metrics/validation/lint-final-raw.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt b/fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt
+new file mode 100644
+index 0000000..50a1e8d
+Binary files /dev/null and b/fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt differ
+diff --git a/fixtures/value-metrics/validation/typecheck-final-raw.txt b/fixtures/value-metrics/validation/typecheck-final-raw.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/value-metrics/validation/workspace-regression-raw.txt b/fixtures/value-metrics/validation/workspace-regression-raw.txt
+new file mode 100644
+index 0000000..f67d59b
+Binary files /dev/null and b/fixtures/value-metrics/validation/workspace-regression-raw.txt differ
+diff --git a/lib/cloudflare/bindings.ts b/lib/cloudflare/bindings.ts
+index c9853fa..0a23bd7 100644
+--- a/lib/cloudflare/bindings.ts
++++ b/lib/cloudflare/bindings.ts
+@@ -67,6 +67,7 @@ export interface QueueMessageBatch<T = unknown> {
+ export interface VisualQACloudflareEnv {
+   PRODUCT_PROFILES_ENABLED?: string;
+   RELEASE_WORKBENCH_ENABLED?: string;
++  VALUE_METRICS_ENABLED?: string;
+   VISUALQA_ASSETS: R2Bucket;
+   VISUALQA_DB: D1Database;
+   BATCH_ANALYSIS_QUEUE: Queue;
+diff --git a/lib/value-metrics/calculate.ts b/lib/value-metrics/calculate.ts
+new file mode 100644
+index 0000000..aff710c
+--- /dev/null
++++ b/lib/value-metrics/calculate.ts
+@@ -0,0 +1,66 @@
++import {normalizeProductProfile,profileHash} from "@/lib/products/profile-validation";
++import type {ProductSnapshot} from "@/lib/products/types";
++import {strictUtc,safeId,VALUE_METRICS_VERSION} from "./validation";
++import {ValueMetricsError,type ValueWindow,type ValueReport} from "./types";
++export type ValueRow=Record<string,unknown>;
++const canonical=(v:unknown):string=>JSON.stringify(sort(v));
++function sort(v:unknown):unknown {if(Array.isArray(v))return v.map(sort);if(v&&typeof v==="object")return Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,sort(v)]));return v;}
++const ratio=(numerator:number,denominator:number)=>({numerator,denominator,value:denominator?numerator/denominator:null});
++function classification(row:ValueRow,asOf:string) {
++  if(!row.classificationId)return {kind:"unknown",reason:"unclassified"};
++  const valid=Number.isSafeInteger(row.classificationRevision)&&Number(row.classificationRevision)>0&&/^evidence:[a-f0-9]{64}$/.test(String(row.evidenceRef))&&safeId(row.verifiedBy)&&/^[a-f0-9]{64}$/.test(String(row.materialHash))&&strictUtc(row.verifiedAt)&&strictUtc(row.classificationCreatedAt)&&Date.parse(row.verifiedAt)<=Date.parse(asOf)&&Date.parse(row.classificationCreatedAt)<=Date.parse(asOf)&&Number(row.foreignClassifications)===0;
++  return valid&&["business","test","unknown"].includes(String(row.classification))?{kind:String(row.classification),reason:null}:{kind:"unknown",reason:"invalid"};
++}
++async function frozen(row:ValueRow):Promise<ProductSnapshot|null> {
++  if(!row.snapshotJson||row.snapshotBindingsValid!==1||row.sourceBatchId&&row.batchSnapshotValid!==1)return null;
++  try {const p=JSON.parse(String(row.snapshotJson)) as ProductSnapshot;
++    if(p.schemaVersion!==1||p.productId!==row.productId||p.profileVersionId!==row.profileVersionId||p.referenceVersionId!==row.referenceVersionId||p.revision!==row.productRevision||p.boundAt!==row.boundAt||p.referenceAssetId!==row.referenceAssetId||![p.revision,p.profileVersionNumber,p.referenceVersionNumber].every(n=>Number.isSafeInteger(n)&&n>0)||!["front","back","left_side","right_side","detail","other"].includes(p.referenceRole)||canonical(normalizeProductProfile(p.profile))!==canonical(p.profile)||await profileHash(String(row.snapshotJson))!==row.snapshotHash)return null;
++    return p;
++  }catch{return null;}
++}
++function workflow(row:ValueRow) {if(Number(row.foreignBatches)>0)return null;if(row.batchCount===0&&!row.sourceBatchId)return `single:${row.id}`;if(row.batchCount===1&&row.batchId===row.sourceBatchId&&row.batchSnapshotValid===1)return `batch:${row.batchId}`;return null;}
++async function audit(row:ValueRow,asOf:string) {
++  const events=JSON.parse(String(row.events)) as Array<Record<string,unknown>>;
++  if(!events.length)return {kind:row.headRevision?"invalid":"none",action:null,first:null};
++  let previous:Record<string,unknown>|null=null;
++  for(let i=0;i<events.length;i++) {
++    const e=events[i];let snapshot:Record<string,unknown>;
++    try{snapshot=JSON.parse(String(e.snapshot));}catch{return {kind:"invalid",action:null,first:null};}
++    if(e.revision!==i+1||e.previousId!==(previous?.id??null)||!["approve","reject","revoke"].includes(String(e.action))||e.action==="revoke"&&!previous||e.action==="revoke"&&previous?.action==="revoke"||await profileHash(String(e.snapshot))!==e.hash||snapshot.analysisId!==row.id||snapshot.verdict!==row.verdict||snapshot.qaEngineVersion!==row.qaEngineVersion||snapshot.riskPolicyVersion!==row.riskPolicyVersion||snapshot.modelPolicyVersion!==row.modelPolicyVersion||snapshot.completedAt!==row.completedAt||![snapshot.observations,snapshot.productIssues,snapshot.limitations,snapshot.modelCalls].every(Array.isArray)||!strictUtc(e.createdAt)||Date.parse(e.createdAt)>Date.parse(asOf))return {kind:"invalid",action:null,first:null};
++    previous=e;
++  }
++  if(row.headRevision!==previous?.revision||row.headEventId!==previous?.id||Number(row.foreignReviews)>0)return {kind:"invalid",action:null,first:null};
++  return {kind:"covered",action:String(previous?.action),first:events.find(e=>e.action==="approve"||e.action==="reject")??null};
++}
++export async function calculateValueMetrics(rows:ValueRow[],window:ValueWindow,asOf:string,unwindowable:number):Promise<ValueReport> {
++  const report:ValueReport={version:VALUE_METRICS_VERSION,complete:true,generatedAt:window.generatedAt,sourceAsOf:asOf,window:{start:window.start,end:window.end},valueEvidence:false,qualityEvidence:false,scope:{cohort:rows.length,unwindowable,business:0,test:0,unknown:0,unclassified:0,invalidClassification:0,classificationCoverage:ratio(0,rows.length)},usage:{total:0,completed:0,failed:0,pending:0,completedTimeInvalid:0,unknownStatus:0},machine:{pass:0,review:0,fail:0,unknown:0,reviewRate:ratio(0,0)},sku:{linked:0,missing:0,coverage:ratio(0,0),workflowMissing:0,invocations:0,reuses:0,groups:[]},reviews:{covered:0,none:0,invalid:0,approve:0,reject:0,revoke:0,coverage:ratio(0,0),wait:{count:0,meanMs:null,missing:0,noDecision:0,invalidOrNegative:0}},detectionCost:{known:0,missing:0,sumUsd:null,coverage:ratio(0,0)},workflow:{single:0,batch:0,unknown:0},generationModel:{unknown:0},limitations:["Controlled business classifications only; test and unknown excluded from every business metric. Zero included business does not prove zero actual business.","Creation-time cohort; completion and reviews are current at sourceAsOf, including events after the window end. No historical status reconstruction.","SKU reuse is subsequent distinct workflow invocations inside this window; batch items are not separate reuse. No ranking.","First-decision waiting time is not actual human effort; time saved and ROI are not evaluated.","Detection estimates are not invoices, profit or revenue. Generation model source is unknown.","Source classification does not establish verified business value or visual quality. Low sample counts do not prove improvement."]};
++  let classified=0,costSum=0,waitSum=0;
++  const groups=new Map<string,{productId:string;referenceVersionId:string;labels:Set<string|null>;analyses:number;uses:Set<string>}>();
++  for(const row of rows) {
++    const c=classification(row,asOf);report.scope[c.kind as "business"|"test"|"unknown"]++;
++    if(c.reason==="unclassified")report.scope.unclassified++;else if(c.reason==="invalid")report.scope.invalidClassification++;else classified++;
++    if(c.kind!=="business")continue;
++    report.usage.total++;report.generationModel.unknown++;
++    const invocation=workflow(row);report.workflow[invocation?.startsWith("single:")?"single":invocation?.startsWith("batch:")?"batch":"unknown"]++;
++    if(typeof row.cost==="number"&&Number.isFinite(row.cost)&&row.cost>=0){report.detectionCost.known++;costSum+=row.cost;}else report.detectionCost.missing++;
++    if(row.status==="failed"){report.usage.failed++;continue;}if(row.status==="queued"||row.status==="running"){report.usage.pending++;continue;}
++    if(row.status!=="completed"){report.usage.unknownStatus++;continue;}
++    if(!strictUtc(row.completedAt)||Date.parse(row.completedAt)<Number(row.createdMs)||Date.parse(row.completedAt)>Date.parse(asOf)){report.usage.completedTimeInvalid++;continue;}
++    report.usage.completed++;
++    report.machine[["pass","review","fail"].includes(String(row.verdict))?row.verdict as "pass"|"review"|"fail":"unknown"]++;
++    const snapshot=await frozen(row);
++    if(snapshot){report.sku.linked++;const key=JSON.stringify([snapshot.productId,snapshot.referenceVersionId]);let group=groups.get(key);if(!group){group={productId:snapshot.productId,referenceVersionId:snapshot.referenceVersionId,labels:new Set(),analyses:0,uses:new Set()};groups.set(key,group);}group.analyses++;group.labels.add(snapshot.profile.skuLabel);if(invocation)group.uses.add(invocation);else report.sku.workflowMissing++;}else report.sku.missing++;
++    const review=await audit(row,asOf);report.reviews[review.kind as "covered"|"none"|"invalid"]++;
++    if(review.kind==="covered"&&review.action)report.reviews[review.action as "approve"|"reject"|"revoke"]++;
++    if(review.kind!=="covered"||!review.first){report.reviews.wait.missing++;report.reviews.wait.noDecision++;}
++    else {const wait=Date.parse(String(review.first.createdAt))-Date.parse(row.completedAt);if(!Number.isFinite(wait)||wait<0){report.reviews.wait.missing++;report.reviews.wait.invalidOrNegative++;}else{report.reviews.wait.count++;waitSum+=wait;}}
++  }
++  if(!Number.isFinite(costSum)||!Number.isFinite(waitSum))throw new ValueMetricsError("metrics_numeric_overflow","Metrics exceed the numeric budget.",422);
++  report.scope.classificationCoverage=ratio(classified,rows.length);report.machine.reviewRate=ratio(report.machine.review,report.machine.pass+report.machine.review+report.machine.fail);
++  report.sku.coverage=ratio(report.sku.linked,report.usage.completed);report.reviews.coverage=ratio(report.reviews.covered,report.usage.completed);
++  report.reviews.wait.meanMs=report.reviews.wait.count?waitSum/report.reviews.wait.count:null;
++  report.detectionCost.sumUsd=report.detectionCost.known?costSum:null;report.detectionCost.coverage=ratio(report.detectionCost.known,report.usage.total);
++  report.sku.groups=[...groups].sort(([a],[b])=>a.localeCompare(b)).map(([,g])=>({productId:g.productId,referenceVersionId:g.referenceVersionId,skuLabels:[...g.labels].sort((a,b)=>(a??"").localeCompare(b??"")),analyses:g.analyses,invocations:g.uses.size,reuses:Math.max(0,g.uses.size-1)}));
++  report.sku.invocations=report.sku.groups.reduce((n,g)=>n+g.invocations,0);report.sku.reuses=report.sku.groups.reduce((n,g)=>n+g.reuses,0);
++  return report;
++}
+diff --git a/lib/value-metrics/classification.ts b/lib/value-metrics/classification.ts
+new file mode 100644
+index 0000000..2663246
+--- /dev/null
++++ b/lib/value-metrics/classification.ts
+@@ -0,0 +1,25 @@
++import {profileHash} from "@/lib/products/profile-validation";
++import {safeId,strictUtc} from "./validation";
++import {ValueMetricsError} from "./types";
++const fail=(code="invalid_classification_material"):never=>{throw new ValueMetricsError(code,"Classification material is incomplete, conflicting or outside the frozen ownership inventory.");};
++function object(value:unknown,keys:string[]):Record<string,unknown>{if(!value||typeof value!=="object"||Array.isArray(value)||Object.keys(value).length!==keys.length||keys.some(k=>!Object.hasOwn(value,k)))fail();return value as Record<string,unknown>;}
++export function parseClassificationJson(bytes:string):unknown {
++  let result:unknown;try{result=JSON.parse(bytes);}catch{fail();}
++  let at=0;const space=()=>{while(at<bytes.length&&/\s/.test(bytes[at]))at++;};
++  function string(){const start=at++;while(bytes[at]!=='"'){if(bytes[at]==='\\')at++;at++;}at++;return JSON.parse(bytes.slice(start,at)) as string;}
++  function value(){space();if(bytes[at]==='{'){at++;space();const keys=new Set<string>();while(bytes[at]!=='}'){const k=string();if(keys.has(k))fail();keys.add(k);space();at++;value();space();if(bytes[at]===','){at++;space();}else break;}at++;}else if(bytes[at]==='['){at++;space();while(bytes[at]!==']'){value();space();if(bytes[at]===','){at++;space();}else break;}at++;}else if(bytes[at]==='"')string();else while(at<bytes.length&&!/[\s,\]}]/.test(bytes[at]))at++;}
++  value();return result;
++}
++export async function prepareClassification(input:unknown,inventoryInput:unknown,inputHash:string,inventoryHash:string,now=new Date().toISOString()) {
++  const m=object(input,["schemaVersion","workspaceId","inventorySha256","records"]),inventory=object(inventoryInput,["schemaVersion","workspaceId","asOf","analyses"]);
++  if(m.schemaVersion!==1||inventory.schemaVersion!==1||!safeId(m.workspaceId)||m.workspaceId!==inventory.workspaceId||m.inventorySha256!==inventoryHash||!/^[a-f0-9]{64}$/.test(inputHash)||!strictUtc(inventory.asOf)||Date.parse(inventory.asOf)>Date.parse(now)||!Array.isArray(inventory.analyses)||inventory.analyses.length>10000||!Array.isArray(m.records)||!m.records.length||m.records.length>500)fail();
++  const owned=new Map<string,number>();
++  for(const source of inventory.analyses as unknown[]){const a=object(source,["analysisId","workspaceId","classificationRevision"]);if(!safeId(a.analysisId)||a.workspaceId!==m.workspaceId||owned.has(a.analysisId)||!Number.isSafeInteger(a.classificationRevision)||Number(a.classificationRevision)<0)fail();owned.set(a.analysisId as string,Number(a.classificationRevision));}
++  const used=new Set<string>(),statements:Array<{sql:string;params:unknown[]}>=[];
++  for(const record of m.records as unknown[]){const r=object(record,["analysisId","classification","evidenceRef","verifiedBy","verifiedAt","expectedRevision"]);
++    if(!safeId(r.analysisId)||!owned.has(r.analysisId)||used.has(r.analysisId)||!["business","test","unknown"].includes(String(r.classification))||typeof r.evidenceRef!=="string"||!/^evidence:[a-f0-9]{64}$/.test(r.evidenceRef)||!safeId(r.verifiedBy)||!strictUtc(r.verifiedAt)||Date.parse(r.verifiedAt)>Date.parse(inventory.asOf as string)||!Number.isSafeInteger(r.expectedRevision)||Number(r.expectedRevision)<0||Number(r.expectedRevision)>=Number.MAX_SAFE_INTEGER||r.expectedRevision!==owned.get(r.analysisId))fail();used.add(r.analysisId as string);
++    const id="vc_"+await profileHash(JSON.stringify([inputHash,r.analysisId]));
++    statements.push({sql:"INSERT INTO analysis_value_classifications(id,analysis_id,workspace_id,revision,classification,evidence_ref,verified_by,verified_at,material_sha256) VALUES(?,?,?,?,?,?,?,?,?)",params:[id,r.analysisId,m.workspaceId,Number(r.expectedRevision)+1,r.classification,r.evidenceRef,r.verifiedBy,r.verifiedAt,inputHash]});
++  }
++  return {status:"VALID_PREPARATION",preparationOnly:true,valueEvidence:false,qualityEvidence:false,workspaceId:m.workspaceId,inputSha256:inputHash,inventorySha256:inventoryHash,recordCount:statements.length,executionRequirement:"Only a separately authorized operator may execute all statements atomically with D1Database.batch after reviewing original evidence. This tool never imports.",statements};
++}
+diff --git a/lib/value-metrics/http.ts b/lib/value-metrics/http.ts
+new file mode 100644
+index 0000000..54454c1
+--- /dev/null
++++ b/lib/value-metrics/http.ts
+@@ -0,0 +1,17 @@
++import {NextResponse} from "next/server";
++import {resolveRequestAccess,RequestAccessError} from "@/lib/auth/request-access";
++import {getVisualQAEnv} from "@/lib/cloudflare/bindings";
++import {ValueMetricsError} from "./types";
++import {valueMetricsEnabled} from "./validation";
++import {requireValueOwner} from "./repository";
++export const metricsHeaders={"Cache-Control":"private, no-store","Vary":"Cookie"};
++export async function metricsAccess(request:Request) {
++  const env=getVisualQAEnv(),access=await resolveRequestAccess(env,request.headers,undefined);
++  if(!valueMetricsEnabled(env))throw new ValueMetricsError("value_metrics_disabled","Value metrics are currently unavailable.",404);
++  await requireValueOwner(env.VISUALQA_DB,access);return {env,access};
++}
++export function metricsFailure(error:unknown) {
++  if(error instanceof RequestAccessError)return NextResponse.json({error:"authentication_required",message:"Sign in to view metrics.",complete:false},{status:401,headers:metricsHeaders});
++  if(error instanceof ValueMetricsError)return NextResponse.json({error:error.code,message:error.message,complete:false},{status:error.status,headers:metricsHeaders});
++  return NextResponse.json({error:"value_metrics_unavailable",message:"Metrics could not be loaded. Try again.",complete:false},{status:503,headers:metricsHeaders});
++}
+diff --git a/lib/value-metrics/repository.ts b/lib/value-metrics/repository.ts
+new file mode 100644
+index 0000000..7e6471d
+--- /dev/null
++++ b/lib/value-metrics/repository.ts
+@@ -0,0 +1,61 @@
++import type {D1Database} from "@/lib/cloudflare/bindings";
++import type {RequestAccessContext} from "@/lib/auth/request-access";
++import {ValueMetricsError,type ValueWindow} from "./types";
++import {MAX_COHORT} from "./validation";
++import {calculateValueMetrics,type ValueRow} from "./calculate";
++export async function requireValueOwner(db:D1Database,access:RequestAccessContext) {
++  if(!access.authenticated||!access.userId||!access.workspaceId)throw new ValueMetricsError("authentication_required","Sign in to view metrics.",401);
++  const found=await db.prepare("SELECT w.id FROM workspaces w JOIN workspace_memberships m ON m.workspace_id=w.id WHERE w.id=? AND w.status='active' AND m.user_id=? AND m.role='owner'").bind(access.workspaceId,access.userId).first();
++  if(!found)throw new ValueMetricsError("workspace_not_found","Workspace not found.",404);
++  return {workspaceId:access.workspaceId,userId:access.userId};
++}
++const bytes=(field:string)=>`COALESCE(length(CAST(${field} AS BLOB)),0)`;
++const classificationValid=`c.classification IN ('business','test','unknown') AND c.revision>0 AND length(c.evidence_ref)=73 AND substr(c.evidence_ref,1,9)='evidence:' AND substr(c.evidence_ref,10) NOT GLOB '*[^a-f0-9]*' AND length(c.material_sha256)=64 AND c.material_sha256 NOT GLOB '*[^a-f0-9]*' AND length(c.verified_by) BETWEEN 1 AND 128 AND c.verified_by NOT GLOB '*[^a-zA-Z0-9_-]*' AND strftime('%Y-%m-%dT%H:%M:%fZ',c.verified_at) IS c.verified_at AND strftime('%Y-%m-%dT%H:%M:%fZ',c.created_at) IS c.created_at AND julianday(c.verified_at)<=julianday('now') AND julianday(c.created_at)<=julianday('now') AND NOT EXISTS(SELECT 1 FROM analysis_value_classifications vc WHERE vc.analysis_id=a.id AND vc.workspace_id IS NOT a.workspace_id)`;
++const business=`c.classification='business' AND ${classificationValid}`;
++const SQL=`WITH owner AS (
++ SELECT w.id FROM workspaces w JOIN workspace_memberships m ON m.workspace_id=w.id WHERE w.id=? AND w.status='active' AND m.user_id=? AND m.role='owner'
++),cohort AS (
++ SELECT a.* FROM analyses a WHERE a.workspace_id=(SELECT id FROM owner) AND julianday(a.created_at)>=julianday(?) AND julianday(a.created_at)<julianday(?) ORDER BY a.created_at,a.id LIMIT ${MAX_COHORT+1}
++),raw AS (
++ SELECT a.id,a.status,a.verdict,a.completed_at AS completedAt,ROUND((julianday(a.created_at)-2440587.5)*86400000) AS createdMs,a.estimated_cost_usd AS cost,
++ a.qa_engine_version AS qaEngineVersion,a.risk_policy_version AS riskPolicyVersion,a.model_policy_version AS modelPolicyVersion,a.reference_asset_id AS referenceAssetId,
++ c.id AS classificationId,c.classification,c.revision AS classificationRevision,c.evidence_ref AS evidenceRef,c.verified_by AS verifiedBy,c.verified_at AS verifiedAt,c.material_sha256 AS materialHash,c.created_at AS classificationCreatedAt,
++ (SELECT COUNT(*) FROM analysis_value_classifications vc WHERE vc.analysis_id=a.id AND vc.workspace_id IS NOT a.workspace_id) AS foreignClassifications,
++ (SELECT COUNT(*) FROM analysis_value_classifications vc WHERE vc.analysis_id=a.id) AS classificationCount,
++ (${business}) AS businessValid,
++ CASE WHEN ${business} THEN ${bytes('s.snapshot_json')}+COALESCE((SELECT SUM(${bytes('machine_snapshot_json')}) FROM review_events WHERE analysis_id=a.id AND workspace_id=a.workspace_id),0) ELSE 0 END AS sourceBytes,
++ CASE WHEN ${business} THEN max(${bytes('s.snapshot_json')}>32768,COALESCE((SELECT MAX(${bytes('machine_snapshot_json')})>262144 FROM review_events WHERE analysis_id=a.id AND workspace_id=a.workspace_id),0)) ELSE 0 END AS byteOverflow,
++ CASE WHEN ${business} AND ${bytes('s.snapshot_json')}<=32768 THEN s.snapshot_json ELSE NULL END AS rawSnapshot,s.snapshot_sha256 AS snapshotHash,s.product_id AS productId,s.product_revision AS productRevision,s.profile_version_id AS profileVersionId,s.reference_version_id AS referenceVersionId,s.bound_at AS boundAt,s.source_batch_id AS sourceBatchId,
++ CASE WHEN ${business} AND ${bytes('s.snapshot_json')}<=32768 AND EXISTS(SELECT 1 FROM product_profile_versions pv JOIN product_reference_versions rv ON rv.product_id=pv.product_id AND rv.workspace_id=pv.workspace_id JOIN products p ON p.id=pv.product_id AND p.workspace_id=pv.workspace_id
++ WHERE pv.workspace_id=a.workspace_id AND pv.product_id=s.product_id AND pv.id=s.profile_version_id AND rv.id=s.reference_version_id AND rv.asset_id=a.reference_asset_id AND pv.schema_version=1 AND pv.source='user_confirmed'
++ AND CASE WHEN json_valid(s.snapshot_json) THEN pv.version_number=json_extract(s.snapshot_json,'$.profileVersionNumber') AND rv.version_number=json_extract(s.snapshot_json,'$.referenceVersionNumber') AND rv.reference_role=json_extract(s.snapshot_json,'$.referenceRole') AND json(pv.profile_json)=json_extract(s.snapshot_json,'$.profile') ELSE 0 END) THEN 1 ELSE 0 END AS snapshotBindingsValid,
++ (SELECT COUNT(DISTINCT bi.batch_id) FROM batch_items bi JOIN batches b ON b.id=bi.batch_id AND b.workspace_id=bi.workspace_id WHERE bi.analysis_id=a.id AND bi.workspace_id=a.workspace_id) AS batchCount,
++ (SELECT MIN(bi.batch_id) FROM batch_items bi JOIN batches b ON b.id=bi.batch_id AND b.workspace_id=bi.workspace_id WHERE bi.analysis_id=a.id AND bi.workspace_id=a.workspace_id) AS batchId,
++ (SELECT snapshot_sha256 FROM batch_product_snapshots bs WHERE bs.batch_id=s.source_batch_id AND bs.workspace_id=a.workspace_id) AS batchSnapshotHash,
++ CASE WHEN EXISTS(SELECT 1 FROM batch_product_snapshots bs WHERE bs.batch_id=s.source_batch_id AND bs.workspace_id=a.workspace_id AND bs.product_id=s.product_id AND bs.product_revision=s.product_revision AND bs.profile_version_id=s.profile_version_id AND bs.reference_version_id=s.reference_version_id AND bs.bound_at=s.bound_at AND bs.snapshot_sha256=s.snapshot_sha256 AND bs.snapshot_json=s.snapshot_json) THEN 1 ELSE 0 END AS batchSnapshotValid,
++ (SELECT COUNT(*) FROM batch_items WHERE analysis_id=a.id AND workspace_id IS NOT a.workspace_id) AS foreignBatches,
++ (SELECT COUNT(*) FROM batch_items WHERE analysis_id=a.id) AS batchRawCount,
++ CASE WHEN ${business} THEN (SELECT COUNT(*) FROM review_events WHERE analysis_id=a.id AND workspace_id=a.workspace_id) ELSE 0 END AS eventCount,
++ (SELECT COUNT(*) FROM review_events WHERE analysis_id=a.id AND workspace_id IS NOT a.workspace_id) AS foreignReviews,
++ h.revision AS headRevision,h.latest_event_id AS headEventId
++ FROM cohort a LEFT JOIN analysis_value_classifications c ON c.analysis_id=a.id AND c.workspace_id=a.workspace_id AND c.revision=(SELECT MAX(vc.revision) FROM analysis_value_classifications vc WHERE vc.analysis_id=a.id AND vc.workspace_id=a.workspace_id)
++ LEFT JOIN analysis_product_snapshots s ON s.analysis_id=a.id AND s.workspace_id=a.workspace_id LEFT JOIN review_heads h ON h.analysis_id=a.id AND h.workspace_id=a.workspace_id
++),budget AS (SELECT COALESCE(SUM(sourceBytes),0) AS totalBytes,COALESCE(MAX(byteOverflow),0) AS byteOverflow,COALESCE(MAX(eventCount),0) AS eventCount,COALESCE(MAX(classificationCount),0) AS classificationCount,COALESCE(MAX(batchRawCount),0) AS batchRawCount FROM raw)
++SELECT raw.id,raw.status,raw.verdict,raw.completedAt,raw.createdMs,raw.cost,raw.qaEngineVersion,raw.riskPolicyVersion,raw.modelPolicyVersion,raw.referenceAssetId,
++ raw.classificationId,raw.classification,raw.classificationRevision,raw.evidenceRef,raw.verifiedBy,raw.verifiedAt,raw.materialHash,raw.classificationCreatedAt,raw.foreignClassifications,
++ CASE WHEN raw.businessValid AND budget.totalBytes<=16777216 AND budget.byteOverflow=0 THEN raw.rawSnapshot ELSE NULL END AS snapshotJson,
++ raw.snapshotHash,raw.productId,raw.productRevision,raw.profileVersionId,raw.referenceVersionId,raw.boundAt,raw.sourceBatchId,raw.snapshotBindingsValid,raw.batchCount,raw.batchId,raw.batchSnapshotHash,raw.batchSnapshotValid,raw.foreignBatches,raw.foreignReviews,raw.headRevision,raw.headEventId,
++ CASE WHEN raw.businessValid AND budget.totalBytes<=16777216 AND budget.byteOverflow=0 AND budget.eventCount<=100 THEN (SELECT json_group_array(json_object('id',e.id,'revision',e.revision,'previousId',e.previous_decision_id,'action',e.action,'createdAt',e.created_at,'snapshot',e.machine_snapshot_json,'hash',e.machine_sha256)) FROM (SELECT * FROM review_events WHERE analysis_id=raw.id AND workspace_id=(SELECT id FROM owner) ORDER BY revision LIMIT 101) e) ELSE '[]' END AS events,
++ budget.totalBytes,budget.byteOverflow,budget.eventCount,budget.classificationCount,budget.batchRawCount,
++ (SELECT COUNT(*) FROM owner) AS ownerCount,strftime('%Y-%m-%dT%H:%M:%fZ','now') AS sourceAsOf,
++ (SELECT COUNT(*) FROM analyses WHERE workspace_id=(SELECT id FROM owner) AND julianday(created_at) IS NULL) AS unwindowable
++ FROM budget LEFT JOIN raw ON 1=1`;
++export async function readValueMetrics(db:D1Database,access:RequestAccessContext,window:ValueWindow) {
++  const owner=await requireValueOwner(db,access);
++  const result=await db.prepare(SQL).bind(owner.workspaceId,owner.userId,window.start,window.end).all<ValueRow>();
++  if(!result.success||!result.results.length)throw new Error("Metrics read failed");
++  const first=result.results[0];if(first.ownerCount!==1)throw new ValueMetricsError("workspace_not_found","Workspace not found.",404);
++  const rows=result.results.filter(row=>row.id!==null);
++  if(rows.length>MAX_COHORT||Number(first.totalBytes)>16777216||first.byteOverflow===1||Number(first.eventCount)>100||Number(first.classificationCount)>100||Number(first.batchRawCount)>100)throw new ValueMetricsError("metrics_budget_exceeded","This window exceeds the metrics budget. Select a smaller window or request a controlled data review.",422);
++  return calculateValueMetrics(rows,window,String(first.sourceAsOf),Number(first.unwindowable));
++}
+diff --git a/lib/value-metrics/types.ts b/lib/value-metrics/types.ts
+new file mode 100644
+index 0000000..922b082
+--- /dev/null
++++ b/lib/value-metrics/types.ts
+@@ -0,0 +1,16 @@
++export class ValueMetricsError extends Error {
++  constructor(public code:string,message:string,public status=400){super(message);}
++}
++export interface ValueWindow {start:string;end:string;generatedAt:string;}
++export interface MetricRatio {numerator:number;denominator:number;value:number|null;}
++export interface ValueReport {
++  version:"value-metrics-001";complete:true;generatedAt:string;sourceAsOf:string;window:{start:string;end:string};valueEvidence:false;qualityEvidence:false;
++  scope:{cohort:number;unwindowable:number;business:number;test:number;unknown:number;unclassified:number;invalidClassification:number;classificationCoverage:MetricRatio};
++  usage:{total:number;completed:number;failed:number;pending:number;completedTimeInvalid:number;unknownStatus:number};
++  machine:{pass:number;review:number;fail:number;unknown:number;reviewRate:MetricRatio};
++  sku:{linked:number;missing:number;coverage:MetricRatio;workflowMissing:number;invocations:number;reuses:number;groups:Array<{productId:string;referenceVersionId:string;skuLabels:Array<string|null>;analyses:number;invocations:number;reuses:number}>};
++  reviews:{covered:number;none:number;invalid:number;approve:number;reject:number;revoke:number;coverage:MetricRatio;wait:{count:number;meanMs:number|null;missing:number;noDecision:number;invalidOrNegative:number}};
++  detectionCost:{known:number;missing:number;sumUsd:number|null;coverage:MetricRatio};
++  workflow:{single:number;batch:number;unknown:number};generationModel:{unknown:number};
++  limitations:string[];
++}
+diff --git a/lib/value-metrics/validation.ts b/lib/value-metrics/validation.ts
+new file mode 100644
+index 0000000..e99e841
+--- /dev/null
++++ b/lib/value-metrics/validation.ts
+@@ -0,0 +1,14 @@
++import {ValueMetricsError,type ValueWindow} from "./types";
++export const VALUE_METRICS_VERSION="value-metrics-001" as const;
++export const MAX_COHORT=5000;
++export const strictUtc=(v:unknown):v is string=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString()===v;
++export const safeId=(v:unknown):v is string=>typeof v==="string"&&/^[A-Za-z0-9_-]{1,128}$/.test(v);
++export const valueMetricsEnabled=(env:{VALUE_METRICS_ENABLED?:string})=>env.VALUE_METRICS_ENABLED==="true";
++export function parseValueWindow(params:URLSearchParams,now=new Date().toISOString()):ValueWindow {
++  const fail=()=>{throw new ValueMetricsError("invalid_window","Use one start and end in UTC, a positive window of at most 90 days, ending no later than now.");};
++  for(const k of params.keys())if(!["start","end"].includes(k)||params.getAll(k).length!==1)fail();
++  if(params.has("start")!==params.has("end"))fail();
++  const end=params.get("end")??now,start=params.get("start")??new Date(Date.parse(now)-30*86400000).toISOString();
++  if(!strictUtc(start)||!strictUtc(end)||Date.parse(start)>=Date.parse(end)||Date.parse(end)-Date.parse(start)>90*86400000||Date.parse(end)>Date.parse(now))fail();
++  return {start,end,generatedAt:now};
++}
+diff --git a/migrations/0022_value_metrics_classifications.sql b/migrations/0022_value_metrics_classifications.sql
+new file mode 100644
+index 0000000..b206e8a
+--- /dev/null
++++ b/migrations/0022_value_metrics_classifications.sql
+@@ -0,0 +1,24 @@
++-- No historical backfill. Only separately authorized, reviewed operator imports.
++CREATE TABLE analysis_value_classifications (
++ id TEXT PRIMARY KEY,
++ analysis_id TEXT NOT NULL REFERENCES analyses(id) ON DELETE RESTRICT,
++ workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE RESTRICT,
++ revision INTEGER NOT NULL CHECK(revision>0),
++ classification TEXT NOT NULL CHECK(classification IN ('business','test','unknown')),
++ evidence_ref TEXT NOT NULL CHECK(length(evidence_ref)=73 AND substr(evidence_ref,1,9)='evidence:' AND substr(evidence_ref,10) NOT GLOB '*[^a-f0-9]*'),
++ verified_by TEXT NOT NULL CHECK(length(verified_by) BETWEEN 1 AND 128 AND verified_by NOT GLOB '*[^a-zA-Z0-9_-]*'),
++ verified_at TEXT NOT NULL CHECK(strftime('%Y-%m-%dT%H:%M:%fZ',verified_at) IS verified_at),
++ material_sha256 TEXT NOT NULL CHECK(length(material_sha256)=64 AND material_sha256 NOT GLOB '*[^a-f0-9]*'),
++ created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
++ UNIQUE(analysis_id,revision)
++);
++CREATE INDEX value_classifications_scope ON analysis_value_classifications(workspace_id,analysis_id,revision DESC);
++CREATE TRIGGER value_classification_append_guard BEFORE INSERT ON analysis_value_classifications
++WHEN EXISTS(SELECT 1 FROM analysis_value_classifications WHERE id=NEW.id OR (analysis_id=NEW.analysis_id AND revision=NEW.revision))
++ OR NOT EXISTS(SELECT 1 FROM analyses WHERE id=NEW.analysis_id AND workspace_id=NEW.workspace_id)
++ OR NEW.revision<>COALESCE((SELECT MAX(revision) FROM analysis_value_classifications WHERE analysis_id=NEW.analysis_id),0)+1
++ OR julianday(NEW.verified_at)>julianday('now') OR strftime('%Y-%m-%dT%H:%M:%fZ',NEW.created_at) IS NOT NEW.created_at
++ OR julianday(NEW.created_at)>julianday('now')
++BEGIN SELECT RAISE(ABORT,'value_classification_scope_or_revision'); END;
++CREATE TRIGGER value_classification_update_blocked BEFORE UPDATE ON analysis_value_classifications BEGIN SELECT RAISE(ABORT,'value_classification_immutable'); END;
++CREATE TRIGGER value_classification_delete_blocked BEFORE DELETE ON analysis_value_classifications BEGIN SELECT RAISE(ABORT,'value_classification_immutable'); END;
+diff --git a/package.json b/package.json
+index 68876d3..99f4fd0 100644
+--- a/package.json
++++ b/package.json
+@@ -60,7 +60,9 @@
+     "test:product-profiles": "tsx scripts/verify-product-profiles.ts",
+     "test:structured-evidence": "tsx scripts/verify-structured-evidence.ts",
+     "test:review-decisions": "tsx scripts/verify-review-decisions.ts",
+-    "test:release-workbench": "tsx scripts/verify-release-workbench.ts"
++    "test:release-workbench": "tsx scripts/verify-release-workbench.ts",
++    "test:value-metrics": "tsx scripts/verify-value-metrics.ts",
++    "value-metrics:prepare-classification": "tsx scripts/value-metrics-classification.mjs"
+   },
+   "dependencies": {
+     "@opennextjs/cloudflare": "latest",
+diff --git a/scripts/value-metrics-classification.mjs b/scripts/value-metrics-classification.mjs
+new file mode 100644
+index 0000000..b619f1b
+--- /dev/null
++++ b/scripts/value-metrics-classification.mjs
+@@ -0,0 +1,15 @@
++import {readFile,realpath} from "node:fs/promises";
++import {createHash} from "node:crypto";
++import {resolve} from "node:path";
++import {fileURLToPath} from "node:url";
++import {parseClassificationJson,prepareClassification} from "../lib/value-metrics/classification.ts";
++export async function main(args) {
++  const output=(status)=>console.log(JSON.stringify({status,preparationOnly:true,valueEvidence:false,qualityEvidence:false}));
++  if(args[0]==="--")args=args.slice(1);
++  if(args.length===1&&args[0]==="--help"){console.log("Usage: pnpm value-metrics:prepare-classification -- --input FILE --inventory FILE\nExplicit local files only; no database or import. Exit0 VALID_PREPARATION,1 INVALID_INPUT,2 BLOCKED missing/unreadable input,64 INVALID_USAGE.");return 0;}
++  if(!args.length){output("BLOCKED");return 2;}
++  if(args.length!==4||args[0]!=="--input"||args[2]!=="--inventory"||!args[1]||!args[3]||args[1].startsWith("--")||args[3].startsWith("--")){output("INVALID_USAGE");return 64;}
++  let input,inventory;try{[input,inventory]=await Promise.all([readFile(resolve(args[1])),readFile(resolve(args[3]))]);}catch{output("BLOCKED");return 2;}
++  try{if(input.length>8388608||inventory.length>8388608)throw new Error();const hash=(b)=>createHash("sha256").update(b).digest("hex");console.log(JSON.stringify(await prepareClassification(parseClassificationJson(input.toString("utf8")),parseClassificationJson(inventory.toString("utf8")),hash(input),hash(inventory)),null,2));return 0;}catch{output("INVALID_INPUT");return 1;}
++}
++if(process.argv[1]&&await realpath(fileURLToPath(import.meta.url))===await realpath(resolve(process.argv[1])))process.exitCode=await main(process.argv.slice(2));
+diff --git a/scripts/value-metrics-ui.mjs b/scripts/value-metrics-ui.mjs
+new file mode 100644
+index 0000000..65baf09
+--- /dev/null
++++ b/scripts/value-metrics-ui.mjs
+@@ -0,0 +1,18 @@
++// Local UI fixture server: actual React clients/CSS; synthetic API responses only.
++import {createRequire} from 'node:module';
++import {createServer} from 'node:http';
++import {readFile,writeFile,mkdtemp} from 'node:fs/promises';
++import {tmpdir} from 'node:os';
++import {resolve,join} from 'node:path';
++import {calculateValueMetrics} from '../lib/value-metrics/calculate.ts';
++import {parseValueWindow} from '../lib/value-metrics/validation.ts';
++const require=createRequire(resolve('package.json')),wr=createRequire(require.resolve('wrangler/package.json')),esbuild=wr('esbuild');
++const root=await mkdtemp(join(tmpdir(),'pairvu-values-ui-'));
++const source=`import React from 'react';import{createRoot}from'react-dom/client';import{ValueMetricsClient}from'${resolve('app/account/value-metrics/ValueMetricsClient.tsx')}';import{AccountWorkspaceNav}from'${resolve('components/AccountWorkspaceNav.tsx')}';createRoot(document.getElementById('root')).render(<main><AccountWorkspaceNav/><ValueMetricsClient/></main>);`;
++const entry=join(root,'entry.tsx');await writeFile(entry,source);
++await esbuild.build({entryPoints:[entry],outfile:join(root,'app.js'),bundle:true,platform:'browser',format:'iife',jsx:'automatic',nodePaths:[resolve('node_modules')],plugins:[{name:'navigation-only-stubs',setup(b){b.onResolve({filter:/^next\/(link|navigation)$/},a=>({path:a.path,namespace:'nav-fixture'}));b.onLoad({filter:/.*/,namespace:'nav-fixture'},a=>({contents:a.path.endsWith('link')?"import React from 'react';export default function Link(props){return React.createElement('a',props)}":"export function usePathname(){return '/account/value-metrics'}export function useSearchParams(){return new URLSearchParams()}",loader:'js',resolveDir:resolve('.')}));}}]});
++const now=new Date().toISOString(),empty=await calculateValueMetrics([],parseValueWindow(new URLSearchParams()),now,0);
++const sample=JSON.parse(await readFile('fixtures/value-metrics/d1-results.json','utf8')).sampleReport;
++let mode='populated';
++const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');if(url.pathname==='/mode'){mode=url.searchParams.get('value')??'populated';res.end(mode);return;}if(url.pathname==='/api/releases/status'){res.setHeader('Content-Type','application/json');res.end('{"enabled":false}');return;}if(url.pathname==='/api/value-metrics/status'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({enabled:mode!=='disabled'}));return;}if(url.pathname==='/api/value-metrics'){res.setHeader('Content-Type','application/json');if(mode==='error'||mode==='disabled'){res.statusCode=mode==='error'?503:404;res.end(JSON.stringify({complete:false,message:mode==='error'?'Metrics could not be loaded. Try again.':'Value metrics are currently unavailable.'}));return;}if(mode==='loading'){setTimeout(()=>res.end(JSON.stringify(sample)),5000);return;}res.end(JSON.stringify(mode==='empty'?empty:sample));return;}if(url.pathname==='/app.js'||url.pathname==='/app.css'){res.setHeader('Content-Type',url.pathname.endsWith('css')?'text/css':'text/javascript');res.end(await readFile(join(root,url.pathname.slice(1))));return;}res.setHeader('Content-Type','text/html');res.end(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"><style>body{margin:0;font-family:system-ui;background:#fff}main{max-width:1120px;margin:auto;padding:24px;min-width:0}nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}a{color:#24554d}*{box-sizing:border-box}</style><div id="root"></div><script src="/app.js"></script>`);}catch(e){res.statusCode=500;res.end(String(e));}});
++server.listen(3097,'127.0.0.1',()=>console.log(JSON.stringify({url:'http://127.0.0.1:3097',temporaryDirectory:root,scope:'Actual ValueMetricsClient and AccountWorkspaceNav, actual module CSS; synthetic responses, no production'})));
+diff --git a/scripts/verify-value-metrics.ts b/scripts/verify-value-metrics.ts
+new file mode 100644
+index 0000000..1075f5f
+--- /dev/null
++++ b/scripts/verify-value-metrics.ts
+@@ -0,0 +1,87 @@
++import assert from "node:assert/strict";
++import {createRequire} from "node:module";
++import {readFile,writeFile,mkdtemp,readdir,symlink} from "node:fs/promises";
++import {tmpdir} from "node:os";
++import {join,resolve} from "node:path";
++import {randomUUID,createHash} from "node:crypto";
++import {spawnSync} from "node:child_process";
++import type {D1Database,D1PreparedStatement} from "../lib/cloudflare/bindings";
++import type {RequestAccessContext} from "../lib/auth/request-access";
++import {readValueMetrics} from "../lib/value-metrics/repository";
++import {parseValueWindow,valueMetricsEnabled} from "../lib/value-metrics/validation";
++import {prepareClassification,parseClassificationJson} from "../lib/value-metrics/classification";
++import {profileHash,normalizeProductProfile} from "../lib/products/profile-validation";
++import {submitReview,reviewStatements} from "../lib/reviews/repository";
++import type {ValueReport} from "../lib/value-metrics/types";
++function split(source:string){const out:string[]=[];let buffer="",quote=false,comment=false;for(let i=0;i<source.length;i++){const c=source[i];if(comment){if(c==="\n"){comment=false;buffer+="\n";}continue;}if(!quote&&c==="-"&&source[i+1]==="-"){comment=true;i++;continue;}buffer+=c;if(c==="'"){if(quote&&source[i+1]==="'"){buffer+=source[++i];continue;}quote=!quote;}if(c===";"&&!quote&&(!/^\s*create\s+trigger/i.test(buffer)||/\bend\s*;$/i.test(buffer))){out.push(buffer.trim());buffer="";}}if(buffer.trim())out.push(buffer.trim());return out;}
++async function main(){
++ const require=createRequire(resolve("package.json")),wr=createRequire(require.resolve("wrangler/package.json")),{Miniflare}=wr("miniflare"),esbuild=wr("esbuild");
++ const temp=await mkdtemp(join(tmpdir(),"pairvu-value-metrics-")),reportPath=resolve(process.argv[2]??"fixtures/value-metrics/d1-results.json");
++ const report={unitId:"UPG-10",status:"RUNNING",synthetic:true,valueEvidence:false,qualityEvidence:false,temporaryDirectory:temp,checks:[] as Array<Record<string,unknown>>,sources:{} as Record<string,string>,requestCount:0,sampleReport:null as ValueReport|null,failure:null as string|null};
++ let mf:InstanceType<typeof Miniflare>|undefined,base:URL,requests=0;
++ class Prepared implements D1PreparedStatement{constructor(public sql:string,public params:unknown[]=[]){}bind(...params:unknown[]){return new Prepared(this.sql,params);}async all<T>(){return (await db.send([this]))[0] as {results:T[];success:boolean};}async first<T>(){return (await this.all<T>()).results[0]??null;}async run(){return (await db.send([this]))[0];}}
++ class DB implements D1Database{fail=false;afterSnapshot:(()=>Promise<void>)|null=null;prepare(sql:string){return new Prepared(sql);}async send(statements:Prepared[]){if(this.fail){this.fail=false;throw new Error("Synthetic DB unavailable");}requests++;const r=await fetch(base,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({statements}),signal:AbortSignal.timeout(20000)});const b=await r.json();if(!b.success)throw new Error(b.error);if(statements.some(s=>s.sql.startsWith("WITH owner"))&&this.afterSnapshot){const hook=this.afterSnapshot;this.afterSnapshot=null;await hook();}return b.results;}async batch<T>(statements:D1PreparedStatement[]):Promise<T[]>{return this.send(statements as Prepared[]);}}
++ const db=new DB(),sql=async(q:string,...v:unknown[])=>(await db.prepare(q).bind(...v).all<Record<string,unknown>>()).results;
++ const owner:RequestAccessContext={authenticated:true,userId:"u1",workspaceId:"w1",anonymousSessionId:null,retentionDays:7},foreign={...owner,userId:"u2",workspaceId:"w2"};
++ const start="2026-10-01T00:00:00.000Z",end="2026-10-02T00:00:00.000Z",created="2026-10-01T01:00:00.000Z",completed="2026-10-01T02:00:00.000Z",window=parseValueWindow(new URLSearchParams({start,end}));
++ const get=(w=window,a=owner)=>readValueMetrics(db,a,w);
++ async function test(name:string,fn:()=>Promise<unknown>){try{const detail=await fn();report.checks.push({name,status:"PASS",...(detail?{detail}:{})});console.log("PASS",name);}catch(e){report.checks.push({name,status:"FAIL",error:String(e)});throw e;}}
++ async function seed(id:string,status="completed",verdict:string|null="pass",cost:number|null=1,workspace="w1",at=created,done:string|null=completed){await sql("INSERT INTO assets(id,workspace_id,kind,asset_type,mime_type,file_size_bytes,sha256,r2_key_original,status,created_at,updated_at) VALUES(?,?,'candidate','image','image/png',1,'synthetic','synthetic-only','analyzed',?,?)",id+"-asset",workspace,at,at);await sql("INSERT INTO analyses(id,workspace_id,reference_asset_id,candidate_asset_id,selected_checks_json,status,verdict,qa_engine_version,risk_policy_version,model_policy_version,estimated_cost_usd,created_at,updated_at,completed_at) VALUES(?,?,?,?,'[]',?,?,'synthetic-engine','synthetic-risk','synthetic-model',?,?,?,?)",id,workspace,workspace==="w1"?"ref":"ref2",id+"-asset",status,verdict,cost,at,at,done);}
++ const inv=(ids:string[],rev=0)=>({schemaVersion:1,workspaceId:"w1",asOf:new Date().toISOString(),analyses:ids.map(analysisId=>({analysisId,workspaceId:"w1",classificationRevision:rev}))});
++ async function material(ids:string[],classification="business",rev=0){const inventory=inv(ids,rev),inventoryBytes=JSON.stringify(inventory),m={schemaVersion:1,workspaceId:"w1",inventorySha256:await profileHash(inventoryBytes),records:ids.map(analysisId=>({analysisId,classification,evidenceRef:"evidence:"+"a".repeat(64),verifiedBy:"synthetic-verifier",verifiedAt:"2026-10-01T00:00:00.000Z",expectedRevision:rev}))};return {inventory,m,inventoryBytes};}
++ async function classify(ids:string[],kind="business",rev=0){const {inventory,m}=await material(ids,kind,rev);const p=await prepareClassification(m,inventory,await profileHash(JSON.stringify(m)),m.inventorySha256);await db.batch(p.statements.map(s=>db.prepare(s.sql).bind(...s.params)));return p;}
++ async function review(id:string,revision=0,action:"approve"|"reject"|"revoke"="approve"){return submitReview(db,id,owner,{requestId:randomUUID(),expectedRevision:revision,action,category:"other",reason:"PRIVATE synthetic review reason",note:"PRIVATE note"});}
++ const productId=randomUUID(),profileId=randomUUID(),referenceId=randomUUID();
++ const profile=normalizeProductProfile({profileSchemaVersion:1,name:"Frozen product",skuLabel:"SKU-FROZEN",brand:null,variant:null,capacity:null,packagingVersion:null,criticalAttributes:[],allowedChanges:[]});
++ const snapshot={schemaVersion:1,productId,revision:1,profileVersionId:profileId,profileVersionNumber:1,profile,referenceVersionId:referenceId,referenceVersionNumber:1,referenceRole:"front",referenceAssetId:"ref",boundAt:created};
++ async function bind(id:string,batch:string|null=null){const json=JSON.stringify(snapshot);await sql("INSERT INTO analysis_product_snapshots VALUES(?,'w1',?,1,?,?,?, ?,?,?)",id,productId,profileId,referenceId,json,await profileHash(json),created,batch);}
++ async function batch(id:string,ids:string[]){await sql("INSERT INTO batches(id,workspace_id,mapping_mode,status,idempotency_key,request_fingerprint,item_count,created_at,updated_at,product_id) VALUES(?,'w1','one_reference_many_candidates','completed',?,'synthetic',?,?,?,?)",id,id,ids.length,created,created,productId);const json=JSON.stringify(snapshot);await sql("INSERT INTO batch_product_snapshots VALUES(?,'w1',?,1,?,?,?, ?,?)",id,productId,profileId,referenceId,json,await profileHash(json),created);for(let n=0;n<ids.length;n++){await sql("INSERT INTO batch_items(id,batch_id,workspace_id,position,reference_asset_id,candidate_asset_id,status,analysis_id,created_at,updated_at) VALUES(?,?,'w1',?,'ref',?,'completed',?,?,?)",id+n,id,n,ids[n]+"-asset",ids[n],created,created);await bind(ids[n],id);}}
++ try{
++  mf=new Miniflare({host:"127.0.0.1",port:0,cf:false,modules:true,scriptPath:resolve("fixtures/value-metrics/sql-worker.mjs"),compatibilityDate:"2026-07-26",d1Databases:{DB:"synthetic-values"},d1Persist:join(temp,"d1"),outboundService:async()=>new Response("Disabled",{status:403})});base=await mf.ready;
++  for(const f of (await readdir("migrations")).filter(f=>f.endsWith(".sql")).sort())await db.batch(split(await readFile(join("migrations",f),"utf8")).map(s=>db.prepare(s)));
++  await db.batch([db.prepare("INSERT INTO user(id,name,email,emailVerified,createdAt,updatedAt) VALUES('u1','Synthetic','u1@synthetic.test',1,0,0),('u2','Synthetic','u2@synthetic.test',1,0,0)"),...['w1','w2'].map(id=>db.prepare("INSERT INTO workspaces VALUES(?,'personal','Synthetic','active','authenticated_7d',?,?)").bind(id,created,created)),db.prepare("INSERT INTO workspace_memberships VALUES('m1','w1','u1','owner',?,?),('m2','w2','u2','owner',?,?)").bind(created,created,created,created)]);
++  for(const [id,w] of [["ref","w1"],["ref2","w2"]])await sql("INSERT INTO assets(id,workspace_id,kind,asset_type,mime_type,file_size_bytes,sha256,r2_key_original,status,created_at,updated_at) VALUES(?,?,'reference','image','image/png',1,'synthetic','synthetic-only','analyzed',?,?)",id,w,created,created);
++  await sql("INSERT INTO products(id,workspace_id,name,sku_label,sku_key,created_at,updated_at) VALUES(?,'w1','Current product','SKU-CURRENT','sku-current',?,?)",productId,created,created);
++  await sql("INSERT INTO product_profile_versions VALUES(?,'w1',?,1,1,?,?,'user_confirmed',?,'u1')",profileId,productId,JSON.stringify(profile),await profileHash(JSON.stringify(profile)),created);
++  await sql("INSERT INTO product_reference_versions(id,workspace_id,product_id,asset_id,version_number,status,created_at,promoted_at,reference_role) VALUES(?,'w1',?,'ref',1,'current',?,?,'front')",referenceId,productId,created,created);
++  await test("strict UTC defaults and malformed requests",async()=>{const d=parseValueWindow(new URLSearchParams());assert.equal(Date.parse(d.end)-Date.parse(d.start),30*86400000);for(const q of ["workspace=w2","classification=business","start="+start,"start=x&end=x","start=2026-02-30T00:00:00.000Z&end="+end,"start=2026-01-01T00:00:00.000Z&end="+end,"start="+end+"&end="+start,"start="+start+"&end="+end+"&end="+end,"start=2026-10-01T00:00:00Z&end="+end,"start="+start+"&end=2099-01-01T00:00:00.000Z"])assert.throws(()=>parseValueWindow(new URLSearchParams(q)));});
++  await test("flag exact true; default false",async()=>{assert(!valueMetricsEnabled({}));assert(!valueMetricsEnabled({VALUE_METRICS_ENABLED:"TRUE"}));assert(!valueMetricsEnabled({VALUE_METRICS_ENABLED:"false"}));assert(valueMetricsEnabled({VALUE_METRICS_ENABLED:"true"}));assert((await readFile("wrangler.jsonc","utf8")).includes('"VALUE_METRICS_ENABLED": "false"'));});
++  await test("empty source returns null denominators and no cost rather than zero invoices",async()=>{const r=await get();assert.equal(r.scope.cohort,0);assert.equal(r.machine.reviewRate.value,null);assert.equal(r.reviews.wait.meanMs,null);assert.equal(r.detectionCost.sumUsd,null);assert.equal(r.sku.groups.length,0);});
++  await seed("a");await seed("b","completed","review",0);await seed("c","failed","fail",null);await seed("d","running",null,-1);await seed("test","completed","fail",100);await seed("unknown","completed","pass",1000);await seed("other","completed","pass",999,"w2");
++  await classify(["a","b","c","d"]);await classify(["test"],"test");await bind("a");await bind("b");await bind("test");await bind("unknown");await review("a");await review("a",1,"revoke");await review("test");await review("unknown");
++  await test("mixed provenance excludes every business amount, group, audit and denominator",async()=>{const r=await get();assert.deepEqual([r.scope.cohort,r.scope.business,r.scope.test,r.scope.unknown],[6,4,1,1]);assert.deepEqual([r.usage.completed,r.usage.failed,r.usage.pending],[2,1,1]);assert.deepEqual([r.machine.pass,r.machine.review,r.machine.fail,r.machine.reviewRate.denominator],[1,1,0,2]);assert.deepEqual([r.detectionCost.known,r.detectionCost.missing,r.detectionCost.sumUsd,r.detectionCost.coverage.denominator],[2,2,1,4]);assert.equal(r.sku.linked,2);assert.equal(r.sku.groups[0].analyses,2);assert.equal(r.reviews.covered,1);assert.equal(r.reviews.revoke,1);assert.equal(r.reviews.wait.count,1);assert.equal(r.generationModel.unknown,4);assert(!JSON.stringify(r).includes("PRIVATE"));report.sampleReport=r;});
++  await test("forged and repeated client completion/reuse events do not affect metrics",async()=>{const before=await get();for(let n=0;n<10;n++)await sql("INSERT INTO product_events(id,idempotency_key,event_name,event_source,anonymous_session_id,analysis_id,occurred_at,properties_json,created_at) VALUES(?,?,'analysis_completed','client','synthetic','unknown',?,'{\"classification\":\"business\",\"model\":\"fake-generation-model\"}',?)","fake"+n,"fake"+n,created,created);const after=await get();for(const k of ['scope','usage','machine','sku','reviews','detectionCost','workflow','generationModel'] as const)assert.deepEqual(after[k],before[k]);});
++  await test("session owner scope and missing/inactive membership rejection",async()=>{const r=await get(window,foreign);assert.equal(r.scope.cohort,1);assert.equal(r.scope.business,0);for(const a of [{...owner,authenticated:false},{...owner,userId:"u2"},{...owner,workspaceId:"absent"}])await assert.rejects(get(window,a));await sql("DELETE FROM workspace_memberships WHERE id='m1'");await assert.rejects(get());await sql("INSERT INTO workspace_memberships VALUES('m1','w1','u1','owner',?,?)",created,created);await sql("UPDATE workspaces SET status='deleting' WHERE id='w1'");await assert.rejects(get());await sql("UPDATE workspaces SET status='active' WHERE id='w1'");});
++  await test("classification correction appends and removes formerly business from all metrics",async()=>{const before=await get();await classify(["b"],"unknown",1);const after=await get();assert.equal(after.scope.business,before.scope.business-1);assert.equal(after.usage.completed,before.usage.completed-1);assert.equal(after.machine.review,0);assert.equal(after.sku.linked,1);assert.equal(after.detectionCost.known,1);await classify(["b"],"business",2);});
++  await test("classification stale imports and cross-scope/REPLACE/update/delete blocked atomically",async()=>{const before=await sql("SELECT * FROM analysis_value_classifications ORDER BY id");await assert.rejects(classify(["a"]));for(const q of ["UPDATE analysis_value_classifications SET classification='test' WHERE analysis_id='a'","DELETE FROM analysis_value_classifications WHERE analysis_id='a'"])await assert.rejects(sql(q));await assert.rejects(sql("INSERT INTO analysis_value_classifications VALUES('bad','a','w2',2,'business',?,'synthetic',?,?,?)","evidence:"+"a".repeat(64),created,"a".repeat(64),created));const a=before.find(r=>r.analysis_id==="a")!;await assert.rejects(sql("INSERT OR REPLACE INTO analysis_value_classifications VALUES(?, 'a','w1',2,'business',?,'synthetic',?,?,?)",a.id,a.evidence_ref,created,a.material_sha256,created));assert.deepEqual(await sql("SELECT * FROM analysis_value_classifications ORDER BY id"),before);const plan=await material(["c","other"],"business",1);await assert.rejects(db.batch((await prepareClassification(plan.m,plan.inventory,await profileHash(JSON.stringify(plan.m)),plan.m.inventorySha256)).statements.map(s=>db.prepare(s.sql).bind(...s.params))));assert.equal((await sql("SELECT COUNT(*) n FROM analysis_value_classifications WHERE analysis_id='c'"))[0].n,1);});
++  await test("UTC start inclusive/end exclusive; finish after window end still in cohort",async()=>{await seed("at-start","completed",null,null,"w1",start,"2026-10-03T00:00:00.000Z");await seed("at-end","completed","pass",100,"w1",end);await classify(["at-start","at-end"]);const r=await get();assert.equal(r.scope.business,5);assert.equal(r.machine.unknown,1);assert.equal(r.usage.completed,3);assert.equal(r.scope.cohort,7);});
++  await test("invalid completion time is missing, invalid creation time unwindowable",async()=>{await seed("bad-completed","completed","pass",null,"w1",created,"2026-09-01T00:00:00.000Z");await seed("bad-created","completed","pass",2,"w1","not-a-date");await classify(["bad-completed","bad-created"]);const r=await get();assert.equal(r.usage.completedTimeInvalid,1);assert.equal(r.scope.unwindowable,1);});
++  await seed("item1");await seed("item2");await seed("item3");await batch("batch1",["item1","item2"]);await batch("batch2",["item3"]);await classify(["item1","item2","item3"]);
++  await test("batch items count one invocation, repeated independent batch counts subsequent use",async()=>{const r=await get();assert.equal(r.sku.groups[0].analyses,5);assert.equal(r.sku.groups[0].invocations,4);assert.equal(r.sku.groups[0].reuses,3);assert.equal(r.workflow.batch,3);});
++  await test("current product rename/archive does not change frozen groups",async()=>{const before=(await get()).sku;await sql("UPDATE products SET name='Renamed',sku_label='CHANGED',status='archived' WHERE id=?",productId);assert.deepEqual((await get()).sku,before);});
++  await test("copied batch hash cannot hide mismatching source snapshot JSON or inflate reuse",async()=>{const before=await get();await seed('bad-batch-item');await sql("INSERT INTO batches(id,workspace_id,mapping_mode,status,idempotency_key,request_fingerprint,item_count,created_at,updated_at,product_id) VALUES('bad-batch','w1','one_reference_many_candidates','completed','bad-batch','synthetic',1,?,?,?)",created,created,productId);await sql("INSERT INTO batch_product_snapshots VALUES('bad-batch','w1',?,1,?,?,?,?,?)",productId,profileId,referenceId,JSON.stringify({...snapshot,profile:{...profile,name:'Different source'}}),await profileHash(JSON.stringify(snapshot)),created);await sql("INSERT INTO batch_items(id,batch_id,workspace_id,position,reference_asset_id,candidate_asset_id,status,analysis_id,created_at,updated_at) VALUES('bad-batch-link','bad-batch','w1',0,'ref','bad-batch-item-asset','completed','bad-batch-item',?,?)",created,created);await bind('bad-batch-item','bad-batch');await classify(['bad-batch-item']);const after=await get();assert.equal(after.sku.linked,before.sku.linked);assert.equal(after.sku.reuses,before.sku.reuses);assert.equal(after.sku.missing,before.sku.missing+1);assert.equal(after.workflow.unknown,before.workflow.unknown+1);});
++  await test("atomic read does not incorporate later classification update",async()=>{const before=await get();db.afterSnapshot=async()=>{await classify(["a"],"test",1);};const old=await get();assert.equal(old.scope.business,before.scope.business);assert.equal((await get()).scope.business,before.scope.business-1);await classify(["a"],"business",2);});
++  await test("zero business completed leaves empty rates despite populated unknown cohort",async()=>{const r=await get(parseValueWindow(new URLSearchParams({start:"2026-10-02T00:00:00.000Z",end:"2026-10-03T00:00:00.000Z"})),foreign);assert.equal(r.scope.cohort,0);assert.equal(r.machine.reviewRate.value,null);});
++  await test("controlled classification material rejects spoofing/conflicts/metadata and byte mismatch",async()=>{const original=await material(["a"],"business",3);for(const mutate of [(m:Record<string,unknown>)=>{m.workspaceId="w2";},(m:Record<string,unknown>)=>{m.extra=true;},(m:Record<string,unknown>)=>{m.inventorySha256="f".repeat(64);},...['analysisId','classification','evidenceRef','verifiedBy','verifiedAt','expectedRevision'].map(k=>(m:Record<string,unknown>)=>{(m.records as Array<Record<string,unknown>>)[0][k]=k==="classification"?"real":k==="expectedRevision"?2:"invalid@secret";}),(m:Record<string,unknown>)=>{(m.records as unknown[]).push((m.records as unknown[])[0]);}]){const m=structuredClone(original.m) as Record<string,unknown>;mutate(m);await assert.rejects(prepareClassification(m,original.inventory,"a".repeat(64),original.m.inventorySha256));}assert.throws(()=>parseClassificationJson('{"classification":"test","classification":"business"}'));assert.throws(()=>parseClassificationJson('{"a":1,"\\u0061":2}'));});
++  const globals=globalThis as typeof globalThis & {__valueEnv?:unknown;__valueSession?:unknown;__valueAccount?:unknown};
++  const stubs:Record<string,string>={"@/lib/cloudflare/bindings":"export function getVisualQAEnv(){return globalThis.__valueEnv}","@/lib/auth/server":"export function createPairvuAuth(){return {api:{getSession:async()=>globalThis.__valueSession}}}","@/lib/accounts/repository":"export async function getWorkspaceAccountSnapshot(){return globalThis.__valueAccount}"};
++  const routes:Record<string,{GET:(r:Request)=>Promise<Response>}>= {};
++  for(const [key,file] of [["metrics","app/api/value-metrics/route.ts"],["status","app/api/value-metrics/status/route.ts"]]){const outfile=join(temp,key+".cjs");await esbuild.build({entryPoints:[resolve(file)],bundle:true,platform:"node",format:"cjs",outfile,plugins:[{name:"synthetic-session-only",setup(b:{onResolve:(o:unknown,f:(a:{path:string})=>unknown)=>void;onLoad:(o:unknown,f:(a:{path:string})=>unknown)=>void}){b.onResolve({filter:/^@\//},a=>stubs[a.path]?{path:a.path,namespace:"fixture"}:undefined);b.onLoad({filter:/.*/,namespace:"fixture"},a=>({contents:stubs[a.path],loader:"js",resolveDir:resolve(".")}));}}]});routes[key]=require(outfile);}
++  globals.__valueEnv={VISUALQA_DB:db,VALUE_METRICS_ENABLED:"true"};globals.__valueSession={user:{id:"u1",name:"Synthetic",email:"u1@synthetic.test"}};globals.__valueAccount={workspaceId:"w1",retentionDays:7};
++  const request=(query="")=>new Request("https://synthetic.pairvu.test/api/value-metrics"+query);
++  await test("actual routes auth/no-store/flag/status do not trust client parameters",async()=>{const ok=await routes.metrics.GET(request("?"+new URLSearchParams({start,end})));assert.equal(ok.status,200);assert.equal(ok.headers.get("cache-control"),"private, no-store");assert.equal(ok.headers.get("vary"),"Cookie");for(const q of ["?workspace=w2","?classification=business","?limit=100000"])assert.equal((await routes.metrics.GET(request(q))).status,400);globals.__valueSession=null;assert.equal((await routes.metrics.GET(request())).status,401);assert.equal((await (await routes.status.GET(request())).json()).enabled,false);globals.__valueSession={user:{id:"u1",email:"u1@synthetic.test"}};globals.__valueEnv={VISUALQA_DB:db,VALUE_METRICS_ENABLED:"false"};assert.equal((await routes.metrics.GET(request())).status,404);assert.equal((await (await routes.status.GET(request())).json()).enabled,false);globals.__valueEnv={VISUALQA_DB:db,VALUE_METRICS_ENABLED:"true"};});
++  await test("DB failures return explicit incomplete 503 without fake zero report",async()=>{db.fail=true;const response=await routes.metrics.GET(request());assert.equal(response.status,503);const body=await response.json();assert.equal(body.complete,false);assert.equal(body.scope,undefined);});
++  await test("actual SSR page redirects anonymous, hides disabled/foreign scope and renders enabled owner",async()=>{const pageFile=join(temp,'page.cjs'),pageStubs={...stubs,'next/headers':'export async function headers(){return new Headers()}','next/navigation':"export function notFound(){throw new Error('FIXTURE_NOT_FOUND')}export function redirect(url){throw new Error('FIXTURE_REDIRECT:'+url)}export function usePathname(){return '/account/value-metrics'}export function useSearchParams(){return new URLSearchParams()}"};await esbuild.build({entryPoints:[resolve('app/account/value-metrics/page.tsx')],bundle:true,platform:'node',format:'cjs',outfile:pageFile,loader:{'.module.css':'local-css'},plugins:[{name:'request-context-only',setup(b:{onResolve:(o:unknown,f:(a:{path:string})=>unknown)=>void;onLoad:(o:unknown,f:(a:{path:string})=>unknown)=>void}){b.onResolve({filter:/^(?:@\/|next\/headers$|next\/navigation$)/},a=>pageStubs[a.path as keyof typeof pageStubs]?{path:a.path,namespace:'page-fixture'}:undefined);b.onLoad({filter:/.*/,namespace:'page-fixture'},a=>({contents:pageStubs[a.path as keyof typeof pageStubs],loader:'js',resolveDir:resolve('.')}));}}]});const page=require(pageFile);assert.equal(page.dynamic,'force-dynamic');const element=await page.default();assert.equal(element.type,'main');globals.__valueSession=null;await assert.rejects(page.default(),/FIXTURE_REDIRECT/);globals.__valueSession={user:{id:'u1',email:'u1@synthetic.test'}};globals.__valueEnv={VISUALQA_DB:db,VALUE_METRICS_ENABLED:'false'};await assert.rejects(page.default(),/FIXTURE_NOT_FOUND/);globals.__valueEnv={VISUALQA_DB:db,VALUE_METRICS_ENABLED:'true'};globals.__valueAccount={workspaceId:'w2',retentionDays:7};await assert.rejects(page.default(),/FIXTURE_NOT_FOUND/);globals.__valueAccount={workspaceId:'w1',retentionDays:7};});
++  await test("classification CLI real entry, symlink and readonly exact local files",async()=>{const m=await material(["a"],"unknown",3),input=join(temp,"classification.json"),inventory=join(temp,"inventory.json"),entry=resolve("scripts/value-metrics-classification.mjs"),alias=join(temp,"classification-alias.mjs");await writeFile(input,JSON.stringify(m.m));await writeFile(inventory,m.inventoryBytes);await symlink(entry,alias);for(const path of [entry,alias]){const r=spawnSync(process.execPath,["--import","tsx",path,"--input",input,"--inventory",inventory],{encoding:"utf8",cwd:resolve(".")});assert.equal(r.status,0,r.stderr);assert.equal(JSON.parse(r.stdout).preparationOnly,true);}const before=await readFile(input);for(const [args,exit] of [[[],2],[["--input",input],64],[["--input","/missing/secret","--inventory",inventory],2]] as Array<[string[],number]>){const r=spawnSync(process.execPath,["--import","tsx",entry,...args],{encoding:"utf8"});assert.equal(r.status,exit);assert(!r.stdout.includes("secret"));}assert.deepEqual(await readFile(input),before);});
++  await test("cohort limit refuses complete ratios; exact bound remains supported",async()=>{for(let offset=0;offset<5002;offset+=100){const values=[] as D1PreparedStatement[];for(let i=offset;i<Math.min(offset+100,5002);i++)values.push(db.prepare("INSERT INTO analyses(id,workspace_id,reference_asset_id,candidate_asset_id,selected_checks_json,status,created_at,updated_at) VALUES(?,'w1','ref','candidate','[]','queued','2026-09-01T00:00:00.000Z','2026-09-01T00:00:00.000Z')").bind("bound"+i));await db.batch(values);}const w=parseValueWindow(new URLSearchParams({start:"2026-09-01T00:00:00.000Z",end:"2026-09-02T00:00:00.000Z"}));await assert.rejects(get(w),e=>e instanceof Error&&e.message.includes("budget"));await sql("DELETE FROM analyses WHERE id IN ('bound5000','bound5001')");assert.equal((await get(w)).scope.cohort,5000);});
++  async function manualAudit(id:string,n:number,at=created,badHash=false){const machine=JSON.stringify({analysisId:id,verdict:'pass',qaEngineVersion:'synthetic-engine',riskPolicyVersion:'synthetic-risk',modelPolicyVersion:'synthetic-model',completedAt:completed,observations:[],productIssues:[],limitations:[],modelCalls:[]});const ss=reviewStatements({analysisId:id,workspaceId:'w1',actorId:'u1',input:{requestId:randomUUID(),expectedRevision:n-1,action:'approve',category:'other',reason:'Synthetic controlled audit fixture',note:null},fingerprint:'a'.repeat(64),snapshot:machine,machineHash:badHash?'f'.repeat(64):await profileHash(machine),id:randomUUID(),token:randomUUID(),finalToken:randomUUID()});ss[1].sql=ss[1].sql.replace('machine_sha256)','machine_sha256,created_at)').replace(/\)$/u,',?)');ss[1].params.push(at);await db.batch(ss.map(s=>db.prepare(s.sql).bind(...s.params)));}
++  await test("negative first-decision wait and corrupt audit hashes are excluded with missing counts",async()=>{await seed('negative-wait');await seed('bad-audit');await classify(['negative-wait','bad-audit']);await manualAudit('negative-wait',1);await manualAudit('bad-audit',1,created,true);const r=await get();assert.equal(r.reviews.wait.invalidOrNegative,1);assert.equal(r.reviews.invalid,1);assert.equal(r.reviews.wait.count,1);assert.equal(r.reviews.covered,2);});
++  await test("business UTF8 snapshot byte overflow rejects; excluded unknown large snapshot does not alter business report",async()=>{await seed('huge');const json=JSON.stringify({...snapshot,syntheticPadding:'汉'.repeat(11000)});await sql("INSERT INTO analysis_product_snapshots VALUES('huge','w1',?,1,?,?,?, ?,?,NULL)",productId,profileId,referenceId,json,await profileHash(json),created);const before=await get();assert.equal(before.scope.unknown,2);await classify(['huge']);await assert.rejects(get(),e=>e instanceof Error&&e.message.includes('budget'));const response=await routes.metrics.GET(request('?'+new URLSearchParams({start,end})));assert.equal(response.status,422);assert.equal((await response.json()).complete,false);await classify(['huge'],'unknown',1);assert.equal((await get()).usage.total,before.usage.total);});
++  await test("101 audit events reject complete metrics without truncating history to a ratio",async()=>{await seed('audit-budget');await classify(['audit-budget']);for(let n=1;n<=101;n++)await manualAudit('audit-budget',n,'2026-10-01T03:00:00.000Z');await assert.rejects(get(),e=>e instanceof Error&&e.message.includes('budget'));await classify(['audit-budget'],'test',1);assert((await get()).complete);});
++  await test("finite cost values whose sum overflows reject rather than emitting Infinity or zero",async()=>{await seed('sum1','completed','pass',1e308);await seed('sum2','completed','pass',1e308);await classify(['sum1','sum2']);await assert.rejects(get(),e=>e instanceof Error&&e.message.includes('numeric'));await classify(['sum1','sum2'],'test',1);assert((await get()).complete);});
++  await test("total business snapshot byte budget rejects even when each record fits its own cap",async()=>{const json=JSON.stringify({...snapshot,syntheticPadding:'x'.repeat(31000)}),hash=await profileHash(json),ids=Array.from({length:550},(_,n)=>'total-bytes-'+n);assert(Buffer.byteLength(json)<32768);for(let offset=0;offset<ids.length;offset+=25){const ss=ids.slice(offset,offset+25).flatMap(id=>[db.prepare("INSERT INTO analyses(id,workspace_id,reference_asset_id,candidate_asset_id,selected_checks_json,status,verdict,qa_engine_version,risk_policy_version,model_policy_version,created_at,updated_at,completed_at) VALUES(?,'w1','ref','synthetic-candidate','[]','completed','pass','synthetic-engine','synthetic-risk','synthetic-model',?,?,?)").bind(id,created,created,completed),db.prepare("INSERT INTO analysis_product_snapshots VALUES(?,'w1',?,1,?,?,?,?,?,NULL)").bind(id,productId,profileId,referenceId,json,hash,created)]);await db.batch(ss);}await classify(ids.slice(0,500));await classify(ids.slice(500));await assert.rejects(get(),e=>e instanceof Error&&e.message.includes('budget'));return {generatedBusinessAnalyses:550,bytesPerSnapshot:Buffer.byteLength(json),totalSnapshotBytes:550*Buffer.byteLength(json),cap:16777216};});
++  report.status="PASS";
++ }catch(e){report.status="FAIL";report.failure=String(e);throw e;}
++ finally{if(mf)await mf.dispose();report.requestCount=requests;for(const file of ['lib/value-metrics/repository.ts','lib/value-metrics/calculate.ts','lib/value-metrics/classification.ts','lib/value-metrics/validation.ts','migrations/0022_value_metrics_classifications.sql','scripts/verify-value-metrics.ts'])report.sources[file]=createHash('sha256').update(await readFile(file)).digest('hex');await writeFile(reportPath,JSON.stringify(report,null,2)+'\n');console.log(`${report.status}: ${report.checks.length} cases, ${requests} actual local D1 requests; ${reportPath}`);}
++}
++main().catch(e=>{console.error(e);process.exitCode=1;});
+diff --git a/wrangler.jsonc b/wrangler.jsonc
+index 6469f6b..a4b5340 100644
+--- a/wrangler.jsonc
++++ b/wrangler.jsonc
+@@ -28,6 +28,7 @@
+     "NEXTJS_ENV": "production",
+     "PRODUCT_PROFILES_ENABLED": "true",
+     "RELEASE_WORKBENCH_ENABLED": "true",
++    "VALUE_METRICS_ENABLED": "false",
+     "ANONYMOUS_ASSET_RETENTION_HOURS": "24",
+     "OPENAI_MODEL": "gpt-4.1-mini",
+     "OPENAI_PROMPT_VERSION": "m0-real-mvp-009",

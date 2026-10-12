@@ -1,0 +1,259 @@
+{
+  "result": "PASS",
+  "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "changes": [
+    "app/account/value-metrics/ValueMetricsClient.tsx",
+    "app/account/value-metrics/error.tsx",
+    "app/account/value-metrics/page.tsx",
+    "app/account/value-metrics/value-metrics.module.css",
+    "app/api/value-metrics/route.ts",
+    "app/api/value-metrics/status/route.ts",
+    "components/AccountWorkspaceNav.tsx",
+    "docs/01-architecture/value-metrics-contract.md",
+    "fixtures/value-metrics/.gitattributes",
+    "fixtures/value-metrics/classification-template.json",
+    "fixtures/value-metrics/d1-attempt-1-results.json",
+    "fixtures/value-metrics/d1-attempt-2-results.json",
+    "fixtures/value-metrics/d1-results.json",
+    "fixtures/value-metrics/inventory-template.json",
+    "fixtures/value-metrics/lint-attempt-1-raw.txt",
+    "fixtures/value-metrics/sql-worker.mjs",
+    "fixtures/value-metrics/ui/desktop-1280.jpg",
+    "fixtures/value-metrics/ui/empty.jpg",
+    "fixtures/value-metrics/ui/error.jpg",
+    "fixtures/value-metrics/ui/narrow.jpg",
+    "fixtures/value-metrics/ui/populated-final-375.jpg",
+    "fixtures/value-metrics/ui/results.json",
+    "fixtures/value-metrics/ui/sample-report.json",
+    "fixtures/value-metrics/validation/README.md",
+    "fixtures/value-metrics/validation/build-raw.txt",
+    "fixtures/value-metrics/validation/d1-attempt-1-raw.txt",
+    "fixtures/value-metrics/validation/d1-attempt-2-raw.txt",
+    "fixtures/value-metrics/validation/d1-final-raw.txt",
+    "fixtures/value-metrics/validation/developer-validation.json",
+    "fixtures/value-metrics/validation/lint-final-raw.txt",
+    "fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt",
+    "fixtures/value-metrics/validation/typecheck-final-raw.txt",
+    "fixtures/value-metrics/validation/workspace-regression-raw.txt",
+    "lib/cloudflare/bindings.ts",
+    "lib/value-metrics/calculate.ts",
+    "lib/value-metrics/classification.ts",
+    "lib/value-metrics/http.ts",
+    "lib/value-metrics/repository.ts",
+    "lib/value-metrics/types.ts",
+    "lib/value-metrics/validation.ts",
+    "migrations/0022_value_metrics_classifications.sql",
+    "package.json",
+    "scripts/value-metrics-classification.mjs",
+    "scripts/value-metrics-ui.mjs",
+    "scripts/verify-value-metrics.ts",
+    "wrangler.jsonc"
+  ],
+  "checks": [
+    {
+      "path": "app/account/value-metrics/ValueMetricsClient.tsx",
+      "bytes": 6465,
+      "sha256": "ddc12a5301e48a530e0fc4fc91f7a730ae0fb93ab0387b1b70c9017a0edf68e6"
+    },
+    {
+      "path": "app/account/value-metrics/error.tsx",
+      "bytes": 257,
+      "sha256": "7fe7c941e83d37ce809831480ecaa825f79a166a4ab93ebdd8d9fdc8c9aa9e98"
+    },
+    {
+      "path": "app/account/value-metrics/page.tsx",
+      "bytes": 1272,
+      "sha256": "9925b3443047503bcb6f96d33e0d7b9f1656f11138d2ed36304053efd6026400"
+    },
+    {
+      "path": "app/account/value-metrics/value-metrics.module.css",
+      "bytes": 1159,
+      "sha256": "ed307f89e00dd4ed97864caec1f75eaa154ff2268a21cb1ce9d5d09ed750c7a7"
+    },
+    {
+      "path": "app/api/value-metrics/route.ts",
+      "bytes": 595,
+      "sha256": "8fe3318d5ec41f420c3a9e7e418ee8211ebcee95148270eee1ee73da3387dcbc"
+    },
+    {
+      "path": "app/api/value-metrics/status/route.ts",
+      "bytes": 370,
+      "sha256": "ad146627086279b873066686fec0c21aff6c480a56aae79faebb7d85645b7693"
+    },
+    {
+      "path": "components/AccountWorkspaceNav.tsx",
+      "bytes": 2487,
+      "sha256": "6d510e750e099f71b6565d56f119dda7ae5e2fcd8e2d1807b54e6aafd4d0c1ca"
+    },
+    {
+      "path": "docs/01-architecture/value-metrics-contract.md",
+      "bytes": 11614,
+      "sha256": "3c0fbe491e4454e3ca1211e47473475a1fc0f6d3297025535533157939d469b8"
+    },
+    {
+      "path": "fixtures/value-metrics/classification-template.json",
+      "bytes": 75,
+      "sha256": "f2e60976c55e3e69a228fa4692daa2e6197f1ff9ace1bf2f0d02b7d35b45d7d8"
+    },
+    {
+      "path": "fixtures/value-metrics/inventory-template.json",
+      "bytes": 65,
+      "sha256": "87a60327ac010f8660ded5ea924229ba8f28a421420a5db810eafd6416cc48b7"
+    },
+    {
+      "path": "fixtures/value-metrics/sql-worker.mjs",
+      "bytes": 300,
+      "sha256": "106b61890adf4a43e709920164a655a6b658eb2dae93a4c3211ff2866c972d87"
+    },
+    {
+      "path": "lib/cloudflare/bindings.ts",
+      "bytes": 3621,
+      "sha256": "6f877e5c8c3d3fc7a604195168efc68a3bf197a11e641c5a91476638d47a661b"
+    },
+    {
+      "path": "lib/value-metrics/calculate.ts",
+      "bytes": 9588,
+      "sha256": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94"
+    },
+    {
+      "path": "lib/value-metrics/classification.ts",
+      "bytes": 4215,
+      "sha256": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b"
+    },
+    {
+      "path": "lib/value-metrics/http.ts",
+      "bytes": 1335,
+      "sha256": "82fae2e4b40b5b66cd59324eb3086b0e6394c26f1cab28c7455aecc679321cdb"
+    },
+    {
+      "path": "lib/value-metrics/repository.ts",
+      "bytes": 9642,
+      "sha256": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876"
+    },
+    {
+      "path": "lib/value-metrics/types.ts",
+      "bytes": 1532,
+      "sha256": "d34d97403c682ddf2ff2b0e809de3e5d135d4266d6495be0a7204b8b5c1e610f"
+    },
+    {
+      "path": "lib/value-metrics/validation.ts",
+      "bytes": 1287,
+      "sha256": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f"
+    },
+    {
+      "path": "migrations/0022_value_metrics_classifications.sql",
+      "bytes": 2141,
+      "sha256": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125"
+    },
+    {
+      "path": "package.json",
+      "bytes": 5222,
+      "sha256": "294426b6b36d7839b649043d9293aebd2021b024f73cb36ceee800c93aee1e1b"
+    },
+    {
+      "path": "scripts/value-metrics-classification.mjs",
+      "bytes": 1687,
+      "sha256": "ad367adc94668950021d287e72153481754f3b94ba0faa4aa92d955113edbc56"
+    },
+    {
+      "path": "scripts/value-metrics-ui.mjs",
+      "bytes": 3879,
+      "sha256": "ed12ebab0994182489ead13a85d55d5c0c345fd25779dfd80b46eb4a6b5fc865"
+    },
+    {
+      "path": "scripts/verify-value-metrics.ts",
+      "bytes": 31366,
+      "sha256": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 3440,
+      "sha256": "4d23732c0b8b2af648abe7d20d096f750599d307270b7d3f3bccb5cc0b84768f"
+    },
+    {
+      "path": "fixtures/value-metrics/.gitattributes",
+      "bytes": 137,
+      "sha256": "b40fa60438986becc83c13d89eaf3405e06f80e4146a581ebe871c53fa3e401d"
+    },
+    {
+      "path": "fixtures/value-metrics/d1-results.json",
+      "bytes": 7534,
+      "sha256": "38a5b7589a1262547bb6f10f0a2ea5291859071842c1900bcbd026e3ed759a75"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/desktop-1280.jpg",
+      "bytes": 118371,
+      "sha256": "1437ccffd7096fc48372cbd4fc506eff6922e6c0fea0fd49961eb8e986bb24dc"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/empty.jpg",
+      "bytes": 160065,
+      "sha256": "88ae30b773af57dd9512dfb30d6a310258b8f9fc46e186827ace185fa37c2779"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/error.jpg",
+      "bytes": 37693,
+      "sha256": "abba1391734a667806469358b2a35e663dabe16bf4a8d2ab9e5a268ecb1ce32c"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/narrow.jpg",
+      "bytes": 160636,
+      "sha256": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/populated-final-375.jpg",
+      "bytes": 160636,
+      "sha256": "0778691cd281616f93c5a430fa452768650fb26b7872bcc4338e0ab9d1adef4f"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/results.json",
+      "bytes": 3814,
+      "sha256": "98dcd5b17078b13e5d0fae8e372b4339cc4514a8ee108959d934ab67c140b4b7"
+    },
+    {
+      "path": "fixtures/value-metrics/ui/sample-report.json",
+      "bytes": 2158,
+      "sha256": "9889e5bdc50d1766f6f366ff75b5d0a4531ed819d3dba35e8233fc55247a2df6"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/build-raw.txt",
+      "bytes": 4911,
+      "sha256": "09152746f3de60d086a64f44204893eebd4b7ddacb2e5e57696ad8695b8063f4"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/d1-attempt-1-raw.txt",
+      "bytes": 1444,
+      "sha256": "cec14133e44ee0b3b9ce6f78043c253a23002f8527efba0e8dbc79169eb547ab"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/d1-attempt-2-raw.txt",
+      "bytes": 3772,
+      "sha256": "039364a43e1d780e54186b6a880e835aefbf1f39d38474a8cf3383b381f3e1e6"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/d1-final-raw.txt",
+      "bytes": 2349,
+      "sha256": "60f1e33907dba75a36ecc50943b30c4319c4a4d413dea36fa938ac034cd64091"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/lint-final-raw.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/typecheck-attempt-1-raw.txt",
+      "bytes": 685,
+      "sha256": "4f44d4ea7e1b14418033eaf0c196ff7238561859308bafc98192fa077c6fc826"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/typecheck-final-raw.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fixtures/value-metrics/validation/workspace-regression-raw.txt",
+      "bytes": 308,
+      "sha256": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb"
+    }
+  ]
+}

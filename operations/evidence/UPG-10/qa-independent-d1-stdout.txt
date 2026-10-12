@@ -1,0 +1,22 @@
+PASS independent hand oracle of ten business analyses with actual D1
+PASS test and historical unknown change no business numerator denominator cost wait or group
+PASS actual latest classification removes former business from all metrics
+PASS forged client event cannot promote unknown or increase usage
+PASS two workspace isolation regardless of active client identity
+PASS atomic classification batch rolls back earlier valid append on stale later revision
+PASS database blocks foreign classification update delete replacement and skipped revision
+PASS snapshot remains frozen after current product archive rename
+PASS duplicate batch items cannot become multiple reuse invocations
+PASS ambiguous multiple canonical batches remove workflow from reuse
+PASS window UTC exact boundary selection and end-window later completion
+PASS unknown verdict retained as completed but excluded from valid verdict rate
+PASS hash-corrupt audit excluded not treated as first-decision ground truth
+PASS no-business populated cohort has no invented cost or complete ratios
+PASS actual API parameter spoofing and duplicate scope inputs are rejected
+PASS actual API anonymous foreign owner feature disabled and DB failure stay explicit
+PASS window exact 90 days permitted and excess or non-roundtrip UTC rejected
+PASS material source ownership revision evidence and nested keys cannot be fabricated
+PASS classification CLI bytes readonly symlink and fixed sanitized failures
+PASS UTF8 budget ignores unknown snapshot and rejects same bytes once business
+PASS 100 classifications supported 101 refuses without partial rates
+PASS: 21 cases, 274 actual local D1 requests; /private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1-results.json

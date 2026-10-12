@@ -1,0 +1,15 @@
+{
+  "command": [
+    "pnpm",
+    "exec",
+    "eslint",
+    "lib/value-metrics",
+    "app/account/value-metrics",
+    "app/api/value-metrics",
+    "components/AccountWorkspaceNav.tsx",
+    "scripts/verify-value-metrics.ts",
+    "scripts/value-metrics-classification.mjs",
+    "scripts/value-metrics-ui.mjs"
+  ],
+  "exitCode": 0
+}

@@ -1,5 +1,7 @@
 # Pairvu 自动开发与独立验收
 
+2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
+
 状态：2026-10-12：UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。 用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。 后文日期段为历史。
 
 ## 角色与范围
@@ -105,3 +107,9 @@ SKU启用及生命周期修复已生产关闭：ce1f2fee7f43735ff6b6f13f38678409
 ## 2026-10-11 UPG05本地独立验收完成
 
 候选736e61f7b7c1ffe4e886ef4b5821d79049265621，原独立QA43项D1/798请求、38项真实组件浏览器、49项结构回归及workspace回归/typecheck PASS，报告operations/evidence/UPG-05.json，原件UPG-05目录。正式qa PASS→release-ready已完成，两角色空闲。UPG05未推送、未生产0021迁移/部署/启用，生产仍62787fd。下一步等待UPG05明确发布授权，再GitHub-first+迁移+Cloudflare+生产登录审计验收；不能继承UPG04授权。无新授权保持RELEASE_READY，不重复派单/部署或跳过依赖启动UPG06，无变化不重复通知。完成报告说明下一步。
+
+## UPG-10独立验收完成
+
+2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
+
+CLI已执行candidate→start-qa→qa PASS→release-ready。原报告[evidence/UPG-10.json](evidence/UPG-10.json)，56份本轮原始材料映射[evidence/UPG-10/archive-index.json](evidence/UPG-10/archive-index.json)。开发CLI模块兼容、类型/夹具/UI溢出等自测失败均修复并保留；独立QA无未解决产品阻断，环境/QA夹具失败亦保留。构建为固定源码归档的本地验证，嵌入SHA为unknown，不能作生产发布artifact。下一步需用户明确UPG10发布/启用授权；此前不自动发布或启动下一运行时单元，不恢复巡检。

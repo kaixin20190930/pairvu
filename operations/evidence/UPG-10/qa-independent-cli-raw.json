@@ -1,0 +1,55 @@
+[
+  {
+    "path": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/scripts/value-metrics-classification.mjs",
+    "args": [
+      "--input",
+      "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/material.json",
+      "--inventory",
+      "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/inventory.json"
+    ],
+    "status": 0,
+    "stdout": "{\n  \"status\": \"VALID_PREPARATION\",\n  \"preparationOnly\": true,\n  \"valueEvidence\": false,\n  \"qualityEvidence\": false,\n  \"workspaceId\": \"w1\",\n  \"inputSha256\": \"ced54c509af4c8159d0eb3ce3d9cf1c5ff1fcbf84706cf143732e94b4b4f3523\",\n  \"inventorySha256\": \"f26f1056e4000a0592bd011562d4f470996b725ec24bf934d92d465175ed2b76\",\n  \"recordCount\": 1,\n  \"executionRequirement\": \"Only a separately authorized operator may execute all statements atomically with D1Database.batch after reviewing original evidence. This tool never imports.\",\n  \"statements\": [\n    {\n      \"sql\": \"INSERT INTO analysis_value_classifications(id,analysis_id,workspace_id,revision,classification,evidence_ref,verified_by,verified_at,material_sha256) VALUES(?,?,?,?,?,?,?,?,?)\",\n      \"params\": [\n        \"vc_c4d9906acb1ef537add163774af850470387ef7e41b50e2e0cdb8af796801794\",\n        \"s1\",\n        \"w1\",\n        2,\n        \"test\",\n        \"evidence:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n        \"synthetic-verifier\",\n        \"2026-10-01T00:00:00.000Z\",\n        \"ced54c509af4c8159d0eb3ce3d9cf1c5ff1fcbf84706cf143732e94b4b4f3523\"\n      ]\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/alias.mjs",
+    "args": [
+      "--input",
+      "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/material.json",
+      "--inventory",
+      "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/inventory.json"
+    ],
+    "status": 0,
+    "stdout": "{\n  \"status\": \"VALID_PREPARATION\",\n  \"preparationOnly\": true,\n  \"valueEvidence\": false,\n  \"qualityEvidence\": false,\n  \"workspaceId\": \"w1\",\n  \"inputSha256\": \"ced54c509af4c8159d0eb3ce3d9cf1c5ff1fcbf84706cf143732e94b4b4f3523\",\n  \"inventorySha256\": \"f26f1056e4000a0592bd011562d4f470996b725ec24bf934d92d465175ed2b76\",\n  \"recordCount\": 1,\n  \"executionRequirement\": \"Only a separately authorized operator may execute all statements atomically with D1Database.batch after reviewing original evidence. This tool never imports.\",\n  \"statements\": [\n    {\n      \"sql\": \"INSERT INTO analysis_value_classifications(id,analysis_id,workspace_id,revision,classification,evidence_ref,verified_by,verified_at,material_sha256) VALUES(?,?,?,?,?,?,?,?,?)\",\n      \"params\": [\n        \"vc_c4d9906acb1ef537add163774af850470387ef7e41b50e2e0cdb8af796801794\",\n        \"s1\",\n        \"w1\",\n        2,\n        \"test\",\n        \"evidence:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n        \"synthetic-verifier\",\n        \"2026-10-01T00:00:00.000Z\",\n        \"ced54c509af4c8159d0eb3ce3d9cf1c5ff1fcbf84706cf143732e94b4b4f3523\"\n      ]\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "path": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/scripts/value-metrics-classification.mjs",
+    "args": [],
+    "status": 2,
+    "stdout": "{\"status\":\"BLOCKED\",\"preparationOnly\":true,\"valueEvidence\":false,\"qualityEvidence\":false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/scripts/value-metrics-classification.mjs",
+    "args": [
+      "--evil",
+      "secret"
+    ],
+    "status": 64,
+    "stdout": "{\"status\":\"INVALID_USAGE\",\"preparationOnly\":true,\"valueEvidence\":false,\"qualityEvidence\":false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/scripts/value-metrics-classification.mjs",
+    "args": [
+      "--input",
+      "/private/tmp/no-secret-source",
+      "--inventory",
+      "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-rJoX0B/cli/inventory.json"
+    ],
+    "status": 2,
+    "stdout": "{\"status\":\"BLOCKED\",\"preparationOnly\":true,\"valueEvidence\":false,\"qualityEvidence\":false}\n",
+    "stderr": ""
+  }
+]

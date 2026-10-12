@@ -1,0 +1,33 @@
+{
+  "unitId": "UPG-10",
+  "status": "PASS",
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-value-metrics-pLXw3t",
+  "checks": [
+    {
+      "name": "single-query owner scope rechecked after membership revoked between reads",
+      "status": "PASS"
+    },
+    {
+      "name": "exact 5000 cohort accepted and 5001 rejected by actual D1 query",
+      "status": "PASS"
+    },
+    {
+      "name": "exact 100 audit events supported 101 refuses and test excludes history from budget",
+      "status": "PASS"
+    }
+  ],
+  "sources": {
+    "lib/value-metrics/repository.ts": "7f0584231bf3d548abd898a1789641b7255cf55b26fffed1254d0f8316fcf876",
+    "lib/value-metrics/calculate.ts": "17aba221362c9bf746dd47c8dcf08a982cb1a91312091e522294f3ffd6a22b94",
+    "lib/value-metrics/classification.ts": "d958b5e99f917d98c25f2ccc50b92e939a6dd729dbfe5076d65263ee4642d49b",
+    "lib/value-metrics/validation.ts": "72138fcd02a3bb463b0f96119371c703dd8efdf9c05a94a2bf5b0c65d109405f",
+    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125",
+    "scripts/verify-value-metrics.ts": "c70a9347a77cdc896f28bb6e2def420cb87bb8acaf8b5663c1ba2a41cb5cf5b7"
+  },
+  "requestCount": 299,
+  "sampleReport": null,
+  "failure": null
+}

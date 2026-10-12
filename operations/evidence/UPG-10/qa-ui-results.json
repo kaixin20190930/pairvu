@@ -1,0 +1,61 @@
+{
+  "unitId": "UPG-10",
+  "synthetic": true,
+  "valueEvidence": false,
+  "qualityEvidence": false,
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "375px actual component no document overflow",
+      "status": "PASS",
+      "detail": {
+        "client": 375,
+        "scroll": 375,
+        "text": "Value metrics\nOverview\nProducts\nBatches\nNew batch\nValue metrics\n\nOnly analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.\n\nStart · UTC, inclusive\nEnd · UTC, exclusive\nApply window\n\nCreation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.\n\nPolicy value-metrics-001 · generated 2026-10-12T12:44:08.743Z · source snapshot 2026-10-12T12:44:09.100Z\n\nIncluded and excluded\n\n10 business · 0 test excluded · 0 unknown excluded · 10 cohort analyses\n\nClassification coverage: 10 / 10 · 100.0%. Unclassified: 0; invalid source records: 0; invalid creation dates outside this cohort: 0.\n\nAnalysis usage\n\n10 included · 6 completed · 1 failed · 2 pending\n\nInvalid completion times: 1; unknown status: 0.\n\nWorkflow: 7 single · 3 batch · 0 unknown. Generation model: unknown for all 10 analyses.\n\nMachine decisions\n\n2 PASS · 1 REVIEW · 2 FAIL · 1 unknown\n\nREVIEW / valid completed verdicts: 1 / 5 · 20.0%.\n\nFrozen SKU usage\n\nLinked / business completed: 4 / 6 · 66.7%. Missing or invalid snapshots: 2.\n\n3 distinct product/reference workflow uses · 2 subsequent uses inside this window. Batch items count once per invocation.\n\nUnknown workflow among linked analyses: 0. First window use is excluded from reuse; no lifetime reuse or ranking.\n\nHuman decisions\n\nValid audit coverage: 2 / 6 · 33.3%. Current 1 approve · 0 reject · 1 revoke.\n\nNo audit: 4; invalid audit: 0. Decisions are not ground truth.\n\nFirst-decision waiting time: 1.0 min mean · 1 valid samples; 5 missing (4 no valid decision, 1 invalid/negative).\n\nThis is elapsed waiting time, not human effort. Time saved: not evaluated.\n\nDetection estimated cost\n\nUSD 4.750000 known estimate\n\nKnown coverage: 7 / 10 · 70.0%; missing estimates: 3. Unknown costs are not zero.\n\nNot an invoice, profit or revenue. ROI: not evaluated.\n\nFrozen product/reference groups\nFrozen SKU\tProduct / reference\tCompleted analyses\tWorkflow uses\tSubsequent uses\nSKU-FROZEN\t362931c3-b7dd-4fa5-a601-e049af391c81\n11c3fce5-0286-493f-a07a-92c13ce8d32f\t4\t3\t2\n\nLow samples and missing sources limit interpretation. No quality improvement, commercial target or model ranking has been established.",
+        "width": 375
+      }
+    },
+    {
+      "name": "1280px actual component no document overflow",
+      "status": "PASS",
+      "detail": {
+        "client": 1280,
+        "scroll": 1280,
+        "width": 1280
+      }
+    },
+    {
+      "name": "populated hand oracle counters and value limitations",
+      "status": "PASS"
+    },
+    {
+      "name": "empty business guard and null costs and rates",
+      "status": "PASS",
+      "detail": "Value metrics\nOverview\nProducts\nBatches\nNew batch\nValue metrics\n\nOnly analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.\n\nStart · UTC, inclusive\nEnd · UTC, exclusive\nApply window\n\nCreation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.\n\nPolicy value-metrics-001 · generated 2026-10-12T12:46:50.939Z · source snapshot 2026-10-12T12:46:50.938Z\n\nIncluded and excluded\n\n0 business · 0 test excluded · 0 unknown excluded · 0 cohort analyses\n\nClassification coverage: 0 / 0 · Not available. Unclassified: 0; invalid source records: 0; invalid creation dates outside this cohort: 0.\n\nNo business records are included. This does not mean all actual business activity is zero. Controlled source classification is required.\n\nAnalysis usage\n\n0 included · 0 completed · 0 failed · 0 pending\n\nInvalid completion times: 0; unknown status: 0.\n\nWorkflow: 0 single · 0 batch · 0 unknown. Generation model: unknown for all 0 analyses.\n\nMachine decisions\n\n0 PASS · 0 REVIEW · 0 FAIL · 0 unknown\n\nREVIEW / valid completed verdicts: 0 / 0 · Not available.\n\nFrozen SKU usage\n\nLinked / business completed: 0 / 0 · Not available. Missing or invalid snapshots: 0.\n\n0 distinct product/reference workflow uses · 0 subsequent uses inside this window. Batch items count once per invocation.\n\nUnknown workflow among linked analyses: 0. First window use is excluded from reuse; no lifetime reuse or ranking.\n\nHuman decisions\n\nValid audit coverage: 0 / 0 · Not available. Current 0 approve · 0 reject · 0 revoke.\n\nNo audit: 0; invalid audit: 0. Decisions are not ground truth.\n\nFirst-decision waiting time: Not available · 0 valid samples; 0 missing (0 no valid decision, 0 invalid/negative).\n\nThis is elapsed waiting time, not human effort. Time saved: not evaluated.\n\nDetection estimated cost\n\nNot available known estimate\n\nKnown coverage: 0 / 0 · Not available; missing estimates: 0. Unknown costs are not zero.\n\nNot an invoice, profit or revenue. ROI: not evaluated.\n\nLow samples and missing sources limit interpretation. No quality improvement, commercial target or model ranking has been established."
+    },
+    {
+      "name": "failed request explicit error and no stale complete metrics",
+      "status": "PASS",
+      "detail": "Value metrics\nOverview\nProducts\nBatches\nNew batch\nValue metrics\n\nOnly analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.\n\nStart · UTC, inclusive\nEnd · UTC, exclusive\nApply window\n\nCreation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.\n\nMetrics could not be loaded. Try again.\n\nNo complete metrics are shown.\n\nRetry"
+    },
+    {
+      "name": "actual Retry recovers report after fixture backend resumes",
+      "status": "PASS",
+      "detail": "Value metrics\nOverview\nProducts\nBatches\nNew batch\nValue metrics\n\nOnly analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.\n\nStart · UTC, inclusive\nEnd · UTC, exclusive\nApply window\n\nCreation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.\n\nPolicy value-metrics-001 · generated 2026-10-12T12:44:08.743Z · source snapshot 2026-10-12T12:44:09.100Z\n\nIncluded and excluded\n\n10 business · 0 test excluded · 0 unknown excluded · 10 cohort analyses\n\nClassification coverage: 10 / 10 · 100.0%. Unclassified: 0; invalid source records: 0; invalid creation dates outside this cohort: 0.\n\nAnalysis usage\n\n10 included · 6 completed · 1 failed · 2 pending\n\nInvalid completion times: 1; unknown status: 0.\n\nWorkflow: 7 single · 3 batch · 0 unknown. Generation model: unknown for all 10 analyses.\n\nMachine decisions\n\n2 PASS · 1 REVIEW · 2 FAIL · 1 unknown\n\nREVIEW / valid completed verdicts: 1 / 5 · 20.0%.\n\nFrozen SKU usage\n\nLinked / business completed: 4 / 6 · 66.7%. Missing or invalid snapshots: 2.\n\n3 distinct product/reference workflow uses · 2 subsequent uses inside this window. Batch items count once per invocation.\n\nUnknown workflow among linked analyses: 0. First window use is excluded from reuse; no lifetime reuse or ranking.\n\nHuman decisions\n\nValid audit coverage: 2 / 6 · 33.3%. Current 1 approve · 0 reject · 1 revoke.\n\nNo audit: 4; invalid audit: 0. Decisions are not ground truth.\n\nFirst-decision waiting time: 1.0 min mean · 1 valid samples; 5 missing (4 no valid decision, 1 invalid/negative).\n\nThis is elapsed waiting time, not human effort. Time saved: not evaluated.\n\nDetection estimated cost\n\nUSD 4.750000 known estimate\n\nKnown coverage: 7 / 10 · 70.0%; missing estimates: 3. Unknown costs are not zero.\n\nNot an invoice, profit or revenue. ROI: not evaluated.\n\nFrozen product/reference groups\nFrozen SKU\tProduct / reference\tCompleted analyses\tWorkflow uses\tSubsequent uses\nSKU-FROZEN\t362931c3-b7dd-4fa5-a601-e049af391c81\n11c3fce5-0286-493f-a07a-92c13ce8d32f\t4\t3\t2\n\nLow samples and missing sources limit interpretation. No quality improvement, commercial target or model ranking has been established."
+    },
+    {
+      "name": "feature disabled hides navigation and complete metrics",
+      "status": "PASS",
+      "detail": {
+        "links": [
+          "/account",
+          "/account/products",
+          "/account/batches",
+          "/account/batches/new"
+        ],
+        "text": "Overview\nProducts\nBatches\nNew batch\nValue metrics\n\nOnly analyses explicitly classified as business enter these metrics. Test and unknown records are excluded. Quality and business value remain unverified.\n\nStart · UTC, inclusive\nEnd · UTC, exclusive\nApply window\n\nCreation-time cohort. Default: last 30 days; maximum: 90 days. Completion and decisions are read at the snapshot time, including after the window end.\n\nValue metrics are currently unavailable.\n\nNo complete metrics are shown.\n\nRetry"
+      },
+      "fixtureCorrection": "Earlier reload of qaMode=error restored error fixture; navigate to unparameterized account before applying disabled fixture."
+    }
+  ]
+}

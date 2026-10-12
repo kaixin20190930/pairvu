@@ -1,0 +1,3 @@
+import pathlib,subprocess,json,sys,datetime
+r=pathlib.Path(__file__).parent;name=sys.argv[1];commands={'build':['pnpm','exec','next','build'],'typecheck':['pnpm','exec','tsc','--noEmit'],'specialized':['pnpm','test:value-metrics'],'workspace':['pnpm','test:m1:workspace-analysis']}
+p=subprocess.run(commands[name],cwd=r,capture_output=True,text=True);(r/f'qa-{name}-stdout.txt').write_text(p.stdout);(r/f'qa-{name}-stderr.txt').write_text(p.stderr);d={'command':commands[name],'exitCode':p.returncode,'completedAt':datetime.datetime.now(datetime.timezone.utc).isoformat()};(r/f'qa-{name}-command.json').write_text(json.dumps(d,indent=2));print(json.dumps(d));print(p.stdout[-1800:]);print(p.stderr[-1800:]);raise SystemExit(p.returncode)

@@ -1,0 +1,135 @@
+{
+  "unitId": "UPG-10",
+  "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T12:56:46.099Z",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "complete allowed diff and source/evidence hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "independent24 actual D1 checks and573 requests",
+      "status": "PASS"
+    },
+    {
+      "name": "test and unknown excluded from all business numerators denominators and groups",
+      "status": "PASS"
+    },
+    {
+      "name": "owner scope client spoofing and inter-read membership revocation",
+      "status": "PASS"
+    },
+    {
+      "name": "append-only atomic classification and stale revision rollback",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen SKU batch deduplication ambiguous linkage and archive stability",
+      "status": "PASS"
+    },
+    {
+      "name": "review deduplication current revoke first-decision missing and negative wait",
+      "status": "PASS"
+    },
+    {
+      "name": "UTC boundaries unknown verdict null ratios zero and missing costs",
+      "status": "PASS"
+    },
+    {
+      "name": "UTF8 cohort classification and audit budget refusal without partial ratios",
+      "status": "PASS"
+    },
+    {
+      "name": "independent7 actual component normal empty error retry navigation and responsive checks",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed candidate source archive Next build",
+      "status": "PASS"
+    },
+    {
+      "name": "typecheck targeted lint and workspace-analysis regression",
+      "status": "PASS"
+    },
+    {
+      "name": "specialized26 actual D1 checks and434 requests replay",
+      "status": "PASS"
+    },
+    {
+      "name": "value and quality evidence remain false",
+      "status": "PASS"
+    },
+    {
+      "name": "shared controller changes preserved and runtime tree clean",
+      "status": "PASS"
+    }
+  ],
+  "findings": [],
+  "qualityEvidence": false,
+  "valueEvidence": false,
+  "artifactIndex": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-artifact-index.json",
+  "independentEvidence": {
+    "d1": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-d1-results.json",
+    "budget": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-budget-results.json",
+    "component": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-ui-results.json",
+    "handOracle": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-hand-oracle-report.json",
+    "sourceBinding": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-source-verification.json",
+    "build": "/private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-build-command.json"
+  },
+  "counts": {
+    "independentD1Checks": 24,
+    "independentD1Requests": 573,
+    "independentComponentChecks": 7,
+    "specializedReplayChecks": 26,
+    "specializedReplayD1Requests": 434,
+    "independentClassificationCliInvocations": 5
+  },
+  "build": {
+    "command": "pnpm exec next build",
+    "exitCode": 0,
+    "sourceCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+    "isolatedGitArchive": true,
+    "builtRoutes": [
+      "/account/value-metrics",
+      "/api/value-metrics",
+      "/api/value-metrics/status"
+    ],
+    "embeddedBuildSha": "unknown",
+    "explanation": "Actual fixed-candidate source archive built after final query changes, with all source hashes verified. Archive lacks Git metadata; existing build config truthfully embeds unknown. Local QA build, not a GitHub-first production release artifact."
+  },
+  "preservedNonProductFailures": [
+    "Initial Turbopack build rejected dependency symlink outside archive root. Copied installed dependencies locally and actual build passed; initial logs preserved.",
+    "QA scripts initially used scripts-directory relative imports from archive root; corrected imports, original harness text preserved.",
+    "Initial duplicate batch fixture reused a candidate already constrained UNIQUE by schema; corrected to distinct candidate/same analysis, reran full independent suite. Initial failure JSON, requests, stdout, stderr and source preserved.",
+    "Browser plaintext mode endpoint navigation was unsupported ERR_BLOCKED_BY_CLIENT; empty/error used ordinary HTML fixture pages. Retry/disabled configured local synthetic API backend. No security warning bypass, production interaction or session extraction.",
+    "Initial disabled UI check reloaded a qaMode=error URL and restored error fixture; corrected setup on unparameterized route and rechecked actual UI, initial result preserved.",
+    "Final tree comparison observed controller-added contract dispatch note; confirmed only controller operations/roadmap changes, preserved them and verified no runtime changes."
+  ],
+  "limitations": [
+    "All analysis/source classifications and env/session identities are synthetic. No real customer value, quality, ROI, labor saving or verified business attribution established.",
+    "Browser uses actual client/navigation/module CSS with framework navigation and API fixtures; actual API/SSR/repository separately exercised on local D1. No production login acceptance.",
+    "Independent budgets include actual5000/5001 cohort,100/101 classifications,100/101 audits and UTF8 snapshots. Aggregate16MiB and numeric sum overflow also passed fixed-candidate specialized replay.",
+    "Build embedded SHA unknown due archive provenance metadata absence; future authorized release must build exact pushed commit under mandatory production gates.",
+    "No production migration/database access, push, deployment, feature enablement, model, credits, payment or client assets. Feature remains false."
+  ],
+  "nextAction": {
+    "action": "Controller records fixed-candidate independent PASS and advances UPG-10 to RELEASE_READY.",
+    "dependency": "Preserve/import this original QA report and current-turn raw index.",
+    "automatic": true,
+    "userInputRequiredForLocalAcceptance": false,
+    "productionRequires": "New UPG-10 release/enablement authorization, GitHub-first verification,0022 migration,same pushed-commit deployment and independent production login smoke.",
+    "realValueRequires": "Separate authorized actual business classification/provenance and real usage.",
+    "automation": "pairvu-2 remains paused."
+  }
+}

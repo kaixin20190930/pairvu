@@ -1,0 +1,4 @@
+PASS single-query owner scope rechecked after membership revoked between reads
+PASS exact 5000 cohort accepted and 5001 rejected by actual D1 query
+PASS exact 100 audit events supported 101 refuses and test excludes history from budget
+PASS: 3 cases, 299 actual local D1 requests; /private/tmp/pairvu-upg10-qa-i4qtpn0l/qa-independent-budget-results.json

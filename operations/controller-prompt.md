@@ -97,3 +97,11 @@ UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81
 原始最终报告operations/evidence/UPG-07A.json；首轮FAIL与31项独立反例归档operations/evidence/UPG-07A-attempt-1；最终边界原始巨型材料经无损gzip及摘要保留，映射见UPG-07A/archive-index.json。CLI已qa PASS→close。
 
 下一步：按样本缺口清单由用户/数据保管方准备授权记录、真实图像及参考集合、SKU分割、双人盲标/仲裁、独立留出集和baseline/candidate实际运行来源。总控本轮工程收尾已自动完成；因用户确认暂无样本，不自动开展真实质量评测或线上UPG-07接入，也不启动其他单元。样本就绪后先独立核实来源、冻结输入，再制定实际评测/线上接入最小契约；任何新增模型调用和生产发布另需相应授权。
+
+## 2026-10-12 UPG10已授权开发
+用户确认真实样本暂缺，转而授权UPG10价值指标。契约operations/contracts/UPG-10.md，正式claim及原角色绑定已完成；持续主动回收开发→固定SHA独立QA→返工→RELEASE_READY。本单元无生产授权，pairvu-2仍PAUSED，UPG07真实质量BLOCKED。测试/unknown排除所有业务指标，不能用客户端埋点/生产环境推定business。完成报告更新整体进度并明确下一步发布授权与真实业务分类缺口。
+
+## 2026-10-12 UPG10正式RELEASE_READY
+
+2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。
+正式证据operations/evidence/UPG-10.json；本轮56材料按摘要归档。原开发/QA均completed。下一步等待本单元发布/启用授权，再严格GitHub-first、0022迁移、同提交部署和真实登录验收；不能拿UPG06旧授权发布。真实业务分类不是本次合成验收，无真实材料不制造标签，UPG07质量继续BLOCKED。无新授权不重复派单或恢复pairvu-2。
