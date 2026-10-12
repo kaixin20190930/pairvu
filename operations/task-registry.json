@@ -19,9 +19,9 @@
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
-      "reason": "仅生产功能开关及对应配置断言，范围明确。",
-      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
-      "applied": true
+      "reason": "仅启用已验收VALUE_METRICS配置并调整对应配置断言，范围明确。",
+      "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
+      "applied": false
     }
   },
   "qa": {
@@ -40,9 +40,9 @@
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
-      "reason": "固定最终SHA核对启用差分、原证据与专项/typecheck。",
-      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
-      "applied": true
+      "reason": "固定发布SHA检查启用差分及既有验收来源，专项与typecheck足够覆盖此差分。",
+      "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
+      "applied": false
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -61,9 +61,9 @@
     "productionModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "真实会话、规则/机器/人审分离、冻结SKU来源与权限跨层验收。",
-      "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
-      "applied": true
+      "reason": "真实登录、迁移后的unknown排除、API与页面一致性、生产来源核验涉及跨层证据。",
+      "upgradeCondition": "可定位反复推理缺陷才重评模型；会话/权限问题不升级。",
+      "applied": false
     },
     "environmentIncidents": [
       {
@@ -79,7 +79,7 @@
   "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "2026-10-12：UPG-10价值指标已完成开发和固定SHA独立验收PASS，候选`3f6447c1c5e3af159ae86be3f7a413a31db1a169`，正式RELEASE_READY。24项独立D1/573请求、7项组件、固定候选源码build、typecheck/lint和相关回归通过；原始材料已归档。功能默认关闭，未推送/迁移/部署/启用，真实质量与商业价值仍未验证。生产仍UPG-06 da0e355；pairvu-2保持PAUSED。",
+  "notes": "用户已授权UPG10发布启用与必要修复，正在准备启用配置；正式状态保持RELEASE_READY至真实生产证据导入。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -182,9 +182,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "获UPG10发布与启用授权后：提交配置/验证→推GitHub→fresh核验→0022迁移→同SHA Cloudflare部署→真实登录独立验收",
-    "dependency": "本单元生产发布/启用尚未授权；真实业务来源分类及实际使用另需受控材料",
-    "automatic": false
+    "action": "启用配置固定SHA增量QA→推送及fresh核验→0022迁移→同SHA部署→生产真实登录独立QA",
+    "dependency": "无新增授权依赖；不导入业务标签，不造真实价值数据",
+    "automatic": true
   },
   "completedUnitId": "UPG-07A",
   "completedCandidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
@@ -235,5 +235,12 @@
     "valueEvidence": false,
     "classification": "test/unknown excluded, no actual business labels created",
     "evidence": "operations/evidence/UPG-10.json"
+  },
+  "releaseAuthorization": {
+    "unitId": "UPG-10",
+    "authorized": true,
+    "authorizedAt": "2026-10-12T13:02:58.753Z",
+    "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 user request: 授权发布并启用 UPG-10，按仓库规则先推送 GitHub、核验远端，再执行 0022 迁移、部署 Cloudflare 并完成真实登录独立验收，有问题继续修复。",
+    "scope": "UPG10 GitHub-first + 0022 migration + Cloudflare deploy + enable + real login independent QA and necessary repair; no business classification backfill/payment/model calls"
   }
 }
