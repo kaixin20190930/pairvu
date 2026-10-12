@@ -1,0 +1,39 @@
+# Holds the original value in memory only; never writes or prints credentials.
+import pathlib,shlex,json,urllib.request,urllib.error,datetime,time,os
+root=pathlib.Path('/Users/liukai/Documents/Product Visual QA Platform'); source=root/'.dev.vars';outdir=root/'operations/evidence/security-upg10-2026-10-12'
+aid='23e53b75ddd6ee2d8b80031f6a1e45e0'
+def value():
+ for line in source.read_text().splitlines():
+  if line.startswith('CLOUDFLARE_API_TOKEN='):return shlex.split(line.split('=',1)[1])[0]
+ raise ValueError('Expected credential key absent')
+def verify(token,path):
+ req=urllib.request.Request('https://api.cloudflare.com/client/v4'+path,headers={'Authorization':'Bearer '+token})
+ try:
+  with urllib.request.urlopen(req,timeout=25) as r:status=r.status;d=json.load(r)
+ except urllib.error.HTTPError as e:
+  status=e.code
+  try:d=json.load(e)
+  except Exception:d={}
+ except Exception as e:return {'networkErrorType':type(e).__name__}
+ result=d.get('result') or {}
+ safe={'httpStatus':status,'success':d.get('success'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+ if path.endswith('/verify') and isinstance(result,dict):safe.update(id=result.get('id'),status=result.get('status'))
+ return safe
+try:
+ old=value(); initial=verify(old,'/accounts/'+aid+'/tokens/verify')
+ if initial.get('id')!='f1f51cba573b537ce29db8f3086490ee' or initial.get('status')!='active':raise ValueError('Original token identity or active status does not match; stop')
+ print('Original identity verified; waiting for local credential replacement. No credential persisted.',flush=True)
+ deadline=time.monotonic()+1800
+ while time.monotonic()<deadline:
+  time.sleep(2)
+  try:new=value()
+  except Exception:continue
+  if new!=old:
+   report={'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'originalTokenId':initial['id'],'old':verify(old,'/accounts/'+aid+'/tokens/verify'),'new':verify(new,'/accounts/'+aid+'/tokens/verify')}
+   if report['new'].get('status')=='active':
+    for label,path in [('pairvuDeployments','/workers/scripts/pairvu/deployments'),('pairvuD1Metadata','/d1/database/2d16e86a-fa00-4990-982a-ce4cc7ea31aa'),('r2BucketList','/r2/buckets')]:report[label]=verify(new,'/accounts/'+aid+path)
+   report['rotationVerified']=report['old'].get('success') is False and report['old'].get('httpStatus') in [400,401,403] and report['new'].get('status')=='active'
+   report['note']='No deployment mutation, no database content, no secret values logged. Permission equivalence requires separate policy evidence.'
+   (outdir/'replacement-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2),flush=True);break
+ else:print('Timed out awaiting local replacement; no rotation claimed.',flush=True)
+except Exception as e:print('Stopped safely: '+type(e).__name__,flush=True);raise SystemExit(1)

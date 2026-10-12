@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-12T13:54:14Z",
+  "httpStatus": 200,
+  "errorCodes": [],
+  "responseKeys": [
+    "errors",
+    "result",
+    "result_info",
+    "success"
+  ],
+  "resultType": "list",
+  "recordCount": 2,
+  "hasMore": false,
+  "matchingTokenEvents": [],
+  "entries": [
+    {
+      "id": "01a1305f-3bb0-74fe-a352-787062b90a1c",
+      "action": {
+        "type": "update",
+        "time": "2026-10-12T13:48:30Z",
+        "result": "success"
+      },
+      "actor": {
+        "token_id": null,
+        "token_name": null,
+        "context": "api"
+      },
+      "resource": {
+        "id": "924a77cbf292f6217201ac9e7c64a451",
+        "type": "user",
+        "product": ""
+      }
+    },
+    {
+      "id": "01a1305b-9a00-75f1-a2cc-ef55b941908c",
+      "action": {
+        "type": "update",
+        "time": "2026-10-12T13:44:32Z",
+        "result": "success"
+      },
+      "actor": {
+        "token_id": null,
+        "token_name": null,
+        "context": "api"
+      },
+      "resource": {
+        "id": "924a77cbf292f6217201ac9e7c64a451",
+        "type": "user",
+        "product": ""
+      }
+    }
+  ]
+}

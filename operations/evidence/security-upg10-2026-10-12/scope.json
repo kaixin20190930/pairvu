@@ -1,0 +1,200 @@
+{
+  "checkedAt": "2026-10-12T13:43:33.430224+00:00",
+  "scope": "Known project root environment files only, not complete host or remote CI inventory",
+  "projectChecks": [
+    {
+      "project": "/Users/liukai/Documents/Product Visual QA Platform",
+      "credentialFilesChecked": 2,
+      "matchingCredentialFiles": [
+        "/Users/liukai/Documents/Product Visual QA Platform/.dev.vars"
+      ]
+    },
+    {
+      "project": "/Users/liukai/web/ai-best-tool",
+      "credentialFilesChecked": 2,
+      "matchingCredentialFiles": []
+    },
+    {
+      "project": "/Users/liukai/Documents/ChatGPT/MCP Router",
+      "credentialFilesChecked": 2,
+      "matchingCredentialFiles": []
+    },
+    {
+      "project": "/Users/liukai/Documents/ChatGPT/Rulevio",
+      "credentialFilesChecked": 0,
+      "matchingCredentialFiles": []
+    },
+    {
+      "project": "/Users/liukai/Documents/ChatGPT/MVP",
+      "credentialFilesChecked": 2,
+      "matchingCredentialFiles": []
+    },
+    {
+      "project": "/Users/liukai/Documents/triptrace.ai",
+      "credentialFilesChecked": 2,
+      "matchingCredentialFiles": []
+    },
+    {
+      "project": "/Users/liukai/web/SoraAINow",
+      "credentialFilesChecked": 4,
+      "matchingCredentialFiles": []
+    }
+  ],
+  "trackedWorkingTreeExactValueMatches": [],
+  "rootProcessEnvMatches": [],
+  "workers": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": [],
+    "resources": [
+      {
+        "id": "flux-ai",
+        "name": null
+      },
+      {
+        "id": "flux-ai-worker",
+        "name": null
+      },
+      {
+        "id": "flux-ai-worker-dev",
+        "name": null
+      },
+      {
+        "id": "flux-ai-worker-prod",
+        "name": null
+      },
+      {
+        "id": "mcp-dev",
+        "name": null
+      },
+      {
+        "id": "mcp-store-auth",
+        "name": null
+      },
+      {
+        "id": "myvps",
+        "name": null
+      },
+      {
+        "id": "pairvu",
+        "name": null
+      },
+      {
+        "id": "sigoo-consumer",
+        "name": null
+      },
+      {
+        "id": "sigoo-developer-evidence-consumer",
+        "name": null
+      },
+      {
+        "id": "sigoo-emerging-signals-collector-staging",
+        "name": null
+      },
+      {
+        "id": "sigoo-feed",
+        "name": null
+      },
+      {
+        "id": "sigoo-research-consumer",
+        "name": null
+      },
+      {
+        "id": "sigoo-router-production",
+        "name": null
+      },
+      {
+        "id": "threadline-intake",
+        "name": null
+      },
+      {
+        "id": "triptrace-ai-next",
+        "name": null
+      },
+      {
+        "id": "video-worker",
+        "name": null
+      },
+      {
+        "id": "video-worker-prod",
+        "name": null
+      }
+    ]
+  },
+  "pages": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": [],
+    "resources": [
+      {
+        "id": "8f3f3205-a8cd-4b81-971d-06ff2b995edf",
+        "name": "rulevio-public-beta"
+      },
+      {
+        "id": "b8ccbc2c-bb1e-4127-9103-a392711a965c",
+        "name": "sigoo-ai"
+      },
+      {
+        "id": "e625a40a-3dd3-44d7-aa35-f5797a3805c5",
+        "name": "flux-ai"
+      }
+    ]
+  },
+  "d1": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": [],
+    "resources": [
+      {
+        "id": "0d56a659-0aa9-4eb2-adca-8a150c212ee0",
+        "name": "triptrace-atlas"
+      },
+      {
+        "id": "0a995e9c-719d-46d9-b3a7-03ad70b0a402",
+        "name": "threadline-intake"
+      },
+      {
+        "id": "5108572e-6104-4821-93d8-8abc5cad2f7c",
+        "name": "sigoo-emerging-signals-staging"
+      },
+      {
+        "id": "2d16e86a-fa00-4990-982a-ce4cc7ea31aa",
+        "name": "pairvu-production"
+      },
+      {
+        "id": "2b8d8aad-20ba-4243-9431-21cf67d08ed6",
+        "name": "visualqa-dev-preview"
+      },
+      {
+        "id": "a8622580-008f-4e39-a686-b96e9ac7f77e",
+        "name": "sigoo-db"
+      },
+      {
+        "id": "ad540f10-601f-41d4-86d4-6507972d0985",
+        "name": "solana-alpha-db"
+      },
+      {
+        "id": "7326c0a0-bcab-45a5-8d4e-cc87f2508154",
+        "name": "mcp-dev"
+      },
+      {
+        "id": "d8405a7e-ca38-4345-a74b-57491619b0b8",
+        "name": "mcp"
+      },
+      {
+        "id": "6cb4fc8d-02b7-40ad-833e-838b48c3ebbf",
+        "name": "flux-ai-dev"
+      },
+      {
+        "id": "011af577-7121-4de9-99b9-d925387ffacc",
+        "name": "flux-ai"
+      }
+    ]
+  },
+  "audit": {
+    "httpStatus": 400,
+    "success": null,
+    "errorCodes": [],
+    "accessibleRecordCount": null
+  }
+}

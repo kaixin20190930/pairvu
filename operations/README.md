@@ -2,7 +2,7 @@
 
 2026-10-12当前：UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 
-安全事项HUMAN-05（P0）仍OPEN：我方QA文件检索误将Cloudflare令牌回显到私有工具记录，归档材料扫描未发现凭据值。未执行或验证撤销/轮换，不声称记录已删除。生产密钥变更超出本次功能发布范围，下一步需凭据保管方受控撤销与替换并核验依赖；不能自动关闭。
+2026-10-12安全处置更新：PairVu账户令牌已由用户受控轮换并本地替换；正确账户端点旧值401、新值200/active，Wrangler部署记录、D1/R2访问与公开服务验证通过，独立12项复核PASS。事件状态为REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS；生产a0b27ac/Worker 3e8dc987保持不变，未重复部署。外部CI/其他设备依赖未穷尽，审计不能排除误用，原账户级10项权限未收敛；这些保留为HUMAN-05后续项，不再描述为旧令牌尚未轮换。
 
 以下日期段保留历史状态。
 

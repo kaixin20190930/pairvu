@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "startedAt": "2026-10-12T13:51:42.022100+00:00",
+      "finishedAt": "2026-10-12T13:51:44.700216+00:00",
+      "httpStatus": "200",
+      "exitCode": 0,
+      "health": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+        "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+      }
+    },
+    {
+      "name": "home",
+      "url": "https://pairvu.com/",
+      "startedAt": "2026-10-12T13:51:44.700471+00:00",
+      "finishedAt": "2026-10-12T13:51:47.929333+00:00",
+      "httpStatus": "200",
+      "exitCode": 0
+    },
+    {
+      "name": "metricsAnonymous",
+      "url": "https://pairvu.com/api/value-metrics",
+      "startedAt": "2026-10-12T13:51:47.929408+00:00",
+      "finishedAt": "2026-10-12T13:51:52.224751+00:00",
+      "httpStatus": "401",
+      "exitCode": 0
+    }
+  ]
+}

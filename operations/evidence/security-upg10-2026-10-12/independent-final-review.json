@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "taskId": "HUMAN-05",
+  "incidentId": "UPG10-QA-CREDENTIAL-01",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-12T14:00:37.500980+00:00",
+  "reviewType": "INDEPENDENT_FINAL_CREDENTIAL_RESPONSE_EVIDENCE_REVIEW_AND_PUBLIC_SERVICE_CHECK",
+  "result": "PASS",
+  "scope": "Actual old-value invalidation / replacement acceptance from supplied sanitized evidence, preserved recorded permissions, known local storage verification, and independent public service availability on unchanged production version. Not a new deployment acceptance or an exhaustive incident-forensics certification.",
+  "modelSelection": {
+    "role": "independent reviewer",
+    "model": "Sol",
+    "reasoningEffort": "high",
+    "rationale": "Security evidence requires distinguishing account and user verification endpoints, credential rolling from token-record revocation, and availability from remediation; choice supplied by controller contract. No model changes performed."
+  },
+  "inputs": [
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/contracts/HUMAN-05.md",
+      "sha256": "1d06ff3ffae433723194ef3f3421918c5bd29d0881c35de483ae47b0e76979d9",
+      "sizeBytes": 1498
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/inspection.json",
+      "sha256": "d8a8aadd6ac2ca1bdfecd568c440d4560a326e7cac93652214054e49bb27b44c",
+      "sizeBytes": 763
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/scope.json",
+      "sha256": "ab1e698ea1fb89b3ef8325de365a0f9ac297cc573acc397e5b1e4fb477a4d720",
+      "sizeBytes": 4514
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/health-before.json",
+      "sha256": "7f436a998645fba4cc331763fbbd4679de13093c27e60a9840efac995cbc9867",
+      "sizeBytes": 165
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/replacement-verification.json",
+      "sha256": "fa4e771a51cb174b7e8d51cf2ccece0a40afa0eb31948c8692e360897258f42c",
+      "sizeBytes": 844
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/policy-before.json",
+      "sha256": "de4fe7c9880fa63e0417690e27a5145b69c4d28b451aa612cfbdda62f739c545",
+      "sizeBytes": 1119
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/policy-after.json",
+      "sha256": "f9565ed7ca66d42b2d96862736bff822d919a889c104137dbf2a074524201344",
+      "sizeBytes": 1113
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/local-storage-verification.json",
+      "sha256": "1cd7867e6bdcb1e38e4ac11a6455ef7e2a49d7798b1928ad48e8284510dcd74a",
+      "sizeBytes": 237
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/service-after.json",
+      "sha256": "abe65d0d26a02bd24e15bf9fbbedf2388e87a6321fdbff0017f195c45f0894eb",
+      "sizeBytes": 989
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/audit-after.json",
+      "sha256": "1ba69e251d6adb3913c2af557d1b1d95691d78dbacf3ae5acaee2f6042e9c2ab",
+      "sizeBytes": 1111
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/response-status.json",
+      "sha256": "0af75ef9a513dd1c1042a95e7fa4cc8026fe5d7bb730989e9e18d46e7c188c18",
+      "sizeBytes": 1296
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/verify-replacement.py.txt",
+      "sha256": "592b633f19ee7cfade63e42542a0b0a05afc212dba252e2ead85a1db031d5e22",
+      "sizeBytes": 2851
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/security-upg10-2026-10-12/audit.py.txt",
+      "sha256": "1b3800b2429b03c29eb51164dfa428a39a10f85780e22a3fc897306aa28b2026",
+      "sizeBytes": 1906
+    },
+    {
+      "path": "/tmp/pairvu-credential-response/independent-final-public-checks/public-checks.json",
+      "sha256": "e6b97232bc59b07ca46a22ec9ad9c3e49d805aa89e70e6151021c77659bbc4d4",
+      "sizeBytes": 1998
+    }
+  ],
+  "checks": [
+    {
+      "name": "original_identity_bound_to_account_verification",
+      "status": "PASS",
+      "evidence": {
+        "accountVerifyStatus": 200,
+        "originalTokenId": "f1f51cba573b537ce29db8f3086490ee",
+        "initialStatus": "active"
+      },
+      "basis": "Inspection shows original account token active; verification script independently guards the exact identity before retaining the original value in memory."
+    },
+    {
+      "name": "old_value_invalidated_correct_account_endpoint",
+      "status": "PASS",
+      "evidence": {
+        "httpStatus": 401,
+        "success": false,
+        "errorCodes": [
+          1000
+        ],
+        "id": null,
+        "status": null
+      },
+      "basis": "Verification source uses /accounts/{accountId}/tokens/verify for both old and new values. The observed old HTTP 401/error 1000 is separate from the earlier user-token endpoint 401. This accepts the reported invalidation of the old credential value, not deletion of the token record."
+    },
+    {
+      "name": "new_value_changed_and_same_token_active",
+      "status": "PASS",
+      "evidence": {
+        "httpStatus": 200,
+        "success": true,
+        "errorCodes": [],
+        "id": "f1f51cba573b537ce29db8f3086490ee",
+        "status": "active"
+      },
+      "basis": "Source emits replacement evidence only after new!=old. New account verify succeeds with the exact original token ID and active status. Same-ID active token is consistent with rolling its secret."
+    },
+    {
+      "name": "new_value_known_read_capabilities",
+      "status": "PASS",
+      "evidence": {
+        "pairvuDeployments": {
+          "httpStatus": 200,
+          "success": true,
+          "errorCodes": []
+        },
+        "pairvuD1Metadata": {
+          "httpStatus": 200,
+          "success": true,
+          "errorCodes": []
+        },
+        "r2BucketList": {
+          "httpStatus": 200,
+          "success": true,
+          "errorCodes": []
+        }
+      },
+      "limit": "Deployment records, D1 metadata, and R2 listing reads succeed. No deployment upload, database-content access, or business transaction was tested or required."
+    },
+    {
+      "name": "recorded_permissions_preserved_without_expansion",
+      "status": "PASS",
+      "evidence": {
+        "tokenId": "f1f51cba573b537ce29db8f3086490ee",
+        "comparedFields": [
+          "tokenId",
+          "name",
+          "scope",
+          "permissions",
+          "expiry",
+          "ipFilter"
+        ],
+        "permissionCount": 10,
+        "scope": "entire account 23e53b75ddd6ee2d8b80031f6a1e45e0",
+        "allComparedFieldsEqual": true
+      },
+      "limit": "Based on supplied before/after dashboard observations; this reviewer did not access the browser. Existing account-wide permissions were retained, not reduced to least privilege."
+    },
+    {
+      "name": "known_local_storage_synchronized",
+      "status": "PASS",
+      "evidence": {
+        "checkedAt": "2026-10-12T13:53:11.834816+00:00",
+        "exactReplacementValueInTrackedOrResponseFiles": [],
+        "sourceFileMode": "0o600",
+        "sourceGitIgnored": true,
+        "readOnlyValueComparison": true,
+        "credentialValueIncluded": false
+      },
+      "basis": "Replacement verifier reads the changed local source and validates that new value. Local-storage report records Git-ignore and 0600 plus no exact new-value matches in its stated tracked/response scan. No credential source file was opened by this reviewer.",
+      "limit": "Does not certify all CI, backups, other devices, nested files, or external secret stores."
+    },
+    {
+      "name": "independent_public_health_version_unchanged",
+      "status": "PASS",
+      "evidence": {
+        "name": "health",
+        "url": "https://pairvu.com/api/health",
+        "startedAt": "2026-10-12T13:58:53.196983+00:00",
+        "finishedAt": "2026-10-12T13:58:56.072328+00:00",
+        "exitCode": 0,
+        "httpStatus": 200,
+        "credentialHeadersSent": false,
+        "curlConfigDisabled": true,
+        "redirectsFollowed": false,
+        "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/health-body.txt",
+        "stderr": "",
+        "body": {
+          "ok": true,
+          "service": "pairvu",
+          "release": "public-beta",
+          "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+          "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+        }
+      },
+      "basis": "Actual reviewer unauthenticated curl observes HTTP 200 and exact existing SHA/platform version, also matching supplied service-after evidence."
+    },
+    {
+      "name": "independent_public_home_available",
+      "status": "PASS",
+      "evidence": {
+        "name": "home",
+        "url": "https://pairvu.com/",
+        "startedAt": "2026-10-12T13:58:53.197226+00:00",
+        "finishedAt": "2026-10-12T13:58:56.200359+00:00",
+        "exitCode": 0,
+        "httpStatus": 200,
+        "credentialHeadersSent": false,
+        "curlConfigDisabled": true,
+        "redirectsFollowed": false,
+        "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/home-body.txt",
+        "stderr": "",
+        "bodyBytes": 50229
+      },
+      "limit": "HTTP reachability only, no logged-in flow or application interaction."
+    },
+    {
+      "name": "independent_metrics_anonymous_protection",
+      "status": "PASS",
+      "evidence": {
+        "name": "metricsAnonymous",
+        "url": "https://pairvu.com/api/value-metrics",
+        "startedAt": "2026-10-12T13:58:53.197386+00:00",
+        "finishedAt": "2026-10-12T13:58:55.638770+00:00",
+        "exitCode": 0,
+        "httpStatus": 401,
+        "credentialHeadersSent": false,
+        "curlConfigDisabled": true,
+        "redirectsFollowed": false,
+        "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/metricsAnonymous-body.txt",
+        "stderr": "",
+        "body": {
+          "error": "authentication_required",
+          "message": "Sign in to view metrics.",
+          "complete": false
+        }
+      },
+      "basis": "Actual anonymous HTTP 401/authentication_required and complete:false."
+    },
+    {
+      "name": "bounded_audit_visibility_honestly_reported",
+      "status": "PASS",
+      "evidence": {
+        "httpStatus": 200,
+        "recordCount": 2,
+        "matchingTokenEvents": 0,
+        "reportedHasMore": false,
+        "querySince": "2026-10-12T13:17:00Z",
+        "queryBefore": "2026-10-12T13:54:14Z"
+      },
+      "limit": "Two user-update events and no matching token events in the bounded query do not prove no misuse, complete ingestion, or a token-rotation audit trail. No successful token-rotation event is claimed."
+    },
+    {
+      "name": "response_status_distinguishes_remediation_from_release",
+      "status": "PASS",
+      "evidence": {
+        "reportedStateAtSource": "ROTATED_PENDING_INDEPENDENT_FINAL_REVIEW",
+        "deploymentMutation": false,
+        "existingProductionSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c"
+      },
+      "basis": "No new deployment is asserted. Public health binds current availability to the existing release; old pending scope disposition remains preserved as a historical earlier observation."
+    },
+    {
+      "name": "restricted_review_boundary_and_credential_pattern_check",
+      "status": "PASS",
+      "evidence": {
+        "designatedInputFiles": 14,
+        "credentialPatternHits": 0,
+        "publicRequests": 3
+      },
+      "limit": "Pattern checks cover supplied evidence only and do not prove historical tool traces sanitized; original trace is preserved."
+    }
+  ],
+  "acceptance": {
+    "rotationResponse": "PASS",
+    "knownScopeServiceVerification": "PASS",
+    "recordedPermissionPreservation": "PASS",
+    "incidentDisposition": "REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS",
+    "noCurrentRemediationBlockerFound": true,
+    "newDeploymentAcceptance": "NOT_APPLICABLE_NO_NEW_DEPLOYMENT",
+    "formalHumanUnitState": "NOT_CLAIMED_NOT_CLOSED_NOT_MODIFIED",
+    "broaderRiskFollowUp": "OPEN"
+  },
+  "residualLimitations": [
+    "Seven known project-root environment scans do not establish all external CI, backups, devices, nested configurations, historical copies, or process usage. Successful old-value invalidation does not prove all unknown dependencies received the replacement.",
+    "Bounded audit results did not expose a matching token event; they neither prove absence of misuse nor complete audit ingestion/coverage.",
+    "The original whole-account ten permissions, no selected expiry, and no entered IP filter remain. No least-privilege remediation is claimed.",
+    "Cloudflare verification, policy UI, and local-file security evidence were reviewed as controller-supplied sanitized artifacts, not independently repeated with credentials, as prohibited by the review scope.",
+    "Public checks establish endpoint behavior at the recorded times, not authenticated business flow coverage or future availability. Original private trace was not erased."
+  ],
+  "reviewerActions": {
+    "credentialFilesRead": false,
+    "originalLeakLogsRead": false,
+    "cloudflareApiCalls": 0,
+    "browserActions": 0,
+    "publicUnauthenticatedGetRequests": 3,
+    "sharedRepositoryWrites": false,
+    "codeChanges": false,
+    "commits": false,
+    "deployments": false,
+    "controlStateOrLedgerMutations": false
+  },
+  "nextAction": {
+    "owner": "controller",
+    "action": "Record this scoped remediation acceptance in the separate incident ledger, preserving original evidence and residual limitations. Do not claim or close the formal HUMAN-05 unit through this review.",
+    "dependency": "Independent report is available; ledger recording can proceed automatically within controller authorization.",
+    "automaticForController": true,
+    "automaticForReviewer": false,
+    "followUp": "Credential custodian/controller should inventory external dependencies and plan least-privilege reduction before any additional credential policy change; dependency evidence remains incomplete."
+  }
+}

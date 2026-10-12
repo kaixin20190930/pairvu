@@ -1,0 +1,26 @@
+{
+  "id": "UPG10-QA-CREDENTIAL-01",
+  "updatedAt": "2026-10-12T14:02:04.594817+00:00",
+  "status": "REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS",
+  "rotation": "VERIFIED_OLD_VALUE_INVALIDATED_NEW_VALUE_ACTIVE",
+  "independentAcceptance": "PASS",
+  "independentChecks": 12,
+  "originalIncident": "../production-upg10-2026-10-12/production-qa/qa-security-incident.json",
+  "review": "independent-final-review.json",
+  "currentDeploymentUnchanged": true,
+  "noSecretValuesIncluded": true,
+  "residualFollowUp": "HUMAN-05",
+  "residualLimitations": [
+    "Seven known project-root environment scans do not establish all external CI, backups, devices, nested configurations, historical copies, or process usage. Successful old-value invalidation does not prove all unknown dependencies received the replacement.",
+    "Bounded audit results did not expose a matching token event; they neither prove absence of misuse nor complete audit ingestion/coverage.",
+    "The original whole-account ten permissions, no selected expiry, and no entered IP filter remain. No least-privilege remediation is claimed.",
+    "Cloudflare verification, policy UI, and local-file security evidence were reviewed as controller-supplied sanitized artifacts, not independently repeated with credentials, as prohibited by the review scope.",
+    "Public checks establish endpoint behavior at the recorded times, not authenticated business flow coverage or future availability. Original private trace was not erased."
+  ],
+  "nextAction": {
+    "action": "确认其他设备/外部CI依赖，并设计移除非必要权限的方案；补齐审计覆盖。当前轮换已完成，不重复轮换或部署。",
+    "dependency": "凭据保管方的完整依赖清单；改变凭据策略时需受控用户交接",
+    "automatic": false
+  },
+  "formalControlNote": "human units cannot be claimed/closed by the current formal CLI; no .pairvu-control state hand-edit. This ledger records actual scoped remediation separately."
+}

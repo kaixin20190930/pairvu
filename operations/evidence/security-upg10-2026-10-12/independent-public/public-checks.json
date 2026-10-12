@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-12T13:58:56.200569+00:00",
+  "requestCount": 3,
+  "authentication": "none; no credential file access; curl -q disables default config",
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "startedAt": "2026-10-12T13:58:53.196983+00:00",
+      "finishedAt": "2026-10-12T13:58:56.072328+00:00",
+      "exitCode": 0,
+      "httpStatus": 200,
+      "credentialHeadersSent": false,
+      "curlConfigDisabled": true,
+      "redirectsFollowed": false,
+      "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/health-body.txt",
+      "stderr": "",
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+        "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+      }
+    },
+    {
+      "name": "home",
+      "url": "https://pairvu.com/",
+      "startedAt": "2026-10-12T13:58:53.197226+00:00",
+      "finishedAt": "2026-10-12T13:58:56.200359+00:00",
+      "exitCode": 0,
+      "httpStatus": 200,
+      "credentialHeadersSent": false,
+      "curlConfigDisabled": true,
+      "redirectsFollowed": false,
+      "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/home-body.txt",
+      "stderr": "",
+      "bodyBytes": 50229
+    },
+    {
+      "name": "metricsAnonymous",
+      "url": "https://pairvu.com/api/value-metrics",
+      "startedAt": "2026-10-12T13:58:53.197386+00:00",
+      "finishedAt": "2026-10-12T13:58:55.638770+00:00",
+      "exitCode": 0,
+      "httpStatus": 401,
+      "credentialHeadersSent": false,
+      "curlConfigDisabled": true,
+      "redirectsFollowed": false,
+      "bodyFile": "/tmp/pairvu-credential-response/independent-final-public-checks/metricsAnonymous-body.txt",
+      "stderr": "",
+      "body": {
+        "error": "authentication_required",
+        "message": "Sign in to view metrics.",
+        "complete": false
+      }
+    }
+  ]
+}

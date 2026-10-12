@@ -1,0 +1,42 @@
+import pathlib,json,shlex,subprocess,urllib.request,urllib.error,datetime
+root=pathlib.Path.cwd()
+def cfvalue(p):
+ vals=[]
+ try:
+  for l in p.read_text().splitlines():
+   k,s,v=l.partition('=')
+   if s and k.strip() in ('CLOUDFLARE_API_TOKEN','CF_API_TOKEN'):
+    bits=shlex.split(v);vals.append(bits[0] if bits else '')
+ except (OSError,ValueError,UnicodeError):pass
+ return vals
+t=cfvalue(root/'.dev.vars')[0]
+roots=[root,pathlib.Path('/Users/liukai/web/ai-best-tool'),pathlib.Path('/Users/liukai/Documents/ChatGPT/MCP Router'),pathlib.Path('/Users/liukai/Documents/ChatGPT/Rulevio'),pathlib.Path('/Users/liukai/Documents/ChatGPT/MVP'),pathlib.Path('/Users/liukai/Documents/triptrace.ai'),pathlib.Path('/Users/liukai/web/SoraAINow')]
+out={'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'Known project root environment files only, not complete host or remote CI inventory','projectChecks':[]}
+for r in roots:
+ files=[p for p in r.iterdir() if p.is_file() and (p.name.startswith('.env') or p.name.startswith('.dev.vars'))] if r.exists() else []
+ out['projectChecks'].append({'project':str(r),'credentialFilesChecked':len(files),'matchingCredentialFiles':[str(p) for p in files if t in cfvalue(p)]})
+tracked=subprocess.check_output(['git','ls-files','-z']).split(b'\0');hits=[]
+for name in tracked:
+ if not name:continue
+ p=root/name.decode()
+ try:
+  if t.encode() in p.read_bytes():hits.append(name.decode())
+ except OSError:pass
+out['trackedWorkingTreeExactValueMatches']=hits
+out['rootProcessEnvMatches']=[k for k in ('CLOUDFLARE_API_TOKEN','CF_API_TOKEN') if __import__('os').environ.get(k)==t]
+aid='23e53b75ddd6ee2d8b80031f6a1e45e0'
+for label,endpoint in [('workers','/workers/scripts'),('pages','/pages/projects'),('d1','/d1/database'),('audit','/logs/audit?since=2026-10-12T13%3A17%3A00Z&limit=100')]:
+ req=urllib.request.Request('https://api.cloudflare.com/client/v4/accounts/'+aid+endpoint,headers={'Authorization':'Bearer '+t})
+ try:
+  with urllib.request.urlopen(req,timeout=25) as resp:status=resp.status;d=json.load(resp)
+ except urllib.error.HTTPError as e:
+  status=e.code
+  try:d=json.load(e)
+  except Exception:d={}
+ except Exception as e:out[label]={'networkErrorType':type(e).__name__};continue
+ r=d.get('result')
+ entry={'httpStatus':status,'success':d.get('success'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+ if label!='audit' and isinstance(r,list):entry['resources']=[{'id':a.get('id') or a.get('uuid'),'name':a.get('name')} for a in r]
+ if label=='audit':entry['accessibleRecordCount']=len(r) if isinstance(r,list) else None
+ out[label]=entry
+pathlib.Path('/tmp/pairvu-credential-response/scope.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

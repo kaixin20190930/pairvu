@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-12T13:42:08.921994+00:00",
+  "source": ".dev.vars:CLOUDFLARE_API_TOKEN",
+  "verify": {
+    "httpStatus": 401,
+    "success": false,
+    "id": null,
+    "status": null,
+    "errorCodes": [
+      1000
+    ]
+  },
+  "accounts": {
+    "httpStatus": 200,
+    "success": true,
+    "ids": [
+      "23e53b75ddd6ee2d8b80031f6a1e45e0"
+    ],
+    "errorCodes": []
+  },
+  "accountVerify": {
+    "accountId": "23e53b75ddd6ee2d8b80031f6a1e45e0",
+    "httpStatus": 200,
+    "success": true,
+    "id": "f1f51cba573b537ce29db8f3086490ee",
+    "status": "active",
+    "errorCodes": []
+  },
+  "accountDetails": {
+    "httpStatus": 403,
+    "success": false,
+    "id": null,
+    "name": null,
+    "policies": null,
+    "errorCodes": [
+      9109
+    ]
+  }
+}

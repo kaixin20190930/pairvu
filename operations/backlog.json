@@ -293,14 +293,14 @@
     },
     {
       "id": "HUMAN-05",
-      "title": "UPG10生产验收令牌误回显后的受控撤销与替换",
-      "priority": 0,
+      "title": "Cloudflare令牌外部依赖、审计覆盖与最小权限跟进（轮换已验收）",
+      "priority": 1,
       "dependsOn": [],
       "mode": "human",
       "autoEligible": false,
       "requiredEvidence": [
-        "旧令牌撤销与替换真实证据（不含令牌值）",
-        "影响范围及依赖方恢复核验"
+        "其他设备和外部CI完整依赖清单及恢复核验",
+        "审计覆盖限制核实与最小权限方案"
       ]
     }
   ]

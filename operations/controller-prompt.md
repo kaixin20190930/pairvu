@@ -117,3 +117,10 @@ UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、�
 安全事项HUMAN-05（P0）仍OPEN：我方QA文件检索误将Cloudflare令牌回显到私有工具记录，归档材料扫描未发现凭据值。未执行或验证撤销/轮换，不声称记录已删除。生产密钥变更超出本次功能发布范围，下一步需凭据保管方受控撤销与替换并核验依赖；不能自动关闭。
 
 证据：`operations/evidence/production-upg10-2026-10-12/manifest.json`、`operations/evidence/production-upg10-2026-10-12/production-functional.json`。下一批：先安全闭环，再受控真实业务分类及UPG-07授权双标样本；UPG-08需明确调用方契约，UPG-09依赖API。本轮不自动启动新功能，不重复部署。
+
+
+## 本次Cloudflare令牌响应完成
+
+2026-10-12安全处置更新：PairVu账户令牌已由用户受控轮换并本地替换；正确账户端点旧值401、新值200/active，Wrangler部署记录、D1/R2访问与公开服务验证通过，独立12项复核PASS。事件状态为REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS；生产a0b27ac/Worker 3e8dc987保持不变，未重复部署。外部CI/其他设备依赖未穷尽，审计不能排除误用，原账户级10项权限未收敛；这些保留为HUMAN-05后续项，不再描述为旧令牌尚未轮换。
+
+最新证据：operations/evidence/security-upg10-2026-10-12/incident-current.json。保留原事件原件与早期待处理状态作为历史；当前已不需要再次请求本次轮换授权。下一步依赖负责人完整外部使用清单，不自动扩大权限、更换其他密钥或恢复pairvu-2。

@@ -35,7 +35,7 @@
       "upgradeCondition": "同类实质推理缺陷重复且缩域仍不足才重评；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:88",
+    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:95",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -79,7 +79,7 @@
   "candidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
   "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "UPG10已推送、fresh核验、0022迁移、部署启用及限定真实登录独立PASS，正式CLOSED。安全事件HUMAN-05独立OPEN，未轮换。",
+  "notes": "UPG10生产CLOSED；本轮令牌旧值失效、新值与服务验证及独立12项PASS。安全事件按已知范围处置完成，外部依赖/审计覆盖/最小权限跟进保留。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -192,8 +192,8 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "P0由凭据保管方受控撤销/替换误回显令牌并核验依赖；其后准备真实业务来源与UPG07授权双标样本",
-    "dependency": "生产密钥变更明确授权及负责人参与；真实数据尚缺",
+    "action": "确认其他设备/外部CI依赖，并设计移除非必要权限的方案；补齐审计覆盖。当前轮换已完成，不重复轮换或部署。",
+    "dependency": "凭据保管方的完整依赖清单；改变凭据策略时需受控用户交接",
     "automatic": false
   },
   "completedUnitId": "UPG-10",
@@ -257,9 +257,29 @@
   },
   "securityIncident": {
     "id": "UPG10-QA-CREDENTIAL-01",
-    "status": "OPEN_CREDENTIAL_CUSTODIAN_ACTION_REQUIRED",
-    "rotation": "NOT_PERFORMED_NOT_VERIFIED",
+    "status": "REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS",
+    "rotation": "VERIFIED_OLD_VALUE_INVALIDATED_NEW_VALUE_ACTIVE",
     "backlogId": "HUMAN-05",
-    "receipt": "operations/evidence/production-upg10-2026-10-12/production-qa/qa-security-incident.json"
+    "receipt": "operations/evidence/production-upg10-2026-10-12/production-qa/qa-security-incident.json",
+    "authorized": true,
+    "authorizationScope": "核实影响、受控撤销旧Cloudflare令牌、替换、部署与服务验证及必要修复；不得输出密钥",
+    "authorizedAt": "2026-10-12T13:44:04.567383+00:00",
+    "blocker": null,
+    "qaModelSelection": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "安全事件边界及撤销/替换证据需独立交叉核验",
+      "upgradeCondition": "具体重复推理缺陷才重评；管理权限缺失不升级",
+      "applied": true
+    },
+    "tokenId": "f1f51cba573b537ce29db8f3086490ee",
+    "oldTokenStatus": "INVALIDATED",
+    "scopeEvidence": "operations/evidence/security-upg10-2026-10-12/scope.json",
+    "independentScopeReview": "operations/evidence/security-upg10-2026-10-12/independent-scope-review.json",
+    "policyEvidence": "operations/evidence/security-upg10-2026-10-12/policy-before.json",
+    "independentAcceptance": "PASS",
+    "latestReceipt": "operations/evidence/security-upg10-2026-10-12/incident-current.json",
+    "newTokenStatus": "ACTIVE",
+    "residualFollowUp": "HUMAN-05"
   }
 }

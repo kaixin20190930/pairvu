@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-12T13:51:08.087274+00:00",
+  "originalTokenId": "f1f51cba573b537ce29db8f3086490ee",
+  "old": {
+    "httpStatus": 401,
+    "success": false,
+    "errorCodes": [
+      1000
+    ],
+    "id": null,
+    "status": null
+  },
+  "new": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": [],
+    "id": "f1f51cba573b537ce29db8f3086490ee",
+    "status": "active"
+  },
+  "pairvuDeployments": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": []
+  },
+  "pairvuD1Metadata": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": []
+  },
+  "r2BucketList": {
+    "httpStatus": 200,
+    "success": true,
+    "errorCodes": []
+  },
+  "rotationVerified": true,
+  "note": "No deployment mutation, no database content, no secret values logged. Permission equivalence requires separate policy evidence."
+}

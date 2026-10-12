@@ -1,0 +1,22 @@
+{
+  "incidentId": "UPG10-QA-CREDENTIAL-01",
+  "status": "ROTATED_PENDING_INDEPENDENT_FINAL_REVIEW",
+  "oldCredential": "INVALIDATED_CORRECT_ACCOUNT_ENDPOINT_401",
+  "newCredential": "ACTIVE_SAME_TOKEN_ID_200",
+  "credentialFilesUpdated": [
+    ".dev.vars:CLOUDFLARE_API_TOKEN"
+  ],
+  "credentialFileIgnored": true,
+  "credentialFileMode": "0600",
+  "deploymentMutation": false,
+  "existingProductionSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "limitations": [
+    "Known project-root scan does not cover every external CI, backup or device. No .github workflow is tracked in this repo.",
+    "Audit v2 returned two user-update events and no matching token events in bounded interval; no assertion of absence of misuse or complete ingestion.",
+    "Existing account-wide ten permissions preserved to avoid dependency breakage; least-privilege follow-up remains.",
+    "Read access to deployment records and D1/R2 verified; no new deployment upload or business transaction performed.",
+    "Original private trace not erased; old value invalidated."
+  ],
+  "next": "Independent final evidence review and fresh public service checks; then record remediation with limitations and prioritize least-privilege/dependency inventory follow-up",
+  "updatedAt": "2026-10-12T13:55:36.179525+00:00"
+}

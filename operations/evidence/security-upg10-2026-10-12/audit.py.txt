@@ -1,0 +1,16 @@
+import json,urllib.request,urllib.error,urllib.parse,pathlib,datetime,shlex
+v=[shlex.split(l.split('=',1)[1])[0] for l in pathlib.Path('.dev.vars').read_text().splitlines() if l.startswith('CLOUDFLARE_API_TOKEN=')][0]
+now=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds').replace('+00:00','Z');q=urllib.parse.urlencode({'since':'2026-10-12T13:17:00Z','before':now,'limit':1000})
+r=urllib.request.Request('https://api.cloudflare.com/client/v4/accounts/23e53b75ddd6ee2d8b80031f6a1e45e0/logs/audit?'+q,headers={'Authorization':'Bearer '+v})
+try:
+ with urllib.request.urlopen(r,timeout=25) as x:status=x.status;d=json.load(x)
+except urllib.error.HTTPError as e:
+ status=e.code
+ try:d=json.load(e)
+ except Exception:d={}
+logs=d.get('result') or [];out={'checkedAt':now,'httpStatus':status,'errorCodes':[x.get('code') for x in d.get('errors',[])],'responseKeys':list(d.keys()),'resultType':type(d.get('result')).__name__,'recordCount':len(logs) if isinstance(d.get('result'),list) else None,'hasMore':bool((d.get('result_info') or {}).get('cursor')),'matchingTokenEvents':[]}
+for x in logs:
+ a=x.get('actor') or {}
+ if a.get('token_id')=='f1f51cba573b537ce29db8f3086490ee':out['matchingTokenEvents'].append({'id':x.get('id'),'action':{k:(x.get('action') or {}).get(k) for k in ['type','time','result']},'actor':{k:a.get(k) for k in ['token_id','token_name','context']},'resource':{k:(x.get('resource') or {}).get(k) for k in ['id','type','product']}})
+out['entries']=[{'id':x.get('id'),'action':{k:(x.get('action') or {}).get(k) for k in ['type','time','result']},'actor':{k:(x.get('actor') or {}).get(k) for k in ['token_id','token_name','context']},'resource':{k:(x.get('resource') or {}).get(k) for k in ['id','type','product']}} for x in logs]
+pathlib.Path('/tmp/pairvu-credential-response/audit-after.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

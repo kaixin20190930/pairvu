@@ -1,0 +1,28 @@
+import json,urllib.request,urllib.error,pathlib,datetime,shlex
+p=pathlib.Path('.dev.vars')
+values={}
+for line in p.read_text().splitlines():
+ k,sep,v=line.partition('=')
+ if sep:values[k.strip()]=shlex.split(v)[0] if shlex.split(v) else ''
+token=values.get('CLOUDFLARE_API_TOKEN')
+if not token:raise SystemExit('Expected credential key absent; no values displayed')
+def request(path):
+ req=urllib.request.Request('https://api.cloudflare.com/client/v4'+path,headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
+ try:
+  with urllib.request.urlopen(req,timeout=25) as r:return r.status,json.load(r)
+ except urllib.error.HTTPError as e:
+  try:d=json.load(e)
+  except Exception:d={}
+  return e.code,d
+out={'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source':'.dev.vars:CLOUDFLARE_API_TOKEN'}
+status,d=request('/user/tokens/verify');r=d.get('result') or {};out['verify']={'httpStatus':status,'success':d.get('success'),'id':r.get('id'),'status':r.get('status'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+if r.get('id'):
+ status,d=request('/user/tokens/'+r['id']);r=d.get('result') or {};out['details']={'httpStatus':status,'success':d.get('success'),'id':r.get('id'),'name':r.get('name'),'status':r.get('status'),'policies':r.get('policies'),'condition':r.get('condition'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+status,d=request('/accounts'); accounts=d.get('result') or []
+out['accounts']={'httpStatus':status,'success':d.get('success'),'ids':[a.get('id') for a in accounts] if isinstance(accounts,list) else [],'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+for account in accounts if isinstance(accounts,list) else []:
+ aid=account['id'];status,d=request('/accounts/'+aid+'/tokens/verify');r=d.get('result') or {};out['accountVerify']={'accountId':aid,'httpStatus':status,'success':d.get('success'),'id':r.get('id'),'status':r.get('status'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+ if r.get('id'):
+  status,d=request('/accounts/'+aid+'/tokens/'+r['id']);r=d.get('result') or {};out['accountDetails']={'httpStatus':status,'success':d.get('success'),'id':r.get('id'),'name':r.get('name'),'policies':r.get('policies'),'errorCodes':[x.get('code') for x in d.get('errors',[])]}
+pathlib.Path('/tmp/pairvu-credential-response/inspection.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

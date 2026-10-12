@@ -1,0 +1,25 @@
+{
+  "observedAt": "2026-10-12T13:55:36.179525+00:00",
+  "source": "Authenticated dashboard after reload; exact same token detail URL, permission popup and whole-account policy unchanged",
+  "tokenId": "f1f51cba573b537ce29db8f3086490ee",
+  "name": "PairVu",
+  "scope": "entire account 23e53b75ddd6ee2d8b80031f6a1e45e0",
+  "permissions": [
+    "Registrar Sandbox Domains Read",
+    "Access: Users Read",
+    "Access: Organizations Read",
+    "Registrar Domains Read",
+    "D1 Write",
+    "Pages Write",
+    "Workers R2 Storage Write",
+    "Access: Organizations, Identity Providers, and Groups Read",
+    "Workers Scripts Write",
+    "Account Settings Read"
+  ],
+  "expiry": "none selected",
+  "ipFilter": "no address entered",
+  "policyChanged": false,
+  "rotation": "Custodian confirmed and saved; old account-token verify401, new same ID active200",
+  "documentation": "https://developers.cloudflare.com/fundamentals/api/how-to/roll-token/",
+  "dependencyBoundary": "Only known project root config matching established; account-wide write permission does not prove other projects actually consume this token."
+}
