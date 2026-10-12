@@ -1,0 +1,62 @@
+{
+  "unitId": "UPG-07A",
+  "findingId": "UPG07A-QA-01",
+  "role": "developer",
+  "stage": "DEV_READY_PENDING_FIXED_SHA_INDEPENDENT_RECHECK",
+  "baselineSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "fix": "Enforce independent default maximum100000, then require records.length === frozen dataset sample count. No legacy dataset, policy, metrics or provenance changes.",
+  "sourceHashes": {
+    "scripts/evaluate-reference-view-shadow.mjs": "bc1e725007fbc9875b89221c8d64d04465ff06fb307d6b75f9e8febeea742178",
+    "scripts/test-reference-view-shadow.mjs": "cbfe2180634069853e7dabf37e27c65bb95e6beab55edd68174bf61c637305e4",
+    "scripts/verify-upgrade-dataset.mjs": "c81fd9f7142346b5cdf6009bebe3ce044fdb5b4227ecce4e39a168567d3e2ba2",
+    "scripts/reference-view-shadow/synthetic-fixture.mjs": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
+    "docs/05-evaluation/reference-view-shadow-protocol.md": "48a9cc1712cc4ae67e5b9ce2b5d480a1fa5934e34872868cc5a4af4a684523cb"
+  },
+  "commands": [
+    {
+      "command": "node scripts/test-reference-view-shadow.mjs --count-boundary",
+      "exitCode": 0,
+      "checkCount": 181,
+      "cliInvocations": 23,
+      "stdout": "boundary-raw.txt",
+      "stderr": "boundary-stderr.txt",
+      "proof": "boundary-proof.json"
+    },
+    {
+      "command": "pnpm test:upgrade-dataset",
+      "exitCode": 0,
+      "checkCount": 105,
+      "stdout": "upg02-regression-raw.txt"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "exitCode": 0,
+      "stdout": "typecheck-raw.txt"
+    },
+    {
+      "command": "node <unchanged original qa-count-boundary.mjs copy with scripts directory symlink to repaired sources>",
+      "exitCode": 0,
+      "stdout": "original-counterexample-replay-raw.txt",
+      "stderr": "original-counterexample-replay-stderr.txt",
+      "scriptSha256": "9aff2943a1683916877e41b72af8f69b5631ced5c3469d651aa19d8b0c0095e4",
+      "actualScript": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-original-boundary-replay-RN3C2e/qa-count-boundary.mjs"
+    }
+  ],
+  "originalIndependentEvidence": {
+    "report": "operations/evidence/UPG-07A-attempt-1/qa-original.json",
+    "reportSha256": "d633b00f04486a79b6818e51c662c26b8b4932132ff7866baabf8e8ab8b384aa",
+    "script": "operations/evidence/UPG-07A-attempt-1/qa-count-boundary.mjs.txt",
+    "scriptSha256": "9aff2943a1683916877e41b72af8f69b5631ced5c3469d651aa19d8b0c0095e4",
+    "result": "FAIL",
+    "preservedUnmodified": true,
+    "priorIndependent31Counterexamples": "Preserved original QA PASS checks; not relabeled as independent acceptance for the new candidate."
+  },
+  "limitations": [
+    "Boundary data and original CLI output are synthetic and retained only in temporary directories indexed by boundary-proof.json. No giant fixtures committed.",
+    "Exact100000 accepted, exact100001 rejected by actual evaluator and CLI; genuine CLI stdout hashes and sample counts retained.",
+    "Original independent QA counterexample replay is developer evidence, not a new independent QA decision.",
+    "No production, model, network, push or deployment; true quality remains BLOCKED."
+  ]
+}

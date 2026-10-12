@@ -58,7 +58,8 @@ function id(value, type, code) { check(typeof value === 'string' && ID[type].tes
 function hash(value, code) { check(typeof value === 'string' && HASH.test(value), code); }
 function token(value, code) { check(typeof value === 'string' && /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,119}$/.test(value) && !['unknown', 'unspecified', 'null', 'none'].includes(value.toLowerCase()), code); }
 function uniqueMap(records, field, expected, code) {
-  array(records, code, expected.size, expected.size);
+  array(records, code); // Independent hard cap must not grow with the legacy dataset.
+  check(records.length === expected.size, code);
   const map = new Map();
   for (const record of records) {
     check(record && expected.has(record[field]) && !map.has(record[field]), code);

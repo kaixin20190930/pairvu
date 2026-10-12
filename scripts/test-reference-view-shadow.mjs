@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { evaluateReferenceViewShadow as evaluate, POLICY, POLICY_SHA256 } from './evaluate-reference-view-shadow.mjs';
 import { fixture, bind, sha256 } from './reference-view-shadow/synthetic-fixture.mjs';
 
@@ -168,4 +169,69 @@ try {
 const fixtureRoot = fileURLToPath(new URL('../fixtures/reference-view-shadow/synthetic/', import.meta.url));
 const committed = await Promise.all(['dataset.json', 'views.json', 'predictions.json'].map(n => readFile(join(fixtureRoot, n))));
 test('explicit committed fixtures replay exactly, without overwriting them', () => assert.deepEqual(evaluate(...committed), original));
+
+// Opt-in exact boundary regression. Large generated JSON and actual CLI stdout remain
+// in /tmp; the small proof (counts, byte hashes, statuses) is the only delivery artifact.
+if (process.argv.includes('--count-boundary')) {
+  const boundaryRoot = await mkdtemp(join(tmpdir(), 'pairvu-upg07a-count-boundary-'));
+  const boundaryProof = { unitId: 'UPG-07A', findingId: 'UPG07A-QA-01', qualityEvidence: false, realQualityStatus: 'BLOCKED', generatedInputsDirectory: boundaryRoot, cases: [] };
+  for (const count of [100000, 100001]) {
+    const seed = fixture(), d = seed.dataset, v = seed.extension, p = seed.predictions;
+    const originalSample = structuredClone(d.samples[0]), originalView = structuredClone(v.samples[0]);
+    d.samples = []; v.samples = []; p.baseline.samples = []; p.candidate.samples = [];
+    const validPrediction = { selection: originalView.references[0].id, matchDecision: 'MATCH', qualityDecision: 'ALLOW' };
+    for (let n = 1; n <= count; n++) {
+      const sampleId = `sample_${n.toString(16).padStart(16, '0')}`;
+      // All observations differ; one consistently owned reference is legitimately reused.
+      d.samples.push({ ...originalSample, id: sampleId, observedImageSha256: (n + 1000).toString(16).padStart(64, '0') });
+      v.samples.push({ ...originalView, sampleId });
+      for (const role of ['baseline', 'candidate']) p[role].samples.push({ sampleId, ...validPrediction });
+    }
+    const datasetBytes = Buffer.from(JSON.stringify(d));
+    v.datasetSha256 = p.datasetSha256 = sha256(datasetBytes);
+    const viewBytes = Buffer.from(JSON.stringify(v)); p.extensionSha256 = sha256(viewBytes);
+    const predictionBytes = Buffer.from(JSON.stringify(p));
+    const caseDirectory = join(boundaryRoot, String(count));
+    await import('node:fs/promises').then(fs => fs.mkdir(caseDirectory));
+    const caseBytes = [datasetBytes, viewBytes, predictionBytes], names = ['dataset.json', 'views.json', 'predictions.json'];
+    const paths = names.map(name => join(caseDirectory, name));
+    for (let n = 0; n < paths.length; n++) await writeFile(paths[n], caseBytes[n]);
+    const proof = { sampleCount: count, inputCounts: { dataset: d.samples.length, extension: v.samples.length, baseline: p.baseline.samples.length, candidate: p.candidate.samples.length }, rawInputs: caseBytes.map((b, n) => ({ file: names[n], bytes: b.length, sha256: sha256(b) })) };
+    const started = Date.now();
+    test(`actual evaluator exact ${count} sample boundary`, () => {
+      if (count === 100000) {
+        const report = evaluate(...caseBytes);
+        assert.equal(report.status, 'VALID'); assert.equal(report.samples.length, count);
+        assert.equal(report.splits.development.sampleCount, count);
+        for (const role of ['baseline', 'candidate']) assert.equal(report.splits.development.runs[role].sampleDenominator, count);
+        assert.equal(report.qualityEvidence, false); assert.equal(report.realQualityStatus, 'BLOCKED');
+        proof.evaluator = { status: report.status, reportedSampleCount: report.samples.length, developmentCount: report.splits.development.sampleCount, baselineDenominator: report.splits.development.runs.baseline.sampleDenominator, candidateDenominator: report.splits.development.runs.candidate.sampleDenominator, qualityEvidence: report.qualityEvidence, realQualityStatus: report.realQualityStatus };
+      } else {
+        assert.throws(() => evaluate(...caseBytes), error => error.message === 'EXTENSION_SAMPLE_SET_MISMATCH');
+        proof.evaluator = { status: 'REJECTED', reason: 'EXTENSION_SAMPLE_SET_MISMATCH' };
+      }
+    });
+    proof.evaluatorElapsedMs = Date.now() - started;
+    // File descriptors keep the genuine full CLI stdout out of spawnSync's buffers.
+    const fs = await import('node:fs');
+    const stdoutPath = join(caseDirectory, 'cli-stdout.json'), stderrPath = join(caseDirectory, 'cli-stderr.txt');
+    const out = fs.openSync(stdoutPath, 'w'), err = fs.openSync(stderrPath, 'w');
+    let execution;
+    try { execution = spawnSync(process.execPath, [cli, '--dataset', paths[0], '--views', paths[1], '--predictions', paths[2]], { stdio: ['ignore', out, err], timeout: 60000 }); invocations++; }
+    finally { fs.closeSync(out); fs.closeSync(err); }
+    const stdout = await readFile(stdoutPath), stderr = await readFile(stderrPath, 'utf8');
+    const actual = JSON.parse(stdout.toString('utf8'));
+    test(`actual CLI exact ${count} sample boundary`, () => {
+      assert.equal(execution.error, undefined); assert.equal(stderr, ''); assert.equal(execution.status, count === 100000 ? 0 : 1);
+      assert.equal(actual.status, count === 100000 ? 'VALID' : 'INVALID_INPUT');
+      assert.equal(actual.qualityEvidence, false); assert.equal(actual.realQualityStatus, 'BLOCKED');
+      if (count === 100000) { assert.equal(actual.samples.length, count); assert.equal(actual.splits.development.sampleCount, count); for (const role of ['baseline', 'candidate']) assert.equal(actual.splits.development.runs[role].sampleDenominator, count); }
+      else assert.equal(actual.reason, 'EXTENSION_SAMPLE_SET_MISMATCH');
+    });
+    proof.cli = { exitCode: execution.status, status: actual.status, reason: actual.reason || null, reportedSampleCount: actual.samples?.length ?? null, qualityEvidence: actual.qualityEvidence, realQualityStatus: actual.realQualityStatus, stdoutFile: stdoutPath, stdoutBytes: stdout.length, stdoutSha256: createHash('sha256').update(stdout).digest('hex'), stderrFile: stderrPath };
+    boundaryProof.cases.push(proof);
+  }
+  await writeFile(join(boundaryRoot, 'boundary-proof.json'), JSON.stringify(boundaryProof, null, 2) + '\n');
+  console.log(JSON.stringify({ boundaryProof }, null, 2));
+}
 console.log(JSON.stringify({ status: 'PASS', unitId: 'UPG-07A', qualityEvidence: false, realQualityStatus: 'BLOCKED', checkCount: checks.length, cliInvocations: invocations, checks }, null, 2));

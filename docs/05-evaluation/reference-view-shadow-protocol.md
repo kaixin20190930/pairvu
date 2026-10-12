@@ -119,3 +119,9 @@ provider/modelId/promptVersion 和 run policyVersion 为 1–120 位标识 token
 开发本地提交后由独立 QA 固定完整候选 SHA 验收。仅 local_only UPG-07A 可以在独立 PASS 后关闭；本地专项 PASS 不是独立 QA PASS，不解除真实样本、人工来源或 runtime 门槛，不授权生产发布。
 
 本轮 [开发验证与源码摘要](../../fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json)、[专项原始 stdout](../../fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt)、[合成回放原始 JSON](../../fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json) 是开发证据，独立 QA 尚待总控安排。
+
+### UPG07A-QA-01 上限修复回归
+
+原候选的独立 QA 发现匹配 dataset 样本数量会覆盖 100000 硬上限。修复将硬上限校验与样本数量精确一致校验分别执行，不改变旧 UPG-02 schema、指标、来源或真值语义。原始 FAIL 保持不变。
+
+`node scripts/test-reference-view-shadow.mjs --count-boundary` 显式运行正常小专项，并生成 100000/100001 条完整、合法绑定的合成输入，通过实际 evaluator 和 CLI 验证前者 VALID、后者 INVALID_INPUT。巨型输入与完整 CLI stdout 留在临时目录，输出小型计数/hash/状态证明，默认专项不运行此资源测试。修复的 [开发证明](../../fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json) 与 [原始边界 stdout](../../fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt) 仅用于工程边界验收；独立 QA 仍须绑定新候选 SHA，真实质量保持 BLOCKED。
