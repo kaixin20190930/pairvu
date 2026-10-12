@@ -84,3 +84,6 @@ UPG-05已完成GitHub-first发布、0021迁移和Cloudflare部署（2013e22 / Wo
 正式manifest：`operations/evidence/production-upg06-2026-10-12/manifest.json`，已执行record-deployment→verify-production→close；真实业务原件为同目录production-functional.json。Free UI禁用、规则哈希、筛选/分页、冻结SKU来源、既有审计/原机器不变及余额6均实测。没有生产写审计/新模型调用/付款。
 
 下一步：建议先确定UPG-07参考视角shadow评测最小契约与授权样本，其次UPG-10价值指标，再UPG-08 API及UPG-09 Webhook。本轮已自动完成发布收尾和清单同步；新的开发单元需用户确认启动，真实质量结论需数据授权/双人标注。未自动派新任务、未恢复巡检。
+
+## 2026-10-12 UPG07启动授权
+用户已授权UPG07最小契约、样本要求、开发和独立验收。当前只启动local_only UPG-07A，契约operations/contracts/UPG-07A.md；原UPG07 runtime保留BACKLOG并依赖本阶段。原开发/QA均按协议关联与反例风险选Sol/high，固定SHA验收，FAIL返原开发。真实质量不以合成数据替代，缺真实样本列明。通过本地关闭后说明样本缺口和下一步；不发布、不调用模型、不恢复pairvu-2。持续wait/read不能派单即结束。

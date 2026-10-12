@@ -104,7 +104,8 @@
       "priority": 7,
       "dependsOn": [
         "UPG-02",
-        "UPG-04"
+        "UPG-04",
+        "UPG-07A"
       ],
       "mode": "runtime",
       "autoEligible": false,
@@ -268,6 +269,22 @@
         "UPG-03-ENABLE"
       ],
       "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
+    },
+    {
+      "id": "UPG-07A",
+      "title": "参考视角协议、样本要求与离线shadow校验",
+      "priority": 7,
+      "dependsOn": [
+        "UPG-02",
+        "UPG-04",
+        "UPG-06"
+      ],
+      "mode": "local_only",
       "autoEligible": true,
       "requiredEvidence": [
         "fixed candidate SHA",
