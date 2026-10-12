@@ -1,0 +1,26 @@
+import { createHash } from 'node:crypto';
+import { writeFile } from 'node:fs/promises';
+import { evaluateReferenceViewShadow, POLICY, POLICY_SHA256 } from './scripts/evaluate-reference-view-shadow.mjs';
+const id=(p,n)=>p+'_'+n.toString(16).padStart(16,'0');
+const hash=x=>createHash('sha256').update(x).digest('hex');
+const source={workspaceId:id('ws',1),skuId:id('sku',1),packagingVersionId:id('pkg',1),authorizationId:id('auth',1)};
+const reference={id:id('ref',1),imageSha256:'a'.repeat(64),view:'front',observability:'observable',status:'available',source};
+const truth={observedView:'front',observability:'observable',conclusion:'compatible',acceptableReferenceIds:[reference.id]};
+const annotations=[1,2].map(n=>({annotatorId:id('ann',n),independent:true,label:{verdict:'match',defectType:'none',severity:'none',observability:'observable'}}));
+const viewAnnotations=[1,2].map(n=>({annotatorId:id('ann',n+10),independent:true,blind:true,label:truth}));
+const d={schemaVersion:1,datasetId:id('dataset',1),synthetic:true,authorizationRecords:[{id:source.authorizationId,workspaceId:source.workspaceId,recordRef:'synthetic:'+'b'.repeat(32),permittedUse:'offline_evaluation',status:'granted'}],samples:[]};
+const v={schemaVersion:1,datasetId:d.datasetId,datasetSha256:'',synthetic:true,policyVersion:POLICY.version,policySha256:POLICY_SHA256,samples:[]};
+const p={schemaVersion:1,datasetId:d.datasetId,datasetSha256:'',extensionSha256:'',synthetic:true,policyVersion:POLICY.version,policySha256:POLICY_SHA256};
+for(const [role,n] of [['baseline',1],['candidate',2]])p[role]={metadata:{runId:id('run',n),codeSha:'c'.repeat(40),model:{provider:'qa-offline',modelId:'qa-no-model'},promptVersion:'qa-placeholder',policyVersion:'qa-policy',policySha256:'d'.repeat(64)},samples:[]};
+for(let n=1;n<=100001;n++){
+ const sampleId=id('sample',n);
+ d.samples.push({id:sampleId,synthetic:true,...source,split:'development',referenceImageSha256:reference.imageSha256,observedImageSha256:n.toString(16).padStart(64,'0'),annotations,adjudication:null});
+ v.samples.push({sampleId,references:[reference],annotations:viewAnnotations,adjudication:null});
+ for(const role of ['baseline','candidate'])p[role].samples.push({sampleId,selection:reference.id,matchDecision:'MATCH',qualityDecision:'ALLOW'});
+}
+const db=Buffer.from(JSON.stringify(d));v.datasetSha256=p.datasetSha256=hash(db);const vb=Buffer.from(JSON.stringify(v));p.extensionSha256=hash(vb);const pb=Buffer.from(JSON.stringify(p));
+const start=Date.now();let proof;
+try{const r=evaluateReferenceViewShadow(db,vb,pb);proof={result:'FAIL',findingId:'UPG07A-QA-01',inputSampleCount:100001,documentedMaximum:100000,actualStatus:r.status,extensionSampleCount:v.samples.length,baselineCount:p.baseline.samples.length,candidateCount:p.candidate.samples.length,reportedDevelopmentSampleCount:r.splits.development.sampleCount,qualityEvidence:r.qualityEvidence,realQualityStatus:r.realQualityStatus,elapsedMs:Date.now()-start,rawInputs:[{role:'dataset',bytes:db.length,sha256:hash(db)},{role:'views',bytes:vb.length,sha256:hash(vb)},{role:'predictions',bytes:pb.length,sha256:hash(pb)}],expected:'Reject the over-limit sample arrays according to protocol paragraph declaring maximum100000; do not generate VALID diagnostics beyond documented input cap.'};}
+catch(error){proof={result:'PASS',inputSampleCount:100001,error:String(error),elapsedMs:Date.now()-start};}
+await writeFile('qa-count-boundary-results.json',JSON.stringify(proof,null,2)+'\n');await writeFile('qa-count-boundary.mjs.txt',await import('node:fs/promises').then(fs=>fs.readFile(new URL(import.meta.url))));
+console.log(JSON.stringify(proof,null,2));process.exitCode=proof.result==='FAIL'?1:0;

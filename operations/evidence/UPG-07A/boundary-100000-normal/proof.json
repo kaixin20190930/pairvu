@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "count": 100000,
+  "variant": "normal",
+  "api": {
+    "status": "VALID",
+    "sampleCount": 100000,
+    "baselineDenominator": 100000,
+    "candidateDenominator": 100000,
+    "qualityEvidence": false,
+    "realQualityStatus": "BLOCKED"
+  },
+  "cli": {
+    "command": [
+      "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+      "scripts/evaluate-reference-view-shadow.mjs",
+      "--dataset",
+      "boundary-100000-normal/dataset.json",
+      "--views",
+      "boundary-100000-normal/views.json",
+      "--predictions",
+      "boundary-100000-normal/predictions.json"
+    ],
+    "exitCode": 0,
+    "status": "VALID",
+    "reason": null,
+    "sampleCount": 100000,
+    "qualityEvidence": false,
+    "realQualityStatus": "BLOCKED",
+    "stdoutFile": "boundary-100000-normal/cli-stdout.json",
+    "stdoutBytes": 115010545,
+    "stdoutSha256": "0c80bd45b0841cfcb02094b29ebe03ed97e0cafc923aac35df2a9d1a22a74cb4",
+    "stderrFile": "boundary-100000-normal/cli-stderr.txt"
+  },
+  "rawInputs": [
+    {
+      "path": "boundary-100000-normal/dataset.json",
+      "bytes": 74600291,
+      "sha256": "5dbbd923b2971e5f75a9fd3c491404148a5f32f51f6becd27e2469837f14884f"
+    },
+    {
+      "path": "boundary-100000-normal/views.json",
+      "bytes": 84800302,
+      "sha256": "7d3d62742e2044e5f113154561dbb3394c08609e497066c70cd3ca8ec280c796"
+    },
+    {
+      "path": "boundary-100000-normal/predictions.json",
+      "bytes": 24801022,
+      "sha256": "a7248dfda6fbfe342a2e65db361ba231474941e0c828341fd69d84e82409bbb7"
+    }
+  ]
+}

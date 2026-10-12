@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "candidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
+  "changedPaths": [
+    "docs/05-evaluation/reference-view-shadow-protocol.md",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-proof.json",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-stderr.txt",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-raw.txt",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-stderr.txt",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/specialized.json",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/typecheck-raw.txt",
+    "fixtures/reference-view-shadow/count-repair-2026-10-12/upg02-regression-raw.txt",
+    "scripts/evaluate-reference-view-shadow.mjs",
+    "scripts/test-reference-view-shadow.mjs"
+  ],
+  "sourceHashes": [
+    {
+      "path": "scripts/evaluate-reference-view-shadow.mjs",
+      "sha256": "bc1e725007fbc9875b89221c8d64d04465ff06fb307d6b75f9e8febeea742178",
+      "verified": true
+    },
+    {
+      "path": "scripts/test-reference-view-shadow.mjs",
+      "sha256": "cbfe2180634069853e7dabf37e27c65bb95e6beab55edd68174bf61c637305e4",
+      "verified": true
+    },
+    {
+      "path": "scripts/verify-upgrade-dataset.mjs",
+      "sha256": "c81fd9f7142346b5cdf6009bebe3ce044fdb5b4227ecce4e39a168567d3e2ba2",
+      "verified": true
+    },
+    {
+      "path": "scripts/reference-view-shadow/synthetic-fixture.mjs",
+      "sha256": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
+      "verified": true
+    },
+    {
+      "path": "docs/05-evaluation/reference-view-shadow-protocol.md",
+      "sha256": "48a9cc1712cc4ae67e5b9ce2b5d480a1fa5934e34872868cc5a4af4a684523cb",
+      "verified": true
+    }
+  ],
+  "oldReportHash": "d633b00f04486a79b6818e51c662c26b8b4932132ff7866baabf8e8ab8b384aa",
+  "originalCounterexampleInputBytesIdentical": true
+}

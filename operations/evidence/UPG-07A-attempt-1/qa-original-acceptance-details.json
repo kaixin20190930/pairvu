@@ -1,0 +1,206 @@
+{
+  "unitId": "UPG-07A",
+  "candidateSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-12T06:10:45.075Z",
+  "stage": "local_only engineering acceptance",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "realSampleReadiness": "NOT_PROVIDED",
+  "parentRuntimeStage": "BACKLOG",
+  "reviewerRole": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Independently assess declaration laundering, multi-reference leakage, dual-label associations and metric denominators. A simple read-only label does not reduce acceptance risk.",
+    "escalationCondition": "Repeated identifiable reasoning failures after narrowing scope; missing real inputs is a data dependency, not a model escalation.",
+    "runtimeSettingNote": "Selection recorded from controller dispatch and contract; no model-setting tool used."
+  },
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "complete allowed diff and developer source hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "original specialized177 checks and21 CLI invocations",
+      "status": "PASS"
+    },
+    {
+      "name": "existing UPG02 105 checks and exact candidate typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "independent31 counterexamples and10 CLI invocations",
+      "status": "PASS"
+    },
+    {
+      "name": "three-byte binding and exact sample associations",
+      "status": "PASS"
+    },
+    {
+      "name": "added-reference split source identity and packaging guards",
+      "status": "PASS"
+    },
+    {
+      "name": "blind-label third-person arbitration and conservative reference ambiguity",
+      "status": "PASS"
+    },
+    {
+      "name": "hand-counted split critical coverage and abstention denominators",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic false and perfect diagnostics never establish real quality",
+      "status": "PASS"
+    },
+    {
+      "name": "documented bounded sample arrays",
+      "status": "FAIL"
+    },
+    {
+      "name": "readonly linked CLI and sanitized failures",
+      "status": "PASS"
+    },
+    {
+      "name": "real sample readiness remains NOT_PROVIDED and quality BLOCKED",
+      "status": "PASS"
+    }
+  ],
+  "findings": [
+    {
+      "id": "UPG07A-QA-01",
+      "priority": "P2",
+      "title": "Documented100000 sample limit is overwritten by dataset cardinality",
+      "file": "scripts/evaluate-reference-view-shadow.mjs",
+      "line": 61,
+      "protocolFile": "docs/05-evaluation/reference-view-shadow-protocol.md",
+      "protocolLine": 25,
+      "expected": "Extension and each run have at most100000 samples, independently of the legacy dataset cardinality. Over-limit input must fail engineering validation.",
+      "actual": {
+        "result": "FAIL",
+        "findingId": "UPG07A-QA-01",
+        "inputSampleCount": 100001,
+        "documentedMaximum": 100000,
+        "actualStatus": "VALID",
+        "extensionSampleCount": 100001,
+        "baselineCount": 100001,
+        "candidateCount": 100001,
+        "reportedDevelopmentSampleCount": 100001,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "elapsedMs": 5067,
+        "rawInputs": [
+          {
+            "role": "dataset",
+            "bytes": 74601037,
+            "sha256": "80c4df8c598150080a552cf68d2a9193c75914885a36b5a3562d9c67fcce1495"
+          },
+          {
+            "role": "views",
+            "bytes": 84801150,
+            "sha256": "0c536d5a068f0cf3a9f8b6ee93c31da37487de315d4170ba5c0cdb0edc884133"
+          },
+          {
+            "role": "predictions",
+            "bytes": 24801270,
+            "sha256": "db72e52fcfbf06d3c91e7d609289650587d140c01c97a8fa5fdcc06b52da7adb"
+          }
+        ],
+        "expected": "Reject the over-limit sample arrays according to protocol paragraph declaring maximum100000; do not generate VALID diagnostics beyond documented input cap."
+      },
+      "rootCause": "array() has a default maximum100000, but uniqueMap calls array(records,code,expected.size,expected.size). Legacy validateDataset has no sample-count maximum, so any larger matching dataset overwrites the advertised limit for all three new sample arrays.",
+      "reproduction": [
+        "Archive exact candidate and retain its scripts/verify-upgrade-dataset.mjs and scripts/evaluate-reference-view-shadow.mjs.",
+        "Copy qa-count-boundary.mjs.txt into that temporary archive as qa-count-boundary.mjs.",
+        "Run node qa-count-boundary.mjs. It constructs100001 distinct observed hashes/sample IDs, one consistently owned repeated reference, valid dual labels and two complete runs, freezes raw byte hashes and calls the actual evaluator.",
+        "Observed statusVALID, development sampleCount100001, qualityEvidencefalse and realQualityStatusBLOCKED; independent harness exits1 for the protocol violation."
+      ],
+      "remedy": "Preserve exact one-to-one validation while enforcing the independent published array maximum before evaluating large datasets. Add exact100000/100001 acceptance/rejection evidence through actual evaluator/CLI; do not alter the legacy UPG02 schema or conceal the original failure."
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "pnpm",
+        "test:reference-view-shadow"
+      ],
+      "exitCode": 0,
+      "completedAt": "2026-10-12T06:00:42.320321+00:00",
+      "stdout": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-specialized-stdout.txt",
+      "stderr": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-specialized-stderr.txt",
+      "status": "PASS",
+      "checkCount": 177,
+      "cliInvocations": 21,
+      "qualityEvidence": false,
+      "realQualityStatus": "BLOCKED"
+    },
+    {
+      "command": [
+        "pnpm",
+        "test:upgrade-dataset"
+      ],
+      "exitCode": 0,
+      "completedAt": "2026-10-12T06:00:41.601833+00:00",
+      "stdout": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-upg02-stdout.txt",
+      "stderr": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-upg02-stderr.txt"
+    },
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "completedAt": "2026-10-12T06:00:49.098774+00:00",
+      "stdout": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-typecheck-stdout.txt",
+      "stderr": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-typecheck-stderr.txt"
+    },
+    {
+      "command": "node qa-independent-shadow.mjs",
+      "exitCode": 0,
+      "cases": 31,
+      "cliInvocations": 10,
+      "rawReport": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-independent-results.json",
+      "actualCliRaw": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-independent-cli-raw.json",
+      "construction": "Own seven-sample fixture and hand-counted metric oracle; not the developer fixture or a mirror of implementation calculations."
+    },
+    {
+      "command": "node qa-count-boundary.mjs",
+      "exitCode": 1,
+      "actualFunction": "evaluateReferenceViewShadow(datasetBytes,extensionBytes,predictionBytes)",
+      "rawReport": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-count-boundary-results.json",
+      "detail": "Actual exported evaluator accepted100001 complete valid samples; no claim that the CLI was invoked for this large case. Deterministic generator retained with exact byte hashes; 184MB inputs generated in memory, not unnecessarily archived as giant files."
+    }
+  ],
+  "sourceVerification": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-source-verification.json",
+  "independentOriginal31Cases": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-independent-results.json",
+  "originalFailure": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-count-boundary-results.json",
+  "reproducer": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-count-boundary.mjs.txt",
+  "originalIndependentScript": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-independent-shadow.mjs.txt",
+  "limits": [
+    "All constructed datasets, labels, authorization records and external run claims are explicitly synthetic QA declarations; no real people, images, permission or model run is authenticated.",
+    "The false real-input declaration case exists only as a negative laundering test. It remains unverified_declared_input and qualityEvidencefalse despite perfect diagnostic ratios.",
+    "No browser, Next build, runtime application change, production, D1/R2, model/provider or network write used. No shared code/docs/controller state mutation, commit/push/deployment.",
+    "QA FAIL is an engineering input-bound violation, separate from the expected data-readiness/real-quality BLOCKED status. No overall UPG07 completion or production-quality conclusion is warranted.",
+    "Deterministic large-boundary input construction and exact input hashes retained instead of184MB of duplicate fixture files. Actual evaluation output and failure exit are recorded; no fabricated CLI result."
+  ],
+  "nextAction": {
+    "action": "Controller returns UPG07A-QA-01 to the original developer for the bounded sample-array repair, preserves this originalFAIL, then dispatches fixed-new-SHA independent recheck.",
+    "dependency": "A repaired candidate and appropriate exact-boundary evidence; current candidate cannot close engineering stage.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "realQualityDependency": "Real authorization, controlled images, independent dual labels/adjudication and verified run/holdout provenance still required. User has confirmed these are currently unavailable.",
+    "parentAndAutomation": "UPG07 runtime remainsBACKLOG; pairvu-2 remains paused."
+  },
+  "sharedWorkingTreePreserved": " M docs/04-roadmap/next-development-batch-2026-10-10.md\n M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/task-registry.json\n"
+}

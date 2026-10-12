@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "candidateSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
+  "completeDiff": [
+    {
+      "path": "docs/05-evaluation/reference-view-sample-readiness.md",
+      "sha256": "4e99abb18f1bfc9e04ab73b1071eee648efc7678e909b2d5abb2d2d9df4702d7",
+      "bytes": 5440
+    },
+    {
+      "path": "docs/05-evaluation/reference-view-shadow-protocol.md",
+      "sha256": "4ffaf674daae56605b79af87680f9708efe0da1ba8139f9fba30df1c764a81f4",
+      "bytes": 13469
+    },
+    {
+      "path": "fixtures/reference-view-shadow/synthetic/dataset.json",
+      "sha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
+      "bytes": 9139
+    },
+    {
+      "path": "fixtures/reference-view-shadow/synthetic/predictions.json",
+      "sha256": "871e6f921d9c651611b9d790a2272fddd9176fb4f11353ebb0402ae015488079",
+      "bytes": 4072
+    },
+    {
+      "path": "fixtures/reference-view-shadow/synthetic/views.json",
+      "sha256": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
+      "bytes": 13380
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json",
+      "sha256": "a22d357a1fb4eda9d40d873492651be24748c76d06ae49074b2fb7aeeac907b0",
+      "bytes": 3291
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/missing-input.json",
+      "sha256": "5f2aedad87ed94770c96e5b1e19c59b3b3c2cbf703a1c8456ec7580a0a07d943",
+      "bytes": 121
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt",
+      "sha256": "5752910c225b842a869a5ab909eecb1af8cfcc518ce2aef3f668e5146f298cbf",
+      "bytes": 17054
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/specialized.json",
+      "sha256": "23f733deaa75e3a43f410593748d1481c962ad88e411f2e0bcf3c975f46c758a",
+      "bytes": 16893
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json",
+      "sha256": "7e861817113205f28da2674794ffdbdc55597fd575bd7b83acd325913371d7a1",
+      "bytes": 19287
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/typecheck-raw.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "fixtures/reference-view-shadow/validation-2026-10-12/upg02-regression-raw.txt",
+      "sha256": "97036ad69e126a322b8046019374dd478230a75c7e2c3235c07f22917828ecdb",
+      "bytes": 310
+    },
+    {
+      "path": "package.json",
+      "sha256": "31a4c1b963c7fe8aefb9d41b65c5a19300fef77cbe5935b5f150a342402ab33d",
+      "bytes": 5065
+    },
+    {
+      "path": "scripts/evaluate-reference-view-shadow.mjs",
+      "sha256": "4742556e15fe73c1c527b23e14216c28fb12ec9f2a1da730135056bc6aa67cd2",
+      "bytes": 21466
+    },
+    {
+      "path": "scripts/reference-view-shadow/synthetic-fixture.mjs",
+      "sha256": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
+      "bytes": 5534
+    },
+    {
+      "path": "scripts/test-reference-view-shadow.mjs",
+      "sha256": "beaa38028ea1f586229b8e069b37674da3423b551120945478f22f3f748cf48d",
+      "bytes": 25391
+    }
+  ],
+  "developerSourceHashesMatched": 9,
+  "developerOriginalRawReportChecked": true,
+  "packageDelta": "Only two requested script entries; all other package keys equal baseline",
+  "unchangedDependenciesAndExistingValidator": true,
+  "noAppRuntimeOrDeployDelta": true,
+  "docsRelativeLinksResolved": true,
+  "diffCheckExitCode": 0,
+  "sharedWorkingTree": " M docs/04-roadmap/next-development-batch-2026-10-10.md\n M docs/04-roadmap/project-progress-2026-10-10.md\n M operations/task-registry.json\n",
+  "originalFixtureBytesUnchanged": true
+}

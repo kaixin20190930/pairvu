@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "UPG-07A",
-  "baselineSha": null,
+  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "旧协议关联、多参考新增泄漏面、双标仲裁与分母一致性需要跨文件推理，范围纯离线。",
-      "upgradeCondition": "重复可定位推理不足先缩域补输入再评估；数据/环境缺失不升级。",
-      "applied": false
+      "thinking": "medium",
+      "reason": "独立QA已定位100000上限覆盖，范围为单点边界修复与精确上限/超限复验。",
+      "upgradeCondition": "发现额外来源/指标语义差异再评估high；环境问题不升级。",
+      "applied": true
     },
-    "observedStatus": "idle",
-    "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:22",
+    "observedStatus": "completed",
+    "afterCursor": "5f342a77-ec9a-4b6d-b6be-ffe01a0cfb45:63",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -30,13 +30,13 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "独立构造来源伪装、标签泄漏、分母失真和假质量结论反例。",
-      "upgradeCondition": "重复可定位推理不足先缩域补输入再评估；数据/环境缺失不升级。",
-      "applied": false
+      "thinking": "medium",
+      "reason": "独立QA已定位100000上限覆盖，范围为单点边界修复与精确上限/超限复验。",
+      "upgradeCondition": "发现额外来源/指标语义差异再评估high；环境问题不升级。",
+      "applied": true
     },
-    "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:79",
-    "observedStatus": "idle",
+    "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:113",
+    "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -64,12 +64,23 @@
       "reason": "真实会话、规则/机器/人审分离、冻结SKU来源与权限跨层验收。",
       "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
       "applied": true
-    }
+    },
+    "failureReceipt": "operations/evidence/UPG-07A-attempt-1/qa-original.json",
+    "environmentIncidents": [
+      {
+        "turnId": "01a12ed0-7e53-79b1-94cf-f1d21dacf6ae",
+        "type": "remote_compact_connection_failed",
+        "productFailure": false,
+        "recoveredInTurn": "01a12edb-0331-78f1-b84c-b1b25d9de437",
+        "action": "resume same QA role/model/scope; no replacement or duplicate"
+      }
+    ],
+    "receipt": "operations/evidence/UPG-07A.json"
   },
-  "candidateSha": null,
-  "state": "SCOPED",
+  "candidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "用户授权UPG07首阶段离线协议和shadow评测工具，真实质量待授权样本；生产和巡检保持原状态。",
+  "notes": "UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。 用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。",
   "nextUnitId": "UPG-07",
   "production": {
     "status": "PROD_VERIFIED",
@@ -172,12 +183,12 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "UPG-07A开发→固定SHA独立QA→local_only关闭，列出真实样本缺口",
-    "dependency": "开发独立验收自动推进；真实质量结论需授权样本、双标及独立留出集",
-    "automatic": true
+    "action": "准备并独立核实真实授权样本/双标/留出集，另立UPG07实际评测及线上接入契约",
+    "dependency": "用户已确认暂无真实样本，质量BLOCKED；本地工具已CLOSED",
+    "automatic": false
   },
-  "completedUnitId": "UPG-06",
-  "completedCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "completedUnitId": "UPG-07A",
+  "completedCandidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
   "completedReleaseRepair": {
     "state": "CLOSED",
     "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
@@ -209,5 +220,12 @@
     "pauseAfter": "UPG-06 independent PASS and formal RELEASE_READY",
     "authorizedBy": "User reply 本轮保留，UPG-06验收后暂停（推荐）",
     "verifiedBy": "automation_update returned PAUSED and automation.toml readback PAUSED"
+  },
+  "realQuality": {
+    "status": "BLOCKED",
+    "qualityEvidence": false,
+    "samples": "NOT_PROVIDED",
+    "userConfirmed": true,
+    "readiness": "docs/05-evaluation/reference-view-sample-readiness.md"
   }
 }

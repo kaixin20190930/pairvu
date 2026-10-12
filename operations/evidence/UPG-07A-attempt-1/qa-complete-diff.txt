@@ -1,0 +1,3752 @@
+diff --git a/docs/05-evaluation/reference-view-sample-readiness.md b/docs/05-evaluation/reference-view-sample-readiness.md
+new file mode 100644
+index 0000000..48ba311
+--- /dev/null
++++ b/docs/05-evaluation/reference-view-sample-readiness.md
+@@ -0,0 +1,31 @@
++# UPG-07 真实参考视角样本就绪缺口
++
++截至 2026-10-12，用户明确：**暂时没有真实授权样本及双人标注记录**。本阶段只完成 UPG-07A 离线工具与缺口说明。真实数据就绪状态 `NOT_PROVIDED`，真实质量评测 `BLOCKED`，`qualityEvidence=false`。未观察到不等于现实中不存在；本表仅说明本轮未提供或未核实的证据，不推断客户情况。
++
++仓库 [UPG-02 fixture](../../fixtures/upgrade-dataset/synthetic-valid.json)、[UPG-07A fixture](../../fixtures/reference-view-shadow/synthetic/) 均为人工构造的匿名元数据/占位 hash，**没有真实图片或人工标注来源**。现有单张生产合成图只支持当时的流程验收，既不满足真实授权样本要求，也不提供独立双标/留出覆盖；不能自动补位或认证质量。
++
++规划目标沿用整体方案：development 300–500 对，至少 100 对独立 holdout。这是采集规划，**数量达到不代表足够**：还需要独立来源、分布覆盖、可观察关键错误和干净留出。实际样本数、SKU/类别覆盖和 critical 分母当前未提供，不能写为真实零缺陷或“没有错误”。
++
++| 要求 | 当前状态 | 补齐所需证据 |
++|---|---|---|
++| 真实图像及用途授权 | NOT_PROVIDED | 逐来源授权原记录：权利人、offline evaluation 用途及范围、有效期、撤销机制；匿名表与受控原记录对应，撤销后停止使用并重新冻结 |
++| 授权真实性与有效性核实 | NOT_VERIFIED | 独立保管方核查记录来源与授权适用的图片、参考集合、目的；granted 布尔/字符串不能替代核实 |
++| 实际字节 SHA 与近重复审计 | NOT_PROVIDED | 对真实图片字节计算 SHA；裁切、压缩、翻拍、近重复审计报告，交叉角色和跨轮也检查；CLI 不读取图片 |
++| 规范 SKU/包装及跨 split 隔离 | NOT_PROVIDED | 规范匿名映射、包装版本来源、别名合并、不同工作区同 SKU 归一化；全量原参考+新增参考+观测图隔离检查 |
++| 来源与冻结参考集合 | NOT_PROVIDED | 参考图与 workspace/SKU/包装/授权绑定；view、可見性、available/invalidated 状态及失效处理，不把待检图当自身参考 |
++| 独立商品真值双标 | NOT_PROVIDED | 两个不同人工来源、相互不可见标签，按 UPG-02 标注缺陷/严重度/可观察性；原标签保留，第三人解决分歧 |
++| 独立 view 真值双标与仲裁 | NOT_PROVIDED | 候选 view/可观察性/acceptableReferenceIds 或 no_match/insufficient，两份盲标及必要第三人仲裁原记录；不能从模型输出抄真值 |
++| 标注人身份与独立性来源核实 | NOT_VERIFIED | 保管方核验匿名 ann 映射、盲标权限、时间顺序与第三人来源；independent=true、blind=true 不认证真人身份 |
++| 视角/错误参考/遮挡覆盖 | NOT_PROVIDED | front/back/side/top/bottom/detail/unknown 分布及可观察程度；错误 SKU/包装、失效参考、低可见、无匹配、多解等反例 |
++| 无缺陷和关键差异覆盖 | NOT_PROVIDED | 无缺陷正常对与 text/color/identity/packaging 等差异；可观察 critical 独立分母、REVIEW 覆盖，不能只采容易成功样本 |
++| Development 覆盖与实际分母 | NOT_PROVIDED | 300–500 对规划对应的实际样本数、SKU/类别/视角及关键错误数；预先确定抽样与诊断口径，不因结果删样本 |
++| 独立 holdout 保管与实际分母 | NOT_PROVIDED | ≥100 对规划对应的实际独立留出；独立评测方持有图像/映射/标签，开发不可据结果调标签、重分割或训练 |
++| 冻结 dataset/extension/predictions | NOT_PROVIDED | 三文件原始字节 SHA、协议/策略版本、独立 run IDs 和完整 code/model/prompt/policy 元数据；所有预测完整绑定同一集合 |
++| 外部 baseline/candidate run 来源 | NOT_VERIFIED | 提供实际生成记录与可核实代码/模型/prompt/策略版本；本工具只回放声明，不执行或认证模型 |
++| 独立 benchmark 方案与验收 | NOT_PROVIDED | 抽样/分母/holdout 污染处置、独立来源核实及质量验收方案；本阶段不设统计显著性、质量阈值或排名 |
++
++商品 critical 分母与可判定匹配分母必须分开。部分可见的 critical 仍进入关键错误分母；insufficient 匹配样本不能被删除来提高覆盖；REVIEW 不能算匹配正确。空分母只能报告 null 与缺口，不能宣称漏放为零或质量通过。完整 schema 和诊断口径见 [协议](reference-view-shadow-protocol.md)。
++
++后续填写模板仅使用这些字段：`requirement / status / evidenceReference / verifiedBy / verifiedAt / scopeAndLimitations`；未提供时后三项为 null，并明确状态。**当前不创建任何虚构真实记录、签名、授权 ID、真人身份或实际采集数字。** 真实图片及识别映射应由授权保管方受控保存，不上传本轮代码仓库作为 fixture。
++
++下一步由总控自动安排固定候选 SHA 的独立工程验收；其 PASS 只能关闭 UPG-07A local_only。真实质量下一步依赖用户/数据保管方提供上述授权样本与双标证据，当前不能自动开展。提供数据后还须制定单独授权范围并独立核实来源，不能靠 `synthetic=false` 或工具 PASS 升级为真实 benchmark。UPG-07 runtime、模型调用、生产部署及功能启用均未由本阶段完成或授权。
+diff --git a/docs/05-evaluation/reference-view-shadow-protocol.md b/docs/05-evaluation/reference-view-shadow-protocol.md
+new file mode 100644
+index 0000000..d670a0e
+--- /dev/null
++++ b/docs/05-evaluation/reference-view-shadow-protocol.md
+@@ -0,0 +1,121 @@
++# UPG-07A 参考视角离线 shadow 协议 v1
++
++本阶段是只读工程工具：校验显式三文件输入，回放外部 baseline/candidate 声明，并生成诊断。`VALID` 只代表工程结构有效。**所有输出 `qualityEvidence=false`，真实质量始终 `BLOCKED`**；`synthetic=false`、授权声明、双标声明或更高的诊断比例都不能认证真实 benchmark。工具不读图片、D1/R2、环境秘密，不联网、不运行模型、不修改应用或生产结果。
++
++基线：`9c7a430ff06d839bf7f07fa53ab14e9eef899abb`。UPG-07 runtime 未在此阶段实现。样本依赖见 [readiness](reference-view-sample-readiness.md)。UPG-02 原协议及其 `validateDataset` 保持原样并复用：[原协议](upgrade-benchmark-protocol.md)、[校验器](../../scripts/verify-upgrade-dataset.mjs)。
++
++## 运行与文件绑定
++
++```sh
++pnpm evaluate:reference-view-shadow --dataset /absolute/dataset.json --views /absolute/views.json --predictions /absolute/predictions.json
++pnpm test:reference-view-shadow
++pnpm test:upgrade-dataset
++pnpm exec tsc --noEmit
++```
++
++三个 JSON 文件分别为 UPG-02 dataset、view extension、prediction replay。必须按照上面的参数顺序提供全部路径；路径可相对当前工作目录，文件及父目录 symlink 入口均可执行。无参数输出 BLOCKED，**没有默认 fixture**。文件打开失败（含目录）也 BLOCKED；部分参数、重复/额外参数为 INVALID_USAGE。`--help` 输出用法文本，其余结果为 stdout JSON。
++
++| 退出码 | status | 含义 |
++|---|---|---|
++| 0 | VALID | 工程有效、诊断已计算；真实质量仍 BLOCKED |
++| 1 | INVALID_INPUT | JSON/schema/绑定/来源/标签/预测不合法 |
++| 2 | BLOCKED | 三文件未提供或不可读，不执行评测 |
++| 64 | INVALID_USAGE | 参数形式不合法 |
++
++除 dataset 完整继承 UPG-02 限制，本文各对象也必须**恰好**含列出的字段；不允许未知字段（包括 `qualityEvidence` 开关），不允许缺字段。extension 和各 run 的样本数组最多 100000 条，是工具输入上限，不是质量目标。JSON 重复键、转义后相同键均拒绝。所有摘要为小写 64 位 SHA256，code SHA 为小写完整 40 位 Git SHA。匿名 ID 延续 UPG-02：16 位小写 hex 后缀，reference 为 `ref_…`，run 为 `run_…`。不接受 URL、真实姓名或任意视角自由文本。错误只返回固定代码，不输出文件路径、输入值、JSON 解析上下文或底层异常。
++
++绑定使用**文件原始字节** SHA256（包括缩进、换行、末尾空白），不是解析后重排的摘要。先冻结 dataset 字节，再在 extension 和 predictions 中填同一 datasetSha256；冻结 extension 后填 predictions.extensionSha256。改换行也必须重新冻结绑定。工具不会自动修复绑定。报告包含三份实际文件摘要。
++
++## 文件 1：dataset
++
++完整 UPG-02 v1 对象，字段 `schemaVersion,datasetId,synthetic,authorizationRecords,samples`；每个样本保留独立商品真值双标和必要仲裁、原 referenceImageSha256、observedImageSha256、split、workspaceId、skuId、packagingVersionId、authorizationId。只有通过原 `validateDataset` 才继续。它的错误在新 CLI 统一为 `UPG02_DATASET_INVALID`，不替换旧协议或修改旧 CLI。
++
++这套商品真值负责关键缺陷分母，**不由 view truth 或 prediction 重写**。原参考必须出现在该样本扩展集合中。两种真值可以不同：例如同视角找到有效标准参考，但商品仍有可观察 critical 包装缺陷。
++
++## 文件 2：view extension
++
++| 对象 | 必须字段及约束 |
++|---|---|
++| 根 | `schemaVersion:1,datasetId,datasetSha256,synthetic,policyVersion,policySha256,samples` |
++| samples 元素 | `sampleId,references,annotations,adjudication`；ID 与 dataset 恰好一对一，禁止缺失、额外、重复、未知 |
++| references 元素 | `id,imageSha256,view,observability,status,source`；每样本 1–16 条，ID 与图像 hash 均不重复 |
++| source | `workspaceId,skuId,packagingVersionId,authorizationId`；逐字段等于该 dataset 样本 |
++| annotations 元素 | `annotatorId,independent:true,blind:true,label`；恰好两条，不同 ann ID |
++| label | `observedView,observability,conclusion,acceptableReferenceIds` |
++| adjudication | 一致时必须 `null`；分歧时必须 `{adjudicatorId,reason,label}`，第三个不同 ann ID |
++
++枚举：
++
++- `view`、`observedView`：`front/back/side/top/bottom/detail/unknown`。
++- `observability`：`observable/partial/unobservable`，对参考和候选图各自声明。
++- 参考 `status`：`available/invalidated`。失效、低可见、unknown 参考不能作为可确认选择。
++- view `conclusion`：`compatible/no_match/insufficient`。
++- 仲裁 `reason`：`view_resolution/reference_resolution/observability_resolution/multiple_disagreements`。
++
++`compatible` 要求候选图已知视角、完全可观察，acceptableReferenceIds 为非空、无重复、属于本样本集合的 ID 数组，每项必须同视角、available、observable。允许多个可接受答案。`no_match` 要求已知视角、observable，数组为空；表示独立声明没有可接受参考，即使有同视角元数据参考也不确认。`insufficient` 数组为空，允许 unknown、低可见或缺参考。unknown/partial/unobservable 不能断言 compatible 或明确 no_match。
++
++一致性比较将 acceptableReferenceIds 当集合，顺序不同不算分歧；其他 label 字段必须一致。分歧保留两份原标签，再保存第三人决定，不允许丢弃或用预测替换原标签。此处的 blind/independent 只是输入声明：工具不认证真人身份、是否真正盲标或仲裁过程。
++
++校验先纳入完整 dataset 所有原参考和候选图，再遍历所有新增参考：任一图像 hash 跨 development/holdout（包括不同角色）均拒绝；同 hash 的完整 source 四元组必须一致，不能换 SKU、包装、工作区或授权绕过来源；同 ref ID 的 hash/视角/可见性/状态/source 必须一致。原 UPG-02 的 SKU 跨 split 隔离继续生效。待检图不能自身作为参考。相同 source 的参考可以在同 split 的多个不同观测样本重复使用。新增参考不能借拆分文件或不同 ID 绕过全局检查。
++
++这是**精确 hash 与声明 ID 校验**，不读图片，无法检查 hash 是否真实、规范 SKU 是否使用别名、近重复图片、真实包装身份、授权有效期或实际 split 隔离。必须由独立数据保管方额外审计。
++
++## 文件 3：predictions
++
++| 对象 | 必须字段及约束 |
++|---|---|
++| 根 | `schemaVersion:1,datasetId,datasetSha256,extensionSha256,synthetic,policyVersion,policySha256,baseline,candidate` |
++| baseline、candidate | 各自 `{metadata,samples}`；必须完整回放同一 dataset，不能删除缺预测样本 |
++| metadata | `runId,codeSha,model,promptVersion,policyVersion,policySha256`；两 run ID 不同 |
++| model | `{provider,modelId}`，显式提供，不猜模型来源 |
++| samples 元素 | `sampleId,selection,matchDecision,qualityDecision`；样本精确一对一 |
++
++provider/modelId/promptVersion 和 run policyVersion 为 1–120 位标识 token：首字符字母或数字，其余字母、数字、`.`、`_`、`:`、`/`、`-`；`unknown/unspecified/null/none` 不接受（忽略大小写）。不支持填任意备注。run policySha256 必须明确提供完整 hash，但属于外部已生成 run 的未核实声明，可与本工具策略不同；两 run 的模型/prompt/code/policy 也可不同。根 policyVersion/hash 绑定本工具诊断策略。工具从不据 code SHA 推测模型/版本，也不宣称运行过这些模型、证明这些代码存在或外部策略实现正确。
++
++`selection` 为本样本可用、observable、已知视角的 ref ID 或 `null`；未知、跨样本、失效、低可见参考拒绝。可回放已知参考的**错视角选择**，诊断会记错误；在 unknown/低可见候选图上声明 MATCH 也仅记不可判定和 unsafeMatch，不输出确认推荐。
++
++| matchDecision | selection | 允许的 qualityDecision |
++|---|---|---|
++| MATCH | 非 null | ALLOW / REVIEW / BLOCK |
++| REVIEW | null 或有效 ID | REVIEW / BLOCK |
++| NO_MATCH | null | BLOCK |
++
++因此 REVIEW/ALLOW、NO_MATCH/ALLOW 等组合拒绝；MATCH/ALLOW 遇 critical 商品真值则计入漏放，而不是因正确找参考就免除质量风险。prediction 不得提供或覆盖真值。
++
++## 冻结策略与报告口径
++
++诊断策略 version：`reference-view-conservative-001`；SHA256：`e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19`。摘要取 [工具 POLICY](../../scripts/evaluate-reference-view-shadow.mjs) 对象递归按 key 排序后的 UTF8 JSON。报告携带版本、hash 和完整 manifest。变化须新版本与重新冻结输入；不能沿用旧质量结论。
++
++参考候选集合仅在 resolved view truth 为 compatible、候选已知视角且 observable 时，从相同来源、同视角、available、observable 的参考中按 ID 排序取得。它是元数据保守候选集，可能大于人工 acceptableReferenceIds；不判断具体缺陷，不推断最佳视觉相似度。多个候选时 uniqueReferenceId=null；单个只给诊断 ID，`confirmedMatch` **始终 false**。不得把此报告当人审或发布 eligibility。
++
++| 推荐 reason | 含义 |
++|---|---|
++| UNKNOWN_OBSERVED_VIEW | 候选视角未知，不推荐 |
++| LOW_OBSERVABILITY | 候选不完全可观察，不推荐 |
++| DECLARED_NO_MATCH | 独立标签声明无匹配，不推荐 |
++| INSUFFICIENT_EVIDENCE | 证据不足，不推荐 |
++| NO_COMPATIBLE_REFERENCE | 无保守候选（有效 compatible 标签至少已有可接受项，通常不会触发） |
++| SINGLE_COMPATIBLE_REFERENCE | 单一元数据候选，未确认匹配 |
++| MULTIPLE_COMPATIBLE_REFERENCES | 多解，只输出集合 |
++
++每个 split 单独输出，**没有合并 headline**：
++
++- sampleCount/sampleDenominator：全部被冻结样本，包括 REVIEW 与 insufficient；缺 prediction 直接拒绝，不偷偷缩分母。
++- decidableDenominator：resolved view conclusion 为 compatible 或 no_match；insufficient 不参与正确比例。matchDecision=REVIEW 无论真值怎样都为 abstain，绝不算正确。
++- 六项 outcome 计数完整分割样本：correctMatch（MATCH 且在 acceptable 集合）、wrongMatch（可判定但选择错误）、correctNoMatch、wrongNoMatch、abstain、unevaluable（insufficient 且非 REVIEW）。unsafeMatchOnInsufficient 另列。
++- declaredCorrectRate=(correctMatch+correctNoMatch)/decidableDenominator；其中可判定 REVIEW 留在分母。只是声明输入诊断，不能写成准确率达标。
++- coverage=(MATCH+NO_MATCH)/sampleCount；reviewRate=matchDecision REVIEW/sampleCount。coverage 也包括错误和不可判定输出，不代表质量。qualityAllow/Review/Block 独立计数，不能与匹配 REVIEW 混为一谈。
++- criticalDenominator：UPG-02 resolved 商品真值 severity=critical 且 observability≠unobservable。UPG-02 允许可见部分的 mismatch，**partial 的 critical 也保留**，不依赖视角真值。criticalAllowed 为其中 qualityDecision ALLOW，criticalMissedAllowRate=criticalAllowed/criticalDenominator。quality REVIEW 不算漏放，criticalQualityReview/criticalMatchReview 分开计数；另有 criticalBlocked。
++- differences 在同一 split、同一冻结样本逐项比较 selection/matchDecision/qualityDecision 变化；becameCorrect/ceasedCorrect 仅针对可判定样本。不能把 candidate 自己当人工真值。
++
++所有比例包含 numerator/denominator/value/reason。空分母 value=null、reason=EMPTY_DENOMINATOR，不输出 NaN 或“0%成功”。只含 development 时 holdout 明确零样本及 null 比例。按 SKU 和原商品 defectType 列样本数供缺口检查；样本和关键错误分母不足，**不做 SKU/类别排名**。不实现质量阈值、统计显著性或整体质量 PASS。
++
++输出 evidenceKind 为 synthetic_test 或 unverified_declared_input，所有来源状态 UNVERIFIED。原始标签保留在输入文件；报告给 resolved truth 与绑定 hash 便于追溯。输入顺序变化不改变语义诊断/排序输出，但原始 hash 随字节变化；这不是同一冻结输入。
++
++## 验证与阶段完成条件
++
++显式合成测试三文件见 [synthetic fixture](../../fixtures/reference-view-shadow/synthetic/)，只证明工具行为，不对应图片、真人、授权或模型。测试覆盖错 hash、字段/枚举、预测一对一、来源/SKU/包装、跨 split 新参考泄漏、双标和第三人仲裁、unknown/低可见、多解、缺分母、伪装 real、只读和 symlink 入口。专项原始结果另存 fixtures/reference-view-shadow，不覆盖 UPG-02 或已有 QA 证据。
++
++开发本地提交后由独立 QA 固定完整候选 SHA 验收。仅 local_only UPG-07A 可以在独立 PASS 后关闭；本地专项 PASS 不是独立 QA PASS，不解除真实样本、人工来源或 runtime 门槛，不授权生产发布。
++
++本轮 [开发验证与源码摘要](../../fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json)、[专项原始 stdout](../../fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt)、[合成回放原始 JSON](../../fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json) 是开发证据，独立 QA 尚待总控安排。
+diff --git a/fixtures/reference-view-shadow/synthetic/dataset.json b/fixtures/reference-view-shadow/synthetic/dataset.json
+new file mode 100644
+index 0000000..ad01653
+--- /dev/null
++++ b/fixtures/reference-view-shadow/synthetic/dataset.json
+@@ -0,0 +1,288 @@
++{
++  "schemaVersion": 1,
++  "datasetId": "dataset_0000000000000007",
++  "synthetic": true,
++  "authorizationRecords": [
++    {
++      "id": "auth_0000000000000001",
++      "workspaceId": "ws_0000000000000001",
++      "recordRef": "synthetic:11111111111111111111111111111111",
++      "permittedUse": "offline_evaluation",
++      "status": "granted"
++    }
++  ],
++  "samples": [
++    {
++      "id": "sample_0000000000000001",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000001",
++      "packagingVersionId": "pkg_0000000000000001",
++      "authorizationId": "auth_0000000000000001",
++      "split": "development",
++      "referenceImageSha256": "000000000000000000000000000000000000000000000000000000000000000a",
++      "observedImageSha256": "000000000000000000000000000000000000000000000000000000000000000b",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000002",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000002",
++      "packagingVersionId": "pkg_0000000000000002",
++      "authorizationId": "auth_0000000000000001",
++      "split": "development",
++      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000014",
++      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000015",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "mismatch",
++            "defectType": "packaging",
++            "severity": "critical",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "mismatch",
++            "defectType": "packaging",
++            "severity": "critical",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000003",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000003",
++      "packagingVersionId": "pkg_0000000000000003",
++      "authorizationId": "auth_0000000000000001",
++      "split": "development",
++      "referenceImageSha256": "000000000000000000000000000000000000000000000000000000000000001e",
++      "observedImageSha256": "000000000000000000000000000000000000000000000000000000000000001f",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000004",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000004",
++      "packagingVersionId": "pkg_0000000000000004",
++      "authorizationId": "auth_0000000000000001",
++      "split": "development",
++      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000028",
++      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000029",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000005",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000005",
++      "packagingVersionId": "pkg_0000000000000005",
++      "authorizationId": "auth_0000000000000001",
++      "split": "holdout",
++      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000032",
++      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000033",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000006",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000006",
++      "packagingVersionId": "pkg_0000000000000006",
++      "authorizationId": "auth_0000000000000001",
++      "split": "holdout",
++      "referenceImageSha256": "000000000000000000000000000000000000000000000000000000000000003c",
++      "observedImageSha256": "000000000000000000000000000000000000000000000000000000000000003d",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "mismatch",
++            "defectType": "packaging",
++            "severity": "critical",
++            "observability": "partial"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "mismatch",
++            "defectType": "packaging",
++            "severity": "critical",
++            "observability": "partial"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000007",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000007",
++      "packagingVersionId": "pkg_0000000000000007",
++      "authorizationId": "auth_0000000000000001",
++      "split": "holdout",
++      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000046",
++      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000047",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "id": "sample_0000000000000008",
++      "synthetic": true,
++      "workspaceId": "ws_0000000000000001",
++      "skuId": "sku_0000000000000008",
++      "packagingVersionId": "pkg_0000000000000008",
++      "authorizationId": "auth_0000000000000001",
++      "split": "holdout",
++      "referenceImageSha256": "0000000000000000000000000000000000000000000000000000000000000050",
++      "observedImageSha256": "0000000000000000000000000000000000000000000000000000000000000051",
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "label": {
++            "verdict": "match",
++            "defectType": "none",
++            "severity": "none",
++            "observability": "observable"
++          }
++        }
++      ],
++      "adjudication": null
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/synthetic/predictions.json b/fixtures/reference-view-shadow/synthetic/predictions.json
+new file mode 100644
+index 0000000..18237e6
+--- /dev/null
++++ b/fixtures/reference-view-shadow/synthetic/predictions.json
+@@ -0,0 +1,135 @@
++{
++  "schemaVersion": 1,
++  "datasetId": "dataset_0000000000000007",
++  "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
++  "extensionSha256": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
++  "synthetic": true,
++  "policyVersion": "reference-view-conservative-001",
++  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
++  "baseline": {
++    "metadata": {
++      "runId": "run_0000000000000001",
++      "codeSha": "1111111111111111111111111111111111111111",
++      "model": {
++        "provider": "synthetic-provider",
++        "modelId": "synthetic-no-model"
++      },
++      "promptVersion": "synthetic-prompt-1",
++      "policyVersion": "synthetic-external-policy-1",
++      "policySha256": "1111111111111111111111111111111111111111111111111111111111111111"
++    },
++    "samples": [
++      {
++        "sampleId": "sample_0000000000000001",
++        "selection": "ref_000000000000000a",
++        "matchDecision": "MATCH",
++        "qualityDecision": "ALLOW"
++      },
++      {
++        "sampleId": "sample_0000000000000002",
++        "selection": "ref_0000000000000017",
++        "matchDecision": "MATCH",
++        "qualityDecision": "ALLOW"
++      },
++      {
++        "sampleId": "sample_0000000000000003",
++        "selection": "ref_000000000000001e",
++        "matchDecision": "MATCH",
++        "qualityDecision": "ALLOW"
++      },
++      {
++        "sampleId": "sample_0000000000000004",
++        "selection": "ref_0000000000000028",
++        "matchDecision": "MATCH",
++        "qualityDecision": "BLOCK"
++      },
++      {
++        "sampleId": "sample_0000000000000005",
++        "selection": null,
++        "matchDecision": "NO_MATCH",
++        "qualityDecision": "BLOCK"
++      },
++      {
++        "sampleId": "sample_0000000000000006",
++        "selection": "ref_000000000000003e",
++        "matchDecision": "MATCH",
++        "qualityDecision": "ALLOW"
++      },
++      {
++        "sampleId": "sample_0000000000000007",
++        "selection": null,
++        "matchDecision": "REVIEW",
++        "qualityDecision": "REVIEW"
++      },
++      {
++        "sampleId": "sample_0000000000000008",
++        "selection": null,
++        "matchDecision": "REVIEW",
++        "qualityDecision": "BLOCK"
++      }
++    ]
++  },
++  "candidate": {
++    "metadata": {
++      "runId": "run_0000000000000002",
++      "codeSha": "2222222222222222222222222222222222222222",
++      "model": {
++        "provider": "synthetic-provider",
++        "modelId": "synthetic-no-model"
++      },
++      "promptVersion": "synthetic-prompt-2",
++      "policyVersion": "synthetic-external-policy-2",
++      "policySha256": "2222222222222222222222222222222222222222222222222222222222222222"
++    },
++    "samples": [
++      {
++        "sampleId": "sample_0000000000000001",
++        "selection": null,
++        "matchDecision": "REVIEW",
++        "qualityDecision": "REVIEW"
++      },
++      {
++        "sampleId": "sample_0000000000000002",
++        "selection": "ref_0000000000000016",
++        "matchDecision": "MATCH",
++        "qualityDecision": "REVIEW"
++      },
++      {
++        "sampleId": "sample_0000000000000003",
++        "selection": null,
++        "matchDecision": "REVIEW",
++        "qualityDecision": "REVIEW"
++      },
++      {
++        "sampleId": "sample_0000000000000004",
++        "selection": null,
++        "matchDecision": "NO_MATCH",
++        "qualityDecision": "BLOCK"
++      },
++      {
++        "sampleId": "sample_0000000000000005",
++        "selection": "ref_0000000000000032",
++        "matchDecision": "MATCH",
++        "qualityDecision": "ALLOW"
++      },
++      {
++        "sampleId": "sample_0000000000000006",
++        "selection": "ref_000000000000003c",
++        "matchDecision": "MATCH",
++        "qualityDecision": "BLOCK"
++      },
++      {
++        "sampleId": "sample_0000000000000007",
++        "selection": "ref_0000000000000048",
++        "matchDecision": "MATCH",
++        "qualityDecision": "BLOCK"
++      },
++      {
++        "sampleId": "sample_0000000000000008",
++        "selection": null,
++        "matchDecision": "REVIEW",
++        "qualityDecision": "REVIEW"
++      }
++    ]
++  }
++}
+diff --git a/fixtures/reference-view-shadow/synthetic/views.json b/fixtures/reference-view-shadow/synthetic/views.json
+new file mode 100644
+index 0000000..a4e5a18
+--- /dev/null
++++ b/fixtures/reference-view-shadow/synthetic/views.json
+@@ -0,0 +1,435 @@
++{
++  "schemaVersion": 1,
++  "datasetId": "dataset_0000000000000007",
++  "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
++  "synthetic": true,
++  "policyVersion": "reference-view-conservative-001",
++  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
++  "samples": [
++    {
++      "sampleId": "sample_0000000000000001",
++      "references": [
++        {
++          "id": "ref_000000000000000a",
++          "imageSha256": "000000000000000000000000000000000000000000000000000000000000000a",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000001",
++            "packagingVersionId": "pkg_0000000000000001",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_000000000000000a"
++            ]
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_000000000000000a"
++            ]
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000002",
++      "references": [
++        {
++          "id": "ref_0000000000000014",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000014",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000002",
++            "packagingVersionId": "pkg_0000000000000002",
++            "authorizationId": "auth_0000000000000001"
++          }
++        },
++        {
++          "id": "ref_0000000000000016",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000016",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000002",
++            "packagingVersionId": "pkg_0000000000000002",
++            "authorizationId": "auth_0000000000000001"
++          }
++        },
++        {
++          "id": "ref_0000000000000017",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000017",
++          "view": "back",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000002",
++            "packagingVersionId": "pkg_0000000000000002",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_0000000000000014",
++              "ref_0000000000000016"
++            ]
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_0000000000000014",
++              "ref_0000000000000016"
++            ]
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000003",
++      "references": [
++        {
++          "id": "ref_000000000000001e",
++          "imageSha256": "000000000000000000000000000000000000000000000000000000000000001e",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000003",
++            "packagingVersionId": "pkg_0000000000000003",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "unknown",
++            "observability": "partial",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "unknown",
++            "observability": "partial",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000004",
++      "references": [
++        {
++          "id": "ref_0000000000000028",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000028",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000004",
++            "packagingVersionId": "pkg_0000000000000004",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "no_match",
++            "acceptableReferenceIds": []
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "no_match",
++            "acceptableReferenceIds": []
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000005",
++      "references": [
++        {
++          "id": "ref_0000000000000032",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000032",
++          "view": "side",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000005",
++            "packagingVersionId": "pkg_0000000000000005",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "side",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_0000000000000032"
++            ]
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "side",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_0000000000000032"
++            ]
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000006",
++      "references": [
++        {
++          "id": "ref_000000000000003c",
++          "imageSha256": "000000000000000000000000000000000000000000000000000000000000003c",
++          "view": "back",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000006",
++            "packagingVersionId": "pkg_0000000000000006",
++            "authorizationId": "auth_0000000000000001"
++          }
++        },
++        {
++          "id": "ref_000000000000003e",
++          "imageSha256": "000000000000000000000000000000000000000000000000000000000000003e",
++          "view": "front",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000006",
++            "packagingVersionId": "pkg_0000000000000006",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_000000000000003e"
++            ]
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "back",
++            "observability": "observable",
++            "conclusion": "compatible",
++            "acceptableReferenceIds": [
++              "ref_000000000000003c"
++            ]
++          }
++        }
++      ],
++      "adjudication": {
++        "adjudicatorId": "ann_0000000000000003",
++        "reason": "view_resolution",
++        "label": {
++          "observedView": "back",
++          "observability": "observable",
++          "conclusion": "compatible",
++          "acceptableReferenceIds": [
++            "ref_000000000000003c"
++          ]
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000007",
++      "references": [
++        {
++          "id": "ref_0000000000000046",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000046",
++          "view": "bottom",
++          "observability": "observable",
++          "status": "invalidated",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000007",
++            "packagingVersionId": "pkg_0000000000000007",
++            "authorizationId": "auth_0000000000000001"
++          }
++        },
++        {
++          "id": "ref_0000000000000048",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000048",
++          "view": "top",
++          "observability": "observable",
++          "status": "available",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000007",
++            "packagingVersionId": "pkg_0000000000000007",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "bottom",
++            "observability": "partial",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "bottom",
++            "observability": "partial",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        }
++      ],
++      "adjudication": null
++    },
++    {
++      "sampleId": "sample_0000000000000008",
++      "references": [
++        {
++          "id": "ref_0000000000000050",
++          "imageSha256": "0000000000000000000000000000000000000000000000000000000000000050",
++          "view": "front",
++          "observability": "observable",
++          "status": "invalidated",
++          "source": {
++            "workspaceId": "ws_0000000000000001",
++            "skuId": "sku_0000000000000008",
++            "packagingVersionId": "pkg_0000000000000008",
++            "authorizationId": "auth_0000000000000001"
++          }
++        }
++      ],
++      "annotations": [
++        {
++          "annotatorId": "ann_0000000000000001",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        },
++        {
++          "annotatorId": "ann_0000000000000002",
++          "independent": true,
++          "blind": true,
++          "label": {
++            "observedView": "front",
++            "observability": "observable",
++            "conclusion": "insufficient",
++            "acceptableReferenceIds": []
++          }
++        }
++      ],
++      "adjudication": null
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json b/fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json
+new file mode 100644
+index 0000000..1ef04f5
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json
+@@ -0,0 +1,69 @@
++{
++  "unitId": "UPG-07A",
++  "role": "developer",
++  "stage": "DEV_READY_PENDING_INDEPENDENT_QA",
++  "baselineSha": "9c7a430ff06d839bf7f07fa53ab14e9eef899abb",
++  "createdAt": "2026-10-12T05:51:12.730Z",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "realSampleReadiness": "NOT_PROVIDED",
++  "policySha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
++  "sourceHashes": {
++    "scripts/evaluate-reference-view-shadow.mjs": "4742556e15fe73c1c527b23e14216c28fb12ec9f2a1da730135056bc6aa67cd2",
++    "scripts/test-reference-view-shadow.mjs": "beaa38028ea1f586229b8e069b37674da3423b551120945478f22f3f748cf48d",
++    "scripts/reference-view-shadow/synthetic-fixture.mjs": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
++    "package.json": "31a4c1b963c7fe8aefb9d41b65c5a19300fef77cbe5935b5f150a342402ab33d",
++    "docs/05-evaluation/reference-view-shadow-protocol.md": "4ffaf674daae56605b79af87680f9708efe0da1ba8139f9fba30df1c764a81f4",
++    "docs/05-evaluation/reference-view-sample-readiness.md": "4e99abb18f1bfc9e04ab73b1071eee648efc7678e909b2d5abb2d2d9df4702d7",
++    "fixtures/reference-view-shadow/synthetic/dataset.json": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
++    "fixtures/reference-view-shadow/synthetic/views.json": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
++    "fixtures/reference-view-shadow/synthetic/predictions.json": "871e6f921d9c651611b9d790a2272fddd9176fb4f11353ebb0402ae015488079"
++  },
++  "commands": [
++    {
++      "command": "pnpm test:reference-view-shadow",
++      "exitCode": 0,
++      "checkCount": 177,
++      "cliInvocations": 21,
++      "stdout": "specialized-raw.txt"
++    },
++    {
++      "command": "pnpm test:upgrade-dataset",
++      "exitCode": 0,
++      "checkCount": 105,
++      "stdout": "upg02-regression-raw.txt"
++    },
++    {
++      "command": "pnpm exec tsc --noEmit",
++      "exitCode": 0,
++      "stdout": "typecheck-raw.txt"
++    },
++    {
++      "command": "node scripts/evaluate-reference-view-shadow.mjs --dataset fixtures/reference-view-shadow/synthetic/dataset.json --views fixtures/reference-view-shadow/synthetic/views.json --predictions fixtures/reference-view-shadow/synthetic/predictions.json",
++      "exitCode": 0,
++      "stdout": "synthetic-replay.json"
++    },
++    {
++      "command": "node scripts/evaluate-reference-view-shadow.mjs",
++      "exitCode": 2,
++      "stdout": "missing-input.json"
++    }
++  ],
++  "harnessCorrections": [
++    {
++      "attempt": 1,
++      "summary": "Missing-field test initially rebound a deleted datasetSha256 in its synthetic fixture helper; helper now preserves absence."
++    },
++    {
++      "attempt": 2,
++      "summary": "Missing sampleId rejection occurs at sample-set validation before object-field validation; corrected expected error code."
++    }
++  ],
++  "limitations": [
++    "Developer validation is not independent acceptance. Controller must bind QA to exact committed candidate SHA.",
++    "All inputs are explicitly synthetic test metadata with no actual images, authorization, humans or model runs.",
++    "No build, browser, network, model, production, push or deployment used.",
++    "Real quality remains BLOCKED even for synthetic=false input declarations.",
++    "Runtime UPG-07 is not implemented or enabled."
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/missing-input.json b/fixtures/reference-view-shadow/validation-2026-10-12/missing-input.json
+new file mode 100644
+index 0000000..e41f741
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/missing-input.json
+@@ -0,0 +1 @@
++{"status":"BLOCKED","reason":"EXPLICIT_THREE_FILE_INPUT_REQUIRED","qualityEvidence":false,"realQualityStatus":"BLOCKED"}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt b/fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt
+new file mode 100644
+index 0000000..fab47c6
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt
+@@ -0,0 +1,722 @@
++
++> product-visual-qa-platform@0.1.0 test:reference-view-shadow /Users/liukai/Documents/Product Visual QA Platform
++> node scripts/test-reference-view-shadow.mjs
++
++{
++  "status": "PASS",
++  "unitId": "UPG-07A",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "checkCount": 177,
++  "cliInvocations": 21,
++  "checks": [
++    {
++      "name": "split counts and full outcome partitions retain REVIEW and insufficient samples",
++      "status": "PASS"
++    },
++    {
++      "name": "independent critical truth counts both observable and partial defects; REVIEW is separate",
++      "status": "PASS"
++    },
++    {
++      "name": "multi solution retains sorted candidate set and never selects unique by order",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown, low visibility, no_match and invalidated references never recommend a match",
++      "status": "PASS"
++    },
++    {
++      "name": "same frozen samples compare changed output and correctness without headline",
++      "status": "PASS"
++    },
++    {
++      "name": "byte hashes bind all three files and fixed policy manifest",
++      "status": "PASS"
++    },
++    {
++      "name": "false synthetic declaration does not certify real provenance or quality",
++      "status": "PASS"
++    },
++    {
++      "name": "no critical examples has null missed-error rate, never success zero",
++      "status": "PASS"
++    },
++    {
++      "name": "only development yields explicit zero holdout and null denominators",
++      "status": "PASS"
++    },
++    {
++      "name": "all view truth insufficient leaves zero decidable denominator with abstentions retained",
++      "status": "PASS"
++    },
++    {
++      "name": "distinct external run policy versions and hashes are declared, never inferred",
++      "status": "PASS"
++    },
++    {
++      "name": "same-source frozen reference can be reused by distinct observations within one split",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudicated decision can resolve to no_match while keeping original two labels",
++      "status": "PASS"
++    },
++    {
++      "name": "acceptable-ID set order agreement requires no arbitration",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order",
++      "status": "PASS"
++    },
++    {
++      "name": "UPG02 dataset validation is reused for ownership and labels",
++      "status": "PASS"
++    },
++    {
++      "name": "extension dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong extension schema",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong prediction schema",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed extension provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed predictions provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy version",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy hash",
++      "status": "PASS"
++    },
++    {
++      "name": "missing extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "extra extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "original reference cannot be omitted",
++      "status": "PASS"
++    },
++    {
++      "name": "empty reference set",
++      "status": "PASS"
++    },
++    {
++      "name": "reference set bounded at 16",
++      "status": "PASS"
++    },
++    {
++      "name": "observed cannot be own reference",
++      "status": "PASS"
++    },
++    {
++      "name": "reference image crossed holdout split",
++      "status": "PASS"
++    },
++    {
++      "name": "new reference crossed holdout observed role",
++      "status": "PASS"
++    },
++    {
++      "name": "two newly added images leak across split",
++      "status": "PASS"
++    },
++    {
++      "name": "image content reused under different SKU within split",
++      "status": "PASS"
++    },
++    {
++      "name": "reference ID conflicting metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference ID",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference hash",
++      "status": "PASS"
++    },
++    {
++      "name": "reference hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitrary view not supported",
++      "status": "PASS"
++    },
++    {
++      "name": "reference state unknown",
++      "status": "PASS"
++    },
++    {
++      "name": "same view annotator",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not blind",
++      "status": "PASS"
++    },
++    {
++      "name": "only one view annotation",
++      "status": "PASS"
++    },
++    {
++      "name": "missing required adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitration not third person",
++      "status": "PASS"
++    },
++    {
++      "name": "unexpected adjudication removes original agreement",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong-view acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "invalidated reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "partial reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "partial observed view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert no_match truth",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "run ID not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "abbreviated code SHA not accepted",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified model cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified prompt cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "run policy hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source workspaceId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source skuId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source packagingVersionId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source authorizationId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "extension unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing extensionSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing baseline",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing candidate",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing references",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing annotations",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "reference unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing id",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing imageSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing view",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing status",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing source",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing workspaceId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing skuId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing packagingVersionId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing authorizationId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing annotatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing blind",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observedView",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing conclusion",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing acceptableReferenceIds",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing adjudicatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing reason",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "run unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing runId",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing codeSha",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing model",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing promptVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing provider",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing modelId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing selection",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing matchDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing qualityDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "raw dataset whitespace tampering invalidates binding even if parsed meaning is same",
++      "status": "PASS"
++    },
++    {
++      "name": "raw view whitespace tampering invalidates prediction binding",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong dataset byte hash is rejected",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate JSON keys including escaped aliases are rejected before overwrite",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry direct",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry file symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry parent symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI alias.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI evaluate-reference-view-shadow.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "missing file blocks without path or content echo",
++      "status": "PASS"
++    },
++    {
++      "name": "partial flags invalid and do not fall back to fixtures",
++      "status": "PASS"
++    },
++    {
++      "name": "directory input blocks",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized n",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized [",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic errors never echo arbitrary input values",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI creates no files and preserves input byte contents",
++      "status": "PASS"
++    },
++    {
++      "name": "help states engineering/real-quality distinction and exit codes",
++      "status": "PASS"
++    },
++    {
++      "name": "explicit committed fixtures replay exactly, without overwriting them",
++      "status": "PASS"
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/specialized.json b/fixtures/reference-view-shadow/validation-2026-10-12/specialized.json
+new file mode 100644
+index 0000000..2a1eb6b
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/specialized.json
+@@ -0,0 +1,718 @@
++{
++  "status": "PASS",
++  "unitId": "UPG-07A",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "checkCount": 177,
++  "cliInvocations": 21,
++  "checks": [
++    {
++      "name": "split counts and full outcome partitions retain REVIEW and insufficient samples",
++      "status": "PASS"
++    },
++    {
++      "name": "independent critical truth counts both observable and partial defects; REVIEW is separate",
++      "status": "PASS"
++    },
++    {
++      "name": "multi solution retains sorted candidate set and never selects unique by order",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown, low visibility, no_match and invalidated references never recommend a match",
++      "status": "PASS"
++    },
++    {
++      "name": "same frozen samples compare changed output and correctness without headline",
++      "status": "PASS"
++    },
++    {
++      "name": "byte hashes bind all three files and fixed policy manifest",
++      "status": "PASS"
++    },
++    {
++      "name": "false synthetic declaration does not certify real provenance or quality",
++      "status": "PASS"
++    },
++    {
++      "name": "no critical examples has null missed-error rate, never success zero",
++      "status": "PASS"
++    },
++    {
++      "name": "only development yields explicit zero holdout and null denominators",
++      "status": "PASS"
++    },
++    {
++      "name": "all view truth insufficient leaves zero decidable denominator with abstentions retained",
++      "status": "PASS"
++    },
++    {
++      "name": "distinct external run policy versions and hashes are declared, never inferred",
++      "status": "PASS"
++    },
++    {
++      "name": "same-source frozen reference can be reused by distinct observations within one split",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudicated decision can resolve to no_match while keeping original two labels",
++      "status": "PASS"
++    },
++    {
++      "name": "acceptable-ID set order agreement requires no arbitration",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order",
++      "status": "PASS"
++    },
++    {
++      "name": "UPG02 dataset validation is reused for ownership and labels",
++      "status": "PASS"
++    },
++    {
++      "name": "extension dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong extension schema",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong prediction schema",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed extension provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed predictions provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy version",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy hash",
++      "status": "PASS"
++    },
++    {
++      "name": "missing extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "extra extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "original reference cannot be omitted",
++      "status": "PASS"
++    },
++    {
++      "name": "empty reference set",
++      "status": "PASS"
++    },
++    {
++      "name": "reference set bounded at 16",
++      "status": "PASS"
++    },
++    {
++      "name": "observed cannot be own reference",
++      "status": "PASS"
++    },
++    {
++      "name": "reference image crossed holdout split",
++      "status": "PASS"
++    },
++    {
++      "name": "new reference crossed holdout observed role",
++      "status": "PASS"
++    },
++    {
++      "name": "two newly added images leak across split",
++      "status": "PASS"
++    },
++    {
++      "name": "image content reused under different SKU within split",
++      "status": "PASS"
++    },
++    {
++      "name": "reference ID conflicting metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference ID",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference hash",
++      "status": "PASS"
++    },
++    {
++      "name": "reference hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitrary view not supported",
++      "status": "PASS"
++    },
++    {
++      "name": "reference state unknown",
++      "status": "PASS"
++    },
++    {
++      "name": "same view annotator",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not blind",
++      "status": "PASS"
++    },
++    {
++      "name": "only one view annotation",
++      "status": "PASS"
++    },
++    {
++      "name": "missing required adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitration not third person",
++      "status": "PASS"
++    },
++    {
++      "name": "unexpected adjudication removes original agreement",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong-view acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "invalidated reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "partial reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "partial observed view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert no_match truth",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "run ID not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "abbreviated code SHA not accepted",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified model cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified prompt cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "run policy hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source workspaceId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source skuId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source packagingVersionId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source authorizationId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "extension unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing extensionSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing baseline",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing candidate",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing references",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing annotations",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "reference unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing id",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing imageSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing view",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing status",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing source",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing workspaceId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing skuId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing packagingVersionId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing authorizationId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing annotatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing blind",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observedView",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing conclusion",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing acceptableReferenceIds",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing adjudicatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing reason",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "run unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing runId",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing codeSha",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing model",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing promptVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing provider",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing modelId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing selection",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing matchDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing qualityDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "raw dataset whitespace tampering invalidates binding even if parsed meaning is same",
++      "status": "PASS"
++    },
++    {
++      "name": "raw view whitespace tampering invalidates prediction binding",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong dataset byte hash is rejected",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate JSON keys including escaped aliases are rejected before overwrite",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry direct",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry file symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry parent symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI alias.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI evaluate-reference-view-shadow.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "missing file blocks without path or content echo",
++      "status": "PASS"
++    },
++    {
++      "name": "partial flags invalid and do not fall back to fixtures",
++      "status": "PASS"
++    },
++    {
++      "name": "directory input blocks",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized n",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized [",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic errors never echo arbitrary input values",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI creates no files and preserves input byte contents",
++      "status": "PASS"
++    },
++    {
++      "name": "help states engineering/real-quality distinction and exit codes",
++      "status": "PASS"
++    },
++    {
++      "name": "explicit committed fixtures replay exactly, without overwriting them",
++      "status": "PASS"
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json b/fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json
+new file mode 100644
+index 0000000..ae7896e
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json
+@@ -0,0 +1,655 @@
++{
++  "status": "VALID",
++  "schemaVersion": 1,
++  "unitId": "UPG-07A",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "evidenceKind": "synthetic_test",
++  "message": "Engineering validation and declaration diagnostics only. No authorization, human provenance, model execution, image integrity or real benchmark quality has been verified.",
++  "inputDeclarations": {
++    "synthetic": true,
++    "authorization": "UNVERIFIED",
++    "independentHumanLabels": "UNVERIFIED",
++    "imageIntegrityAndNearDuplicates": "UNVERIFIED",
++    "runOrigins": "UNVERIFIED"
++  },
++  "inputHashes": {
++    "datasetSha256": "7f2afa8dd5deabd3960747954d2c211d9b355071e95ad7f026e44459cc9e21e4",
++    "extensionSha256": "076c9e286a914e6cd8f8a67bf5166cdc4f759580b4f81311c9e1ff0f42033080",
++    "predictionsSha256": "871e6f921d9c651611b9d790a2272fddd9176fb4f11353ebb0402ae015488079"
++  },
++  "policy": {
++    "version": "reference-view-conservative-001",
++    "sha256": "e493d305da3385d234f8eca4d0f7f8433ece5f5355c0165289ff3a5324893f19",
++    "manifest": {
++      "version": "reference-view-conservative-001",
++      "views": [
++        "front",
++        "back",
++        "side",
++        "top",
++        "bottom",
++        "detail",
++        "unknown"
++      ],
++      "observability": [
++        "observable",
++        "partial",
++        "unobservable"
++      ],
++      "maxReferencesPerSample": 16,
++      "candidateRule": "resolved-compatible-truth;known-observable-view;same-view;available-observable-reference;same-source",
++      "ambiguityRule": "sorted-set;never-choose-unique-by-order",
++      "qualityEvidence": "always-false;external-declarations-not-authenticated",
++      "externalRunPolicyRule": "explicit-version-and-hash;declarations-only;no-inferred-provenance",
++      "criticalRule": "UPG02-resolved-critical-and-observability-not-unobservable;quality-ALLOW-is-missed",
++      "predictionCombinations": {
++        "MATCH": [
++          "ALLOW",
++          "REVIEW",
++          "BLOCK"
++        ],
++        "REVIEW": [
++          "REVIEW",
++          "BLOCK"
++        ],
++        "NO_MATCH": [
++          "BLOCK"
++        ]
++      }
++    }
++  },
++  "runMetadata": {
++    "baseline": {
++      "runId": "run_0000000000000001",
++      "codeSha": "1111111111111111111111111111111111111111",
++      "model": {
++        "provider": "synthetic-provider",
++        "modelId": "synthetic-no-model"
++      },
++      "promptVersion": "synthetic-prompt-1",
++      "policyVersion": "synthetic-external-policy-1",
++      "policySha256": "1111111111111111111111111111111111111111111111111111111111111111"
++    },
++    "candidate": {
++      "runId": "run_0000000000000002",
++      "codeSha": "2222222222222222222222222222222222222222",
++      "model": {
++        "provider": "synthetic-provider",
++        "modelId": "synthetic-no-model"
++      },
++      "promptVersion": "synthetic-prompt-2",
++      "policyVersion": "synthetic-external-policy-2",
++      "policySha256": "2222222222222222222222222222222222222222222222222222222222222222"
++    }
++  },
++  "splits": {
++    "development": {
++      "sampleCount": 4,
++      "decidableDenominator": 3,
++      "criticalDenominator": 1,
++      "runs": {
++        "baseline": {
++          "sampleDenominator": 4,
++          "counts": {
++            "correctMatch": 1,
++            "wrongMatch": 2,
++            "correctNoMatch": 0,
++            "wrongNoMatch": 0,
++            "abstain": 0,
++            "unevaluable": 1,
++            "match": 4,
++            "review": 0,
++            "noMatch": 0,
++            "unsafeMatchOnInsufficient": 1,
++            "criticalAllowed": 1,
++            "criticalQualityReview": 0,
++            "criticalBlocked": 0,
++            "criticalMatchReview": 0,
++            "qualityAllow": 3,
++            "qualityReview": 0,
++            "qualityBlock": 1
++          },
++          "declaredCorrectRate": {
++            "numerator": 1,
++            "denominator": 3,
++            "value": 0.3333333333333333,
++            "reason": null
++          },
++          "coverage": {
++            "numerator": 4,
++            "denominator": 4,
++            "value": 1,
++            "reason": null
++          },
++          "reviewRate": {
++            "numerator": 0,
++            "denominator": 4,
++            "value": 0,
++            "reason": null
++          },
++          "criticalMissedAllowRate": {
++            "numerator": 1,
++            "denominator": 1,
++            "value": 1,
++            "reason": null
++          },
++          "criticalQualityReviewRate": {
++            "numerator": 0,
++            "denominator": 1,
++            "value": 0,
++            "reason": null
++          }
++        },
++        "candidate": {
++          "sampleDenominator": 4,
++          "counts": {
++            "correctMatch": 1,
++            "wrongMatch": 0,
++            "correctNoMatch": 1,
++            "wrongNoMatch": 0,
++            "abstain": 2,
++            "unevaluable": 0,
++            "match": 1,
++            "review": 2,
++            "noMatch": 1,
++            "unsafeMatchOnInsufficient": 0,
++            "criticalAllowed": 0,
++            "criticalQualityReview": 1,
++            "criticalBlocked": 0,
++            "criticalMatchReview": 0,
++            "qualityAllow": 0,
++            "qualityReview": 3,
++            "qualityBlock": 1
++          },
++          "declaredCorrectRate": {
++            "numerator": 2,
++            "denominator": 3,
++            "value": 0.6666666666666666,
++            "reason": null
++          },
++          "coverage": {
++            "numerator": 2,
++            "denominator": 4,
++            "value": 0.5,
++            "reason": null
++          },
++          "reviewRate": {
++            "numerator": 2,
++            "denominator": 4,
++            "value": 0.5,
++            "reason": null
++          },
++          "criticalMissedAllowRate": {
++            "numerator": 0,
++            "denominator": 1,
++            "value": 0,
++            "reason": null
++          },
++          "criticalQualityReviewRate": {
++            "numerator": 1,
++            "denominator": 1,
++            "value": 1,
++            "reason": null
++          }
++        }
++      },
++      "differences": {
++        "comparedSampleCount": 4,
++        "selectionChanged": 4,
++        "matchDecisionChanged": 3,
++        "qualityDecisionChanged": 3,
++        "becameCorrect": 2,
++        "ceasedCorrect": 1
++      },
++      "skuSampleCounts": {
++        "sku_0000000000000001": 1,
++        "sku_0000000000000002": 1,
++        "sku_0000000000000003": 1,
++        "sku_0000000000000004": 1
++      },
++      "defectTypeSampleCounts": {
++        "none": 3,
++        "packaging": 1
++      },
++      "rankings": "NOT_SUPPORTED"
++    },
++    "holdout": {
++      "sampleCount": 4,
++      "decidableDenominator": 2,
++      "criticalDenominator": 1,
++      "runs": {
++        "baseline": {
++          "sampleDenominator": 4,
++          "counts": {
++            "correctMatch": 0,
++            "wrongMatch": 1,
++            "correctNoMatch": 0,
++            "wrongNoMatch": 1,
++            "abstain": 2,
++            "unevaluable": 0,
++            "match": 1,
++            "review": 2,
++            "noMatch": 1,
++            "unsafeMatchOnInsufficient": 0,
++            "criticalAllowed": 1,
++            "criticalQualityReview": 0,
++            "criticalBlocked": 0,
++            "criticalMatchReview": 0,
++            "qualityAllow": 1,
++            "qualityReview": 1,
++            "qualityBlock": 2
++          },
++          "declaredCorrectRate": {
++            "numerator": 0,
++            "denominator": 2,
++            "value": 0,
++            "reason": null
++          },
++          "coverage": {
++            "numerator": 2,
++            "denominator": 4,
++            "value": 0.5,
++            "reason": null
++          },
++          "reviewRate": {
++            "numerator": 2,
++            "denominator": 4,
++            "value": 0.5,
++            "reason": null
++          },
++          "criticalMissedAllowRate": {
++            "numerator": 1,
++            "denominator": 1,
++            "value": 1,
++            "reason": null
++          },
++          "criticalQualityReviewRate": {
++            "numerator": 0,
++            "denominator": 1,
++            "value": 0,
++            "reason": null
++          }
++        },
++        "candidate": {
++          "sampleDenominator": 4,
++          "counts": {
++            "correctMatch": 2,
++            "wrongMatch": 0,
++            "correctNoMatch": 0,
++            "wrongNoMatch": 0,
++            "abstain": 1,
++            "unevaluable": 1,
++            "match": 3,
++            "review": 1,
++            "noMatch": 0,
++            "unsafeMatchOnInsufficient": 1,
++            "criticalAllowed": 0,
++            "criticalQualityReview": 0,
++            "criticalBlocked": 1,
++            "criticalMatchReview": 0,
++            "qualityAllow": 1,
++            "qualityReview": 1,
++            "qualityBlock": 2
++          },
++          "declaredCorrectRate": {
++            "numerator": 2,
++            "denominator": 2,
++            "value": 1,
++            "reason": null
++          },
++          "coverage": {
++            "numerator": 3,
++            "denominator": 4,
++            "value": 0.75,
++            "reason": null
++          },
++          "reviewRate": {
++            "numerator": 1,
++            "denominator": 4,
++            "value": 0.25,
++            "reason": null
++          },
++          "criticalMissedAllowRate": {
++            "numerator": 0,
++            "denominator": 1,
++            "value": 0,
++            "reason": null
++          },
++          "criticalQualityReviewRate": {
++            "numerator": 0,
++            "denominator": 1,
++            "value": 0,
++            "reason": null
++          }
++        }
++      },
++      "differences": {
++        "comparedSampleCount": 4,
++        "selectionChanged": 3,
++        "matchDecisionChanged": 2,
++        "qualityDecisionChanged": 4,
++        "becameCorrect": 2,
++        "ceasedCorrect": 0
++      },
++      "skuSampleCounts": {
++        "sku_0000000000000005": 1,
++        "sku_0000000000000006": 1,
++        "sku_0000000000000007": 1,
++        "sku_0000000000000008": 1
++      },
++      "defectTypeSampleCounts": {
++        "none": 3,
++        "packaging": 1
++      },
++      "rankings": "NOT_SUPPORTED"
++    }
++  },
++  "samples": [
++    {
++      "sampleId": "sample_0000000000000001",
++      "split": "development",
++      "skuId": "sku_0000000000000001",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "front",
++        "observability": "observable",
++        "conclusion": "compatible",
++        "acceptableReferenceIds": [
++          "ref_000000000000000a"
++        ]
++      },
++      "recommendation": {
++        "candidateReferenceIds": [
++          "ref_000000000000000a"
++        ],
++        "uniqueReferenceId": "ref_000000000000000a",
++        "reason": "SINGLE_COMPATIBLE_REFERENCE",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000001",
++          "selection": "ref_000000000000000a",
++          "matchDecision": "MATCH",
++          "qualityDecision": "ALLOW",
++          "outcome": "correctMatch"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000001",
++          "selection": null,
++          "matchDecision": "REVIEW",
++          "qualityDecision": "REVIEW",
++          "outcome": "abstain"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000002",
++      "split": "development",
++      "skuId": "sku_0000000000000002",
++      "defectType": "packaging",
++      "critical": true,
++      "truth": {
++        "observedView": "front",
++        "observability": "observable",
++        "conclusion": "compatible",
++        "acceptableReferenceIds": [
++          "ref_0000000000000014",
++          "ref_0000000000000016"
++        ]
++      },
++      "recommendation": {
++        "candidateReferenceIds": [
++          "ref_0000000000000014",
++          "ref_0000000000000016"
++        ],
++        "uniqueReferenceId": null,
++        "reason": "MULTIPLE_COMPATIBLE_REFERENCES",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000002",
++          "selection": "ref_0000000000000017",
++          "matchDecision": "MATCH",
++          "qualityDecision": "ALLOW",
++          "outcome": "wrongMatch"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000002",
++          "selection": "ref_0000000000000016",
++          "matchDecision": "MATCH",
++          "qualityDecision": "REVIEW",
++          "outcome": "correctMatch"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000003",
++      "split": "development",
++      "skuId": "sku_0000000000000003",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "unknown",
++        "observability": "partial",
++        "conclusion": "insufficient",
++        "acceptableReferenceIds": []
++      },
++      "recommendation": {
++        "candidateReferenceIds": [],
++        "uniqueReferenceId": null,
++        "reason": "UNKNOWN_OBSERVED_VIEW",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000003",
++          "selection": "ref_000000000000001e",
++          "matchDecision": "MATCH",
++          "qualityDecision": "ALLOW",
++          "outcome": "unevaluable"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000003",
++          "selection": null,
++          "matchDecision": "REVIEW",
++          "qualityDecision": "REVIEW",
++          "outcome": "abstain"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000004",
++      "split": "development",
++      "skuId": "sku_0000000000000004",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "front",
++        "observability": "observable",
++        "conclusion": "no_match",
++        "acceptableReferenceIds": []
++      },
++      "recommendation": {
++        "candidateReferenceIds": [],
++        "uniqueReferenceId": null,
++        "reason": "DECLARED_NO_MATCH",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000004",
++          "selection": "ref_0000000000000028",
++          "matchDecision": "MATCH",
++          "qualityDecision": "BLOCK",
++          "outcome": "wrongMatch"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000004",
++          "selection": null,
++          "matchDecision": "NO_MATCH",
++          "qualityDecision": "BLOCK",
++          "outcome": "correctNoMatch"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000005",
++      "split": "holdout",
++      "skuId": "sku_0000000000000005",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "side",
++        "observability": "observable",
++        "conclusion": "compatible",
++        "acceptableReferenceIds": [
++          "ref_0000000000000032"
++        ]
++      },
++      "recommendation": {
++        "candidateReferenceIds": [
++          "ref_0000000000000032"
++        ],
++        "uniqueReferenceId": "ref_0000000000000032",
++        "reason": "SINGLE_COMPATIBLE_REFERENCE",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000005",
++          "selection": null,
++          "matchDecision": "NO_MATCH",
++          "qualityDecision": "BLOCK",
++          "outcome": "wrongNoMatch"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000005",
++          "selection": "ref_0000000000000032",
++          "matchDecision": "MATCH",
++          "qualityDecision": "ALLOW",
++          "outcome": "correctMatch"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000006",
++      "split": "holdout",
++      "skuId": "sku_0000000000000006",
++      "defectType": "packaging",
++      "critical": true,
++      "truth": {
++        "observedView": "back",
++        "observability": "observable",
++        "conclusion": "compatible",
++        "acceptableReferenceIds": [
++          "ref_000000000000003c"
++        ]
++      },
++      "recommendation": {
++        "candidateReferenceIds": [
++          "ref_000000000000003c"
++        ],
++        "uniqueReferenceId": "ref_000000000000003c",
++        "reason": "SINGLE_COMPATIBLE_REFERENCE",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000006",
++          "selection": "ref_000000000000003e",
++          "matchDecision": "MATCH",
++          "qualityDecision": "ALLOW",
++          "outcome": "wrongMatch"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000006",
++          "selection": "ref_000000000000003c",
++          "matchDecision": "MATCH",
++          "qualityDecision": "BLOCK",
++          "outcome": "correctMatch"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000007",
++      "split": "holdout",
++      "skuId": "sku_0000000000000007",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "bottom",
++        "observability": "partial",
++        "conclusion": "insufficient",
++        "acceptableReferenceIds": []
++      },
++      "recommendation": {
++        "candidateReferenceIds": [],
++        "uniqueReferenceId": null,
++        "reason": "LOW_OBSERVABILITY",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000007",
++          "selection": null,
++          "matchDecision": "REVIEW",
++          "qualityDecision": "REVIEW",
++          "outcome": "abstain"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000007",
++          "selection": "ref_0000000000000048",
++          "matchDecision": "MATCH",
++          "qualityDecision": "BLOCK",
++          "outcome": "unevaluable"
++        }
++      }
++    },
++    {
++      "sampleId": "sample_0000000000000008",
++      "split": "holdout",
++      "skuId": "sku_0000000000000008",
++      "defectType": "none",
++      "critical": false,
++      "truth": {
++        "observedView": "front",
++        "observability": "observable",
++        "conclusion": "insufficient",
++        "acceptableReferenceIds": []
++      },
++      "recommendation": {
++        "candidateReferenceIds": [],
++        "uniqueReferenceId": null,
++        "reason": "INSUFFICIENT_EVIDENCE",
++        "confirmedMatch": false
++      },
++      "predictions": {
++        "baseline": {
++          "sampleId": "sample_0000000000000008",
++          "selection": null,
++          "matchDecision": "REVIEW",
++          "qualityDecision": "BLOCK",
++          "outcome": "abstain"
++        },
++        "candidate": {
++          "sampleId": "sample_0000000000000008",
++          "selection": null,
++          "matchDecision": "REVIEW",
++          "qualityDecision": "REVIEW",
++          "outcome": "abstain"
++        }
++      }
++    }
++  ],
++  "limitations": [
++    "No combined development/holdout headline, quality thresholds, statistical significance or SKU/category rankings.",
++    "Declarations of blind annotation and authorization are not identity or consent verification.",
++    "Known-view same-view reference sets are conservative diagnostics, never confirmed visual matches.",
++    "Coverage counts all non-REVIEW outputs, including incorrect and unevaluable outputs. REVIEW is never scored correct.",
++    "UPG02 critical truth is independent of view truth; partial visible critical defects remain in the critical denominator."
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/typecheck-raw.txt b/fixtures/reference-view-shadow/validation-2026-10-12/typecheck-raw.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/reference-view-shadow/validation-2026-10-12/upg02-regression-raw.txt b/fixtures/reference-view-shadow/validation-2026-10-12/upg02-regression-raw.txt
+new file mode 100644
+index 0000000..d52a241
+--- /dev/null
++++ b/fixtures/reference-view-shadow/validation-2026-10-12/upg02-regression-raw.txt
+@@ -0,0 +1,5 @@
++
++> product-visual-qa-platform@0.1.0 test:upgrade-dataset /Users/liukai/Documents/Product Visual QA Platform
++> node scripts/test-upgrade-dataset.mjs
++
++PASS: 105 offline positive/negative checks. All samples and identities are synthetic; no real quality evidence, network, images, training, or production writes.
+diff --git a/package.json b/package.json
+index 51dccd5..68876d3 100644
+--- a/package.json
++++ b/package.json
+@@ -51,6 +51,8 @@
+     "test:control": "node scripts/verify-pairvu-control.mjs",
+     "verify:upgrade-dataset": "node scripts/verify-upgrade-dataset.mjs",
+     "test:upgrade-dataset": "node scripts/test-upgrade-dataset.mjs",
++    "evaluate:reference-view-shadow": "node scripts/evaluate-reference-view-shadow.mjs",
++    "test:reference-view-shadow": "node scripts/test-reference-view-shadow.mjs",
+     "release:preflight": "node scripts/release-preflight.mjs",
+     "test:release-preflight": "node scripts/test-release-preflight.mjs",
+     "test:control-production": "node scripts/verify-pairvu-production.mjs",
+diff --git a/scripts/evaluate-reference-view-shadow.mjs b/scripts/evaluate-reference-view-shadow.mjs
+new file mode 100644
+index 0000000..d0c8cdc
+--- /dev/null
++++ b/scripts/evaluate-reference-view-shadow.mjs
+@@ -0,0 +1,252 @@
++#!/usr/bin/env node
++import { createHash } from 'node:crypto';
++import { readFile, realpath } from 'node:fs/promises';
++import { resolve } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { validateDataset } from './verify-upgrade-dataset.mjs';
++
++const HASH = /^[a-f0-9]{64}$/;
++const ID = { reference: /^ref_[a-f0-9]{16}$/, annotator: /^ann_[a-f0-9]{16}$/, run: /^run_[a-f0-9]{16}$/ };
++const VIEWS = ['front', 'back', 'side', 'top', 'bottom', 'detail', 'unknown'];
++const OBSERVABILITY = ['observable', 'partial', 'unobservable'];
++const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
++const canonical = v => Array.isArray(v) ? v.map(canonical) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).sort().map(k => [k, canonical(v[k])])) : v;
++const freeze = v => { if (v && typeof v === 'object') { Object.values(v).forEach(freeze); Object.freeze(v); } return v; };
++export const POLICY = freeze({
++  version: 'reference-view-conservative-001',
++  views: VIEWS,
++  observability: OBSERVABILITY,
++  maxReferencesPerSample: 16,
++  candidateRule: 'resolved-compatible-truth;known-observable-view;same-view;available-observable-reference;same-source',
++  ambiguityRule: 'sorted-set;never-choose-unique-by-order',
++  qualityEvidence: 'always-false;external-declarations-not-authenticated',
++  externalRunPolicyRule: 'explicit-version-and-hash;declarations-only;no-inferred-provenance',
++  criticalRule: 'UPG02-resolved-critical-and-observability-not-unobservable;quality-ALLOW-is-missed',
++  predictionCombinations: { MATCH: ['ALLOW', 'REVIEW', 'BLOCK'], REVIEW: ['REVIEW', 'BLOCK'], NO_MATCH: ['BLOCK'] },
++});
++export const POLICY_SHA256 = sha256(JSON.stringify(canonical(POLICY)));
++class ShadowInputError extends Error {}
++const check = (condition, code) => { if (!condition) throw new ShadowInputError(code); };
++function parse(bytes) {
++  const text = bytes.toString('utf8');
++  let result;
++  try { result = JSON.parse(text); } catch { throw new ShadowInputError('INVALID_JSON'); }
++  // JSON.parse silently overwrites duplicate keys. Scan the already syntax-checked text,
++  // decoding key escapes so e.g. "view" and "v\\u0069ew" cannot disagree invisibly.
++  let at = 0;
++  const space = () => { while (/\s/.test(text[at] || '') && at < text.length) at++; };
++  function string() { const start = at++; while (text[at] !== '"') { if (text[at] === '\\') at++; at++; } at++; return JSON.parse(text.slice(start, at)); }
++  function value() {
++    space();
++    if (text[at] === '{') {
++      at++; space(); const keys = new Set();
++      while (text[at] !== '}') { const key = string(); check(!keys.has(key), 'DUPLICATE_JSON_FIELD'); keys.add(key); space(); at++; value(); space(); if (text[at] === ',') { at++; space(); } else break; }
++      at++;
++    } else if (text[at] === '[') { at++; space(); while (text[at] !== ']') { value(); space(); if (text[at] === ',') { at++; space(); } else break; } at++; }
++    else if (text[at] === '"') string();
++    else { while (at < text.length && !/[\s,\]}]/.test(text[at])) at++; }
++  }
++  value(); return result;
++}
++function object(value, keys, code) {
++  check(value !== null && typeof value === 'object' && !Array.isArray(value), code);
++  check(Object.keys(value).length === keys.length && keys.every(k => Object.hasOwn(value, k)), code);
++}
++function array(value, code, minimum = 0, maximum = 100000) { check(Array.isArray(value) && value.length >= minimum && value.length <= maximum, code); }
++function one(value, values, code) { check(values.includes(value), code); }
++function id(value, type, code) { check(typeof value === 'string' && ID[type].test(value), code); }
++function hash(value, code) { check(typeof value === 'string' && HASH.test(value), code); }
++function token(value, code) { check(typeof value === 'string' && /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,119}$/.test(value) && !['unknown', 'unspecified', 'null', 'none'].includes(value.toLowerCase()), code); }
++function uniqueMap(records, field, expected, code) {
++  array(records, code, expected.size, expected.size);
++  const map = new Map();
++  for (const record of records) {
++    check(record && expected.has(record[field]) && !map.has(record[field]), code);
++    map.set(record[field], record);
++  }
++  return map;
++}
++const sourceKeys = ['workspaceId', 'skuId', 'packagingVersionId', 'authorizationId'];
++const sourceKey = s => sourceKeys.map(k => s[k]).join(':');
++function binding(data, dataset, datasetSha) {
++  check(data.schemaVersion === 1, 'UNSUPPORTED_SCHEMA_VERSION');
++  check(data.datasetId === dataset.datasetId && data.datasetSha256 === datasetSha, 'DATASET_BINDING_MISMATCH');
++  check(data.synthetic === dataset.synthetic, 'MIXED_PROVENANCE');
++  check(data.policyVersion === POLICY.version && data.policySha256 === POLICY_SHA256, 'UNSUPPORTED_POLICY');
++}
++function compatibleRefs(refs, label) {
++  if (label.conclusion !== 'compatible' || label.observedView === 'unknown' || label.observability !== 'observable') return [];
++  return refs.filter(r => r.status === 'available' && r.observability === 'observable' && r.view === label.observedView).map(r => r.id).sort();
++}
++const truthKeys = ['observedView', 'observability', 'conclusion', 'acceptableReferenceIds'];
++function validateTruth(label, refs) {
++  object(label, truthKeys, 'INVALID_VIEW_LABEL_FIELDS');
++  one(label.observedView, VIEWS, 'INVALID_VIEW');
++  one(label.observability, OBSERVABILITY, 'INVALID_OBSERVABILITY');
++  one(label.conclusion, ['compatible', 'no_match', 'insufficient'], 'INVALID_VIEW_CONCLUSION');
++  array(label.acceptableReferenceIds, 'INVALID_ACCEPTABLE_REFERENCES', 0, POLICY.maxReferencesPerSample);
++  const seen = new Set(), eligible = new Set(compatibleRefs(refs, label));
++  for (const ref of label.acceptableReferenceIds) {
++    check(eligible.has(ref) && !seen.has(ref), 'INVALID_ACCEPTABLE_REFERENCE'); seen.add(ref);
++  }
++  if (label.conclusion === 'compatible') check(seen.size > 0 && label.observedView !== 'unknown' && label.observability === 'observable', 'UNCONFIRMABLE_VIEW_TRUTH');
++  else check(seen.size === 0, 'NONMATCH_HAS_ACCEPTABLE_REFERENCES');
++  if (label.conclusion === 'no_match') check(label.observedView !== 'unknown' && label.observability === 'observable', 'UNCONFIRMABLE_NO_MATCH_TRUTH');
++}
++const equalTruth = (a, b) => JSON.stringify(canonical({ ...a, acceptableReferenceIds: [...a.acceptableReferenceIds].sort() })) === JSON.stringify(canonical({ ...b, acceptableReferenceIds: [...b.acceptableReferenceIds].sort() }));
++function extensionSamples(extension, dataset, datasetSha) {
++  object(extension, ['schemaVersion', 'datasetId', 'datasetSha256', 'synthetic', 'policyVersion', 'policySha256', 'samples'], 'INVALID_EXTENSION_FIELDS');
++  binding(extension, dataset, datasetSha);
++  const ids = new Set(dataset.samples.map(s => s.id)), samples = uniqueMap(extension.samples, 'sampleId', ids, 'EXTENSION_SAMPLE_SET_MISMATCH');
++  const imageSplits = new Map(), imageSources = new Map(), referenceIds = new Map();
++  // Seed the entire original dataset before checking any added references (including cross-role leakage).
++  function image(hashValue, sample) {
++    check(!imageSplits.has(hashValue) || imageSplits.get(hashValue) === sample.split, 'REFERENCE_IMAGE_SPLIT_LEAK');
++    check(!imageSources.has(hashValue) || imageSources.get(hashValue) === sourceKey(sample), 'IMAGE_SOURCE_CONFLICT');
++    imageSplits.set(hashValue, sample.split); imageSources.set(hashValue, sourceKey(sample));
++  }
++  for (const s of dataset.samples) { image(s.referenceImageSha256, s); image(s.observedImageSha256, s); }
++  for (const s of dataset.samples) {
++    const ext = samples.get(s.id);
++    object(ext, ['sampleId', 'references', 'annotations', 'adjudication'], 'INVALID_EXTENSION_SAMPLE_FIELDS');
++    array(ext.references, 'INVALID_REFERENCE_SET', 1, POLICY.maxReferencesPerSample);
++    const localIds = new Set(), localHashes = new Set();
++    for (const ref of ext.references) {
++      object(ref, ['id', 'imageSha256', 'view', 'observability', 'status', 'source'], 'INVALID_REFERENCE_FIELDS');
++      id(ref.id, 'reference', 'INVALID_REFERENCE_ID'); hash(ref.imageSha256, 'INVALID_REFERENCE_HASH');
++      one(ref.view, VIEWS, 'INVALID_REFERENCE_VIEW'); one(ref.observability, OBSERVABILITY, 'INVALID_REFERENCE_OBSERVABILITY');
++      one(ref.status, ['available', 'invalidated'], 'INVALID_REFERENCE_STATUS');
++      object(ref.source, sourceKeys, 'INVALID_REFERENCE_SOURCE_FIELDS');
++      check(sourceKeys.every(k => ref.source[k] === s[k]), 'REFERENCE_SOURCE_MISMATCH');
++      check(!localIds.has(ref.id) && !localHashes.has(ref.imageSha256), 'DUPLICATE_REFERENCE');
++      localIds.add(ref.id); localHashes.add(ref.imageSha256);
++      check(ref.imageSha256 !== s.observedImageSha256, 'OBSERVED_AS_OWN_REFERENCE');
++      image(ref.imageSha256, s);
++      const identity = JSON.stringify(canonical(ref));
++      check(!referenceIds.has(ref.id) || referenceIds.get(ref.id) === identity, 'REFERENCE_ID_CONFLICT');
++      referenceIds.set(ref.id, identity);
++    }
++    check(localHashes.has(s.referenceImageSha256), 'ORIGINAL_REFERENCE_MISSING');
++    array(ext.annotations, 'TWO_VIEW_ANNOTATIONS_REQUIRED', 2, 2);
++    for (const ann of ext.annotations) {
++      object(ann, ['annotatorId', 'independent', 'blind', 'label'], 'INVALID_VIEW_ANNOTATION_FIELDS');
++      id(ann.annotatorId, 'annotator', 'INVALID_VIEW_ANNOTATOR');
++      check(ann.independent === true && ann.blind === true, 'VIEW_ANNOTATION_NOT_INDEPENDENT_BLIND');
++      validateTruth(ann.label, ext.references);
++    }
++    const [a, b] = ext.annotations;
++    check(a.annotatorId !== b.annotatorId, 'VIEW_ANNOTATORS_IDENTICAL');
++    if (equalTruth(a.label, b.label)) check(ext.adjudication === null, 'UNNECESSARY_VIEW_ADJUDICATION');
++    else {
++      const adj = ext.adjudication;
++      object(adj, ['adjudicatorId', 'reason', 'label'], 'VIEW_ADJUDICATION_REQUIRED');
++      id(adj.adjudicatorId, 'annotator', 'INVALID_VIEW_ADJUDICATOR');
++      check(![a.annotatorId, b.annotatorId].includes(adj.adjudicatorId), 'VIEW_ADJUDICATOR_NOT_THIRD_PERSON');
++      one(adj.reason, ['view_resolution', 'reference_resolution', 'observability_resolution', 'multiple_disagreements'], 'INVALID_VIEW_ADJUDICATION_REASON');
++      validateTruth(adj.label, ext.references);
++    }
++  }
++  return samples;
++}
++function predictionRuns(predictions, dataset, datasetSha, extensionSha, extensions) {
++  object(predictions, ['schemaVersion', 'datasetId', 'datasetSha256', 'extensionSha256', 'synthetic', 'policyVersion', 'policySha256', 'baseline', 'candidate'], 'INVALID_PREDICTION_FIELDS');
++  binding(predictions, dataset, datasetSha);
++  check(predictions.extensionSha256 === extensionSha, 'EXTENSION_BINDING_MISMATCH');
++  const ids = new Set(dataset.samples.map(s => s.id)), runs = {};
++  for (const role of ['baseline', 'candidate']) {
++    const run = predictions[role];
++    object(run, ['metadata', 'samples'], 'INVALID_RUN_FIELDS');
++    const m = run.metadata;
++    object(m, ['runId', 'codeSha', 'model', 'promptVersion', 'policyVersion', 'policySha256'], 'INVALID_RUN_METADATA_FIELDS');
++    id(m.runId, 'run', 'INVALID_RUN_ID');
++    check(typeof m.codeSha === 'string' && /^[a-f0-9]{40}$/.test(m.codeSha), 'INVALID_RUN_CODE_SHA');
++    object(m.model, ['provider', 'modelId'], 'INVALID_MODEL_METADATA');
++    token(m.model.provider, 'INVALID_MODEL_PROVIDER'); token(m.model.modelId, 'INVALID_MODEL_ID'); token(m.promptVersion, 'INVALID_PROMPT_VERSION');
++    token(m.policyVersion, 'INVALID_RUN_POLICY_VERSION'); hash(m.policySha256, 'INVALID_RUN_POLICY_HASH');
++    const records = uniqueMap(run.samples, 'sampleId', ids, 'PREDICTION_SAMPLE_SET_MISMATCH');
++    for (const [sampleId, prediction] of records) {
++      object(prediction, ['sampleId', 'selection', 'matchDecision', 'qualityDecision'], 'INVALID_PREDICTION_SAMPLE_FIELDS');
++      one(prediction.matchDecision, ['MATCH', 'REVIEW', 'NO_MATCH'], 'INVALID_MATCH_DECISION');
++      one(prediction.qualityDecision, ['ALLOW', 'REVIEW', 'BLOCK'], 'INVALID_QUALITY_DECISION');
++      check(POLICY.predictionCombinations[prediction.matchDecision].includes(prediction.qualityDecision), 'UNSUPPORTED_PREDICTION_COMBINATION');
++      const ref = extensions.get(sampleId).references.find(r => r.id === prediction.selection);
++      if (prediction.selection !== null) check(ref && ref.status === 'available' && ref.observability === 'observable' && ref.view !== 'unknown', 'INVALID_PREDICTION_REFERENCE');
++      if (prediction.matchDecision === 'MATCH') check(prediction.selection !== null, 'MATCH_REQUIRES_SELECTION');
++      if (prediction.matchDecision === 'NO_MATCH') check(prediction.selection === null, 'NO_MATCH_HAS_SELECTION');
++    }
++    runs[role] = { metadata: m, records };
++  }
++  check(runs.baseline.metadata.runId !== runs.candidate.metadata.runId, 'RUN_IDS_MUST_DIFFER');
++  return runs;
++}
++function recommendation(ext, truth) {
++  const candidates = compatibleRefs(ext.references, truth);
++  let reason = 'SINGLE_COMPATIBLE_REFERENCE';
++  if (truth.observedView === 'unknown') reason = 'UNKNOWN_OBSERVED_VIEW';
++  else if (truth.observability !== 'observable') reason = 'LOW_OBSERVABILITY';
++  else if (truth.conclusion === 'no_match') reason = 'DECLARED_NO_MATCH';
++  else if (truth.conclusion === 'insufficient') reason = 'INSUFFICIENT_EVIDENCE';
++  else if (!candidates.length) reason = 'NO_COMPATIBLE_REFERENCE';
++  else if (candidates.length > 1) reason = 'MULTIPLE_COMPATIBLE_REFERENCES';
++  return { candidateReferenceIds: candidates, uniqueReferenceId: candidates.length === 1 ? candidates[0] : null, reason, confirmedMatch: false };
++}
++function outcome(prediction, truth) {
++  if (prediction.matchDecision === 'REVIEW') return 'abstain';
++  if (truth.conclusion === 'insufficient') return 'unevaluable';
++  if (prediction.matchDecision === 'NO_MATCH') return truth.conclusion === 'no_match' ? 'correctNoMatch' : 'wrongNoMatch';
++  return truth.conclusion === 'compatible' && truth.acceptableReferenceIds.includes(prediction.selection) ? 'correctMatch' : 'wrongMatch';
++}
++const rate = (numerator, denominator) => ({ numerator, denominator, value: denominator ? numerator / denominator : null, reason: denominator ? null : 'EMPTY_DENOMINATOR' });
++const correct = o => ['correctMatch', 'correctNoMatch'].includes(o);
++function splitReport(rows, runs) {
++  const count = rows.length, decidable = rows.filter(r => r.truth.conclusion !== 'insufficient').length, critical = rows.filter(r => r.critical).length;
++  const report = { sampleCount: count, decidableDenominator: decidable, criticalDenominator: critical, runs: {}, differences: { comparedSampleCount: count, selectionChanged: 0, matchDecisionChanged: 0, qualityDecisionChanged: 0, becameCorrect: 0, ceasedCorrect: 0 }, skuSampleCounts: {}, defectTypeSampleCounts: {}, rankings: 'NOT_SUPPORTED' };
++  for (const row of rows) {
++    report.skuSampleCounts[row.skuId] = (report.skuSampleCounts[row.skuId] || 0) + 1;
++    report.defectTypeSampleCounts[row.defectType] = (report.defectTypeSampleCounts[row.defectType] || 0) + 1;
++    const b = row.predictions.baseline, c = row.predictions.candidate, d = report.differences;
++    d.selectionChanged += b.selection !== c.selection; d.matchDecisionChanged += b.matchDecision !== c.matchDecision; d.qualityDecisionChanged += b.qualityDecision !== c.qualityDecision;
++    if (row.truth.conclusion !== 'insufficient') { d.becameCorrect += !correct(b.outcome) && correct(c.outcome); d.ceasedCorrect += correct(b.outcome) && !correct(c.outcome); }
++  }
++  for (const role of Object.keys(runs)) {
++    const counts = { correctMatch: 0, wrongMatch: 0, correctNoMatch: 0, wrongNoMatch: 0, abstain: 0, unevaluable: 0, match: 0, review: 0, noMatch: 0, unsafeMatchOnInsufficient: 0, criticalAllowed: 0, criticalQualityReview: 0, criticalBlocked: 0, criticalMatchReview: 0, qualityAllow: 0, qualityReview: 0, qualityBlock: 0 };
++    for (const row of rows) {
++      const p = row.predictions[role]; counts[p.outcome]++;
++      counts[{ MATCH: 'match', REVIEW: 'review', NO_MATCH: 'noMatch' }[p.matchDecision]]++;
++      counts[{ ALLOW: 'qualityAllow', REVIEW: 'qualityReview', BLOCK: 'qualityBlock' }[p.qualityDecision]]++;
++      if (row.truth.conclusion === 'insufficient' && p.matchDecision === 'MATCH') counts.unsafeMatchOnInsufficient++;
++      if (row.critical) { counts[{ ALLOW: 'criticalAllowed', REVIEW: 'criticalQualityReview', BLOCK: 'criticalBlocked' }[p.qualityDecision]]++; if (p.matchDecision === 'REVIEW') counts.criticalMatchReview++; }
++    }
++    report.runs[role] = { sampleDenominator: count, counts, declaredCorrectRate: rate(counts.correctMatch + counts.correctNoMatch, decidable), coverage: rate(count - counts.review, count), reviewRate: rate(counts.review, count), criticalMissedAllowRate: rate(counts.criticalAllowed, critical), criticalQualityReviewRate: rate(counts.criticalQualityReview, critical) };
++  }
++  return report;
++}
++
++/** Offline replay of external declarations. The raw three-file bytes are the frozen input identity. */
++export function evaluateReferenceViewShadow(datasetBytes, extensionBytes, predictionBytes) {
++  const dataset = parse(datasetBytes), extension = parse(extensionBytes), predictions = parse(predictionBytes);
++  // UPG02's fixed structural error messages are deliberately not forwarded to the CLI.
++  try { validateDataset(dataset); } catch { throw new ShadowInputError('UPG02_DATASET_INVALID'); }
++  const datasetSha = sha256(datasetBytes), extensionSha = sha256(extensionBytes);
++  const extensions = extensionSamples(extension, dataset, datasetSha), runs = predictionRuns(predictions, dataset, datasetSha, extensionSha, extensions);
++  const rows = [...dataset.samples].sort((a, b) => a.id.localeCompare(b.id)).map(s => {
++    const ext = extensions.get(s.id), truth = ext.adjudication?.label || ext.annotations[0].label, originalTruth = s.adjudication?.label || s.annotations[0].label;
++    return { sampleId: s.id, split: s.split, skuId: s.skuId, defectType: originalTruth.defectType, critical: originalTruth.severity === 'critical' && originalTruth.observability !== 'unobservable', truth: { ...truth, acceptableReferenceIds: [...truth.acceptableReferenceIds].sort() }, recommendation: recommendation(ext, truth), predictions: Object.fromEntries(Object.entries(runs).map(([role, run]) => { const p = run.records.get(s.id); return [role, { ...p, outcome: outcome(p, truth) }]; })) };
++  });
++  return { status: 'VALID', schemaVersion: 1, unitId: 'UPG-07A', qualityEvidence: false, realQualityStatus: 'BLOCKED', evidenceKind: dataset.synthetic ? 'synthetic_test' : 'unverified_declared_input', message: 'Engineering validation and declaration diagnostics only. No authorization, human provenance, model execution, image integrity or real benchmark quality has been verified.', inputDeclarations: { synthetic: dataset.synthetic, authorization: 'UNVERIFIED', independentHumanLabels: 'UNVERIFIED', imageIntegrityAndNearDuplicates: 'UNVERIFIED', runOrigins: 'UNVERIFIED' }, inputHashes: { datasetSha256: datasetSha, extensionSha256: extensionSha, predictionsSha256: sha256(predictionBytes) }, policy: { version: POLICY.version, sha256: POLICY_SHA256, manifest: POLICY }, runMetadata: { baseline: runs.baseline.metadata, candidate: runs.candidate.metadata }, splits: Object.fromEntries(['development', 'holdout'].map(split => [split, splitReport(rows.filter(r => r.split === split), runs)])), samples: rows, limitations: ['No combined development/holdout headline, quality thresholds, statistical significance or SKU/category rankings.', 'Declarations of blind annotation and authorization are not identity or consent verification.', 'Known-view same-view reference sets are conservative diagnostics, never confirmed visual matches.', 'Coverage counts all non-REVIEW outputs, including incorrect and unevaluable outputs. REVIEW is never scored correct.', 'UPG02 critical truth is independent of view truth; partial visible critical defects remain in the critical denominator.'] };
++}
++export async function main(args) {
++  if (args.length === 1 && args[0] === '--help') {
++    console.log('Usage: node scripts/evaluate-reference-view-shadow.mjs --dataset FILE --views FILE --predictions FILE\nRead-only offline three-file replay. No default fixture. Exit 0: engineering VALID (real quality still BLOCKED); 1: INVALID_INPUT; 2: BLOCKED (missing/unreadable input); 64: INVALID_USAGE. JSON results to stdout; errors never echo input values.'); return 0;
++  }
++  const result = (status, reason) => console.log(JSON.stringify({ status, reason, qualityEvidence: false, realQualityStatus: 'BLOCKED' }));
++  if (!args.length) { result('BLOCKED', 'EXPLICIT_THREE_FILE_INPUT_REQUIRED'); return 2; }
++  if (args.length !== 6 || args[0] !== '--dataset' || args[2] !== '--views' || args[4] !== '--predictions' || [args[1], args[3], args[5]].some(v => !v || v.startsWith('--'))) { result('INVALID_USAGE', 'EXPECTED_DATASET_VIEWS_PREDICTIONS'); return 64; }
++  let bytes;
++  try { bytes = await Promise.all([args[1], args[3], args[5]].map(path => readFile(resolve(path)))); }
++  catch { result('BLOCKED', 'INPUT_UNAVAILABLE'); return 2; }
++  try { console.log(JSON.stringify(evaluateReferenceViewShadow(...bytes), null, 2)); return 0; }
++  catch (error) { result('INVALID_INPUT', error instanceof ShadowInputError ? error.message : 'MALFORMED_INPUT'); return 1; }
++}
++// ESM resolves script symlinks; normalize both entry paths just as the UPG02 CLI does.
++if (process.argv[1] && await realpath(fileURLToPath(import.meta.url)) === await realpath(resolve(process.argv[1]))) process.exitCode = await main(process.argv.slice(2));
+diff --git a/scripts/reference-view-shadow/synthetic-fixture.mjs b/scripts/reference-view-shadow/synthetic-fixture.mjs
+new file mode 100644
+index 0000000..71eaaea
+--- /dev/null
++++ b/scripts/reference-view-shadow/synthetic-fixture.mjs
+@@ -0,0 +1,49 @@
++// Test construction only. No real images, people, authorizations or model runs.
++import { createHash } from 'node:crypto';
++import { POLICY, POLICY_SHA256 } from '../evaluate-reference-view-shadow.mjs';
++const anonymous = (prefix, n) => `${prefix}_${n.toString(16).padStart(16, '0')}`;
++const imageHash = n => n.toString(16).padStart(64, '0');
++export const bytes = value => Buffer.from(JSON.stringify(value, null, 2) + '\n');
++export const sha256 = value => createHash('sha256').update(value).digest('hex');
++export function fixture() {
++  const dataset = { schemaVersion: 1, datasetId: anonymous('dataset', 7), synthetic: true, authorizationRecords: [{ id: anonymous('auth', 1), workspaceId: anonymous('ws', 1), recordRef: 'synthetic:' + '1'.repeat(32), permittedUse: 'offline_evaluation', status: 'granted' }], samples: [] };
++  const extension = { schemaVersion: 1, datasetId: dataset.datasetId, datasetSha256: '', synthetic: true, policyVersion: POLICY.version, policySha256: POLICY_SHA256, samples: [] };
++  const predictions = { schemaVersion: 1, datasetId: dataset.datasetId, datasetSha256: '', extensionSha256: '', synthetic: true, policyVersion: POLICY.version, policySha256: POLICY_SHA256 };
++  for (const [role, n] of [['baseline', 1], ['candidate', 2]]) predictions[role] = { metadata: { runId: anonymous('run', n), codeSha: String(n).repeat(40), model: { provider: 'synthetic-provider', modelId: 'synthetic-no-model' }, promptVersion: `synthetic-prompt-${n}`, policyVersion: `synthetic-external-policy-${n}`, policySha256: String(n).repeat(64) }, samples: [] };
++  const label = (view, observability, conclusion, refs = []) => ({ observedView: view, observability, conclusion, acceptableReferenceIds: refs });
++  for (let n = 1; n <= 8; n++) {
++    const critical = [2, 6].includes(n);
++    const machineTruth = critical ? { verdict: 'mismatch', defectType: 'packaging', severity: 'critical', observability: n === 6 ? 'partial' : 'observable' } : { verdict: 'match', defectType: 'none', severity: 'none', observability: 'observable' };
++    const sample = { id: anonymous('sample', n), synthetic: true, workspaceId: anonymous('ws', 1), skuId: anonymous('sku', n), packagingVersionId: anonymous('pkg', n), authorizationId: anonymous('auth', 1), split: n <= 4 ? 'development' : 'holdout', referenceImageSha256: imageHash(n * 10), observedImageSha256: imageHash(n * 10 + 1), annotations: [1, 2].map(a => ({ annotatorId: anonymous('ann', a), independent: true, label: { ...machineTruth } })), adjudication: null };
++    dataset.samples.push(sample);
++    const source = Object.fromEntries(['workspaceId', 'skuId', 'packagingVersionId', 'authorizationId'].map(k => [k, sample[k]]));
++    const ref = (offset, view, status = 'available') => ({ id: anonymous('ref', n * 10 + offset), imageSha256: imageHash(n * 10 + offset), view, observability: 'observable', status, source: { ...source } });
++    const refs = [ref(0, n === 5 ? 'side' : n === 6 ? 'back' : n === 7 ? 'bottom' : 'front', n >= 7 ? 'invalidated' : 'available')];
++    if (n === 2) refs.push(ref(2, 'front'), ref(3, 'back'));
++    if (n === 6) refs.push(ref(2, 'front'));
++    if (n === 7) refs.push(ref(2, 'top'));
++    let truth = label(refs[0].view, 'observable', 'compatible', refs.filter(r => r.view === refs[0].view).map(r => r.id));
++    if (n === 3) truth = label('unknown', 'partial', 'insufficient');
++    if (n === 4) truth = label('front', 'observable', 'no_match');
++    if (n === 7) truth = label('bottom', 'partial', 'insufficient');
++    if (n === 8) truth = label('front', 'observable', 'insufficient');
++    const annotations = [1, 2].map(a => ({ annotatorId: anonymous('ann', a), independent: true, blind: true, label: structuredClone(truth) }));
++    let adjudication = null;
++    if (n === 6) { annotations[0].label = label('front', 'observable', 'compatible', [refs[1].id]); adjudication = { adjudicatorId: anonymous('ann', 3), reason: 'view_resolution', label: structuredClone(truth) }; }
++    extension.samples.push({ sampleId: sample.id, references: refs, annotations, adjudication });
++    const p = (selection, matchDecision, qualityDecision) => ({ sampleId: sample.id, selection, matchDecision, qualityDecision });
++    const baseline = [null, p(refs[0].id, 'MATCH', 'ALLOW'), p(refs[2]?.id, 'MATCH', 'ALLOW'), p(refs[0].id, 'MATCH', 'ALLOW'), p(refs[0].id, 'MATCH', 'BLOCK'), p(null, 'NO_MATCH', 'BLOCK'), p(refs[1]?.id, 'MATCH', 'ALLOW'), p(null, 'REVIEW', 'REVIEW'), p(null, 'REVIEW', 'BLOCK')][n];
++    const candidate = [null, p(null, 'REVIEW', 'REVIEW'), p(refs[1]?.id, 'MATCH', 'REVIEW'), p(null, 'REVIEW', 'REVIEW'), p(null, 'NO_MATCH', 'BLOCK'), p(refs[0].id, 'MATCH', 'ALLOW'), p(refs[0].id, 'MATCH', 'BLOCK'), p(refs[1]?.id, 'MATCH', 'BLOCK'), p(null, 'REVIEW', 'REVIEW')][n];
++    predictions.baseline.samples.push(baseline); predictions.candidate.samples.push(candidate);
++  }
++  return { dataset, extension, predictions };
++}
++// Tests explicitly rebind mutated data. The production CLI never synthesizes or repairs bindings.
++export function bind(input) {
++  const datasetBytes = bytes(input.dataset);
++  if (Object.hasOwn(input.extension, 'datasetSha256')) input.extension.datasetSha256 = sha256(datasetBytes);
++  if (Object.hasOwn(input.predictions, 'datasetSha256')) input.predictions.datasetSha256 = sha256(datasetBytes);
++  const extensionBytes = bytes(input.extension);
++  if (Object.hasOwn(input.predictions, 'extensionSha256')) input.predictions.extensionSha256 = sha256(extensionBytes);
++  return [datasetBytes, extensionBytes, bytes(input.predictions)];
++}
+diff --git a/scripts/test-reference-view-shadow.mjs b/scripts/test-reference-view-shadow.mjs
+new file mode 100644
+index 0000000..0fafa05
+--- /dev/null
++++ b/scripts/test-reference-view-shadow.mjs
+@@ -0,0 +1,171 @@
++#!/usr/bin/env node
++import assert from 'node:assert/strict';
++import { readFile, writeFile, mkdtemp, rm, readdir, symlink } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import { join, dirname, basename } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { spawnSync } from 'node:child_process';
++import { evaluateReferenceViewShadow as evaluate, POLICY, POLICY_SHA256 } from './evaluate-reference-view-shadow.mjs';
++import { fixture, bind, sha256 } from './reference-view-shadow/synthetic-fixture.mjs';
++
++const checks = [];
++function test(name, fn) { fn(); checks.push({ name, status: 'PASS' }); }
++function accept(name, mutate, verify) { test(name, () => { const input = fixture(); mutate(input); const report = evaluate(...bind(input)); assert.equal(report.status, 'VALID'); assert.equal(report.qualityEvidence, false); verify?.(report); }); }
++function reject(name, mutate, code) { test(name, () => { const input = fixture(); mutate(input); assert.throws(() => evaluate(...bind(input)), error => error.message === code, name); }); }
++const input = fixture(), raw = bind(input), original = evaluate(...raw);
++test('split counts and full outcome partitions retain REVIEW and insufficient samples', () => {
++  assert.equal(original.splits.development.sampleCount, 4); assert.equal(original.splits.holdout.sampleCount, 4);
++  assert.equal(original.splits.development.decidableDenominator, 3); assert.equal(original.splits.holdout.decidableDenominator, 2);
++  for (const split of Object.values(original.splits)) for (const run of Object.values(split.runs)) { assert.equal(run.sampleDenominator, 4); assert.equal(['correctMatch', 'wrongMatch', 'correctNoMatch', 'wrongNoMatch', 'abstain', 'unevaluable'].reduce((n, k) => n + run.counts[k], 0), 4); }
++  assert.deepEqual(original.splits.development.runs.baseline.declaredCorrectRate, { numerator: 1, denominator: 3, value: 1 / 3, reason: null });
++  assert.deepEqual(original.splits.development.runs.candidate.declaredCorrectRate, { numerator: 2, denominator: 3, value: 2 / 3, reason: null });
++  assert.equal(original.splits.development.runs.candidate.counts.abstain, 2);
++});
++test('independent critical truth counts both observable and partial defects; REVIEW is separate', () => {
++  for (const split of Object.values(original.splits)) { assert.equal(split.criticalDenominator, 1); assert.equal(split.runs.baseline.counts.criticalAllowed, 1); assert.equal(split.runs.candidate.counts.criticalAllowed, 0); }
++  assert.equal(original.splits.development.runs.candidate.counts.criticalQualityReview, 1);
++  assert.equal(original.splits.holdout.runs.candidate.counts.criticalBlocked, 1);
++});
++test('multi solution retains sorted candidate set and never selects unique by order', () => { const r = original.samples[1].recommendation; assert.equal(r.reason, 'MULTIPLE_COMPATIBLE_REFERENCES'); assert.equal(r.candidateReferenceIds.length, 2); assert.equal(r.uniqueReferenceId, null); assert.equal(r.confirmedMatch, false); });
++test('unknown, low visibility, no_match and invalidated references never recommend a match', () => {
++  for (const n of [2, 3, 6, 7]) { assert.deepEqual(original.samples[n].recommendation.candidateReferenceIds, []); assert.equal(original.samples[n].recommendation.uniqueReferenceId, null); }
++  assert.equal(original.samples[2].recommendation.reason, 'UNKNOWN_OBSERVED_VIEW');
++  assert.equal(original.samples[6].recommendation.reason, 'LOW_OBSERVABILITY');
++  assert.equal(original.samples[3].recommendation.reason, 'DECLARED_NO_MATCH');
++  assert.equal(original.splits.development.runs.baseline.counts.unsafeMatchOnInsufficient, 1);
++  assert.equal(original.splits.holdout.runs.candidate.counts.unsafeMatchOnInsufficient, 1);
++});
++test('same frozen samples compare changed output and correctness without headline', () => { const d = original.splits.development.differences; assert.equal(d.comparedSampleCount, 4); assert.equal(d.becameCorrect, 2); assert.equal(d.ceasedCorrect, 1); assert.equal(original.overall, undefined); assert.equal(original.splits.development.rankings, 'NOT_SUPPORTED'); });
++test('byte hashes bind all three files and fixed policy manifest', () => { assert.equal(original.inputHashes.datasetSha256, sha256(raw[0])); assert.equal(original.inputHashes.extensionSha256, sha256(raw[1])); assert.equal(original.inputHashes.predictionsSha256, sha256(raw[2])); assert.equal(original.policy.sha256, POLICY_SHA256); assert.equal(original.policy.version, POLICY.version); });
++accept('false synthetic declaration does not certify real provenance or quality', d => { d.dataset.synthetic = false; d.dataset.samples.forEach(s => s.synthetic = false); d.dataset.authorizationRecords[0].recordRef = 'record:' + '1'.repeat(32); d.extension.synthetic = false; d.predictions.synthetic = false; }, r => { assert.equal(r.evidenceKind, 'unverified_declared_input'); assert.equal(r.realQualityStatus, 'BLOCKED'); assert.equal(r.inputDeclarations.independentHumanLabels, 'UNVERIFIED'); });
++accept('no critical examples has null missed-error rate, never success zero', d => { d.dataset.samples.forEach(s => s.annotations.forEach(a => { a.label = { verdict: 'match', defectType: 'none', severity: 'none', observability: 'observable' }; })); }, r => { for (const s of Object.values(r.splits)) { assert.equal(s.criticalDenominator, 0); assert.equal(s.runs.baseline.criticalMissedAllowRate.value, null); assert.equal(s.runs.baseline.criticalMissedAllowRate.reason, 'EMPTY_DENOMINATOR'); } });
++accept('only development yields explicit zero holdout and null denominators', d => { d.dataset.samples = d.dataset.samples.slice(0, 4); d.extension.samples = d.extension.samples.slice(0, 4); for (const role of ['baseline', 'candidate']) d.predictions[role].samples = d.predictions[role].samples.slice(0, 4); }, r => { assert.equal(r.splits.holdout.sampleCount, 0); assert.equal(r.splits.holdout.runs.candidate.coverage.value, null); assert.equal(r.splits.holdout.runs.candidate.declaredCorrectRate.reason, 'EMPTY_DENOMINATOR'); });
++accept('all view truth insufficient leaves zero decidable denominator with abstentions retained', d => { d.extension.samples.forEach(s => { s.annotations.forEach(a => a.label = { observedView: 'unknown', observability: 'unobservable', conclusion: 'insufficient', acceptableReferenceIds: [] }); s.adjudication = null; }); }, r => { for (const s of Object.values(r.splits)) { assert.equal(s.decidableDenominator, 0); assert.equal(s.runs.candidate.declaredCorrectRate.value, null); } });
++accept('distinct external run policy versions and hashes are declared, never inferred', d => { d.predictions.baseline.metadata.policyVersion = 'legacy-policy-009'; d.predictions.baseline.metadata.policySha256 = 'a'.repeat(64); d.predictions.candidate.metadata.model.modelId = 'declared-model-v2'; }, r => { assert.equal(r.runMetadata.baseline.policyVersion, 'legacy-policy-009'); assert.equal(r.inputDeclarations.runOrigins, 'UNVERIFIED'); });
++accept('same-source frozen reference can be reused by distinct observations within one split', d => {
++  const s = d.dataset.samples[1], first = d.dataset.samples[0];
++  s.skuId = first.skuId; s.packagingVersionId = first.packagingVersionId; s.referenceImageSha256 = first.referenceImageSha256;
++  const ext = d.extension.samples[1]; ext.references[0] = structuredClone(d.extension.samples[0].references[0]);
++  ext.references.forEach(r => { r.source.skuId = s.skuId; r.source.packagingVersionId = s.packagingVersionId; });
++  ext.annotations.forEach(a => a.label.acceptableReferenceIds = ext.references.filter(r => r.view === 'front').map(r => r.id));
++}, r => assert.equal(r.splits.development.skuSampleCounts['sku_0000000000000001'], 2));
++accept('adjudicated decision can resolve to no_match while keeping original two labels', d => { d.extension.samples[5].adjudication.label = { observedView: 'back', observability: 'observable', conclusion: 'no_match', acceptableReferenceIds: [] }; }, r => { assert.equal(r.samples[5].recommendation.reason, 'DECLARED_NO_MATCH'); assert.equal(r.samples[5].predictions.candidate.outcome, 'wrongMatch'); });
++accept('acceptable-ID set order agreement requires no arbitration', d => d.extension.samples[1].annotations[1].label.acceptableReferenceIds.reverse(), r => assert.equal(r.samples[1].truth.acceptableReferenceIds.length, 2));
++accept('semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order', d => { d.dataset.samples.reverse(); d.extension.samples.reverse(); for (const s of d.extension.samples) { s.references.reverse(); s.annotations.reverse(); s.annotations.forEach(a => a.label.acceptableReferenceIds.reverse()); } for (const role of ['baseline', 'candidate']) d.predictions[role].samples.reverse(); }, r => { assert.deepEqual(r.samples, original.samples); assert.deepEqual(r.splits, original.splits); });
++
++const negatives = [
++  ['UPG02 dataset validation is reused for ownership and labels', d => d.dataset.samples[0].annotations[0].independent = false, 'UPG02_DATASET_INVALID'],
++  ['extension dataset ID mismatch', d => d.extension.datasetId = 'dataset_9999999999999999', 'DATASET_BINDING_MISMATCH'],
++  ['prediction dataset ID mismatch', d => d.predictions.datasetId = 'dataset_9999999999999999', 'DATASET_BINDING_MISMATCH'],
++  ['wrong extension schema', d => d.extension.schemaVersion = 2, 'UNSUPPORTED_SCHEMA_VERSION'],
++  ['wrong prediction schema', d => d.predictions.schemaVersion = 2, 'UNSUPPORTED_SCHEMA_VERSION'],
++  ['mixed extension provenance', d => d.extension.synthetic = false, 'MIXED_PROVENANCE'],
++  ['mixed predictions provenance', d => d.predictions.synthetic = false, 'MIXED_PROVENANCE'],
++  ['unsupported strategy version', d => d.extension.policyVersion = 'other', 'UNSUPPORTED_POLICY'],
++  ['unsupported strategy hash', d => d.predictions.policySha256 = 'f'.repeat(64), 'UNSUPPORTED_POLICY'],
++  ['missing extension sample', d => d.extension.samples.pop(), 'EXTENSION_SAMPLE_SET_MISMATCH'],
++  ['extra extension sample', d => d.extension.samples.push(structuredClone(d.extension.samples[0])), 'EXTENSION_SAMPLE_SET_MISMATCH'],
++  ['duplicate extension sample', d => d.extension.samples[1].sampleId = d.extension.samples[0].sampleId, 'EXTENSION_SAMPLE_SET_MISMATCH'],
++  ['unknown extension sample', d => d.extension.samples[0].sampleId = 'sample_9999999999999999', 'EXTENSION_SAMPLE_SET_MISMATCH'],
++  ['original reference cannot be omitted', d => d.extension.samples[1].references.shift(), 'ORIGINAL_REFERENCE_MISSING'],
++  ['empty reference set', d => d.extension.samples[0].references = [], 'INVALID_REFERENCE_SET'],
++  ['reference set bounded at 16', d => d.extension.samples[0].references = Array(17).fill(d.extension.samples[0].references[0]), 'INVALID_REFERENCE_SET'],
++  ['observed cannot be own reference', d => d.extension.samples[0].references[0].imageSha256 = d.dataset.samples[0].observedImageSha256, 'OBSERVED_AS_OWN_REFERENCE'],
++  ['reference image crossed holdout split', d => { const r = structuredClone(d.extension.samples[0].references[0]); r.id = 'ref_9999999999999999'; r.imageSha256 = d.dataset.samples[4].referenceImageSha256; d.extension.samples[0].references.push(r); }, 'REFERENCE_IMAGE_SPLIT_LEAK'],
++  ['new reference crossed holdout observed role', d => { const r = structuredClone(d.extension.samples[0].references[0]); r.id = 'ref_9999999999999999'; r.imageSha256 = d.dataset.samples[4].observedImageSha256; d.extension.samples[0].references.push(r); }, 'REFERENCE_IMAGE_SPLIT_LEAK'],
++  ['two newly added images leak across split', d => { for (const n of [0, 4]) { const r = structuredClone(d.extension.samples[n].references[0]); r.id = `ref_${String(n + 90).padStart(16, '0')}`; r.imageSha256 = 'f'.repeat(64); d.extension.samples[n].references.push(r); } }, 'REFERENCE_IMAGE_SPLIT_LEAK'],
++  ['image content reused under different SKU within split', d => { const r = structuredClone(d.extension.samples[0].references[0]); r.id = 'ref_9999999999999999'; r.imageSha256 = d.dataset.samples[1].referenceImageSha256; d.extension.samples[0].references.push(r); }, 'IMAGE_SOURCE_CONFLICT'],
++  ['reference ID conflicting metadata', d => d.extension.samples[1].references[0].id = d.extension.samples[0].references[0].id, 'REFERENCE_ID_CONFLICT'],
++  ['duplicate reference ID', d => d.extension.samples[1].references[1].id = d.extension.samples[1].references[0].id, 'DUPLICATE_REFERENCE'],
++  ['duplicate reference hash', d => d.extension.samples[1].references[1].imageSha256 = d.extension.samples[1].references[0].imageSha256, 'DUPLICATE_REFERENCE'],
++  ['reference hash malformed', d => d.extension.samples[0].references[0].imageSha256 = 'secret-personal-value', 'INVALID_REFERENCE_HASH'],
++  ['arbitrary view not supported', d => d.extension.samples[0].references[0].view = 'secret-angle', 'INVALID_REFERENCE_VIEW'],
++  ['reference state unknown', d => d.extension.samples[0].references[0].status = 'expired', 'INVALID_REFERENCE_STATUS'],
++  ['same view annotator', d => d.extension.samples[0].annotations[1].annotatorId = d.extension.samples[0].annotations[0].annotatorId, 'VIEW_ANNOTATORS_IDENTICAL'],
++  ['view labeling not independent', d => d.extension.samples[0].annotations[0].independent = false, 'VIEW_ANNOTATION_NOT_INDEPENDENT_BLIND'],
++  ['view labeling not blind', d => d.extension.samples[0].annotations[0].blind = false, 'VIEW_ANNOTATION_NOT_INDEPENDENT_BLIND'],
++  ['only one view annotation', d => d.extension.samples[0].annotations.pop(), 'TWO_VIEW_ANNOTATIONS_REQUIRED'],
++  ['missing required adjudication', d => d.extension.samples[5].adjudication = null, 'VIEW_ADJUDICATION_REQUIRED'],
++  ['arbitration not third person', d => d.extension.samples[5].adjudication.adjudicatorId = d.extension.samples[5].annotations[0].annotatorId, 'VIEW_ADJUDICATOR_NOT_THIRD_PERSON'],
++  ['unexpected adjudication removes original agreement', d => d.extension.samples[0].adjudication = d.extension.samples[5].adjudication, 'UNNECESSARY_VIEW_ADJUDICATION'],
++  ['unknown acceptable reference', d => d.extension.samples[0].annotations[0].label.acceptableReferenceIds = ['ref_9999999999999999'], 'INVALID_ACCEPTABLE_REFERENCE'],
++  ['wrong-view acceptable reference', d => d.extension.samples[1].annotations[0].label.acceptableReferenceIds = [d.extension.samples[1].references[2].id], 'INVALID_ACCEPTABLE_REFERENCE'],
++  ['invalidated reference cannot be acceptable', d => d.extension.samples[0].references[0].status = 'invalidated', 'INVALID_ACCEPTABLE_REFERENCE'],
++  ['partial reference cannot be acceptable', d => d.extension.samples[0].references[0].observability = 'partial', 'INVALID_ACCEPTABLE_REFERENCE'],
++  ['unknown view cannot assert compatible truth', d => { d.extension.samples[2].annotations[0].label.conclusion = 'compatible'; }, 'UNCONFIRMABLE_VIEW_TRUTH'],
++  ['partial observed view cannot assert compatible truth', d => { d.extension.samples[6].annotations[0].label.conclusion = 'compatible'; }, 'UNCONFIRMABLE_VIEW_TRUTH'],
++  ['unknown view cannot assert no_match truth', d => d.extension.samples[2].annotations[0].label.conclusion = 'no_match', 'UNCONFIRMABLE_NO_MATCH_TRUTH'],
++  ['duplicate acceptable reference', d => d.extension.samples[0].annotations[0].label.acceptableReferenceIds.push(d.extension.samples[0].references[0].id), 'INVALID_ACCEPTABLE_REFERENCE'],
++  ['run ID not independent', d => d.predictions.candidate.metadata.runId = d.predictions.baseline.metadata.runId, 'RUN_IDS_MUST_DIFFER'],
++  ['abbreviated code SHA not accepted', d => d.predictions.baseline.metadata.codeSha = '1234567', 'INVALID_RUN_CODE_SHA'],
++  ['unidentified model cannot be guessed', d => d.predictions.candidate.metadata.model.modelId = 'unknown', 'INVALID_MODEL_ID'],
++  ['unidentified prompt cannot be guessed', d => d.predictions.baseline.metadata.promptVersion = 'unknown', 'INVALID_PROMPT_VERSION'],
++  ['run policy hash malformed', d => d.predictions.candidate.metadata.policySha256 = 'short', 'INVALID_RUN_POLICY_HASH'],
++];
++for (const [name, mutate, code] of negatives) reject(name, mutate, code);
++for (const k of ['workspaceId', 'skuId', 'packagingVersionId', 'authorizationId']) reject(`reference source ${k} mismatch`, d => d.extension.samples[0].references[0].source[k] = 'other', 'REFERENCE_SOURCE_MISMATCH');
++for (const role of ['baseline', 'candidate']) {
++  reject(`${role} missing prediction cannot vanish from denominator`, d => d.predictions[role].samples.pop(), 'PREDICTION_SAMPLE_SET_MISMATCH');
++  reject(`${role} extra prediction`, d => d.predictions[role].samples.push(d.predictions[role].samples[0]), 'PREDICTION_SAMPLE_SET_MISMATCH');
++  reject(`${role} duplicate prediction`, d => d.predictions[role].samples[1].sampleId = d.predictions[role].samples[0].sampleId, 'PREDICTION_SAMPLE_SET_MISMATCH');
++  reject(`${role} unknown sample prediction`, d => d.predictions[role].samples[0].sampleId = 'sample_9999999999999999', 'PREDICTION_SAMPLE_SET_MISMATCH');
++  reject(`${role} cross-SKU reference prediction`, d => { d.predictions[role].samples[0].selection = d.extension.samples[1].references[0].id; d.predictions[role].samples[0].matchDecision = 'MATCH'; }, 'INVALID_PREDICTION_REFERENCE');
++  reject(`${role} unknown reference prediction`, d => { d.predictions[role].samples[0].selection = 'ref_9999999999999999'; d.predictions[role].samples[0].matchDecision = 'MATCH'; }, 'INVALID_PREDICTION_REFERENCE');
++  reject(`${role} arbitrary match decision`, d => d.predictions[role].samples[0].matchDecision = 'PASS', 'INVALID_MATCH_DECISION');
++  reject(`${role} arbitrary quality decision`, d => d.predictions[role].samples[0].qualityDecision = 'PASS', 'INVALID_QUALITY_DECISION');
++  reject(`${role} invalidated reference prediction`, d => { d.predictions[role].samples[7] = { sampleId: d.dataset.samples[7].id, selection: d.extension.samples[7].references[0].id, matchDecision: 'MATCH', qualityDecision: 'BLOCK' }; }, 'INVALID_PREDICTION_REFERENCE');
++  reject(`${role} unsupported REVIEW/ALLOW`, d => d.predictions[role].samples[7].qualityDecision = 'ALLOW', 'UNSUPPORTED_PREDICTION_COMBINATION');
++  reject(`${role} MATCH without selection`, d => { d.predictions[role].samples[0].matchDecision = 'MATCH'; d.predictions[role].samples[0].selection = null; }, 'MATCH_REQUIRES_SELECTION');
++  reject(`${role} NO_MATCH with selection`, d => { d.predictions[role].samples[0].matchDecision = 'NO_MATCH'; d.predictions[role].samples[0].qualityDecision = 'BLOCK'; d.predictions[role].samples[0].selection = d.extension.samples[0].references[0].id; }, 'NO_MATCH_HAS_SELECTION');
++}
++for (const [name, path, code] of [
++  ['extension', d => d.extension, 'INVALID_EXTENSION_FIELDS'], ['prediction root', d => d.predictions, 'INVALID_PREDICTION_FIELDS'], ['view sample', d => d.extension.samples[0], 'INVALID_EXTENSION_SAMPLE_FIELDS'], ['reference', d => d.extension.samples[0].references[0], 'INVALID_REFERENCE_FIELDS'], ['reference source', d => d.extension.samples[0].references[0].source, 'INVALID_REFERENCE_SOURCE_FIELDS'], ['view annotation', d => d.extension.samples[0].annotations[0], 'INVALID_VIEW_ANNOTATION_FIELDS'], ['view truth', d => d.extension.samples[0].annotations[0].label, 'INVALID_VIEW_LABEL_FIELDS'], ['adjudication', d => d.extension.samples[5].adjudication, 'VIEW_ADJUDICATION_REQUIRED'], ['run', d => d.predictions.baseline, 'INVALID_RUN_FIELDS'], ['run metadata', d => d.predictions.baseline.metadata, 'INVALID_RUN_METADATA_FIELDS'], ['model metadata', d => d.predictions.baseline.metadata.model, 'INVALID_MODEL_METADATA'], ['prediction sample', d => d.predictions.baseline.samples[0], 'INVALID_PREDICTION_SAMPLE_FIELDS'],
++]) {
++  reject(`${name} unknown fields rejected (including qualityEvidence override)`, d => path(d).qualityEvidence = true, code);
++  for (const key of Object.keys(path(fixture()))) reject(`${name} missing ${key}`, d => { delete path(d)[key]; }, key === 'sampleId' ? name === 'view sample' ? 'EXTENSION_SAMPLE_SET_MISMATCH' : 'PREDICTION_SAMPLE_SET_MISMATCH' : code);
++}
++test('raw dataset whitespace tampering invalidates binding even if parsed meaning is same', () => assert.throws(() => evaluate(Buffer.concat([raw[0], Buffer.from(' ')]), raw[1], raw[2]), /DATASET_BINDING_MISMATCH/));
++test('raw view whitespace tampering invalidates prediction binding', () => assert.throws(() => evaluate(raw[0], Buffer.concat([raw[1], Buffer.from(' ')]), raw[2]), /EXTENSION_BINDING_MISMATCH/));
++test('wrong dataset byte hash is rejected', () => { const p = JSON.parse(raw[2]); p.datasetSha256 = 'f'.repeat(64); assert.throws(() => evaluate(raw[0], raw[1], Buffer.from(JSON.stringify(p))), /DATASET_BINDING_MISMATCH/); });
++test('duplicate JSON keys including escaped aliases are rejected before overwrite', () => { const duplicate = Buffer.from(raw[1].toString().replace('"schemaVersion": 1', '"schemaVersion": 1, "schemaVersion": 1')); assert.throws(() => evaluate(raw[0], duplicate, raw[2]), /DUPLICATE_JSON_FIELD/); const escaped = Buffer.from(raw[0].toString().replace('"synthetic": true', '"synthetic": true, "synth\\u0065tic": true')); assert.throws(() => evaluate(escaped, raw[1], raw[2]), /DUPLICATE_JSON_FIELD/); });
++
++const cli = fileURLToPath(new URL('./evaluate-reference-view-shadow.mjs', import.meta.url));
++const root = await mkdtemp(join(tmpdir(), 'pairvu-reference-view-shadow-'));
++let invocations = 0;
++function command(args, exit, status, entry = cli) {
++  const r = spawnSync(process.execPath, [entry, ...args], { cwd: root, encoding: 'utf8' }); invocations++;
++  assert.equal(r.status, exit, r.stderr || r.stdout); assert.equal(r.stderr, ''); const report = JSON.parse(r.stdout); assert.equal(report.status, status); assert.equal(report.qualityEvidence, false); assert.equal(report.realQualityStatus, 'BLOCKED'); return report;
++}
++try {
++  const paths = ['dataset.json', 'views.json', 'predictions.json'].map(n => join(root, n));
++  for (let n = 0; n < 3; n++) await writeFile(paths[n], raw[n]);
++  const args = ['--dataset', paths[0], '--views', paths[1], '--predictions', paths[2]];
++  const fileLink = join(root, 'alias.mjs'), dirLink = join(root, 'scripts-alias'); await symlink(cli, fileLink); await symlink(dirname(cli), dirLink, 'dir');
++  const before = await readdir(root);
++  for (const entry of [cli, fileLink, join(dirLink, basename(cli))]) {
++    test('CLI entry ' + (entry === cli ? 'direct' : entry === fileLink ? 'file symlink' : 'parent symlink'), () => { const report = command(args, 0, 'VALID', entry); assert.deepEqual(report, original); command([], 2, 'BLOCKED', entry); command(['--network'], 64, 'INVALID_USAGE', entry); });
++  }
++  await writeFile(paths[0], '{}');
++  for (const entry of [fileLink, join(dirLink, basename(cli))]) test('invalid input executes through linked CLI ' + basename(entry), () => { const report = command(args, 1, 'INVALID_INPUT', entry); assert.equal(report.reason, 'UPG02_DATASET_INVALID'); });
++  await writeFile(paths[0], raw[0]);
++  test('missing file blocks without path or content echo', () => { const report = command(['--dataset', '/absent/secret-person@example.invalid', ...args.slice(2)], 2, 'BLOCKED'); assert.doesNotMatch(JSON.stringify(report), /secret-person/); });
++  test('partial flags invalid and do not fall back to fixtures', () => command(args.slice(0, 4), 64, 'INVALID_USAGE'));
++  test('directory input blocks', () => command(['--dataset', root, ...args.slice(2)], 2, 'BLOCKED'));
++  for (const malformed of ['{secret-person@example.invalid', 'null', '[]', '{}']) {
++    await writeFile(paths[0], malformed);
++    test('invalid JSON/UPG02 input sanitized ' + malformed.slice(0, 1), () => { const report = command(args, 1, 'INVALID_INPUT'); assert.doesNotMatch(JSON.stringify(report), /secret-person/); });
++  }
++  await writeFile(paths[0], raw[0]);
++  const sensitive = structuredClone(input); sensitive.extension.samples[0].references[0].imageSha256 = 'secret-person@example.invalid'; const bad = bind(sensitive); await writeFile(paths[1], bad[1]); await writeFile(paths[2], bad[2]);
++  test('semantic errors never echo arbitrary input values', () => { const report = command(args, 1, 'INVALID_INPUT'); assert.equal(report.reason, 'INVALID_REFERENCE_HASH'); assert.doesNotMatch(JSON.stringify(report), /secret-person/); });
++  for (let n = 0; n < 3; n++) await writeFile(paths[n], raw[n]);
++  command(args, 0, 'VALID');
++  const afterBytes = await Promise.all(paths.map(path => readFile(path))), afterNames = await readdir(root);
++  test('CLI creates no files and preserves input byte contents', () => { for (let n = 0; n < 3; n++) assert.deepEqual(afterBytes[n], raw[n]); assert.deepEqual(afterNames, before); });
++  const help = spawnSync(process.execPath, [cli, '--help'], { encoding: 'utf8' }); invocations++;
++  test('help states engineering/real-quality distinction and exit codes', () => { assert.equal(help.status, 0); assert.match(help.stdout, /real quality still BLOCKED/); assert.match(help.stdout, /64: INVALID_USAGE/); });
++} finally { await rm(root, { recursive: true, force: true }); }
++const fixtureRoot = fileURLToPath(new URL('../fixtures/reference-view-shadow/synthetic/', import.meta.url));
++const committed = await Promise.all(['dataset.json', 'views.json', 'predictions.json'].map(n => readFile(join(fixtureRoot, n))));
++test('explicit committed fixtures replay exactly, without overwriting them', () => assert.deepEqual(evaluate(...committed), original));
++console.log(JSON.stringify({ status: 'PASS', unitId: 'UPG-07A', qualityEvidence: false, realQualityStatus: 'BLOCKED', checkCount: checks.length, cliInvocations: invocations, checks }, null, 2));

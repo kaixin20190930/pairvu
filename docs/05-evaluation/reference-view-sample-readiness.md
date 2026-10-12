@@ -28,4 +28,6 @@
 
 后续填写模板仅使用这些字段：`requirement / status / evidenceReference / verifiedBy / verifiedAt / scopeAndLimitations`；未提供时后三项为 null，并明确状态。**当前不创建任何虚构真实记录、签名、授权 ID、真人身份或实际采集数字。** 真实图片及识别映射应由授权保管方受控保存，不上传本轮代码仓库作为 fixture。
 
-下一步由总控自动安排固定候选 SHA 的独立工程验收；其 PASS 只能关闭 UPG-07A local_only。真实质量下一步依赖用户/数据保管方提供上述授权样本与双标证据，当前不能自动开展。提供数据后还须制定单独授权范围并独立核实来源，不能靠 `synthetic=false` 或工具 PASS 升级为真实 benchmark。UPG-07 runtime、模型调用、生产部署及功能启用均未由本阶段完成或授权。
+UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。 [独立最终报告](../../operations/evidence/UPG-07A.json)。
+
+下一步：按样本缺口清单由用户/数据保管方准备授权记录、真实图像及参考集合、SKU分割、双人盲标/仲裁、独立留出集和baseline/candidate实际运行来源。总控本轮工程收尾已自动完成；因用户确认暂无样本，不自动开展真实质量评测或线上UPG-07接入，也不启动其他单元。样本就绪后先独立核实来源、冻结输入，再制定实际评测/线上接入最小契约；任何新增模型调用和生产发布另需相应授权。

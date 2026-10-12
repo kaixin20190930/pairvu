@@ -87,3 +87,13 @@ UPG-05已完成GitHub-first发布、0021迁移和Cloudflare部署（2013e22 / Wo
 
 ## 2026-10-12 UPG07启动授权
 用户已授权UPG07最小契约、样本要求、开发和独立验收。当前只启动local_only UPG-07A，契约operations/contracts/UPG-07A.md；原UPG07 runtime保留BACKLOG并依赖本阶段。原开发/QA均按协议关联与反例风险选Sol/high，固定SHA验收，FAIL返原开发。真实质量不以合成数据替代，缺真实样本列明。通过本地关闭后说明样本缺口和下一步；不发布、不调用模型、不恢复pairvu-2。持续wait/read不能派单即结束。
+
+## 2026-10-12 UPG07A独立关闭
+
+UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。
+
+用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。
+
+原始最终报告operations/evidence/UPG-07A.json；首轮FAIL与31项独立反例归档operations/evidence/UPG-07A-attempt-1；最终边界原始巨型材料经无损gzip及摘要保留，映射见UPG-07A/archive-index.json。CLI已qa PASS→close。
+
+下一步：按样本缺口清单由用户/数据保管方准备授权记录、真实图像及参考集合、SKU分割、双人盲标/仲裁、独立留出集和baseline/candidate实际运行来源。总控本轮工程收尾已自动完成；因用户确认暂无样本，不自动开展真实质量评测或线上UPG-07接入，也不启动其他单元。样本就绪后先独立核实来源、冻结输入，再制定实际评测/线上接入最小契约；任何新增模型调用和生产发布另需相应授权。

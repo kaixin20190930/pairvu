@@ -1,0 +1,119 @@
+{
+  "unitId": "UPG-07A",
+  "candidateSha": "7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32",
+  "baselineSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T06:54:27.494Z",
+  "stage": "local_only",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "allowed repair delta and exact source hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "exact 100000 evaluator and actual CLI acceptance",
+      "status": "PASS"
+    },
+    {
+      "name": "original exact 100001 evaluator and actual CLI rejection",
+      "status": "PASS"
+    },
+    {
+      "name": "baseline and candidate independent prediction overlimit rejection",
+      "status": "PASS"
+    },
+    {
+      "name": "unchanged original counterexample replay and immutable original FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "exact candidate typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "prior specialized177 UPG02 105 and independent31 evidence explicitly reused",
+      "status": "PASS"
+    },
+    {
+      "name": "input bytes unchanged and shared changes preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "quality evidence false and real quality BLOCKED",
+      "status": "PASS"
+    }
+  ],
+  "resolvedFinding": "UPG07A-QA-01",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "artifactIndex": "/private/tmp/pairvu-upg07a-qa-attempt2-duvacxjk/qa-artifact-index.json",
+  "boundarySummary": "/private/tmp/pairvu-upg07a-qa-attempt2-duvacxjk/qa-boundary-summary.json",
+  "originalFail": {
+    "path": "/tmp/pairvu-upg07a-qa.json",
+    "sha256": "d633b00f04486a79b6818e51c662c26b8b4932132ff7866baabf8e8ab8b384aa",
+    "preservedUnmodified": true
+  },
+  "verification": {
+    "actualEvaluatorCases": 4,
+    "actualCliInvocations": 4,
+    "typecheckExitCode": 0,
+    "originalCounterexampleRawInputsIdentical": true,
+    "priorEvidenceReused": [
+      {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/UPG-07A-attempt-1/qa-original.json",
+        "sha256": "d633b00f04486a79b6818e51c662c26b8b4932132ff7866baabf8e8ab8b384aa",
+        "bytes": 5592,
+        "reuseOnly": true
+      },
+      {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/UPG-07A-attempt-1/qa-specialized-results.json",
+        "sha256": "23f733deaa75e3a43f410593748d1481c962ad88e411f2e0bcf3c975f46c758a",
+        "bytes": 16893,
+        "reuseOnly": true
+      },
+      {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/UPG-07A-attempt-1/qa-upg02-command.json",
+        "sha256": "f638d4f6d3b8f91fc140b773f3b845f0c4997da57f6fd6b9e0b0153dff48aaf7",
+        "bytes": 280,
+        "reuseOnly": true
+      },
+      {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/UPG-07A-attempt-1/qa-independent-results.json",
+        "sha256": "cd148ca901efd754e52632bba3c9ff12d4d597577277943cf911b84b9f274cdb",
+        "bytes": 14199,
+        "reuseOnly": true
+      },
+      {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/UPG-07A-attempt-1/qa-source-index.json",
+        "sha256": "8fe0e78a261611dadac0ede5cb58d26091533cd6cf2ce2a1d37961071ef3d5f9",
+        "bytes": 22195,
+        "reuseOnly": true
+      }
+    ]
+  },
+  "harnessCorrection": {
+    "initialExtraPredictionAssertion": "QA initially expected BASELINE_SAMPLE_SET_MISMATCH; actual documented shared reason is PREDICTION_SAMPLE_SET_MISMATCH. Corrected QA assertion and reexecuted both extra-prediction cases; initial failure script/raw logs preserved. This was a test harness error, not a product finding."
+  },
+  "limitations": [
+    "177 specialized,105 UPG02 and31 independent counterexamples are original verified evidence reused after review of the isolated repair delta; not rerun or relabeled as newly executed.",
+    "All boundary cases are synthetic; no real authorized samples, dual human labels or verified run provenance.",
+    "No production deployment, feature enablement, browser, build, network or model call."
+  ],
+  "nextAction": {
+    "action": "Controller records fixed-SHA local_only PASS and closes UPG-07A.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "dependency": "This exact candidate and preserved original plus attempt2 evidence.",
+    "realQualityDependency": "Authorized actual samples, independent dual labels/adjudication, source audits and frozen holdout/run provenance are still NOT_PROVIDED/NOT_VERIFIED.",
+    "parentAndAutomation": "UPG07 runtime remains BACKLOG; pairvu-2 remains paused."
+  }
+}

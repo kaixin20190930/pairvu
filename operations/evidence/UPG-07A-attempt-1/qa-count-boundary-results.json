@@ -1,0 +1,32 @@
+{
+  "result": "FAIL",
+  "findingId": "UPG07A-QA-01",
+  "inputSampleCount": 100001,
+  "documentedMaximum": 100000,
+  "actualStatus": "VALID",
+  "extensionSampleCount": 100001,
+  "baselineCount": 100001,
+  "candidateCount": 100001,
+  "reportedDevelopmentSampleCount": 100001,
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "elapsedMs": 5067,
+  "rawInputs": [
+    {
+      "role": "dataset",
+      "bytes": 74601037,
+      "sha256": "80c4df8c598150080a552cf68d2a9193c75914885a36b5a3562d9c67fcce1495"
+    },
+    {
+      "role": "views",
+      "bytes": 84801150,
+      "sha256": "0c536d5a068f0cf3a9f8b6ee93c31da37487de315d4170ba5c0cdb0edc884133"
+    },
+    {
+      "role": "predictions",
+      "bytes": 24801270,
+      "sha256": "db72e52fcfbf06d3c91e7d609289650587d140c01c97a8fa5fdcc06b52da7adb"
+    }
+  ],
+  "expected": "Reject the over-limit sample arrays according to protocol paragraph declaring maximum100000; do not generate VALID diagnostics beyond documented input cap."
+}

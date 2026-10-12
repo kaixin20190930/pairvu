@@ -1,0 +1,203 @@
+{
+  "result": "PASS",
+  "evaluatorCases": 4,
+  "actualCliInvocations": 4,
+  "proofs": [
+    {
+      "result": "PASS",
+      "count": 100000,
+      "variant": "normal",
+      "api": {
+        "status": "VALID",
+        "sampleCount": 100000,
+        "baselineDenominator": 100000,
+        "candidateDenominator": 100000,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED"
+      },
+      "cli": {
+        "command": [
+          "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+          "scripts/evaluate-reference-view-shadow.mjs",
+          "--dataset",
+          "boundary-100000-normal/dataset.json",
+          "--views",
+          "boundary-100000-normal/views.json",
+          "--predictions",
+          "boundary-100000-normal/predictions.json"
+        ],
+        "exitCode": 0,
+        "status": "VALID",
+        "reason": null,
+        "sampleCount": 100000,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "stdoutFile": "boundary-100000-normal/cli-stdout.json",
+        "stdoutBytes": 115010545,
+        "stdoutSha256": "0c80bd45b0841cfcb02094b29ebe03ed97e0cafc923aac35df2a9d1a22a74cb4",
+        "stderrFile": "boundary-100000-normal/cli-stderr.txt"
+      },
+      "rawInputs": [
+        {
+          "path": "boundary-100000-normal/dataset.json",
+          "bytes": 74600291,
+          "sha256": "5dbbd923b2971e5f75a9fd3c491404148a5f32f51f6becd27e2469837f14884f"
+        },
+        {
+          "path": "boundary-100000-normal/views.json",
+          "bytes": 84800302,
+          "sha256": "7d3d62742e2044e5f113154561dbb3394c08609e497066c70cd3ca8ec280c796"
+        },
+        {
+          "path": "boundary-100000-normal/predictions.json",
+          "bytes": 24801022,
+          "sha256": "a7248dfda6fbfe342a2e65db361ba231474941e0c828341fd69d84e82409bbb7"
+        }
+      ]
+    },
+    {
+      "result": "PASS",
+      "count": 100001,
+      "variant": "normal",
+      "api": {
+        "status": "REJECTED",
+        "reason": "EXTENSION_SAMPLE_SET_MISMATCH"
+      },
+      "cli": {
+        "command": [
+          "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+          "scripts/evaluate-reference-view-shadow.mjs",
+          "--dataset",
+          "boundary-100001-normal/dataset.json",
+          "--views",
+          "boundary-100001-normal/views.json",
+          "--predictions",
+          "boundary-100001-normal/predictions.json"
+        ],
+        "exitCode": 1,
+        "status": "INVALID_INPUT",
+        "reason": "EXTENSION_SAMPLE_SET_MISMATCH",
+        "sampleCount": null,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "stdoutFile": "boundary-100001-normal/cli-stdout.json",
+        "stdoutBytes": 122,
+        "stdoutSha256": "0f9298e0a1854ba8bb0e8308dae30b1345e8e968445549a8c868ecf7d9a9a737",
+        "stderrFile": "boundary-100001-normal/cli-stderr.txt"
+      },
+      "rawInputs": [
+        {
+          "path": "boundary-100001-normal/dataset.json",
+          "bytes": 74601037,
+          "sha256": "80c4df8c598150080a552cf68d2a9193c75914885a36b5a3562d9c67fcce1495"
+        },
+        {
+          "path": "boundary-100001-normal/views.json",
+          "bytes": 84801150,
+          "sha256": "0c536d5a068f0cf3a9f8b6ee93c31da37487de315d4170ba5c0cdb0edc884133"
+        },
+        {
+          "path": "boundary-100001-normal/predictions.json",
+          "bytes": 24801270,
+          "sha256": "db72e52fcfbf06d3c91e7d609289650587d140c01c97a8fa5fdcc06b52da7adb"
+        }
+      ]
+    },
+    {
+      "result": "PASS",
+      "count": 100000,
+      "variant": "baseline",
+      "api": {
+        "status": "REJECTED",
+        "reason": "PREDICTION_SAMPLE_SET_MISMATCH"
+      },
+      "cli": {
+        "command": [
+          "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+          "scripts/evaluate-reference-view-shadow.mjs",
+          "--dataset",
+          "boundary-100000-baseline-recheck/dataset.json",
+          "--views",
+          "boundary-100000-baseline-recheck/views.json",
+          "--predictions",
+          "boundary-100000-baseline-recheck/predictions.json"
+        ],
+        "exitCode": 1,
+        "status": "INVALID_INPUT",
+        "reason": "PREDICTION_SAMPLE_SET_MISMATCH",
+        "sampleCount": null,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "stdoutFile": "boundary-100000-baseline-recheck/cli-stdout.json",
+        "stdoutBytes": 123,
+        "stdoutSha256": "7e3fd6c8a5991165bcbfeed4f537f1a514a193631c6c79da98113d76f4ec8395",
+        "stderrFile": "boundary-100000-baseline-recheck/cli-stderr.txt"
+      },
+      "rawInputs": [
+        {
+          "path": "boundary-100000-baseline-recheck/dataset.json",
+          "bytes": 74600291,
+          "sha256": "5dbbd923b2971e5f75a9fd3c491404148a5f32f51f6becd27e2469837f14884f"
+        },
+        {
+          "path": "boundary-100000-baseline-recheck/views.json",
+          "bytes": 84800302,
+          "sha256": "7d3d62742e2044e5f113154561dbb3394c08609e497066c70cd3ca8ec280c796"
+        },
+        {
+          "path": "boundary-100000-baseline-recheck/predictions.json",
+          "bytes": 24801146,
+          "sha256": "ec2f11ff99c3e4327d52512a8332e1b6b2be3a3a7a42eb0721ba6195beafd135"
+        }
+      ]
+    },
+    {
+      "result": "PASS",
+      "count": 100000,
+      "variant": "candidate",
+      "api": {
+        "status": "REJECTED",
+        "reason": "PREDICTION_SAMPLE_SET_MISMATCH"
+      },
+      "cli": {
+        "command": [
+          "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+          "scripts/evaluate-reference-view-shadow.mjs",
+          "--dataset",
+          "boundary-100000-candidate-recheck/dataset.json",
+          "--views",
+          "boundary-100000-candidate-recheck/views.json",
+          "--predictions",
+          "boundary-100000-candidate-recheck/predictions.json"
+        ],
+        "exitCode": 1,
+        "status": "INVALID_INPUT",
+        "reason": "PREDICTION_SAMPLE_SET_MISMATCH",
+        "sampleCount": null,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "stdoutFile": "boundary-100000-candidate-recheck/cli-stdout.json",
+        "stdoutBytes": 123,
+        "stdoutSha256": "7e3fd6c8a5991165bcbfeed4f537f1a514a193631c6c79da98113d76f4ec8395",
+        "stderrFile": "boundary-100000-candidate-recheck/cli-stderr.txt"
+      },
+      "rawInputs": [
+        {
+          "path": "boundary-100000-candidate-recheck/dataset.json",
+          "bytes": 74600291,
+          "sha256": "5dbbd923b2971e5f75a9fd3c491404148a5f32f51f6becd27e2469837f14884f"
+        },
+        {
+          "path": "boundary-100000-candidate-recheck/views.json",
+          "bytes": 84800302,
+          "sha256": "7d3d62742e2044e5f113154561dbb3394c08609e497066c70cd3ca8ec280c796"
+        },
+        {
+          "path": "boundary-100000-candidate-recheck/predictions.json",
+          "bytes": 24801146,
+          "sha256": "ceba424fb638dc37b6f15337ab2070072e872f6d6457770a51b7472be266bbc6"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "count": 100001,
+  "variant": "normal",
+  "api": {
+    "status": "REJECTED",
+    "reason": "EXTENSION_SAMPLE_SET_MISMATCH"
+  },
+  "cli": {
+    "command": [
+      "/opt/homebrew/Cellar/node@22/22.22.3/bin/node",
+      "scripts/evaluate-reference-view-shadow.mjs",
+      "--dataset",
+      "boundary-100001-normal/dataset.json",
+      "--views",
+      "boundary-100001-normal/views.json",
+      "--predictions",
+      "boundary-100001-normal/predictions.json"
+    ],
+    "exitCode": 1,
+    "status": "INVALID_INPUT",
+    "reason": "EXTENSION_SAMPLE_SET_MISMATCH",
+    "sampleCount": null,
+    "qualityEvidence": false,
+    "realQualityStatus": "BLOCKED",
+    "stdoutFile": "boundary-100001-normal/cli-stdout.json",
+    "stdoutBytes": 122,
+    "stdoutSha256": "0f9298e0a1854ba8bb0e8308dae30b1345e8e968445549a8c868ecf7d9a9a737",
+    "stderrFile": "boundary-100001-normal/cli-stderr.txt"
+  },
+  "rawInputs": [
+    {
+      "path": "boundary-100001-normal/dataset.json",
+      "bytes": 74601037,
+      "sha256": "80c4df8c598150080a552cf68d2a9193c75914885a36b5a3562d9c67fcce1495"
+    },
+    {
+      "path": "boundary-100001-normal/views.json",
+      "bytes": 84801150,
+      "sha256": "0c536d5a068f0cf3a9f8b6ee93c31da37487de315d4170ba5c0cdb0edc884133"
+    },
+    {
+      "path": "boundary-100001-normal/predictions.json",
+      "bytes": 24801270,
+      "sha256": "db72e52fcfbf06d3c91e7d609289650587d140c01c97a8fa5fdcc06b52da7adb"
+    }
+  ]
+}

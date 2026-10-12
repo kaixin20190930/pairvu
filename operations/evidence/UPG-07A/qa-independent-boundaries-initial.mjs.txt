@@ -1,0 +1,33 @@
+import { createHash } from 'node:crypto';
+import { writeFile, readFile, mkdir } from 'node:fs/promises';
+import { evaluateReferenceViewShadow, POLICY, POLICY_SHA256 } from './scripts/evaluate-reference-view-shadow.mjs';
+const id=(p,n)=>p+'_'+n.toString(16).padStart(16,'0');
+const hash=x=>createHash('sha256').update(x).digest('hex');
+const source={workspaceId:id('ws',1),skuId:id('sku',1),packagingVersionId:id('pkg',1),authorizationId:id('auth',1)};
+const reference={id:id('ref',1),imageSha256:'a'.repeat(64),view:'front',observability:'observable',status:'available',source};
+const truth={observedView:'front',observability:'observable',conclusion:'compatible',acceptableReferenceIds:[reference.id]};
+const annotations=[1,2].map(n=>({annotatorId:id('ann',n),independent:true,label:{verdict:'match',defectType:'none',severity:'none',observability:'observable'}}));
+const viewAnnotations=[1,2].map(n=>({annotatorId:id('ann',n+10),independent:true,blind:true,label:truth}));
+const d={schemaVersion:1,datasetId:id('dataset',1),synthetic:true,authorizationRecords:[{id:source.authorizationId,workspaceId:source.workspaceId,recordRef:'synthetic:'+'b'.repeat(32),permittedUse:'offline_evaluation',status:'granted'}],samples:[]};
+const v={schemaVersion:1,datasetId:d.datasetId,datasetSha256:'',synthetic:true,policyVersion:POLICY.version,policySha256:POLICY_SHA256,samples:[]};
+const p={schemaVersion:1,datasetId:d.datasetId,datasetSha256:'',extensionSha256:'',synthetic:true,policyVersion:POLICY.version,policySha256:POLICY_SHA256};
+for(const [role,n] of [['baseline',1],['candidate',2]])p[role]={metadata:{runId:id('run',n),codeSha:'c'.repeat(40),model:{provider:'qa-offline',modelId:'qa-no-model'},promptVersion:'qa-placeholder',policyVersion:'qa-policy',policySha256:'d'.repeat(64)},samples:[]};
+const count=Number(process.argv[2]); const variant=process.argv[3]||"normal";
+for(let n=1;n<=count;n++){
+ const sampleId=id('sample',n);
+ d.samples.push({id:sampleId,synthetic:true,...source,split:'development',referenceImageSha256:reference.imageSha256,observedImageSha256:n.toString(16).padStart(64,'0'),annotations,adjudication:null});
+ v.samples.push({sampleId,references:[reference],annotations:viewAnnotations,adjudication:null});
+ for(const role of ['baseline','candidate'])p[role].samples.push({sampleId,selection:reference.id,matchDecision:'MATCH',qualityDecision:'ALLOW'});
+}
+if(variant!=='normal')p[variant].samples.push({...p[variant].samples[0]});
+const db=Buffer.from(JSON.stringify(d));v.datasetSha256=p.datasetSha256=hash(db);const vb=Buffer.from(JSON.stringify(v));p.extensionSha256=hash(vb);const pb=Buffer.from(JSON.stringify(p));
+
+const {spawnSync}=await import('node:child_process');const fs=await import('node:fs');const assert=(await import('node:assert/strict')).default;
+const dir=`boundary-${count}-${variant}`;await mkdir(dir);
+const paths=['dataset.json','views.json','predictions.json'].map(n=>`${dir}/${n}`);const bytes=[db,vb,pb];for(let n=0;n<3;n++)await writeFile(paths[n],bytes[n]);
+const expectedReason=count>100000?'EXTENSION_SAMPLE_SET_MISMATCH':variant!=='normal'?`${variant.toUpperCase()}_SAMPLE_SET_MISMATCH`:null;
+let api;try{let out=evaluateReferenceViewShadow(db,vb,pb);assert.equal(expectedReason,null);assert.equal(out.status,'VALID');assert.equal(out.samples.length,count);assert.equal(out.splits.development.sampleCount,count);for(const role of ['baseline','candidate'])assert.equal(out.splits.development.runs[role].sampleDenominator,count);assert.equal(out.qualityEvidence,false);assert.equal(out.realQualityStatus,'BLOCKED');api={status:out.status,sampleCount:out.samples.length,baselineDenominator:out.splits.development.runs.baseline.sampleDenominator,candidateDenominator:out.splits.development.runs.candidate.sampleDenominator,qualityEvidence:out.qualityEvidence,realQualityStatus:out.realQualityStatus};}catch(error){assert.equal(error.message,expectedReason);api={status:'REJECTED',reason:error.message};}
+const stdoutPath=`${dir}/cli-stdout.json`,stderrPath=`${dir}/cli-stderr.txt`;const fd=fs.openSync(stdoutPath,'w'),ef=fs.openSync(stderrPath,'w');const args=['scripts/evaluate-reference-view-shadow.mjs','--dataset',paths[0],'--views',paths[1],'--predictions',paths[2]];let cli;try{cli=spawnSync(process.execPath,args,{stdio:['ignore',fd,ef],timeout:60000});}finally{fs.closeSync(fd);fs.closeSync(ef);}
+assert.equal(cli.error,undefined);assert.equal(cli.signal,null);assert.equal(cli.status,expectedReason?1:0);assert.equal((await readFile(stderrPath)).length,0);
+const raw=await readFile(stdoutPath),out=JSON.parse(raw);assert.equal(out.status,expectedReason?'INVALID_INPUT':'VALID');assert.equal(out.qualityEvidence,false);assert.equal(out.realQualityStatus,'BLOCKED');if(expectedReason)assert.equal(out.reason,expectedReason);else{assert.equal(out.samples.length,count);assert.equal(out.splits.development.sampleCount,count);for(const role of ['baseline','candidate'])assert.equal(out.splits.development.runs[role].sampleDenominator,count);}
+const proof={result:'PASS',count,variant,api,cli:{command:[process.execPath,...args],exitCode:cli.status,status:out.status,reason:out.reason||null,sampleCount:out.samples?.length||null,qualityEvidence:out.qualityEvidence,realQualityStatus:out.realQualityStatus,stdoutFile:stdoutPath,stdoutBytes:raw.length,stdoutSha256:hash(raw),stderrFile:stderrPath},rawInputs:bytes.map((b,n)=>({path:paths[n],bytes:b.length,sha256:hash(b)}))};await writeFile(`${dir}/proof.json`,JSON.stringify(proof,null,2)+'\n');console.log(JSON.stringify(proof));

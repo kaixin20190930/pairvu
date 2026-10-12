@@ -118,7 +118,7 @@ provider/modelId/promptVersion 和 run policyVersion 为 1–120 位标识 token
 
 开发本地提交后由独立 QA 固定完整候选 SHA 验收。仅 local_only UPG-07A 可以在独立 PASS 后关闭；本地专项 PASS 不是独立 QA PASS，不解除真实样本、人工来源或 runtime 门槛，不授权生产发布。
 
-本轮 [开发验证与源码摘要](../../fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json)、[专项原始 stdout](../../fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt)、[合成回放原始 JSON](../../fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json) 是开发证据，独立 QA 尚待总控安排。
+本轮 [开发验证与源码摘要](../../fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json)、[专项原始 stdout](../../fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt)、[合成回放原始 JSON](../../fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json) 是原开发阶段证据。后续样本上限修复候选 `7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32` 已独立PASS并正式关闭UPG-07A；[独立原始报告](../../operations/evidence/UPG-07A.json)保留首轮FAIL及增量复验关联，真实质量仍BLOCKED。
 
 ### UPG07A-QA-01 上限修复回归
 

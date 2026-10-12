@@ -1,0 +1,129 @@
+{
+  "unitId": "UPG-07A",
+  "candidateSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-12T06:10:45.075Z",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "complete allowed diff and developer source hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "original specialized177 checks and21 CLI invocations",
+      "status": "PASS"
+    },
+    {
+      "name": "existing UPG02 105 checks and exact candidate typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "independent31 counterexamples and10 CLI invocations",
+      "status": "PASS"
+    },
+    {
+      "name": "three-byte binding and exact sample associations",
+      "status": "PASS"
+    },
+    {
+      "name": "added-reference split source identity and packaging guards",
+      "status": "PASS"
+    },
+    {
+      "name": "blind-label third-person arbitration and conservative reference ambiguity",
+      "status": "PASS"
+    },
+    {
+      "name": "hand-counted split critical coverage and abstention denominators",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic false and perfect diagnostics never establish real quality",
+      "status": "PASS"
+    },
+    {
+      "name": "documented bounded sample arrays",
+      "status": "FAIL"
+    },
+    {
+      "name": "readonly linked CLI and sanitized failures",
+      "status": "PASS"
+    },
+    {
+      "name": "real sample readiness remains NOT_PROVIDED and quality BLOCKED",
+      "status": "PASS"
+    }
+  ],
+  "findings": [
+    {
+      "id": "UPG07A-QA-01",
+      "priority": "P2",
+      "title": "Documented100000 sample limit is overwritten by dataset cardinality",
+      "file": "scripts/evaluate-reference-view-shadow.mjs",
+      "line": 61,
+      "protocolFile": "docs/05-evaluation/reference-view-shadow-protocol.md",
+      "protocolLine": 25,
+      "expected": "Extension and each run have at most100000 samples, independently of the legacy dataset cardinality. Over-limit input must fail engineering validation.",
+      "actual": {
+        "result": "FAIL",
+        "findingId": "UPG07A-QA-01",
+        "inputSampleCount": 100001,
+        "documentedMaximum": 100000,
+        "actualStatus": "VALID",
+        "extensionSampleCount": 100001,
+        "baselineCount": 100001,
+        "candidateCount": 100001,
+        "reportedDevelopmentSampleCount": 100001,
+        "qualityEvidence": false,
+        "realQualityStatus": "BLOCKED",
+        "elapsedMs": 5067,
+        "rawInputs": [
+          {
+            "role": "dataset",
+            "bytes": 74601037,
+            "sha256": "80c4df8c598150080a552cf68d2a9193c75914885a36b5a3562d9c67fcce1495"
+          },
+          {
+            "role": "views",
+            "bytes": 84801150,
+            "sha256": "0c536d5a068f0cf3a9f8b6ee93c31da37487de315d4170ba5c0cdb0edc884133"
+          },
+          {
+            "role": "predictions",
+            "bytes": 24801270,
+            "sha256": "db72e52fcfbf06d3c91e7d609289650587d140c01c97a8fa5fdcc06b52da7adb"
+          }
+        ],
+        "expected": "Reject the over-limit sample arrays according to protocol paragraph declaring maximum100000; do not generate VALID diagnostics beyond documented input cap."
+      },
+      "rootCause": "array() has a default maximum100000, but uniqueMap calls array(records,code,expected.size,expected.size). Legacy validateDataset has no sample-count maximum, so any larger matching dataset overwrites the advertised limit for all three new sample arrays.",
+      "reproduction": [
+        "Archive exact candidate and retain its scripts/verify-upgrade-dataset.mjs and scripts/evaluate-reference-view-shadow.mjs.",
+        "Copy qa-count-boundary.mjs.txt into that temporary archive as qa-count-boundary.mjs.",
+        "Run node qa-count-boundary.mjs. It constructs100001 distinct observed hashes/sample IDs, one consistently owned repeated reference, valid dual labels and two complete runs, freezes raw byte hashes and calls the actual evaluator.",
+        "Observed statusVALID, development sampleCount100001, qualityEvidencefalse and realQualityStatusBLOCKED; independent harness exits1 for the protocol violation."
+      ],
+      "remedy": "Preserve exact one-to-one validation while enforcing the independent published array maximum before evaluating large datasets. Add exact100000/100001 acceptance/rejection evidence through actual evaluator/CLI; do not alter the legacy UPG02 schema or conceal the original failure."
+    }
+  ],
+  "originalDetails": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-original-acceptance-details.json",
+  "artifactIndex": "/private/tmp/pairvu-upg07a-qa-c6b_rlis/qa-source-index.json",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "nextAction": {
+    "action": "Controller returns UPG07A-QA-01 to the original developer for the bounded sample-array repair, preserves this originalFAIL, then dispatches fixed-new-SHA independent recheck.",
+    "dependency": "A repaired candidate and appropriate exact-boundary evidence; current candidate cannot close engineering stage.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "realQualityDependency": "Real authorization, controlled images, independent dual labels/adjudication and verified run/holdout provenance still required. User has confirmed these are currently unavailable.",
+    "parentAndAutomation": "UPG07 runtime remainsBACKLOG; pairvu-2 remains paused."
+  }
+}

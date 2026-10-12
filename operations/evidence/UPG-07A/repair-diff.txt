@@ -1,0 +1,1898 @@
+diff --git a/docs/05-evaluation/reference-view-shadow-protocol.md b/docs/05-evaluation/reference-view-shadow-protocol.md
+index d670a0e..c2ea328 100644
+--- a/docs/05-evaluation/reference-view-shadow-protocol.md
++++ b/docs/05-evaluation/reference-view-shadow-protocol.md
+@@ -119,3 +119,9 @@ provider/modelId/promptVersion 和 run policyVersion 为 1–120 位标识 token
+ 开发本地提交后由独立 QA 固定完整候选 SHA 验收。仅 local_only UPG-07A 可以在独立 PASS 后关闭；本地专项 PASS 不是独立 QA PASS，不解除真实样本、人工来源或 runtime 门槛，不授权生产发布。
+ 
+ 本轮 [开发验证与源码摘要](../../fixtures/reference-view-shadow/validation-2026-10-12/developer-validation.json)、[专项原始 stdout](../../fixtures/reference-view-shadow/validation-2026-10-12/specialized-raw.txt)、[合成回放原始 JSON](../../fixtures/reference-view-shadow/validation-2026-10-12/synthetic-replay.json) 是开发证据，独立 QA 尚待总控安排。
++
++### UPG07A-QA-01 上限修复回归
++
++原候选的独立 QA 发现匹配 dataset 样本数量会覆盖 100000 硬上限。修复将硬上限校验与样本数量精确一致校验分别执行，不改变旧 UPG-02 schema、指标、来源或真值语义。原始 FAIL 保持不变。
++
++`node scripts/test-reference-view-shadow.mjs --count-boundary` 显式运行正常小专项，并生成 100000/100001 条完整、合法绑定的合成输入，通过实际 evaluator 和 CLI 验证前者 VALID、后者 INVALID_INPUT。巨型输入与完整 CLI stdout 留在临时目录，输出小型计数/hash/状态证明，默认专项不运行此资源测试。修复的 [开发证明](../../fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json) 与 [原始边界 stdout](../../fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt) 仅用于工程边界验收；独立 QA 仍须绑定新候选 SHA，真实质量保持 BLOCKED。
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-proof.json b/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-proof.json
+new file mode 100644
+index 0000000..0b73262
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-proof.json
+@@ -0,0 +1,100 @@
++{
++  "unitId": "UPG-07A",
++  "findingId": "UPG07A-QA-01",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "generatedInputsDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd",
++  "cases": [
++    {
++      "sampleCount": 100000,
++      "inputCounts": {
++        "dataset": 100000,
++        "extension": 100000,
++        "baseline": 100000,
++        "candidate": 100000
++      },
++      "rawInputs": [
++        {
++          "file": "dataset.json",
++          "bytes": 74600291,
++          "sha256": "71a4cd176c1daa91d3c3a2e32c6a03e3afb5071319e282b9716788a13a0d281f"
++        },
++        {
++          "file": "views.json",
++          "bytes": 84800302,
++          "sha256": "39fd6a7dc19b955e427f2ca93389bc08141a8360d217b1c0f15b391b7d0a0d47"
++        },
++        {
++          "file": "predictions.json",
++          "bytes": 24801096,
++          "sha256": "8606cfcce54ce5b9b2c3a3e0be4bd98db40eeb6fd256fb781997cff6cfeb1a14"
++        }
++      ],
++      "evaluator": {
++        "status": "VALID",
++        "reportedSampleCount": 100000,
++        "developmentCount": 100000,
++        "baselineDenominator": 100000,
++        "candidateDenominator": 100000,
++        "qualityEvidence": false,
++        "realQualityStatus": "BLOCKED"
++      },
++      "evaluatorElapsedMs": 4698,
++      "cli": {
++        "exitCode": 0,
++        "status": "VALID",
++        "reason": null,
++        "reportedSampleCount": 100000,
++        "qualityEvidence": false,
++        "realQualityStatus": "BLOCKED",
++        "stdoutFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100000/cli-stdout.json",
++        "stdoutBytes": 115010619,
++        "stdoutSha256": "938bec037312dfc3fa9e9a8d86c3d758f1e7e05d760dead7a9e9f5d1501d2ddd",
++        "stderrFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100000/cli-stderr.txt"
++      }
++    },
++    {
++      "sampleCount": 100001,
++      "inputCounts": {
++        "dataset": 100001,
++        "extension": 100001,
++        "baseline": 100001,
++        "candidate": 100001
++      },
++      "rawInputs": [
++        {
++          "file": "dataset.json",
++          "bytes": 74601037,
++          "sha256": "fcec5783c272995a59e662c3acbd721b0e0a964584cc384d566eee58bbc5ebba"
++        },
++        {
++          "file": "views.json",
++          "bytes": 84801150,
++          "sha256": "80d41790a0b606dde1f73afed4b0e6e20f65316ef6ac0404459e89b8b0cfc296"
++        },
++        {
++          "file": "predictions.json",
++          "bytes": 24801344,
++          "sha256": "3bc48b4828631ec8cb6cd127b602215f0ae312760c24e27a9fbb186983ec0e7d"
++        }
++      ],
++      "evaluator": {
++        "status": "REJECTED",
++        "reason": "EXTENSION_SAMPLE_SET_MISMATCH"
++      },
++      "evaluatorElapsedMs": 3305,
++      "cli": {
++        "exitCode": 1,
++        "status": "INVALID_INPUT",
++        "reason": "EXTENSION_SAMPLE_SET_MISMATCH",
++        "reportedSampleCount": null,
++        "qualityEvidence": false,
++        "realQualityStatus": "BLOCKED",
++        "stdoutFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100001/cli-stdout.json",
++        "stdoutBytes": 122,
++        "stdoutSha256": "0f9298e0a1854ba8bb0e8308dae30b1345e8e968445549a8c868ecf7d9a9a737",
++        "stderrFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100001/cli-stderr.txt"
++      }
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt
+new file mode 100644
+index 0000000..1f3e069
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-raw.txt
+@@ -0,0 +1,836 @@
++{
++  "boundaryProof": {
++    "unitId": "UPG-07A",
++    "findingId": "UPG07A-QA-01",
++    "qualityEvidence": false,
++    "realQualityStatus": "BLOCKED",
++    "generatedInputsDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd",
++    "cases": [
++      {
++        "sampleCount": 100000,
++        "inputCounts": {
++          "dataset": 100000,
++          "extension": 100000,
++          "baseline": 100000,
++          "candidate": 100000
++        },
++        "rawInputs": [
++          {
++            "file": "dataset.json",
++            "bytes": 74600291,
++            "sha256": "71a4cd176c1daa91d3c3a2e32c6a03e3afb5071319e282b9716788a13a0d281f"
++          },
++          {
++            "file": "views.json",
++            "bytes": 84800302,
++            "sha256": "39fd6a7dc19b955e427f2ca93389bc08141a8360d217b1c0f15b391b7d0a0d47"
++          },
++          {
++            "file": "predictions.json",
++            "bytes": 24801096,
++            "sha256": "8606cfcce54ce5b9b2c3a3e0be4bd98db40eeb6fd256fb781997cff6cfeb1a14"
++          }
++        ],
++        "evaluator": {
++          "status": "VALID",
++          "reportedSampleCount": 100000,
++          "developmentCount": 100000,
++          "baselineDenominator": 100000,
++          "candidateDenominator": 100000,
++          "qualityEvidence": false,
++          "realQualityStatus": "BLOCKED"
++        },
++        "evaluatorElapsedMs": 4698,
++        "cli": {
++          "exitCode": 0,
++          "status": "VALID",
++          "reason": null,
++          "reportedSampleCount": 100000,
++          "qualityEvidence": false,
++          "realQualityStatus": "BLOCKED",
++          "stdoutFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100000/cli-stdout.json",
++          "stdoutBytes": 115010619,
++          "stdoutSha256": "938bec037312dfc3fa9e9a8d86c3d758f1e7e05d760dead7a9e9f5d1501d2ddd",
++          "stderrFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100000/cli-stderr.txt"
++        }
++      },
++      {
++        "sampleCount": 100001,
++        "inputCounts": {
++          "dataset": 100001,
++          "extension": 100001,
++          "baseline": 100001,
++          "candidate": 100001
++        },
++        "rawInputs": [
++          {
++            "file": "dataset.json",
++            "bytes": 74601037,
++            "sha256": "fcec5783c272995a59e662c3acbd721b0e0a964584cc384d566eee58bbc5ebba"
++          },
++          {
++            "file": "views.json",
++            "bytes": 84801150,
++            "sha256": "80d41790a0b606dde1f73afed4b0e6e20f65316ef6ac0404459e89b8b0cfc296"
++          },
++          {
++            "file": "predictions.json",
++            "bytes": 24801344,
++            "sha256": "3bc48b4828631ec8cb6cd127b602215f0ae312760c24e27a9fbb186983ec0e7d"
++          }
++        ],
++        "evaluator": {
++          "status": "REJECTED",
++          "reason": "EXTENSION_SAMPLE_SET_MISMATCH"
++        },
++        "evaluatorElapsedMs": 3305,
++        "cli": {
++          "exitCode": 1,
++          "status": "INVALID_INPUT",
++          "reason": "EXTENSION_SAMPLE_SET_MISMATCH",
++          "reportedSampleCount": null,
++          "qualityEvidence": false,
++          "realQualityStatus": "BLOCKED",
++          "stdoutFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100001/cli-stdout.json",
++          "stdoutBytes": 122,
++          "stdoutSha256": "0f9298e0a1854ba8bb0e8308dae30b1345e8e968445549a8c868ecf7d9a9a737",
++          "stderrFile": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-count-boundary-3LD3zd/100001/cli-stderr.txt"
++        }
++      }
++    ]
++  }
++}
++{
++  "status": "PASS",
++  "unitId": "UPG-07A",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "checkCount": 181,
++  "cliInvocations": 23,
++  "checks": [
++    {
++      "name": "split counts and full outcome partitions retain REVIEW and insufficient samples",
++      "status": "PASS"
++    },
++    {
++      "name": "independent critical truth counts both observable and partial defects; REVIEW is separate",
++      "status": "PASS"
++    },
++    {
++      "name": "multi solution retains sorted candidate set and never selects unique by order",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown, low visibility, no_match and invalidated references never recommend a match",
++      "status": "PASS"
++    },
++    {
++      "name": "same frozen samples compare changed output and correctness without headline",
++      "status": "PASS"
++    },
++    {
++      "name": "byte hashes bind all three files and fixed policy manifest",
++      "status": "PASS"
++    },
++    {
++      "name": "false synthetic declaration does not certify real provenance or quality",
++      "status": "PASS"
++    },
++    {
++      "name": "no critical examples has null missed-error rate, never success zero",
++      "status": "PASS"
++    },
++    {
++      "name": "only development yields explicit zero holdout and null denominators",
++      "status": "PASS"
++    },
++    {
++      "name": "all view truth insufficient leaves zero decidable denominator with abstentions retained",
++      "status": "PASS"
++    },
++    {
++      "name": "distinct external run policy versions and hashes are declared, never inferred",
++      "status": "PASS"
++    },
++    {
++      "name": "same-source frozen reference can be reused by distinct observations within one split",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudicated decision can resolve to no_match while keeping original two labels",
++      "status": "PASS"
++    },
++    {
++      "name": "acceptable-ID set order agreement requires no arbitration",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order",
++      "status": "PASS"
++    },
++    {
++      "name": "UPG02 dataset validation is reused for ownership and labels",
++      "status": "PASS"
++    },
++    {
++      "name": "extension dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong extension schema",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong prediction schema",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed extension provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed predictions provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy version",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy hash",
++      "status": "PASS"
++    },
++    {
++      "name": "missing extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "extra extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "original reference cannot be omitted",
++      "status": "PASS"
++    },
++    {
++      "name": "empty reference set",
++      "status": "PASS"
++    },
++    {
++      "name": "reference set bounded at 16",
++      "status": "PASS"
++    },
++    {
++      "name": "observed cannot be own reference",
++      "status": "PASS"
++    },
++    {
++      "name": "reference image crossed holdout split",
++      "status": "PASS"
++    },
++    {
++      "name": "new reference crossed holdout observed role",
++      "status": "PASS"
++    },
++    {
++      "name": "two newly added images leak across split",
++      "status": "PASS"
++    },
++    {
++      "name": "image content reused under different SKU within split",
++      "status": "PASS"
++    },
++    {
++      "name": "reference ID conflicting metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference ID",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference hash",
++      "status": "PASS"
++    },
++    {
++      "name": "reference hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitrary view not supported",
++      "status": "PASS"
++    },
++    {
++      "name": "reference state unknown",
++      "status": "PASS"
++    },
++    {
++      "name": "same view annotator",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not blind",
++      "status": "PASS"
++    },
++    {
++      "name": "only one view annotation",
++      "status": "PASS"
++    },
++    {
++      "name": "missing required adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitration not third person",
++      "status": "PASS"
++    },
++    {
++      "name": "unexpected adjudication removes original agreement",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong-view acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "invalidated reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "partial reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "partial observed view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert no_match truth",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "run ID not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "abbreviated code SHA not accepted",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified model cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified prompt cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "run policy hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source workspaceId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source skuId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source packagingVersionId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source authorizationId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "extension unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing extensionSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing baseline",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing candidate",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing references",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing annotations",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "reference unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing id",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing imageSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing view",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing status",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing source",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing workspaceId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing skuId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing packagingVersionId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing authorizationId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing annotatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing blind",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observedView",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing conclusion",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing acceptableReferenceIds",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing adjudicatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing reason",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "run unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing runId",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing codeSha",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing model",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing promptVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing provider",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing modelId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing selection",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing matchDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing qualityDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "raw dataset whitespace tampering invalidates binding even if parsed meaning is same",
++      "status": "PASS"
++    },
++    {
++      "name": "raw view whitespace tampering invalidates prediction binding",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong dataset byte hash is rejected",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate JSON keys including escaped aliases are rejected before overwrite",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry direct",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry file symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry parent symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI alias.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI evaluate-reference-view-shadow.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "missing file blocks without path or content echo",
++      "status": "PASS"
++    },
++    {
++      "name": "partial flags invalid and do not fall back to fixtures",
++      "status": "PASS"
++    },
++    {
++      "name": "directory input blocks",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized n",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized [",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic errors never echo arbitrary input values",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI creates no files and preserves input byte contents",
++      "status": "PASS"
++    },
++    {
++      "name": "help states engineering/real-quality distinction and exit codes",
++      "status": "PASS"
++    },
++    {
++      "name": "explicit committed fixtures replay exactly, without overwriting them",
++      "status": "PASS"
++    },
++    {
++      "name": "actual evaluator exact 100000 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual CLI exact 100000 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual evaluator exact 100001 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual CLI exact 100001 sample boundary",
++      "status": "PASS"
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-stderr.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/boundary-stderr.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json b/fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json
+new file mode 100644
+index 0000000..805f568
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/developer-validation.json
+@@ -0,0 +1,62 @@
++{
++  "unitId": "UPG-07A",
++  "findingId": "UPG07A-QA-01",
++  "role": "developer",
++  "stage": "DEV_READY_PENDING_FIXED_SHA_INDEPENDENT_RECHECK",
++  "baselineSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "fix": "Enforce independent default maximum100000, then require records.length === frozen dataset sample count. No legacy dataset, policy, metrics or provenance changes.",
++  "sourceHashes": {
++    "scripts/evaluate-reference-view-shadow.mjs": "bc1e725007fbc9875b89221c8d64d04465ff06fb307d6b75f9e8febeea742178",
++    "scripts/test-reference-view-shadow.mjs": "cbfe2180634069853e7dabf37e27c65bb95e6beab55edd68174bf61c637305e4",
++    "scripts/verify-upgrade-dataset.mjs": "c81fd9f7142346b5cdf6009bebe3ce044fdb5b4227ecce4e39a168567d3e2ba2",
++    "scripts/reference-view-shadow/synthetic-fixture.mjs": "7dc994ec33b7484c2d7e87ee10a0bc1ad1fe3cc7823da9a2a742cc1f728f5456",
++    "docs/05-evaluation/reference-view-shadow-protocol.md": "48a9cc1712cc4ae67e5b9ce2b5d480a1fa5934e34872868cc5a4af4a684523cb"
++  },
++  "commands": [
++    {
++      "command": "node scripts/test-reference-view-shadow.mjs --count-boundary",
++      "exitCode": 0,
++      "checkCount": 181,
++      "cliInvocations": 23,
++      "stdout": "boundary-raw.txt",
++      "stderr": "boundary-stderr.txt",
++      "proof": "boundary-proof.json"
++    },
++    {
++      "command": "pnpm test:upgrade-dataset",
++      "exitCode": 0,
++      "checkCount": 105,
++      "stdout": "upg02-regression-raw.txt"
++    },
++    {
++      "command": "pnpm exec tsc --noEmit",
++      "exitCode": 0,
++      "stdout": "typecheck-raw.txt"
++    },
++    {
++      "command": "node <unchanged original qa-count-boundary.mjs copy with scripts directory symlink to repaired sources>",
++      "exitCode": 0,
++      "stdout": "original-counterexample-replay-raw.txt",
++      "stderr": "original-counterexample-replay-stderr.txt",
++      "scriptSha256": "9aff2943a1683916877e41b72af8f69b5631ced5c3469d651aa19d8b0c0095e4",
++      "actualScript": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-upg07a-original-boundary-replay-RN3C2e/qa-count-boundary.mjs"
++    }
++  ],
++  "originalIndependentEvidence": {
++    "report": "operations/evidence/UPG-07A-attempt-1/qa-original.json",
++    "reportSha256": "d633b00f04486a79b6818e51c662c26b8b4932132ff7866baabf8e8ab8b384aa",
++    "script": "operations/evidence/UPG-07A-attempt-1/qa-count-boundary.mjs.txt",
++    "scriptSha256": "9aff2943a1683916877e41b72af8f69b5631ced5c3469d651aa19d8b0c0095e4",
++    "result": "FAIL",
++    "preservedUnmodified": true,
++    "priorIndependent31Counterexamples": "Preserved original QA PASS checks; not relabeled as independent acceptance for the new candidate."
++  },
++  "limitations": [
++    "Boundary data and original CLI output are synthetic and retained only in temporary directories indexed by boundary-proof.json. No giant fixtures committed.",
++    "Exact100000 accepted, exact100001 rejected by actual evaluator and CLI; genuine CLI stdout hashes and sample counts retained.",
++    "Original independent QA counterexample replay is developer evidence, not a new independent QA decision.",
++    "No production, model, network, push or deployment; true quality remains BLOCKED."
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-raw.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-raw.txt
+new file mode 100644
+index 0000000..21ca70d
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-raw.txt
+@@ -0,0 +1,6 @@
++{
++  "result": "PASS",
++  "inputSampleCount": 100001,
++  "error": "Error: EXTENSION_SAMPLE_SET_MISMATCH",
++  "elapsedMs": 3460
++}
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-stderr.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/original-counterexample-replay-stderr.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/specialized.json b/fixtures/reference-view-shadow/count-repair-2026-10-12/specialized.json
+new file mode 100644
+index 0000000..030c1c7
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/specialized.json
+@@ -0,0 +1,734 @@
++{
++  "status": "PASS",
++  "unitId": "UPG-07A",
++  "qualityEvidence": false,
++  "realQualityStatus": "BLOCKED",
++  "checkCount": 181,
++  "cliInvocations": 23,
++  "checks": [
++    {
++      "name": "split counts and full outcome partitions retain REVIEW and insufficient samples",
++      "status": "PASS"
++    },
++    {
++      "name": "independent critical truth counts both observable and partial defects; REVIEW is separate",
++      "status": "PASS"
++    },
++    {
++      "name": "multi solution retains sorted candidate set and never selects unique by order",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown, low visibility, no_match and invalidated references never recommend a match",
++      "status": "PASS"
++    },
++    {
++      "name": "same frozen samples compare changed output and correctness without headline",
++      "status": "PASS"
++    },
++    {
++      "name": "byte hashes bind all three files and fixed policy manifest",
++      "status": "PASS"
++    },
++    {
++      "name": "false synthetic declaration does not certify real provenance or quality",
++      "status": "PASS"
++    },
++    {
++      "name": "no critical examples has null missed-error rate, never success zero",
++      "status": "PASS"
++    },
++    {
++      "name": "only development yields explicit zero holdout and null denominators",
++      "status": "PASS"
++    },
++    {
++      "name": "all view truth insufficient leaves zero decidable denominator with abstentions retained",
++      "status": "PASS"
++    },
++    {
++      "name": "distinct external run policy versions and hashes are declared, never inferred",
++      "status": "PASS"
++    },
++    {
++      "name": "same-source frozen reference can be reused by distinct observations within one split",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudicated decision can resolve to no_match while keeping original two labels",
++      "status": "PASS"
++    },
++    {
++      "name": "acceptable-ID set order agreement requires no arbitration",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic diagnostics invariant under sample, reference, annotation and acceptable-ID order",
++      "status": "PASS"
++    },
++    {
++      "name": "UPG02 dataset validation is reused for ownership and labels",
++      "status": "PASS"
++    },
++    {
++      "name": "extension dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction dataset ID mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong extension schema",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong prediction schema",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed extension provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "mixed predictions provenance",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy version",
++      "status": "PASS"
++    },
++    {
++      "name": "unsupported strategy hash",
++      "status": "PASS"
++    },
++    {
++      "name": "missing extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "extra extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown extension sample",
++      "status": "PASS"
++    },
++    {
++      "name": "original reference cannot be omitted",
++      "status": "PASS"
++    },
++    {
++      "name": "empty reference set",
++      "status": "PASS"
++    },
++    {
++      "name": "reference set bounded at 16",
++      "status": "PASS"
++    },
++    {
++      "name": "observed cannot be own reference",
++      "status": "PASS"
++    },
++    {
++      "name": "reference image crossed holdout split",
++      "status": "PASS"
++    },
++    {
++      "name": "new reference crossed holdout observed role",
++      "status": "PASS"
++    },
++    {
++      "name": "two newly added images leak across split",
++      "status": "PASS"
++    },
++    {
++      "name": "image content reused under different SKU within split",
++      "status": "PASS"
++    },
++    {
++      "name": "reference ID conflicting metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference ID",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate reference hash",
++      "status": "PASS"
++    },
++    {
++      "name": "reference hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitrary view not supported",
++      "status": "PASS"
++    },
++    {
++      "name": "reference state unknown",
++      "status": "PASS"
++    },
++    {
++      "name": "same view annotator",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view labeling not blind",
++      "status": "PASS"
++    },
++    {
++      "name": "only one view annotation",
++      "status": "PASS"
++    },
++    {
++      "name": "missing required adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "arbitration not third person",
++      "status": "PASS"
++    },
++    {
++      "name": "unexpected adjudication removes original agreement",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong-view acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "invalidated reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "partial reference cannot be acceptable",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "partial observed view cannot assert compatible truth",
++      "status": "PASS"
++    },
++    {
++      "name": "unknown view cannot assert no_match truth",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate acceptable reference",
++      "status": "PASS"
++    },
++    {
++      "name": "run ID not independent",
++      "status": "PASS"
++    },
++    {
++      "name": "abbreviated code SHA not accepted",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified model cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "unidentified prompt cannot be guessed",
++      "status": "PASS"
++    },
++    {
++      "name": "run policy hash malformed",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source workspaceId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source skuId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source packagingVersionId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source authorizationId mismatch",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "baseline NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate missing prediction cannot vanish from denominator",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate extra prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate duplicate prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown sample prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate cross-SKU reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unknown reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary match decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate arbitrary quality decision",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate invalidated reference prediction",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate unsupported REVIEW/ALLOW",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate MATCH without selection",
++      "status": "PASS"
++    },
++    {
++      "name": "candidate NO_MATCH with selection",
++      "status": "PASS"
++    },
++    {
++      "name": "extension unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "extension missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing schemaVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing datasetSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing extensionSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing synthetic",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing baseline",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction root missing candidate",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing references",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing annotations",
++      "status": "PASS"
++    },
++    {
++      "name": "view sample missing adjudication",
++      "status": "PASS"
++    },
++    {
++      "name": "reference unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing id",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing imageSha256",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing view",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing status",
++      "status": "PASS"
++    },
++    {
++      "name": "reference missing source",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing workspaceId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing skuId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing packagingVersionId",
++      "status": "PASS"
++    },
++    {
++      "name": "reference source missing authorizationId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing annotatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing independent",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing blind",
++      "status": "PASS"
++    },
++    {
++      "name": "view annotation missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observedView",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing observability",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing conclusion",
++      "status": "PASS"
++    },
++    {
++      "name": "view truth missing acceptableReferenceIds",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing adjudicatorId",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing reason",
++      "status": "PASS"
++    },
++    {
++      "name": "adjudication missing label",
++      "status": "PASS"
++    },
++    {
++      "name": "run unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing metadata",
++      "status": "PASS"
++    },
++    {
++      "name": "run missing samples",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing runId",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing codeSha",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing model",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing promptVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policyVersion",
++      "status": "PASS"
++    },
++    {
++      "name": "run metadata missing policySha256",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing provider",
++      "status": "PASS"
++    },
++    {
++      "name": "model metadata missing modelId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample unknown fields rejected (including qualityEvidence override)",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing sampleId",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing selection",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing matchDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "prediction sample missing qualityDecision",
++      "status": "PASS"
++    },
++    {
++      "name": "raw dataset whitespace tampering invalidates binding even if parsed meaning is same",
++      "status": "PASS"
++    },
++    {
++      "name": "raw view whitespace tampering invalidates prediction binding",
++      "status": "PASS"
++    },
++    {
++      "name": "wrong dataset byte hash is rejected",
++      "status": "PASS"
++    },
++    {
++      "name": "duplicate JSON keys including escaped aliases are rejected before overwrite",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry direct",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry file symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI entry parent symlink",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI alias.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid input executes through linked CLI evaluate-reference-view-shadow.mjs",
++      "status": "PASS"
++    },
++    {
++      "name": "missing file blocks without path or content echo",
++      "status": "PASS"
++    },
++    {
++      "name": "partial flags invalid and do not fall back to fixtures",
++      "status": "PASS"
++    },
++    {
++      "name": "directory input blocks",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized n",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized [",
++      "status": "PASS"
++    },
++    {
++      "name": "invalid JSON/UPG02 input sanitized {",
++      "status": "PASS"
++    },
++    {
++      "name": "semantic errors never echo arbitrary input values",
++      "status": "PASS"
++    },
++    {
++      "name": "CLI creates no files and preserves input byte contents",
++      "status": "PASS"
++    },
++    {
++      "name": "help states engineering/real-quality distinction and exit codes",
++      "status": "PASS"
++    },
++    {
++      "name": "explicit committed fixtures replay exactly, without overwriting them",
++      "status": "PASS"
++    },
++    {
++      "name": "actual evaluator exact 100000 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual CLI exact 100000 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual evaluator exact 100001 sample boundary",
++      "status": "PASS"
++    },
++    {
++      "name": "actual CLI exact 100001 sample boundary",
++      "status": "PASS"
++    }
++  ]
++}
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/typecheck-raw.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/typecheck-raw.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/fixtures/reference-view-shadow/count-repair-2026-10-12/upg02-regression-raw.txt b/fixtures/reference-view-shadow/count-repair-2026-10-12/upg02-regression-raw.txt
+new file mode 100644
+index 0000000..d52a241
+--- /dev/null
++++ b/fixtures/reference-view-shadow/count-repair-2026-10-12/upg02-regression-raw.txt
+@@ -0,0 +1,5 @@
++
++> product-visual-qa-platform@0.1.0 test:upgrade-dataset /Users/liukai/Documents/Product Visual QA Platform
++> node scripts/test-upgrade-dataset.mjs
++
++PASS: 105 offline positive/negative checks. All samples and identities are synthetic; no real quality evidence, network, images, training, or production writes.
+diff --git a/scripts/evaluate-reference-view-shadow.mjs b/scripts/evaluate-reference-view-shadow.mjs
+index d0c8cdc..6f58df6 100644
+--- a/scripts/evaluate-reference-view-shadow.mjs
++++ b/scripts/evaluate-reference-view-shadow.mjs
+@@ -58,7 +58,8 @@ function id(value, type, code) { check(typeof value === 'string' && ID[type].tes
+ function hash(value, code) { check(typeof value === 'string' && HASH.test(value), code); }
+ function token(value, code) { check(typeof value === 'string' && /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,119}$/.test(value) && !['unknown', 'unspecified', 'null', 'none'].includes(value.toLowerCase()), code); }
+ function uniqueMap(records, field, expected, code) {
+-  array(records, code, expected.size, expected.size);
++  array(records, code); // Independent hard cap must not grow with the legacy dataset.
++  check(records.length === expected.size, code);
+   const map = new Map();
+   for (const record of records) {
+     check(record && expected.has(record[field]) && !map.has(record[field]), code);
+diff --git a/scripts/test-reference-view-shadow.mjs b/scripts/test-reference-view-shadow.mjs
+index 0fafa05..ca3067e 100644
+--- a/scripts/test-reference-view-shadow.mjs
++++ b/scripts/test-reference-view-shadow.mjs
+@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
+ import { join, dirname, basename } from 'node:path';
+ import { fileURLToPath } from 'node:url';
+ import { spawnSync } from 'node:child_process';
++import { createHash } from 'node:crypto';
+ import { evaluateReferenceViewShadow as evaluate, POLICY, POLICY_SHA256 } from './evaluate-reference-view-shadow.mjs';
+ import { fixture, bind, sha256 } from './reference-view-shadow/synthetic-fixture.mjs';
+ 
+@@ -168,4 +169,69 @@ try {
+ const fixtureRoot = fileURLToPath(new URL('../fixtures/reference-view-shadow/synthetic/', import.meta.url));
+ const committed = await Promise.all(['dataset.json', 'views.json', 'predictions.json'].map(n => readFile(join(fixtureRoot, n))));
+ test('explicit committed fixtures replay exactly, without overwriting them', () => assert.deepEqual(evaluate(...committed), original));
++
++// Opt-in exact boundary regression. Large generated JSON and actual CLI stdout remain
++// in /tmp; the small proof (counts, byte hashes, statuses) is the only delivery artifact.
++if (process.argv.includes('--count-boundary')) {
++  const boundaryRoot = await mkdtemp(join(tmpdir(), 'pairvu-upg07a-count-boundary-'));
++  const boundaryProof = { unitId: 'UPG-07A', findingId: 'UPG07A-QA-01', qualityEvidence: false, realQualityStatus: 'BLOCKED', generatedInputsDirectory: boundaryRoot, cases: [] };
++  for (const count of [100000, 100001]) {
++    const seed = fixture(), d = seed.dataset, v = seed.extension, p = seed.predictions;
++    const originalSample = structuredClone(d.samples[0]), originalView = structuredClone(v.samples[0]);
++    d.samples = []; v.samples = []; p.baseline.samples = []; p.candidate.samples = [];
++    const validPrediction = { selection: originalView.references[0].id, matchDecision: 'MATCH', qualityDecision: 'ALLOW' };
++    for (let n = 1; n <= count; n++) {
++      const sampleId = `sample_${n.toString(16).padStart(16, '0')}`;
++      // All observations differ; one consistently owned reference is legitimately reused.
++      d.samples.push({ ...originalSample, id: sampleId, observedImageSha256: (n + 1000).toString(16).padStart(64, '0') });
++      v.samples.push({ ...originalView, sampleId });
++      for (const role of ['baseline', 'candidate']) p[role].samples.push({ sampleId, ...validPrediction });
++    }
++    const datasetBytes = Buffer.from(JSON.stringify(d));
++    v.datasetSha256 = p.datasetSha256 = sha256(datasetBytes);
++    const viewBytes = Buffer.from(JSON.stringify(v)); p.extensionSha256 = sha256(viewBytes);
++    const predictionBytes = Buffer.from(JSON.stringify(p));
++    const caseDirectory = join(boundaryRoot, String(count));
++    await import('node:fs/promises').then(fs => fs.mkdir(caseDirectory));
++    const caseBytes = [datasetBytes, viewBytes, predictionBytes], names = ['dataset.json', 'views.json', 'predictions.json'];
++    const paths = names.map(name => join(caseDirectory, name));
++    for (let n = 0; n < paths.length; n++) await writeFile(paths[n], caseBytes[n]);
++    const proof = { sampleCount: count, inputCounts: { dataset: d.samples.length, extension: v.samples.length, baseline: p.baseline.samples.length, candidate: p.candidate.samples.length }, rawInputs: caseBytes.map((b, n) => ({ file: names[n], bytes: b.length, sha256: sha256(b) })) };
++    const started = Date.now();
++    test(`actual evaluator exact ${count} sample boundary`, () => {
++      if (count === 100000) {
++        const report = evaluate(...caseBytes);
++        assert.equal(report.status, 'VALID'); assert.equal(report.samples.length, count);
++        assert.equal(report.splits.development.sampleCount, count);
++        for (const role of ['baseline', 'candidate']) assert.equal(report.splits.development.runs[role].sampleDenominator, count);
++        assert.equal(report.qualityEvidence, false); assert.equal(report.realQualityStatus, 'BLOCKED');
++        proof.evaluator = { status: report.status, reportedSampleCount: report.samples.length, developmentCount: report.splits.development.sampleCount, baselineDenominator: report.splits.development.runs.baseline.sampleDenominator, candidateDenominator: report.splits.development.runs.candidate.sampleDenominator, qualityEvidence: report.qualityEvidence, realQualityStatus: report.realQualityStatus };
++      } else {
++        assert.throws(() => evaluate(...caseBytes), error => error.message === 'EXTENSION_SAMPLE_SET_MISMATCH');
++        proof.evaluator = { status: 'REJECTED', reason: 'EXTENSION_SAMPLE_SET_MISMATCH' };
++      }
++    });
++    proof.evaluatorElapsedMs = Date.now() - started;
++    // File descriptors keep the genuine full CLI stdout out of spawnSync's buffers.
++    const fs = await import('node:fs');
++    const stdoutPath = join(caseDirectory, 'cli-stdout.json'), stderrPath = join(caseDirectory, 'cli-stderr.txt');
++    const out = fs.openSync(stdoutPath, 'w'), err = fs.openSync(stderrPath, 'w');
++    let execution;
++    try { execution = spawnSync(process.execPath, [cli, '--dataset', paths[0], '--views', paths[1], '--predictions', paths[2]], { stdio: ['ignore', out, err], timeout: 60000 }); invocations++; }
++    finally { fs.closeSync(out); fs.closeSync(err); }
++    const stdout = await readFile(stdoutPath), stderr = await readFile(stderrPath, 'utf8');
++    const actual = JSON.parse(stdout.toString('utf8'));
++    test(`actual CLI exact ${count} sample boundary`, () => {
++      assert.equal(execution.error, undefined); assert.equal(stderr, ''); assert.equal(execution.status, count === 100000 ? 0 : 1);
++      assert.equal(actual.status, count === 100000 ? 'VALID' : 'INVALID_INPUT');
++      assert.equal(actual.qualityEvidence, false); assert.equal(actual.realQualityStatus, 'BLOCKED');
++      if (count === 100000) { assert.equal(actual.samples.length, count); assert.equal(actual.splits.development.sampleCount, count); for (const role of ['baseline', 'candidate']) assert.equal(actual.splits.development.runs[role].sampleDenominator, count); }
++      else assert.equal(actual.reason, 'EXTENSION_SAMPLE_SET_MISMATCH');
++    });
++    proof.cli = { exitCode: execution.status, status: actual.status, reason: actual.reason || null, reportedSampleCount: actual.samples?.length ?? null, qualityEvidence: actual.qualityEvidence, realQualityStatus: actual.realQualityStatus, stdoutFile: stdoutPath, stdoutBytes: stdout.length, stdoutSha256: createHash('sha256').update(stdout).digest('hex'), stderrFile: stderrPath };
++    boundaryProof.cases.push(proof);
++  }
++  await writeFile(join(boundaryRoot, 'boundary-proof.json'), JSON.stringify(boundaryProof, null, 2) + '\n');
++  console.log(JSON.stringify({ boundaryProof }, null, 2));
++}
+ console.log(JSON.stringify({ status: 'PASS', unitId: 'UPG-07A', qualityEvidence: false, realQualityStatus: 'BLOCKED', checkCount: checks.length, cliInvocations: invocations, checks }, null, 2));

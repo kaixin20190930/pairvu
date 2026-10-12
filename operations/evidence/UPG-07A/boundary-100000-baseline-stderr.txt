@@ -1,0 +1,20 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'PREDICTION_SAMPLE_SET_MISMATCH'
+- 'BASELINE_SAMPLE_SET_MISMATCH'
+
+    at file:///private/tmp/pairvu-upg07a-qa-attempt2-duvacxjk/qa-independent-boundaries.mjs:29:725 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'PREDICTION_SAMPLE_SET_MISMATCH',
+  expected: 'BASELINE_SAMPLE_SET_MISMATCH',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.22.3

@@ -1,6 +1,6 @@
 # Pairvu 自动开发与独立验收
 
-状态：2026-10-12：UPG-06发布工作台已发布、启用并通过本轮真实登录独立验收，正式CLOSED。生产SHA `da0e3554b9168d528f6ac2e985e6e4b9ad498838` / Worker `c329c189-df72-4e94-9abc-f2a0c6e63616`。GitHub-first fresh核验、无待迁移确认、精确SHA构建部署完成；8项独立HTTP、16项真实登录业务检查PASS。付费CSV正向及登录导出HTTP403未生产实测，完整ELIGIBLE正向仅本地验收，不泛化为全业务路径覆盖。pairvu-2继续暂停。 后文日期段为历史。
+状态：2026-10-12：UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。 用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。 后文日期段为历史。
 
 ## 角色与范围
 

@@ -1,0 +1,461 @@
+{
+  "unitId": "UPG-07A",
+  "candidateSha": "f67f7539b6878131cee7b2b637dc8297cb40022e",
+  "status": "PASS",
+  "qualityEvidence": false,
+  "realQualityStatus": "BLOCKED",
+  "cases": [
+    {
+      "name": "Independent seven-sample oracle keeps decidable, coverage and critical denominators separate",
+      "status": "PASS",
+      "detail": {
+        "development": {
+          "sampleCount": 4,
+          "decidableDenominator": 3,
+          "criticalDenominator": 2,
+          "runs": {
+            "baseline": {
+              "sampleDenominator": 4,
+              "counts": {
+                "correctMatch": 1,
+                "wrongMatch": 1,
+                "correctNoMatch": 0,
+                "wrongNoMatch": 0,
+                "abstain": 1,
+                "unevaluable": 1,
+                "match": 3,
+                "review": 1,
+                "noMatch": 0,
+                "unsafeMatchOnInsufficient": 1,
+                "criticalAllowed": 2,
+                "criticalQualityReview": 0,
+                "criticalBlocked": 0,
+                "criticalMatchReview": 0,
+                "qualityAllow": 3,
+                "qualityReview": 1,
+                "qualityBlock": 0
+              },
+              "declaredCorrectRate": {
+                "numerator": 1,
+                "denominator": 3,
+                "value": 0.3333333333333333,
+                "reason": null
+              },
+              "coverage": {
+                "numerator": 3,
+                "denominator": 4,
+                "value": 0.75,
+                "reason": null
+              },
+              "reviewRate": {
+                "numerator": 1,
+                "denominator": 4,
+                "value": 0.25,
+                "reason": null
+              },
+              "criticalMissedAllowRate": {
+                "numerator": 2,
+                "denominator": 2,
+                "value": 1,
+                "reason": null
+              },
+              "criticalQualityReviewRate": {
+                "numerator": 0,
+                "denominator": 2,
+                "value": 0,
+                "reason": null
+              }
+            },
+            "candidate": {
+              "sampleDenominator": 4,
+              "counts": {
+                "correctMatch": 1,
+                "wrongMatch": 1,
+                "correctNoMatch": 1,
+                "wrongNoMatch": 0,
+                "abstain": 1,
+                "unevaluable": 0,
+                "match": 2,
+                "review": 1,
+                "noMatch": 1,
+                "unsafeMatchOnInsufficient": 0,
+                "criticalAllowed": 0,
+                "criticalQualityReview": 2,
+                "criticalBlocked": 0,
+                "criticalMatchReview": 1,
+                "qualityAllow": 1,
+                "qualityReview": 2,
+                "qualityBlock": 1
+              },
+              "declaredCorrectRate": {
+                "numerator": 2,
+                "denominator": 3,
+                "value": 0.6666666666666666,
+                "reason": null
+              },
+              "coverage": {
+                "numerator": 3,
+                "denominator": 4,
+                "value": 0.75,
+                "reason": null
+              },
+              "reviewRate": {
+                "numerator": 1,
+                "denominator": 4,
+                "value": 0.25,
+                "reason": null
+              },
+              "criticalMissedAllowRate": {
+                "numerator": 0,
+                "denominator": 2,
+                "value": 0,
+                "reason": null
+              },
+              "criticalQualityReviewRate": {
+                "numerator": 2,
+                "denominator": 2,
+                "value": 1,
+                "reason": null
+              }
+            }
+          },
+          "differences": {
+            "comparedSampleCount": 4,
+            "selectionChanged": 4,
+            "matchDecisionChanged": 3,
+            "qualityDecisionChanged": 4,
+            "becameCorrect": 2,
+            "ceasedCorrect": 1
+          },
+          "skuSampleCounts": {
+            "sku_0000000000000065": 1,
+            "sku_0000000000000066": 1,
+            "sku_0000000000000067": 1,
+            "sku_0000000000000068": 1
+          },
+          "defectTypeSampleCounts": {
+            "packaging": 2,
+            "none": 2
+          },
+          "rankings": "NOT_SUPPORTED"
+        },
+        "holdout": {
+          "sampleCount": 3,
+          "decidableDenominator": 2,
+          "criticalDenominator": 1,
+          "runs": {
+            "baseline": {
+              "sampleDenominator": 3,
+              "counts": {
+                "correctMatch": 1,
+                "wrongMatch": 0,
+                "correctNoMatch": 1,
+                "wrongNoMatch": 0,
+                "abstain": 0,
+                "unevaluable": 1,
+                "match": 1,
+                "review": 0,
+                "noMatch": 2,
+                "unsafeMatchOnInsufficient": 0,
+                "criticalAllowed": 1,
+                "criticalQualityReview": 0,
+                "criticalBlocked": 0,
+                "criticalMatchReview": 0,
+                "qualityAllow": 1,
+                "qualityReview": 0,
+                "qualityBlock": 2
+              },
+              "declaredCorrectRate": {
+                "numerator": 2,
+                "denominator": 2,
+                "value": 1,
+                "reason": null
+              },
+              "coverage": {
+                "numerator": 3,
+                "denominator": 3,
+                "value": 1,
+                "reason": null
+              },
+              "reviewRate": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0,
+                "reason": null
+              },
+              "criticalMissedAllowRate": {
+                "numerator": 1,
+                "denominator": 1,
+                "value": 1,
+                "reason": null
+              },
+              "criticalQualityReviewRate": {
+                "numerator": 0,
+                "denominator": 1,
+                "value": 0,
+                "reason": null
+              }
+            },
+            "candidate": {
+              "sampleDenominator": 3,
+              "counts": {
+                "correctMatch": 1,
+                "wrongMatch": 0,
+                "correctNoMatch": 0,
+                "wrongNoMatch": 0,
+                "abstain": 1,
+                "unevaluable": 1,
+                "match": 2,
+                "review": 1,
+                "noMatch": 0,
+                "unsafeMatchOnInsufficient": 1,
+                "criticalAllowed": 0,
+                "criticalQualityReview": 1,
+                "criticalBlocked": 0,
+                "criticalMatchReview": 0,
+                "qualityAllow": 1,
+                "qualityReview": 1,
+                "qualityBlock": 1
+              },
+              "declaredCorrectRate": {
+                "numerator": 1,
+                "denominator": 2,
+                "value": 0.5,
+                "reason": null
+              },
+              "coverage": {
+                "numerator": 2,
+                "denominator": 3,
+                "value": 0.6666666666666666,
+                "reason": null
+              },
+              "reviewRate": {
+                "numerator": 1,
+                "denominator": 3,
+                "value": 0.3333333333333333,
+                "reason": null
+              },
+              "criticalMissedAllowRate": {
+                "numerator": 0,
+                "denominator": 1,
+                "value": 0,
+                "reason": null
+              },
+              "criticalQualityReviewRate": {
+                "numerator": 1,
+                "denominator": 1,
+                "value": 1,
+                "reason": null
+              }
+            }
+          },
+          "differences": {
+            "comparedSampleCount": 3,
+            "selectionChanged": 1,
+            "matchDecisionChanged": 2,
+            "qualityDecisionChanged": 2,
+            "becameCorrect": 0,
+            "ceasedCorrect": 1
+          },
+          "skuSampleCounts": {
+            "sku_0000000000000069": 1,
+            "sku_000000000000006a": 1,
+            "sku_000000000000006b": 1
+          },
+          "defectTypeSampleCounts": {
+            "unknown": 1,
+            "packaging": 1,
+            "none": 1
+          },
+          "rankings": "NOT_SUPPORTED"
+        }
+      }
+    },
+    {
+      "name": "Three raw input hashes track exact bytes; changing prediction formatting never promotes provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "Escaped nested duplicate blind field rejected before conflicting label can be overwritten",
+      "status": "PASS"
+    },
+    {
+      "name": "Truth acceptable subset controls scoring even when metadata offers multiple references",
+      "status": "PASS"
+    },
+    {
+      "name": "ID-based associations survive independent shuffled orders without changing diagnostics",
+      "status": "PASS"
+    },
+    {
+      "name": "Both runs replacing a missing difficult sample with duplicate cannot erase denominator",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "PREDICTION_SAMPLE_SET_MISMATCH"
+      }
+    },
+    {
+      "name": "Candidate drops the partially observable critical sample while baseline retains it",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "PREDICTION_SAMPLE_SET_MISMATCH"
+      }
+    },
+    {
+      "name": "View sample count intact but substituted unknown ID is rejected",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "EXTENSION_SAMPLE_SET_MISMATCH"
+      }
+    },
+    {
+      "name": "Prediction attempts to carry its own trusted human truth field",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_PREDICTION_SAMPLE_FIELDS"
+      }
+    },
+    {
+      "name": "Missing nested adjudication field rejected without coercion",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_EXTENSION_SAMPLE_FIELDS"
+      }
+    },
+    {
+      "name": "Missing complete run model provenance rejected",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_MODEL_METADATA"
+      }
+    },
+    {
+      "name": "Added reference in last holdout sample reuses an earlier development observed image",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "REFERENCE_IMAGE_SPLIT_LEAK"
+      }
+    },
+    {
+      "name": "Two different added reference IDs hide the same image across split boundaries",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "REFERENCE_IMAGE_SPLIT_LEAK"
+      }
+    },
+    {
+      "name": "Same SKU with different packaging reuses original image and passes legacy validator but shadow rejects",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "IMAGE_SOURCE_CONFLICT"
+      }
+    },
+    {
+      "name": "Reference ID reused with different content on otherwise valid owned samples",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "REFERENCE_ID_CONFLICT"
+      }
+    },
+    {
+      "name": "Added reference rebrands authorization while keeping image and SKU declarations",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "REFERENCE_SOURCE_MISMATCH"
+      }
+    },
+    {
+      "name": "Same source repeated reference is permitted for distinct observations within split",
+      "status": "PASS"
+    },
+    {
+      "name": "Two blind annotators disagree but required third-person resolution omitted",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "VIEW_ADJUDICATION_REQUIRED"
+      }
+    },
+    {
+      "name": "Disagreement resolved by one of the original annotators is rejected",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "VIEW_ADJUDICATOR_NOT_THIRD_PERSON"
+      }
+    },
+    {
+      "name": "Third-person reference resolution changes declared outcome while raw original two labels persist",
+      "status": "PASS"
+    },
+    {
+      "name": "Blind attestation string true cannot masquerade as a boolean",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "VIEW_ANNOTATION_NOT_INDEPENDENT_BLIND"
+      }
+    },
+    {
+      "name": "Unknown and partial truth never recommends refs; apparent MATCH remains unsafe and critical",
+      "status": "PASS"
+    },
+    {
+      "name": "Unavailable original reference cannot become predicted MATCH despite valid alternative",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_PREDICTION_REFERENCE"
+      }
+    },
+    {
+      "name": "Low observability reference cannot become predicted MATCH",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_PREDICTION_REFERENCE"
+      }
+    },
+    {
+      "name": "Unknown reference view cannot become predicted MATCH",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_PREDICTION_REFERENCE"
+      }
+    },
+    {
+      "name": "Development-only input leaves holdout rate denominators null and no headline",
+      "status": "PASS"
+    },
+    {
+      "name": "All view truth insufficient cannot erase original partial/observable critical denominators",
+      "status": "PASS"
+    },
+    {
+      "name": "Perfect declared predictions with synthetic=false and real-like run metadata still cannot produce real quality PASS",
+      "status": "PASS",
+      "detail": {
+        "realQualityStatus": "BLOCKED",
+        "evidenceKind": "unverified_declared_input"
+      }
+    },
+    {
+      "name": "Caller qualityEvidence=true override rejected at root",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_EXTENSION_FIELDS"
+      }
+    },
+    {
+      "name": "Caller realQualityStatus=PASS override rejected at prediction root",
+      "status": "PASS",
+      "detail": {
+        "expectedError": "INVALID_PREDICTION_FIELDS"
+      }
+    },
+    {
+      "name": "Read-only permission files and linked CLI preserve bytes mtimes directory contents and safe errors",
+      "status": "PASS",
+      "detail": {
+        "cliInvocations": 10,
+        "unchangedReadOnlyFiles": 3
+      }
+    }
+  ],
+  "cliInvocations": 10
+}

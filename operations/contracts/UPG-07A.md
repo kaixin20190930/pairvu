@@ -24,3 +24,16 @@ Node离线专项正负向+UPG02回归+typecheck。无React/路由变更，不运
 开发允许本地提交自己范围，禁止push/deploy/新子任务。额外运行时范围或协议冲突交总控，不扩大实现。两次同类FAIL先诊断。回传完整SHA、允许diff、真实命令结果/原始报告/限制；独立QA JSON须unitId=UPG-07A、candidateSha、reviewerThreadId、result、checks[{name,status}]包含fixed candidate SHA和independent QA report。FAIL返原开发，local_only PASS正式CLOSED；真实质量明确BLOCKED，UPG-07 runtime仍未开始。总控持续wait/read并报告下一步及样本依赖。
 
 用户补充确认：暂时没有真实授权样本及双人标注记录，先完成工具并列出缺口。真实数据就绪状态为NOT_PROVIDED；不可据此产生真实质量结论。
+
+## UPG07A-QA-01 样本上限返工
+独立QA已复现100001个有效绑定样本仍VALID，违反100000协议上限，uniqueMap以expected.size替换硬上限。原开发本轮Sol/medium：根因明确、单一离线边界修复和精确上限/超限回归；出现其他指标/来源语义差异再评估high。独立复验Sol/medium：限定修复差分和原超界反例、精确上限通过、原已通过证据摘要复用；额外语义变化升级high。原始FAIL保持不可变，不因合成质量仍BLOCKED而忽略工程缺陷。
+
+## 2026-10-12 UPG07A独立关闭
+
+UPG-07A参考视角协议与离线shadow工具已完成，候选`7f4fa55c82e0a81250ff8bf5bc8a35b596caeb32`独立PASS并正式local_only CLOSED。首次QA发现100000样本上限失效，已返原开发修复；独立复验真实evaluator/CLI的100000接受、100001及baseline/candidate分别超限拒绝通过，原FAIL保留。
+
+用户确认暂无真实授权样本及双标；真实数据NOT_PROVIDED，真实质量BLOCKED，全部输出qualityEvidence=false。UPG-07运行时仍BACKLOG，未发布/启用，没有模型调用。生产仍da0e355 / Worker c329c189-df72-4e94-9abc-f2a0c6e63616；pairvu-2继续PAUSED。
+
+原始最终报告operations/evidence/UPG-07A.json；首轮FAIL与31项独立反例归档operations/evidence/UPG-07A-attempt-1；最终边界原始巨型材料经无损gzip及摘要保留，映射见UPG-07A/archive-index.json。CLI已qa PASS→close。
+
+下一步：按样本缺口清单由用户/数据保管方准备授权记录、真实图像及参考集合、SKU分割、双人盲标/仲裁、独立留出集和baseline/candidate实际运行来源。总控本轮工程收尾已自动完成；因用户确认暂无样本，不自动开展真实质量评测或线上UPG-07接入，也不启动其他单元。样本就绪后先独立核实来源、冻结输入，再制定实际评测/线上接入最小契约；任何新增模型调用和生产发布另需相应授权。
