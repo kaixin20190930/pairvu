@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-06",
+  "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T03:31:37.175Z",
+  "checks": [
+    {
+      "name": "fixed final release SHA and clean shared working tree",
+      "status": "PASS"
+    },
+    {
+      "name": "complete release delta contains no application implementation change",
+      "status": "PASS"
+    },
+    {
+      "name": "original independent QA and FAIL archives preserve exact hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "archived test sources do not enter TypeScript compilation",
+      "status": "PASS"
+    },
+    {
+      "name": "exact true production enablement and strict code default false",
+      "status": "PASS"
+    },
+    {
+      "name": "actual local D1 and actual-route enabled/disabled regressions",
+      "status": "PASS"
+    },
+    {
+      "name": "exact candidate typecheck",
+      "status": "PASS"
+    },
+    {
+      "name": "unchanged implementation acceptance evidence reuse",
+      "status": "PASS"
+    },
+    {
+      "name": "independent release QA report",
+      "status": "PASS"
+    }
+  ]
+}

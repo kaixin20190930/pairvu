@@ -1,0 +1,167 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "Pairvu home":
+    - /url: /
+    - text: Pairvu
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Workspace":
+    - link "Releases":
+      - /url: /account/releases
+    - link "Overview":
+      - /url: /account
+    - link "Products":
+      - /url: /account/products
+    - link "Batches":
+      - /url: /account/batches
+    - link "New batch":
+      - /url: /account/batches/new
+  - paragraph: Release workbench
+  - heading "Review release eligibility" [level=1]
+  - paragraph: Compare the original machine result, current human decision and release rule. Eligibility does not publish your product.
+  - form "Release search":
+    - text: Frozen SKU
+    - textbox "Frozen SKU":
+      - /placeholder: Exact SKU
+      - text: PAIRVU-QA-SYNTH-20261010
+    - text: Product ID
+    - textbox "Product ID": 8e023cd4-16b4-4e77-a957-238e7253947f
+    - text: Batch ID
+    - textbox "Batch ID": 9e24fe37-4e56-4fad-8edd-b4589bbcb698
+    - text: Review state
+    - combobox "Review state":
+      - option "All records" [selected]
+      - option "Needs review"
+      - option "Blocked by rule"
+      - option "Current approve or reject"
+    - button "Search"
+  - region "Release rule":
+    - strong: release-policy-001
+    - paragraph: Complete supported machine evidence, available images and a current source-matching human approval are required. High/critical differences and limitations block eligibility. Eligibility does not publish externally.
+    - generic "Rule and evaluation provenance"
+    - paragraph:
+      - text: "Rule SHA-256:"
+      - code: 7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4
+    - paragraph: Evaluated at 2026-10-12T05:09:29.970Z. Search pages use current decisions at request time.
+  - paragraph: "1 matching record in this page. Scanned 1 of at most 100 sources. Order: newest first, then analysis ID."
+  - button "Export this search page (CSV)" [disabled]
+  - paragraph: CSV export requires an active paid plan.
+  - article "Release record batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001":
+    - heading "Pairvu QA Synthetic Blue Box 20261010" [level=2]
+    - paragraph: "Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v5 · reference v1"
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+      - text: · Batch
+      - code: 9e24fe37-4e56-4fad-8edd-b4589bbcb698
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-008"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "missing_requested_check: Provider did not return an observation for visible_text."
+      - listitem: "missing_requested_check: Provider did not return an observation for quantity."
+      - listitem: "missing_requested_check: Provider did not return an observation for dominant_color."
+      - listitem: "missing_requested_check: Provider did not return an observation for major_components."
+      - listitem: "missing_requested_check: Provider did not return an observation for major_shape_packaging."
+      - listitem: "attribute_not_observable: logo is not sufficiently observable."
+      - listitem: "missing_requested_check: visible_text was not returned by the provider."
+      - listitem: "missing_requested_check: quantity was not returned by the provider."
+      - listitem: "missing_requested_check: dominant_color was not returned by the provider."
+      - listitem: "missing_requested_check: major_components was not returned by the provider."
+      - listitem: "missing_requested_check: major_shape_packaging was not returned by the provider."
+    - paragraph:
+      - text: "Reference image: available"
+      - text: "Candidate image: available"
+    - heading "Human decision" [level=3]
+    - strong: revoke
+    - paragraph: Revision 3
+    - paragraph: "QA UPG-05 production smoke complete: revoke the synthetic test decision; retain immutable approval and rejection history."
+    - paragraph: The previous decision was revoked.
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Approval was revoked; a new explicit decision is required.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance" [active]
+    - paragraph:
+      - text: "Machine SHA-256:"
+      - code: d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb
+    - paragraph:
+      - text: "Rule SHA-256:"
+      - code: 7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4
+    - paragraph:
+      - text: "Reviewed machine snapshot:"
+      - code: 267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e
+    - paragraph: Evaluated at 2026-10-12T05:09:29.970Z; human revision 3.
+  - paragraph: End of the current search.
+- contentinfo:
+  - link:
+    - /url: /
+  - paragraph: Quality control for AI product photography.
+  - heading "Product" [level=2]
+  - link "AI Product Image Checker":
+    - /url: /
+  - link "Check Image":
+    - /url: /#checker
+  - link "How It Works":
+    - /url: /how-pairvu-works
+  - link "Pricing":
+    - /url: /pricing
+  - heading "Learn" [level=2]
+  - link "AI Product Photography":
+    - /url: /ai-product-photography
+  - link "Examples":
+    - /url: /examples
+  - link "Product Categories":
+    - /url: /categories
+  - link "Product Checks":
+    - /url: /checks
+  - link "Guides":
+    - /url: /guides
+  - link "Checklist":
+    - /url: /guides/ai-product-photography-checklist
+  - heading "Use Cases" [level=2]
+  - link "Ecommerce":
+    - /url: /use-cases/ecommerce-product-image-qa
+  - link "Amazon Sellers":
+    - /url: /use-cases/amazon-product-image-qa
+  - link "Shopify Stores":
+    - /url: /use-cases/shopify-product-image-qa
+  - link "Brands":
+    - /url: /use-cases/brands
+  - link "Creative Agencies":
+    - /url: /use-cases/creative-agencies
+  - heading "Legal" [level=2]
+  - link "Privacy":
+    - /url: /privacy
+  - heading "Other products" [level=2]
+  - link "Moxion":
+    - /url: https://moxion.ai
+  - link "Sigoo":
+    - /url: https://sigoo.ai
+  - link "AI Best Tool":
+    - /url: https://aibesttool.com
+  - link "Triptrace":
+    - /url: https://triptrace.ai
+  - generic: © 2026 Pairvu
+  - generic: Visible product QA, not marketplace certification.
+- alert: Release workbench | Pairvu

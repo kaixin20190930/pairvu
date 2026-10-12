@@ -1,0 +1,8 @@
+{
+  "command": "set -a / source .dev.vars / set +a; pnpm exec wrangler d1 execute pairvu-production --remote --command [exact-synthetic-read.sql] --json",
+  "exitCode": 0,
+  "completedAt": "2026-10-12T05:07:26.575Z",
+  "readOnlySelects": 6,
+  "stdout": "/tmp/pairvu-upg06-production/d1-read-stdout.txt",
+  "stderr": "/tmp/pairvu-upg06-production/d1-read-stderr.txt"
+}

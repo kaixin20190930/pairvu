@@ -1,0 +1,18 @@
+[
+  {
+    "kind": "QA locator",
+    "detail": "getByLabel Review state and role article/text waitFor returned selector deadlines; actual DOM remained valid. Recovered with observed combobox role and settled DOM captures. No application failure inferred."
+  },
+  {
+    "kind": "Browser API navigation",
+    "detail": "Direct production /api/releases/export and /api/releases/status navigation blocked by browser client; existing page remained /account. No token extraction, alternate authenticated HTTP client or bypass used. No production authenticated HTTP403 asserted."
+  },
+  {
+    "kind": "D1 credential environment",
+    "detail": "First normal CLI had no CLOUDFLARE_API_TOKEN; original error and command preserved. Controller clarified standard .dev.vars loader; exact same six SELECTs then succeeded under normal permission with no credentials output."
+  },
+  {
+    "kind": "QA browser handle",
+    "detail": "Viewport documentation lookup initially referenced undefined browser handle; acquired selected browser ID2 handle and read documented capability. No viewport override applied because resizing merely for a prettier screenshot is prohibited."
+  }
+]

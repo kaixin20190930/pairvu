@@ -1,0 +1,11 @@
+HTTP/2 401 
+date: Mon, 12 Oct 2026 04:59:21 GMT
+content-type: application/json
+cache-control: private, no-store
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=6Tq0xF%2FYMS0HSNKAAH9KucWW1Es0v82wKfJcCr%2BgoEDee0tZbKJh1%2FOE%2FtZtfAZQRT1XeekbFSm%2B%2BSfV%2FuehpKt1opM5gi%2Fp1Ennksrmy8vjaG9DLRxoPrQtw2a0"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a49388e26bb3aae9-SYD
+alt-svc: h3=":443"; ma=86400
+

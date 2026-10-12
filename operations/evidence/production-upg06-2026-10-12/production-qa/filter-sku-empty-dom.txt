@@ -1,0 +1,100 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "Pairvu home":
+    - /url: /
+    - text: Pairvu
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Workspace":
+    - link "Releases":
+      - /url: /account/releases
+    - link "Overview":
+      - /url: /account
+    - link "Products":
+      - /url: /account/products
+    - link "Batches":
+      - /url: /account/batches
+    - link "New batch":
+      - /url: /account/batches/new
+  - paragraph: Release workbench
+  - heading "Review release eligibility" [level=1]
+  - paragraph: Compare the original machine result, current human decision and release rule. Eligibility does not publish your product.
+  - form "Release search":
+    - text: Frozen SKU
+    - textbox "Frozen SKU":
+      - /placeholder: Exact SKU
+      - text: PAIRVU-QA-SYNTH-20261010-NO-MATCH
+    - text: Product ID
+    - textbox "Product ID": 8e023cd4-16b4-4e77-a957-238e7253947f
+    - text: Batch ID
+    - textbox "Batch ID": 9e24fe37-4e56-4fad-8edd-b4589bbcb698
+    - text: Review state
+    - combobox "Review state":
+      - option "All records" [selected]
+      - option "Needs review"
+      - option "Blocked by rule"
+      - option "Current approve or reject"
+    - button "Search"
+  - region "Release rule":
+    - strong: release-policy-001
+    - paragraph: Complete supported machine evidence, available images and a current source-matching human approval are required. High/critical differences and limitations block eligibility. Eligibility does not publish externally.
+    - generic "Rule and evaluation provenance"
+  - paragraph: "0 matching records in this page. Scanned 0 of at most 100 sources. Order: newest first, then analysis ID."
+  - button "Export this search page (CSV)" [disabled]
+  - paragraph: CSV export requires an active paid plan.
+  - status: No matching release records. Try another SKU, batch or review state.
+  - paragraph: End of the current search.
+- contentinfo:
+  - link:
+    - /url: /
+  - paragraph: Quality control for AI product photography.
+  - heading "Product" [level=2]
+  - link "AI Product Image Checker":
+    - /url: /
+  - link "Check Image":
+    - /url: /#checker
+  - link "How It Works":
+    - /url: /how-pairvu-works
+  - link "Pricing":
+    - /url: /pricing
+  - heading "Learn" [level=2]
+  - link "AI Product Photography":
+    - /url: /ai-product-photography
+  - link "Examples":
+    - /url: /examples
+  - link "Product Categories":
+    - /url: /categories
+  - link "Product Checks":
+    - /url: /checks
+  - link "Guides":
+    - /url: /guides
+  - link "Checklist":
+    - /url: /guides/ai-product-photography-checklist
+  - heading "Use Cases" [level=2]
+  - link "Ecommerce":
+    - /url: /use-cases/ecommerce-product-image-qa
+  - link "Amazon Sellers":
+    - /url: /use-cases/amazon-product-image-qa
+  - link "Shopify Stores":
+    - /url: /use-cases/shopify-product-image-qa
+  - link "Brands":
+    - /url: /use-cases/brands
+  - link "Creative Agencies":
+    - /url: /use-cases/creative-agencies
+  - heading "Legal" [level=2]
+  - link "Privacy":
+    - /url: /privacy
+  - heading "Other products" [level=2]
+  - link "Moxion":
+    - /url: https://moxion.ai
+  - link "Sigoo":
+    - /url: https://sigoo.ai
+  - link "AI Best Tool":
+    - /url: https://aibesttool.com
+  - link "Triptrace":
+    - /url: https://triptrace.ai
+  - generic: © 2026 Pairvu
+  - generic: Visible product QA, not marketplace certification.
+- alert

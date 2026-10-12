@@ -1,0 +1,5 @@
+import {writeFile} from 'node:fs/promises';
+const expectedSha='da0e3554b9168d528f6ac2e985e6e4b9ad498838';
+const checks=await Promise.all(['/api/health','/','/checks','/pricing','/sign-in'].map(async path=>{const url='https://pairvu.com'+path;const r=await fetch(url,{redirect:'manual',headers:{'Cache-Control':'no-cache'},signal:AbortSignal.timeout(30000)});const body=path==='/api/health'?await r.json():null;return {kind:body?'health':'http',url,status:r.status,...(body?{body}:{}),pass:r.status===200&&(!body||(body.ok&&body.buildSha===expectedSha))};}));
+const result={checkedAt:new Date().toISOString(),checks,result:checks.every(c=>c.pass)?'PASS':'FAIL'};
+await writeFile('/tmp/pairvu-upg06-smoke.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));if(result.result!=='PASS')process.exitCode=1;

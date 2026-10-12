@@ -1,0 +1,4 @@
+Command: pnpm exec tsc --noEmit
+Exit: 2
+scripts/qa-upg06-release.ts(119,653): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ RELEASE_WORKBENCH_ENABLED?: string | undefined; }'.
+QA-only harness was then renamed to qa-tested-release.ts.txt; candidate application/test sources unchanged. Runtime harness completed PASS77 before renaming.

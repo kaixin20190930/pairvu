@@ -1,0 +1,498 @@
+{
+  "unitId": "UPG-06",
+  "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T03:31:37.175Z",
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "medium",
+    "rationale": "Only production flag, corresponding test assertion, authorization/docs and original evidence packaging changed; no implementation/auth/entitlement semantics delta found.",
+    "escalationCondition": "Additional runtime/auth/eligibility semantics would require reporting and high reassessment.",
+    "runtimeSettingNote": "Selection recorded from controller dispatch/contract/registry; no model-setting tool used."
+  },
+  "sourceVerification": {
+    "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+    "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+    "status": "PASS",
+    "completeDelta": [
+      {
+        "path": "docs/01-architecture/release-workbench-contract.md",
+        "sha256": "770fe1cca41bc37261ad44172b5f3ab9c1c58a21212106ca936fd316e4b3cde7",
+        "bytes": 8012,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "docs/04-roadmap/next-development-batch-2026-10-10.md",
+        "sha256": "18b8760ed988e74523eb4094e4e160a519d52c99d2b550394adba067f45c93d2",
+        "bytes": 2990,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "docs/04-roadmap/project-progress-2026-10-10.md",
+        "sha256": "898577382ed4b62c9f574d82b3db2b9e74a078c6e4f876b76c2b9758d5e4b1fc",
+        "bytes": 5025,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "fixtures/release-workbench/enablement-2026-10-12/checks.json",
+        "sha256": "94c471fd3ae1c5040ec0e8d94950e8e66b7852836611611b29bf6e44f12fa1a9",
+        "bytes": 3188,
+        "category": "evidence"
+      },
+      {
+        "path": "fixtures/release-workbench/enablement-2026-10-12/d1-results.json",
+        "sha256": "e48984a2359e0fd27e65afb42e5330f22d46ed1e6bdf05003219d8616aa36d38",
+        "bytes": 16843,
+        "category": "evidence"
+      },
+      {
+        "path": "fixtures/release-workbench/enablement-2026-10-12/sample-page.json",
+        "sha256": "afa1664a3670d0e7a8dd6e760b20a5b6f8b1c649a4c4f9d6c542322d29ddfebb",
+        "bytes": 10407,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/README.md",
+        "sha256": "2fd7bd8cfd8dce48c691610550d41f5146138b9fabb91ca2ca50a30da574dc10",
+        "bytes": 13038,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "operations/contracts/UPG-06.md",
+        "sha256": "5574412b8771abcd5ee9d6a7b7db9c995572e3c88821d5465a8e43808b979f11",
+        "bytes": 7065,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "operations/controller-prompt.md",
+        "sha256": "867bd5dab454bc1f75d22d5a805faf0e07f3ec095610743cc9404a6c3a6df1c9",
+        "bytes": 14239,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "operations/evidence/UPG-06-attempt-1/qa-independent-d1-results.json",
+        "sha256": "4db718a72e28bee776f8e5e52dedcdfb7c7ed1fff426c3e488a9499e166a75c2",
+        "bytes": 2668,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06-attempt-1/qa-original.json",
+        "sha256": "ca282ba845ab596be4d823328bd1c796af24d9c45b9702ecc921d2de8b7b3eac",
+        "bytes": 6762,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06-attempt-1/qa-source-index.json",
+        "sha256": "fade2e3c4dabb3bc4c732713fb52f9cd8a231c3976aebfa251816725843ddb4f",
+        "bytes": 2339,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06-attempt-1/qa-upg06-independent.ts.txt",
+        "sha256": "fef87383c0b7d4418fa7bb547f4ce8fe681951c028ebcbcf24892d0fbc50b78e",
+        "bytes": 16572,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06-attempt-1/qa-utf8-payload-actual.json",
+        "sha256": "b826ee18eccbdf543e3a65c0142cae8f7922adec0542335ce92405351407b8d8",
+        "bytes": 432,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06-cli.json",
+        "sha256": "c0659cce42d4946fe043ad36482b6968d38ec634f89a1dbba63ada7d1cc6dfde",
+        "bytes": 1310,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06.json",
+        "sha256": "a7de5a3ebf922a44e51cb86212648ed2851f36437beeef56cfbbb659aa0f0d11",
+        "bytes": 24658,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/archive-index.json",
+        "sha256": "fb6cd5745a16a3f049fab851ff4d1b26d24fd81a5f3d6bc7f85f8d3fcfc90f14",
+        "bytes": 4711,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/fixtures/release-workbench/browser-desktop-results.json",
+        "sha256": "0abc9f8e26b11d6c6b754dc607254bc63a870c5aeeb99b3cf7e792ebcd9a184f",
+        "bytes": 9851,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/fixtures/release-workbench/browser-narrow-results.json",
+        "sha256": "e84b33f54c1ad756e64359791b95ed9ed83a52817161c2c730f4d220ca677f9b",
+        "bytes": 9850,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/pairvu-upg06-qa-attempt2-ui.png",
+        "sha256": "d56f9ecb25942919829a68fdf992c5b85ddefa27a24f6855ca8325ac3a37e908",
+        "bytes": 222318,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-bind-sources.py",
+        "sha256": "6c8921efaf62b7570a586189a4157661192a58a6ef6519620ffc209000829eec",
+        "bytes": 5196,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-browser-ax.txt",
+        "sha256": "3f7ca196b4f2b0f5dd7650eb94f43aa18a74a066021553b84a8dd9998be32e71",
+        "bytes": 7329,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-candidate-diff-check.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-command-results.json",
+        "sha256": "1fb60ad5a888a48629a09b2b76592ec789ae09a326f17a94b5d3dbcdaaaccee2",
+        "bytes": 4300,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-final-qa-upg06-attempt2.ts.txt",
+        "sha256": "55d115a34671dcfdb806375e6e4897c9ba8c31370c8e996e65c15f3e8f26c564",
+        "bytes": 59537,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-final-ui-entry.tsx.txt",
+        "sha256": "e69e63bf5242b908a5fca5208b5e2a5ccce525531b4d7c0e6218c2cb0f1a611f",
+        "bytes": 16830,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-finalize-attempt2.py",
+        "sha256": "26c0196956d61bddd9a2d89059156394b2764964acda479774c83bf8ce724397",
+        "bytes": 10766,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-fixture-incident.json",
+        "sha256": "63b6a7c91d5637656eb04e8ee7a45f75c97309eebce590b6a843095f9d2b3e26",
+        "bytes": 343,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-full-candidate-diff.txt",
+        "sha256": "2a9e2b735d89b04bf7485a92669365548ab60a2d2058cc7dd2efcc4b7224c5ac",
+        "bytes": 362197,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-independent-d1-attempt1-results.json",
+        "sha256": "f226ce3b626e8252493c36f8b42653af49761e1f79b7521618db38b720b53483",
+        "bytes": 18689,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-independent-d1-attempt1-script.ts.txt",
+        "sha256": "b229415610d4a49d61a10ef4eb1b1b82a8bf5a11e5a89aa50ed170aa7e9a289b",
+        "bytes": 59468,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-independent-d1-results.json",
+        "sha256": "46781ce248202e9891e45948af953c1f5a291844d609f4a877c5bcffcaf7666e",
+        "bytes": 19948,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-original-ui-entry.tsx.txt",
+        "sha256": "1b5d8f0345c6ea3902c5b0e93f5b0a37de0f5ec05d98a0434145cd0bbb196c4b",
+        "bytes": 12716,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-reused-build-original.txt",
+        "sha256": "86cfc41d045e97611cebfc7bb0aecedc0541980bba4f79b931097052f568e93b",
+        "bytes": 4822,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-review-regression.json",
+        "sha256": "1a05d90b1ee9c88ee05854dacb58e510b1cfceb5503d52e5296c8b1b47c1f1ef",
+        "bytes": 10936,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-shared-status-final.txt",
+        "sha256": "42f3795df1b65ed3690b9afcdb1ae9dd68380507f3022e8478c6d5a91c865a38",
+        "bytes": 158,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-source-index.json",
+        "sha256": "91f268afa2997d248ca38d5717e9047d26fba66acae20c7575779cab3168c287",
+        "bytes": 4341,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-source-verification.json",
+        "sha256": "4a62eb64da4798a7535970c33b071030ee2d7c7aaeb4e1bb208c9449cb502057",
+        "bytes": 8016,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/evidence/UPG-06/qa-structured-regression.json",
+        "sha256": "536589357efa2ca1ef5fd8599c15b9db976b2be6cf74a0a4bac36c09767d2866",
+        "bytes": 7804,
+        "category": "evidence"
+      },
+      {
+        "path": "operations/task-registry.json",
+        "sha256": "a1ba8511dd47b5b9c2c6702f14ca9017aab39577b4fe6a78cad084148e1c1f32",
+        "bytes": 10006,
+        "category": "documentation/controller state"
+      },
+      {
+        "path": "scripts/verify-release-workbench.ts",
+        "sha256": "65c66c213bd774dce0acd40c149bc7ec8dd1b8c92965eb8f2ed02205b5307d40",
+        "bytes": 48163,
+        "category": "verification assertion"
+      },
+      {
+        "path": "wrangler.jsonc",
+        "sha256": "d5bed57f97285b5fd8bdec8e8bfe6077b0de0f03ebd778a92246fa4cabf895e1",
+        "bytes": 3402,
+        "category": "enablement configuration"
+      }
+    ],
+    "priorSourceBindingsReused": [
+      {
+        "path": "lib/releases/repository.ts",
+        "sha256": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/releases/csv.ts",
+        "sha256": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/releases/http.ts",
+        "sha256": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/releases/types.ts",
+        "sha256": "d74ab50c432bee761a37017ec026e8a00593b73575230b1e6587d7d2e9edadbe",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/releases/policy.ts",
+        "sha256": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/account/releases/ReleaseWorkbenchClient.tsx",
+        "sha256": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/account/releases/releases.module.css",
+        "sha256": "c607101013fedfa086931e2e64cb3797fd93ed84d5d65f03a012fd269a04ca68",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/account/releases/page.tsx",
+        "sha256": "acb64ebd0c72897bca8d8c2af8b081918516e077ecb4eff2c14182bf91a1ff3f",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/api/releases/route.ts",
+        "sha256": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/api/releases/status/route.ts",
+        "sha256": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/api/releases/export/route.ts",
+        "sha256": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/analysis/repository.ts",
+        "sha256": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+        "exactCandidate": true
+      },
+      {
+        "path": "lib/cloudflare/bindings.ts",
+        "sha256": "2057f4e725bf9667b45e91bb0580ac0e02f52e95eaa12d3d001d49c0b36c64a1",
+        "exactCandidate": true
+      },
+      {
+        "path": "components/AccountWorkspaceNav.tsx",
+        "sha256": "540b9dfce49a5af4594c53d21171117b05fd1960a1b19b5326271c90e088c117",
+        "exactCandidate": true
+      },
+      {
+        "path": "app/api/batches/[batchId]/export/route.ts",
+        "sha256": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f",
+        "exactCandidate": true
+      },
+      {
+        "path": "package.json",
+        "sha256": "3a68846c26ec69c857d75772f13b49de03837226fcdb8e6b1ce09c967c0eba7f",
+        "exactCandidate": true
+      }
+    ],
+    "archiveEntriesChecked": 21,
+    "firstFailureArchiveFilesChecked": [
+      "operations/evidence/UPG-06-attempt-1/qa-independent-d1-results.json",
+      "operations/evidence/UPG-06-attempt-1/qa-upg06-independent.ts.txt",
+      "operations/evidence/UPG-06-attempt-1/qa-utf8-payload-actual.json"
+    ],
+    "originalReportHash": "a7de5a3ebf922a44e51cb86212648ed2851f36437beeef56cfbbb659aa0f0d11",
+    "originalFailureHash": "ca282ba845ab596be4d823328bd1c796af24d9c45b9702ecc921d2de8b7b3eac",
+    "cliAdapterExactConclusionMapping": true,
+    "compilerInputSafety": "Evidence source files end .ts.txt/.tsx.txt; no JS/TS inputs in new UPG06 evidence archive. tsconfig allowJs=false remains unchanged.",
+    "allApplicationImplementationUnchanged": true,
+    "exactConfigDeltaVerified": true,
+    "exactAssertionDeltaVerified": true,
+    "developerEnablementSourcesAndReportHashVerified": true,
+    "independentD1Cases": 77,
+    "independentD1Requests": 1853,
+    "missingFalseAndNonexactValues": {
+      "name": "Independent QA missing false and truthy nonexact flags reject every actual release route",
+      "status": "PASS"
+    },
+    "originalQAReuse": "Prior full independent 91 D1/52 UI/35 review/49 structured + workspace verification reused for unchanged implementation. No claim of reexecuting all UI/build."
+  },
+  "commands": [
+    {
+      "command": "pnpm exec tsx scripts/qa-upg06-release.ts qa-release-d1-results.json",
+      "exitCode": 0,
+      "cases": 77,
+      "localD1Requests": 1853,
+      "rawReport": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-d1-results.json",
+      "testedScript": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-tested-release.ts.txt",
+      "detail": "76 original enablement cases independently rerun plus one independent actual-route test over missing, false, TRUE, whitespace, numeric-string and empty flag values. Actual local D1, repositories and routes; synthetic session/account boundary."
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "attempt": 1,
+      "exitCode": 2,
+      "productFailure": false,
+      "detail": "QA-only new harness passed unknown global env to typed releasesEnabled. Error preserved, executed script renamed .ts.txt without changing candidate sources.",
+      "evidence": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-typecheck-harness-incident.txt"
+    },
+    {
+      "command": "pnpm exec tsc --noEmit",
+      "attempt": 2,
+      "exitCode": 0,
+      "observedOutput": "No diagnostics after QA-only harness archived as text; exact committed candidate checked."
+    },
+    {
+      "command": "python3 qa-release-bind.py",
+      "exitCode": 0,
+      "changedFiles": 42,
+      "archiveEntries": 21,
+      "unchangedPriorSourceBindings": 16
+    },
+    {
+      "command": "git diff --check qaCandidateSha releaseSha",
+      "exitCode": 2,
+      "blocking": false,
+      "detail": "Only byte-preserved original AX text, original diff text and raw build console logs have whitespace markers. Original evidence hashes retained.",
+      "raw": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-full-diff-whitespace-original.txt"
+    },
+    {
+      "command": "git diff --check qaCandidateSha releaseSha -- configuration script docs controller state and enablement fixtures",
+      "exitCode": 0
+    },
+    {
+      "command": "git status --porcelain / git rev-parse HEAD",
+      "workingTreeClean": true,
+      "head": "da0e3554b9168d528f6ac2e985e6e4b9ad498838"
+    }
+  ],
+  "scope": "Independent local release increment acceptance; not a deployment or production verification.",
+  "priorAcceptanceReused": {
+    "report": "operations/evidence/UPG-06.json",
+    "sha256": "a7de5a3ebf922a44e51cb86212648ed2851f36437beeef56cfbbb659aa0f0d11",
+    "D1Cases": 91,
+    "browserCases": 52,
+    "reviewCases": 35,
+    "structuredCases": 49,
+    "workspaceAndTypecheck": true,
+    "reason": "Application implementation, rendering, routes, policy and entitlement logic remain byte-identical. Original 16 unchanged manifest bindings verified; three changed config/assertion/doc bindings verified through enablement manifest.",
+    "UIOrBuildRerunThisPhase": false
+  },
+  "limitations": [
+    "No production UI, remote DB, model, payment, R2 object or customer asset operations in this phase. Local real D1 uses controlled auth/account fixtures.",
+    "Raw evidence whitespace is non-blocking and preserved; scoped source/config/doc diff check passes.",
+    "No fresh remote confirmation, release build, production migration/deployment or production acceptance performed by QA. Controller must execute GitHub-first exact-SHA build/deploy order.",
+    "Some roadmap/README statements retain earlier waiting-authorization snapshot; latest contract/controller authorization and registry next action explicitly supersede it. No evidence of deployment inferred."
+  ],
+  "nextAction": {
+    "action": "Controller imports this exact release QA receipt, pushes and freshly verifies this commit on intended GitHub branch, builds/deploys the same commit with enabled flag, then dispatches original reviewer for independent real signed-in production acceptance.",
+    "dependency": "Exact remote SHA verification, clean production tree and successful exact-SHA build/deployment; production session and observed deployment identifier required for next QA phase.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "automation": "Keep pairvu-2 paused; no new feature work started."
+  },
+  "artifactsRoot": "/private/tmp/pairvu-upg06-release-qa-n1xax86c",
+  "artifacts": [
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-source-check.json",
+      "sha256": "13d36453ad22ed43a1ded3cf3275ef02d8b5974b4df9bfb45c9559e8ea01d03e",
+      "bytes": 13524
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-d1-results.json",
+      "sha256": "66c1368851a4ac575871a04b1451b32fde624d76692194f95a88ec591b3b0ef3",
+      "bytes": 16985
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-tested-release.ts.txt",
+      "sha256": "e45da72d4d0b7921d2e01a00e41d268299500d6fce614869c22e93b4ed3fc875",
+      "bytes": 48887
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-test.ts.txt",
+      "sha256": "e45da72d4d0b7921d2e01a00e41d268299500d6fce614869c22e93b4ed3fc875",
+      "bytes": 48887
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-typecheck-harness-incident.txt",
+      "sha256": "14d8bd4beabcef931c603f6224373ab5484c93df4be5ee74baf14ac6a6a58834",
+      "bytes": 371
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-complete-release-diff.txt",
+      "sha256": "df83226dcda610120f7c969e60b982f04f0f1e9685e20318fc98085c68ed09b7",
+      "bytes": 770244
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-full-diff-whitespace-original.txt",
+      "sha256": "08976b2a2942c48ea0f33f271ecf00613a743f5ec514fab6b4223243a4c52382",
+      "bytes": 1776
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-bind.py",
+      "sha256": "1d45054d96bcbf76beac4f43359bdd514472447b329507baaf8f5758b0355e3a",
+      "bytes": 6354
+    },
+    {
+      "path": "/private/tmp/pairvu-upg06-release-qa-n1xax86c/qa-release-finalize.py",
+      "sha256": "60cce184e67d575bef0997df94eb66ce8f9fd532597451b6a19ce6118cc83dae",
+      "bytes": 7384
+    }
+  ]
+}

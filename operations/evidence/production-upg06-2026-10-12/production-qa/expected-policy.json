@@ -1,0 +1,24 @@
+{
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "manifest": {
+    "version": "release-policy-001",
+    "engine": "m0-qa-engine-008",
+    "risk": "m0-risk-policy-003",
+    "modelPolicy": "m0-model-policy-002",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "prompt": "m0-real-mvp-009+regions-003",
+    "identityGuard": "identity-evidence-004",
+    "regions": 1,
+    "priority": [
+      "integrity_or_incomplete",
+      "reject",
+      "high_or_critical",
+      "missing_current_approve",
+      "eligible"
+    ],
+    "completeness": "unique selected checks; fully observable match/mismatch; supported identity and asset-bound region schemas; matching risk derivation; supported successful model calls; no limitations; available images; frozen product integrity; source-matching review"
+  },
+  "canonical": "{\"completeness\":\"unique selected checks; fully observable match/mismatch; supported identity and asset-bound region schemas; matching risk derivation; supported successful model calls; no limitations; available images; frozen product integrity; source-matching review\",\"engine\":\"m0-qa-engine-008\",\"identityGuard\":\"identity-evidence-004\",\"model\":\"gpt-4.1-mini\",\"modelPolicy\":\"m0-model-policy-002\",\"priority\":[\"integrity_or_incomplete\",\"reject\",\"high_or_critical\",\"missing_current_approve\",\"eligible\"],\"prompt\":\"m0-real-mvp-009+regions-003\",\"provider\":\"openai\",\"regions\":1,\"risk\":\"m0-risk-policy-003\",\"version\":\"release-policy-001\"}",
+  "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+}

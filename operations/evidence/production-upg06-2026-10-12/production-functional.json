@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-06",
+  "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "real signed-in workbench with existing synthetic records; bounded read-only acceptance",
+  "result": "PASS",
+  "uiResult": "PASS",
+  "reviewedAt": "2026-10-12T05:14:28.478Z",
+  "origin": "https://pairvu.com",
+  "role": {
+    "controllerSelectedModel": "gpt-6.1-sol",
+    "controllerSelectedReasoningEffort": "high",
+    "rationale": "Real session, immutable sources, machine/human/qualification separation and production permissions require cross-layer comparison.",
+    "escalationCondition": "Repeated identifiable reasoning shortfall after narrowing scope; environment latency or credential setup is not model escalation.",
+    "runtimeSettingNote": "Controller selection recorded; no model-setting tool used."
+  },
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "batchId": "9e24fe37-4e56-4fad-8edd-b4589bbcb698",
+  "sessionEvidence": {
+    "observedAt": "2026-10-12T05:09:12.435Z",
+    "browserId": "2",
+    "tabId": "2",
+    "actualSignedInPage": "https://pairvu.com/account",
+    "sessionEvidence": "Actual workspace heading, Sign out control, Free plan and owned synthetic analysis link visible; no mocked session or token extraction.",
+    "before": {
+      "signOut": true,
+      "free": true,
+      "credits6": true,
+      "used4Reserved0": true
+    },
+    "after": {
+      "signOut": true,
+      "free": true,
+      "credits6": true,
+      "used4Reserved0": true
+    }
+  },
+  "checks": [
+    {
+      "name": "real signed-in session and active Free workspace",
+      "status": "PASS",
+      "evidence": "account-observed-summary.json",
+      "detail": "Existing browser ID2/tab2; actual account heading and Sign out present, no injected auth or token extraction."
+    },
+    {
+      "name": "enabled Releases navigation and live workbench",
+      "status": "PASS",
+      "evidence": [
+        "workbench-initial-dom.txt",
+        "final-workbench-dom.txt"
+      ],
+      "detail": "Navigated actual production Releases link and opened enabled workbench. Initial client loading state settled normally."
+    },
+    {
+      "name": "immutable rule version hash and current evaluation",
+      "status": "PASS",
+      "evidence": [
+        "expected-policy.json",
+        "scoped-provenance-dom.txt",
+        "final-workbench-dom.txt"
+      ],
+      "ruleVersion": "release-policy-001",
+      "ruleHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4",
+      "detail": "Source-derived canonical manifest SHA matches rule and row provenance; evaluation timestamps changed between independent reads."
+    },
+    {
+      "name": "machine human and eligibility remain separate",
+      "status": "PASS",
+      "evidence": "final-workbench-dom.txt",
+      "machine": "REVIEW",
+      "human": "REVOKE",
+      "revision": 3,
+      "eligibility": "BLOCKED",
+      "detail": "Limitations and absence of current approve remain explicit; no release inferred from human decision."
+    },
+    {
+      "name": "incomplete original evidence remains visible and conservatively blocked",
+      "status": "PASS",
+      "evidence": "final-workbench-dom.txt",
+      "reasonCodes": [
+        "selected_checks_incomplete",
+        "observation_insufficient",
+        "identity_evidence_invalid",
+        "machine_limitations_present",
+        "machine_derivation_invalid",
+        "human_approval_required"
+      ]
+    },
+    {
+      "name": "frozen SKU standard and reference versions persist",
+      "status": "PASS",
+      "evidence": [
+        "filter-sku-dom.txt",
+        "filter-batch-dom.txt"
+      ],
+      "sku": "PAIRVU-QA-SYNTH-20261010",
+      "targetStandardVersion": 5,
+      "referenceVersion": 1,
+      "historicalSkuStandardVersion": 3
+    },
+    {
+      "name": "exact SKU product and batch search binding",
+      "status": "PASS",
+      "evidence": [
+        "filter-sku-dom.txt",
+        "filter-batch-dom.txt",
+        "scoped-provenance-dom.txt"
+      ],
+      "skuOnlyMatches": 4,
+      "batchOnlyMatches": 1,
+      "combinedMatches": 1
+    },
+    {
+      "name": "blocked pending and decided state filters",
+      "status": "PASS",
+      "evidence": [
+        "filter-blocked-dom.txt",
+        "filter-pending-dom.txt",
+        "filter-decided-dom.txt"
+      ],
+      "blockedMatches": 1,
+      "pendingMatches": 0,
+      "decidedMatches": 0,
+      "detail": "Revoked incomplete source is blocked; it is neither eligible-needs-review nor a current approve/reject."
+    },
+    {
+      "name": "exact nonmatching SKU has explicit terminal empty state",
+      "status": "PASS",
+      "evidence": "filter-sku-empty-dom.txt",
+      "matches": 0,
+      "sourcesScanned": 0
+    },
+    {
+      "name": "bounded continuation and return to first page",
+      "status": "PASS",
+      "evidence": [
+        "pagination-observed.json",
+        "pagination-first-dom.txt",
+        "pagination-second-dom.txt",
+        "pagination-back-dom.txt"
+      ],
+      "detail": "20 rows then another 20 without overlap; more-sources disclaimer and back control are honest. Return restores exact first-page order. This is a two-page spot check, not whole-workspace completeness proof."
+    },
+    {
+      "name": "detail opens exact existing analysis and review audit",
+      "status": "PASS",
+      "evidence": [
+        "analysis-detail-loaded-dom.txt",
+        "analysis-audit-dom.txt"
+      ],
+      "url": "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+      "events": [
+        {
+          "revision": 1,
+          "action": "approve"
+        },
+        {
+          "revision": 2,
+          "action": "reject"
+        },
+        {
+          "revision": 3,
+          "action": "revoke"
+        }
+      ],
+      "detail": "Existing independent review shows None at revision3 and retained history; no decision added."
+    },
+    {
+      "name": "real Free UI CSV gate refuses export",
+      "status": "PASS",
+      "coverage": "UI_GATE_ONLY",
+      "evidence": [
+        "final-workbench-dom.txt",
+        "account-observed-summary.json"
+      ],
+      "detail": "Actual Free account, disabled Export button and paid-plan requirement visible. Browser blocked direct API navigation, so authenticated export HTTP403 was not observed or claimed."
+    },
+    {
+      "name": "exact production D1 audit source and ownership unchanged",
+      "status": "PASS",
+      "evidence": [
+        "exact-synthetic-read.sql",
+        "d1-read-command.json",
+        "d1-exact-rows.json",
+        "d1-independent-comparison.json"
+      ],
+      "detail": "Six ordinary remote SELECTs scoped only to named synthetic analysis/workspace; all success with rows_written0; exact result groups equal previous production final rows, including original observations, immutable review snapshots, head and actor ownership."
+    },
+    {
+      "name": "machine source and reviewed snapshot hashes remain unchanged",
+      "status": "PASS",
+      "evidence": [
+        "scoped-provenance-dom.txt",
+        "final-workbench-dom.txt",
+        "d1-independent-comparison.json"
+      ],
+      "workbenchSourceHash": "d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb",
+      "reviewedSnapshotHash": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+    },
+    {
+      "name": "no checks consumed and no new audit decisions",
+      "status": "PASS",
+      "evidence": [
+        "account-observed-summary.json",
+        "d1-independent-comparison.json"
+      ],
+      "availableBefore": 6,
+      "availableAfter": 6,
+      "allowance": 10,
+      "consumed": 4,
+      "reserved": 0,
+      "reviewRevision": 3,
+      "detail": "Only read/search/provenance/navigation actions; no analysis submission, payment, review submission, deletion or customer asset operation."
+    },
+    {
+      "name": "observed production narrow viewport has no horizontal overflow",
+      "status": "PASS",
+      "evidence": [
+        "observed-layout.json",
+        "final-workbench.png"
+      ],
+      "observedWidth": 319,
+      "detail": "Used existing browser viewport, no override; all three decision sections and provenance remain readable in stacked layout."
+    }
+  ],
+  "httpEvidence": "/tmp/pairvu-upg06-production/http-independent.json",
+  "finalHealthEvidence": "/tmp/pairvu-upg06-production/health-final.json",
+  "d1Evidence": "/tmp/pairvu-upg06-production/d1-independent-comparison.json",
+  "readOnly": true,
+  "newReviewEvents": 0,
+  "expectedCredits": 6,
+  "toolIncidents": [
+    {
+      "kind": "QA locator",
+      "detail": "getByLabel Review state and role article/text waitFor returned selector deadlines; actual DOM remained valid. Recovered with observed combobox role and settled DOM captures. No application failure inferred."
+    },
+    {
+      "kind": "Browser API navigation",
+      "detail": "Direct production /api/releases/export and /api/releases/status navigation blocked by browser client; existing page remained /account. No token extraction, alternate authenticated HTTP client or bypass used. No production authenticated HTTP403 asserted."
+    },
+    {
+      "kind": "D1 credential environment",
+      "detail": "First normal CLI had no CLOUDFLARE_API_TOKEN; original error and command preserved. Controller clarified standard .dev.vars loader; exact same six SELECTs then succeeded under normal permission with no credentials output."
+    },
+    {
+      "kind": "QA browser handle",
+      "detail": "Viewport documentation lookup initially referenced undefined browser handle; acquired selected browser ID2 handle and read documented capability. No viewport override applied because resizing merely for a prettier screenshot is prohibited."
+    }
+  ],
+  "limitations": [
+    "PASS applies to the actual signed-in UI/search/source/audit checks listed, not all business paths. HTTP receipt is scope=http only.",
+    "No real paid testing session existed: successful production CSV export, paid rows/escaping and live positive entitlement remain NOT_COVERED in production; these were independently accepted locally at fixed candidate/release sources. No paid role, subscription or payment was fabricated.",
+    "Authenticated backend export HTTP403 was not observed: browser client rejected direct /api/releases/export and /status navigation. Real Free UI disabled export is proven; local actual-route paid denial was accepted. Anonymous API401 is independently proven with ordinary no-session curl.",
+    "Only existing specified synthetic analysis detail/audit opened; workspace list pagination and same synthetic-product SKU history were read for filter/page checks. No other analysis mutation, new model call, fault injection, second-account cross-tenant probe or retention deletion was attempted.",
+    "No existing complete approved supported production fixture was created, so positive ELIGIBLE and live approve/revoke qualification transitions are not claimed. Rule conservatively blocked the existing incomplete REVIEW/revoke source as intended; positive qualification and race counterexamples remain local acceptance evidence.",
+    "Pagination is current evaluation with bounded source windows, not a frozen complete workspace export. Only two actual pages checked plus exact first-page restoration.",
+    "Exact remote six result groups compared to previous production final evidence; all six queries wrote zero rows. No wider customer query or credentials/cookie/token export.",
+    "Observed production viewport319px verified; full desktop+narrow React acceptance is reused from unchanged source, not falsely relabeled as a new production desktop test."
+  ],
+  "evidenceDirectory": "/tmp/pairvu-upg06-production",
+  "screenshots": [
+    "/tmp/pairvu-upg06-production/final-workbench.png",
+    "/tmp/pairvu-upg06-production/scoped-provenance.png"
+  ],
+  "nextAction": {
+    "action": "Controller evaluates this scoped production PASS with explicit uncovered paths, imports exact-SHA/Worker HTTP and business evidence, formally closes UPG-06, and summarizes the next task batch without starting new features.",
+    "dependency": "Controller production evidence import/state transition; positive paid CSV remains an explicit coverage gap until a real paid test session is available.",
+    "automatic": true,
+    "userInputRequiredNow": false,
+    "automation": "pairvu-2 remains paused."
+  },
+  "artifacts": [
+    {
+      "path": "/tmp/pairvu-upg06-production/http-independent.json",
+      "bytes": 5154,
+      "sha256": "a40441aa27a7502624ed0c6772dd5566ecc186753b6c43bae566c99612f50836"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/health-final.headers",
+      "bytes": 566,
+      "sha256": "bbc4797ca4a7ec1a8b96abe2154a01102ca52db4e80c8127b9dfbe9a77077f4f"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/health-final.json",
+      "bytes": 165,
+      "sha256": "de557750325a04bdfe51d431a3a45ba97364e542908b2a98cec85cdc29b23b1d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/expected-policy.json",
+      "bytes": 1601,
+      "sha256": "ffe57cff1d830f0c942011964f10ac7d7ad17b6acf9bd86861bbffbd7de33713"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/browser-operations.json",
+      "bytes": 2276,
+      "sha256": "75abcbc9c102f731b75aa370cfd18731c1003c537ecfc5e8ca41d63041ad6ebe"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/tool-incidents.json",
+      "bytes": 1163,
+      "sha256": "da1b0222003c947e014727920d6fb8ea140f8915c16952853bc552a7d9cedd92"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/account-observed-summary.json",
+      "bytes": 509,
+      "sha256": "2f5b0f0c66ec830ea684a140a0061e8bb0e1d3c573e6fcfbdd3b373f91d7e5a2"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/pagination-observed.json",
+      "bytes": 159,
+      "sha256": "f341abe6758448d055866c5b08150b78055c3749e8ff3e78aea8fe296919ad1d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/observed-layout.json",
+      "bytes": 89,
+      "sha256": "9782dec282991281a49739d6d8619ccb273ccc4a3c7f0aec3ac5b480c0525330"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/exact-synthetic-read.sql",
+      "bytes": 1304,
+      "sha256": "a19cda9d77de78632322ed05f3f6aa28c56ec09d2da5a75dba771c96c830e1bb"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-command-initial.json",
+      "bytes": 332,
+      "sha256": "7df32bcf825375dd7bbf91d9bbc3eee915b946773cef0265413407b864777584"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-stdout-initial.txt",
+      "bytes": 342,
+      "sha256": "d13205ceccf83af9121a1f9fef858a0bc3e8d8f905c2a5ba87cb0d3195545c7d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-stderr-initial.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-command.json",
+      "bytes": 368,
+      "sha256": "32a15d2a649e62b5addb68fc771d9871979e7a4d51a95c13f69999ff3c6d3f4b"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-stdout.txt",
+      "bytes": 47684,
+      "sha256": "23a1096dc6748ae801a7cbce18ba48a9ecc8d7503fbc48f1154f883e8558f14c"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-read-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-exact-rows.json",
+      "bytes": 47684,
+      "sha256": "23a1096dc6748ae801a7cbce18ba48a9ecc8d7503fbc48f1154f883e8558f14c"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/d1-independent-comparison.json",
+      "bytes": 1098,
+      "sha256": "dbfd924d04351b598768ece18d65a66865c97f7b099fecf859fe77f550c15ef5"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/workbench-initial-dom.txt",
+      "bytes": 45744,
+      "sha256": "c147ec03f952cd33526a8192ac538b15ea1eb9b019dc1da358277cc23b6b5e02"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/scoped-provenance-dom.txt",
+      "bytes": 7287,
+      "sha256": "35f632c76de9a70f040f0fefe40656b8078a2095c4511124d167f4d28390fbb5"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-blocked-dom.txt",
+      "bytes": 6576,
+      "sha256": "8bc44db0d2a4e506a69eacaa24aa68a5c0e0d6d023fdddb877e84b1a65ac4e11"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-pending-dom.txt",
+      "bytes": 3400,
+      "sha256": "bf7d35628f74324658886b77e5e4d19e0a717f5b8a9d189aef63927b04376a6a"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-decided-dom.txt",
+      "bytes": 3400,
+      "sha256": "c3a76c71623d8b05276db9eb545624109d08a41a6517db95af46b0e3399c588a"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-sku-empty-dom.txt",
+      "bytes": 3409,
+      "sha256": "8b9155fd1d8477c80022e91944d11159752d8f48f9db2ecac8d030bb6298c423"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-batch-dom.txt",
+      "bytes": 6527,
+      "sha256": "197ceaa5eabd7936cdc2f467b994a39b286559f58aa7e79f9b31276d18f52d9b"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/filter-sku-dom.txt",
+      "bytes": 13137,
+      "sha256": "f296b8451fa9413ec27cf8acbbeae6c68cc69067c2451ac78ef4a6545390ef40"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/pagination-first-dom.txt",
+      "bytes": 45772,
+      "sha256": "7f75297dd4fed503572679f2418bc3c85ecf39cbed6264cd08b787dc7eced338"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/pagination-second-dom.txt",
+      "bytes": 48899,
+      "sha256": "10c94b1eafeb02566017669456ff6f8a7f87260ce2a3004d9d1045e1cee2b2ea"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/pagination-back-dom.txt",
+      "bytes": 45772,
+      "sha256": "7f75297dd4fed503572679f2418bc3c85ecf39cbed6264cd08b787dc7eced338"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/target-restored-dom.txt",
+      "bytes": 6604,
+      "sha256": "364493ade9536600637354cfa0ce76a3036270b308e14fb4b3c7379edcb3ef91"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/analysis-detail-loaded-dom.txt",
+      "bytes": 27504,
+      "sha256": "0f6317521d95e801e420b6a5115a552afc3c9b426e4710caf5a70c854a59c11a"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/analysis-audit-dom.txt",
+      "bytes": 29064,
+      "sha256": "7605c9f8e9b13365c16d38b15681b22b8f0855d85d4079a6becd9aad977c2326"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/final-workbench-dom.txt",
+      "bytes": 7315,
+      "sha256": "1ddcd5d0efc7d5d8f1a63d143bae48358ac38da55adac437f4e75d807aae9268"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/final-workbench.png",
+      "bytes": 276007,
+      "sha256": "133274a1ac61f5dffedceb47ffd1f9dd86160a07917eac757b7acb4e3d1879c0"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/scoped-provenance.png",
+      "bytes": 275985,
+      "sha256": "1efc380fd1b5be88fe2455b427c1198743266564224f472bef78b260acc78b7d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/read-d1.py",
+      "bytes": 1463,
+      "sha256": "6870878f6e61babee89687eea07b5dd70813bda100814755312e7cdf8c6975c9"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/finalize.py",
+      "bytes": 15804,
+      "sha256": "04463abc21099c3eed804bba17cd18ce364cc1017aa14de883f95a6ab48c48dd"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-0.headers",
+      "bytes": 564,
+      "sha256": "7d06746b7f33ad9b181990c3335ea216b0b6bbe38de306210b4beca54d917ebe"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-0.body",
+      "bytes": 165,
+      "sha256": "de557750325a04bdfe51d431a3a45ba97364e542908b2a98cec85cdc29b23b1d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-1.headers",
+      "bytes": 613,
+      "sha256": "9344ddee44fdea9e186722e5bc91ac1fe267058de928d6350525bbe5ac11eaa2"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-1.body",
+      "bytes": 85,
+      "sha256": "55e5da85447f46ee5ecb947f949cbfd2f323b4730fede59897029b56730f8636"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-2.headers",
+      "bytes": 605,
+      "sha256": "6f386adc64f7b409ee43cca9b6f71e598a6b972815b3091263a183da53da0cb7"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-2.body",
+      "bytes": 85,
+      "sha256": "55e5da85447f46ee5ecb947f949cbfd2f323b4730fede59897029b56730f8636"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-3.headers",
+      "bytes": 615,
+      "sha256": "44f3510d3cc55f0e53daab89c7f4525108549f9c020db6e3199b3fbc3b7bfe81"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-3.body",
+      "bytes": 85,
+      "sha256": "55e5da85447f46ee5ecb947f949cbfd2f323b4730fede59897029b56730f8636"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-4.headers",
+      "bytes": 695,
+      "sha256": "d6d66eca8eabd23ac998542846614b4389083a42092d29178925c6be7f5c2e1d"
+    },
+    {
+      "path": "/tmp/pairvu-upg06-production/http-4.body",
+      "bytes": 17790,
+      "sha256": "24504ffeb7a25489b2e043478b9ac28fbb03e268a9c8eae8e9c28cf2a22de440"
+    }
+  ],
+  "observedControllerWorkingTree": " M docs/04-roadmap/next-development-batch-2026-10-10.md\n M operations/backlog.json\n M operations/task-registry.json\n?? operations/evidence/production-upg06-2026-10-12/\n",
+  "sharedRepositoryWritesByQA": false
+}

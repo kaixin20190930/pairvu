@@ -76,3 +76,11 @@ UPG-05已完成GitHub-first发布、0021迁移和Cloudflare部署（2013e22 / Wo
 用户明确授权本单元GitHub-first发布、Cloudflare部署、启用、真实登录生产验收及必要修复。来源thread 01a0bcd5-909b-7b72-b64b-399e8028c919 / turn 01a12e0c-4647-7093-8cbe-1bbf3323090d / message 01a12e0c-467f-7e43-ac3d-2a85b4ab7d92。通过后梳理下一批任务，不自行启动新功能或恢复已暂停pairvu-2。
 开发Sol/medium：仅开启明确开关并更新原配置断言，范围有限可直接核验；若涉及鉴权/规则语义变化重新评估high。发布增量QASol/medium：固定最终SHA核对启用差分、原证据及专项/typecheck；额外运行时差分升级high。生产QASol/high：真实会话、工作台三类判定、冻结SKU/批次来源和权限跨层核对，环境故障不升级。
 生产只使用已存在合成SKU和分析，优先只读工作台/筛选/分页/详情/规则来源及Free导出拒绝；不购买、不伪造付费权限、不消耗模型额度。确有必要仅对既有合成分析追加明确QA批准/撤销用于验证，不改原机器证据，不改客户资产。付费正向导出若没有真实付费测试会话，明确本地已验收而生产未覆盖，不伪造。真实登录缺失则报告所需用户动作。
+
+## 2026-10-12 UPG06生产正式关闭
+
+2026-10-12：UPG-06发布工作台已发布、启用并通过本轮真实登录独立验收，正式CLOSED。生产SHA `da0e3554b9168d528f6ac2e985e6e4b9ad498838` / Worker `c329c189-df72-4e94-9abc-f2a0c6e63616`。GitHub-first fresh核验、无待迁移确认、精确SHA构建部署完成；8项独立HTTP、16项真实登录业务检查PASS。付费CSV正向及登录导出HTTP403未生产实测，完整ELIGIBLE正向仅本地验收，不泛化为全业务路径覆盖。pairvu-2继续暂停。
+
+正式manifest：`operations/evidence/production-upg06-2026-10-12/manifest.json`，已执行record-deployment→verify-production→close；真实业务原件为同目录production-functional.json。Free UI禁用、规则哈希、筛选/分页、冻结SKU来源、既有审计/原机器不变及余额6均实测。没有生产写审计/新模型调用/付款。
+
+下一步：建议先确定UPG-07参考视角shadow评测最小契约与授权样本，其次UPG-10价值指标，再UPG-08 API及UPG-09 Webhook。本轮已自动完成发布收尾和清单同步；新的开发单元需用户确认启动，真实质量结论需数据授权/双人标注。未自动派新任务、未恢复巡检。

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-06",
+  "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "scope": "http",
+  "result": "PASS",
+  "reviewedAt": "2026-10-12T05:14:28.478Z",
+  "checks": [
+    {
+      "name": "actual production health reachable",
+      "status": "PASS"
+    },
+    {
+      "name": "exact production release SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "exact production Worker version",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous release list denied",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous release status denied",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous release CSV denied",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous workbench redirects to sign-in",
+      "status": "PASS"
+    },
+    {
+      "name": "private no-store authentication failures",
+      "status": "PASS"
+    }
+  ]
+}

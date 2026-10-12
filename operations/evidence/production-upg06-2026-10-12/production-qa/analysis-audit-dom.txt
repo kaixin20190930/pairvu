@@ -1,0 +1,657 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "Pairvu home":
+    - /url: /
+    - text: Pairvu
+  - button "Menu":
+    - generic: Menu
+- main:
+  - region "Did AI change your product?":
+    - paragraph: Pairvu AI product image checker
+    - heading "Did AI change your product?" [level=1]
+    - paragraph: Quality control for AI product photography.
+    - paragraph: Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+    - generic "Pairvu":
+    - region "Use two views that make the same product details observable":
+      - paragraph: Your first check
+      - heading "Use two views that make the same product details observable" [level=2]
+      - list:
+        - strong: 1. Approved original
+        - generic: Use the product image you trust.
+        - strong: 2. Candidate
+        - generic: Add the generated, edited, or proposed image.
+        - strong: 3. Verdict
+        - generic: Review PASS, REVIEW, or FAIL with visible evidence.
+      - paragraph: For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+    - generic: Original product image
+    - strong: Upload a real or approved image of the product.
+    - button "Original product image Upload a real or approved image of the product. Approved original Reference preview"
+    - generic: Approved original
+    - img "Reference preview"
+    - generic: Image to check
+    - strong: Upload the generated, edited or candidate image.
+    - button "Image to check Upload the generated, edited or candidate image. Image checked Candidate preview"
+    - generic: Image checked
+    - img "Candidate preview"
+    - paragraph:
+      - text: Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set.
+      - link "Privacy details":
+        - /url: /privacy
+    - button "Check image" [disabled]
+    - button "Check another image"
+    - region "REVIEW":
+      - paragraph: Verdict
+      - heading "REVIEW" [level=2]
+    - region "Actual detected fidelity issues":
+      - paragraph: Product differences
+      - heading "Actual detected fidelity issues" [level=2]
+      - paragraph: No product issues were confirmed.
+    - region "Observability problems and analysis limitations":
+      - paragraph: Needs review / Could not verify
+      - heading "Observability problems and analysis limitations" [level=2]
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: Provider did not return an observation for visible_text.
+        - paragraph: Visible text
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: Provider did not return an observation for quantity.
+        - paragraph: Product count
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: Provider did not return an observation for dominant_color.
+        - paragraph: Main color
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: Provider did not return an observation for major_components.
+        - paragraph: Major components
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: Provider did not return an observation for major_shape_packaging.
+        - paragraph: Shape and packaging
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Not visible enough · High confidence
+        - paragraph: logo is not sufficiently observable.
+        - paragraph: Logo
+        - term: Reference · visible expected
+        - definition: Blue rectangular container with black cap and central white label area, but no textual brand name visible
+        - term: Candidate · observed
+        - definition: Blue rectangular container with black cap and central white label area, but no textual brand name visible
+        - term: Reference · model-reported identity evidence
+        - definition: absent
+        - term: Candidate · model-reported identity evidence
+        - definition: absent
+        - term: What changed
+        - definition: Not visible
+        - term: Summary
+        - definition: No meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.
+        - term: Original visible
+        - definition: "No"
+        - term: Candidate visible
+        - definition: "No"
+        - term: Visible evidence
+        - definition: blue rectangular container, black cap, white central label area
+        - term: Why uncertain
+        - definition: Identity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Relevant evidence is not visible.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Relevant evidence is not visible.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: visible_text was not returned by the provider.
+        - paragraph: Visible text
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: quantity was not returned by the provider.
+        - paragraph: Product count
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: dominant_color was not returned by the provider.
+        - paragraph: Main color
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: major_components was not returned by the provider.
+        - paragraph: Major components
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+      - article:
+        - strong: Could not run a check · High confidence
+        - paragraph: major_shape_packaging was not returned by the provider.
+        - paragraph: Shape and packaging
+        - term: Reference · visible expected
+        - definition: —
+        - term: Candidate · observed
+        - definition: —
+        - term: What changed
+        - definition: —
+        - term: Summary
+        - definition: —
+        - term: Original visible
+        - definition: —
+        - term: Candidate visible
+        - definition: —
+        - term: Visible evidence
+        - definition: —
+        - term: Why uncertain
+        - definition: —
+        - figure "Reference · visible expected":
+          - strong: Reference · visible expected
+          - img "Reference · visible expected image"
+          - text: Image zoom
+          - slider "Reference · visible expected image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+        - figure "Candidate · observed":
+          - strong: Candidate · observed
+          - img "Candidate · observed image"
+          - text: Image zoom
+          - slider "Candidate · observed image zoom": "100"
+          - generic: 100%
+          - paragraph: Region not recorded for this result.
+    - region "Checks the model reports as matching":
+      - paragraph: Model-supported checks
+      - heading "Checks the model reports as matching" [level=2]
+      - paragraph: No checks were cleanly verified.
+    - generic "Analysis provenance"
+    - paragraph: This is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.
+    - paragraph: "Detector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002"
+    - paragraph: "Model: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openai"
+    - region "Independent human decision":
+      - paragraph: Human review
+      - heading "Independent human decision" [level=2]
+      - paragraph:
+        - text: "Machine verdict:"
+        - strong: review
+        - text: . Human approval does not establish release eligibility.
+      - paragraph:
+        - text: "Current human decision:"
+        - strong: None
+        - text: · Revision 3
+      - paragraph: The previous decision was revoked. Its audit history is retained.
+      - group "Decision draft":
+        - generic: Decision draft
+        - text: Decision
+        - combobox "Human decision":
+          - option "Approve" [selected]
+          - option "Reject"
+          - option "Revoke current decision" [disabled]
+        - text: Reason category
+        - combobox "Review category":
+          - option "false positive"
+          - option "false negative"
+          - option "intentional change"
+          - option "wrong reference"
+          - option "insufficient evidence"
+          - option "other" [selected]
+        - text: Reason (required, up to 1000 characters)
+        - textbox "Review reason"
+        - text: Optional note (up to 2000 characters)
+        - textbox "Review note"
+      - button "Record human decision" [disabled]
+      - button "Refresh review history"
+      - generic "Audit history · latest 3 of up to 100 events" [active]
+      - list:
+        - strong: Revision 1 · approve
+        - paragraph: "other · QA UPG-05 production smoke: synthetic blue-box analysis only; test approval does not authorize release."
+        - paragraph: <b>QA synthetic-only audit note</b>
+        - paragraph: Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:07:12.915Z
+        - paragraph: "Machine source: review · m0-qa-engine-008"
+        - strong: Revision 2 · reject
+        - paragraph: "insufficient evidence · QA UPG-05 production smoke: synthetic-only rejection; original machine REVIEW and insufficient identity evidence remain unchanged."
+        - paragraph: Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:08:13.448Z
+        - paragraph: "Machine source: review · m0-qa-engine-008"
+        - strong: Revision 3 · revoke
+        - paragraph: "other · QA UPG-05 production smoke complete: revoke the synthetic test decision; retain immutable approval and rejection history."
+        - paragraph: Actor ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz · 2026-10-11T15:08:44.518Z
+        - paragraph: "Machine source: review · m0-qa-engine-008"
+    - region "Tell us whether this result was right":
+      - paragraph: Feedback
+      - heading "Tell us whether this result was right" [level=2]
+      - button "Correct"
+      - button "False alarm"
+      - button "Missed something"
+  - region "See PASS, REVIEW, and FAIL before your first check":
+    - paragraph: Controlled comparison examples
+    - heading "See PASS, REVIEW, and FAIL before your first check" [level=2]
+    - paragraph: These are controlled examples, not customer case studies or statistical performance claims.
+    - link "View all examples":
+      - /url: /examples
+    - link "FAIL Scent and sheet count changed FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS.":
+      - /url: /examples/laundry-sheets-scent-count-change
+      - generic: FAIL
+      - strong: Scent and sheet count changed
+      - generic: FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS.
+    - link "PASS Background changed, product matched The approved carton moved into a laundry-room setting without a product change.":
+      - /url: /examples/laundry-sheets-background-change
+      - generic: PASS
+      - strong: Background changed, product matched
+      - generic: The approved carton moved into a laundry-room setting without a product change.
+    - link "REVIEW Front details could not be verified The candidate shows the back, so front logo, scent, and count need review.":
+      - /url: /examples/laundry-sheets-back-view-review
+      - generic: REVIEW
+      - strong: Front details could not be verified
+      - generic: The candidate shows the back, so front logo, scent, and count need review.
+    - paragraph:
+      - text: Need the complete test design?
+      - link "Review the Pairvu Controlled Visual QA Benchmark":
+        - /url: /examples/controlled-visual-qa-benchmark
+      - text: .
+  - region "Check the product, not just the picture":
+    - paragraph: Reference-based visual QA
+    - heading "Check the product, not just the picture" [level=2]
+    - paragraph: Pairvu compares an AI-generated or edited product image with an approved original. It looks for visible changes that can make a product image inaccurate before the image is published.
+    - list:
+      - generic: "1"
+      - strong: Add the approved original
+      - paragraph: Use a clear image that represents the product you intend to show.
+      - generic: "2"
+      - strong: Add the image to check
+      - paragraph: Upload the generated, edited, or otherwise proposed product image.
+      - generic: "3"
+      - strong: Review visible differences
+      - paragraph: Get a PASS, REVIEW, or FAIL with evidence and observability limits.
+  - region "What Pairvu checks":
+    - paragraph: Product fidelity checks
+    - heading "What Pairvu checks" [level=2]
+    - article:
+      - heading "Logo and visible text" [level=3]:
+        - link "Logo and visible text":
+          - /url: /checks/product-logo
+      - paragraph:
+        - text: Brand marks, product names, label wording, and
+        - link "printed values":
+          - /url: /checks/product-label-text
+        - text: such as size or capacity.
+    - article:
+      - heading "Product count and components" [level=3]:
+        - link "Product count and components":
+          - /url: /checks/product-components
+      - paragraph:
+        - link "Visible product units":
+          - /url: /checks/product-quantity
+        - text: and major parts that are missing, added, or materially changed.
+    - article:
+      - heading "Main color and packaging" [level=3]:
+        - link "Main color and packaging":
+          - /url: /checks/product-color
+      - paragraph:
+        - text: Semantic product colors, container shape,
+        - link "packaging silhouette":
+          - /url: /checks/product-packaging
+        - text: ", and major structural changes."
+    - article:
+      - heading "What cannot be verified" [level=3]:
+        - link "What cannot be verified":
+          - /url: /checks/product-image-observability
+      - paragraph: Occlusion, unreadable text, incomplete coverage, and viewpoint differences are kept in review.
+  - region "Create faster without losing product truth":
+    - paragraph: AI product photography
+    - heading "Create faster without losing product truth" [level=2]
+    - paragraph: AI can change a scene quickly, but it can also alter a label, logo, color, count, component, or package. Pairvu adds a reference-based quality-control step between image creation and publishing.
+    - link "Learn about quality control for AI product photography":
+      - /url: /ai-product-photography
+  - region "Build a safer pre-publish workflow":
+    - paragraph: Learn from real failure modes
+    - heading "Build a safer pre-publish workflow" [level=2]
+    - link "Comparison examples See the visible changes Pairvu is designed to catch.":
+      - /url: /examples
+      - strong: Comparison examples
+      - generic: See the visible changes Pairvu is designed to catch.
+    - link "Product checks Use Pairvu's evidence rules for logo, text, quantity, color, components, packaging, and observability.":
+      - /url: /checks
+      - strong: Product checks
+      - generic: Use Pairvu's evidence rules for logo, text, quantity, color, components, packaging, and observability.
+    - link "Product categories Review category-specific risks across the five supported packaged-goods families.":
+      - /url: /categories
+      - strong: Product categories
+      - generic: Review category-specific risks across the five supported packaged-goods families.
+    - link "Pre-publish checklist Review product fidelity before an image goes live.":
+      - /url: /guides/ai-product-photography-checklist
+      - strong: Pre-publish checklist
+      - generic: Review product fidelity before an image goes live.
+    - link "How Pairvu works Understand the comparison method, verdicts, and visible-evidence limits.":
+      - /url: /how-pairvu-works
+      - strong: How Pairvu works
+      - generic: Understand the comparison method, verdicts, and visible-evidence limits.
+    - link "Use cases Fit Pairvu into brand, creative, and commerce workflows.":
+      - /url: /use-cases
+      - strong: Use cases
+      - generic: Fit Pairvu into brand, creative, and commerce workflows.
+  - region "About the checker":
+    - paragraph: Common questions
+    - heading "About the checker" [level=2]
+    - generic "Does Pairvu generate product images?"
+    - generic "Does a PASS guarantee marketplace approval?"
+    - generic "What happens when a detail is hidden or unreadable?"
+- contentinfo:
+  - link:
+    - /url: /
+  - paragraph: Quality control for AI product photography.
+  - heading "Product" [level=2]
+  - link "AI Product Image Checker":
+    - /url: /
+  - link "Check Image":
+    - /url: /#checker
+  - link "How It Works":
+    - /url: /how-pairvu-works
+  - link "Pricing":
+    - /url: /pricing
+  - heading "Learn" [level=2]
+  - link "AI Product Photography":
+    - /url: /ai-product-photography
+  - link "Examples":
+    - /url: /examples
+  - link "Product Categories":
+    - /url: /categories
+  - link "Product Checks":
+    - /url: /checks
+  - link "Guides":
+    - /url: /guides
+  - link "Checklist":
+    - /url: /guides/ai-product-photography-checklist
+  - heading "Use Cases" [level=2]
+  - link "Ecommerce":
+    - /url: /use-cases/ecommerce-product-image-qa
+  - link "Amazon Sellers":
+    - /url: /use-cases/amazon-product-image-qa
+  - link "Shopify Stores":
+    - /url: /use-cases/shopify-product-image-qa
+  - link "Brands":
+    - /url: /use-cases/brands
+  - link "Creative Agencies":
+    - /url: /use-cases/creative-agencies
+  - heading "Legal" [level=2]
+  - link "Privacy":
+    - /url: /privacy
+  - heading "Other products" [level=2]
+  - link "Moxion":
+    - /url: https://moxion.ai
+  - link "Sigoo":
+    - /url: https://sigoo.ai
+  - link "AI Best Tool":
+    - /url: https://aibesttool.com
+  - link "Triptrace":
+    - /url: https://triptrace.ai
+  - generic: © 2026 Pairvu
+  - generic: Visible product QA, not marketplace certification.
+- alert: Pairvu - AI Product Image Checker

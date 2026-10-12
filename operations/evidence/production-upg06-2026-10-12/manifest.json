@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "unitId": "UPG-06",
+  "qaCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
+  "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+  "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+  "environment": "production",
+  "origin": "https://pairvu.com",
+  "recordedAt": "2026-10-12T05:15:46.159Z",
+  "authorization": {
+    "path": "authorization.json",
+    "sha256": "e58239f81ad5a71d055ed9c1559cecb60d7a7f05055a200fdf490e2ecf5f7d4c"
+  },
+  "migration": {
+    "path": "migration.json",
+    "sha256": "691dfbee7feacf1373158a6ec93924f1738bcd1a12d42509f3740daaa1c6ece4"
+  },
+  "build": {
+    "path": "build.json",
+    "sha256": "445097a81b7f3d28737c707f50fa03f5bf608510b2edfffdf4b7b4b644c93599"
+  },
+  "deployment": {
+    "path": "deployment.json",
+    "sha256": "05189c467fa881e7a9be16828381cea0c29633407c1d3cf856419e573f0b06a0"
+  },
+  "smoke": {
+    "path": "smoke.json",
+    "sha256": "8c1ae4b505dcf06118dfdd2e5941e48ad3acf51f7bcb5f2d548e936573d11172"
+  },
+  "productionQa": {
+    "path": "productionQa.json",
+    "sha256": "d525aa8c32167793bbe4a992a52606e357ca2b272f0e94d2e8c9dd6832d9d57f"
+  },
+  "releaseQa": {
+    "path": "releaseQa.json",
+    "sha256": "4991e0957e262e423b63cd01c7a0370fe575b3720390999246bcf873dddbf0fc"
+  }
+}

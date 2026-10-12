@@ -35,7 +35,7 @@
       "upgradeCondition": "仅重复且定位到推理不足才评估更高模型，先缩域补输入；环境问题不升级。",
       "applied": true
     },
-    "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:27",
+    "afterCursor": "14c06b48-71c4-4260-bfed-ea71332977d3:79",
     "observedStatus": "completed",
     "receipt": "operations/evidence/UPG-06.json",
     "releaseModelSelection": {
@@ -64,22 +64,24 @@
       "thinking": "high",
       "reason": "真实会话、规则/机器/人审分离、冻结SKU来源与权限跨层验收。",
       "upgradeCondition": "出现鉴权/规则语义额外变化或可定位推理不足再评估；环境故障不升级。",
-      "applied": false
+      "applied": true
     },
     "cliReceipt": "operations/evidence/UPG-06-cli.json"
   },
   "candidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
-  "state": "RELEASE_READY",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "UPG06启用候选a7cec389已完成76专项/typecheck，准备固定最终发布SHA增量QA；当前未推送部署。",
-  "nextUnitId": "UPG-06",
+  "notes": "2026-10-12：UPG-06发布工作台已发布、启用并通过本轮真实登录独立验收，正式CLOSED。生产SHA `da0e3554b9168d528f6ac2e985e6e4b9ad498838` / Worker `c329c189-df72-4e94-9abc-f2a0c6e63616`。GitHub-first fresh核验、无待迁移确认、精确SHA构建部署完成；8项独立HTTP、16项真实登录业务检查PASS。付费CSV正向及登录导出HTTP403未生产实测，完整ELIGIBLE正向仅本地验收，不泛化为全业务路径覆盖。pairvu-2继续暂停。",
+  "nextUnitId": "UPG-07",
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "2013e22a01f9e44bdce1d8b2277175405736b1db",
-    "platformVersion": "8e0e8aee-2fce-41c6-9435-e157b61af4d7",
-    "evidenceDirectory": "operations/evidence/production-upg05-2026-10-11",
-    "receipt": "operations/evidence/production-upg05-2026-10-11/manifest.json",
-    "functionalReceipt": "operations/evidence/production-upg05-2026-10-11/production-functional.json"
+    "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+    "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+    "featureEnabled": true,
+    "evidenceDirectory": "operations/evidence/production-upg06-2026-10-12",
+    "receipt": "operations/evidence/production-upg06-2026-10-12/manifest.json",
+    "functionalReceipt": "operations/evidence/production-upg06-2026-10-12/production-functional.json",
+    "scope": "8 HTTP and 16 real signed-in checks; paid CSV positive/authenticated export403/positive ELIGIBLE not production-covered"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -150,6 +152,16 @@
       "evidenceDirectory": "operations/evidence/production-upg05-2026-10-11",
       "receipt": "operations/evidence/production-upg05-2026-10-11/manifest.json",
       "functionalReceipt": "operations/evidence/production-upg05-2026-10-11/production-functional.json"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "releaseSha": "da0e3554b9168d528f6ac2e985e6e4b9ad498838",
+      "platformVersion": "c329c189-df72-4e94-9abc-f2a0c6e63616",
+      "featureEnabled": true,
+      "evidenceDirectory": "operations/evidence/production-upg06-2026-10-12",
+      "receipt": "operations/evidence/production-upg06-2026-10-12/manifest.json",
+      "functionalReceipt": "operations/evidence/production-upg06-2026-10-12/production-functional.json",
+      "scope": "8 HTTP and 16 real signed-in checks; paid CSV positive/authenticated export403/positive ELIGIBLE not production-covered"
     }
   ],
   "loginAcceptance": {
@@ -162,12 +174,12 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "启用提交→固定SHA增量QA→GitHub-first→Cloudflare部署→真实登录独立验收→整理下一批",
-    "dependency": "真实发布和生产门禁；付费正向导出不能伪造",
-    "automatic": true
+    "action": "确认UPG-07最小shadow评测契约和授权样本，随后UPG-10指标、UPG-08 API、UPG-09 Webhook",
+    "dependency": "下一单元启动确认及有效样本/双标留出集；保持autoEligible=false、pairvu-2 PAUSED",
+    "automatic": false
   },
-  "completedUnitId": "UPG-05",
-  "completedCandidateSha": "736e61f7b7c1ffe4e886ef4b5821d79049265621",
+  "completedUnitId": "UPG-06",
+  "completedCandidateSha": "65a8591710caa92b61db555e6e7abc289fc04767",
   "completedReleaseRepair": {
     "state": "CLOSED",
     "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",

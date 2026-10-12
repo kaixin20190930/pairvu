@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "query": 1,
+      "rows": 3,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    },
+    {
+      "query": 2,
+      "rows": 1,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    },
+    {
+      "query": 3,
+      "rows": 1,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    },
+    {
+      "query": 4,
+      "rows": 1,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    },
+    {
+      "query": 5,
+      "rows": 3,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    },
+    {
+      "query": 6,
+      "rows": 1,
+      "rowsWritten": 0,
+      "exactRowsEqualToUPG05Final": true
+    }
+  ],
+  "comparedAgainst": "/tmp/pairvu-upg05-production-d1-rows.json",
+  "baselineSha256": "557957fff4ccab6c5b786b959dd33061513def24153fdb4b161c75cdd5fda913",
+  "machineSnapshotSha256": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+  "allThreeOriginalSnapshotsExact": true,
+  "currentRevision": 3,
+  "availableCredits": 6,
+  "allActorOwnershipChecksTrue": true
+}

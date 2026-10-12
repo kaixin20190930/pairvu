@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-12T04:59:22.657Z",
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "method": "GET",
+      "cookieSent": false,
+      "commandExitCode": 0,
+      "status": 200,
+      "headers": "HTTP/2 200 \ndate: Mon, 12 Oct 2026 04:59:13 GMT\ncontent-type: application/json\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5JohEz1fXtoVINKR5fjg4SOZUGv%2F5sWqMKeFmm1W7aeCMs3EhUOSKza5xlgcGSKEu1COKZFNqwEo%2FzJtonFGxwu4eCVALNkyTPxr3YU4semOsZvxgYlQy%2FIndzhM\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a49388b2a99e100b-SYD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "bodyPath": "/tmp/pairvu-upg06-production/http-0.body",
+      "body": "{\"ok\":true,\"service\":\"pairvu\",\"release\":\"public-beta\",\"buildSha\":\"da0e3554b9168d528f6ac2e985e6e4b9ad498838\",\"platformVersion\":\"c329c189-df72-4e94-9abc-f2a0c6e63616\"}",
+      "error": ""
+    },
+    {
+      "url": "https://pairvu.com/api/releases",
+      "method": "GET",
+      "cookieSent": false,
+      "commandExitCode": 0,
+      "status": 401,
+      "headers": "HTTP/2 401 \ndate: Mon, 12 Oct 2026 04:59:17 GMT\ncontent-type: application/json\ncache-control: private, no-store\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bv4oS8pg9cqMy0%2FpkgFLoW8Y4%2FBU5jKUeWZHCZBSfC4%2BrgB%2FFqfIRsGhCWgW3KV6wUiVVFl46u%2FS%2BX9KigTLf%2B8HUZpPXirn1VuEpyMa6xOfxXSg8g1WILYjeJln\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a49388bf1f620fc3-SYD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "bodyPath": "/tmp/pairvu-upg06-production/http-1.body",
+      "body": "{\"error\":\"authentication_required\",\"message\":\"Sign in to use the release workbench.\"}",
+      "error": ""
+    },
+    {
+      "url": "https://pairvu.com/api/releases/status",
+      "method": "GET",
+      "cookieSent": false,
+      "commandExitCode": 0,
+      "status": 401,
+      "headers": "HTTP/2 401 \ndate: Mon, 12 Oct 2026 04:59:19 GMT\ncontent-type: application/json\ncache-control: private, no-store\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=GNlGKGhV5z48AmVjzEZtF1h9Cq0zj1DaXqhqZ%2FKyf9IRTXWoG2S%2F40GKrIKYxotYx5IDf7ngK66EIM7VOahdwltH0QkLDWg3LYa0sUs4xSe7SFYTfZ92j3HKSr%2Bd\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a49388d6ef3dfd62-SYD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "bodyPath": "/tmp/pairvu-upg06-production/http-2.body",
+      "body": "{\"error\":\"authentication_required\",\"message\":\"Sign in to use the release workbench.\"}",
+      "error": ""
+    },
+    {
+      "url": "https://pairvu.com/api/releases/export?scope=page",
+      "method": "GET",
+      "cookieSent": false,
+      "commandExitCode": 0,
+      "status": 401,
+      "headers": "HTTP/2 401 \ndate: Mon, 12 Oct 2026 04:59:21 GMT\ncontent-type: application/json\ncache-control: private, no-store\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=6Tq0xF%2FYMS0HSNKAAH9KucWW1Es0v82wKfJcCr%2BgoEDee0tZbKJh1%2FOE%2FtZtfAZQRT1XeekbFSm%2B%2BSfV%2FuehpKt1opM5gi%2Fp1Ennksrmy8vjaG9DLRxoPrQtw2a0\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a49388e26bb3aae9-SYD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "bodyPath": "/tmp/pairvu-upg06-production/http-3.body",
+      "body": "{\"error\":\"authentication_required\",\"message\":\"Sign in to use the release workbench.\"}",
+      "error": ""
+    },
+    {
+      "url": "https://pairvu.com/account/releases",
+      "method": "GET",
+      "cookieSent": false,
+      "commandExitCode": 0,
+      "status": 307,
+      "headers": "HTTP/2 307 \ndate: Mon, 12 Oct 2026 04:59:23 GMT\ncontent-type: text/html; charset=utf-8\nlocation: /sign-in?next=/account/releases\ncache-control: private, no-cache, no-store, max-age=0, must-revalidate\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=h1Rt0J%2FCT%2FMrtkXmUsc5aBP6beP9RRJn7Wzn%2FYGxURhZZ2x0phN%2FQRHYiy9XyG1PfZyPRnAoawGzYNhNojrhXkZFk1p%2FpYkRmbzp%2FcIxNfKZC6DkNCnR%2FtdJLIB5\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a49388ed8ff47baa-SYD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "bodyPath": "/tmp/pairvu-upg06-production/http-4.body",
+      "body": null,
+      "error": ""
+    }
+  ]
+}

@@ -1,0 +1,937 @@
+- link "Skip to content":
+  - /url: "#main-content"
+- banner:
+  - link "Pairvu home":
+    - /url: /
+    - text: Pairvu
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Workspace":
+    - link "Releases":
+      - /url: /account/releases
+    - link "Overview":
+      - /url: /account
+    - link "Products":
+      - /url: /account/products
+    - link "Batches":
+      - /url: /account/batches
+    - link "New batch":
+      - /url: /account/batches/new
+  - paragraph: Release workbench
+  - heading "Review release eligibility" [level=1]
+  - paragraph: Compare the original machine result, current human decision and release rule. Eligibility does not publish your product.
+  - form "Release search":
+    - text: Frozen SKU
+    - textbox "Frozen SKU":
+      - /placeholder: Exact SKU
+    - text: Product ID
+    - textbox "Product ID"
+    - text: Batch ID
+    - textbox "Batch ID"
+    - text: Review state
+    - combobox "Review state":
+      - option "All records" [selected]
+      - option "Needs review"
+      - option "Blocked by rule"
+      - option "Current approve or reject"
+    - button "Search"
+  - region "Release rule":
+    - strong: release-policy-001
+    - paragraph: Complete supported machine evidence, available images and a current source-matching human approval are required. High/critical differences and limitations block eligibility. Eligibility does not publish externally.
+    - generic "Rule and evaluation provenance"
+  - paragraph: "20 matching records in this page. Scanned 20 of at most 100 sources. Order: newest first, then analysis ID."
+  - button "Export this search page (CSV)" [disabled]
+  - paragraph: CSV export requires an active paid plan.
+  - article "Release record batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001":
+    - heading "Pairvu QA Synthetic Blue Box 20261010" [level=2]
+    - paragraph: "Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v5 · reference v1"
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+      - text: · Batch
+      - code: 9e24fe37-4e56-4fad-8edd-b4589bbcb698
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-008"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "missing_requested_check: Provider did not return an observation for visible_text."
+      - listitem: "missing_requested_check: Provider did not return an observation for quantity."
+      - listitem: "missing_requested_check: Provider did not return an observation for dominant_color."
+      - listitem: "missing_requested_check: Provider did not return an observation for major_components."
+      - listitem: "missing_requested_check: Provider did not return an observation for major_shape_packaging."
+      - listitem: "attribute_not_observable: logo is not sufficiently observable."
+      - listitem: "missing_requested_check: visible_text was not returned by the provider."
+      - listitem: "missing_requested_check: quantity was not returned by the provider."
+      - listitem: "missing_requested_check: dominant_color was not returned by the provider."
+      - listitem: "missing_requested_check: major_components was not returned by the provider."
+      - listitem: "missing_requested_check: major_shape_packaging was not returned by the provider."
+    - paragraph:
+      - text: "Reference image: available"
+      - text: "Candidate image: available"
+    - heading "Human decision" [level=3]
+    - strong: revoke
+    - paragraph: Revision 3
+    - paragraph: "QA UPG-05 production smoke complete: revoke the synthetic test decision; retain immutable approval and rejection history."
+    - paragraph: The previous decision was revoked.
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Approval was revoked; a new explicit decision is required.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb":
+    - heading "Pairvu QA Synthetic Blue Box 20261010" [level=2]
+    - paragraph: "Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v5 · reference v1"
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb
+      - text: · Batch
+      - code: c6091777-4045-41c9-bae7-0f598bf36b0c
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-008"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "attribute_not_observable: visible_text is not sufficiently observable."
+      - listitem: "attribute_not_observable: quantity is not sufficiently observable."
+      - listitem: "attribute_not_observable: major_shape_packaging is not sufficiently observable."
+    - paragraph:
+      - text: "Reference image: available"
+      - text: "Candidate image: available"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Observation structure, explanation or comparison evidence is incomplete.
+      - generic: observation_invalid
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5":
+    - heading "Pairvu QA Synthetic Blue Box 20261010" [level=2]
+    - paragraph: "Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v5 · reference v1"
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5
+      - text: · Batch
+      - code: 185d65d9-d62a-47e5-b7ec-e2ec614ff96d
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-007"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: available"
+      - text: "Candidate image: available"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d":
+    - heading "Pairvu QA Synthetic Blue Box 20261010" [level=2]
+    - paragraph: "Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v3 · reference v1"
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d
+      - text: · Batch
+      - code: e26ebc30-15cc-40ae-872b-d626bbd00cef
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-006"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "attribute_not_observable: logo is not sufficiently observable."
+      - listitem: "attribute_not_observable: visible_text is not sufficiently observable."
+    - paragraph:
+      - text: "Reference image: available"
+      - text: "Candidate image: available"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Observation structure, explanation or comparison evidence is incomplete.
+      - generic: observation_invalid
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record batch-analysis-69877484-487f-4bd6-bf43-253a041abec1":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: batch-analysis-69877484-487f-4bd6-bf43-253a041abec1
+      - text: · Batch
+      - code: d99e9483-fb48-457b-bdb7-9c3e86394099
+    - link "View evidence and human review":
+      - /url: /?analysis=batch-analysis-69877484-487f-4bd6-bf43-253a041abec1
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-006"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: This bound product/batch has no immutable product standard snapshot.
+      - generic: product_snapshot_missing
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 3f2dbb16-d7db-4e59-b800-ad607d3ad6b6":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 3f2dbb16-d7db-4e59-b800-ad607d3ad6b6
+    - link "View evidence and human review":
+      - /url: /?analysis=3f2dbb16-d7db-4e59-b800-ad607d3ad6b6
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "attribute_not_observable: logo is not sufficiently observable."
+      - listitem: "attribute_not_observable: visible_text is not sufficiently observable."
+      - listitem: "attribute_not_observable: quantity is not sufficiently observable."
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 13f24534-c997-40d7-a7d1-378bfdcfdbdf":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 13f24534-c997-40d7-a7d1-378bfdcfdbdf
+    - link "View evidence and human review":
+      - /url: /?analysis=13f24534-c997-40d7-a7d1-378bfdcfdbdf
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 12ec92d0-4f78-4859-a7b7-c19d25907bb4":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 12ec92d0-4f78-4859-a7b7-c19d25907bb4
+    - link "View evidence and human review":
+      - /url: /?analysis=12ec92d0-4f78-4859-a7b7-c19d25907bb4
+    - heading "Machine result" [level=3]
+    - strong: FAIL
+    - paragraph: completed · 1 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: High or critical machine differences remain blocked even after human approval.
+      - generic: high_risk_difference
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 675ed1ed-c796-4609-9eec-cfbf485c0723":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 675ed1ed-c796-4609-9eec-cfbf485c0723
+    - link "View evidence and human review":
+      - /url: /?analysis=675ed1ed-c796-4609-9eec-cfbf485c0723
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record ecc94f43-0721-4123-81cd-1ab10f564ec1":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: ecc94f43-0721-4123-81cd-1ab10f564ec1
+    - link "View evidence and human review":
+      - /url: /?analysis=ecc94f43-0721-4123-81cd-1ab10f564ec1
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 9e447590-3dbd-45a6-8d1a-bb336ee72125":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 9e447590-3dbd-45a6-8d1a-bb336ee72125
+    - link "View evidence and human review":
+      - /url: /?analysis=9e447590-3dbd-45a6-8d1a-bb336ee72125
+    - heading "Machine result" [level=3]
+    - strong: FAIL
+    - paragraph: completed · 1 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: High or critical machine differences remain blocked even after human approval.
+      - generic: high_risk_difference
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record c7b49b52-8563-4f5c-a09a-666cd3975fef":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: c7b49b52-8563-4f5c-a09a-666cd3975fef
+    - link "View evidence and human review":
+      - /url: /?analysis=c7b49b52-8563-4f5c-a09a-666cd3975fef
+    - heading "Machine result" [level=3]
+    - strong: REVIEW
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - list:
+      - listitem: "attribute_not_observable: major_components is not sufficiently observable."
+      - listitem: "attribute_not_observable: major_shape_packaging is not sufficiently observable."
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+      - generic: observation_insufficient
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Machine limitations remain unresolved and block this conservative release rule.
+      - generic: machine_limitations_present
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record f373f77f-1cc6-4c47-a5f3-b234d7a8c697":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: f373f77f-1cc6-4c47-a5f3-b234d7a8c697
+    - link "View evidence and human review":
+      - /url: /?analysis=f373f77f-1cc6-4c47-a5f3-b234d7a8c697
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record b35fa843-a7f7-469e-85cf-6ecbbcaeec2d":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: b35fa843-a7f7-469e-85cf-6ecbbcaeec2d
+    - link "View evidence and human review":
+      - /url: /?analysis=b35fa843-a7f7-469e-85cf-6ecbbcaeec2d
+    - heading "Machine result" [level=3]
+    - strong: FAIL
+    - paragraph: completed · 1 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: High or critical machine differences remain blocked even after human approval.
+      - generic: high_risk_difference
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 14e1bcae-5787-4237-81a5-b7af22c50915":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 14e1bcae-5787-4237-81a5-b7af22c50915
+    - link "View evidence and human review":
+      - /url: /?analysis=14e1bcae-5787-4237-81a5-b7af22c50915
+    - heading "Machine result" [level=3]
+    - strong: PASS
+    - paragraph: completed · 0 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record fb3c74ca-9fc8-43fe-84bb-51cf8157f8c0":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: fb3c74ca-9fc8-43fe-84bb-51cf8157f8c0
+    - link "View evidence and human review":
+      - /url: /?analysis=fb3c74ca-9fc8-43fe-84bb-51cf8157f8c0
+    - heading "Machine result" [level=3]
+    - strong: FAIL
+    - paragraph: completed · 1 product differences
+    - paragraph:
+      - text: "Detection: m0-qa-engine-005"
+      - text: "Risk: m0-risk-policy-003"
+      - text: "Model policy: m0-model-policy-002"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Logo/text identity evidence or its application guard version is unsupported.
+      - generic: identity_evidence_invalid
+      - text: Evidence regions must use the supported schema and original input asset identities.
+      - generic: region_schema_invalid
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: High or critical machine differences remain blocked even after human approval.
+      - generic: high_risk_difference
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record c5bfe1be-d412-437d-b6ca-51dcd1a698ae":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: c5bfe1be-d412-437d-b6ca-51dcd1a698ae
+    - link "View evidence and human review":
+      - /url: /?analysis=c5bfe1be-d412-437d-b6ca-51dcd1a698ae
+    - heading "Machine result" [level=3]
+    - strong: No verdict
+    - paragraph: failed · 0 product differences
+    - paragraph:
+      - text: "Detection: unknown"
+      - text: "Risk: unknown"
+      - text: "Model policy: unknown"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Analysis is not completed; queued, running and failed results cannot release.
+      - generic: analysis_not_completed
+      - text: Machine verdict or completion timestamp is missing or invalid.
+      - generic: machine_summary_invalid
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record c80bccfc-a2be-4e32-89ff-cd6fa910689b":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: c80bccfc-a2be-4e32-89ff-cd6fa910689b
+    - link "View evidence and human review":
+      - /url: /?analysis=c80bccfc-a2be-4e32-89ff-cd6fa910689b
+    - heading "Machine result" [level=3]
+    - strong: No verdict
+    - paragraph: failed · 0 product differences
+    - paragraph:
+      - text: "Detection: unknown"
+      - text: "Risk: unknown"
+      - text: "Model policy: unknown"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Analysis is not completed; queued, running and failed results cannot release.
+      - generic: analysis_not_completed
+      - text: Machine verdict or completion timestamp is missing or invalid.
+      - generic: machine_summary_invalid
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record 53afca6b-1ddd-410b-bf2f-d3175e2865ef":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: 53afca6b-1ddd-410b-bf2f-d3175e2865ef
+    - link "View evidence and human review":
+      - /url: /?analysis=53afca6b-1ddd-410b-bf2f-d3175e2865ef
+    - heading "Machine result" [level=3]
+    - strong: No verdict
+    - paragraph: failed · 0 product differences
+    - paragraph:
+      - text: "Detection: unknown"
+      - text: "Risk: unknown"
+      - text: "Model policy: unknown"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Analysis is not completed; queued, running and failed results cannot release.
+      - generic: analysis_not_completed
+      - text: Machine verdict or completion timestamp is missing or invalid.
+      - generic: machine_summary_invalid
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - article "Release record f5e24df9-b0b0-4796-94b7-155d4f85e4d1":
+    - heading "Analysis without a frozen product standard" [level=2]
+    - paragraph: No frozen product identity is available.
+    - paragraph:
+      - text: Analysis
+      - code: f5e24df9-b0b0-4796-94b7-155d4f85e4d1
+    - link "View evidence and human review":
+      - /url: /?analysis=f5e24df9-b0b0-4796-94b7-155d4f85e4d1
+    - heading "Machine result" [level=3]
+    - strong: No verdict
+    - paragraph: failed · 0 product differences
+    - paragraph:
+      - text: "Detection: unknown"
+      - text: "Risk: unknown"
+      - text: "Model policy: unknown"
+    - paragraph:
+      - text: "Reference image: unavailable"
+      - text: "Candidate image: unavailable"
+    - heading "Human decision" [level=3]
+    - strong: No current decision
+    - paragraph: Revision 0
+    - heading "Rule eligibility" [level=3]
+    - strong: blocked
+    - list:
+      - text: Analysis is not completed; queued, running and failed results cannot release.
+      - generic: analysis_not_completed
+      - text: Machine verdict or completion timestamp is missing or invalid.
+      - generic: machine_summary_invalid
+      - text: Original detection versions are missing or unsupported by this release rule.
+      - generic: machine_version_unsupported
+      - text: Every unique selected check needs exactly one supported observation.
+      - generic: selected_checks_incomplete
+      - text: Successful model provenance bound to both original images is missing or unsupported.
+      - generic: model_source_unsupported
+      - text: Stored verdict or product differences do not match the supported risk derivation.
+      - generic: machine_derivation_invalid
+      - text: Original reference or candidate image is deleted, failed, expired or unavailable.
+      - generic: assets_unavailable
+      - text: No current human approval exists; machine PASS alone cannot release.
+      - generic: human_approval_required
+    - paragraph: release-policy-001 · current evaluation
+    - generic "Source and decision provenance"
+  - paragraph: More sources remain. This page is not a complete search result.
+  - button "Continue search"
+- contentinfo:
+  - link:
+    - /url: /
+  - paragraph: Quality control for AI product photography.
+  - heading "Product" [level=2]
+  - link "AI Product Image Checker":
+    - /url: /
+  - link "Check Image":
+    - /url: /#checker
+  - link "How It Works":
+    - /url: /how-pairvu-works
+  - link "Pricing":
+    - /url: /pricing
+  - heading "Learn" [level=2]
+  - link "AI Product Photography":
+    - /url: /ai-product-photography
+  - link "Examples":
+    - /url: /examples
+  - link "Product Categories":
+    - /url: /categories
+  - link "Product Checks":
+    - /url: /checks
+  - link "Guides":
+    - /url: /guides
+  - link "Checklist":
+    - /url: /guides/ai-product-photography-checklist
+  - heading "Use Cases" [level=2]
+  - link "Ecommerce":
+    - /url: /use-cases/ecommerce-product-image-qa
+  - link "Amazon Sellers":
+    - /url: /use-cases/amazon-product-image-qa
+  - link "Shopify Stores":
+    - /url: /use-cases/shopify-product-image-qa
+  - link "Brands":
+    - /url: /use-cases/brands
+  - link "Creative Agencies":
+    - /url: /use-cases/creative-agencies
+  - heading "Legal" [level=2]
+  - link "Privacy":
+    - /url: /privacy
+  - heading "Other products" [level=2]
+  - link "Moxion":
+    - /url: https://moxion.ai
+  - link "Sigoo":
+    - /url: https://sigoo.ai
+  - link "AI Best Tool":
+    - /url: https://aibesttool.com
+  - link "Triptrace":
+    - /url: https://triptrace.ai
+  - generic: © 2026 Pairvu
+  - generic: Visible product QA, not marketplace certification.
+- alert: Release workbench | Pairvu

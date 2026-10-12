@@ -116,7 +116,7 @@
     {
       "id": "UPG-08",
       "title": "API 鉴权异步批次与幂等额度",
-      "priority": 8,
+      "priority": 9,
       "dependsOn": [
         "UPG-06"
       ],
@@ -130,7 +130,7 @@
     {
       "id": "UPG-09",
       "title": "签名 Webhook outbox 与回放",
-      "priority": 9,
+      "priority": 10,
       "dependsOn": [
         "UPG-08"
       ],
@@ -144,7 +144,7 @@
     {
       "id": "UPG-10",
       "title": "价值指标与来源工作流分析",
-      "priority": 10,
+      "priority": 8,
       "dependsOn": [
         "UPG-06"
       ],
