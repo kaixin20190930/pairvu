@@ -1,0 +1,31 @@
+{
+  "unitId": "JRN-04-FIX",
+  "candidateSha": "d011b019a2db0cf57cf94903260bb6d32a8a6022",
+  "status": "FAIL",
+  "exitCode": 1,
+  "startedAt": "2026-10-13T09:48:27.368Z",
+  "finishedAt": "2026-10-13T09:48:28.858Z",
+  "sourceMethod": "git archive of exact candidate SHA with credential-named paths excluded by filename without reading",
+  "excludedPaths": [
+    ".dev.vars.example"
+  ],
+  "sourceArchiveSha256": "36809db4225f10708f8ca0fc17f0bdf6834188c2065e8605529dba4b4cf902f8",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-DouBMO",
+  "logPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-DouBMO/build-original.log",
+  "embeddedBuildSha": null,
+  "releaseArtifact": false,
+  "environmentKeys": [
+    "HOME",
+    "LANG",
+    "NEXT_TELEMETRY_DISABLED",
+    "NODE_OPTIONS",
+    "PATH",
+    "TMPDIR"
+  ],
+  "blockedOutbound": [],
+  "nodeVersion": "v22.22.3",
+  "nextVersion": "16.2.12",
+  "productionLifecycleCovered": false,
+  "qualityEvidence": false,
+  "modelCallsExecuted": 0
+}

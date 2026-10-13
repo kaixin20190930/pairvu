@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {execFileSync,spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
-import {appendFile,readFile,mkdtemp,symlink,writeFile} from 'node:fs/promises';
+import {appendFile,readFile,mkdtemp,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 
@@ -17,7 +17,8 @@ const sourcePaths=files.filter(path=>!excludedPaths.includes(path));
 const archive=join(root,'candidate.tar');
 execFileSync('git',['archive','--format=tar',`--output=${archive}`,sha,'--',...sourcePaths],{cwd:repo,env,stdio:['ignore','pipe','pipe']});
 execFileSync('tar',['-xf',archive,'-C',root],{env,stdio:['ignore','pipe','pipe']});
-await symlink(join(repo,'node_modules'),join(root,'node_modules'),'dir');
+// Turbopack rejects dependency symlinks outside its source root. This macOS workspace uses APFS file clones.
+execFileSync('cp',['-cR',join(repo,'node_modules'),join(root,'node_modules')],{env,stdio:['ignore','pipe','pipe']});
 const guard=join(root,'network-guard.cjs'),blockedLog=join(root,'network-blocked.jsonl');
 await writeFile(guard,`
 const fs=require('node:fs'),net=require('node:net');
@@ -40,6 +41,6 @@ const exitCode=await new Promise((done,reject)=>{
 let blocked=[];try{blocked=(await readFile(blockedLog,'utf8')).trim().split('\n').filter(Boolean).map(line=>JSON.parse(line));}catch(error){if(error.code!=='ENOENT')throw error;}
 const require=createRequire(join(repo,'package.json'));let embeddedBuildSha=null;
 try{embeddedBuildSha=JSON.parse(await readFile(join(root,'.next/required-server-files.json'),'utf8')).config?.env?.PAIRVU_BUILD_SHA??null;}catch{}
-const report={unitId:'JRN-04-FIX',candidateSha:sha,status:exitCode===0&&blocked.length===0?'PASS':'FAIL',exitCode,startedAt,finishedAt:new Date().toISOString(),sourceMethod:'git archive of exact candidate SHA with credential-named paths excluded by filename without reading',excludedPaths,sourceArchiveSha256:createHash('sha256').update(await readFile(archive)).digest('hex'),temporaryDirectory:root,logPath,embeddedBuildSha,releaseArtifact:false,environmentKeys:Object.keys(buildEnv).sort(),blockedOutbound:blocked,nodeVersion:process.version,nextVersion:require('next/package.json').version,productionLifecycleCovered:false,qualityEvidence:false,modelCallsExecuted:0};
+const report={unitId:'JRN-04-FIX',candidateSha:sha,status:exitCode===0&&blocked.length===0?'PASS':'FAIL',exitCode,startedAt,finishedAt:new Date().toISOString(),sourceMethod:'git archive of exact candidate SHA with credential-named paths excluded by filename without reading',dependencyMethod:'APFS clone of locally installed node_modules, no install or network',excludedPaths,sourceArchiveSha256:createHash('sha256').update(await readFile(archive)).digest('hex'),temporaryDirectory:root,logPath,embeddedBuildSha,releaseArtifact:false,environmentKeys:Object.keys(buildEnv).sort(),blockedOutbound:blocked,nodeVersion:process.version,nextVersion:require('next/package.json').version,productionLifecycleCovered:false,qualityEvidence:false,modelCallsExecuted:0};
 const reportPath=join(root,'build-report.json');await writeFile(reportPath,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
 console.log(JSON.stringify({status:report.status,candidateSha:sha,reportPath}));if(report.status==='FAIL')process.exitCode=1;

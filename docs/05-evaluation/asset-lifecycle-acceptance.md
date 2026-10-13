@@ -35,8 +35,8 @@ env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" LANG="${LANG:-C.UTF-8}" pnpm e
 
 最新专项报告及每项原件见 [final](../../fixtures/journey-asset-lifecycle/final)。两个预期故障的错误响应、对象状态和失败审计原件分别为 `expected-r2-failure-original.json`、`expected-d1-mark-failure-original.json`。最终核对全部 manifest 对象已消失、审核/机器历史保留、额度与队列未动；故意预置的 deleted 状态孤立对象只在明确标注的本地夹具收尾中删除。Miniflare 结束前生成最终存储摘要，之后 dispose；无常驻 HTTP 服务。
 
-最终 runId `49d7ec15-76c0-4c57-b26f-cd9427224bf5`：14 场景全部 PASS，27 个合成素材，外发网络调用与队列写入均为 0。typecheck 与五个改动源码文件 lint 通过。[archive-index.json](../../fixtures/journey-asset-lifecycle/archive-index.json) 为 78 份原件记录原始路径、归档路径、字节数与 SHA-256，复制后逐字节复核一致；包含工具早期失败、修复前产品失败、首次修复通过与最终增强断言通过，未归档私有数据库。
+最终 runId `49d7ec15-76c0-4c57-b26f-cd9427224bf5`：14 场景全部 PASS，27 个合成素材，外发网络调用与队列写入均为 0。typecheck 与五个改动源码文件 lint 通过。[archive-index.json](../../fixtures/journey-asset-lifecycle/archive-index.json) 为 78 份旅程原件及另附的构建失败原件记录原始路径、归档路径、字节数与 SHA-256，复制后逐字节复核一致；包含工具早期失败、修复前产品失败、首次修复通过与最终增强断言通过，未归档私有数据库。
 
-验证包括实际路由/真实存储矩阵、typecheck、改动文件 lint，并在提交后用 `node scripts/jrn04-build.mjs FULL_CANDIDATE_SHA` 做一次精确 Git archive 源码构建。构建工具使用环境白名单，按文件名排除 `.env*`/`.dev.vars*`（包括模板）而不读取内容，复用本地依赖并阻断非 loopback Node 网络。构建原始 log/report 留在新的临时目录；归档无 Git 元数据，嵌入 SHA 可为 unknown，不能用作生产发布 artifact。
+验证包括实际路由/真实存储矩阵、typecheck、改动文件 lint，并在提交后用 `node scripts/jrn04-build.mjs FULL_CANDIDATE_SHA` 做一次精确 Git archive 源码构建。构建工具使用环境白名单，按文件名排除 `.env*`/`.dev.vars*`（包括模板）而不读取内容，以 macOS APFS 克隆本地依赖并阻断非 loopback Node 网络。首次构建因 Turbopack 拒绝越过源码 root 的依赖符号链接而失败，[build-attempt-1](../../fixtures/journey-asset-lifecycle/build-attempt-1) 保留原始 log/report；构建工具改为目录内依赖克隆，应用源码不因此改变。构建原始 log/report 留在新的临时目录；归档无 Git 元数据，嵌入 SHA 可为 unknown，不能用作生产发布 artifact。
 
 当前结论只覆盖本地合成旅程与顺序删除保护；未证明共享候选被其他活跃任务使用时的保护或 worker 并发竞态，不提供真实图片质量、生产生命周期或外部发布结论。下一步由总控自动将同一候选 SHA 分别交给独立 QA 验收工具与运行时修复；工具 PASS 后可 local_only 关闭，运行时修复 PASS 后止于 RELEASE_READY，生产发布另需明确授权并遵守 GitHub-first 顺序。
