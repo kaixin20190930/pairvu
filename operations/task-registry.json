@@ -18,10 +18,10 @@
     "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:266",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
-      "thinking": "medium",
-      "reason": "仅启用已验收VALUE_METRICS配置并调整对应配置断言，范围明确。",
-      "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
-      "applied": true
+      "thinking": "high",
+      "reason": "精确合成生产对象与事务/清理边界，禁止客户数据变更",
+      "upgradeCondition": "具体推理不足先缩域；权限不升级",
+      "applied": false
     },
     "cleanupModelSelection": {
       "model": "gpt-6-sol",
@@ -45,10 +45,11 @@
     "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:145",
     "observedStatus": "completed",
     "releaseModelSelection": {
-      "model": "gpt-6-sol",
+      "model": "gpt-6.1-sol",
       "thinking": "medium",
-      "reason": "固定修复之上的文档和证据增量，确定性摘要与差分核验；延用可用Sol但重新评估范围",
-      "upgradeCondition": "若出现运行时差异或安全语义不明，停止并重新评估high；环境问题不升级"
+      "reason": "固定发布SHA相对已验收候选仅文档证据，核验差分与摘要",
+      "upgradeCondition": "新增runtime差异重评high",
+      "applied": false
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -65,11 +66,11 @@
       "applied": true
     },
     "productionModelSelection": {
-      "model": "gpt-6-sol",
+      "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "生产来源与真实登录、既有冻结/人审/额度跨层核验；与开发独立，限定只读",
-      "upgradeCondition": "只有缩域后反复出现具体推理缺口才评估更高模型；会话和权限不足保留BLOCKED",
-      "applied": true
+      "reason": "真实登录及合成生产资产/资格/清理跨层独立核验",
+      "upgradeCondition": "具体推理不足先缩域；环境/会话不升级",
+      "applied": false
     },
     "environmentIncidents": [
       {
@@ -218,7 +219,7 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "等待用户明确授权发布JRN-04-FIX，再GitHub-first推送/fresh核验/同SHA构建部署及最小生产复验；本轮只隔离合成资产，不扩展生产删除权限。",
+  "nextAction": "已授权JRN-04-FIX GitHub-first生产发布与独立合成资产复验，立即推进",
   "completedUnitId": "JRN-04",
   "completedCandidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
   "completedReleaseRepair": {
@@ -416,7 +417,7 @@
       "lib/releases/repository.ts",
       "app/api/batches/[batchId]/route.ts"
     ],
-    "productionReleaseAuthorized": false,
+    "productionReleaseAuthorized": true,
     "statusNote": "独立增量10PASS；旧25PASS按差分复用，原FAIL保留；本地工具关闭，3项runtime问题修复待发布",
     "qaResult": "PASS",
     "failureEvidence": "operations/evidence/JRN-04/attempt-1/qa.json",
