@@ -372,6 +372,24 @@
         "complete eligible journey",
         "cleanup and coverage boundaries"
       ]
+    },
+    {
+      "id": "JRN-04",
+      "title": "合成素材到期、删除与权限回收补验",
+      "priority": 1,
+      "dependsOn": [
+        "JRN-03"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "isolated asset manifest",
+        "expiry and read revocation",
+        "owned deletion and isolation",
+        "failure recovery and cleanup"
+      ]
     }
   ]
 }

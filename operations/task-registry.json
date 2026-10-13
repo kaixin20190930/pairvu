@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "JRN-03",
+  "unitId": "JRN-04",
   "baselineSha": "7c90674e10cc3f76ce4d3ba673d69c48c6d4becf",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
-      "model": "gpt-6-sol",
+      "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "真实会话、跨workspace写入事务、审核来源与SKU/区域/规则多层链路；可用Sol足够，不默认最高档",
-      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
-      "applied": true
+      "reason": "真实认证、跨账号删除和D1/R2非原子失败恢复，需要跨层推理；Sol足够，不默认最高档",
+      "upgradeCondition": "反复实质推理缺口先缩域；环境与权限问题不升级",
+      "applied": false
     },
-    "observedStatus": "completed",
+    "observedStatus": "idle",
     "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:165",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -36,14 +36,14 @@
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
-      "model": "gpt-6-sol",
+      "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "独立设计有效目标越权写入反例、不变性快照及真实处理层与合成证据边界",
-      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
-      "applied": true
+      "reason": "独立核对不可逆边界、跨账号反例、到期时序和失败窗口；Sol足够，不默认最高档",
+      "upgradeCondition": "反复实质推理缺口先缩域；环境与权限问题不升级",
+      "applied": false
     },
     "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:88",
-    "observedStatus": "completed",
+    "observedStatus": "idle",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -89,8 +89,8 @@
       "applied": true
     }
   },
-  "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "SCOPED",
   "automationId": "pairvu-2",
   "notes": "JRN-03固定候选ab6d66b独立PASS，正式qa PASS→close；17场景和独立持久化/UI复核通过。本轮仅本地工具与证据，无生产部署/启用、真实扣款、客户数据修改或模型调用；整体生产旅程仍INCOMPLETE，pairvu-2继续PAUSED。",
   "nextUnitId": null,
@@ -218,7 +218,7 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "建议下一单元：合成资产到期/删除与权限回收补验，先明确本地隔离范围和恢复标准，待用户确认启动；不自动扩大生产操作、付款或客户数据修改。",
+  "nextAction": "JRN-04已授权，原角色开发→固定SHA独立QA→失败返工→本地收尾，生产不操作",
   "completedUnitId": "JRN-03",
   "completedCandidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
   "completedReleaseRepair": {
@@ -397,5 +397,13 @@
     "modelCallsExecuted": 0,
     "uiFixtureTransport": true,
     "authenticatedBrowserE2E": false
+  },
+  "assetLifecycleAcceptance": {
+    "state": "SCOPED",
+    "contract": "operations/contracts/JRN-04.md",
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "realChargesAuthorized": false,
+    "customerDataWritesAuthorized": false
   }
 }
