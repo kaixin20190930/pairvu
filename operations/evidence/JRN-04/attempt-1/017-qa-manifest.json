@@ -1,0 +1,88 @@
+{
+  "runId": "9c14c1dc-2b4c-4274-be9a-e752deaa83a0",
+  "assets": [
+    {
+      "id": "f3c4c3df-5c63-4160-8f1c-170ee8a34fd9",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-independent-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/original.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/normalized.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "d1595396-8a9c-4a34-9b5b-762b5b7ad485",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-independent-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/d1595396-8a9c-4a34-9b5b-762b5b7ad485/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "1157334d-f123-44f2-83c8-f06ab7f5dfa8",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-B-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/1157334d-f123-44f2-83c8-f06ab7f5dfa8/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "bceff932-b3ac-48fb-8c14-14d201f081d1",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-B-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/bceff932-b3ac-48fb-8c14-14d201f081d1/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "a41d8989-f813-4278-8636-ac335a6c7d30",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-sweep-r2-fault",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/original.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/normalized.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2001-01-01T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "a33d1b10-9259-4323-8ea5-ccc274c39509",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-sweep-mark-fault",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2002-01-01T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    }
+  ],
+  "syntheticMachineEvidence": true
+}

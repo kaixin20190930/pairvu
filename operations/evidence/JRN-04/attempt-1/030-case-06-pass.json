@@ -1,0 +1,30 @@
+{
+  "name": "anonymous analysis/account/batch DELETE returns authentication denial without storage change",
+  "status": "PASS",
+  "detail": [
+    {
+      "key": "analysis",
+      "status": 401,
+      "body": {
+        "error": "access_identity_required",
+        "message": "A signed-in account or valid anonymous session is required."
+      }
+    },
+    {
+      "key": "account",
+      "status": 401,
+      "body": {
+        "error": "access_identity_required",
+        "message": "A signed-in account or valid anonymous session is required."
+      }
+    },
+    {
+      "key": "batch",
+      "status": 401,
+      "body": {
+        "error": "authentication_required",
+        "message": "Sign in to delete batch images."
+      }
+    }
+  ]
+}

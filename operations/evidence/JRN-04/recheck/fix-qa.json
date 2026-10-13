@@ -1,0 +1,136 @@
+{
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-13T13:49:26.931437+00:00",
+  "modelSelection": {
+    "model": "gpt-6.1-sol",
+    "thinking": "high",
+    "reason": "Incremental SQL safety gate and real non-atomic D1/R2 windows require independent provenance, timing and ownership checks; Sol/high remains sufficient.",
+    "escalationCondition": "Repeated substantive reasoning failure only; environment issues do not trigger model escalation."
+  },
+  "recheckOfCandidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "previousFailureResolved": "P1 original reproduction now GET503 / release BLOCKED before retry; old FAIL reports/scripts preserved byte-for-byte.",
+  "testSummary": {
+    "currentExecutedCaseGroups": 10,
+    "currentPass": 10,
+    "currentFail": 0,
+    "freshRuns": 2,
+    "typecheck": "independently rerun PASS: pnpm exec tsc --noEmit --incremental false",
+    "lint": "independently rerun PASS: lib/releases/repository.ts and scripts/jrn04-partial-window.ts",
+    "exactBuildSourceVerified": true,
+    "buildRepeatedByQA": false,
+    "buildEmbeddedSha": "unknown",
+    "releaseArtifact": false
+  },
+  "reuse": {
+    "previousCandidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+    "previousIndependentPassedCaseGroups": 25,
+    "previousFailureRetained": true,
+    "fullJourneyRerunByQA": false,
+    "reuseRationale": "Only lib/releases/repository.ts availability gained an existing deletion-attempt exclusion. Deletion service, auth route, harness and full journey script Git blobs are unchanged. Original 25 PASS cover unaffected deletion, ownership, expiry boundary and guard behavior; affected availability, null/future and anonymous/foreign regression paths directly rerun. Developer new 14-case journey evidence independently read, not counted as a QA rerun.",
+    "previousQaReport": {
+      "path": "/private/tmp/pairvu-jrn04-qa.json",
+      "bytes": 11891,
+      "sha256": "d6cc8fd69d558bd12a521753e19a00db1fd930f294207bc6120609d24c9b63fe"
+    },
+    "developerNewJourneyEvidence": {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-journey-pass/final-report.json",
+      "bytes": 25580,
+      "sha256": "fcc7f291067538aa4a75db65e6169eb2066192897d27f06eb4795cd0c1906b51"
+    }
+  },
+  "coverage": {
+    "startedIntentWithR2BytesPresent": "BLOCKED while GET200",
+    "failedR2DeletionWithBytesPresent": "BLOCKED while GET200",
+    "R2SuccessD1MarkFailure": "BLOCKED while GET503",
+    "actualRetries": "Converged; permanent bytes not restored",
+    "normalAAndBNoIntentFuture": "ELIGIBLE, machine/human/frozen source unchanged",
+    "nullExpiryRegression": "GET410 and BLOCKED; future control ELIGIBLE",
+    "anonymousBatchRegression": "401; foreign existing batch404 and storage unchanged"
+  },
+  "evidenceIndex": {
+    "path": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/evidence-index.json",
+    "bytes": 6349,
+    "sha256": "4b6220868948e8faa507ac2cbc2eabcb607ac478401bf092b0f244257aa6d683"
+  },
+  "matrixCoverage": {
+    "path": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/matrix-coverage.json",
+    "bytes": 11975,
+    "sha256": "5e5a2244e11d7ad148943f3769fb4341c3305766b284200239263a792de4d60d"
+  },
+  "rawEvidencePaths": [
+    "/private/tmp/pairvu-jrn04-qa-recheck-evidence/p1-recheck.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-QXdsJp/qa-approved-partial-window-original.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-final-report.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-started-window-original.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-r2-failure-original.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-mark-failure-original.json",
+    "/private/tmp/pairvu-jrn04-qa-recheck-evidence/source-audit.json",
+    "/private/tmp/pairvu-jrn04-qa-recheck-evidence/storage-audit.json"
+  ],
+  "cleanup": {
+    "servicesStopped": true,
+    "allManifestObjectsGone": true,
+    "newRunAssets": 11,
+    "absentObjectKeys": 27,
+    "privateStorageNotArchived": true,
+    "sameIdRestoration": false,
+    "credentialsOrSessionsInReports": false
+  },
+  "boundaries": {
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "syntheticMachineEvidence": true,
+    "authenticatedBrowserE2E": false,
+    "uiRequired": false,
+    "globalR2InventoryVerificationByReleaseQuery": false,
+    "concurrentWorkerRaceCoverage": false,
+    "sharedUnprotectedCandidateActiveElsewhereCoverage": false
+  },
+  "nextAction": "Controller should automatically record QA PASS for this exact SHA, close the local-only JRN-04 tool unit, and move JRN-04-FIX only to RELEASE_READY. Production deployment remains dependent on separate explicit authorization and GitHub-first release checks.",
+  "nextActionAutomatic": true,
+  "dependency": "No blocker to local tool close / runtime RELEASE_READY. Production release requires separate authorization.",
+  "productionReleaseAuthorized": false,
+  "findings": [],
+  "unitId": "JRN-04-FIX",
+  "acceptanceScope": "runtime_local_acceptance",
+  "eligibleCompletionState": "RELEASE_READY",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "Same exact candidate and only authorized runtime repository change; original auth mapping preserved and build provenance verified.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/source-audit.json",
+          "bytes": 1088,
+          "sha256": "22b8bed02e9d1a292b852167ab52491259338e98a74a7e97a78079ecb973c33d"
+        }
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "detail": "OriginalP1 now passes; started/R2-failed/D1-failed windows fail closed, retry and controls pass, related null and anonymous regressions pass. Production evidence is not supplied.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/p1-recheck.json",
+          "bytes": 9124,
+          "sha256": "41b6bdede277ba5890da4dfc5a7cc394f5278755e60de7b0bbe957c753fcd5bb"
+        },
+        {
+          "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-final-report.json",
+          "bytes": 14372,
+          "sha256": "cfa4291baf9a652150419dd63890242761295ad0512899054250b65e80c4fe67"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/matrix-coverage.json",
+          "bytes": 11975,
+          "sha256": "5e5a2244e11d7ad148943f3769fb4341c3305766b284200239263a792de4d60d"
+        }
+      ]
+    }
+  ]
+}

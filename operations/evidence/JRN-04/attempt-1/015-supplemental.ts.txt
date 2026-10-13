@@ -1,0 +1,43 @@
+import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+import {writeFile} from 'node:fs/promises';
+import {createHarness} from '/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-harness';
+import {createAnalysisRecord} from '/Users/liukai/Documents/Product Visual QA Platform/lib/analysis/repository';
+import {createBatch} from '/Users/liukai/Documents/Product Visual QA Platform/lib/batches/repository';
+import {deleteExpiredAssets} from '/Users/liukai/Documents/Product Visual QA Platform/lib/assets/deletion';
+async function main(){
+ const h=await createHarness(),cases:unknown[]=[];let status='PASS',failure:unknown=null;
+ const test=async(name:string,fn:()=>Promise<unknown>)=>{const detail=await fn();cases.push({name,status:'PASS',detail});console.log(`PASS ${name}`)};
+ try{
+  const anonId=randomUUID(),expiry='2001-01-01T00:00:00.000Z';
+  const anon=await h.makeAsset('A','qa-anonymous-retention',{expiresAt:expiry,derivatives:'distinct'});
+  await h.db.prepare('update assets set workspace_id=null,anonymous_session_id=? where id=?').bind(anonId,anon.id).run();
+  const future=await h.makeAsset('A','qa-future-control'),noExpiry=await h.makeAsset('B','qa-null-control',{expiresAt:null});
+  await test('supplemental real anonymous retention and exact-full-page termination',async()=>{
+   const before=await h.storageSnapshot();const clock=new Date('2030-01-01T00:00:00.000Z');
+   const summary=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:clock,batchSize:1});assert.deepEqual(summary,{scanned:1,deleted:1,failed:0,hasMore:true});
+   assert((await h.objectState(anon)).every(o=>!o.present));assert.equal((await h.one('select status from assets where id=?',anon.id)).status,'deleted');
+   const response=await h.call('asset','GET',`assets/${anon.id}`,null,undefined,anonId);assert.equal(response.status,410);
+   const empty=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:clock,batchSize:1});assert.deepEqual(empty,{scanned:0,deleted:0,failed:0,hasMore:false});
+   const after=await h.storageSnapshot();for(const asset of [future,noExpiry]){assert.equal(after.assetHashes[asset.id],before.assetHashes[asset.id]);for(const key of asset.keys)assert.equal(after.objects[key],before.objects[key]);}
+   await h.writeArtifact('qa-anonymous-manifest.json',{runId:h.runId,asset:{...anon,owner:'anonymous',workspaceId:null,anonymousSessionId:anonId},controls:[future,noExpiry]});
+   return {summary,empty,ownerMetadata:'anonymous, workspace null',futureAndNullPreserved:true};
+  });
+  const reference=await h.makeAsset('A','qa-current-SKU-reference',{kind:'reference',derivatives:'distinct'}),analysisCandidate=await h.makeAsset('A','qa-current-analysis-candidate'),batchCandidate=await h.makeAsset('A','qa-current-batch-candidate');
+  const productId=randomUUID();assert.equal((await h.jsonCall('products','POST','products','A',{productId,referenceAssetId:reference.id,name:'Independent synthetic current reference',skuLabel:'QA-CURRENT'})).status,201);
+  assert.equal((await h.one('select status from product_reference_versions where asset_id=?',reference.id)).status,'current');
+  const analysisId=randomUUID();assert(await createAnalysisRecord(h.db,{analysisId,workspaceId:h.identities.A.workspaceId,referenceAssetId:reference.id,candidateAssetId:analysisCandidate.id,selectedChecks:['logo']}));await h.db.prepare("update analyses set status='failed',error_code='synthetic-terminal-fixture' where id=?").bind(analysisId).run();
+  const batchId=randomUUID();await createBatch(h.db,{batchId,workspaceId:h.identities.A.workspaceId,idempotencyKey:randomUUID(),mappingMode:'explicit_pairs',items:[{referenceAssetId:reference.id,candidateAssetId:batchCandidate.id}],planBatchItemLimit:20});await h.db.prepare("update batches set status='completed' where id=?").bind(batchId).run();await h.db.prepare("update batch_items set status='completed' where batch_id=?").bind(batchId).run();
+  await test('supplemental current SKU reference protected by actual analysis and batch DELETE',async()=>{
+   const results=[];for(const [route,path,candidate] of [['analysis',`analyses/${analysisId}`,analysisCandidate],['batch',`batches/${batchId}`,batchCandidate]] as const){const before=await h.storageSnapshot();const response=await h.jsonCall(route,'DELETE',path,'A');assert.equal(response.status,200);assert.deepEqual(response.body.deletion,{requested:1,deleted:1,failed:0});assert((await h.objectState(reference)).every(o=>o.present));assert((await h.objectState(candidate)).every(o=>!o.present));const after=await h.storageSnapshot();assert.equal(after.assetHashes[reference.id],before.assetHashes[reference.id]);for(const key of reference.keys)assert.equal(after.objects[key],before.objects[key]);assert.equal((await h.call('asset','GET',`assets/${reference.id}`,'A')).status,200);results.push({route,status:response.status,currentReferenceReadable:true});}
+   return results;
+  });
+  await h.writeArtifact('qa-supplemental-manifest.json',{runId:h.runId,assets:h.manifest.map(a=>a.id===anon.id?{...a,owner:'anonymous',workspaceId:null,anonymousSessionId:anonId}:a)});
+  await test('supplemental authenticated cleanup preserves deletion audit',async()=>{
+   for(const alias of ['A','B'] as const)assert.equal((await h.jsonCall('account','DELETE','account/assets',alias)).status,200);
+   assert((await Promise.all(h.manifest.map(h.objectState))).flat().every(o=>!o.present));assert.equal(h.queueCount(),0);assert.equal(h.outboundCount(),0);return {allManifestObjectsGone:true,auditRows:(await h.rows('select id from asset_deletion_attempts')).length};
+  });
+ }catch(error){status='FAIL';failure=error instanceof Error?error.stack:String(error)}
+ finally{const storage=await h.storageSnapshot();await h.dispose();await writeFile('/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json',JSON.stringify({unitId:'JRN-04',candidateSha:'94a818b835b62170ea484be177f7b1ee7a97b72a',status,runId:h.runId,temporaryDirectory:h.root,cases,failure,storage,servicesStopped:true,modelCallsExecuted:0,qualityEvidence:false,productionLifecycleCovered:false},null,2)+'\n');console.log(JSON.stringify({status,cases:cases.length,reportPath:'/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json'}));if(status==='FAIL')process.exitCode=1}
+}
+main().catch(error=>{console.error(error instanceof Error?error.message:String(error));process.exitCode=1});

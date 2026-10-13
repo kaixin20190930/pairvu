@@ -1,0 +1,189 @@
+{
+  "unitId": "JRN-04",
+  "candidateSha": null,
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PREPARATION_ONLY",
+  "preparedAt": "2026-10-13",
+  "baselineObservedSha": "463887050e4ba3fbd294fd45b59607b5d80ec31b",
+  "candidateNotReceived": true,
+  "testsExecuted": false,
+  "sourceReadingOnly": true,
+  "modelSelection": {
+    "requestedModel": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "reason": "Independent acceptance crosses Better Auth ownership, permanent deletion, actual D1/R2 non-atomic failure windows, active-task guards and release eligibility. Sol/high is appropriate for counterexample design and evidence reconciliation.",
+    "escalationCondition": "Only repeated, concrete reasoning insufficiency after narrowing the case and supplying missing evidence. Permission, environment, network and dependency issues do not justify escalation."
+  },
+  "rulesRead": [
+    "AGENTS.md",
+    "operations/README.md",
+    "operations/controller-prompt.md",
+    "operations/model-selection-policy.md",
+    "operations/contracts/JRN-04.md"
+  ],
+  "requiredEvidence": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "isolated asset manifest",
+    "expiry and read revocation",
+    "owned deletion and isolation",
+    "failure recovery and cleanup"
+  ],
+  "matrix": [
+    {
+      "id": "ENV-01",
+      "evidence": "fixed candidate SHA",
+      "case": "Freeze the exact candidate and confirm candidate-owned files match Git; identify any runtime difference and separately authorized repair boundary.",
+      "expected": "No candidate acceptance before exact SHA and original developer evidence arrive; preserve controller operations changes."
+    },
+    {
+      "id": "ENV-02",
+      "evidence": "isolated asset manifest",
+      "case": "Fresh Miniflare D1/R2 with actual migrations; actual Better Auth A/B sessions; original, normalized and thumbnail synthetic PNG objects.",
+      "expected": "Distinct workspaces and runId; manifest binds each asset to its owner, object keys, hashes, references and intended deletion case. Only this run's temporary objects may be deleted."
+    },
+    {
+      "id": "READ-01",
+      "evidence": "expiry and read revocation",
+      "case": "Actual asset GET before expiry by owner, foreign authenticated account and anonymous actor, in both A/B directions.",
+      "expected": "Owner 200 with exact PNG hash and private, no-store, max-age=0; foreign/anonymous denial without image bytes or leaked deleted/expired state. Distinguish anonymous identity error from ownership denial using valid synthetic anonymous identity as needed."
+    },
+    {
+      "id": "READ-02",
+      "evidence": "expiry and read revocation",
+      "case": "Controlled fixed clock at expiry minus 1 ms, exact expiry, and plus 1 ms while R2 still holds image; null and invalid expiration values.",
+      "expected": "Before boundary owner can read; exact/after boundary 410 asset_expired; null/invalid values deny safely. Record clock injection or fixture dates explicitly, and independently assert R2 objects still exist during read revocation."
+    },
+    {
+      "id": "RET-01",
+      "evidence": "expiry and read revocation",
+      "case": "Actual deleteExpiredAssets over expired A/B and anonymous assets plus future and null-expiry controls, with small batch size and repeated pages.",
+      "expected": "Only selected expired nondeleted rows are cleaned; unique original/normalized/thumbnail keys vanish; future/null assets and their hashes remain unchanged. Loop terminates with no remaining eligible rows, including the extra empty page when a batch was exactly full."
+    },
+    {
+      "id": "RET-02",
+      "evidence": "failure recovery and cleanup",
+      "case": "Repeat retention cleanup and immediate route deletion after completed success.",
+      "expected": "No repeat success-object deletion or duplicate successful attempt; already deleted rows excluded; summary, timestamps and audit entries reconcile with exact object removals."
+    },
+    {
+      "id": "DEL-01",
+      "evidence": "owned deletion and isolation",
+      "case": "Actual analysis and batch DELETE against existing, completed foreign targets with legal request bodies, A to B and B to A; anonymous requests.",
+      "expected": "Foreign 404 and anonymous authentication rejection; business tables, asset rows, deletion audit, R2 inventory/hash, credit/usage ledgers and queues unchanged. Existing target/read evidence and separate owner-positive deletion prevent nonexistent-target false positives."
+    },
+    {
+      "id": "DEL-02",
+      "evidence": "owned deletion and isolation",
+      "case": "Actual account-assets DELETE in both owner workspaces, including forged workspace/actor fields targeting the other workspace.",
+      "expected": "Only authenticated current workspace is affected. Route currently ignores body, so a 200 that deletes only actor-owned assets is valid; forged fields must not redirect scope. Anonymous 401; other workspace inventory, audit and credits unchanged."
+    },
+    {
+      "id": "GUARD-01",
+      "evidence": "owned deletion and isolation",
+      "case": "Own analysis queued/running; own batch queued/processing; account deletion with each type of active task, using real rows and otherwise deletable assets.",
+      "expected": "409 with exact running error and all business/asset/audit/R2/credit/queue state unchanged. Positive terminal target after guard removal must remain deletable."
+    },
+    {
+      "id": "GUARD-02",
+      "evidence": "owned deletion and isolation",
+      "case": "Analysis/batch images include a SKU reference asset linked by current or historical product_reference_versions plus a nonprotected candidate.",
+      "expected": "Analysis/batch deletion preserves referenced asset and R2 keys while deleting candidate. Existing SQL protects any matching product reference version, not only current. Account-wide and retention deletion have different scopes and must be reported separately."
+    },
+    {
+      "id": "POST-01",
+      "evidence": "expiry and read revocation",
+      "case": "Owner/foreign asset GET and actual analysis/batch detail/list after exact successful deletion; repeat delete.",
+      "expected": "Owner 410 asset_deleted; foreign keeps ownership denial rather than exposing state. Actual API expresses unavailable image, R2 exact keys absent, no derivative access path bypass, idempotent repeated request. Analysis/review/frozen snapshot and credits remain unchanged except intended deletion audit/asset metadata."
+    },
+    {
+      "id": "POST-02",
+      "evidence": "expiry and read revocation",
+      "case": "Build complete six-check synthetic ELIGIBLE source and real review approval; delete its candidate using actual route; query actual release API again.",
+      "expected": "ELIGIBLE becomes BLOCKED with assets_unavailable. Machine evidence, review event chain, frozen product/source hashes and credits are preserved. Synthetic provenance is explicitly marked and never treated as model quality."
+    },
+    {
+      "id": "FAIL-01",
+      "evidence": "failure recovery and cleanup",
+      "case": "Narrow one-shot R2 delete failure through wrapper around actual local bucket; all other calls delegate to real R2/D1.",
+      "expected": "Failure summary/route error, failed audit and unchanged target objects/status; no complete-success claim. Remove injection and retry actual process to converge without affecting controls. Preserve original failure evidence."
+    },
+    {
+      "id": "FAIL-02",
+      "evidence": "failure recovery and cleanup",
+      "case": "One-shot failure only on D1 markAssetDeleted after real R2 deletion has succeeded, using real database for all other statements.",
+      "expected": "Exact target objects already absent, asset not falsely marked successful, failed audit/error captured and no complete success. Owner GET cannot yield bytes while metadata is pending; real retry tolerates missing R2 objects, marks deleted and completes audit. This is partial-failure convergence, not image restoration."
+    },
+    {
+      "id": "FAIL-03",
+      "evidence": "failure recovery and cleanup",
+      "case": "Compare both injection paths with before/after manifest and non-target full R2 hashes plus scoped D1/ledger digests.",
+      "expected": "Failure window is named and real; no FakeD1/FakeR2-only proof, no accidental other-workspace deletion, queue enqueue or credit mutation. Auth-session maintenance excluded explicitly from business digest if necessary."
+    },
+    {
+      "id": "END-01",
+      "evidence": "failure recovery and cleanup",
+      "case": "Generate a second environment with a new runId; stop local services and dispose Miniflare; retain sanitized original reports and manifest hashes.",
+      "expected": "Fresh run proves test regeneration; never recreate same asset IDs or reset deleted status to claim product recovery. Reports contain no session cookies, magic links or credentials; private D1 remains temporary and is not committed. productionLifecycleCovered=false, qualityEvidence=false, modelCallsExecuted=0."
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "detail": "Null expiration semantics differ in current source: asset GET treats null as expired, while lib/releases/repository.ts availability expression treats null as available. This is a source-level risk requiring a candidate-time reproduction, not a confirmed candidate failure or PASS."
+    },
+    {
+      "id": "R2",
+      "detail": "Expiry selection compares stored timestamp strings while GET uses Date.parse and release uses julianday. Canonical fixture timestamps must be declared; malformed values and exact clock boundaries must not be inferred from ordinary future dates."
+    },
+    {
+      "id": "R3",
+      "detail": "R2 and D1 deletion are not atomic. Object absence after a D1 marking failure must be distinguished from metadata deletion and audit completion; retry convergence does not recover permanently removed images."
+    },
+    {
+      "id": "R4",
+      "detail": "Analysis/batch SKU protection is based on every product_reference_versions link; account-assets and retention cleanup do not apply that exclusion. Tests must match these actual scoped contracts rather than assume a universal SKU protection rule."
+    },
+    {
+      "id": "R5",
+      "detail": "Immediate deletion guards inspect selected analysis/batch or workspace status before deleting. Shared assets may be referenced elsewhere; include shared-reference controls and report guard scope. Do not claim protection against concurrent worker races from sequential 409 tests."
+    },
+    {
+      "id": "R6",
+      "detail": "Deletion attempts are recorded before the deletion try block; audit-insert or audit-completion failures are distinct from the two required injected failures. If encountered, preserve their actual windows and escalate minimal reproduction rather than collapse them into successful cleanup."
+    },
+    {
+      "id": "R7",
+      "detail": "Account-assets DELETE has no target ID and currently ignores request body. Isolation must be proven by selected rows and object inventory, not by expecting a forged-body schema error."
+    },
+    {
+      "id": "R8",
+      "detail": "A route denial and unchanged D1 count alone are insufficient: verify valid existing objects, all relevant business table rows, deletion audit, credits/usage, queue and R2 keys/hash before and after."
+    }
+  ],
+  "evidencePlan": {
+    "baseline": "Exact candidate SHA and clean candidate files; original developer failures and final report hashes.",
+    "storage": "Sanitized asset manifest, real D1 row snapshots and scoped digests, R2 key inventories plus content hashes.",
+    "route": "Method/path class, actor alias, target alias/existence, status/error, expiry clock, summary, unchanged-state proof; never log cookies or magic links.",
+    "failure": "Injected operation and one-shot boundary, original error summary, object state, asset state, audit status and real retry result.",
+    "ui": "Only if required by candidate evidence; use CUA and label actual component plus fixture transport separately from authenticated browser E2E."
+  },
+  "boundaries": {
+    "repositoryModifiedByQA": false,
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "newRolesCreated": false,
+    "noCandidateAcceptance": true,
+    "noCredentialReads": true,
+    "noExternalServices": true
+  },
+  "stopConditions": [
+    "Candidate SHA absent: preparation only, no PASS.",
+    "Runtime defect: report minimal reproduction, severity and exact files; QA does not fix shared code or weaken assertions.",
+    "Same substantive failure twice or one hour without progress: narrow scope and report to controller.",
+    "Production, customer, payment, model or credential operations would be required: outside current local QA contract."
+  ],
+  "nextAction": "Wait for controller to fix and dispatch exact JRN-04 candidate SHA and original evidence, then independently execute the scoped acceptance matrix.",
+  "nextActionAutomaticAfterDispatch": true
+}

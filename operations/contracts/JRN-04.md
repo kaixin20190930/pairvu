@@ -21,3 +21,12 @@
 测试预算：专项真实路由/存储+typecheck/改动lint；无runtime变更不全站build。同因两次失败或一小时无进展缩域。开发回candidateSha/文件/原始失败和最终报告/边界；独立QA回unitId,candidateSha,reviewerThreadId,result,checks:[{name,status,detail}]。
 requiredEvidence：fixed candidate SHA；independent QA report；isolated asset manifest；expiry and read revocation；owned deletion and isolation；failure recovery and cleanup。
 完成后总控正式CLI收尾、更新整体进度，明确下一步和依赖；不启动其他新功能或恢复pairvu-2。
+
+## 已复现运行时修复范围（总控，2026-10-13）
+用户已授权失败继续修复。开发实际复现null到期图片GET410但release ELIGIBLE，以及匿名batch DELETE500。追加允许lib/releases/repository.ts（可用性需有效未来到期，与GET安全拒绝一致）、app/api/batches/[batchId]/route.ts（DELETE捕获RequestAccessError为401），及必要精确回归测试。禁止扩大其他规则/路由行为；保留修复前原件，新增有效未来/过期/null/非法值和匿名/本人/外部回归。运行时另以JRN-04-FIX正式跟踪至RELEASE_READY，不以本地工具close代替发布；没有生产授权。修复需typecheck/lint/相关回归及一次固定源码构建，独立QA覆盖同一SHA。
+
+## 独立QA返工补充：删除失败窗口（2026-10-13）
+94a818b独立FAIL原件operations/evidence/JRN-04/attempt-1/qa.json。已有SKU保护的reference+approved完整candidate在R2成功/D1标记失败时，release仍ELIGIBLE。允许继续在lib/releases/repository.ts做最小失败关闭：有已记录删除意图/未完成或失败的删除尝试时，不可宣称图片可用于发布；优先复用已有asset_deletion_attempts，避免迁移和改变永久删除语义。必要时lib/assets/deletion.ts的最小配套调整需说明。原机器、审批和冻结来源保留，正常无删除意图的future资产仍ELIGIBLE；至少检查started/failed窗口、R2失败与R2成功D1失败、重试收敛、A/B不变性。加入开发回归，不直接修改QA原件。固定新SHA独立复验和增量构建；仍无生产授权。
+
+## 最终验收
+候选c20cf48c06269fe463043a4dbf5d4a11841c1da6独立增量10PASS，原25PASS按差分复用、原FAIL保留。JRN-04正式CLOSED；JRN-04-FIX正式RELEASE_READY，未生产部署。证据../evidence/JRN-04/recheck/qa.json和fix-qa.json。

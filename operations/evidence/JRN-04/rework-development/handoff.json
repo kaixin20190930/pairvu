@@ -1,0 +1,77 @@
+{
+  "unitId": "JRN-04",
+  "runtimeUnitId": "JRN-04-FIX",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "reworkFromCandidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "result": "DEV_PASS",
+  "independentAcceptance": "PENDING new fixed SHA; original QA FAIL preserved",
+  "candidateFilesClean": true,
+  "runtimeFilesChangedThisRework": [
+    "lib/releases/repository.ts"
+  ],
+  "deletionServiceChanged": false,
+  "migrationsAdded": false,
+  "otherFileScope": [
+    "scripts/jrn04-partial-window.ts",
+    "docs/05-evaluation/asset-lifecycle-acceptance.md",
+    "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/**",
+    "fixtures/journey-asset-lifecycle/rework-archive-index.json",
+    "fixtures/journey-asset-lifecycle/rework-journey-pass/**",
+    "fixtures/journey-asset-lifecycle/rework-partial-pass/**",
+    "fixtures/journey-asset-lifecycle/rework-pre-fix/**"
+  ],
+  "repair": "Existing deletion audit is recorded before R2 deletion; any recorded permanent deletion intent excludes that asset from release availability. Existing asset audit index is reused. Normal no-intent future assets keep eligibility.",
+  "validation": {
+    "partialWindowCases": 6,
+    "journeyCases": 14,
+    "typecheck": "PASS",
+    "changedSourceLint": "PASS",
+    "gitDiffCheck": "PASS",
+    "fixedSourceBuild": "PASS",
+    "buildReport": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM/build-report.json",
+    "buildLog": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM/build-original.log",
+    "embeddedBuildSha": "unknown",
+    "releaseArtifact": false,
+    "blockedBuildOutbound": []
+  },
+  "rawEvidence": {
+    "originalIndependentFinding": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/qa-attempt-1-originals/finding.json",
+    "originalIndependentQA": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/qa-attempt-1-originals/qa.json",
+    "developerBeforeRepair": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-pre-fix/partial-final-report.json",
+    "partialAfterRepair": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-partial-pass/partial-final-report.json",
+    "journeyAfterRepair": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-journey-pass/final-report.json",
+    "startedWindow": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-partial-pass/partial-started-window-original.json",
+    "r2Failure": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-partial-pass/partial-r2-failure-original.json",
+    "markFailure": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-partial-pass/partial-mark-failure-original.json",
+    "archiveIndex": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/rework-archive-index.json",
+    "originalsVerified": 53,
+    "qaScriptsOrReportsModified": false
+  },
+  "coverage": [
+    "real Better Auth A/B sessions and fresh workerd D1/R2",
+    "actual approved six-check source with versioned SKU-protected reference",
+    "actual started audit before paused R2 deletion blocks eligibility while bytes still readable",
+    "actual R2 failure records failed intent and blocks eligibility while GET200",
+    "actual R2 success with D1 mark failure yields GET503 and BLOCKED before retry",
+    "actual retry convergence without same-ID restoration",
+    "machine/review/source/frozen hashes and all nontarget asset/object/business/credit state preserved",
+    "normal A/B no-intent controls remain ELIGIBLE"
+  ],
+  "cleanup": {
+    "partialServicesStopped": true,
+    "journeyServicesStopped": true,
+    "allManifestObjectsGone": true,
+    "privateStorageArchived": false
+  },
+  "boundaries": {
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "productionPushOrDeployment": false,
+    "globalR2InventoryVerificationByReleaseQuery": false,
+    "concurrentWorkerRaceCoverage": false
+  },
+  "nextAction": "Controller automatically dispatches this exact SHA for independent JRN-04 and JRN-04-FIX reacceptance; tool may close only after independent PASS, runtime stops at RELEASE_READY pending separate production authorization",
+  "nextActionAutomatic": true,
+  "dependency": "Independent review of new exact candidate; no user input required for local reacceptance"
+}

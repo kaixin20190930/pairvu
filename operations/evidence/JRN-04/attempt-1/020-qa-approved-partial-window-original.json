@@ -1,0 +1,161 @@
+{
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "runId": "f852c47e-824c-403a-8c23-80f227587b1e",
+  "analysisId": "f19f068f-6ac3-4c96-bc9f-6080fcd2ac83",
+  "reference": {
+    "id": "470e044e-3a8c-4de2-af05-2ae79685a192",
+    "owner": "A",
+    "workspaceId": "personal_ROFGqrHySJtEX8uKj73CAtjcGbpE3E8Q",
+    "label": "qa-independent-reference",
+    "kind": "reference",
+    "keys": [
+      "jrn04/f852c47e-824c-403a-8c23-80f227587b1e/470e044e-3a8c-4de2-af05-2ae79685a192/original.png",
+      "jrn04/f852c47e-824c-403a-8c23-80f227587b1e/470e044e-3a8c-4de2-af05-2ae79685a192/normalized.png",
+      "jrn04/f852c47e-824c-403a-8c23-80f227587b1e/470e044e-3a8c-4de2-af05-2ae79685a192/thumbnail.png"
+    ],
+    "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+    "expiresAt": "2099-12-31T00:00:00.000Z",
+    "initialStatus": "analyzed"
+  },
+  "candidate": {
+    "id": "af4e4158-3bd4-47fa-aa24-4c794647530f",
+    "owner": "A",
+    "workspaceId": "personal_ROFGqrHySJtEX8uKj73CAtjcGbpE3E8Q",
+    "label": "qa-independent-candidate",
+    "kind": "candidate",
+    "keys": [
+      "jrn04/f852c47e-824c-403a-8c23-80f227587b1e/af4e4158-3bd4-47fa-aa24-4c794647530f/original.png"
+    ],
+    "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+    "expiresAt": "2099-12-31T00:00:00.000Z",
+    "initialStatus": "analyzed"
+  },
+  "before": {
+    "analysisId": "f19f068f-6ac3-4c96-bc9f-6080fcd2ac83",
+    "createdAt": "2026-10-13T10:05:28.514Z",
+    "batchId": null,
+    "productSnapshot": null,
+    "productSnapshotJson": null,
+    "productSnapshotHash": null,
+    "machine": {
+      "status": "completed",
+      "verdict": "pass",
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002",
+      "completedAt": "2026-10-13T10:05:28.533Z",
+      "issueCount": 0,
+      "limitations": [],
+      "sourceHash": "b85625bf794b7c324a52a4ab396520fbb02c7d193a14152f800d4dcace046ed2",
+      "sourceComplete": true,
+      "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"f19f068f-6ac3-4c96-bc9f-6080fcd2ac83\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T10:05:28.533Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"470e044e-3a8c-4de2-af05-2ae79685a192\",\"candidateAssetId\":\"af4e4158-3bd4-47fa-aa24-4c794647530f\",\"observations\":[{\"id\":\"90f96dbd-b7c8-4955-ae2c-57e19ef8fbe1\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"6edb0709-bd2c-4def-b331-46627a62520a\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"00e11883-8f4b-479a-90b1-59621ef4a495\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"f14de09a-b24d-4f16-8f6f-c7699a25efd7\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"25eb485d-8789-4df9-8046-6573e30eab8d\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"f5563b54-dc7e-4e47-a041-804c7e3aaf57\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"9774571e-a2e7-43ed-9dd1-dec6d1d755bf\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+    },
+    "assets": {
+      "referenceAvailable": true,
+      "candidateAvailable": true
+    },
+    "human": {
+      "action": "approve",
+      "category": "other",
+      "reason": "Independent synthetic lifecycle QA; no quality claim.",
+      "revision": 1,
+      "createdAt": "2026-10-13T10:05:29.639Z",
+      "machineHash": "442410c85259361e15cf1fab8b43bc2527b593182c88eae166892f55fec8f30c"
+    },
+    "eligibility": "eligible",
+    "reasons": [
+      {
+        "code": "complete_source_approved",
+        "message": "Complete supported evidence and a current source-matching human approval satisfy this rule."
+      }
+    ],
+    "evaluatedAt": "2026-10-13T10:05:30.010Z",
+    "policyVersion": "release-policy-001",
+    "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+  },
+  "response": {
+    "status": 500,
+    "body": {
+      "error": "image_deletion_incomplete",
+      "message": "Some images could not be deleted. Please retry.",
+      "deletion": {
+        "requested": 1,
+        "deleted": 0,
+        "failed": 1
+      }
+    }
+  },
+  "image": {
+    "status": 503,
+    "body": {
+      "error": "asset_binary_missing",
+      "message": "The saved image could not be read from storage."
+    }
+  },
+  "after": {
+    "analysisId": "f19f068f-6ac3-4c96-bc9f-6080fcd2ac83",
+    "createdAt": "2026-10-13T10:05:28.514Z",
+    "batchId": null,
+    "productSnapshot": null,
+    "productSnapshotJson": null,
+    "productSnapshotHash": null,
+    "machine": {
+      "status": "completed",
+      "verdict": "pass",
+      "qaEngineVersion": "m0-qa-engine-008",
+      "riskPolicyVersion": "m0-risk-policy-003",
+      "modelPolicyVersion": "m0-model-policy-002",
+      "completedAt": "2026-10-13T10:05:28.533Z",
+      "issueCount": 0,
+      "limitations": [],
+      "sourceHash": "b85625bf794b7c324a52a4ab396520fbb02c7d193a14152f800d4dcace046ed2",
+      "sourceComplete": true,
+      "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"f19f068f-6ac3-4c96-bc9f-6080fcd2ac83\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T10:05:28.533Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"470e044e-3a8c-4de2-af05-2ae79685a192\",\"candidateAssetId\":\"af4e4158-3bd4-47fa-aa24-4c794647530f\",\"observations\":[{\"id\":\"90f96dbd-b7c8-4955-ae2c-57e19ef8fbe1\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"6edb0709-bd2c-4def-b331-46627a62520a\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"00e11883-8f4b-479a-90b1-59621ef4a495\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"f14de09a-b24d-4f16-8f6f-c7699a25efd7\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"25eb485d-8789-4df9-8046-6573e30eab8d\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"},{\"id\":\"f5563b54-dc7e-4e47-a041-804c7e3aaf57\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and whole product visible.\\\",\\\"comparisonSummary\\\":\\\"Independent synthetic matching pair.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar label and whole product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"Independent QA synthetic evidence, no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"9774571e-a2e7-43ed-9dd1-dec6d1d755bf\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"470e044e-3a8c-4de2-af05-2ae79685a192\\\",\\\"af4e4158-3bd4-47fa-aa24-4c794647530f\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+    },
+    "assets": {
+      "referenceAvailable": true,
+      "candidateAvailable": true
+    },
+    "human": {
+      "action": "approve",
+      "category": "other",
+      "reason": "Independent synthetic lifecycle QA; no quality claim.",
+      "revision": 1,
+      "createdAt": "2026-10-13T10:05:29.639Z",
+      "machineHash": "442410c85259361e15cf1fab8b43bc2527b593182c88eae166892f55fec8f30c"
+    },
+    "eligibility": "eligible",
+    "reasons": [
+      {
+        "code": "complete_source_approved",
+        "message": "Complete supported evidence and a current source-matching human approval satisfy this rule."
+      }
+    ],
+    "evaluatedAt": "2026-10-13T10:05:31.588Z",
+    "policyVersion": "release-policy-001",
+    "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+  },
+  "objects": [
+    {
+      "key": "jrn04/f852c47e-824c-403a-8c23-80f227587b1e/af4e4158-3bd4-47fa-aa24-4c794647530f/original.png",
+      "present": false
+    }
+  ],
+  "metadata": {
+    "status": "analyzed",
+    "deleted_at": null
+  },
+  "audit": [
+    {
+      "id": "36e4de18-e406-4489-a6d4-135c72d90faa",
+      "asset_id": "af4e4158-3bd4-47fa-aa24-4c794647530f",
+      "status": "failed",
+      "object_keys_json": "[\"jrn04/f852c47e-824c-403a-8c23-80f227587b1e/af4e4158-3bd4-47fa-aa24-4c794647530f/original.png\"]",
+      "error_message": "jrn04_injected_mark_failure",
+      "attempted_at": "2026-10-13T10:05:30.889Z",
+      "completed_at": "2026-10-13T10:05:30.889Z",
+      "created_at": "2026-10-13T10:05:30.889Z",
+      "updated_at": "2026-10-13T10:05:30.889Z"
+    }
+  ]
+}

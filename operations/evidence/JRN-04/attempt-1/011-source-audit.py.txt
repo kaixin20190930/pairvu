@@ -1,0 +1,54 @@
+import hashlib,json,pathlib,subprocess,tarfile,sqlite3
+repo=pathlib.Path('/Users/liukai/Documents/Product Visual QA Platform')
+out=pathlib.Path('/private/tmp/pairvu-jrn04-qa-evidence')
+sha='94a818b835b62170ea484be177f7b1ee7a97b72a'
+build=pathlib.Path('/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-5xoTgI')
+report=json.loads((build/'build-report.json').read_text())
+assert report['candidateSha']==sha and report['status']=='PASS' and report['exitCode']==0
+assert hashlib.sha256((build/'candidate.tar').read_bytes()).hexdigest()==report['sourceArchiveSha256']
+records=subprocess.check_output(['git','ls-tree','-rz','--full-tree',sha],cwd=repo).split(b'\0')
+tree={}
+for record in records:
+ if record:
+  info,path=record.split(b'\t',1);mode,kind,oid=info.split();tree[path.decode()]=(mode.decode(),oid.decode())
+excluded=set(report['excludedPaths']);seen=set();extractedMismatch=[]
+def oid(data):return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+with tarfile.open(build/'candidate.tar') as archive:
+ for member in archive:
+  if member.isdir():continue
+  path=member.name
+  assert path in tree and path not in excluded,path
+  data=member.linkname.encode() if member.issym() else archive.extractfile(member).read()
+  assert oid(data)==tree[path][1],path
+  seen.add(path)
+  extracted=build/path
+  actual=extracted.readlink().as_posix().encode() if member.issym() else extracted.read_bytes()
+  if oid(actual)!=tree[path][1]:extractedMismatch.append(path)
+assert seen==set(tree)-excluded
+assert not extractedMismatch,extractedMismatch
+assert not report['blockedOutbound'] and not report['releaseArtifact']
+log=(build/'build-original.log').read_text()
+assert 'Compiled successfully' in log
+index=json.loads((repo/'fixtures/journey-asset-lifecycle/archive-index.json').read_text())
+matched=0; originalsPresent=0
+for item in index['files']:
+ archived=repo/item['archivedPath'];data=archived.read_bytes()
+ assert len(data)==item['bytes'] and hashlib.sha256(data).hexdigest()==item['sha256'],item['archivedPath']
+ original=pathlib.Path(item['originalPath'])
+ if original.exists():
+  assert original.read_bytes()==data
+  originalsPresent+=1
+ matched+=1
+pre=repo/'fixtures/journey-asset-lifecycle/pre-fix'
+preReport=json.loads((pre/'final-report.json').read_text())
+null=json.loads((pre/'null-expiry-release-original.json').read_text())
+anon=json.loads((pre/'anonymous-delete-responses.json').read_text())
+assert preReport['status']=='FAIL' and sum(c['status']=='FAIL' for c in preReport['cases'])==2
+assert null['image']['status']==410 and null['after']['eligibility']=='eligible'
+assert next(r for r in anon if r['key']=='batch')['status']==500
+failedBuild=json.loads((repo/'fixtures/journey-asset-lifecycle/build-attempt-1/build-report.json').read_text())
+assert failedBuild['status']=='FAIL' and failedBuild['exitCode']==1
+assert 'Symlink' in (repo/'fixtures/journey-asset-lifecycle/build-attempt-1/build-original.log').read_text()
+result={'status':'PASS','candidateSha':sha,'buildExactArchiveHashVerified':True,'candidateTrackedFilesMatchedArchiveAndExtractedSource':len(seen),'excludedCredentialNamedPaths':sorted(excluded),'buildEmbeddedSha':'unknown','releaseArtifact':False,'buildNotRepeated':True,'buildReport':str(build/'build-report.json'),'buildLog':str(build/'build-original.log'),'originalArchivedFilesVerified':matched,'originalFilesCompared':originalsPresent,'preFixProductFailuresRetained':2,'originalBuildFailureRetained':True,'runtimeSourceDiffReviewed':['lib/releases/repository.ts','app/api/batches/[batchId]/route.ts'],'independentTypecheck':'PASS; pnpm exec tsc --noEmit --incremental false; exit 0','independentChangedSourceLint':'PASS; five changed source files; exit 0'}
+(out/'source-audit.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps({'status':'PASS','sourceFilesVerified':len(seen),'archiveOriginalsVerified':matched,'report':str(out/'source-audit.json')}))

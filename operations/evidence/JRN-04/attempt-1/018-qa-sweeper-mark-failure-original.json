@@ -1,0 +1,51 @@
+{
+  "summary": {
+    "scanned": 1,
+    "deleted": 0,
+    "failed": 1,
+    "hasMore": true
+  },
+  "target": {
+    "id": "a33d1b10-9259-4323-8ea5-ccc274c39509",
+    "owner": "B",
+    "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+    "label": "qa-sweep-mark-fault",
+    "kind": "candidate",
+    "keys": [
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png"
+    ],
+    "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+    "expiresAt": "2002-01-01T00:00:00.000Z",
+    "initialStatus": "analyzed"
+  },
+  "objects": [
+    {
+      "key": "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png",
+      "present": false
+    }
+  ],
+  "asset": {
+    "status": "analyzed",
+    "deleted_at": null
+  },
+  "image": {
+    "status": 410,
+    "body": {
+      "error": "asset_expired",
+      "message": "This saved image reached the end of its retention period."
+    }
+  },
+  "audit": [
+    {
+      "id": "463466e2-97a2-4668-90a5-f8de0c17634e",
+      "asset_id": "a33d1b10-9259-4323-8ea5-ccc274c39509",
+      "status": "failed",
+      "object_keys_json": "[\"jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png\"]",
+      "error_message": "jrn04_injected_mark_failure",
+      "attempted_at": "2030-01-01T00:00:00.000Z",
+      "completed_at": "2030-01-01T00:00:00.000Z",
+      "created_at": "2030-01-01T00:00:00.000Z",
+      "updated_at": "2030-01-01T00:00:00.000Z"
+    }
+  ]
+}

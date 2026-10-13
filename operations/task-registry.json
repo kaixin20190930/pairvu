@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "JRN-04",
-  "baselineSha": "7c90674e10cc3f76ce4d3ba673d69c48c6d4becf",
+  "unitId": "JRN-04-FIX",
+  "baselineSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -12,10 +12,10 @@
       "thinking": "high",
       "reason": "真实认证、跨账号删除和D1/R2非原子失败恢复，需要跨层推理；Sol足够，不默认最高档",
       "upgradeCondition": "反复实质推理缺口先缩域；环境与权限问题不升级",
-      "applied": false
+      "applied": true
     },
-    "observedStatus": "idle",
-    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:165",
+    "observedStatus": "completed",
+    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:266",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -40,10 +40,10 @@
       "thinking": "high",
       "reason": "独立核对不可逆边界、跨账号反例、到期时序和失败窗口；Sol足够，不默认最高档",
       "upgradeCondition": "反复实质推理缺口先缩域；环境与权限问题不升级",
-      "applied": false
+      "applied": true
     },
-    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:88",
-    "observedStatus": "idle",
+    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:145",
+    "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -80,7 +80,7 @@
         "action": "resume same QA role/model/scope; no replacement or duplicate"
       }
     ],
-    "receipt": "operations/evidence/JRN-03/qa-final.json",
+    "receipt": "operations/evidence/JRN-04/recheck/fix-qa.json",
     "cleanupModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "high",
@@ -89,10 +89,10 @@
       "applied": true
     }
   },
-  "candidateSha": null,
-  "state": "SCOPED",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "JRN-03固定候选ab6d66b独立PASS，正式qa PASS→close；17场景和独立持久化/UI复核通过。本轮仅本地工具与证据，无生产部署/启用、真实扣款、客户数据修改或模型调用；整体生产旅程仍INCOMPLETE，pairvu-2继续PAUSED。",
+  "notes": "JRN-04已固定c20cf48独立PASS并正式local_only CLOSED；JRN-04-FIX正式RELEASE_READY，含空到期资格、匿名删除401、删除失败窗口资格3项修复，未推送/部署/启用。原FAIL及限制保留，pairvu-2仍PAUSED。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -218,9 +218,9 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "JRN-04已授权，原角色开发→固定SHA独立QA→失败返工→本地收尾，生产不操作",
-  "completedUnitId": "JRN-03",
-  "completedCandidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+  "nextAction": "等待用户明确授权发布JRN-04-FIX，再GitHub-first推送/fresh核验/同SHA构建部署及最小生产复验；本轮只隔离合成资产，不扩展生产删除权限。",
+  "completedUnitId": "JRN-04",
+  "completedCandidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
   "completedReleaseRepair": {
     "unitId": "JRN-01-EXPORT-FIX",
     "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
@@ -345,13 +345,14 @@
       "production actual authenticated Free HTTP403 path (isolated actual handler PASS)",
       "production cross-workspace write API negatives (JRN-03 local_only PASS)",
       "production complete positive ELIGIBLE analysis (JRN-03 synthetic local_only PASS)",
-      "authorized expired/deleted assets and precise permanent deletion confirmation",
+      "production expired/deleted assets and precise permanent deletion scope (JRN-04 isolated local PASS)",
       "real payment/pack/portal writes"
     ],
     "quality": "Real authorized double-annotated samples NOT_PROVIDED; no quality conclusion",
     "value": "test/unknown excluded; real business-source input still needed",
     "isolatedTestPaymentCsvAndCancellation": "JRN-02 PASS/local_only CLOSED; production checkout, paid CSV and local Google OAuth not covered",
-    "localWriteIsolationAndEligible": "JRN-03 PASS/local_only CLOSED; 17 scenarios, independent SQLite audit and actual component with fixture transport; not production or quality evidence"
+    "localWriteIsolationAndEligible": "JRN-03 PASS/local_only CLOSED; 17 scenarios, independent SQLite audit and actual component with fixture transport; not production or quality evidence",
+    "isolatedAssetLifecycle": "JRN-04 PASS/CLOSED; actual isolated D1/R2/auth, expiry/deletion/ownership and failure retry; runtime fixes RELEASE_READY only"
   },
   "sandboxAcceptance": {
     "contract": "operations/contracts/JRN-02.md",
@@ -399,11 +400,30 @@
     "authenticatedBrowserE2E": false
   },
   "assetLifecycleAcceptance": {
-    "state": "SCOPED",
+    "state": "CLOSED",
     "contract": "operations/contracts/JRN-04.md",
     "productionLifecycleCovered": false,
     "qualityEvidence": false,
     "realChargesAuthorized": false,
-    "customerDataWritesAuthorized": false
+    "customerDataWritesAuthorized": false,
+    "qaPreparation": "/private/tmp/pairvu-jrn04-qa-preparation.json",
+    "repairUnitId": "JRN-04-FIX",
+    "confirmedFailures": [
+      "null-expiry GET410 but release ELIGIBLE",
+      "anonymous batch DELETE500 instead of401"
+    ],
+    "runtimeRepairFiles": [
+      "lib/releases/repository.ts",
+      "app/api/batches/[batchId]/route.ts"
+    ],
+    "productionReleaseAuthorized": false,
+    "statusNote": "独立增量10PASS；旧25PASS按差分复用，原FAIL保留；本地工具关闭，3项runtime问题修复待发布",
+    "qaResult": "PASS",
+    "failureEvidence": "operations/evidence/JRN-04/attempt-1/qa.json",
+    "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+    "qaEvidence": "operations/evidence/JRN-04/recheck/qa.json",
+    "runtimeState": "RELEASE_READY",
+    "runtimeEvidence": "operations/evidence/JRN-04/recheck/fix-qa.json",
+    "modelCallsExecuted": 0
   }
 }

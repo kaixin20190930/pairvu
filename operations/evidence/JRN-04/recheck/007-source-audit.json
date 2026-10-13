@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "buildExactArchiveHashVerified": true,
+  "candidateTrackedFilesMatchedArchiveAndExtractedSource": 1985,
+  "excludedCredentialNamedPaths": [
+    ".dev.vars.example"
+  ],
+  "buildEmbeddedSha": "unknown",
+  "releaseArtifact": false,
+  "buildNotRepeated": true,
+  "buildReport": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM/build-report.json",
+  "buildLog": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM/build-original.log",
+  "originalArchivedFilesVerified": 133,
+  "originalFilesCompared": 133,
+  "preFixProductFailuresRetained": 2,
+  "originalBuildFailureRetained": true,
+  "runtimeFilesChangedInRework": [
+    "lib/releases/repository.ts"
+  ],
+  "deletionServiceAndAuthRouteUnchanged": true,
+  "previousQaScriptsAndReportsPreserved": true,
+  "independentTypecheck": "PASS; pnpm exec tsc --noEmit --incremental false; exit 0",
+  "independentChangedSourceLint": "PASS; lib/releases/repository.ts and scripts/jrn04-partial-window.ts; exit 0"
+}

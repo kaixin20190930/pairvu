@@ -390,6 +390,20 @@
         "owned deletion and isolation",
         "failure recovery and cleanup"
       ]
+    },
+    {
+      "id": "JRN-04-FIX",
+      "title": "素材到期资格与匿名批次删除修复",
+      "priority": 0,
+      "dependsOn": [
+        "JRN-04"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
     }
   ]
 }

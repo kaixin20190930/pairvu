@@ -1,0 +1,346 @@
+{
+  "units": [
+    {
+      "id": "JRN-04",
+      "title": "\u5408\u6210\u7d20\u6750\u5230\u671f\u3001\u5220\u9664\u4e0e\u6743\u9650\u56de\u6536\u8865\u9a8c",
+      "priority": 1,
+      "dependsOn": [
+        "JRN-03"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "isolated asset manifest",
+        "expiry and read revocation",
+        "owned deletion and isolation",
+        "failure recovery and cleanup"
+      ],
+      "status": "CLOSED",
+      "roles": {
+        "dev": {
+          "id": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+          "pending": false
+        },
+        "qa": {
+          "id": "01a1248d-0f67-7333-8dca-5c4696459457",
+          "pending": false
+        }
+      },
+      "baseline": "463887050e4ba3fbd294fd45b59607b5d80ec31b",
+      "candidate": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+      "qa": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-04/recheck/qa.json",
+        "digest": "f47080e4e1818530e0f893fd8f9e38159e0162cb72fe6937508e1abe584514e7",
+        "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "id": "JRN-04-FIX",
+      "title": "\u7d20\u6750\u5230\u671f\u8d44\u683c\u4e0e\u533f\u540d\u6279\u6b21\u5220\u9664\u4fee\u590d",
+      "priority": 0,
+      "dependsOn": [
+        "JRN-04"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ],
+      "status": "RELEASE_READY",
+      "roles": {
+        "dev": {
+          "id": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+          "pending": false
+        },
+        "qa": {
+          "id": "01a1248d-0f67-7333-8dca-5c4696459457",
+          "pending": false
+        }
+      },
+      "baseline": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+      "candidate": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+      "qa": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-04/recheck/fix-qa.json",
+        "digest": "9415bcdc793115f98466c5f081af17f535a345f0635c15a11996a9c6efbe1bf8",
+        "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    }
+  ],
+  "events": [
+    {
+      "seq": 192,
+      "at": "2026-10-13T09:18:06.025Z",
+      "action": "plan-sync",
+      "args": [
+        "operations/backlog.json"
+      ],
+      "unitId": null,
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/backlog.json",
+        "digest": "84ba378069727c9809d53a58429145599eace708120b1bda799b6a974248247e",
+        "changes": [
+          {
+            "unitId": "JRN-04",
+            "before": null,
+            "after": {
+              "id": "JRN-04",
+              "title": "\u5408\u6210\u7d20\u6750\u5230\u671f\u3001\u5220\u9664\u4e0e\u6743\u9650\u56de\u6536\u8865\u9a8c",
+              "priority": 1,
+              "dependsOn": [
+                "JRN-03"
+              ],
+              "mode": "local_only",
+              "autoEligible": true,
+              "requiredEvidence": [
+                "fixed candidate SHA",
+                "independent QA report",
+                "isolated asset manifest",
+                "expiry and read revocation",
+                "owned deletion and isolation",
+                "failure recovery and cleanup"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seq": 193,
+      "at": "2026-10-13T09:18:06.151Z",
+      "action": "claim",
+      "args": [
+        "JRN-04"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 194,
+      "at": "2026-10-13T09:18:06.271Z",
+      "action": "bind-role",
+      "args": [
+        "dev",
+        "01a12489-e94e-7bd3-afb2-6a2c90e70970"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 195,
+      "at": "2026-10-13T09:18:06.393Z",
+      "action": "bind-role",
+      "args": [
+        "qa",
+        "01a1248d-0f67-7333-8dca-5c4696459457"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 196,
+      "at": "2026-10-13T09:54:51.262Z",
+      "action": "candidate",
+      "args": [
+        "94a818b835b62170ea484be177f7b1ee7a97b72a"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 197,
+      "at": "2026-10-13T09:54:51.372Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 198,
+      "at": "2026-10-13T12:34:38.362Z",
+      "action": "qa",
+      "args": [
+        "FAIL",
+        "94a818b835b62170ea484be177f7b1ee7a97b72a",
+        "operations/evidence/JRN-04/attempt-1/qa.json"
+      ],
+      "unitId": "JRN-04",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-04/attempt-1/qa.json",
+        "digest": "d6cc8fd69d558bd12a521753e19a00db1fd930f294207bc6120609d24c9b63fe",
+        "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "FAIL"
+      }
+    },
+    {
+      "seq": 199,
+      "at": "2026-10-13T12:34:38.557Z",
+      "action": "rework",
+      "args": [],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 200,
+      "at": "2026-10-13T13:04:21.016Z",
+      "action": "candidate",
+      "args": [
+        "c20cf48c06269fe463043a4dbf5d4a11841c1da6"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 201,
+      "at": "2026-10-13T13:04:21.139Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 202,
+      "at": "2026-10-13T13:50:48.980Z",
+      "action": "qa",
+      "args": [
+        "PASS",
+        "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "operations/evidence/JRN-04/recheck/qa.json"
+      ],
+      "unitId": "JRN-04",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-04/recheck/qa.json",
+        "digest": "f47080e4e1818530e0f893fd8f9e38159e0162cb72fe6937508e1abe584514e7",
+        "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "seq": 203,
+      "at": "2026-10-13T13:50:49.115Z",
+      "action": "close",
+      "args": [
+        "JRN-04"
+      ],
+      "unitId": "JRN-04",
+      "details": null
+    },
+    {
+      "seq": 204,
+      "at": "2026-10-13T13:50:49.217Z",
+      "action": "plan-sync",
+      "args": [
+        "operations/backlog.json"
+      ],
+      "unitId": null,
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/backlog.json",
+        "digest": "5a2986d275e93267b8e61ef207e39d10c6d78019ea420ef9e4d8ead8e913026c",
+        "changes": [
+          {
+            "unitId": "JRN-04-FIX",
+            "before": null,
+            "after": {
+              "id": "JRN-04-FIX",
+              "title": "\u7d20\u6750\u5230\u671f\u8d44\u683c\u4e0e\u533f\u540d\u6279\u6b21\u5220\u9664\u4fee\u590d",
+              "priority": 0,
+              "dependsOn": [
+                "JRN-04"
+              ],
+              "mode": "runtime",
+              "autoEligible": true,
+              "requiredEvidence": [
+                "fixed candidate SHA",
+                "independent QA report"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seq": 205,
+      "at": "2026-10-13T13:50:49.326Z",
+      "action": "claim",
+      "args": [
+        "JRN-04-FIX"
+      ],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    },
+    {
+      "seq": 206,
+      "at": "2026-10-13T13:50:49.424Z",
+      "action": "bind-role",
+      "args": [
+        "dev",
+        "01a12489-e94e-7bd3-afb2-6a2c90e70970"
+      ],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    },
+    {
+      "seq": 207,
+      "at": "2026-10-13T13:50:49.521Z",
+      "action": "bind-role",
+      "args": [
+        "qa",
+        "01a1248d-0f67-7333-8dca-5c4696459457"
+      ],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    },
+    {
+      "seq": 208,
+      "at": "2026-10-13T13:50:49.645Z",
+      "action": "candidate",
+      "args": [
+        "c20cf48c06269fe463043a4dbf5d4a11841c1da6"
+      ],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    },
+    {
+      "seq": 209,
+      "at": "2026-10-13T13:50:49.738Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    },
+    {
+      "seq": 210,
+      "at": "2026-10-13T13:50:49.834Z",
+      "action": "qa",
+      "args": [
+        "PASS",
+        "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "operations/evidence/JRN-04/recheck/fix-qa.json"
+      ],
+      "unitId": "JRN-04-FIX",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-04/recheck/fix-qa.json",
+        "digest": "9415bcdc793115f98466c5f081af17f535a345f0635c15a11996a9c6efbe1bf8",
+        "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "seq": 211,
+      "at": "2026-10-13T13:50:49.952Z",
+      "action": "release-ready",
+      "args": [],
+      "unitId": "JRN-04-FIX",
+      "details": null
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "unitId": "JRN-04-FIX",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "status": "PASS",
+  "exitCode": 0,
+  "startedAt": "2026-10-13T13:00:51.624Z",
+  "finishedAt": "2026-10-13T13:01:13.937Z",
+  "sourceMethod": "git archive of exact candidate SHA with credential-named paths excluded by filename without reading",
+  "dependencyMethod": "APFS clone of locally installed node_modules, no install or network",
+  "excludedPaths": [
+    ".dev.vars.example"
+  ],
+  "sourceArchiveSha256": "2300fc8294a913b2202601fb1f65acd2bec891a1b3f909b93988da0e4c443bfe",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM",
+  "logPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-Pu1UTM/build-original.log",
+  "embeddedBuildSha": "unknown",
+  "releaseArtifact": false,
+  "environmentKeys": [
+    "HOME",
+    "LANG",
+    "NEXT_TELEMETRY_DISABLED",
+    "NODE_OPTIONS",
+    "PATH",
+    "TMPDIR"
+  ],
+  "blockedOutbound": [],
+  "nodeVersion": "v22.22.3",
+  "nextVersion": "16.2.12",
+  "productionLifecycleCovered": false,
+  "qualityEvidence": false,
+  "modelCallsExecuted": 0
+}

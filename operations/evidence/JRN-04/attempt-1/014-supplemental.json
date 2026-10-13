@@ -1,0 +1,127 @@
+{
+  "unitId": "JRN-04",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "status": "PASS",
+  "runId": "8840be02-b480-4324-a773-7cbc426c2132",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-w2dLvf",
+  "cases": [
+    {
+      "name": "supplemental real anonymous retention and exact-full-page termination",
+      "status": "PASS",
+      "detail": {
+        "summary": {
+          "scanned": 1,
+          "deleted": 1,
+          "failed": 0,
+          "hasMore": true
+        },
+        "empty": {
+          "scanned": 0,
+          "deleted": 0,
+          "failed": 0,
+          "hasMore": false
+        },
+        "ownerMetadata": "anonymous, workspace null",
+        "futureAndNullPreserved": true
+      }
+    },
+    {
+      "name": "supplemental current SKU reference protected by actual analysis and batch DELETE",
+      "status": "PASS",
+      "detail": [
+        {
+          "route": "analysis",
+          "status": 200,
+          "currentReferenceReadable": true
+        },
+        {
+          "route": "batch",
+          "status": 200,
+          "currentReferenceReadable": true
+        }
+      ]
+    },
+    {
+      "name": "supplemental authenticated cleanup preserves deletion audit",
+      "status": "PASS",
+      "detail": {
+        "allManifestObjectsGone": true,
+        "auditRows": 6
+      }
+    }
+  ],
+  "failure": null,
+  "storage": {
+    "tableHashes": {
+      "analyses": "5d0f8012a8ac49b53845633b338e93d4acefee02eca00ef8b183a60ccde6fe75",
+      "analysis_execution_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_feedback": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_issues": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_limitations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_model_calls": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_observations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_references": "b1b5da07ac81eff446a2b049494144e70e836b6bc5d2617685f5943c3ce76337",
+      "analysis_value_classifications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "anonymous_sessions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_deletion_attempts": "6b72148b9ea1fae02015f42ad56b60e043e2dab10d434be3a884543e078e3510",
+      "assets": "95f677b077306999ac1d2a1510bbfe632991e90fcb613f5e23c295c3aa7c95dd",
+      "batch_items": "18cc7d9373ff4aac5b4836f1a542c19fb92db6cc56861456d61933d05eaf2328",
+      "batch_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "batches": "6c4c37ffdac0518cb85280755ee3f2ca61248caee3ac0b3dc430747b0b8ba68d",
+      "credit_lot_ledger": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservation_allocations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "plans": "06c5e0b628508a93b91a067987ae3086faf750af479d549a9781084dde81feb8",
+      "product_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_mutation_requests": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_profile_versions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_reference_versions": "b83317f0942c103abe3fb7e2f701e800651c69d17ba1499b281e2393b4c68185",
+      "product_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "products": "81cdefef755e8de4ab6fa5453016e0c9c9dd78b36136f01d94e67cbd7ea9e40d",
+      "review_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "review_heads": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "review_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "stripe_webhook_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "usage_ledger": "77e10af644d623404234d6ea593c2d5bef6f1f849901ad85adb261a87e02f315",
+      "workspace_credit_lots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "workspace_credit_periods": "3691b0ffac66461a0259831f363ff109140636f804078e9c9185ac5529f673f8",
+      "workspace_memberships": "fb606db253ad41528c303a5df43dd4b10c6a860f2ed76abd81fd758238e9bcc7",
+      "workspace_subscriptions": "6c576ba1af4787f25eec6a7b666445bdfff8d4974f26faeb7640d43289e7c248",
+      "workspaces": "3ad87a229d856a9a2299eddd8d8a816850d8d3b8978e6e461f968e3ac93fac2c"
+    },
+    "objects": {
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/normalized.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/original.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/thumbnail.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/normalized.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/original.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/thumbnail.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/4660f273-cdc2-478c-bd7b-9d088f3c2647/original.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/606844c1-a13e-45d7-8ad3-e1824fec7b18/original.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/61e17f89-96a1-4474-80ba-c93697846957/original.png": null,
+      "jrn04/8840be02-b480-4324-a773-7cbc426c2132/97f3fc79-ea37-4de2-a88f-d59b68c9e240/original.png": null
+    },
+    "assetHashes": {
+      "03b87de3-e040-439d-86ec-004bb2bf7e4e": "c07a4c6b4fef899f9faadec4b1308cbca693e415a6a53807ed2d80deeac79d25",
+      "3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe": "71613fa883b5225e678db8b6f69fb23b43f33014277470465a46c5250b10b0fa",
+      "4660f273-cdc2-478c-bd7b-9d088f3c2647": "c730c0c755641fb72d06c5f27fd6ae05709be131031d3bf742d74907cb1c6ffe",
+      "606844c1-a13e-45d7-8ad3-e1824fec7b18": "c92aa0d3983f51d79bb68a4195a920b01e54d9fc6a2308c61ecb729a2c6213a8",
+      "61e17f89-96a1-4474-80ba-c93697846957": "91c08ef1b20a9619493799f22649a025dbd373c3c6d056cd1c691c6b6a950b00",
+      "97f3fc79-ea37-4de2-a88f-d59b68c9e240": "6147b716b365afc751b760470cfa3caa44f96b8378e64db8d6f65df4659d3aef"
+    },
+    "sha256": "75229d4a48a2f1975e7bcd46739270059e34916a12f0676ce87977a7ba85c7a1",
+    "excludedAuthenticationMetadata": [
+      "user",
+      "session",
+      "account",
+      "verification",
+      "rateLimit",
+      "workspaces.updated_at"
+    ]
+  },
+  "servicesStopped": true,
+  "modelCallsExecuted": 0,
+  "qualityEvidence": false,
+  "productionLifecycleCovered": false
+}

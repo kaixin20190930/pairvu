@@ -1,0 +1,82 @@
+{
+  "unitId": "JRN-04",
+  "runtimeUnitId": "JRN-04-FIX",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "result": "DEV_PASS",
+  "independentAcceptancePerformedByDeveloper": false,
+  "candidateFilesClean": true,
+  "fileScope": [
+    "scripts/jrn04-harness.ts",
+    "scripts/jrn04-lifecycle.ts",
+    "scripts/jrn04-build.mjs",
+    "fixtures/journey-asset-lifecycle/**",
+    "docs/05-evaluation/asset-lifecycle-acceptance.md",
+    "lib/releases/repository.ts",
+    "app/api/batches/[batchId]/route.ts"
+  ],
+  "validation": {
+    "journeyCases": 14,
+    "journeyStatus": "PASS",
+    "typecheck": "PASS",
+    "changedSourceLint": "PASS",
+    "gitDiffCheck": "PASS",
+    "fixedSourceBuild": "PASS",
+    "buildReportPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-5xoTgI/build-report.json",
+    "buildLogPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-5xoTgI/build-original.log",
+    "embeddedBuildSha": "unknown",
+    "releaseArtifact": false
+  },
+  "rawEvidence": {
+    "preFixReport": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/pre-fix/final-report.json",
+    "preFixNullExpiry": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/pre-fix/null-expiry-release-original.json",
+    "preFixAnonymousDeletion": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/pre-fix/anonymous-delete-responses.json",
+    "finalReport": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/final/final-report.json",
+    "manifest": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/final/manifest-before-deletion.json",
+    "r2FailureOriginal": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/final/expected-r2-failure-original.json",
+    "d1MarkFailureOriginal": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/final/expected-d1-mark-failure-original.json",
+    "archiveIndex": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/archive-index.json",
+    "buildFailureOriginal": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-asset-lifecycle/build-attempt-1/build-original.log"
+  },
+  "runtimeFixes": [
+    {
+      "severity": "P1",
+      "file": "lib/releases/repository.ts",
+      "before": "Null expiry asset GET410 but complete reviewed synthetic source ELIGIBLE",
+      "after": "Require nonnull parseable future expiry; null/invalid/past blocked and valid future preserved"
+    },
+    {
+      "severity": "P2",
+      "file": "app/api/batches/[batchId]/route.ts",
+      "before": "Anonymous DELETE500 with unchanged storage",
+      "after": "DELETE RequestAccessError maps to authentication_required401; owner and foreign behavior preserved"
+    }
+  ],
+  "layers": {
+    "authentication": "actual Better Auth magic-link issuance/capture/verification and A/B Free sessions",
+    "storage": "fresh actual Miniflare/workerd D1/R2 and all migrations",
+    "routes": "actual handlers; Cloudflare env injection only, no auth/ownership stubs",
+    "faults": "one-shot pass-through R2 delete and D1 mark failures around actual storage",
+    "machine": "explicit synthetic observations and provenance rows, real risk and persistence",
+    "ui": "not required for this backend unit"
+  },
+  "cleanup": {
+    "servicesStopped": true,
+    "allManifestObjectsGone": true,
+    "assets": 27,
+    "queueWrites": 0,
+    "outboundCount": 0,
+    "privateDatabaseArchived": false,
+    "regeneration": "distinct fresh runIds retained; no same-ID image restoration"
+  },
+  "boundaries": {
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "productionPushOrDeployment": false,
+    "concurrentWorkerRaceCoverage": false,
+    "sharedUnprotectedCandidateActiveElsewhereCoverage": false
+  },
+  "nextAction": "Controller automatically dispatches exact same SHA to independent JRN-04 and JRN-04-FIX acceptance; tool may local_only close after PASS, runtime remains RELEASE_READY until separate production authorization",
+  "nextActionAutomatic": true,
+  "dependency": "Independent QA of this exact SHA; no user input needed for that step"
+}

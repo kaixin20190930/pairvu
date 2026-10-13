@@ -1,0 +1,342 @@
+{
+  "unitId": "JRN-04",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "status": "PASS",
+  "runId": "9c14c1dc-2b4c-4274-be9a-e752deaa83a0",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-0vyP2q",
+  "cases": [
+    {
+      "name": "independent real owner bytes and bidirectional read isolation",
+      "status": "PASS",
+      "detail": {
+        "actualAuthentication": true,
+        "ownedImageHashesMatch": true
+      }
+    },
+    {
+      "name": "independent reference and candidate expiry matrix preserves source and review",
+      "status": "PASS",
+      "detail": [
+        {
+          "kind": "reference",
+          "expiry": null,
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "reference",
+          "expiry": "not-a-date",
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "reference",
+          "expiry": "2001-01-01T00:00:00.000Z",
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "reference",
+          "expiry": "2099-12-31T00:00:00.000Z",
+          "status": 200,
+          "eligibility": "eligible"
+        },
+        {
+          "kind": "candidate",
+          "expiry": null,
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "candidate",
+          "expiry": "not-a-date",
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "candidate",
+          "expiry": "2001-01-01T00:00:00.000Z",
+          "status": 410,
+          "eligibility": "blocked"
+        },
+        {
+          "kind": "candidate",
+          "expiry": "2099-12-31T00:00:00.000Z",
+          "status": 200,
+          "eligibility": "eligible"
+        }
+      ]
+    },
+    {
+      "name": "independent batch auth mapping and existing foreign target storage invariance",
+      "status": "PASS",
+      "detail": [
+        {
+          "actor": "anonymous",
+          "target": "A",
+          "status": 401
+        },
+        {
+          "actor": "anonymous",
+          "target": "A",
+          "status": 401
+        },
+        {
+          "actor": "anonymous",
+          "target": "A",
+          "status": 401
+        },
+        {
+          "actor": "B",
+          "target": "A",
+          "status": 404
+        },
+        {
+          "actor": "B",
+          "target": "A",
+          "status": 404
+        },
+        {
+          "actor": "anonymous",
+          "target": "B",
+          "status": 401
+        },
+        {
+          "actor": "anonymous",
+          "target": "B",
+          "status": 401
+        },
+        {
+          "actor": "anonymous",
+          "target": "B",
+          "status": 401
+        },
+        {
+          "actor": "A",
+          "target": "B",
+          "status": 404
+        },
+        {
+          "actor": "A",
+          "target": "B",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "name": "independent actual sweeper R2 failure then same-target retry",
+      "status": "PASS",
+      "detail": {
+        "summary": {
+          "scanned": 1,
+          "deleted": 0,
+          "failed": 1,
+          "hasMore": true
+        },
+        "retry": {
+          "scanned": 1,
+          "deleted": 1,
+          "failed": 0,
+          "hasMore": true
+        },
+        "originalFailure": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-0vyP2q/qa-sweeper-r2-failure-original.json"
+      }
+    },
+    {
+      "name": "independent actual sweeper R2-success D1-mark-failure window and convergence",
+      "status": "PASS",
+      "detail": {
+        "failed": {
+          "scanned": 1,
+          "deleted": 0,
+          "failed": 1,
+          "hasMore": true
+        },
+        "retry": {
+          "scanned": 1,
+          "deleted": 1,
+          "failed": 0,
+          "hasMore": true
+        },
+        "originalFailure": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-0vyP2q/qa-sweeper-mark-failure-original.json",
+        "readDuringFailure": "410 asset_expired because sweeper target was already expired; separate route replay tests future target 503"
+      }
+    },
+    {
+      "name": "independent owner batch deletes real target and eligibility degrades without history mutation",
+      "status": "PASS",
+      "detail": {
+        "status": 200,
+        "eligibility": "blocked",
+        "historyPreserved": true
+      }
+    },
+    {
+      "name": "independent cleanup through authenticated workspace routes",
+      "status": "PASS",
+      "detail": {
+        "allManifestObjectsGone": true,
+        "assets": 6
+      }
+    }
+  ],
+  "failure": null,
+  "manifest": [
+    {
+      "id": "f3c4c3df-5c63-4160-8f1c-170ee8a34fd9",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-independent-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/original.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/normalized.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "d1595396-8a9c-4a34-9b5b-762b5b7ad485",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-independent-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/d1595396-8a9c-4a34-9b5b-762b5b7ad485/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "1157334d-f123-44f2-83c8-f06ab7f5dfa8",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-B-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/1157334d-f123-44f2-83c8-f06ab7f5dfa8/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "bceff932-b3ac-48fb-8c14-14d201f081d1",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-B-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/bceff932-b3ac-48fb-8c14-14d201f081d1/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "a41d8989-f813-4278-8636-ac335a6c7d30",
+      "owner": "A",
+      "workspaceId": "personal_UXkyLok5tYl8hwFyDTbrVFBcXcg1296T",
+      "label": "qa-sweep-r2-fault",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/original.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/normalized.png",
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2001-01-01T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "a33d1b10-9259-4323-8ea5-ccc274c39509",
+      "owner": "B",
+      "workspaceId": "personal_tU8gcyINvK5dIKvvOO4GoY8sf3o7LKqt",
+      "label": "qa-sweep-mark-fault",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2002-01-01T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    }
+  ],
+  "storage": {
+    "tableHashes": {
+      "analyses": "f041c471c8be582af603bbe48b2e54afd8f26a1532752517b86a97a9a4f1c476",
+      "analysis_execution_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_feedback": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_issues": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_limitations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_model_calls": "f0f27bc3353d5330404a47f7f172ad4da5516bf02ba0617578080afd4dc594c6",
+      "analysis_observations": "840eae3e39f8c6b2dfbede3dd172fcf7d2e4d86b83e85b56a6882ea54070b74a",
+      "analysis_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_references": "164d3d3c80ceb7a008aafdf4f16d78800ce8c3af54ca759ad9ce8255ba85751b",
+      "analysis_value_classifications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "anonymous_sessions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_deletion_attempts": "8b10b2f685b319a613199b8188cf38c8a4c846b3ae7091bf75ff698d72bc2b69",
+      "assets": "23f2dba48a0b6b4dc76e830fe188f233adb12799ec54e29a5cee7090aec1c2e2",
+      "batch_items": "03ce0675fe2083cbb797c81b4bafadb063fe77c6ddea5e194c5b12b2a8f18fa5",
+      "batch_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "batches": "5ae29b95ea9d26ddd834bf8d308b7b1cde408fe2f711fca07453d17709e33c66",
+      "credit_lot_ledger": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservation_allocations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "plans": "710413bc56ef7f735a661dcb5bf51d4240734d430e7b33437d0b3a77ee639de2",
+      "product_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_mutation_requests": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_profile_versions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_reference_versions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "products": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "review_events": "10cea9231891b7cd00c854d6f746b026fdcacd431f48e3f2c0bfa5e2317875e9",
+      "review_heads": "55368d1019e8ae6999a0daa00d05c45e1b3621cedb43fed57726def533a220ba",
+      "review_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "stripe_webhook_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "usage_ledger": "71a6275f31c4dbd8971c44b2c056617149fdc376fcc7e3786c8c17e80b02dcda",
+      "workspace_credit_lots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "workspace_credit_periods": "4ae3249c50021d319df4a46309ecff0b7602574e04a5be5a65a5b49565b3fe61",
+      "workspace_memberships": "553a4fb1a7acaef0ee62156638c826cc358ec3c90900524814502e2cc11699a0",
+      "workspace_subscriptions": "6b58706f57688e2ab14edeaaed9028aedbb4d7042906b27212390a2acd60032a",
+      "workspaces": "de1ee7eb34d95e40bac19fd8a63e8e3d3f1dc8361a9cf808e9ead5b417f28eec"
+    },
+    "objects": {
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/1157334d-f123-44f2-83c8-f06ab7f5dfa8/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a33d1b10-9259-4323-8ea5-ccc274c39509/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/normalized.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/a41d8989-f813-4278-8636-ac335a6c7d30/thumbnail.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/bceff932-b3ac-48fb-8c14-14d201f081d1/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/d1595396-8a9c-4a34-9b5b-762b5b7ad485/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/normalized.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/original.png": null,
+      "jrn04/9c14c1dc-2b4c-4274-be9a-e752deaa83a0/f3c4c3df-5c63-4160-8f1c-170ee8a34fd9/thumbnail.png": null
+    },
+    "assetHashes": {
+      "1157334d-f123-44f2-83c8-f06ab7f5dfa8": "cfe26488d1c181e729206d35dfd3bc2a2aae9cb423bedff963b94b1605337872",
+      "a33d1b10-9259-4323-8ea5-ccc274c39509": "7702257e20b2158afe8551a8786ab35a83da8cea0798a44695066296cb26cee7",
+      "a41d8989-f813-4278-8636-ac335a6c7d30": "bdf63748d487289915503a3d581360e95793cb7950ef55ace4b5c3872e00feee",
+      "bceff932-b3ac-48fb-8c14-14d201f081d1": "01bff8d3c1843cf6d82e32475c4d2044d1d911c4e1d1837292359d73d7a41cde",
+      "d1595396-8a9c-4a34-9b5b-762b5b7ad485": "af51480342c77d8a1e7f107c08a2a249e4ab5e752edd0d4474841ad30ac19934",
+      "f3c4c3df-5c63-4160-8f1c-170ee8a34fd9": "173d12087f1f5d61166c0e038ebe5c3a03a815c39567291b9cab16ad87ff3d33"
+    },
+    "sha256": "a6c1de9f12ae8ab1a613d48c07853931a9289c6f8dc8e1026d8c5a8f0b39a1e1",
+    "excludedAuthenticationMetadata": [
+      "user",
+      "session",
+      "account",
+      "verification",
+      "rateLimit",
+      "workspaces.updated_at"
+    ]
+  },
+  "servicesStopped": true,
+  "modelCallsExecuted": 0,
+  "productionLifecycleCovered": false,
+  "qualityEvidence": false,
+  "syntheticMachineEvidence": true
+}

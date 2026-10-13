@@ -1,0 +1,51 @@
+{
+  "name": "small-page real retention cleanup deduplicates keys, audits and preserves nontargets",
+  "status": "PASS",
+  "detail": {
+    "summaries": [
+      {
+        "scanned": 2,
+        "deleted": 2,
+        "failed": 0,
+        "hasMore": true
+      },
+      {
+        "scanned": 1,
+        "deleted": 1,
+        "failed": 0,
+        "hasMore": false
+      }
+    ],
+    "repeat": {
+      "scanned": 0,
+      "deleted": 0,
+      "failed": 0,
+      "hasMore": false
+    },
+    "before": "db27d2371e2ce8f9cbd2ef948ace483eff7ba434fab03f5b9e916eb7f063c39c",
+    "after": "8d6d4d291ff60cacee23399f70783afdead95d58721a65897a91282717e194eb",
+    "attempts": [
+      {
+        "asset_id": "696d7413-a217-4a11-afa9-7798d19ce290",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/696d7413-a217-4a11-afa9-7798d19ce290/original.png\"]",
+        "attempted_at": "2026-10-13T09:56:17.903Z",
+        "completed_at": "2026-10-13T09:56:17.903Z"
+      },
+      {
+        "asset_id": "92ba0f1a-45f7-4ea4-af6d-981da8c45e01",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/92ba0f1a-45f7-4ea4-af6d-981da8c45e01/original.png\",\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/92ba0f1a-45f7-4ea4-af6d-981da8c45e01/normalized.png\",\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/92ba0f1a-45f7-4ea4-af6d-981da8c45e01/thumbnail.png\"]",
+        "attempted_at": "2026-10-13T09:56:17.903Z",
+        "completed_at": "2026-10-13T09:56:17.903Z"
+      },
+      {
+        "asset_id": "c393074f-3bc3-4334-824f-046bed293a35",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/c393074f-3bc3-4334-824f-046bed293a35/original.png\",\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/c393074f-3bc3-4334-824f-046bed293a35/normalized.png\",\"jrn04/23cb90b5-8ca9-4830-b685-b07b7c94a200/c393074f-3bc3-4334-824f-046bed293a35/thumbnail.png\"]",
+        "attempted_at": "2026-10-13T09:56:17.903Z",
+        "completed_at": "2026-10-13T09:56:17.903Z"
+      }
+    ]
+  }
+}

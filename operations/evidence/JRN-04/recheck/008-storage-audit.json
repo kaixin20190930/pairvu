@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "independentReadOnlySQLiteAudit": true,
+  "runs": [
+    {
+      "runId": "00e4e699-2f5c-4344-84dd-8b63f0c769f3",
+      "reportPath": "/private/tmp/pairvu-jrn04-qa-recheck-evidence/p1-recheck.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-QXdsJp/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 4,
+      "deletedAssets": 4,
+      "auditStatuses": {
+        "completed": 4,
+        "failed": 1
+      },
+      "manifestObjects": 6,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    },
+    {
+      "runId": "46b6dc9e-d2b0-47b6-b2a9-5ce8803a9c04",
+      "reportPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/partial-final-report.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-vmNVER/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 7,
+      "deletedAssets": 7,
+      "auditStatuses": {
+        "completed": 7,
+        "failed": 2
+      },
+      "manifestObjects": 21,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    }
+  ],
+  "totalAssets": 11,
+  "totalManifestObjects": 27,
+  "permanentDeletionWasNotRestored": true,
+  "productionLifecycleCovered": false
+}

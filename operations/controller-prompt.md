@@ -1,5 +1,22 @@
 # Pairvu 总控 heartbeat 执行指令
 
+## 2026-10-13 JRN-04补验完成，运行时修复待发布
+
+候选 `c20cf48c06269fe463043a4dbf5d4a11841c1da6` 独立复验PASS。正式CLI已关闭local_only JRN-04，并将runtime JRN-04-FIX推进至RELEASE_READY；未推送GitHub、部署Cloudflare或在生产启用本轮修复。现有生产仍为bbbe62c / Worker c88179e1-d880-4a19-8988-e041b25a2924（本轮未操作或重新验收生产）。
+
+本轮只用全新隔离D1/R2、真实Better Auth会话与合成资产，完成到期前后读取撤权、A/B删除隔离、活跃任务门禁、当前/历史SKU参考保护、精确对象删除、审核/冻结来源保留及失败重试。永久删除不承诺图片找回；恢复仅指重试完成和新runId重建测试环境。无真实扣款、客户数据修改或模型调用。
+
+修复三个实际问题：空到期图片GET410却仍ELIGIBLE；匿名批次DELETE500而非401；R2已删但D1标记失败时仍ELIGIBLE。最后一项由独立QA首次发现并FAIL返工，现利用已有删除审计在started/failed等窗口阻断资格，正常无删除意图的未来图片仍可ELIGIBLE。原FAIL逐字保留，无新增迁移，未改删除服务。删除开始/R2失败时对象尚在，owner GET可能仍200，但发布资格已BLOCKED；不将资格阻断等同所有读取立即撤销。
+
+开发6项窗口+14项旅程、类型/lint及精确源码构建通过。独立首次25PASS/1FAIL；返工后实际重跑10项全部PASS，原25PASS按差分复用，未声称全量重跑。两个最终QA环境的11素材/27对象已清理，服务停止，私有DB未入库。构建是固定Git源码隔离验证，嵌入SHA unknown，不能作为生产发布产物。
+
+覆盖仍限本地合成：未验证生产生命周期、所有R2对象的外部丢失、worker并发竞态或共享候选在其他活跃任务中的删除保护；真实质量/真实业务价值仍需授权样本和业务来源。pairvu-2继续PAUSED。
+
+下一步优先发布JRN-04-FIX，依赖用户明确生产发布授权及受控验收资产/操作范围。授权后自动按GitHub-first顺序提交推送、fresh远端核验、确认迁移、同提交构建部署并独立生产复验；没有授权不部署，更不删除真实客户资产。之后再评估共享素材/并发删除最小契约，API/Webhook尚未启动。
+
+[独立复验](evidence/JRN-04/recheck/qa.json) · [正式状态](evidence/JRN-04/control-completion.json)
+
+
 ## 2026-10-13 JRN-03 独立验收正式关闭
 
 固定候选 `ab6d66bb09355eb1a398c3159c6357622de17b0f` 已独立PASS，正式CLI `qa PASS → close`，local_only CLOSED。全新隔离D1/R2中17场景通过：实际Better Auth会话与路由，A/B双向跨账号产品、参考、审核和批次写入拒绝，拒绝前后业务数据/额度/队列不变，本人有效操作成功。完整合成来源经真实审核批准→撤销→再批准得到ELIGIBLE→NEEDS_REVIEW→ELIGIBLE，冻结SKU来源不随当前编辑改变；四个缺证据/图片不可用/高风险/来源变更反例保持BLOCKED。
@@ -153,3 +170,6 @@ JRN-01报告交付与JRN-01-EXPORT-FIX runtime均经正式CLI CLOSED；发布bbb
 
 ## 2026-10-13 JRN-03已授权启动
 用户已确认启动跨账号写入隔离及完整ELIGIBLE正向补验，operations/contracts/JRN-03.md限定全新本地D1/R2、合成A/B、实际BetterAuth和真实路由、来源/冻结快照与UI分层证据；禁止真实付款/生产客户修改/模型调用。原开发和QA按风险分别选择Sol/high，已正式plan-sync/claim/bind，必须持续wait/read→固定SHA独立QA，FAIL返原开发。当前DEV_ACTIVE，不再以“下一单元待确认”阻塞本单元。若发现runtime缺陷先最小复现，由总控在已有修复授权内界定范围和发布门禁，不擅自部署。通过后本地关闭、更新整体进度和下一步，pairvu-2继续PAUSED。
+
+## 2026-10-13 JRN-04已授权
+用户已启动合成素材到期/删除/权限回收补验；契约contracts/JRN-04.md，原角色Sol/high分别按跨账号删除与失败恢复风险选择，正式DEV_ACTIVE。持续wait/read→固定SHA独立QA→FAIL原开发返工；只隔离合成资产，永久删除不承诺恢复，故障重试与新run重建分别验证。不读取凭据，不操作生产/付款/客户数据；pairvu-2不恢复。通过后正式收尾并更新下一步。

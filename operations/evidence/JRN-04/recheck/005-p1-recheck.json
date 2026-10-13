@@ -1,0 +1,189 @@
+{
+  "unitId": "JRN-04",
+  "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "status": "PASS",
+  "runId": "00e4e699-2f5c-4344-84dd-8b63f0c769f3",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-QXdsJp",
+  "cases": [
+    {
+      "name": "incremental actual null expiry regression and normal future positive",
+      "status": "PASS",
+      "detail": {
+        "nullGet": 410,
+        "nullEligibility": "blocked",
+        "futureEligibility": "eligible"
+      }
+    },
+    {
+      "name": "incremental anonymous batch DELETE401 and foreign existing batch404 unchanged",
+      "status": "PASS",
+      "detail": {
+        "anonymous": {
+          "status": 401,
+          "body": {
+            "error": "authentication_required",
+            "message": "Sign in to delete batch images."
+          }
+        },
+        "foreign": {
+          "status": 404,
+          "body": {
+            "error": "batch_not_found",
+            "message": "Batch not found."
+          }
+        }
+      }
+    },
+    {
+      "name": "approved eligible source during R2-success/D1-mark-failure",
+      "status": "PASS",
+      "detail": {
+        "imageStatus": 503,
+        "eligibility": "blocked",
+        "sourceComplete": true,
+        "originalFailure": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-QXdsJp/qa-approved-partial-window-original.json"
+      }
+    },
+    {
+      "name": "same-target actual retry converges without restoring bytes",
+      "status": "PASS",
+      "detail": {
+        "retry": {
+          "status": 200,
+          "body": {
+            "deletion": {
+              "requested": 1,
+              "deleted": 1,
+              "failed": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "failure": null,
+  "manifest": [
+    {
+      "id": "6028871e-3069-4dc5-9b76-bcba45baad0c",
+      "owner": "A",
+      "workspaceId": "personal_wWZzdq8qwzemRsaBQzo5cR6mxGZmJapA",
+      "label": "qa-independent-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/original.png",
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/normalized.png",
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "3e8f34c1-a4a1-4cd9-b609-4c9686fef84a",
+      "owner": "A",
+      "workspaceId": "personal_wWZzdq8qwzemRsaBQzo5cR6mxGZmJapA",
+      "label": "qa-independent-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/3e8f34c1-a4a1-4cd9-b609-4c9686fef84a/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "e4dfe329-6ad5-4018-b4f6-1bca0b68db9a",
+      "owner": "B",
+      "workspaceId": "personal_bwdpfIR5TMdXP0a8LXAXdeQQewkfHpKD",
+      "label": "qa-B-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/e4dfe329-6ad5-4018-b4f6-1bca0b68db9a/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "8a41353a-3eb4-4e8b-a74b-4988d09d2628",
+      "owner": "B",
+      "workspaceId": "personal_bwdpfIR5TMdXP0a8LXAXdeQQewkfHpKD",
+      "label": "qa-B-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/8a41353a-3eb4-4e8b-a74b-4988d09d2628/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    }
+  ],
+  "storage": {
+    "tableHashes": {
+      "analyses": "2a75aa47b3ebcc71cf332f7be837c693f02b4c8ac9a0f594defc48b7dc1ed970",
+      "analysis_execution_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_feedback": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_issues": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_limitations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_model_calls": "e09bf5ed1f47f90290857443a6804e4a49bd761caa01ca3801a6fddd3a514f46",
+      "analysis_observations": "4e9288dbe9953f3e90ded6f4f107b6881041f05f7ddacbaebd05f67961eeca34",
+      "analysis_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_references": "288d695dcc2f61d3e89b3757fc33f39196f4ddd256bb9faebe8cfb5d19996afb",
+      "analysis_value_classifications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "anonymous_sessions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_deletion_attempts": "68e6e5e36be47e5f25711a2d8538d9fbd29bb245a53234775ca0fc2a4f00531b",
+      "assets": "cad22848dff1c51d7c5a5370adc0167a0d368f1a5b45fc317e9142e92f564c82",
+      "batch_items": "632e2941ca0c67cbecee60d9329f8766778e1898dec9087023bb829af267d04c",
+      "batch_product_snapshots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "batches": "19916dc134667cba0e9702a3b257d25d3b1d72839d2f89e5bb255421dc000216",
+      "credit_lot_ledger": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservation_allocations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "plans": "41cead3f3f25dcd11db479ef2c46efd2d23cfe37c94c9ebddf94474e776b3b49",
+      "product_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_mutation_requests": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_profile_versions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_reference_versions": "822557a144d0d1474d94340a466273e849ee1dcc019ae370901a3111813c918c",
+      "product_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "products": "cd9bc09580366c36802ab6aa42757c8bc21f4c527a89489ea9adaaad33e26e93",
+      "review_events": "b99d5a95e69f704dcc96b61de7d7f1a6b57e0e39154593c950459131c2bfc0d9",
+      "review_heads": "01cf01438f783fd7480099141442984624345894455adde3d5db0ce4e62a687b",
+      "review_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "stripe_webhook_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "usage_ledger": "702d5bd252867c70500da69dcf4e105288c25b7b7df5592ddd9dccff0cee8857",
+      "workspace_credit_lots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "workspace_credit_periods": "29020581a43a32ecc72c4ff7f7c74006682ceff0fa9bb6226bb6d935e261068f",
+      "workspace_memberships": "d30580b6ff1222af1d4d1e2a48a2f30a1d452ec49f3db70717666f10a489ffac",
+      "workspace_subscriptions": "039bae25c98717d0ce7cfac6bdbdcf6286bbae7fbc1c255b046e303349868347",
+      "workspaces": "b1e0cd427aceba54272749eb3ea6a39268eb9cb4184709a9e68fa4eda1d87c5f"
+    },
+    "objects": {
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/3e8f34c1-a4a1-4cd9-b609-4c9686fef84a/original.png": null,
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/normalized.png": null,
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/original.png": null,
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/6028871e-3069-4dc5-9b76-bcba45baad0c/thumbnail.png": null,
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/8a41353a-3eb4-4e8b-a74b-4988d09d2628/original.png": null,
+      "jrn04/00e4e699-2f5c-4344-84dd-8b63f0c769f3/e4dfe329-6ad5-4018-b4f6-1bca0b68db9a/original.png": null
+    },
+    "assetHashes": {
+      "3e8f34c1-a4a1-4cd9-b609-4c9686fef84a": "44eec0a80a87722b816e832a4582d450ef0c1448dabfd0f32be4db9372603b46",
+      "6028871e-3069-4dc5-9b76-bcba45baad0c": "7b7a51e36bc9726e87124c6207581b59558cad5441415087f6887d7e9ddb611c",
+      "8a41353a-3eb4-4e8b-a74b-4988d09d2628": "289ae79137513dba4c65b28b8d4ecab80e066c52f492161ee706616795803e38",
+      "e4dfe329-6ad5-4018-b4f6-1bca0b68db9a": "c43fc2281d6b2d9eeb8e997ad9f0b92e649aedc35ddc4d98d6268ac168dc8923"
+    },
+    "sha256": "6ad87dfd5c203fe84eade30405eee9f1712d67622f16129f197bdce08c8c4a15",
+    "excludedAuthenticationMetadata": [
+      "user",
+      "session",
+      "account",
+      "verification",
+      "rateLimit",
+      "workspaces.updated_at"
+    ]
+  },
+  "servicesStopped": true,
+  "modelCallsExecuted": 0,
+  "productionLifecycleCovered": false,
+  "qualityEvidence": false,
+  "syntheticMachineEvidence": true
+}

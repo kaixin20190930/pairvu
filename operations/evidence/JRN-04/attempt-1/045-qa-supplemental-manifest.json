@@ -1,0 +1,88 @@
+{
+  "runId": "8840be02-b480-4324-a773-7cbc426c2132",
+  "assets": [
+    {
+      "id": "3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe",
+      "owner": "anonymous",
+      "workspaceId": null,
+      "label": "qa-anonymous-retention",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/original.png",
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/normalized.png",
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/3685cdf7-75dc-4ef3-9dcf-0d6ed48c1cfe/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2001-01-01T00:00:00.000Z",
+      "initialStatus": "analyzed",
+      "anonymousSessionId": "7dfe425f-2f76-44a9-bd8b-40cc90ddf7a8"
+    },
+    {
+      "id": "4660f273-cdc2-478c-bd7b-9d088f3c2647",
+      "owner": "A",
+      "workspaceId": "personal_auGlp84MqFGn0nU363xfXYrQfkkqNJM2",
+      "label": "qa-future-control",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/4660f273-cdc2-478c-bd7b-9d088f3c2647/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "61e17f89-96a1-4474-80ba-c93697846957",
+      "owner": "B",
+      "workspaceId": "personal_6t4MPsJscnkbCTjAjFtOzYys99gzGOuD",
+      "label": "qa-null-control",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/61e17f89-96a1-4474-80ba-c93697846957/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": null,
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "03b87de3-e040-439d-86ec-004bb2bf7e4e",
+      "owner": "A",
+      "workspaceId": "personal_auGlp84MqFGn0nU363xfXYrQfkkqNJM2",
+      "label": "qa-current-SKU-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/original.png",
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/normalized.png",
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/03b87de3-e040-439d-86ec-004bb2bf7e4e/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "606844c1-a13e-45d7-8ad3-e1824fec7b18",
+      "owner": "A",
+      "workspaceId": "personal_auGlp84MqFGn0nU363xfXYrQfkkqNJM2",
+      "label": "qa-current-analysis-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/606844c1-a13e-45d7-8ad3-e1824fec7b18/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "97f3fc79-ea37-4de2-a88f-d59b68c9e240",
+      "owner": "A",
+      "workspaceId": "personal_auGlp84MqFGn0nU363xfXYrQfkkqNJM2",
+      "label": "qa-current-batch-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/8840be02-b480-4324-a773-7cbc426c2132/97f3fc79-ea37-4de2-a88f-d59b68c9e240/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    }
+  ]
+}

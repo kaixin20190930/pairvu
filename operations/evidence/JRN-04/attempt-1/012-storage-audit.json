@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "independentReadOnlySQLiteAudit": true,
+  "runs": [
+    {
+      "runId": "23cb90b5-8ca9-4830-b685-b07b7c94a200",
+      "reportPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/final-report.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 27,
+      "deletedAssets": 27,
+      "auditStatuses": {
+        "completed": 26,
+        "failed": 2
+      },
+      "manifestObjects": 59,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    },
+    {
+      "runId": "9c14c1dc-2b4c-4274-be9a-e752deaa83a0",
+      "reportPath": "/private/tmp/pairvu-jrn04-qa-evidence/independent.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-0vyP2q/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 6,
+      "deletedAssets": 6,
+      "auditStatuses": {
+        "completed": 6,
+        "failed": 2
+      },
+      "manifestObjects": 10,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    },
+    {
+      "runId": "8840be02-b480-4324-a773-7cbc426c2132",
+      "reportPath": "/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-w2dLvf/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 6,
+      "deletedAssets": 6,
+      "auditStatuses": {
+        "completed": 6
+      },
+      "manifestObjects": 10,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    },
+    {
+      "runId": "f852c47e-824c-403a-8c23-80f227587b1e",
+      "reportPath": "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.json",
+      "privateD1": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/d1/miniflare-D1DatabaseObject/f47c2d5c44f73af45a66fb221e04b765960720c04016806aeba188215cd4a77a.sqlite",
+      "assets": 4,
+      "deletedAssets": 4,
+      "auditStatuses": {
+        "completed": 4,
+        "failed": 1
+      },
+      "manifestObjects": 6,
+      "allObjectsGone": true,
+      "servicesStopped": true,
+      "privateStorageNotArchived": true,
+      "credentialAndSessionStringsAbsent": true
+    }
+  ],
+  "totalAssets": 43,
+  "totalManifestObjects": 85,
+  "permanentDeletionWasNotRestored": true,
+  "productionLifecycleCovered": false
+}

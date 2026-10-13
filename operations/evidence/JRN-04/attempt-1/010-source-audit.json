@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "buildExactArchiveHashVerified": true,
+  "candidateTrackedFilesMatchedArchiveAndExtractedSource": 1930,
+  "excludedCredentialNamedPaths": [
+    ".dev.vars.example"
+  ],
+  "buildEmbeddedSha": "unknown",
+  "releaseArtifact": false,
+  "buildNotRepeated": true,
+  "buildReport": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-5xoTgI/build-report.json",
+  "buildLog": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-build-5xoTgI/build-original.log",
+  "originalArchivedFilesVerified": 80,
+  "originalFilesCompared": 80,
+  "preFixProductFailuresRetained": 2,
+  "originalBuildFailureRetained": true,
+  "runtimeSourceDiffReviewed": [
+    "lib/releases/repository.ts",
+    "app/api/batches/[batchId]/route.ts"
+  ],
+  "independentTypecheck": "PASS; pnpm exec tsc --noEmit --incremental false; exit 0",
+  "independentChangedSourceLint": "PASS; five changed source files; exit 0"
+}

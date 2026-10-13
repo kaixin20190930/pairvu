@@ -1,0 +1,161 @@
+{
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "reviewedAt": "2026-10-13T10:10:05.026710+00:00",
+  "findings": [
+    {
+      "id": "JRN04-QA-P1-PARTIAL-DELETION-ELIGIBILITY",
+      "severity": "P1",
+      "title": "Approved source remains ELIGIBLE after its candidate object is gone when D1 mark fails",
+      "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+      "actual": {
+        "deleteHTTP": 500,
+        "deletion": {
+          "requested": 1,
+          "deleted": 0,
+          "failed": 1
+        },
+        "candidateImageHTTP": 503,
+        "candidateImageError": "asset_binary_missing",
+        "releaseEligibility": "eligible",
+        "releaseReferenceAvailable": true,
+        "releaseCandidateAvailable": true,
+        "candidateR2ObjectsPresent": false,
+        "candidateD1Status": "analyzed",
+        "candidateDeletedAt": null,
+        "deletionAuditStatus": "failed"
+      },
+      "expected": "Once the original candidate bytes are gone, the release rule must not declare the approved source ELIGIBLE or the candidate available. Failure reporting and retry convergence must coexist with safe release eligibility during this non-atomic window.",
+      "steps": [
+        "Create fresh actual Miniflare D1/R2 and real A/B Better Auth sessions with all migrations.",
+        "Persist six complete synthetic observations and source-bound provenance using actual risk/persistence code; approve via actual review POST; actual release GET is ELIGIBLE.",
+        "Create a real SKU product referencing the same reference asset, so actual analysis DELETE protects the reference and targets only the candidate.",
+        "Inject a one-shot failure only on the real candidate markAssetDeleted D1 statement; execute actual owner analysis DELETE.",
+        "R2 removes candidate bytes, D1 marking fails and audit records failure. Observe DELETE500 / image GET503 alongside actual release GET still ELIGIBLE.",
+        "Retry the same actual deletion: metadata and audit converge and release becomes BLOCKED; original bytes are not restored."
+      ],
+      "reproductionCommand": "env -i PATH=\"$PATH\" HOME=\"$HOME\" TMPDIR=\"$TMPDIR\" LANG=\"${LANG:-C.UTF-8}\" pnpm exec tsx /private/tmp/pairvu-jrn04-qa-evidence/partial-window.ts",
+      "originalEvidence": {
+        "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json",
+        "bytes": 22816,
+        "sha256": "6e6db53998ad5e58734b8cbbfd61192b357c883ed8c53d59f7a7cde1b68d54d0"
+      },
+      "independentReport": {
+        "path": "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.json",
+        "bytes": 8464,
+        "sha256": "9a88e39dcc756cc904bbc37cf63e5b60fba4f70235a8e455ba977ae4e64e7060"
+      },
+      "exactFiles": [
+        {
+          "path": "lib/assets/deletion.ts",
+          "reason": "deleteAssetsImmediately removes R2 objects before D1 metadata marking; a failed mark leaves status analyzed while recording a failed deletion attempt."
+        },
+        {
+          "path": "lib/releases/repository.ts",
+          "line": 39,
+          "reason": "Availability uses asset metadata/expiry only and ignores the failed deletion state, so it advertises a missing original as available."
+        }
+      ],
+      "repairScopeDecisionOwner": "controller; QA did not modify application code",
+      "productionReproduction": false
+    }
+  ],
+  "evidenceIndex": {
+    "path": "/private/tmp/pairvu-jrn04-qa-evidence/evidence-index.json",
+    "bytes": 10315,
+    "sha256": "f0ba386bc2324c30a4da2eb4fc1b4c4a4f3d94bcfe8b14d9b4365c1f69f341b0"
+  },
+  "matrixCoverage": {
+    "path": "/private/tmp/pairvu-jrn04-qa-evidence/matrix-coverage.json",
+    "bytes": 7694,
+    "sha256": "cb92076022abe497557535a31c6ce2b0740ea6c154f6df222fce42ed004a6f9b"
+  },
+  "rawEvidencePaths": [
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/final-report.json",
+    "/private/tmp/pairvu-jrn04-qa-evidence/independent.json",
+    "/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json",
+    "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json",
+    "/private/tmp/pairvu-jrn04-qa-evidence/source-audit.json",
+    "/private/tmp/pairvu-jrn04-qa-evidence/storage-audit.json"
+  ],
+  "testSummary": {
+    "scenarioGroups": 26,
+    "pass": 25,
+    "fail": 1,
+    "freshRuns": 4,
+    "syntheticAssets": 43,
+    "buildRepeated": false,
+    "typecheck": "PASS",
+    "changedSourceLint": "PASS",
+    "exactCandidateBuildSourceVerified": "PASS",
+    "originalDeveloperFailuresPreserved": true
+  },
+  "cleanup": {
+    "servicesStopped": true,
+    "allManifestObjectsGone": true,
+    "privateStorageOnlyInTemporaryDirectories": true,
+    "privateStorageArchived": false,
+    "retriesConverged": true,
+    "permanentDeletionRestored": false
+  },
+  "boundaries": {
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "syntheticMachineEvidence": true,
+    "authenticatedBrowserE2E": false,
+    "uiRequiredForBackendUnit": false,
+    "concurrentWorkerRaceCoverage": false,
+    "sharedUnprotectedCandidateActiveElsewhereCoverage": false
+  },
+  "nextAction": "Controller should return the exact reproduction and original FAIL to the existing developer, define the minimal additional local repair scope for partial-deletion eligibility, then dispatch a new fixed SHA for independent reacceptance. No production release is authorized.",
+  "nextActionAutomatic": true,
+  "dependency": "Existing developer needs controller-defined minimal repair scope and a new candidate SHA.",
+  "productionReleaseAuthorization": false,
+  "unitId": "JRN-04-FIX",
+  "acceptanceScope": "runtime_local_acceptance",
+  "targetedTwoFixRegressions": {
+    "status": "PASS",
+    "nullInvalidPastFutureAvailabilityBothInputSides": "PASS",
+    "anonymousBatch401OwnerAndForeignPreserved": "PASS"
+  },
+  "releaseReady": false,
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "Same exact candidate; two authorized runtime changes reviewed and fixed-source build provenance independently verified.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-evidence/source-audit.json",
+          "bytes": 993,
+          "sha256": "0630849bb56772bbf1a420e75dedc92e3ac21bbcad782d12ed6a774ba9d48c6a"
+        }
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "FAIL",
+      "detail": "The two requested fixes pass targeted regressions and typecheck/lint/build evidence is valid. The same candidate fails inherited JRN-04 safe eligibility during a real R2-success/D1-mark-failure window, so runtime gate must not advance.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-evidence/independent.json",
+          "bytes": 13930,
+          "sha256": "d3b5c3a8103810deb58490e886ae83b9514a7064302d3ac487ec3e4c8b5f911d"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn04-qa-evidence/matrix-coverage.json",
+          "bytes": 7694,
+          "sha256": "cb92076022abe497557535a31c6ce2b0740ea6c154f6df222fce42ed004a6f9b"
+        },
+        {
+          "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json",
+          "bytes": 22816,
+          "sha256": "6e6db53998ad5e58734b8cbbfd61192b357c883ed8c53d59f7a7cde1b68d54d0"
+        }
+      ]
+    }
+  ]
+}

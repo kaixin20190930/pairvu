@@ -1,0 +1,158 @@
+{
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "preparedMatrixEntries": 16,
+  "coverage": [
+    {
+      "id": "ENV-01",
+      "status": "PASS",
+      "detail": "Exact candidate source and candidate-file cleanliness; 1930 build archive/extracted files verified against candidate Git blob IDs.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn04-qa-evidence/source-audit.json"
+      ]
+    },
+    {
+      "id": "ENV-02",
+      "status": "PASS",
+      "detail": "Four distinct new runIds and actual Better Auth environments; manifests bind 43 synthetic assets to local object keys and deletion scopes.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/manifest-before-deletion.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/storage-audit.json"
+      ]
+    },
+    {
+      "id": "READ-01",
+      "status": "PASS",
+      "detail": "Owner bytes and private no-store; bidirectional foreign and valid/missing anonymous read denial.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-01-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json"
+      ]
+    },
+    {
+      "id": "READ-02",
+      "status": "PASS",
+      "detail": "Minus1/exact/plus1ms boundary, R2 retained during expiry rejection, null/invalid/past/future checks on both input sides.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-02-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-03-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-04-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json"
+      ]
+    },
+    {
+      "id": "RET-01",
+      "status": "PASS",
+      "detail": "Real paged A/B cleanup, plus supplemental real anonymous expiry cleanup and future/null preservation.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-05-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json"
+      ]
+    },
+    {
+      "id": "RET-02",
+      "status": "PASS",
+      "detail": "Exact full batch followed by empty page, successful deletion audit and repeat scanner/route zero summaries.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-05-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json"
+      ]
+    },
+    {
+      "id": "DEL-01",
+      "status": "PASS",
+      "detail": "Anonymous 401; existing A/B foreign analysis/batch targets 404; owner-positive targets delete successfully; full scoped storage invariant on denial.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-06-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-07-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-09-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-10-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json"
+      ]
+    },
+    {
+      "id": "DEL-02",
+      "status": "PASS",
+      "detail": "Authenticated workspace-only deletion despite forged fields, B and A sequences; no foreign asset changes and repeat idempotency.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-13-pass.json"
+      ]
+    },
+    {
+      "id": "GUARD-01",
+      "status": "PASS",
+      "detail": "A/B queued/running analysis and queued/processing batch plus individual workspace task guards return409 with scoped storage invariant.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-08-pass.json"
+      ]
+    },
+    {
+      "id": "GUARD-02",
+      "status": "PASS",
+      "detail": "Historical reference protected by replay; actual current reference protected by supplemental analysis/batch DELETE. Account and expiry scopes remain distinct.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-09-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-10-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/supplemental.json"
+      ]
+    },
+    {
+      "id": "POST-01",
+      "status": "PASS",
+      "detail": "Completed successful deletes yield owner410/foreign404 and remove original and derivative keys; actual detail/release APIs tested. No alternative app asset byte route found in scoped source read.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-09-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-10-pass.json"
+      ]
+    },
+    {
+      "id": "POST-02",
+      "status": "FAIL",
+      "detail": "Successful deletion degrades eligible sources and preserves machine/review/frozen source, but the approved-source partial deletion combination leaves ELIGIBLE while GET503 and R2 missing.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-09-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json"
+      ]
+    },
+    {
+      "id": "FAIL-01",
+      "status": "PASS",
+      "detail": "Actual route and sweeper R2 pre-operation failures explicitly report failure, preserve target bytes and converge on retry.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/expected-r2-failure-original.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-11-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json"
+      ]
+    },
+    {
+      "id": "FAIL-02",
+      "status": "FAIL",
+      "detail": "Route and sweeper D1 mark failures correctly report incomplete deletion and converge, but approved future candidate during that window still falsely supports release eligibility.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/expected-d1-mark-failure-original.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-12-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json"
+      ]
+    },
+    {
+      "id": "FAIL-03",
+      "status": "PASS",
+      "detail": "Pass-through one-shot faults on real storage; scoped D1 and all non-target object/hash invariance, audit failure/completion retained; no credit/queue effect.",
+      "evidence": [
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-11-pass.json",
+        "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/case-12-pass.json",
+        "/private/tmp/pairvu-jrn04-qa-evidence/independent.json"
+      ]
+    },
+    {
+      "id": "END-01",
+      "status": "PASS",
+      "detail": "All four workers disposed; all 43 assets deleted and 85 manifest object keys absent, independently checked persisted local D1/R2. Fresh runIds only; no same-ID restoration; no private DB archive or session strings in raw JSON.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn04-qa-evidence/storage-audit.json"
+      ]
+    }
+  ],
+  "concurrentWorkerRaceCoverage": false,
+  "sharedUnprotectedCandidateActiveElsewhereCoverage": false
+}

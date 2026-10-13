@@ -1,0 +1,34 @@
+import json,pathlib,sqlite3,hashlib
+base=pathlib.Path('/private/tmp/pairvu-jrn04-qa-evidence')
+paths=[pathlib.Path('/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-r8i0bv/final-report.json'),base/'independent.json',base/'supplemental.json',base/'partial-window.json']
+runs=[]
+for path in paths:
+ report=json.loads(path.read_text());root=pathlib.Path(report['temporaryDirectory'])
+ dbpath=next(p for p in root.glob('d1/**/*.sqlite') if p.name!='metadata.sqlite')
+ db=sqlite3.connect(f'file:{dbpath}?mode=ro',uri=True)
+ assets=db.execute('select count(*),sum(status="deleted") from assets').fetchone()
+ assert assets[0]==assets[1]
+ assert not db.execute('pragma foreign_key_check').fetchall()
+ attempts=dict(db.execute('select status,count(*) from asset_deletion_attempts group by status').fetchall())
+ storage=report.get('finalStorage',report.get('storage'))
+ assert all(v is None for v in storage['objects'].values()) and report['servicesStopped']
+ # Persisted R2 metadata confirms object tombstones after disposal; no private storage is archived.
+ r2dbs=[p for p in root.glob('r2/**/*.sqlite') if p.name!='metadata.sqlite']
+ assert r2dbs
+ r2live=[]
+ for p in r2dbs:
+  r2=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
+  tables=[r[0] for r in r2.execute('select name from sqlite_master where type="table"')]
+  assert '_mf_objects' in tables
+  r2live+=r2.execute('select key from _mf_objects').fetchall()
+ assert not r2live
+ rawpaths=list(root.glob('*.json'))
+ for rawpath in rawpaths:
+  text=rawpath.read_text()
+  assert 'better-auth.session_token' not in text and '/api/auth/magic-link/verify?' not in text
+  assert '"cookie":' not in text and '"BETTER_AUTH_SECRET":' not in text
+ runs.append({'runId':report['runId'],'reportPath':str(path),'privateD1':str(dbpath),'assets':assets[0],'deletedAssets':assets[1],'auditStatuses':attempts,'manifestObjects':len(storage['objects']),'allObjectsGone':True,'servicesStopped':True,'privateStorageNotArchived':True,'credentialAndSessionStringsAbsent':True})
+assert len({r['runId'] for r in runs})==len(runs)
+result={'status':'PASS','candidateSha':'94a818b835b62170ea484be177f7b1ee7a97b72a','independentReadOnlySQLiteAudit':True,'runs':runs,'totalAssets':sum(r['assets'] for r in runs),'totalManifestObjects':sum(r['manifestObjects'] for r in runs),'permanentDeletionWasNotRestored':True,'productionLifecycleCovered':False}
+(base/'storage-audit.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps({'status':'PASS','runs':len(runs),'assets':result['totalAssets'],'reportPath':str(base/'storage-audit.json')}))

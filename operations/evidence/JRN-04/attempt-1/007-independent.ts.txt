@@ -1,0 +1,86 @@
+import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+import {writeFile} from 'node:fs/promises';
+import {createHarness,hash} from '/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-harness';
+import {createAnalysisRecord,persistCompletedAnalysis} from '/Users/liukai/Documents/Product Visual QA Platform/lib/analysis/repository';
+import {createBatch} from '/Users/liukai/Documents/Product Visual QA Platform/lib/batches/repository';
+import {deleteExpiredAssets} from '/Users/liukai/Documents/Product Visual QA Platform/lib/assets/deletion';
+import {M0RiskPolicy} from '/Users/liukai/Documents/Product Visual QA Platform/lib/qa/m0-policy';
+import {unavailableRegion} from '/Users/liukai/Documents/Product Visual QA Platform/lib/qa/evidence-regions';
+import type {M0CheckFamily,VisionObservation} from '/Users/liukai/Documents/Product Visual QA Platform/lib/qa/types';
+
+async function main(){
+ const h=await createHarness(); const cases:unknown[]=[]; const output='/private/tmp/pairvu-jrn04-qa-evidence/independent.json';
+ const checks:M0CheckFamily[]=['logo','visible_text','quantity','dominant_color','major_components','major_shape_packaging'];
+ const future='2099-12-31T00:00:00.000Z';
+ const test=async(name:string,fn:()=>Promise<unknown>)=>{const detail=await fn(); cases.push({name,status:'PASS',detail}); console.log(`PASS ${name}`)};
+ let result='PASS',failure:unknown=null;
+ try{
+  const ref=await h.makeAsset('A','qa-independent-reference',{kind:'reference',derivatives:'distinct'}), cand=await h.makeAsset('A','qa-independent-candidate',{derivatives:'same'});
+  const bRef=await h.makeAsset('B','qa-B-reference',{kind:'reference'}),bCand=await h.makeAsset('B','qa-B-candidate');
+  const analysisId=randomUUID();
+  const observations:VisionObservation[]=checks.map(checkType=>({checkType,status:'match',differenceKind:'none',confidence:'high',observability:{reference:'observable',candidate:'observable',coverage:'sufficient'},explanation:'Independent QA synthetic evidence, no model executed.',evidence:{referenceObservation:'Northstar label and whole product visible.',candidateObservation:'Northstar label and whole product visible.',comparisonSummary:'Independent synthetic matching pair.',visibleEvidence:['Readable Northstar label and whole product.'],identityEvidence:checkType==='logo'?{reference:'Northstar',candidate:'Northstar',referenceKind:'brand_name',candidateKind:'brand_name',validationVersion:'identity-evidence-004'}:checkType==='visible_text'?{reference:'NORTHSTAR 500 ML',candidate:'NORTHSTAR 500 ML',referenceKind:'readable_text',candidateKind:'readable_text',validationVersion:'identity-evidence-004'}:undefined,regions:{schemaVersion:1,reference:unavailableRegion(ref.id,'uncertain_location'),candidate:unavailableRegion(cand.id,'uncertain_location')}}}));
+  assert(await createAnalysisRecord(h.db,{analysisId,workspaceId:h.identities.A.workspaceId,referenceAssetId:ref.id,candidateAssetId:cand.id,selectedChecks:checks}));
+  const risk=new M0RiskPolicy().decide({analysisId,selectedChecks:checks,observations,limitations:[]}); assert.equal(risk.verdict,'pass');
+  await persistCompletedAnalysis(h.db,{...risk,analysisId,observations,versions:{qaEngineVersion:'m0-qa-engine-008',riskPolicyVersion:'m0-risk-policy-003',modelPolicyVersion:'m0-model-policy-002'},modelCalls:[{provider:'openai',model:'gpt-4.1-mini',promptVersion:'m0-real-mvp-009+regions-003',latencyMs:1}],latencyMs:1},{workspaceId:h.identities.A.workspaceId,referenceAssetId:ref.id,candidateAssetId:cand.id,selectedChecks:checks});
+  const approval=await h.jsonCall('reviews','POST',`analyses/${analysisId}/reviews`,'A',{requestId:randomUUID(),expectedRevision:0,action:'approve',category:'other',reason:'Independent synthetic lifecycle QA; no quality claim.'}); assert.equal(approval.status,200);
+  const release=async()=>{const r=await h.jsonCall('releases','GET','releases','A'); assert.equal(r.status,200); const row=(r.body.rows as any[]).find(r=>r.analysisId===analysisId);assert(row); return row;};
+  const original=await release();assert.equal(original.eligibility,'eligible');
+  await test('independent real owner bytes and bidirectional read isolation',async()=>{
+   for(const [asset,owner,foreign] of [[cand,'A','B'],[bCand,'B','A']] as const){const response=await h.call('asset','GET',`assets/${asset.id}`,owner);assert.equal(response.status,200);assert.equal(hash(new Uint8Array(await response.arrayBuffer())),asset.sha256);assert.equal(response.headers.get('cache-control'),'private, no-store, max-age=0');assert.equal((await h.call('asset','GET',`assets/${asset.id}`,foreign)).status,404);assert.equal((await h.call('asset','GET',`assets/${asset.id}`,null,undefined,randomUUID())).status,404);}
+   return {actualAuthentication:true,ownedImageHashesMatch:true};
+  });
+  await test('independent reference and candidate expiry matrix preserves source and review',async()=>{
+   const results=[];
+   for(const asset of [ref,cand]) for(const expiry of [null,'not-a-date','2001-01-01T00:00:00.000Z',future]){
+    await h.db.prepare('update assets set retention_expires_at=? where id=?').bind(expiry,asset.id).run();
+    const response=await h.call('asset','GET',`assets/${asset.id}`,'A'),row=await release();
+    assert.equal(response.status,expiry===future?200:410);assert.equal(row.eligibility,expiry===future?'eligible':'blocked');
+    if(expiry!==future)assert(row.reasons.some((r:any)=>r.code==='assets_unavailable'));
+    assert.deepEqual(row.machine,original.machine);assert.deepEqual(row.human,original.human);assert((await h.objectState(asset)).every(o=>o.present));
+    results.push({kind:asset.kind,expiry,status:response.status,eligibility:row.eligibility});
+   }
+   return results;
+  });
+  const batches={} as Record<'A'|'B',string>;
+  for(const alias of ['A','B'] as const){batches[alias]=randomUUID(); const r=alias==='A'?ref:bRef,c=alias==='A'?cand:bCand;await createBatch(h.db,{batchId:batches[alias],workspaceId:h.identities[alias].workspaceId,idempotencyKey:randomUUID(),mappingMode:'explicit_pairs',items:[{referenceAssetId:r.id,candidateAssetId:c.id}],planBatchItemLimit:20});await h.db.prepare("update batches set status='completed' where id=?").bind(batches[alias]).run();await h.db.prepare("update batch_items set status='completed' where batch_id=?").bind(batches[alias]).run();}
+  await test('independent batch auth mapping and existing foreign target storage invariance',async()=>{
+   const results=[];
+   for(const alias of ['A','B'] as const){for(const anonymous of [undefined,randomUUID(),'malformed']){const before=await h.storageSnapshot();const response=await h.jsonCall('batch','DELETE',`batches/${batches[alias]}`,null,undefined,anonymous);assert.equal(response.status,401);assert.equal(response.body.error,'authentication_required');assert.equal((await h.storageSnapshot()).sha256,before.sha256);results.push({actor:'anonymous',target:alias,status:response.status});}
+    const foreign=alias==='A'?'B':'A';for(const body of [undefined,{workspaceId:h.identities[alias].workspaceId}]){const before=await h.storageSnapshot();const response=await h.jsonCall('batch','DELETE',`batches/${batches[alias]}`,foreign,body);assert.equal(response.status,404);assert.equal((await h.storageSnapshot()).sha256,before.sha256);results.push({actor:foreign,target:alias,status:response.status});}}
+   return results;
+  });
+  await test('independent actual sweeper R2 failure then same-target retry',async()=>{
+   const target=await h.makeAsset('A','qa-sweep-r2-fault',{expiresAt:'2001-01-01T00:00:00.000Z',derivatives:'distinct'});const before=await h.storageSnapshot();h.faults.r2Key=target.keys[0];
+   const failed=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:new Date('2030-01-01T00:00:00.000Z'),batchSize:1});assert.deepEqual(failed,{scanned:1,deleted:0,failed:1,hasMore:true});assert((await h.objectState(target)).every(o=>o.present));assert.equal((await h.one('select status from assets where id=?',target.id)).status,'analyzed');
+   const originalFailure=await h.writeArtifact('qa-sweeper-r2-failure-original.json',{summary:failed,target,objects:await h.objectState(target),audit:await h.rows('select * from asset_deletion_attempts where asset_id=?',target.id)});
+   const retry=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:new Date('2030-01-01T00:00:00.000Z'),batchSize:1});assert.equal(retry.deleted,1);assert((await h.objectState(target)).every(o=>!o.present));
+   const after=await h.storageSnapshot();for(const asset of h.manifest.filter(a=>a.id!==target.id)){assert.equal(after.assetHashes[asset.id],before.assetHashes[asset.id]);for(const key of asset.keys)assert.equal(after.objects[key],before.objects[key]);}
+   assert.deepEqual((await h.rows('select status from asset_deletion_attempts where asset_id=? order by attempted_at,id',target.id)).map(r=>r.status).sort(),['completed','failed']);
+   return {summary:failed,retry,originalFailure};
+  });
+  await test('independent actual sweeper R2-success D1-mark-failure window and convergence',async()=>{
+   const target=await h.makeAsset('B','qa-sweep-mark-fault',{expiresAt:'2002-01-01T00:00:00.000Z',derivatives:'same'});const before=await h.storageSnapshot();h.faults.markAssetId=target.id;
+   const failed=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:new Date('2030-01-01T00:00:00.000Z'),batchSize:1});assert.equal(failed.failed,1);assert.equal(failed.deleted,0);assert((await h.objectState(target)).every(o=>!o.present));assert.equal((await h.one('select status from assets where id=?',target.id)).status,'analyzed');
+   const image=await h.jsonCall('asset','GET',`assets/${target.id}`,'B');assert.equal(image.status,410);assert.equal(image.body.error,'asset_expired');
+   const originalFailure=await h.writeArtifact('qa-sweeper-mark-failure-original.json',{summary:failed,target,objects:await h.objectState(target),asset:await h.one('select status,deleted_at from assets where id=?',target.id),image,audit:await h.rows('select * from asset_deletion_attempts where asset_id=?',target.id)});
+   const retry=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:new Date('2030-01-01T00:00:00.000Z'),batchSize:1});assert.equal(retry.deleted,1);assert.equal((await h.one('select status from assets where id=?',target.id)).status,'deleted');
+   const after=await h.storageSnapshot();for(const asset of h.manifest.filter(a=>a.id!==target.id)){assert.equal(after.assetHashes[asset.id],before.assetHashes[asset.id]);for(const key of asset.keys)assert.equal(after.objects[key],before.objects[key]);}
+   assert.deepEqual((await h.rows('select status from asset_deletion_attempts where asset_id=?',target.id)).map(r=>r.status).sort(),['completed','failed']);
+   const repeat=await deleteExpiredAssets(h.routeDb,h.routeBucket,{now:new Date('2030-01-01T00:00:00.000Z'),batchSize:1});assert.deepEqual(repeat,{scanned:0,deleted:0,failed:0,hasMore:false});
+   return {failed,retry,originalFailure,readDuringFailure:'410 asset_expired because sweeper target was already expired; separate route replay tests future target 503'};
+  });
+  await test('independent owner batch deletes real target and eligibility degrades without history mutation',async()=>{
+   const response=await h.jsonCall('batch','DELETE',`batches/${batches.A}`,'A');assert.equal(response.status,200);assert.deepEqual(response.body.deletion,{requested:2,deleted:2,failed:0});const row=await release();assert.equal(row.eligibility,'blocked');assert(row.reasons.some((r:any)=>r.code==='assets_unavailable'));assert.deepEqual(row.machine,original.machine);assert.deepEqual(row.human,original.human);
+   assert.equal((await h.call('asset','GET',`assets/${cand.id}`,'A')).status,410);assert.equal((await h.call('asset','GET',`assets/${cand.id}`,'B')).status,404);assert((await h.objectState(bCand)).every(o=>o.present));
+   return {status:response.status,eligibility:row.eligibility,historyPreserved:true};
+  });
+  await h.writeArtifact('qa-manifest.json',{runId:h.runId,assets:h.manifest,syntheticMachineEvidence:true});
+  await test('independent cleanup through authenticated workspace routes',async()=>{
+   for(const alias of ['A','B'] as const){const response=await h.jsonCall('account','DELETE','account/assets',alias);assert.equal(response.status,200);}
+   assert((await h.storageSnapshot()).objects && (await Promise.all(h.manifest.map(h.objectState))).flat().every(o=>!o.present));assert.equal(h.outboundCount(),0);assert.equal(h.queueCount(),0);return {allManifestObjectsGone:true,assets:h.manifest.length};
+  });
+ }catch(error){result='FAIL';failure=error instanceof Error?error.stack:String(error);}
+ finally{const storage=await h.storageSnapshot();await h.dispose();await writeFile(output,JSON.stringify({unitId:'JRN-04',candidateSha:'94a818b835b62170ea484be177f7b1ee7a97b72a',status:result,runId:h.runId,temporaryDirectory:h.root,cases,failure,manifest:h.manifest,storage,servicesStopped:true,modelCallsExecuted:0,productionLifecycleCovered:false,qualityEvidence:false,syntheticMachineEvidence:true},null,2)+'\n');console.log(JSON.stringify({status:result,reportPath:output,cases:cases.length}));if(result==='FAIL')process.exitCode=1;}
+}
+main().catch(error=>{console.error(error instanceof Error?error.message:String(error));process.exitCode=1;});
