@@ -1,0 +1,37 @@
+{
+  "unitId": "JRN-02",
+  "observedAt": "2026-10-13T07:05:14.462603+00:00",
+  "productionReleaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "browserObservation": {
+    "origin": "https://pairvu.com/account",
+    "identity": "existing B session",
+    "plan": "Free",
+    "available": 10,
+    "used": 0,
+    "reserved": 0,
+    "visibleBillingText": [
+      "Your Free workspace is active",
+      "Paid checkout starts there after you choose a plan.",
+      "View plans"
+    ]
+  },
+  "inference": {
+    "billingEnabled": true,
+    "basis": [
+      "app/account/page.tsx passes isLiveStripeBillingConfigured(env)",
+      "app/account/BillingActions.tsx renders observed strings only for billingEnabled=true",
+      "lib/billing/access.ts requires sk_live_",
+      "app/api/billing/webhook/route.ts rejects non-live events before beginStripeWebhookEvent"
+    ]
+  },
+  "limitation": "Direct billing/context browser navigation blocked by client and was not bypassed; configuration inference uses normal visible page and deployed unchanged source, no secret inspection.",
+  "legacyTestEndpoint": {
+    "id": "we_1U35jkK1UJsctvouodLHF9rn",
+    "livemode": false,
+    "status": "enabled",
+    "url": "https://pairvu.com/api/billing/webhook",
+    "action": "read-only inventory, no changes"
+  },
+  "productionSnapshot": "production-before.json",
+  "remoteWritesByController": 0
+}

@@ -15,7 +15,7 @@
       "applied": true
     },
     "observedStatus": "active",
-    "afterCursor": "23beb2e0-1e0a-45d1-bea7-0733eac50ccd:10",
+    "afterCursor": "23beb2e0-1e0a-45d1-bea7-0733eac50ccd:39",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -33,10 +33,10 @@
       "thinking": "high",
       "reason": "独立核验实际Stripe测试付款/真实认证、生产隔离与付费所有权反例",
       "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
-      "applied": false
+      "applied": true
     },
     "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:91",
-    "observedStatus": "completed",
+    "observedStatus": "preparing_contract_review",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -339,11 +339,16 @@
   },
   "sandboxAcceptance": {
     "contract": "operations/contracts/JRN-02.md",
-    "state": "SCOPED",
+    "state": "DEV_ACTIVE",
     "stripeTestKeyValidated": true,
     "testStarterPriceActive": true,
     "productionChangesAuthorized": false,
     "realChargesAuthorized": false,
-    "identityReuse": "Existing A/B email identities, fresh isolated local workspaces; no production session/database copy"
+    "identityReuse": "Existing A/B email identities, fresh isolated local workspaces; no production session/database copy",
+    "productionCheckoutRouteCovered": false,
+    "testCheckoutAdapter": true,
+    "productionBoundaryEvidence": "operations/evidence/JRN-02/production-boundary.json",
+    "productionBeforeEvidence": "operations/evidence/JRN-02/production-before.json",
+    "recovery": "2026-10-13 desktop tool pipe interruption: reused original dev/QA; developer must reconcile original Stripe test run before creating more objects"
   }
 }

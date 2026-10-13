@@ -27,3 +27,7 @@
 
 ## 固定回传和总控持续回收
 开发回完整candidateSha、允许文件差分、环境启动/停止方式、安全门禁实证、原始验证材料及真实Stripe/认证是否完成；QA回unitId JRN-02,candidateSha,reviewerThreadId,result,checks含fixed candidate SHA / independent QA report / isolated environment / Stripe test payment / paid CSV and workspace isolation / production unchanged。每项PASS/FAIL/BLOCKED如实，缺输入不能算完成。总控wait_threads带afterCursor持续等待，完成read_thread，正式CLI记录。通过后更新整体进度，生产paid仍未测需明确，不重新部署CSV修复，pairvu-2继续PAUSED。
+
+## 已核实的Live-only入口与最小范围调整
+实际生产checkout路由使用isLiveStripeBillingConfigured，test key正常503，这是现有产品门禁，不是本轮要更改的生产功能。用户要求测试模式且禁止修改生产计费，因此保留所有app/lib生产代码；fixtures内允许明确loopback/test-only结账适配入口，必须经过实际Better Auth会话与现有getWorkspaceAccountSnapshot/getWorkspaceBillingRecord以及createStripeCheckoutSession服务（不手写Stripe会话/套餐状态），其余真实Stripe付款、签名webhook、D1、CSV真实路由保持矩阵。此项替代矩阵3的“实际Pairvu checkout路由”要求；正式checkout的test key503作为预期门禁另测。报告显著声明testCheckoutAdapter=true、productionCheckoutRouteCovered=false，不能称生产原入口完整E2E；不以mock付款替代。
+只读发现旧Stripe Test Mode账户有历史test webhook指向pairvu.com。不得修改该旧端点；实际应用对test事件在签名/模式检查处即拒绝，早于D1 journal写入。开始付款前证明当前生产拒绝边界并由总控做生产计费只读前后对照；若无法保证不改生产计费，则停真实provider变更、报告需要独立Stripe sandbox配置。CLI监听须只处理本轮runId对象，不能把账户其他测试事件应用到本地工作区。
