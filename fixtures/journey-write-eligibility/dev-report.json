@@ -1,0 +1,175 @@
+{
+  "unitId": "JRN-03",
+  "runId": "6d0eb2a7-b040-4c42-81b2-2d1c15f4ca05",
+  "status": "PASS",
+  "startedAt": "2026-10-13T08:43:07.162Z",
+  "finishedAt": "2026-10-13T08:43:37.524Z",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn03-F32nJj",
+  "uiPage": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn03-F32nJj/ui-page.json",
+  "actualBetterAuth": true,
+  "actualRoutes": true,
+  "localD1": true,
+  "localR2": true,
+  "syntheticMachineEvidence": true,
+  "qualityEvidence": false,
+  "modelCallsExecuted": 0,
+  "productionWriteIsolationCovered": false,
+  "productionEligibleCovered": false,
+  "outboundBlocked": 0,
+  "queueCaptured": 1,
+  "sessions": {
+    "A": {
+      "email": "jrn03-a-6d0eb2a7-b040-4c42-81b2-2d1c15f4ca05@example.test",
+      "workspaceId": "personal_qmo4UZ9P8f4EU1qaBF97lKp8w5PA3ShH"
+    },
+    "B": {
+      "email": "jrn03-b-6d0eb2a7-b040-4c42-81b2-2d1c15f4ca05@example.test",
+      "workspaceId": "personal_Twm4mFaErscIONo5wrAova5FZnWrFIkw"
+    }
+  },
+  "assets": {
+    "A": {
+      "ref": "2e9adfae-8b62-4388-973b-54cf84d8ccb3",
+      "ref2": "8c96e945-dddd-4893-b14f-1a9093bd1f4e",
+      "cand": "b990ece5-3e9b-4085-b712-67ecbcf8205b"
+    },
+    "B": {
+      "ref": "3176afe9-870d-4802-bd63-52d2c6da627b",
+      "ref2": "0e3229ea-21af-463c-945e-2b26b526e415",
+      "cand": "681069d4-02ab-4708-9491-5b43fe1d4e50"
+    }
+  },
+  "products": {
+    "A": "3c0d16af-8817-49df-bc7f-f30a303641fe",
+    "B": "6bfb6622-6d5d-4c8f-84bb-bf7af711d5d7"
+  },
+  "batches": {
+    "A": {
+      "queued": "cb758903-dcf2-40af-a2a7-006efd89cdf4",
+      "failed": "dd8b01da-0db4-4f81-af1f-8b59ad9b8a0a",
+      "item": "660810de-1363-4bc9-bc16-bb0efc68dcb9"
+    },
+    "B": {
+      "queued": "999d22ce-cb23-4d4c-9171-c5abd7600181",
+      "failed": "533b318a-605f-4587-8608-251dbe5e55cc",
+      "item": "e9611aec-e4e6-420e-9f1b-98eee9c3d5bf"
+    }
+  },
+  "analyses": {
+    "A": "ec606356-e5bc-4f3f-9bac-95081496e872",
+    "B": "c8330a54-4131-4a9b-94b9-f8e2c39893b3"
+  },
+  "cases": [
+    {
+      "name": "real A/B magic-link sessions and separate Free workspaces",
+      "status": "PASS",
+      "detail": {
+        "A": "personal_qmo4UZ9P8f4EU1qaBF97lKp8w5PA3ShH",
+        "B": "personal_Twm4mFaErscIONo5wrAova5FZnWrFIkw",
+        "actualAuth": true,
+        "free": true
+      }
+    },
+    {
+      "name": "fresh local R2 images and owned D1 assets",
+      "status": "PASS",
+      "detail": {
+        "imageCount": 6,
+        "bytesPerImage": 70
+      }
+    },
+    {
+      "name": "actual product create and versioned profile for both owners",
+      "status": "PASS",
+      "detail": {
+        "A": "3c0d16af-8817-49df-bc7f-f30a303641fe",
+        "B": "6bfb6622-6d5d-4c8f-84bb-bf7af711d5d7"
+      }
+    },
+    {
+      "name": "bidirectional foreign product writes preserve full D1 state",
+      "status": "PASS",
+      "detail": {
+        "validTargets": true,
+        "unchangedTables": true
+      }
+    },
+    {
+      "name": "foreign reference and forged owner fields cannot bind to own product",
+      "status": "PASS"
+    },
+    {
+      "name": "actual product create cannot adopt a foreign reference or forged workspace",
+      "status": "PASS"
+    },
+    {
+      "name": "own reference promotion and lifecycle change remain writable",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen versioned batch and analysis source for each owner",
+      "status": "PASS",
+      "detail": {
+        "syntheticMachineEvidence": true,
+        "modelCallsExecuted": 0,
+        "qualityEvidence": false
+      }
+    },
+    {
+      "name": "actual review POST denies both foreign completed analyses without writes",
+      "status": "PASS"
+    },
+    {
+      "name": "actual batch PATCH denies foreign queued and failed targets without writes or enqueue",
+      "status": "PASS"
+    },
+    {
+      "name": "actual release GET needs review, actual review POST yields complete ELIGIBLE",
+      "status": "PASS",
+      "detail": {
+        "analysisId": "ec606356-e5bc-4f3f-9bac-95081496e872",
+        "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4",
+        "sourceHash": "e07b1bfa1877a060b8a78ef31fd5b274c7b6b7fc3d22277c1cf608831d525d96",
+        "profileVersionId": "6d178170-d93c-4100-84c3-90a080664c96",
+        "referenceVersionId": "819c4d86-4fe8-44ce-9a71-72bad776708f"
+      }
+    },
+    {
+      "name": "approved isolated counterexamples cannot bypass machine/source/image/high-risk guards",
+      "status": "PASS",
+      "detail": {
+        "isolatedCloneIds": [
+          "55072420-08ff-491f-aac0-3e283be36984",
+          "900aea05-b0d6-418e-8f8d-92b16ab70d93",
+          "8c1b4d6d-6bce-40e0-9bb1-85acfe80bc2e",
+          "5f4755c9-c0ed-4afa-af72-098c17632b2d"
+        ]
+      }
+    },
+    {
+      "name": "B workbench cannot see A eligible; forged filters do not widen",
+      "status": "PASS"
+    },
+    {
+      "name": "review replay and stale revision do not append events",
+      "status": "PASS"
+    },
+    {
+      "name": "revoke then reapprove restores A ELIGIBLE through actual routes",
+      "status": "PASS"
+    },
+    {
+      "name": "current SKU profile update does not rewrite frozen analysis source",
+      "status": "PASS"
+    },
+    {
+      "name": "own batch cancel and retry reach valid local targets",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Machine observations and model-call provenance rows are synthetic inputs; no model was called.",
+    "Fresh local workerd storage and real route handlers, not production verification.",
+    "UI transport replays the local release route response; it does not authenticate a browser session."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "unitId": "JRN-03",
+  "runId": "6d0eb2a7-b040-4c42-81b2-2d1c15f4ca05",
+  "layer": "actual ReleaseWorkbenchClient rendered with local fixture transport",
+  "browser": "Codex in-app browser via CUA",
+  "fixtureTransport": true,
+  "productionBrowserE2E": false,
+  "source": "dev-report.json -> ui-page.json -> /api/releases fixture response",
+  "observedAnalysisId": "ec606356-e5bc-4f3f-9bac-95081496e872",
+  "assertions": {
+    "machineColumn": "Machine result: PASS, 0 product differences, image availability shown",
+    "humanColumn": "Human decision: APPROVE, revision 3",
+    "eligibilityColumn": "Rule eligibility: ELIGIBLE, complete_source_approved",
+    "counterexamples": "Four separate records show BLOCKED with source-change, high-risk, unavailable-image, and incomplete-observation reasons"
+  },
+  "result": "PASS"
+}
