@@ -1,7 +1,7 @@
 import { csvCell } from "@/lib/releases/csv";
 import { NextRequest, NextResponse } from "next/server";
 import { getWorkspaceBatchEntitlement } from "@/lib/accounts/repository";
-import { resolveRequestAccess } from "@/lib/auth/request-access";
+import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { getBatchById } from "@/lib/batches/repository";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
 
@@ -53,6 +53,9 @@ export async function GET(request: NextRequest, context: { params: Promise<{ bat
       },
     });
   } catch (error) {
+    if (error instanceof RequestAccessError) {
+      return NextResponse.json({ error: "authentication_required" }, { status: 401 });
+    }
     console.error("batch_csv_export_failed", error);
     return NextResponse.json({ error: "csv_export_failed", message: "The CSV export could not be created." }, { status: 500 });
   }
