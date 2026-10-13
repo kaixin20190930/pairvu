@@ -1,0 +1,140 @@
+{
+  "unitId": "JRN-02",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T08:09:38.133198Z",
+  "result": "PASS",
+  "acceptanceScope": "local_only Stripe Test Mode isolated payment, actual authenticated CSV routes and A/B ownership, signed local webhook, cleanup, and production no-change evidence",
+  "requiredEvidenceNames": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "isolated environment",
+    "Stripe test payment",
+    "paid CSV and workspace isolation",
+    "production unchanged"
+  ],
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "finding": "Candidate d3fcb9c is checked out; candidate scripts/contract unchanged; no app/lib/migration/wrangler production source diff from prior production release.",
+      "evidence": [
+        "git rev-parse HEAD",
+        "git diff --name-only HEAD -- scripts/jrn02-* docs/05-evaluation/stripe-csv-sandbox-acceptance.md operations/contracts/JRN-02.md"
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "finding": "Original active-phase report retained; independent QA harnesses exercised actual fixed-source routes, Better Auth, Stripe read-only provider objects, webhook rejection/replay, and post-cleanup local D1.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn02-qa-in-progress.json",
+        "/private/tmp/pairvu-jrn02-qa/independent-csv.json",
+        "/private/tmp/pairvu-jrn02-qa/independent-webhook.json",
+        "/private/tmp/pairvu-jrn02-qa/independent-stripe-session.json",
+        "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json"
+      ]
+    },
+    {
+      "name": "isolated environment",
+      "status": "PASS",
+      "finding": "Loopback local-only Miniflare D1/test email capture; fixed source has CLI child environment allowlist. No port 3107 listener after cleanup. No production runtime code change.",
+      "evidence": [
+        "scripts/jrn02-local-server.ts",
+        "lsof -nP -iTCP:3107 -sTCP:LISTEN",
+        "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json"
+      ]
+    },
+    {
+      "name": "Stripe test payment",
+      "status": "PASS",
+      "finding": "Exactly one run-tagged Test Mode Checkout was complete/paid (livemode=false); original CLI-forwarded checkout/subscription events completed local journal, A reached Starter 150 while B stayed Free 10. No new payment by QA.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn02-qa/independent-stripe-session.json",
+        "/private/tmp/pairvu-jrn02-qa/developer-report.json",
+        "/private/tmp/pairvu-jrn02-qa/developer-csv-results.json"
+      ]
+    },
+    {
+      "name": "paid CSV and workspace isolation",
+      "status": "PASS",
+      "finding": "At active plan, own A batch/workbench CSV 200 with headers and formula/quote/newline protection; A to existing B batch 404 and workbench zero B rows; B Free 403; anonymous 401. Independent actual route/Better Auth harness verified no B content.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn02-qa/independent-csv.json"
+      ]
+    },
+    {
+      "name": "production unchanged",
+      "status": "PASS",
+      "finding": "Controller read-only six-table count/SHA snapshots before, after payment, after cleanup match exactly; independent anonymous health 200 confirms prior production release SHA and Worker version. This compares controller D1 snapshots rather than independently querying production D1.",
+      "evidence": [
+        "operations/evidence/JRN-02/production-before.json",
+        "operations/evidence/JRN-02/production-after-payment.json",
+        "operations/evidence/JRN-02/production-after-cleanup.json",
+        "/private/tmp/pairvu-jrn02-qa/production-health-body.json"
+      ]
+    },
+    {
+      "name": "webhook signature, order and replay",
+      "status": "PASS",
+      "finding": "Independent QA matched a real checkout event to main CLI event hash; invalid signature 400 without journal write, correctly signed duplicate ignored without extra credit. Separate fresh local D1 with real provider invoice-before-checkout events and QA-generated signature confirmed once-only grant. Original CLI signing secret was not retained for independent cryptographic replay.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn02-qa/independent-webhook.json",
+        "/private/tmp/pairvu-jrn02-order-results.json"
+      ]
+    },
+    {
+      "name": "test subscription cleanup and entitlement downgrade",
+      "status": "PASS",
+      "finding": "Read-only Stripe inspection confirmed only current-run tagged subscription canceled and linked objects remained tagged. Same local D1 has completed livemode=false subscription.deleted journal event matching cleanup hash; A/B Free 10, A provider internal with provider_subscription_id null, A own batch/workbench CSV 403 JSON and no CSV. Listener stopped.",
+      "evidence": [
+        "/private/tmp/pairvu-jrn02-qa/provider-canceled-inspect.json",
+        "/private/tmp/pairvu-jrn02-qa/provider-tags-after.json",
+        "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json",
+        "/private/tmp/pairvu-jrn02-cleanup-final.json"
+      ]
+    }
+  ],
+  "production": {
+    "unchanged": true,
+    "sixBillingTableDigestsEqualAcrossThreeSnapshots": true,
+    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+    "deployedJrn02": false
+  },
+  "flags": {
+    "testCheckoutAdapter": true,
+    "productionCheckoutRouteCovered": false,
+    "GoogleOAuthCovered": false,
+    "productionPaidExportCovered": false,
+    "newPaymentByQA": false,
+    "originalCliSignatureReplayIndependentlyCryptographicallyVerified": false
+  },
+  "limitations": [
+    "Production checkout intentionally rejects sk_test with 503; local adapter covers actual Better Auth/account/checkout service, not the production checkout entry.",
+    "Google OAuth and production paid CSV were not tested.",
+    "Production D1 unchanged is based on controller-provided read-only snapshots independently compared here; no direct production DB access by QA.",
+    "Main CLI signature was accepted by the actual handler and journal, but its original secret was not retained; independent replay used a new local signing secret on the same real Test Mode event."
+  ],
+  "evidenceHashes": {
+    "/private/tmp/pairvu-jrn02-qa-in-progress.json": "8bac8af1d541e0f6eee890064f6cd02c2ec90833baa53f3012e2e54e87c01d4b",
+    "/private/tmp/pairvu-jrn02-qa/independent-csv.json": "0a5749b20ebcd657bfd2202f1530ec4ef308a8571d7e517eb4576af13c7fc1e7",
+    "/private/tmp/pairvu-jrn02-qa/independent-webhook.json": "c2e6b39643257ed5f08b710d5e90f81bd2517eb23385c3f95d9bb016ed4ee1fa",
+    "/private/tmp/pairvu-jrn02-qa/independent-stripe-session.json": "6f0d4030793277e5daa72ca3f5bf71c416bff00b7f3d0e88fc75220dfa3eb251",
+    "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json": "774861a7dc3d2344580bf348c60f09601bcbc988dd6cfcd8debdf716553cb531",
+    "/private/tmp/pairvu-jrn02-qa/provider-canceled-inspect.json": "5c436e140715849eec0a755239ba006bc00851ddabc4d9f639a95b385f908949",
+    "/private/tmp/pairvu-jrn02-qa/provider-tags-after.json": "83cfb7a0a7ef2ae40f62aceb5583bd1a8caaaf2a753759df60dba2994b4301c5",
+    "/private/tmp/pairvu-jrn02-qa/production-health-body.json": "6521e1167025d7f910a29157e0f75362e42891bd44994d466be85d213ce6009d",
+    "/private/tmp/pairvu-jrn02-cleanup-final.json": "f185d851a55f951b8f1868593b6019d59c53e72d900fa7540fa6ac1dcd5fce86",
+    "/private/tmp/pairvu-jrn02-post-cleanup-results.json": "1256293b252cc5361c80438d6b8b1a1acac8e2b88f78ce17ccc81b2a06cadfc4",
+    "/private/tmp/pairvu-jrn02-cleanup-results.json": "39cf76e1375cd5142157ac8941ad260d25298ef8852cda948c9ec3ad3af0bd86",
+    "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-02/production-before.json": "b979a3f29ad2da58ecd5fe0e852b3c2affbb28ac563aa893ab3127a4ef205ac3",
+    "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-02/production-after-payment.json": "f4052f482be0b0d0bd5bf9549e4912a17a0bcb204a05f80d914444572c904a1b",
+    "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-02/production-after-cleanup.json": "338b0f36bc75454aab7128266e8683c27fa1b2f7c6dd0ff9349684fa51c1747e"
+  },
+  "nextAction": {
+    "action": "Controller records fixed-SHA QA PASS, closes JRN-02 local_only through formal CLI, archives sanitized evidence, and updates overall journey progress.",
+    "dependency": "No further JRN-02 test action required; any production paid journey remains a separate authorization/session dependency.",
+    "proceed": "Automatically within the already-authorized local-only unit; production paid verification needs a real paid production session and its own scope."
+  }
+}

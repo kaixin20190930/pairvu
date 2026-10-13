@@ -1,0 +1,200 @@
+{
+  "unitId": "JRN-02",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "preparedAt": "2026-10-13T07:23:30.979620Z",
+  "result": "PREPARATION_ONLY",
+  "candidateSha": null,
+  "fixedCandidateAcceptance": false,
+  "productionVerification": false,
+  "model": {
+    "name": "gpt-6-sol",
+    "reasoningEffort": "high",
+    "rationale": "Stripe签名、真实身份、D1权限和CSV跨层隔离风险；环境中断不触发升模。"
+  },
+  "scope": "只读契约和生产隔离证据预审；未读取凭据、未访问Stripe/浏览器、未运行开发中工具或付款。",
+  "reviewedSources": [
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/AGENTS.md",
+      "sha256": "4b2cd9ee2d3577d0aaac89b21ad5ab2455200499ef4004d19b84c1fa04b7e210"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/README.md",
+      "sha256": "09c1f01fe2189a04d4a474dd7be8ff725ee4f5bf8ff34550f0a13581375abd92"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/controller-prompt.md",
+      "sha256": "9455658f82d026c317da8d5958389ad94369f9b11721bd764582fb7026bcb776"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/model-selection-policy.md",
+      "sha256": "789a7931d0534f38b6a9bff9441ec00a28f27e281fa86e34a74d4e20df8a4210"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/contracts/JRN-02.md",
+      "sha256": "b0dad363f9f9a6d0eff68b5fa8585532be7a5122b971f51e00f7d32af3fdde27"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-02/production-before.json",
+      "sha256": "b979a3f29ad2da58ecd5fe0e852b3c2affbb28ac563aa893ab3127a4ef205ac3"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-02/production-boundary.json",
+      "sha256": "60a523ec27eff920ec3cdb97a532f2c4bff7a262b59f2095a37963a55ab20d50"
+    }
+  ],
+  "productionBaseline": {
+    "observedProductionSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "beforeCheckedAt": "2026-10-13T07:02:57.178504+00:00",
+    "boundaryObservedAt": "2026-10-13T07:05:14.462603+00:00",
+    "sixTableReadOnlyDigest": {
+      "workspace_subscriptions": {
+        "count": 2,
+        "sha256": "15f282da0ff7c8cca1aacfe777825ad9c866e7db306473ca220d698bc0f94164"
+      },
+      "workspace_credit_periods": {
+        "count": 6,
+        "sha256": "4f3ec98a46857b74cc6ee49df6edbe9626368dc127352a1b22dda9a8dc485859"
+      },
+      "workspace_credit_lots": {
+        "count": 1,
+        "sha256": "0f740dccb0c3cf1fb91a5610abe496cf22b12c06c7df99b6ef4a4e99be6649e0"
+      },
+      "usage_ledger": {
+        "count": 35,
+        "sha256": "1bac07369815c0dfb062c4baf9fb5309ffc3e5280431a1df2fafdabf592ee0ad"
+      },
+      "credit_lot_ledger": {
+        "count": 3,
+        "sha256": "972150e8ff04044c2ca5f666d0e0cf934b5b51f06a2dedc36616c5dfacf273e9"
+      },
+      "stripe_webhook_events": {
+        "count": 6,
+        "sha256": "cf90e3a74d3fd7607b9b49d35c792c5348844f1df1300b17a6d54e1720679e62"
+      }
+    },
+    "browserB": {
+      "plan": "Free",
+      "available": 10,
+      "used": 0,
+      "reserved": 0
+    },
+    "legacyTestWebhook": "enabled and points to pairvu.com, read-only inventory only",
+    "boundaryProofLevel": "UI plus unchanged deployed source inference; no independent production test event sent and no after snapshot yet",
+    "sourceGate": "verifyStripeWebhook -> isStripeWebhookModeAllowed -> beginStripeWebhookEvent"
+  },
+  "contractInterpretation": {
+    "testCheckoutAdapter": true,
+    "productionCheckoutRouteCovered": false,
+    "productionCheckoutWithTestKey": "expected 503 billing_not_configured",
+    "productionBillingChangesAllowed": false,
+    "localOnly": true
+  },
+  "pendingFixedShaMatrix": [
+    {
+      "id": "fixed_source",
+      "counterexample": "候选必须是完整固定提交；独立核对允许文件差分、运行入口与原始日志，不接受开发中源码为PASS。",
+      "requiredEvidence": "完整candidateSha、git diff/tree、原件哈希、QA独立重放；未经固定候选一律PENDING。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "isolation_preflight",
+      "counterexample": "任何副作用之前拒绝live key、live price或livemode=true、非127.0.0.1:3107、生产host/远端D1/R2/Queue、可读性过宽的输入文件。",
+      "requiredEvidence": "负例执行记录及零远端写入；仅精确私有输入键，0600，输出不含key、邮箱、cookie、认证链接或完整环境。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "environment",
+      "counterexample": "新临时目录+本地workerd/D1/R2，邮件仅本地捕获，禁cron/queue/模型/真实外发。",
+      "requiredEvidence": "本地持久化路径与绑定清单、启动/停止记录；不得有生产绑定或公开隧道。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "auth_AB",
+      "counterexample": "A/B经实际Better Auth魔法链接/会话，形成不同新workspace，付款前均Free；不可用stub替代。",
+      "requiredEvidence": "去敏会话验证、workspace不相等、Free余额/权限基线；无真实链路则BLOCKED。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "checkout_gate",
+      "counterexample": "正式生产checkout handler对test key预期503 billing_not_configured；不得因适配器而声称原路由覆盖。",
+      "requiredEvidence": "实际handler独立反例证明test key 503且无账户查找/出站；报告显著标记testCheckoutAdapter=true、productionCheckoutRouteCovered=false。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "checkout_provider",
+      "counterexample": "本地适配器须调用实际会话认证、账户与billing查询、createStripeCheckoutSession；A通过真实Stripe Test Mode付款，不写paid状态捷径。",
+      "requiredEvidence": "本轮runId绑定的cs_test、livemode=false Checkout/订阅/发票去敏原件与支付成功状态；浏览器限制需交接时不绕过，未付款则BLOCKED。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "webhook_signature",
+      "counterexample": "真实test provider事件由实际签名验证后的生产webhook handler处理，缺失/错误签名及live事件在本地安全门拒绝且不写journal。",
+      "requiredEvidence": "原始事件去敏摘要/哈希、签名验证结果、journal前后计数；伪造或手写paid不能代替。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "webhook_ownership_order",
+      "counterexample": "仅本轮runId对象入本地工作区；无关账户test事件忽略；checkout/invoice/subscription乱序仍可追溯；重复同一真实事件不重复授额。",
+      "requiredEvidence": "事件类型和ID哈希、runId绑定、乱序/重复回放前后D1订阅/credit/journal快照；未知或未绑定事件不污染。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "plan_credit",
+      "counterexample": "A由真实签名事件转Starter且csvExportEnabled=true，按现有规则授额；B保持Free，重复事件无重复额度。",
+      "requiredEvidence": "实际D1查询及普通A/B页面/handler读数，前后余额及幂等差异。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "own_csv",
+      "counterexample": "A实际批次与workbench CSV路由均返回200，内容对应冻结标准/审核来源，媒体类型和下载头正确。",
+      "requiredEvidence": "实际handler响应原件去敏CSV，字段、引号、换行、公式注入保护与隐私字段断言；纯序列化函数不足。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "ownership_negative",
+      "counterexample": "已付费A请求确实存在的B批次返回404且无CSV；A工作台不列/导出B；B自身Free导出403；匿名401。",
+      "requiredEvidence": "两身份实际认证+实际路由，B fixture存在证据、四类状态/类型/体及无跨workspace内容；Free403不能单独证明所有权。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "production_unchanged",
+      "counterexample": "旧Stripe test webhook指向pairvu.com，不能改；部署同SHA live gate须在D1 journal前拒绝test事件；生产计费六表前后完全一致。",
+      "requiredEvidence": "控制器提供独立只读after六表count+SHA与before逐表相等，生产SHA/Worker不变；浏览器B Free可辅助，单靠源码/UI推断不算实测写入零。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "cleanup",
+      "counterexample": "只终止本轮监听器并清理本轮测试订阅，不触碰历史Stripe对象；保留去敏原件与哈希。",
+      "requiredEvidence": "本轮对象runId清单、清理结果、订阅最终状态、监听器停止、无历史对象操作。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    }
+  ],
+  "provisionalWorkingSourceRisksNotVerdicts": [
+    {
+      "id": "checkout_tagging_gap",
+      "observation": "当前未固定本地入口先createStripeCheckoutSession，随后另一次Stripe POST才写jrn02_run_id；第二步失败可能留下未标记的新test对象。",
+      "finalReviewRequirement": "固定候选需证明失败路径仍能识别并限制/清理本轮对象，所有新增对象与runId可追溯。"
+    },
+    {
+      "id": "cli_environment_spread",
+      "observation": "当前未固定本地入口用 {...process.env} 启动Stripe CLI，虽覆盖STRIPE_API_KEY与XDG_CONFIG_HOME，仍可能把无关生产环境变量传给子进程。",
+      "finalReviewRequirement": "核对CLI子进程环境最小化、只有test键/必要系统变量，反例禁止生产配置启动。"
+    },
+    {
+      "id": "input_schema_mismatch",
+      "observation": "当前未固定preflight接受多种/嵌套键名，本地入口仅读取四个顶层大写键；预检可成功而启动失败。",
+      "finalReviewRequirement": "固定候选统一精确输入schema，证明预检成功意味着入口能安全启动。"
+    },
+    {
+      "id": "event_ordering",
+      "observation": "当前未固定监听入口只在checkout事件后获知subscriptionId；提前到达的invoice/subscription事件可能被忽略，必须验证乱序恢复。",
+      "finalReviewRequirement": "真实provider事件原件与本地journal/订阅状态对应，必要时可控重放但不可手写paid。"
+    }
+  ],
+  "stopConditions": [
+    "缺固定candidateSha不做最终PASS",
+    "缺真实Stripe Test Mode付款或实际Better Auth/签名/CSV handler证据则整体BLOCKED",
+    "任一live/生产绑定、隐私回显或计费六表漂移立即停止并FAIL",
+    "真实测试付款若被浏览器策略要求交接，不通过后端绕过"
+  ]
+}

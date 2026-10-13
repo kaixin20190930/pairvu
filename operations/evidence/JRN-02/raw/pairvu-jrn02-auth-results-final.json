@@ -1,0 +1,32 @@
+{
+  "unitId": "JRN-02",
+  "status": "AUTH_LOCAL_PASS",
+  "actualBetterAuth": true,
+  "localMagicLinkCapture": true,
+  "realEmailSent": false,
+  "localD1": true,
+  "uniqueWorkspaces": true,
+  "accounts": [
+    {
+      "alias": "A",
+      "workspacePresent": true,
+      "free": true,
+      "available": 10,
+      "cookieValid": true
+    },
+    {
+      "alias": "B",
+      "workspacePresent": true,
+      "free": true,
+      "available": 10,
+      "cookieValid": true
+    }
+  ],
+  "remoteWrites": 0,
+  "outboundBlocked": 0,
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-auth-U0aUSv",
+  "limitations": [
+    "This verifies actual local Better Auth and workspace creation, not Google OAuth or Stripe payment.",
+    "Session cookies and magic links are retained only in process memory and never written to the report."
+  ]
+}

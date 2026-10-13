@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import {createHash,createHmac,randomBytes} from 'node:crypto';
+import {readFile,stat,writeFile} from 'node:fs/promises';
+import {join,resolve} from 'node:path';
+import {createRequire} from 'node:module';
+const root='/Users/liukai/Documents/Product Visual QA Platform';
+const run='/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-run-C8AkZn';
+const require=createRequire(resolve(root,'package.json'));
+const wr=createRequire(require.resolve('wrangler/package.json'));
+const {Miniflare}=wr('miniflare');
+async function main(){
+ const inputPath='/private/tmp/pairvu-stripe-sandbox-input.json';const st=await stat(inputPath);assert(st.isFile()&&(st.mode&0o077)===0);
+ const input=JSON.parse(await readFile(inputPath,'utf8'));assert(/^sk_test_[A-Za-z0-9]+$/.test(input.STRIPE_SECRET_KEY));
+ const handoff=JSON.parse(await readFile('/private/tmp/pairvu-jrn02-handoff.json','utf8'));const report=JSON.parse(await readFile(join(run,'report.json'),'utf8'));
+ assert.equal(handoff.runId,report.runId);assert.equal(handoff.livemode,false);assert(/^cs_test_[A-Za-z0-9]+$/.test(handoff.checkoutSessionId));
+ const response=await fetch('https://api.stripe.com/v1/events?limit=100',{headers:{authorization:`Bearer ${input.STRIPE_SECRET_KEY}`},signal:AbortSignal.timeout(15000)});
+ assert.equal(response.status,200);const listed=await response.json();assert(Array.isArray(listed.data));
+ const event=listed.data.find((x:any)=>x?.livemode===false&&x?.type==='checkout.session.completed'&&x?.data?.object?.id===handoff.checkoutSessionId);assert(event,'original_event_not_found');
+ assert(report.eventHashes.includes(createHash('sha256').update(event.id).digest('hex')),'CLI_event_hash_mismatch');
+ const mf=new Miniflare({modules:true,script:'export default {fetch(){return new Response("local-only")}}',compatibilityDate:'2026-07-26',d1Databases:{DB:'jrn02-local'},d1Persist:join(run,'d1'),outboundService:async()=>new Response('Outbound disabled',{status:403})});
+ try{
+  const db=await mf.getD1Database('DB');const secret='whsec_'+randomBytes(24).toString('hex');
+  (globalThis as any).__jrn02Env={VISUALQA_DB:db,STRIPE_SECRET_KEY:input.STRIPE_SECRET_KEY,STRIPE_WEBHOOK_SECRET:secret,STRIPE_PRICE_STARTER:input.STRIPE_PRICE_STARTER};
+  const handler=require(join(run,'webhook.cjs')).POST;
+  const count=async(sql:string)=>Number((await db.prepare(sql).first())?.n??0);
+  const journalBefore=await count('SELECT COUNT(*) n FROM stripe_webhook_events');const grantBefore=await count("SELECT COUNT(*) n FROM usage_ledger WHERE event_type='period_grant'");
+  const body=JSON.stringify(event),timestamp=Math.floor(Date.now()/1000),digest=createHmac('sha256',secret).update(`${timestamp}.${body}`).digest('hex');
+  const invalid=await handler(new Request('http://127.0.0.1:3107/api/billing/webhook',{method:'POST',headers:{'content-type':'application/json','stripe-signature':`t=${timestamp},v1=${'0'.repeat(64)}`},body}));assert.equal(invalid.status,400);assert.equal((await invalid.json()).error,'stripe_signature_invalid');assert.equal(await count('SELECT COUNT(*) n FROM stripe_webhook_events'),journalBefore);
+  const replay=await handler(new Request('http://127.0.0.1:3107/api/billing/webhook',{method:'POST',headers:{'content-type':'application/json','stripe-signature':`t=${timestamp},v1=${digest}`},body}));assert.equal(replay.status,200);assert.equal((await replay.json()).duplicate,true);assert.equal(await count('SELECT COUNT(*) n FROM stripe_webhook_events'),journalBefore);assert.equal(await count("SELECT COUNT(*) n FROM usage_ledger WHERE event_type='period_grant'"),grantBefore);
+  const out={unitId:'JRN-02',candidateSha:'d3fcb9c228c858b81a104baafa902f7aac096217',runId:report.runId,realProviderEvent:true,matchedOriginalCliEventHash:true,signatureProvenance:'QA-generated local signing secret; not original CLI signature',invalidSignatureStatus:400,validDuplicateStatus:200,duplicateIgnored:true,journalBefore,journalAfter:await count('SELECT COUNT(*) n FROM stripe_webhook_events'),grantsBefore:grantBefore,grantsAfter:await count("SELECT COUNT(*) n FROM usage_ledger WHERE event_type='period_grant'"),productionTouched:false,status:'PASS'};
+  await writeFile('/private/tmp/pairvu-jrn02-qa/independent-webhook.json',JSON.stringify(out,null,2)+'\n',{mode:0o600});
+  console.log(JSON.stringify({status:'PASS',matchedOriginalCliEventHash:true,invalidSignature:400,validDuplicateIgnored:true,journalUnchanged:true,creditsUnchanged:true}));
+ }finally{await mf.dispose();}
+}
+main().catch(error=>{console.error(JSON.stringify({status:'QA_WEBHOOK_FAIL',errorClass:error instanceof Error?error.name:'unknown',code:error instanceof Error?error.message:'unknown'}));process.exitCode=1;});

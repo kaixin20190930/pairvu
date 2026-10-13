@@ -1,0 +1,28 @@
+{
+  "unitId": "JRN-02",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "REAL_EVENT_ORDER_PASS",
+  "realProviderEvents": true,
+  "eventTypes": [
+    "invoice.paid",
+    "checkout.session.completed"
+  ],
+  "observedProviderOrder": "invoice.paid before checkout.session.completed",
+  "freshLocalD1": true,
+  "syntheticWorkspaceBinding": true,
+  "actualWebhookHandler": true,
+  "signatureProvenance": "locally generated signing secret for independently fetched real Stripe test events",
+  "invoiceFirstPaid": true,
+  "allowance": 150,
+  "csvExportEnabled": true,
+  "duplicateInvoiceIgnored": true,
+  "laterCheckoutNoDoubleGrant": true,
+  "foreignFree": true,
+  "invalidSignatureRejected": true,
+  "originalEventHashes": [
+    "606ac7743f56fd518f60f60cdf5d5f5bfdaf67803627e4831008c472aa520864",
+    "62b41092cabb19ab36c1597b281d318b8fabdd87749f2f3734c035c4bdddd3a8"
+  ],
+  "stripeLivemode": false,
+  "productionTouched": false
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/developer-order-results.json",
+    "archive": "raw/developer-order-results.json",
+    "sha256": "146be5cee1e1d89cd416ef09f02109658871416f3b0e565bd2ea169b7dc3f774"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-webhook.json",
+    "archive": "raw/independent-webhook.json",
+    "sha256": "c2e6b39643257ed5f08b710d5e90f81bd2517eb23385c3f95d9bb016ed4ee1fa"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-csv.json",
+    "archive": "raw/independent-csv.json",
+    "sha256": "0a5749b20ebcd657bfd2202f1530ec4ef308a8571d7e517eb4576af13c7fc1e7"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/developer-csv-results.json",
+    "archive": "raw/developer-csv-results.json",
+    "sha256": "88f05b05d134dab51aaaccd995afe8f25a80c74b8cb54a44d374b7f73152a0e0"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/developer-report.json",
+    "archive": "raw/developer-report.json",
+    "sha256": "cbef0e9b53068b05b2506c067f5f6547e2ea837b3bfb277f6da47a34a9477874"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-stripe-session.json",
+    "archive": "raw/independent-stripe-session.json",
+    "sha256": "6f0d4030793277e5daa72ca3f5bf71c416bff00b7f3d0e88fc75220dfa3eb251"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-cleanup-final.json",
+    "archive": "raw/pairvu-jrn02-cleanup-final.json",
+    "sha256": "f185d851a55f951b8f1868593b6019d59c53e72d900fa7540fa6ac1dcd5fce86"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-cleanup-results.json",
+    "archive": "raw/pairvu-jrn02-cleanup-results.json",
+    "sha256": "39cf76e1375cd5142157ac8941ad260d25298ef8852cda948c9ec3ad3af0bd86"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-post-cleanup-results.json",
+    "archive": "raw/pairvu-jrn02-post-cleanup-results.json",
+    "sha256": "1256293b252cc5361c80438d6b8b1a1acac8e2b88f78ce17ccc81b2a06cadfc4"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa-preparation.json",
+    "archive": "raw/pairvu-jrn02-qa-preparation.json",
+    "sha256": "c2765423cc06d63f15db917d41247179930dbcdefe662b00f5408de423bf0392"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/provider-tags-after.json",
+    "archive": "raw/provider-tags-after.json",
+    "sha256": "83cfb7a0a7ef2ae40f62aceb5583bd1a8caaaf2a753759df60dba2994b4301c5"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/production-health-body.json",
+    "archive": "raw/production-health-body.json",
+    "sha256": "6521e1167025d7f910a29157e0f75362e42891bd44994d466be85d213ce6009d"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json",
+    "archive": "raw/independent-post-cleanup.json",
+    "sha256": "774861a7dc3d2344580bf348c60f09601bcbc988dd6cfcd8debdf716553cb531"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/provider-canceled-inspect.json",
+    "archive": "raw/provider-canceled-inspect.json",
+    "sha256": "5c436e140715849eec0a755239ba006bc00851ddabc4d9f639a95b385f908949"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-order-results.json",
+    "archive": "raw/pairvu-jrn02-order-results.json",
+    "sha256": "146be5cee1e1d89cd416ef09f02109658871416f3b0e565bd2ea169b7dc3f774"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-auth-results-final.json",
+    "archive": "raw/pairvu-jrn02-auth-results-final.json",
+    "sha256": "ca37da837a8f382e1f3bce8ed265a5baa5b1f52411c224518c39de3e34279a70"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-checkout-gate.json",
+    "archive": "raw/pairvu-jrn02-checkout-gate.json",
+    "sha256": "c21343fffc31b8801888e15de21e7bdcbff2fb26fc49c7371e3f506b0159b9e6"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa.json",
+    "archive": "qa-final.json",
+    "sha256": "bb89bc896ffc54f918aaf35e35670e33f7b9d9d7b9010f2ce9673796d59ce0b9"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-webhook.ts",
+    "archive": "raw/independent-webhook.ts.txt",
+    "sha256": "96cac61690d60d0540405fdd52e004c0ee06308546efb07e222f15531c279b43",
+    "format": "QA source saved as txt to avoid repository compilation"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.ts",
+    "archive": "raw/independent-post-cleanup.ts.txt",
+    "sha256": "8479f457f9c17eec7ba3d5c958c64773e5147b81599c1d3d28572131b91f702d",
+    "format": "QA source saved as txt to avoid repository compilation"
+  },
+  {
+    "source": "/private/tmp/pairvu-jrn02-qa/independent-csv.ts",
+    "archive": "raw/independent-csv.ts.txt",
+    "sha256": "8b69e80ee41a00b64ea09102c4494c4556b34ba35801669c07d6b5db9919471a",
+    "format": "QA source saved as txt to avoid repository compilation"
+  }
+]

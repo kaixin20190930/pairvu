@@ -1,0 +1,25 @@
+{
+  "unitId": "JRN-02",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "WEBHOOK_RECEIVED",
+  "origin": "http://127.0.0.1:3107",
+  "localD1": true,
+  "actualBetterAuth": true,
+  "distinctWorkspaces": true,
+  "baselineA": "free",
+  "baselineB": "free",
+  "testCheckoutAdapter": true,
+  "productionCheckoutRouteCovered": false,
+  "checkoutCreated": true,
+  "webhookEvents": [
+    "checkout.session.completed",
+    "customer.subscription.updated"
+  ],
+  "eventHashes": [
+    "04163d8aeded350a45f451cbe2728e3785ae8171d34cd19ed9ec23fc9160b46f",
+    "0ee5f4feebf5c4f9849934ca9bfed2f1f19734a21383b3b60e7904940739b996"
+  ],
+  "signedReplayCount": 0,
+  "localPath": "/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-run-C8AkZn",
+  "productionChangedByFixture": false
+}

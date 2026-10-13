@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED_BY_UNCHANGED_APPLICATION_GATE",
+  "routeStatus": 503,
+  "routeError": "billing_not_configured",
+  "source": "app/api/billing/checkout/route.ts",
+  "gate": "lib/billing/access.ts:isLiveStripeBillingConfigured",
+  "syntheticIdentity": true,
+  "actualHandler": true,
+  "testModeKeyPrefix": true,
+  "accountLookupCalled": false,
+  "outboundCalls": 0,
+  "stripeObjectsCreated": 0,
+  "productionChanged": false
+}

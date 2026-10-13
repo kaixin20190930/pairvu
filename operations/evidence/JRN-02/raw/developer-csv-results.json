@@ -1,0 +1,62 @@
+{
+  "unitId": "JRN-02",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "CSV_ISOLATION_PASS",
+  "actualBetterAuth": true,
+  "localD1": true,
+  "testCheckoutAdapter": true,
+  "productionCheckoutRouteCovered": false,
+  "stripe": {
+    "livemode": false,
+    "checkoutComplete": true,
+    "paid": true,
+    "subscriptionPresent": true
+  },
+  "accounts": {
+    "A": {
+      "plan": "starter",
+      "allowance": 150,
+      "csvExportEnabled": true
+    },
+    "B": {
+      "plan": "free",
+      "allowance": 10,
+      "csvExportEnabled": false
+    }
+  },
+  "batchCsv": {
+    "AOwn": 200,
+    "ACrossB": 404,
+    "BOwn": 403,
+    "anonymous": 401,
+    "bytes": 640,
+    "sha256": "cf473aa7fd609506dfb6326286b78254e83014839a1674c388d8996d0b38a964",
+    "formulaEscaped": true
+  },
+  "workbenchCsv": {
+    "AOwn": 200,
+    "ACrossBRowCount": 0,
+    "BOwn": 403,
+    "anonymous": 401,
+    "bytes": 2363,
+    "sha256": "2d4edd64b409d7552b00df06cc9f6bc6e0a203e01bff44274dcab75d2563491a",
+    "reviewFields": true,
+    "formulaEscaped": true
+  },
+  "webhook": {
+    "checkoutCompletedEvent": true,
+    "signatureInvalidNotJournaled": true,
+    "journalRows": [
+      {
+        "type": "checkout.session.completed",
+        "status": "completed"
+      },
+      {
+        "type": "customer.subscription.updated",
+        "status": "completed"
+      }
+    ]
+  },
+  "remoteWritesByFixture": 0,
+  "outboundBlocked": 0
+}

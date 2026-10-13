@@ -1,6 +1,6 @@
 # Pairvu 自动开发与独立验收
 
-2026-10-13 JRN-01最新：CSV匿名500修复已发布 `bbbe62c110e526604a76b316c0ec0b5e90b13fca` / Worker `c88179e1-d880-4a19-8988-e041b25a2924`，GitHub-first、fresh远端核验及无待迁移确认完成；独立2项HTTP与5组真实A会话只读复验PASS，正式runtime JRN-01-EXPORT-FIX CLOSED。原FAIL完整保留；JRN-01清单交付CLOSED而整体旅程仍INCOMPLETE（paid、写入隔离、ELIGIBLE正向、生命周期和付款缺口）。[真实发布证据](evidence/production-jrn01-export-fix-2026-10-13/manifest.json)。下一步优先补真实paid导出，需可用付费生产会话及相应操作范围；不自动付款或启动API/Webhook。pairvu-2继续PAUSED。
+2026-10-13 JRN-01最新：CSV匿名500修复已发布 `bbbe62c110e526604a76b316c0ec0b5e90b13fca` / Worker `c88179e1-d880-4a19-8988-e041b25a2924`，GitHub-first、fresh远端核验及无待迁移确认完成；独立2项HTTP与5组真实A会话只读复验PASS，正式runtime JRN-01-EXPORT-FIX CLOSED。原FAIL完整保留；JRN-01清单交付CLOSED而整体旅程仍INCOMPLETE（paid、写入隔离、ELIGIBLE正向、生命周期和付款缺口）。[真实发布证据](evidence/production-jrn01-export-fix-2026-10-13/manifest.json)。JRN-02隔离Stripe测试模式验收现已固定候选d3fcb9c独立PASS并local_only CLOSED：测试付款、真实认证/回调、paid CSV/跨账号反例、取消降级均通过；本轮测试订阅已取消，监听器停止，生产计费6表三次摘要及生产SHA/Worker未变。见[evidence/JRN-02/qa-final.json](evidence/JRN-02/qa-final.json)。下一步建议可逆写API隔离与ELIGIBLE正向最小契约，待确认启动范围。生产paid正向仍未覆盖，不将测试模式等同生产验收。pairvu-2继续PAUSED。
 
 2026-10-12当前：UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 

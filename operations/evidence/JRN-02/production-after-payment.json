@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-13T07:33:07.167777+00:00",
+  "mode": "read-only SELECT",
+  "tables": {
+    "workspace_subscriptions": {
+      "count": 2,
+      "sha256": "15f282da0ff7c8cca1aacfe777825ad9c866e7db306473ca220d698bc0f94164"
+    },
+    "workspace_credit_periods": {
+      "count": 6,
+      "sha256": "4f3ec98a46857b74cc6ee49df6edbe9626368dc127352a1b22dda9a8dc485859"
+    },
+    "workspace_credit_lots": {
+      "count": 1,
+      "sha256": "0f740dccb0c3cf1fb91a5610abe496cf22b12c06c7df99b6ef4a4e99be6649e0"
+    },
+    "usage_ledger": {
+      "count": 35,
+      "sha256": "1bac07369815c0dfb062c4baf9fb5309ffc3e5280431a1df2fafdabf592ee0ad"
+    },
+    "credit_lot_ledger": {
+      "count": 3,
+      "sha256": "972150e8ff04044c2ca5f666d0e0cf934b5b51f06a2dedc36616c5dfacf273e9"
+    },
+    "stripe_webhook_events": {
+      "count": 6,
+      "sha256": "cf90e3a74d3fd7607b9b49d35c792c5348844f1df1300b17a6d54e1720679e62"
+    }
+  }
+}

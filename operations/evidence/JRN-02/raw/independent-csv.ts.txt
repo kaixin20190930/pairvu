@@ -1,0 +1,65 @@
+import assert from 'node:assert/strict';
+import {randomBytes,createHash} from 'node:crypto';
+import {readFile,stat,writeFile} from 'node:fs/promises';
+import {join,resolve} from 'node:path';
+import {createRequire} from 'node:module';
+import {createPairvuAuth} from '/Users/liukai/Documents/Product Visual QA Platform/lib/auth/server.ts';
+import {getWorkspaceAccountSnapshot} from '/Users/liukai/Documents/Product Visual QA Platform/lib/accounts/repository.ts';
+const root='/Users/liukai/Documents/Product Visual QA Platform';
+const run='/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-run-C8AkZn';
+const out='/private/tmp/pairvu-jrn02-qa/independent-csv.json';
+const require=createRequire(resolve(root,'package.json'));
+const wr=createRequire(require.resolve('wrangler/package.json'));
+const {Miniflare}=wr('miniflare');
+const {NextRequest}=require('next/server.js');
+const origin='http://127.0.0.1:3107';
+async function main(){
+const report=JSON.parse(await readFile(join(run,'report.json'),'utf8'));
+assert.equal(report.unitId,'JRN-02');
+assert.equal(report.origin,origin);
+const file='/private/tmp/pairvu-stripe-sandbox-input.json';
+const st=await stat(file);assert(st.isFile()&&(st.mode&0o077)===0);
+const input=JSON.parse(await readFile(file,'utf8'));
+const emails=[input.PAIRVU_TEST_EMAIL_A,input.PAIRVU_TEST_EMAIL_B];
+assert(emails.every((x:any)=>typeof x==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x))&&emails[0]!==emails[1]);
+const mf=new Miniflare({modules:true,script:'export default {fetch(){return new Response("local-only")}}',compatibilityDate:'2026-07-26',d1Databases:{DB:'jrn02-local'},d1Persist:join(run,'d1'),outboundService:async()=>new Response('Outbound disabled',{status:403})});
+const originalFetch=globalThis.fetch;
+const mail=new Map<string,string>();
+try{
+ const db=await mf.getD1Database('DB');
+ const env={VISUALQA_DB:db,BETTER_AUTH_URL:origin,BETTER_AUTH_SECRET:randomBytes(32).toString('hex'),AUTH_TRUSTED_ORIGINS:origin,RESEND_API_KEY:'local-capture-only',AUTH_EMAIL_FROM:'no-reply@local.invalid',STRIPE_SECRET_KEY:'sk_test_synthetic',RELEASE_WORKBENCH_ENABLED:'true'};
+ (globalThis as any).__jrn02Env=env;
+ globalThis.fetch=(async(target:any,init?:any)=>{if(String(target)!=='https://api.resend.com/emails')throw Error('outbound_blocked');const body=JSON.parse(String(init?.body));assert(emails.includes(body.to[0]));const link=String(body.text).match(/http:\/\/127\.0\.0\.1:3107\/api\/auth\/magic-link\/verify\?[^\s]+/)?.[0];assert(link);mail.set(body.to[0],link);return Response.json({id:'qa-local-capture'});}) as typeof fetch;
+ const auth=createPairvuAuth(env as any);
+ const sessions=new Map<string,{cookie:string;workspaceId:string;userId:string;email:string}>();
+ for(const [i,email] of emails.entries()){
+  const sent=await auth.handler(new Request(`${origin}/api/auth/sign-in/magic-link`,{method:'POST',headers:{'content-type':'application/json',origin},body:JSON.stringify({email,callbackURL:'/account'})}));assert.equal(sent.status,200);
+  const link=mail.get(email);assert(link);const verified=await auth.handler(new Request(link,{headers:{origin}}));assert([200,302].includes(verified.status));
+  const cookie=verified.headers.getSetCookie().map((x:string)=>x.split(';')[0]).join('; ');
+  const session=await auth.api.getSession({headers:new Headers({cookie})});assert.equal(session?.user?.email,email);
+  const account=await getWorkspaceAccountSnapshot(db,{id:String(session.user.id),name:'',email});
+  sessions.set(i===0?'A':'B',{cookie,workspaceId:account.workspaceId,userId:String(session.user.id),email});mail.delete(email);
+ }
+ const A=sessions.get('A')!, B=sessions.get('B')!;assert.notEqual(A.workspaceId,B.workspaceId);
+ const getAccount=async(s:typeof A)=>getWorkspaceAccountSnapshot(db,{id:s.userId,name:'',email:s.email});
+ const paid=await getAccount(A),free=await getAccount(B);assert(paid.planCode==='starter'&&paid.csvExportEnabled&&paid.allowance===150);assert(free.planCode==='free'&&!free.csvExportEnabled&&free.allowance===10);
+ const suffix=String(report.runId).slice(-36), aBatch=`jrn02-batch-a-${suffix}`,bBatch=`jrn02-batch-b-${suffix}`,aAnalysis=`jrn02-analysis-a-${suffix}`,bAnalysis=`jrn02-analysis-b-${suffix}`;
+ const present=await db.prepare('SELECT id FROM batches WHERE id=? AND workspace_id=?').bind(bBatch,B.workspaceId).first();assert(present,'B_batch_absent');
+ const batchGET=require(join(run,'batch-export.cjs')).GET, releaseGET=require(join(run,'release-export.cjs')).GET;
+ const batch=async(s:typeof A|null,id:string)=>batchGET(new NextRequest(`${origin}/api/batches/${id}/export`,{headers:s?{cookie:s.cookie}:{}}),{params:Promise.resolve({batchId:id})});
+ const release=async(s:typeof A|null,batchId?:string)=>releaseGET(new Request(`${origin}/api/releases/export?scope=page${batchId?`&batchId=${batchId}`:''}`,{headers:s?{cookie:s.cookie}:{}}));
+ const [own,cross,bOwn,anon]=await Promise.all([batch(A,aBatch),batch(A,bBatch),batch(B,bBatch),batch(null,aBatch)]);
+ assert.deepEqual([own.status,cross.status,bOwn.status,anon.status],[200,404,403,401]);
+ const ownText=await own.text();assert.match(String(own.headers.get('content-type')),/^text\/csv/i);assert.match(String(own.headers.get('content-disposition')),/attachment/i);assert(ownText.includes("'=SUM(1,2)"));assert(ownText.includes('""review""'));assert(ownText.includes('\n'));assert(!ownText.includes(bBatch)&&!ownText.includes(bAnalysis)&&!ownText.includes(B.workspaceId));
+ for(const r of [cross,bOwn,anon]){assert(!String(r.headers.get('content-type')).includes('text/csv'));assert(!String(r.headers.get('content-disposition')).includes('attachment'));const body=await r.text();assert(!body.includes(bBatch)&&!body.includes(bAnalysis));}
+ const [aPage,foreignPage,bPage,anonymousPage]=await Promise.all([release(A),release(A,bBatch),release(B,bBatch),release(null,aBatch)]);
+ assert.deepEqual([aPage.status,foreignPage.status,bPage.status,anonymousPage.status],[200,200,403,401]);
+ const aText=await aPage.text();assert.equal(aPage.headers.get('x-release-row-count'),'1');assert.match(String(aPage.headers.get('content-disposition')),/attachment/i);assert(aText.includes(aAnalysis));assert(aText.includes("'=SYNTHETIC(1)"));assert(!aText.includes(bAnalysis)&&!aText.includes(bBatch)&&!aText.includes(B.workspaceId));assert.equal(foreignPage.headers.get('x-release-row-count'),'0');const foreignText=await foreignPage.text();assert(!foreignText.includes(bAnalysis)&&!foreignText.includes(bBatch));
+ for(const r of [bPage,anonymousPage]){assert(!String(r.headers.get('content-type')).includes('text/csv'));assert(!String(r.headers.get('content-disposition')).includes('attachment'));}
+ const result={unitId:'JRN-02',candidateSha:'d3fcb9c228c858b81a104baafa902f7aac096217',runId:report.runId,actualRoutes:true,actualBetterAuth:true,localD1:true,auth:{distinctWorkspaces:true,A:'starter',B:'free'},batchCsv:{AOwn:own.status,ACrossB:cross.status,BOwn:bOwn.status,anonymous:anon.status,contentType:own.headers.get('content-type'),attachment:true,formulaQuoteNewlineProtected:true,noForeignData:true,sha256:createHash('sha256').update(ownText).digest('hex')},workbenchCsv:{AUnfiltered:aPage.status,ACrossBRows:0,BOwn:bPage.status,anonymous:anonymousPage.status,rows:aPage.headers.get('x-release-row-count'),formulaProtected:true,noForeignData:true,sha256:createHash('sha256').update(aText).digest('hex')},remoteWrites:0,status:'PASS'};
+ await writeFile(out,JSON.stringify(result,null,2)+'\n',{mode:0o600});
+ console.log(JSON.stringify({status:result.status,actualRoutes:true,batch:[own.status,cross.status,bOwn.status,anon.status],workbench:[aPage.status,0,bPage.status,anonymousPage.status],noForeignData:true}));
+}finally{globalThis.fetch=originalFetch;mail.clear();await mf.dispose();}
+
+}
+main().catch(error=>{console.error(JSON.stringify({status:"QA_HARNESS_FAIL",errorClass:error instanceof Error?error.name:"unknown",code:error instanceof Error?error.message:"unknown"}));process.exitCode=1;});

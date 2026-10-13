@@ -1,0 +1,67 @@
+import assert from 'node:assert/strict';
+import {randomBytes,createHash} from 'node:crypto';
+import {readFile,stat,writeFile} from 'node:fs/promises';
+import {join,resolve} from 'node:path';
+import {createRequire} from 'node:module';
+import {createPairvuAuth} from '/Users/liukai/Documents/Product Visual QA Platform/lib/auth/server.ts';
+import {getWorkspaceAccountSnapshot} from '/Users/liukai/Documents/Product Visual QA Platform/lib/accounts/repository.ts';
+const root='/Users/liukai/Documents/Product Visual QA Platform';
+const run='/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-run-C8AkZn';
+const out='/private/tmp/pairvu-jrn02-qa/independent-csv.json';
+const require=createRequire(resolve(root,'package.json'));
+const wr=createRequire(require.resolve('wrangler/package.json'));
+const {Miniflare}=wr('miniflare');
+const {NextRequest}=require('next/server.js');
+const origin='http://127.0.0.1:3107';
+async function main(){
+const report=JSON.parse(await readFile(join(run,'report.json'),'utf8'));
+assert.equal(report.unitId,'JRN-02');
+assert.equal(report.origin,origin);
+const file='/private/tmp/pairvu-stripe-sandbox-input.json';
+const st=await stat(file);assert(st.isFile()&&(st.mode&0o077)===0);
+const input=JSON.parse(await readFile(file,'utf8'));
+const emails=[input.PAIRVU_TEST_EMAIL_A,input.PAIRVU_TEST_EMAIL_B];
+assert(emails.every((x:any)=>typeof x==='string'&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x))&&emails[0]!==emails[1]);
+const mf=new Miniflare({modules:true,script:'export default {fetch(){return new Response("local-only")}}',compatibilityDate:'2026-07-26',d1Databases:{DB:'jrn02-local'},d1Persist:join(run,'d1'),outboundService:async()=>new Response('Outbound disabled',{status:403})});
+const originalFetch=globalThis.fetch;
+const mail=new Map<string,string>();
+try{
+ const db=await mf.getD1Database('DB');
+ const env={VISUALQA_DB:db,BETTER_AUTH_URL:origin,BETTER_AUTH_SECRET:randomBytes(32).toString('hex'),AUTH_TRUSTED_ORIGINS:origin,RESEND_API_KEY:'local-capture-only',AUTH_EMAIL_FROM:'no-reply@local.invalid',STRIPE_SECRET_KEY:'sk_test_synthetic',RELEASE_WORKBENCH_ENABLED:'true'};
+ (globalThis as any).__jrn02Env=env;
+ globalThis.fetch=(async(target:any,init?:any)=>{if(String(target)!=='https://api.resend.com/emails')throw Error('outbound_blocked');const body=JSON.parse(String(init?.body));assert(emails.includes(body.to[0]));const link=String(body.text).match(/http:\/\/127\.0\.0\.1:3107\/api\/auth\/magic-link\/verify\?[^\s]+/)?.[0];assert(link);mail.set(body.to[0],link);return Response.json({id:'qa-local-capture'});}) as typeof fetch;
+ const auth=createPairvuAuth(env as any);
+ const sessions=new Map<string,{cookie:string;workspaceId:string;userId:string;email:string}>();
+ for(const [i,email] of emails.entries()){
+  const sent=await auth.handler(new Request(`${origin}/api/auth/sign-in/magic-link`,{method:'POST',headers:{'content-type':'application/json',origin},body:JSON.stringify({email,callbackURL:'/account'})}));assert.equal(sent.status,200);
+  const link=mail.get(email);assert(link);const verified=await auth.handler(new Request(link,{headers:{origin}}));assert([200,302].includes(verified.status));
+  const cookie=verified.headers.getSetCookie().map((x:string)=>x.split(';')[0]).join('; ');
+  const session=await auth.api.getSession({headers:new Headers({cookie})});assert.equal(session?.user?.email,email);
+  const account=await getWorkspaceAccountSnapshot(db,{id:String(session.user.id),name:'',email});
+  sessions.set(i===0?'A':'B',{cookie,workspaceId:account.workspaceId,userId:String(session.user.id),email});mail.delete(email);
+ }
+ const A=sessions.get('A')!, B=sessions.get('B')!;assert.notEqual(A.workspaceId,B.workspaceId);
+ const getAccount=async(s:typeof A)=>getWorkspaceAccountSnapshot(db,{id:s.userId,name:'',email:s.email});
+ const a=await getAccount(A),b=await getAccount(B);
+ assert(a.planCode==='free'&&!a.csvExportEnabled&&a.allowance===10&&a.available===10);
+ assert(b.planCode==='free'&&!b.csvExportEnabled&&b.allowance===10&&b.available===10);
+ const billing=await db.prepare('SELECT plan_code as plan, provider, status, provider_subscription_id as subscriptionId FROM workspace_subscriptions WHERE workspace_id=?').bind(A.workspaceId).first();
+ assert.equal(billing?.plan,'free');assert.equal(billing?.provider,'internal');assert.equal(billing?.status,'active');assert.equal(billing?.subscriptionId,null);
+ const deleted=await db.prepare("SELECT event_id as id,event_type as type,status,livemode FROM stripe_webhook_events WHERE event_type='customer.subscription.deleted'").all();
+ assert.equal(deleted.results.length,1);assert.equal(deleted.results[0].status,'completed');assert.equal(deleted.results[0].livemode,0);
+ const cleanup=JSON.parse(await readFile('/private/tmp/pairvu-jrn02-cleanup-final.json','utf8'));
+ assert.equal(createHash('sha256').update(String(deleted.results[0].id)).digest('hex'),cleanup.webhook.eventIdHash);
+ const batchGET=require(join(run,'batch-export.cjs')).GET,releaseGET=require(join(run,'release-export.cjs')).GET;
+ const suffix=String(report.runId).slice(-36),aBatch=`jrn02-batch-a-${suffix}`,bBatch=`jrn02-batch-b-${suffix}`;
+ const batch=async(s:typeof A|null,id:string)=>batchGET(new NextRequest(`${origin}/api/batches/${id}/export`,{headers:s?{cookie:s.cookie}:{}}),{params:Promise.resolve({batchId:id})});
+ const release=async(s:typeof A|null,id:string)=>releaseGET(new Request(`${origin}/api/releases/export?scope=page&batchId=${id}`,{headers:s?{cookie:s.cookie}:{}}));
+ const [aBatchResult,bBatchResult,anonymousBatch,aReleaseResult,bReleaseResult,anonymousRelease]=await Promise.all([batch(A,aBatch),batch(B,bBatch),batch(null,aBatch),release(A,aBatch),release(B,bBatch),release(null,aBatch)]);
+ assert.deepEqual([aBatchResult.status,bBatchResult.status,anonymousBatch.status,aReleaseResult.status,bReleaseResult.status,anonymousRelease.status],[403,403,401,403,403,401]);
+ const noCsv=async(r:Response,expected:string)=>{assert(!String(r.headers.get('content-type')).includes('text/csv'));assert(!String(r.headers.get('content-disposition')).includes('attachment'));const body=await r.json();assert.equal(body.error,expected);};
+ await noCsv(aBatchResult,'csv_export_upgrade_required');await noCsv(bBatchResult,'csv_export_upgrade_required');await noCsv(aReleaseResult,'csv_export_upgrade_required');await noCsv(bReleaseResult,'csv_export_upgrade_required');
+ const result={unitId:'JRN-02',candidateSha:'d3fcb9c228c858b81a104baafa902f7aac096217',runId:report.runId,status:'PASS',actualBetterAuth:true,actualRouteHandlers:true,localD1:true,accounts:{A:{plan:a.planCode,allowance:a.allowance,available:a.available,csvExportEnabled:a.csvExportEnabled},B:{plan:b.planCode,allowance:b.allowance,available:b.available,csvExportEnabled:b.csvExportEnabled}},billing:{plan:billing.plan,provider:billing.provider,status:billing.status,providerSubscriptionIdCleared:true},webhook:{deletedEventCount:1,journalCompleted:true,livemode:false,eventHashMatched:true},batchCsv:{AOwn:403,BOwn:403,anonymous:401,noCsv:true},workbenchCsv:{AOwn:403,BOwn:403,anonymous:401,noCsv:true},remoteWrites:0};
+ await writeFile('/private/tmp/pairvu-jrn02-qa/independent-post-cleanup.json',JSON.stringify(result,null,2)+'\n',{mode:0o600});
+ console.log(JSON.stringify({status:'PASS',A:'Free10',B:'Free10',subscriptionIdCleared:true,deletedEventMatched:true,batchA:403,workbenchA:403,noCsv:true}));
+}finally{globalThis.fetch=originalFetch;mail.clear();await mf.dispose();}
+}
+main().catch(error=>{console.error(JSON.stringify({status:'QA_POST_CLEANUP_FAIL',errorClass:error instanceof Error?error.name:'unknown',code:error instanceof Error?error.message:'unknown'}));process.exitCode=1;});

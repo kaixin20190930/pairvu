@@ -1,0 +1,143 @@
+{
+  "unitId": "JRN-02",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T07:59:49.846161Z",
+  "result": "IN_PROGRESS_PENDING_CLEANUP",
+  "scope": "Fixed-SHA independent QA of active Stripe Test Mode subscription and isolated local D1; no new payment, production write, code edit, commit or deployment.",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "HEAD exact d3fcb9c; scripts and contract clean relative to HEAD; no app/lib/migration/wrangler production diff from bbbe62c.",
+      "evidence": [
+        "git rev-parse HEAD",
+        "git diff --name-only HEAD -- scripts/jrn02-*",
+        "git diff bbbe62c..d3fcb9c -- app lib migrations wrangler"
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS_FOR_ACTIVE_PHASE",
+      "detail": "Independent /tmp harness invoked actual bundled fixed-source batch and release route handlers with actual Better Auth sessions; independent provider event and webhook checks. Final unit disposition awaits cleanup.",
+      "evidence": [
+        "independent-csv.json",
+        "independent-webhook.json",
+        "independent-stripe-session.json"
+      ]
+    },
+    {
+      "name": "isolated environment",
+      "status": "PASS",
+      "detail": "127.0.0.1:3107 configured; fresh local Miniflare D1 persisted under unique /tmp run directory; no listener on 3107 during QA; source uses local-only email capture and CLI environment allowlist. No production runtime files changed.",
+      "evidence": [
+        "scripts/jrn02-local-server.ts",
+        "scripts/jrn02-preflight.mjs",
+        "lsof -nP -iTCP:3107 -sTCP:LISTEN"
+      ]
+    },
+    {
+      "name": "Stripe Test Mode payment and entitlement",
+      "status": "PASS",
+      "detail": "Read-only Stripe pagination found exactly one current-run tagged cs_test completed/paid livemode=false. Subscription active and linked checkout/customer/invoice tagged. Main local D1 journal contains completed CLI-forwarded checkout.session.completed and customer.subscription.updated. A Starter 150 CSV enabled; B Free 10 CSV disabled.",
+      "evidence": [
+        "independent-stripe-session.json",
+        "developer-report.json",
+        "developer-csv-results.json"
+      ]
+    },
+    {
+      "name": "paid CSV and workspace isolation",
+      "status": "PASS",
+      "detail": "Independent actual handler calls: A own batch 200 with CSV attachment and quote/newline/formula protection; A to existing B batch 404; B own 403; anonymous 401. Workbench A unfiltered 200 one own row; B-filter zero rows; B Free 403; anonymous 401; no B fixture IDs/workspace in A output.",
+      "evidence": [
+        "independent-csv.json"
+      ]
+    },
+    {
+      "name": "webhook signature, replay, order",
+      "status": "PASS_WITH_PROVENANCE_LIMIT",
+      "detail": "Independent QA locally re-signed the real provider checkout event matching a main CLI event hash; invalid signature 400 with no journal write, valid duplicate 200 duplicate=true with no journal or grant increase. Separate independent rerun used actual handler and real provider invoice/checkout events, locally signed, with invoice first and no double grant. This is not original CLI signature replay.",
+      "evidence": [
+        "independent-webhook.json",
+        "/private/tmp/pairvu-jrn02-order-results.json"
+      ]
+    },
+    {
+      "name": "production unchanged",
+      "status": "PASS_AFTER_PAYMENT_PENDING_AFTER_CLEANUP",
+      "detail": "Controller read-only six-table count and SHA summaries before vs after payment match exactly; deployed production app/lib source was unchanged. A final six-table snapshot after cleanup remains required.",
+      "evidence": [
+        "operations/evidence/JRN-02/production-before.json",
+        "operations/evidence/JRN-02/production-after-payment.json"
+      ]
+    },
+    {
+      "name": "test subscription cleanup",
+      "status": "PENDING_CLEANUP",
+      "detail": "Independent read-only inspect confirms this run subscription active; total unit PASS withheld until guarded cancel, status recheck, listener stopped and final production snapshot.",
+      "evidence": [
+        "node scripts/jrn02-cleanup-test-subscription.mjs inspect"
+      ]
+    }
+  ],
+  "priorPreparationRisks": [
+    {
+      "id": "checkout_tagging_gap",
+      "status": "RESOLVED_IN_FIXED_SOURCE",
+      "detail": "Adapter intercepts createStripeCheckoutSession outbound request and adds runId to Checkout and subscription metadata before creation; read-only provider inspection confirms tags."
+    },
+    {
+      "id": "cli_environment_spread",
+      "status": "RESOLVED_IN_FIXED_SOURCE",
+      "detail": "CLI spawn uses an explicit environment allowlist rather than spreading process.env."
+    },
+    {
+      "id": "input_schema_mismatch",
+      "status": "RESOLVED_IN_FIXED_SOURCE",
+      "detail": "Preflight now expects the same four exact top-level keys used by runner; selftest/check passed."
+    },
+    {
+      "id": "event_ordering",
+      "status": "TESTED_WITH_LIMIT",
+      "detail": "Actual handler on fresh local D1 processes real provider invoice before checkout with local QA signing and no double credit; main CLI-forwarded original signature was accepted for its observed events."
+    }
+  ],
+  "productionBoundary": {
+    "deployedReleaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "sixTableBeforeAfterPaymentEqual": true,
+    "beforeCheckedAt": "2026-10-13T07:02:57.178504+00:00",
+    "afterPaymentCheckedAt": "2026-10-13T07:33:07.167777+00:00",
+    "finalAfterCleanup": "PENDING"
+  },
+  "flags": {
+    "testCheckoutAdapter": true,
+    "productionCheckoutRouteCovered": false,
+    "GoogleOAuthCovered": false,
+    "productionPaidExportCovered": false,
+    "mainOriginalCliSignatureReplayCovered": false,
+    "newPaymentByQA": false
+  },
+  "independentCommands": [
+    "pnpm exec tsx scripts/jrn02-csv-check.ts <existing-run-directory>",
+    "pnpm exec tsx scripts/jrn02-event-order-check.ts",
+    "node scripts/jrn02-preflight.mjs selftest",
+    "node scripts/jrn02-preflight.mjs check",
+    "node scripts/jrn02-tag-test-objects.mjs inspect",
+    "node scripts/jrn02-cleanup-test-subscription.mjs inspect",
+    "pnpm exec tsx /private/tmp/pairvu-jrn02-qa/independent-csv.ts",
+    "pnpm exec tsx /private/tmp/pairvu-jrn02-qa/independent-webhook.ts",
+    "read-only Stripe Checkout session pagination scoped by JRN-02 runId"
+  ],
+  "nextAction": {
+    "action": "Controller dispatches original developer to guarded-cancel only this run test subscription, records cancellation and local downgrade; controller obtains production six-table after-cleanup read-only snapshot, then returns evidence for final independent QA.",
+    "dependency": "Current run subscription remains active; final production-after-cleanup evidence absent.",
+    "proceed": "Controller may proceed automatically within existing user Test Mode authorization; QA will finalize only after evidence arrives."
+  },
+  "limitations": [
+    "No production paid CSV or Google OAuth claim.",
+    "Local test-only checkout adapter replaces production checkout entry because live-only gate intentionally returns 503 for sk_test.",
+    "The production unchanged conclusion is interim until final after-cleanup six-table comparison.",
+    "The main run did not record original CLI-signature replay count; separate local-signing replay was independently verified."
+  ]
+}

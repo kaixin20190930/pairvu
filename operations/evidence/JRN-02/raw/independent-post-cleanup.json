@@ -1,0 +1,48 @@
+{
+  "unitId": "JRN-02",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "PASS",
+  "actualBetterAuth": true,
+  "actualRouteHandlers": true,
+  "localD1": true,
+  "accounts": {
+    "A": {
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false
+    },
+    "B": {
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false
+    }
+  },
+  "billing": {
+    "plan": "free",
+    "provider": "internal",
+    "status": "active",
+    "providerSubscriptionIdCleared": true
+  },
+  "webhook": {
+    "deletedEventCount": 1,
+    "journalCompleted": true,
+    "livemode": false,
+    "eventHashMatched": true
+  },
+  "batchCsv": {
+    "AOwn": 403,
+    "BOwn": 403,
+    "anonymous": 401,
+    "noCsv": true
+  },
+  "workbenchCsv": {
+    "AOwn": 403,
+    "BOwn": 403,
+    "anonymous": 401,
+    "noCsv": true
+  },
+  "remoteWrites": 0
+}

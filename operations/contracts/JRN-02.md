@@ -31,3 +31,8 @@
 ## 已核实的Live-only入口与最小范围调整
 实际生产checkout路由使用isLiveStripeBillingConfigured，test key正常503，这是现有产品门禁，不是本轮要更改的生产功能。用户要求测试模式且禁止修改生产计费，因此保留所有app/lib生产代码；fixtures内允许明确loopback/test-only结账适配入口，必须经过实际Better Auth会话与现有getWorkspaceAccountSnapshot/getWorkspaceBillingRecord以及createStripeCheckoutSession服务（不手写Stripe会话/套餐状态），其余真实Stripe付款、签名webhook、D1、CSV真实路由保持矩阵。此项替代矩阵3的“实际Pairvu checkout路由”要求；正式checkout的test key503作为预期门禁另测。报告显著声明testCheckoutAdapter=true、productionCheckoutRouteCovered=false，不能称生产原入口完整E2E；不以mock付款替代。
 只读发现旧Stripe Test Mode账户有历史test webhook指向pairvu.com。不得修改该旧端点；实际应用对test事件在签名/模式检查处即拒绝，早于D1 journal写入。开始付款前证明当前生产拒绝边界并由总控做生产计费只读前后对照；若无法保证不改生产计费，则停真实provider变更、报告需要独立Stripe sandbox配置。CLI监听须只处理本轮runId对象，不能把账户其他测试事件应用到本地工作区。
+
+## 最终收尾（2026-10-13）
+
+固定候选d3fcb9c228c858b81a104baafa902f7aac096217独立PASS，正式local_only CLOSED。最终报告../evidence/JRN-02/qa-final.json；原active-phase报告和原件保留。用户提交唯一Sandbox付款后，真实签名回调/Starter权限/CSV/跨账号/取消降级全部在本地验证；本轮测试订阅已取消、3107无监听。生产6表三次只读摘要一致、生产SHA/Worker不变。
+清理开发和清理增量QA分别重新选择gpt-6-sol/high：限定真实test对象归属、签名回调及权限回收跨层核验；环境故障不升级，真实推理不足先缩域。QA独立通过后不再重跑付款，不部署本单元，不恢复pairvu-2。下一步建议可逆写API隔离与ELIGIBLE正向最小契约，待用户确认启动范围。

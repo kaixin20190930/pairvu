@@ -1,0 +1,64 @@
+{
+  "unitId": "JRN-02",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "CLEANUP_PASS_PENDING_FINAL_QA",
+  "provider": {
+    "mode": "test",
+    "scope": "single_verified_current_run_subscription",
+    "beforeStatus": "active",
+    "afterStatus": "canceled",
+    "realCharge": false
+  },
+  "webhook": {
+    "type": "customer.subscription.deleted",
+    "signatureSource": "Stripe CLI forwarded",
+    "journalStatus": "completed",
+    "livemode": false,
+    "eventIdHash": "dd60e41a8641944cca3d4bd34603bc9df70cdfb2e9548a9a09094222d3733d68",
+    "signedReplayCount": 1
+  },
+  "localD1": {
+    "accountA": {
+      "alias": "A",
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false,
+      "subscriptionStatus": "active"
+    },
+    "accountB": {
+      "alias": "B",
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false,
+      "subscriptionStatus": "active"
+    }
+  },
+  "csv": {
+    "batchAOwn": {
+      "AOwn": 403,
+      "error": "csv_export_upgrade_required"
+    },
+    "workbenchAOwn": {
+      "AOwn": 403,
+      "error": "csv_export_upgrade_required"
+    }
+  },
+  "listener": {
+    "loopback3107Stopped": true,
+    "runnerExited": true,
+    "cliTerminationRequestedByRunner": true,
+    "processListingAvailable": false
+  },
+  "evidence": {
+    "providerCleanup": "/private/tmp/pairvu-jrn02-cleanup-results.json",
+    "postCleanup": "/private/tmp/pairvu-jrn02-post-cleanup-results.json",
+    "runReport": "/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn02-run-C8AkZn/report.json",
+    "providerCleanupSha256": "39cf76e1375cd5142157ac8941ad260d25298ef8852cda948c9ec3ad3af0bd86",
+    "postCleanupSha256": "1256293b252cc5361c80438d6b8b1a1acac8e2b88f78ce17ccc81b2a06cadfc4"
+  },
+  "productionPostCleanupCheck": "pending_controller_six_table_comparison",
+  "candidateFilesModified": false
+}

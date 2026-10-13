@@ -134,3 +134,8 @@ UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、�
 
 ## 2026-10-13 CSV修复生产关闭（当前）
 JRN-01报告交付与JRN-01-EXPORT-FIX runtime均经正式CLI CLOSED；发布bbbe62c110e526604a76b316c0ec0b5e90b13fca / Worker c88179e1-d880-4a19-8988-e041b25a2924。用户此次授权已完成，禁止重复部署。独立2项HTTP+5组真实A会话只读PASS，匿名CSV401，原FAIL保留。整体旅程仍INCOMPLETE；下一优先是真实paid导出与跨workspace拒绝，依赖真实paid会话，新付款仍需授权。不要把两账号UI只读PASS扩张为写API隔离PASS；真实样本/业务输入仍缺，API/Webhook未开工。pairvu-2保持PAUSED，完成汇报需下一步及依赖。证据operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json。
+
+## 2026-10-13 JRN-02测试模式正式关闭
+
+用户已授权的隔离Stripe Test Mode付款/权限/CSV/跨账号验收已完成。候选d3fcb9c228c858b81a104baafa902f7aac096217固定SHA独立PASS，正式CLI qa PASS→close，local_only CLOSED。唯一测试订单由用户在Sandbox提交，无真实扣款；真实签名回调、A Starter150/B Free10、两个CSV实际路由及隔离通过。本轮订阅已取消，真实删除回调使A恢复Free，两个CSV403；监听器停止。生产计费六表前/付款后/清理后三次相同，生产仍bbbe62c/Worker c88179e1。
+最终报告operations/evidence/JRN-02/qa-final.json；冻结候选文档内待清理状态为历史，以最终报告为准。不重跑付款、不恢复巡检、不将本地PASS记成生产paid/Google OAuth/正式checkout入口PASS。下一步建议可逆跨workspace写API负向和完整ELIGIBLE正向最小契约，需用户确认启动范围；本轮只完成收尾和计划更新，不擅自新生产操作或启动UPG08/09。

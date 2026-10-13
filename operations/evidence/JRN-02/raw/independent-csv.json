@@ -1,0 +1,36 @@
+{
+  "unitId": "JRN-02",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "actualRoutes": true,
+  "actualBetterAuth": true,
+  "localD1": true,
+  "auth": {
+    "distinctWorkspaces": true,
+    "A": "starter",
+    "B": "free"
+  },
+  "batchCsv": {
+    "AOwn": 200,
+    "ACrossB": 404,
+    "BOwn": 403,
+    "anonymous": 401,
+    "contentType": "text/csv; charset=utf-8",
+    "attachment": true,
+    "formulaQuoteNewlineProtected": true,
+    "noForeignData": true,
+    "sha256": "cf473aa7fd609506dfb6326286b78254e83014839a1674c388d8996d0b38a964"
+  },
+  "workbenchCsv": {
+    "AUnfiltered": 200,
+    "ACrossBRows": 0,
+    "BOwn": 403,
+    "anonymous": 401,
+    "rows": "1",
+    "formulaProtected": true,
+    "noForeignData": true,
+    "sha256": "38de95ef62435c094feb56fe1edde072399473efadcbc09b07774851f9417244"
+  },
+  "remoteWrites": 0,
+  "status": "PASS"
+}

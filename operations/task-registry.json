@@ -14,13 +14,20 @@
       "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
       "applied": true
     },
-    "observedStatus": "active",
-    "afterCursor": "23beb2e0-1e0a-45d1-bea7-0733eac50ccd:39",
+    "observedStatus": "idle",
+    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:100",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "仅启用已验收VALUE_METRICS配置并调整对应配置断言，范围明确。",
       "upgradeCondition": "如出现额外鉴权/统计口径变化或迁移问题，重新评估high；环境故障不升级。",
+      "applied": true
+    },
+    "cleanupModelSelection": {
+      "model": "gpt-6-sol",
+      "thinking": "high",
+      "reason": "限定本轮真实test订阅取消与签名回调、本地权限降级，多层状态需精确核对",
+      "upgradeCondition": "真实推理不足先缩域；环境故障不升级",
       "applied": true
     }
   },
@@ -35,8 +42,8 @@
       "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
       "applied": true
     },
-    "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:91",
-    "observedStatus": "preparing_contract_review",
+    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:50",
+    "observedStatus": "completed_PASS",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -73,10 +80,17 @@
         "action": "resume same QA role/model/scope; no replacement or duplicate"
       }
     ],
-    "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/http-report.json"
+    "receipt": "operations/evidence/JRN-02/qa-final.json",
+    "cleanupModelSelection": {
+      "model": "gpt-6-sol",
+      "thinking": "high",
+      "reason": "同一本地D1真实取消回调、权限回收及精确测试对象范围独立核对",
+      "upgradeCondition": "具体推理不足先缩域；环境故障不升级",
+      "applied": true
+    }
   },
-  "candidateSha": null,
-  "state": "DEV_ACTIVE",
+  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
   "notes": "2026-10-13 CSV修复已按GitHub-first fresh核验/无待迁移/同SHA部署，独立HTTP和真实A会话只读复验PASS；正式runtime CLOSED。JRN-01报告交付CLOSED不代表整个生产旅程PASS，仍INCOMPLETE。原FAIL及原件不覆盖，pairvu-2继续PAUSED。",
   "nextUnitId": null,
@@ -204,9 +218,9 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "实现JRN-02隔离环境与最小真实Stripe测试付款/CSV链路，固定SHA独立QA，FAIL返原开发；不修改生产计费或真实扣款。",
-  "completedUnitId": "JRN-01-EXPORT-FIX",
-  "completedCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "nextAction": "本轮自动收尾完成。建议下一单元先明确可逆跨workspace写API负向与完整ELIGIBLE正向的最小契约及合成资产，再由总控开发/独立验收；需用户确认启动范围，不自动新付款、生产写入或开启API/Webhook。生产paid正向仍为独立覆盖缺口，真实质量/价值缺数据。",
+  "completedUnitId": "JRN-02",
+  "completedCandidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
   "completedReleaseRepair": {
     "unitId": "JRN-01-EXPORT-FIX",
     "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
@@ -327,19 +341,20 @@
     "aBaReadOnlyIsolation": "PASS (prior exact evidence; not repeated this release)",
     "productionFixAcceptance": "PASS",
     "blocked": [
-      "real paid owned CSV success and foreign-workspace denial",
-      "actual authenticated Free HTTP403 path",
+      "production real paid owned CSV success and foreign-workspace denial (isolated Test Mode PASS)",
+      "production actual authenticated Free HTTP403 path (isolated actual handler PASS)",
       "production cross-workspace write API negatives",
       "complete positive ELIGIBLE analysis",
       "authorized expired/deleted assets and precise permanent deletion confirmation",
       "real payment/pack/portal writes"
     ],
     "quality": "Real authorized double-annotated samples NOT_PROVIDED; no quality conclusion",
-    "value": "test/unknown excluded; real business-source input still needed"
+    "value": "test/unknown excluded; real business-source input still needed",
+    "isolatedTestPaymentCsvAndCancellation": "JRN-02 PASS/local_only CLOSED; production checkout, paid CSV and local Google OAuth not covered"
   },
   "sandboxAcceptance": {
     "contract": "operations/contracts/JRN-02.md",
-    "state": "DEV_ACTIVE",
+    "state": "CLOSED",
     "stripeTestKeyValidated": true,
     "testStarterPriceActive": true,
     "productionChangesAuthorized": false,
@@ -349,6 +364,19 @@
     "testCheckoutAdapter": true,
     "productionBoundaryEvidence": "operations/evidence/JRN-02/production-boundary.json",
     "productionBeforeEvidence": "operations/evidence/JRN-02/production-before.json",
-    "recovery": "2026-10-13 desktop tool pipe interruption: reused original dev/QA; developer must reconcile original Stripe test run before creating more objects"
+    "recovery": "2026-10-13 desktop tool pipe interruption: reused original dev/QA; developer must reconcile original Stripe test run before creating more objects",
+    "userTestPaymentSubmission": "User submitted the one Sandbox checkout; developer verified complete/paid/livemode=false and actual signed local webhook",
+    "productionAfterPaymentEvidence": "operations/evidence/JRN-02/production-after-payment.json",
+    "productionBillingAfterPaymentUnchanged": true,
+    "activePhaseQA": "operations/evidence/JRN-02/qa-active-phase.json",
+    "acceptance": "PASS local_only",
+    "qaEvidence": "operations/evidence/JRN-02/qa-final.json",
+    "cleanupEvidence": "operations/evidence/JRN-02/raw/pairvu-jrn02-cleanup-final.json",
+    "productionAfterCleanupEvidence": "operations/evidence/JRN-02/production-after-cleanup.json",
+    "testSubscriptionCanceled": true,
+    "localListenerStopped": true,
+    "productionUnchanged": true,
+    "productionPaidExportCovered": false,
+    "GoogleOAuthCovered": false
   }
 }

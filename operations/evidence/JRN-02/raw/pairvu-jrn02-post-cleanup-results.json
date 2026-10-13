@@ -1,0 +1,41 @@
+{
+  "unitId": "JRN-02",
+  "runId": "JRN-02-28996f3d-891b-4cf0-9528-3142197d92d7",
+  "status": "POST_CLEANUP_PASS",
+  "source": "Stripe Test Mode customer.subscription.deleted through CLI-signed unchanged webhook into same local D1",
+  "deletionEventHash": "dd60e41a8641944cca3d4bd34603bc9df70cdfb2e9548a9a09094222d3733d68",
+  "journal": {
+    "type": "customer.subscription.deleted",
+    "status": "completed",
+    "livemode": false
+  },
+  "accounts": [
+    {
+      "alias": "A",
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false,
+      "subscriptionStatus": "active"
+    },
+    {
+      "alias": "B",
+      "plan": "free",
+      "allowance": 10,
+      "available": 10,
+      "csvExportEnabled": false,
+      "subscriptionStatus": "active"
+    }
+  ],
+  "batchCsv": {
+    "AOwn": 403,
+    "error": "csv_export_upgrade_required"
+  },
+  "workbenchCsv": {
+    "AOwn": 403,
+    "error": "csv_export_upgrade_required"
+  },
+  "realBetterAuthSessions": true,
+  "actualRouteHandlers": true,
+  "productionTouched": false
+}
