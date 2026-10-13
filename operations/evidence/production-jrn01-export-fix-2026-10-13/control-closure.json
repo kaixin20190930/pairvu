@@ -1,0 +1,515 @@
+{
+  "units": [
+    {
+      "id": "JRN-01",
+      "title": "核心生产旅程补验清单与可执行范围",
+      "priority": 1,
+      "dependsOn": [
+        "UPG-03",
+        "UPG-04",
+        "UPG-05",
+        "UPG-06",
+        "UPG-10"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "available scope completed",
+        "blocked coverage explicitly documented"
+      ],
+      "status": "CLOSED",
+      "roles": {
+        "dev": {
+          "id": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+          "pending": false
+        },
+        "qa": {
+          "id": "01a1248d-0f67-7333-8dca-5c4696459457",
+          "pending": false
+        }
+      },
+      "baseline": "c5bb59d9db5f243fdd9ffb9b30c6d98a92307c97",
+      "candidate": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+      "qa": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/.pairvu-control/evidence/jrn01-release-2026-10-13/jrn-report-delivery.json",
+        "digest": "8aa9ee103d8b8d209e77a6bf2621e4a9f0f559cab76a18421a8b0f4c6b8c0427",
+        "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "id": "JRN-01-EXPORT-FIX",
+      "title": "匿名批次CSV鉴权错误映射生产修复",
+      "priority": 0,
+      "dependsOn": [
+        "JRN-01"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ],
+      "status": "CLOSED",
+      "roles": {
+        "dev": {
+          "id": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+          "pending": false
+        },
+        "qa": {
+          "id": "01a1248d-0f67-7333-8dca-5c4696459457",
+          "pending": false
+        }
+      },
+      "baseline": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+      "candidate": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+      "qa": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/.pairvu-control/evidence/jrn01-release-2026-10-13/runtime-local.json",
+        "digest": "aa20c7c85f227c0289eb60635bda0b80b54ab9c5ec0ad0fd13b67e849969c7fa",
+        "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      },
+      "production": {
+        "schemaVersion": 2,
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+        "digest": "589cdd41c16e8dfc76087d3efb5c97eef2f7ffc1fdc6c5e4f043dede540823bb",
+        "unitId": "JRN-01-EXPORT-FIX",
+        "qaCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+        "references": [
+          {
+            "kind": "authorization",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json",
+            "digest": "188a645862ae0b9d327ab1f196a634eec359d2de99660233c3eda60c2d60d66b"
+          },
+          {
+            "kind": "build",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/build.json",
+            "digest": "b959b5b5d7ea4e5e03c2772e0e31588b2142b433eeef17ecf8b89ba7d608bc77"
+          },
+          {
+            "kind": "migration",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/migration.json",
+            "digest": "a007fee75fec25ee0a0f1da1fffd3d064f4ee15e25e9ea0a09235f9392afbbf9"
+          },
+          {
+            "kind": "deployment",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/deployment.json",
+            "digest": "7e1db67db694f2a9abfd801d5dabf3ba3e2d9192baf4faa101fc5905375c4667"
+          },
+          {
+            "kind": "smoke",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/smoke.json",
+            "digest": "39907b060035e97e4ae84b88998038b67ab81093b46658320bed0e9dacedbab2"
+          },
+          {
+            "kind": "productionQa",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/productionQa.json",
+            "digest": "0a3da0a6097b6083214d2da2a19de93933cd3c33f0aefec52ebf59d4c210d819"
+          }
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "seq": 150,
+      "at": "2026-10-12T14:10:48.372Z",
+      "action": "claim",
+      "args": [
+        "JRN-01"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 151,
+      "at": "2026-10-12T14:10:48.501Z",
+      "action": "bind-role",
+      "args": [
+        "dev",
+        "01a12489-e94e-7bd3-afb2-6a2c90e70970"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 152,
+      "at": "2026-10-12T14:10:48.600Z",
+      "action": "bind-role",
+      "args": [
+        "qa",
+        "01a1248d-0f67-7333-8dca-5c4696459457"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 153,
+      "at": "2026-10-12T14:22:00.125Z",
+      "action": "candidate",
+      "args": [
+        "370d3ecc88e3165d12020943b0d5aee3a42ec77b"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 154,
+      "at": "2026-10-12T14:22:00.252Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 155,
+      "at": "2026-10-12T14:55:42.075Z",
+      "action": "qa",
+      "args": [
+        "FAIL",
+        "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+        "operations/evidence/JRN-01/stage-a/stage-a-review.json"
+      ],
+      "unitId": "JRN-01",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-01/stage-a/stage-a-review.json",
+        "digest": "d84cdcc022e40256d9a2b15de72a1a8ff43a35a934bcb5301b34f86bb4f0b633",
+        "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "FAIL"
+      }
+    },
+    {
+      "seq": 156,
+      "at": "2026-10-12T14:55:42.197Z",
+      "action": "rework",
+      "args": [],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 157,
+      "at": "2026-10-13T05:20:39.997Z",
+      "action": "candidate",
+      "args": [
+        "50341a7827037eb70505cdc34c93ebb988f89f34"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 158,
+      "at": "2026-10-13T05:20:40.095Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 159,
+      "at": "2026-10-13T05:34:05.006Z",
+      "action": "qa",
+      "args": [
+        "FAIL",
+        "50341a7827037eb70505cdc34c93ebb988f89f34",
+        "operations/evidence/JRN-01/qa-current.json"
+      ],
+      "unitId": "JRN-01",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-01/qa-current.json",
+        "digest": "34124786200564fb19eea375c8afb46d61df96acadbfec90698d19714e4baa7f",
+        "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "FAIL"
+      }
+    },
+    {
+      "seq": 160,
+      "at": "2026-10-13T05:55:55.325Z",
+      "action": "rework",
+      "args": [],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 161,
+      "at": "2026-10-13T05:55:55.459Z",
+      "action": "candidate",
+      "args": [
+        "bbbe62c110e526604a76b316c0ec0b5e90b13fca"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 162,
+      "at": "2026-10-13T05:55:55.558Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 163,
+      "at": "2026-10-13T05:55:55.653Z",
+      "action": "qa",
+      "args": [
+        "PASS",
+        "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        ".pairvu-control/evidence/jrn01-release-2026-10-13/jrn-report-delivery.json"
+      ],
+      "unitId": "JRN-01",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/.pairvu-control/evidence/jrn01-release-2026-10-13/jrn-report-delivery.json",
+        "digest": "8aa9ee103d8b8d209e77a6bf2621e4a9f0f559cab76a18421a8b0f4c6b8c0427",
+        "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "seq": 164,
+      "at": "2026-10-13T05:55:55.779Z",
+      "action": "close",
+      "args": [
+        "JRN-01"
+      ],
+      "unitId": "JRN-01",
+      "details": null
+    },
+    {
+      "seq": 166,
+      "at": "2026-10-13T05:55:55.984Z",
+      "action": "claim",
+      "args": [
+        "JRN-01-EXPORT-FIX"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 167,
+      "at": "2026-10-13T05:55:56.079Z",
+      "action": "bind-role",
+      "args": [
+        "dev",
+        "01a12489-e94e-7bd3-afb2-6a2c90e70970"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 168,
+      "at": "2026-10-13T05:55:56.174Z",
+      "action": "bind-role",
+      "args": [
+        "qa",
+        "01a1248d-0f67-7333-8dca-5c4696459457"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 169,
+      "at": "2026-10-13T05:55:56.304Z",
+      "action": "candidate",
+      "args": [
+        "bbbe62c110e526604a76b316c0ec0b5e90b13fca"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 170,
+      "at": "2026-10-13T05:55:56.403Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 171,
+      "at": "2026-10-13T05:55:56.499Z",
+      "action": "qa",
+      "args": [
+        "PASS",
+        "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        ".pairvu-control/evidence/jrn01-release-2026-10-13/runtime-local.json"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/.pairvu-control/evidence/jrn01-release-2026-10-13/runtime-local.json",
+        "digest": "aa20c7c85f227c0289eb60635bda0b80b54ab9c5ec0ad0fd13b67e849969c7fa",
+        "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "seq": 172,
+      "at": "2026-10-13T05:55:56.627Z",
+      "action": "release-ready",
+      "args": [],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": null
+    },
+    {
+      "seq": 173,
+      "at": "2026-10-13T06:07:44.405Z",
+      "action": "record-deployment",
+      "args": [
+        "JRN-01-EXPORT-FIX",
+        "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": {
+        "schemaVersion": 2,
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+        "digest": "589cdd41c16e8dfc76087d3efb5c97eef2f7ffc1fdc6c5e4f043dede540823bb",
+        "unitId": "JRN-01-EXPORT-FIX",
+        "qaCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+        "references": [
+          {
+            "kind": "authorization",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json",
+            "digest": "188a645862ae0b9d327ab1f196a634eec359d2de99660233c3eda60c2d60d66b"
+          },
+          {
+            "kind": "build",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/build.json",
+            "digest": "b959b5b5d7ea4e5e03c2772e0e31588b2142b433eeef17ecf8b89ba7d608bc77"
+          },
+          {
+            "kind": "migration",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/migration.json",
+            "digest": "a007fee75fec25ee0a0f1da1fffd3d064f4ee15e25e9ea0a09235f9392afbbf9"
+          },
+          {
+            "kind": "deployment",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/deployment.json",
+            "digest": "7e1db67db694f2a9abfd801d5dabf3ba3e2d9192baf4faa101fc5905375c4667"
+          },
+          {
+            "kind": "smoke",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/smoke.json",
+            "digest": "39907b060035e97e4ae84b88998038b67ab81093b46658320bed0e9dacedbab2"
+          },
+          {
+            "kind": "productionQa",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/productionQa.json",
+            "digest": "0a3da0a6097b6083214d2da2a19de93933cd3c33f0aefec52ebf59d4c210d819"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 174,
+      "at": "2026-10-13T06:07:55.717Z",
+      "action": "verify-production",
+      "args": [
+        "JRN-01-EXPORT-FIX",
+        "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": {
+        "schemaVersion": 2,
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+        "digest": "589cdd41c16e8dfc76087d3efb5c97eef2f7ffc1fdc6c5e4f043dede540823bb",
+        "unitId": "JRN-01-EXPORT-FIX",
+        "qaCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+        "references": [
+          {
+            "kind": "authorization",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json",
+            "digest": "188a645862ae0b9d327ab1f196a634eec359d2de99660233c3eda60c2d60d66b"
+          },
+          {
+            "kind": "build",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/build.json",
+            "digest": "b959b5b5d7ea4e5e03c2772e0e31588b2142b433eeef17ecf8b89ba7d608bc77"
+          },
+          {
+            "kind": "migration",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/migration.json",
+            "digest": "a007fee75fec25ee0a0f1da1fffd3d064f4ee15e25e9ea0a09235f9392afbbf9"
+          },
+          {
+            "kind": "deployment",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/deployment.json",
+            "digest": "7e1db67db694f2a9abfd801d5dabf3ba3e2d9192baf4faa101fc5905375c4667"
+          },
+          {
+            "kind": "smoke",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/smoke.json",
+            "digest": "39907b060035e97e4ae84b88998038b67ab81093b46658320bed0e9dacedbab2"
+          },
+          {
+            "kind": "productionQa",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/productionQa.json",
+            "digest": "0a3da0a6097b6083214d2da2a19de93933cd3c33f0aefec52ebf59d4c210d819"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 175,
+      "at": "2026-10-13T06:07:55.903Z",
+      "action": "close",
+      "args": [
+        "JRN-01-EXPORT-FIX"
+      ],
+      "unitId": "JRN-01-EXPORT-FIX",
+      "details": {
+        "schemaVersion": 2,
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+        "digest": "589cdd41c16e8dfc76087d3efb5c97eef2f7ffc1fdc6c5e4f043dede540823bb",
+        "unitId": "JRN-01-EXPORT-FIX",
+        "qaCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+        "references": [
+          {
+            "kind": "authorization",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json",
+            "digest": "188a645862ae0b9d327ab1f196a634eec359d2de99660233c3eda60c2d60d66b"
+          },
+          {
+            "kind": "build",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/build.json",
+            "digest": "b959b5b5d7ea4e5e03c2772e0e31588b2142b433eeef17ecf8b89ba7d608bc77"
+          },
+          {
+            "kind": "migration",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/migration.json",
+            "digest": "a007fee75fec25ee0a0f1da1fffd3d064f4ee15e25e9ea0a09235f9392afbbf9"
+          },
+          {
+            "kind": "deployment",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/deployment.json",
+            "digest": "7e1db67db694f2a9abfd801d5dabf3ba3e2d9192baf4faa101fc5905375c4667"
+          },
+          {
+            "kind": "smoke",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/smoke.json",
+            "digest": "39907b060035e97e4ae84b88998038b67ab81093b46658320bed0e9dacedbab2"
+          },
+          {
+            "kind": "productionQa",
+            "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/production-jrn01-export-fix-2026-10-13/productionQa.json",
+            "digest": "0a3da0a6097b6083214d2da2a19de93933cd3c33f0aefec52ebf59d4c210d819"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:55:01.758390+00:00",
+  "result": "PASS",
+  "scope": "Local-only checklist and evidence report delivery. This result does not accept the production CSV behavior.",
+  "overallProductionJourney": "INCOMPLETE",
+  "originalProductionCsvFailure": "OPEN",
+  "failureTransferredTo": "JRN-01-EXPORT-FIX",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "actual": "Current exact report-delivery commit is clean and reviewed.",
+      "evidence": {
+        "path": "/private/tmp/pairvu-jrn01-release-qa-final/release-preflight.json",
+        "sha256": "9e6031a8774d66a111d393d4fcfcd14a877c42eab80b977d2abb4d2c75c3f78c"
+      }
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "actual": "Original Stage A FAIL, B scoped UI read isolation, A post-B readback and local repair reviews remain separate and hash-preserved.",
+      "evidence": [
+        {
+          "path": "operations/evidence/JRN-01/stage-a/stage-a-review.json",
+          "sha256": "d84cdcc022e40256d9a2b15de72a1a8ff43a35a934bcb5301b34f86bb4f0b633"
+        },
+        {
+          "path": "operations/evidence/JRN-01/stage-b/stage-b-review.json",
+          "sha256": "dca14392b0078067124e5c8a4b348b0e78942b84e3db7920b5f89713e5888f25"
+        },
+        {
+          "path": "operations/evidence/JRN-01/stage-a-reread/review.json",
+          "sha256": "617b829dba246d17446ca0edb2200df92dc8c76caf72c52b1be33bb922fb2ab7"
+        },
+        {
+          "path": "operations/evidence/JRN-01/export-fix-qa/repair-local.json",
+          "sha256": "27ef95f73a7df5d2f9fd975bca9e99e56e4d9a5881333debaa7f79fb29effb94"
+        }
+      ]
+    },
+    {
+      "name": "available scope completed",
+      "status": "PASS",
+      "actual": "All currently executable checklist/report work and A/B/A read-only verification completed; actual production CSV defect is recorded and transferred, not marked fixed.",
+      "productionCsvStatus": "FAIL_OPEN"
+    },
+    {
+      "name": "blocked coverage explicitly documented",
+      "status": "PASS",
+      "actual": "Real paid export, cross-workspace write, eligible-positive, lifecycle/deletion and payment gaps remain explicit; original failure is open in registry and archived QA."
+    }
+  ],
+  "originalQaFail": {
+    "path": "operations/evidence/JRN-01/qa-current.json",
+    "sha256": "34124786200564fb19eea375c8afb46d61df96acadbfec90698d19714e4baa7f"
+  },
+  "productionFailure": {
+    "path": "operations/evidence/JRN-01/failure-anonymous-batch-export-original.json",
+    "sha256": "cbcb85181ed7b5129a9868e6d7bea2659f28fe569e4e70bdd54e78b71e40fffa"
+  },
+  "runtimePlan": {
+    "unitId": "JRN-01-EXPORT-FIX",
+    "mode": "runtime",
+    "dependsOn": [
+      "JRN-01"
+    ],
+    "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca"
+  },
+  "limits": [
+    "CLOSED will mean the scoped checklist/evidence report was independently delivered, not that the production journey passed.",
+    "Production CSV issue may only be resolved after runtime unit deploy and independent production smoke."
+  ],
+  "nextAction": {
+    "action": "Controller uses formal CLI rework -> candidate -> start-qa -> qa PASS -> close for JRN-01, preserving old FAIL events, then plan-syncs runtime unit.",
+    "dependency": "Controller state transition and runtime separate unit; no reviewer state write.",
+    "automatic": true
+  }
+}

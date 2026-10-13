@@ -1,0 +1,196 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "e36a428594c4a9b8151884707d3329171cc59ef0b18acaa8de4860b45ad5ff87",
+      "sizeBytes": 98
+    },
+    {
+      "path": "authorization-source.json",
+      "sha256": "5b829b163f9650511e28c6f9c9abd401d72c50c41d667b983aac1b2761efb58b",
+      "sizeBytes": 809
+    },
+    {
+      "path": "authorization.json",
+      "sha256": "188a645862ae0b9d327ab1f196a634eec359d2de99660233c3eda60c2d60d66b",
+      "sizeBytes": 703
+    },
+    {
+      "path": "batch-export-after.json",
+      "sha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "sizeBytes": 35
+    },
+    {
+      "path": "build.json",
+      "sha256": "b959b5b5d7ea4e5e03c2772e0e31588b2142b433eeef17ecf8b89ba7d608bc77",
+      "sizeBytes": 461
+    },
+    {
+      "path": "control-closure.json",
+      "sha256": "b855eb285a8a2839f8dacabeb7b8b97b8aff358d277f14bbe038c750971c7309",
+      "sizeBytes": 18924
+    },
+    {
+      "path": "controller-smoke-raw.json",
+      "sha256": "c17de3d7d685f1cb405cea094d95cdc1d2eadbce2378143777be204794b428a7",
+      "sizeBytes": 627
+    },
+    {
+      "path": "deploy-receipt.json",
+      "sha256": "a7fb01515de9cb0b4ca864c437a6cbd526f8953142ee3ff587fe68cf28bab3c4",
+      "sizeBytes": 187
+    },
+    {
+      "path": "deploy.log",
+      "sha256": "7e16832914fcf50b309c7302e091671319c552d7b2c7e29600208051bdff7f51",
+      "sizeBytes": 12725
+    },
+    {
+      "path": "deployment.json",
+      "sha256": "7e1db67db694f2a9abfd801d5dabf3ba3e2d9192baf4faa101fc5905375c4667",
+      "sizeBytes": 419
+    },
+    {
+      "path": "evidence-notes.json",
+      "sha256": "cfc03d85fcb9982b56ab3c0e0a8614687d5fcf3c764f9fce0b51534e2f128bc4",
+      "sizeBytes": 1140
+    },
+    {
+      "path": "health-after.json",
+      "sha256": "6521e1167025d7f910a29157e0f75362e42891bd44994d466be85d213ce6009d",
+      "sizeBytes": 165
+    },
+    {
+      "path": "health-before.json",
+      "sha256": "7f436a998645fba4cc331763fbbd4679de13093c27e60a9840efac995cbc9867",
+      "sizeBytes": 165
+    },
+    {
+      "path": "initial-diff-inventory.json",
+      "sha256": "f29d58526b6dd6dad863b1080e74d3f00ee70c6139830c98b6629d2b51022645",
+      "sizeBytes": 42492
+    },
+    {
+      "path": "initial-evidence-integrity.json",
+      "sha256": "cda8b7ca1bef4e9ce75c315f1a6846cb8c203d8daae4bd28fb7ae9d181bdeb6b",
+      "sizeBytes": 1259
+    },
+    {
+      "path": "initial-release-preflight.json",
+      "sha256": "a832129a781be831a4af6628859ec3e9846d0e4cbe02e5fca4724c4791c1c823",
+      "sizeBytes": 6630
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "589cdd41c16e8dfc76087d3efb5c97eef2f7ffc1fdc6c5e4f043dede540823bb",
+      "sizeBytes": 1171
+    },
+    {
+      "path": "migration.json",
+      "sha256": "a007fee75fec25ee0a0f1da1fffd3d064f4ee15e25e9ea0a09235f9392afbbf9",
+      "sizeBytes": 353
+    },
+    {
+      "path": "migrations-receipt.json",
+      "sha256": "089040c0d3de552079ae7fcaa1b86d5885f292c02807a60c6e1072ff2892d87a",
+      "sizeBytes": 195
+    },
+    {
+      "path": "migrations.log",
+      "sha256": "593181eaacfc4789e2c35e8ea0037425b179d01e15dafe8cfc9b4615b665cae9",
+      "sizeBytes": 143
+    },
+    {
+      "path": "production-qa/account-after.ax.txt",
+      "sha256": "48a06631d00e05bd8e024d0a4df716d76737147c835cfb23afd5dd2ee6d18698",
+      "sizeBytes": 8321
+    },
+    {
+      "path": "production-qa/account-before.ax.txt",
+      "sha256": "5af36219cfe36460c940929c2bd3f3fdaa31eb897241bcb18afaec2d3854d6aa",
+      "sizeBytes": 8224
+    },
+    {
+      "path": "production-qa/analysis-expanded.ax.txt",
+      "sha256": "4879b1825dd94ddd2f47b7f3b4a9626c06bf8e425c93b13fd331d1d34ce693a2",
+      "sizeBytes": 35667
+    },
+    {
+      "path": "production-qa/analysis.ax.txt",
+      "sha256": "99c888555914832fab36bd7769d1dcc13c4910f1bd9f1050a40a08c30354e2ae",
+      "sizeBytes": 33176
+    },
+    {
+      "path": "production-qa/anonymous-batch-export-body.json",
+      "sha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "sizeBytes": 35
+    },
+    {
+      "path": "production-qa/batch.ax.txt",
+      "sha256": "bac05e358222838b6f5c308173baf6f3ecc9f4ec80258ef68da1144a14f821f6",
+      "sizeBytes": 5207
+    },
+    {
+      "path": "production-qa/functional-report.json",
+      "sha256": "d44bf2726f17096640dbbca0893a8b9f303f1fb41aa2bc33467dc1018b1174a5",
+      "sizeBytes": 2942
+    },
+    {
+      "path": "production-qa/health-body.json",
+      "sha256": "6521e1167025d7f910a29157e0f75362e42891bd44994d466be85d213ce6009d",
+      "sizeBytes": 165
+    },
+    {
+      "path": "production-qa/http-report.json",
+      "sha256": "bbae8c2c8e6c54ea993e92de8ee1ac2ad6aa06fa95eb447c5467d26c989e4458",
+      "sizeBytes": 1729
+    },
+    {
+      "path": "production-qa/index.json",
+      "sha256": "aea2180ce8de7bae3e319247c2b855cf7987b3387c13e1b091caff1c54e96646",
+      "sizeBytes": 1897
+    },
+    {
+      "path": "production-qa/product.ax.txt",
+      "sha256": "adedecf86e3833c82e302b0106b080d7d8f1ad07f3003097cf73e975d2e4204e",
+      "sizeBytes": 8683
+    },
+    {
+      "path": "production-qa/products.ax.txt",
+      "sha256": "e6137b97f83c278907147e2daa55e29a5707e8bbfde064d83a7611d263861211",
+      "sizeBytes": 5366
+    },
+    {
+      "path": "production-qa/release-target.txt",
+      "sha256": "5120d7404df4c1cd681489c3a962f682a2b7753f39aa959a32175bc263393dac",
+      "sizeBytes": 2572
+    },
+    {
+      "path": "productionQa.json",
+      "sha256": "0a3da0a6097b6083214d2da2a19de93933cd3c33f0aefec52ebf59d4c210d819",
+      "sizeBytes": 567
+    },
+    {
+      "path": "release-qa/jrn-report-delivery.json",
+      "sha256": "8aa9ee103d8b8d209e77a6bf2621e4a9f0f559cab76a18421a8b0f4c6b8c0427",
+      "sizeBytes": 3562
+    },
+    {
+      "path": "release-qa/release-preflight.json",
+      "sha256": "9e6031a8774d66a111d393d4fcfcd14a877c42eab80b977d2abb4d2c75c3f78c",
+      "sizeBytes": 7876
+    },
+    {
+      "path": "release-qa/runtime-local.json",
+      "sha256": "aa20c7c85f227c0289eb60635bda0b80b54ab9c5ec0ad0fd13b67e849969c7fa",
+      "sizeBytes": 2491
+    },
+    {
+      "path": "smoke.json",
+      "sha256": "39907b060035e97e4ae84b88998038b67ab81093b46658320bed0e9dacedbab2",
+      "sizeBytes": 620
+    }
+  ]
+}

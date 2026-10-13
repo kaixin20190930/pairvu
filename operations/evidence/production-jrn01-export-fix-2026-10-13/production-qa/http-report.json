@@ -1,0 +1,47 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T06:06:27.003544Z",
+  "result": "PASS",
+  "scope": "Independent production public HTTP checks without Cookie, Authorization, curl config, or redirects",
+  "checks": [
+    {
+      "name": "health exact release",
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "contentType": "application/json",
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924"
+      },
+      "pass": true,
+      "bodyFile": "health-body.json"
+    },
+    {
+      "name": "anonymous batch CSV authorization",
+      "url": "https://pairvu.com/api/batches/9e24fe37-4e56-4fad-8edd-b4589bbcb698/export",
+      "status": 401,
+      "contentType": "application/json",
+      "contentDisposition": null,
+      "redirect": null,
+      "body": {
+        "error": "authentication_required"
+      },
+      "sizeBytes": 35,
+      "csvReturned": false,
+      "targetDataDisclosed": false,
+      "pass": true,
+      "bodyFile": "anonymous-batch-export-body.json"
+    }
+  ],
+  "priorProductionFailure": "Anonymous endpoint returned 500 csv_export_failed on previous release; target release now returns exact 401 authentication_required.",
+  "limitations": [
+    "No authenticated Free HTTP request or paid CSV success request in this independent production run."
+  ]
+}

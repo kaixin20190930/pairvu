@@ -1,0 +1,87 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T06:06:27.003544Z",
+  "result": "PASS",
+  "scope": "Read-only existing A-account UI on production; synthetic target only",
+  "loginOutcome": "Existing A session remained signed in through normal Pairvu UI; no credential input",
+  "checks": [
+    {
+      "name": "account before and after",
+      "plan": "Free",
+      "available": 6,
+      "used": 4,
+      "reserved": 0,
+      "pass": true,
+      "evidence": [
+        "account-before.ax.txt",
+        "account-after.ax.txt"
+      ]
+    },
+    {
+      "name": "Pairvu QA Synthetic Blue Box 20261010",
+      "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+      "active": true,
+      "textVersion": 7,
+      "approvedReferenceVersion": 1,
+      "sku": "PAIRVU-QA-SYNTH-20261010",
+      "pass": true,
+      "evidence": [
+        "products.ax.txt",
+        "product.ax.txt"
+      ]
+    },
+    {
+      "name": "completed frozen batch and Free gate",
+      "batchId": "9e24fe37-4e56-4fad-8edd-b4589bbcb698",
+      "status": "Completed",
+      "finished": "1/1",
+      "frozenTextVersion": 5,
+      "frozenReferenceVersion": 1,
+      "csvUpgradeGate": true,
+      "pass": true,
+      "evidence": [
+        "batch.ax.txt"
+      ]
+    },
+    {
+      "name": "analysis and human review",
+      "analysisId": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+      "machineVerdict": "REVIEW",
+      "confirmedProductDifferences": 0,
+      "reviewItems": 11,
+      "currentHumanDecision": "None",
+      "latestAuditRevision": 6,
+      "latestAction": "revoke",
+      "auditEventsRetained": 6,
+      "pass": true,
+      "evidence": [
+        "analysis.ax.txt",
+        "analysis-expanded.ax.txt"
+      ]
+    },
+    {
+      "name": "release rule, source hashes, and Free CSV",
+      "eligibility": "BLOCKED",
+      "freeCsvButtonEnabled": false,
+      "hashes": {
+        "machine": "d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb",
+        "rule": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4",
+        "reviewedMachineSnapshot": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+      },
+      "hashesMatchPriorBaseline": true,
+      "pass": true,
+      "evidence": [
+        "release-target.txt"
+      ]
+    }
+  ],
+  "limitations": [
+    "Actual paid owned-batch CSV 200 and paid foreign-workspace 404 remain BLOCKED without a real paid production session.",
+    "This run did not repeat B-account isolation, remote D1 inspection, model invocation, or any write.",
+    "UI evidence and matching displayed provenance hashes support no observed drift; they do not independently reconstruct the stored machine result bytes."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01-EXPORT-FIX",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "source": "All schema-2 fields adapted from archived actual deployment/gate/migration/smoke logs and original independent QA reports; source bytes preserved.",
+  "productionQaSource": "production-qa/http-report.json",
+  "functionalQaSource": "production-qa/functional-report.json",
+  "qaTimeNormalization": "Original microsecond timestamp normalized to milliseconds for formal schema; raw timestamp preserved.",
+  "priorFailure": "../JRN-01/failure-anonymous-batch-export-original.json",
+  "priorFailureResolution": "Production 401 verified independently; historical FAIL remains immutable.",
+  "preflightEnvironmentFailure": "Initial Git push succeeded remotely; local tracking ref/fresh-fetch reference write denied by sandbox. Approved fresh fetch then succeeded before actual deploy; deploy gate repeated fresh fetch before and after build.",
+  "broaderJourney": "INCOMPLETE: paid CSV/paid foreign ownership, Free HTTP403, production write isolation, eligible positive, lifecycle deletion and payment gaps remain."
+}

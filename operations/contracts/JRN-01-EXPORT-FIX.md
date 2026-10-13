@@ -23,3 +23,6 @@
 用户明确授权本修复先推送GitHub、fresh核验远端、再部署Cloudflare及独立生产复验，有问题继续修复。以上“无新生产授权”为历史；本节覆盖当前发布范围。生产数据库只读查询确认无待迁移（发布证据保存真实查询时间与日志），不改变计费、其他功能开关或身份。JRN-01清单交付独立关闭后，本runtime单元使用原开发/QA，经正式plan-sync/claim/candidate/qa/release-ready和真实manifest转换；原生产FAIL在复验通过前保持OPEN。
 发布增量QA选择gpt-6-sol/medium：原高推理固定路由已通过，新增仅文档/证据和状态范围分离；运行时出现差异或安全语义疑点就FAIL并重评high。生产QA选择gpt-6-sol/high：实际发布来源、真实登录和冻结/人审/额度的跨层复核需要较高推理。开发暂不续派；如实质FAIL返回原开发，以明确单路由问题Sol/medium，跨鉴权边界重评high。环境故障不升级。
 生产验收：无Cookie/Authorization公开请求指定批次export返回401 authentication_required且没有CSV；health精确对应发布SHA/Worker；已有真实A会话检查Free UI门禁、指定合成资产和6/4/0额度不变。无真实paid会话的正向CSV/外workspace paid导出仍BLOCKED，不构造身份。无模型调用、付款、删除或额外写入。
+
+## 本次发布完成
+固定发布bbbe62c110e526604a76b316c0ec0b5e90b13fca / Worker c88179e1-d880-4a19-8988-e041b25a2924；GitHub-first门禁、实际无待迁移核查、同SHA构建部署已完成。独立生产2项HTTP和5组真实A会话只读PASS；schema-2 manifest经正式record-deployment/verify-production/close，runtime CLOSED。原生产FAIL保持原件，新生产结果证明401拒绝恢复；真实paid正向/跨workspace导出和Free HTTP403等限制未消失。详见../evidence/production-jrn01-export-fix-2026-10-13/manifest.json及production-qa原件。

@@ -1,6 +1,6 @@
 # Pairvu 自动开发与独立验收
 
-2026-10-13 JRN-01最新：真实A/B/A只读隔离、冻结与审核恢复、额度对照已完成；匿名批次CSV生产500真实FAIL发现并修复。候选50341a7本地独立PASS，尚未推送/部署，正式JRN-01 QA_FAIL保留生产未修状态。下一步需本次修复发布授权，再GitHub-first发布与生产复验；paid/跨workspace写入/完整eligible/删除/付款缺口保留，pairvu-2暂停。详见docs/04-roadmap/project-progress-2026-10-10.md及operations/evidence/JRN-01/qa-current.json。
+2026-10-13 JRN-01最新：CSV匿名500修复已发布 `bbbe62c110e526604a76b316c0ec0b5e90b13fca` / Worker `c88179e1-d880-4a19-8988-e041b25a2924`，GitHub-first、fresh远端核验及无待迁移确认完成；独立2项HTTP与5组真实A会话只读复验PASS，正式runtime JRN-01-EXPORT-FIX CLOSED。原FAIL完整保留；JRN-01清单交付CLOSED而整体旅程仍INCOMPLETE（paid、写入隔离、ELIGIBLE正向、生命周期和付款缺口）。[真实发布证据](evidence/production-jrn01-export-fix-2026-10-13/manifest.json)。下一步优先补真实paid导出，需可用付费生产会话及相应操作范围；不自动付款或启动API/Webhook。pairvu-2继续PAUSED。
 
 2026-10-12当前：UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 

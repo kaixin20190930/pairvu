@@ -1,0 +1,67 @@
+Pairvu QA Synthetic Blue Box 20261010
+
+Frozen SKU: PAIRVU-QA-SYNTH-20261010 · standard v5 · reference v1
+
+Analysis batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001 · Batch 9e24fe37-4e56-4fad-8edd-b4589bbcb698
+
+View evidence and human review
+Machine result
+REVIEW
+
+completed · 0 product differences
+
+Detection: m0-qa-engine-008
+Risk: m0-risk-policy-003
+Model policy: m0-model-policy-002
+
+missing_requested_check: Provider did not return an observation for visible_text.
+missing_requested_check: Provider did not return an observation for quantity.
+missing_requested_check: Provider did not return an observation for dominant_color.
+missing_requested_check: Provider did not return an observation for major_components.
+missing_requested_check: Provider did not return an observation for major_shape_packaging.
+attribute_not_observable: logo is not sufficiently observable.
+missing_requested_check: visible_text was not returned by the provider.
+missing_requested_check: quantity was not returned by the provider.
+missing_requested_check: dominant_color was not returned by the provider.
+missing_requested_check: major_components was not returned by the provider.
+missing_requested_check: major_shape_packaging was not returned by the provider.
+
+Reference image: available
+Candidate image: available
+
+Human decision
+REVOKE
+
+Revision 6
+
+JRN-01 QA completed: revoke the synthetic test decision to restore original no-current-decision meaning; retain all new audit events and unchanged machine evidence.
+
+The previous decision was revoked.
+
+Rule eligibility
+BLOCKED
+Every unique selected check needs exactly one supported observation.
+selected_checks_incomplete
+Uncertain, not-applicable or insufficiently observable evidence cannot support eligibility.
+observation_insufficient
+Logo/text identity evidence or its application guard version is unsupported.
+identity_evidence_invalid
+Machine limitations remain unresolved and block this conservative release rule.
+machine_limitations_present
+Stored verdict or product differences do not match the supported risk derivation.
+machine_derivation_invalid
+Approval was revoked; a new explicit decision is required.
+human_approval_required
+
+release-policy-001 · current evaluation
+
+Source and decision provenance
+
+Machine SHA-256: d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb
+
+Rule SHA-256: 7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4
+
+Reviewed machine snapshot: 267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e
+
+Evaluated at 2026-10-13T06:05:33.010Z; human revision 6.
+

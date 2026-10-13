@@ -1,0 +1,130 @@
+Browser tab: 1, Title: "Account | Pairvu", URL: "https://pairvu.com/account".
+0 AXWebArea Account | Pairvu, URL: pairvu.com/account
+	1 link Description: Skip to content, Value: pairvu.com/account#main-content
+	2 container
+		3 link Description: Pairvu home, Value: pairvu.com/
+		4 container site-menu-panel
+			5 container Primary navigation
+				6 pop up button (collapsed) Product, Secondary Actions: Expand
+					7 text Product
+				8 pop up button (collapsed) Learn, Secondary Actions: Expand
+					9 text Learn
+				10 pop up button (collapsed) Solutions, Secondary Actions: Expand
+					11 text Solutions
+			12 link Description: Account, Value: pairvu.com/account
+			13 link Description: Check image, Value: pairvu.com/#checker
+	14 container
+		15 container Workspace
+			16 link Description: Releases, Value: pairvu.com/account/releases
+			17 link Description: Value metrics, Value: pairvu.com/account/value-metrics
+			18 link Description: Overview, Value: pairvu.com/account
+			19 link Description: Products, Value: pairvu.com/account/products
+			20 link Description: Batches, Value: pairvu.com/account/batches
+			21 link Description: New batch, Value: pairvu.com/account/batches/new
+		22 text PERSONAL WORKSPACE
+		23 heading [A account]'s workspace, Value: 1
+			24 text [A account]'s workspace
+		25 text [redacted-email]
+		26 button Sign out
+		27 container Plan and usage
+			28 container
+				29 text Current plan Free Free workspace
+			30 container
+				31 text Checks available 6 6  monthly ·  0  extra
+			32 container
+				33 text Image retention 7  days Originals and analysis derivatives
+		34 container Your subscription
+			35 text SUBSCRIPTION AND BILLING
+			36 heading Your subscription, Value: 2, ID: billing-title
+				37 text Your subscription
+			38 text Review the current billing period here. Stripe securely handles payment methods, invoices, cancellation, and reactivation.
+			39 text Your Free workspace is active
+			40 text Compare monthly capacity on Pricing. Paid checkout starts there after you choose a plan.
+			41 link Description: View plans, Value: pairvu.com/pricing
+		42 container Product checks
+			43 text MONTHLY ALLOWANCE
+			44 heading Product checks, Value: 2, ID: usage-title
+				45 text Product checks
+			46 text 4  used ·  0  reserved
+			47 container 40 percent of allowance used
+			48 container
+				49 text Current period ends  Nov 1, 2026 . Unused checks do not carry forward to the next billing period.
+			50 text Extra check packs
+			51 text No extra checks are currently available.
+			52 link Description: Buy extra checks, Value: pairvu.com/pricing#check-packs
+		53 container New uploaded images are retained for 7 days
+			54 text PRIVACY AND RETENTION
+			55 heading New uploaded images are retained for 7 days, Value: 2, ID: retention-title
+				56 text New uploaded images are retained for  7  days
+			57 text This includes uploaded originals, normalized analysis images, and thumbnails. Images uploaded before a plan change keep the deletion date assigned when they were uploaded. Result metadata may be retained for up to 12 months without exposing deleted image URLs.
+			58 button Delete all workspace images
+		59 container Your product image results
+			60 text RECENT CHECKS
+			61 heading Your product image results, Value: 2, ID: history-title
+				62 text Your product image results
+			63 link Description: New check, Value: pairvu.com/
+			64 container
+				65 link Description: REVIEW 11 review items Oct 11, 2026, 8:29 AM UTC Images available, Value: pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001
+				66 button Delete images
+			67 container
+				68 link Description: REVIEW 3 review items Oct 11, 2026, 2:44 AM UTC Images available, Value: pairvu.com/?analysis=batch-analysis-19bd247e-638e-4113-a265-1753ef3dc2eb
+				69 button Delete images
+			70 container
+				71 link Description: PASS No product differences confirmed Oct 10, 2026, 3:22 PM UTC Images available, Value: pairvu.com/?analysis=batch-analysis-542cc540-b6cb-4830-b95b-b63ec85383e5
+				72 button Delete images
+			73 container
+				74 link Description: REVIEW 2 review items Oct 10, 2026, 1:37 PM UTC Images available, Value: pairvu.com/?analysis=batch-analysis-30f8536d-4260-4bfb-86ed-5f002862219d
+				75 button Delete images
+			76 link Description: PASS No product differences confirmed Sep 1, 2026, 1:06 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=batch-analysis-69877484-487f-4bd6-bf43-253a041abec1
+			77 link Description: REVIEW 3 review items Aug 17, 2026, 3:23 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=3f2dbb16-d7db-4e59-b800-ad607d3ad6b6
+			78 link Description: PASS No product differences confirmed Aug 17, 2026, 3:18 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=13f24534-c997-40d7-a7d1-378bfdcfdbdf
+			79 link Description: FAIL 1 product difference Aug 17, 2026, 2:25 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=12ec92d0-4f78-4859-a7b7-c19d25907bb4
+			80 link Description: PASS No product differences confirmed Aug 17, 2026, 2:20 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=675ed1ed-c796-4609-9eec-cfbf485c0723
+			81 link Description: PASS No product differences confirmed Aug 17, 2026, 2:17 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=ecc94f43-0721-4123-81cd-1ab10f564ec1
+			82 link Description: FAIL 1 product difference Aug 17, 2026, 2:14 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=9e447590-3dbd-45a6-8d1a-bb336ee72125
+			83 link Description: REVIEW 2 review items Aug 17, 2026, 2:10 PM UTC Images deleted or expired, Value: pairvu.com/?analysis=c7b49b52-8563-4f5c-a09a-666cd3975fef
+			84 container
+				85 text Images follow your  7 -day retention period. Result metadata may remain available after images expire.
+		86 container Check multiple candidate images
+			87 text BATCH WORKFLOW
+			88 heading Check multiple candidate images, Value: 2, ID: next-title
+				89 text Check multiple candidate images
+			90 text Compare one approved product image with multiple candidate images. Each candidate uses one check, and the batch continues if you leave or refresh the page.
+			91 link Description: Start a batch check, Value: pairvu.com/account/batches/new
+			92 link Description: View batch history, Value: pairvu.com/account/batches
+	93 container
+		94 link pairvu.com/
+		95 text Quality control for AI product photography.
+		96 heading PRODUCT, Value: 2
+			97 text PRODUCT
+		98 link Description: AI Product Image Checker, Value: pairvu.com/
+		99 link Description: Check Image, Value: pairvu.com/#checker
+		100 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		101 link Description: Pricing, Value: pairvu.com/pricing
+		102 heading LEARN, Value: 2
+			103 text LEARN
+		104 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		105 link Description: Examples, Value: pairvu.com/examples
+		106 link Description: Product Categories, Value: pairvu.com/categories
+		107 link Description: Product Checks, Value: pairvu.com/checks
+		108 link Description: Guides, Value: pairvu.com/guides
+		109 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		110 heading USE CASES, Value: 2
+			111 text USE CASES
+		112 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		113 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		114 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		115 link Description: Brands, Value: pairvu.com/use-cases/brands
+		116 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		117 heading LEGAL, Value: 2
+			118 text LEGAL
+		119 link Description: Privacy, Value: pairvu.com/privacy
+		120 heading OTHER PRODUCTS, Value: 2
+			121 text OTHER PRODUCTS
+		122 link Description: Moxion, Value: moxion.ai/
+		123 link Description: Sigoo, Value: sigoo.ai/
+		124 link Description: AI Best Tool, Value: aibesttool.com/
+		125 link Description: Triptrace, Value: triptrace.ai/
+		126 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 0 AXWebArea Account | Pairvu, URL: pairvu.com/account

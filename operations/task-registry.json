@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "JRN-01",
-  "baselineSha": "c5bb59d9db5f243fdd9ffb9b30c6d98a92307c97",
+  "unitId": "JRN-01-EXPORT-FIX",
+  "baselineSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -35,7 +35,7 @@
       "upgradeCondition": "缩域后仍出现具体推理不足才重评更高模型；环境/会话问题不升级",
       "applied": true
     },
-    "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:42",
+    "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:91",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
@@ -62,7 +62,7 @@
       "thinking": "high",
       "reason": "生产来源与真实登录、既有冻结/人审/额度跨层核验；与开发独立，限定只读",
       "upgradeCondition": "只有缩域后反复出现具体推理缺口才评估更高模型；会话和权限不足保留BLOCKED",
-      "applied": false
+      "applied": true
     },
     "environmentIncidents": [
       {
@@ -73,22 +73,24 @@
         "action": "resume same QA role/model/scope; no replacement or duplicate"
       }
     ],
-    "receipt": "operations/evidence/UPG-10.json"
+    "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/http-report.json"
   },
-  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
-  "state": "QA_FAIL",
+  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "A/B/A真实只读隔离通过；修复50341a7本地独立PASS，未推送/部署。整体JRN保持QA_FAIL以保留生产原FAIL；不关闭、不恢复巡检。",
+  "notes": "2026-10-13 CSV修复已按GitHub-first fresh核验/无待迁移/同SHA部署，独立HTTP和真实A会话只读复验PASS；正式runtime CLOSED。JRN-01报告交付CLOSED不代表整个生产旅程PASS，仍INCOMPLETE。原FAIL及原件不覆盖，pairvu-2继续PAUSED。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
-    "releaseSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
-    "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "unitId": "JRN-01-EXPORT-FIX",
+    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
     "featureEnabled": true,
-    "evidenceDirectory": "operations/evidence/production-upg10-2026-10-12",
-    "scope": "7 HTTP + 18 real signed-in checks PASS; no positive business classifications or real value claim",
-    "receipt": "operations/evidence/production-upg10-2026-10-12/manifest.json",
-    "functionalReceipt": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
+    "featureEnablement": "CSV route fix active; existing SKU/workbench/value-metrics flags unchanged true",
+    "evidenceDirectory": "operations/evidence/production-jrn01-export-fix-2026-10-13",
+    "scope": "Independent 2 public HTTP checks and 5 actual A-session UI groups PASS; paid/Free HTTP403/write-isolation/eligible/lifecycle/payment coverage not claimed",
+    "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+    "functionalReceipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/functional-report.json"
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -179,6 +181,18 @@
       "scope": "7 HTTP + 18 real signed-in checks PASS; no positive business classifications or real value claim",
       "receipt": "operations/evidence/production-upg10-2026-10-12/manifest.json",
       "functionalReceipt": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
+    },
+    {
+      "status": "PROD_VERIFIED",
+      "unitId": "JRN-01-EXPORT-FIX",
+      "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+      "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+      "featureEnabled": true,
+      "featureEnablement": "CSV route fix active; existing SKU/workbench/value-metrics flags unchanged true",
+      "evidenceDirectory": "operations/evidence/production-jrn01-export-fix-2026-10-13",
+      "scope": "Independent 2 public HTTP checks and 5 actual A-session UI groups PASS; paid/Free HTTP403/write-isolation/eligible/lifecycle/payment coverage not claimed",
+      "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
+      "functionalReceipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/functional-report.json"
     }
   ],
   "loginAcceptance": {
@@ -190,33 +204,14 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "先以限定报告交付独立验收关闭JRN-01（生产问题转交明确runtime单元且保持OPEN）；正式plan-sync注册JRN-01-EXPORT-FIX，固定SHA独立PASS/RELEASE_READY后执行已授权GitHub-first发布及生产复验。",
-  "completedUnitId": "UPG-10",
-  "completedCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
+  "nextAction": "P1先补真实paid CSV成功和paid跨workspace拒绝，依赖可控制的真实付费生产会话；无新付款授权不支付、不伪造套餐。可进一步梳理写入隔离/生命周期最小契约，真实质量样本和业务来源仍缺；UPG-08/09未启动，pairvu-2继续PAUSED。",
+  "completedUnitId": "JRN-01-EXPORT-FIX",
+  "completedCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
   "completedReleaseRepair": {
+    "unitId": "JRN-01-EXPORT-FIX",
+    "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
     "state": "CLOSED",
-    "failedReleaseSha": "324a5283b63a73c8b5c5cd1222f49f757f7a2c3b",
-    "platformVersion": "ba8e60c0-15b9-4594-877d-3fae8a4942ab",
-    "reason": "生产区域位置错误与无可读文字仍PASS，正式单元保持RELEASE_READY未关闭。",
-    "developmentModel": {
-      "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "medium修复遗漏协议字段路径的同类结构语法边界，满足已记录升级条件。",
-      "upgradeCondition": "再有同类缺口先明确可支持语法和安全退化，必要时再评估更高能力模型。",
-      "applied": true
-    },
-    "failureReceipt": "operations/evidence/production-upg04-2026-10-10/login-qa-fail.json",
-    "developmentSha": "6a32c0f1a213f2a4db2fe775014d7f228ebe2c74",
-    "qaModel": {
-      "model": "gpt-6.1-sol",
-      "thinking": "high",
-      "reason": "medium修复遗漏协议字段路径的同类结构语法边界，满足已记录升级条件。",
-      "upgradeCondition": "再有同类缺口先明确可支持语法和安全退化，必要时再评估更高能力模型。",
-      "applied": true
-    },
-    "qaFailureReceipt": "operations/evidence/upg04-repair-attempt-3/qa-original.json",
-    "attempt": 4,
-    "releaseSha": "62787fdbc93ec3dad93640a46603d5fd745c4b21"
+    "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json"
   },
   "automationDecision": {
     "id": "pairvu-2",
@@ -247,8 +242,9 @@
     "unitId": "JRN-01-EXPORT-FIX",
     "authorizedAt": "2026-10-13T05:45:20.748Z",
     "authorized": true,
-    "releaseSha": "89cc51e6efbc31c25dc0364907e2de9e30e0a0d8",
-    "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 latest user request: 授权发布这次 CSV 修复，按仓库规则先推送 GitHub、核验远端，再部署 Cloudflare 并完成独立生产复验，有问题继续修复。通过后更新整体进度，说明下一步做什么。"
+    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 latest user request: 授权发布这次 CSV 修复，按仓库规则先推送 GitHub、核验远端，再部署 Cloudflare 并完成独立生产复验，有问题继续修复。通过后更新整体进度，说明下一步做什么。",
+    "evidence": "operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json"
   },
   "securityIncident": {
     "id": "UPG10-QA-CREDENTIAL-01",
@@ -278,7 +274,7 @@
     "residualFollowUp": "HUMAN-05"
   },
   "journeyFailure": {
-    "status": "OPEN",
+    "status": "RESOLVED",
     "case": "P02.batchExport",
     "productionSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
     "evidence": "operations/evidence/JRN-01/failure-anonymous-batch-export-original.json",
@@ -286,11 +282,15 @@
     "repairContract": "operations/contracts/JRN-01-EXPORT-FIX.md",
     "productionReleaseAuthorized": true,
     "localRepair": "PASS",
-    "production": "FAIL_OPEN"
+    "production": "PASS",
+    "resolvedReleaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "resolvedPlatformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+    "resolutionEvidence": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/http-report.json",
+    "historicalFailurePreserved": true
   },
   "repair": {
     "contract": "operations/contracts/JRN-01-EXPORT-FIX.md",
-    "state": "AUTHORIZED_RELEASE_PREPARATION",
+    "state": "CLOSED",
     "parentFailureEvidence": "operations/evidence/JRN-01/stage-a/stage-a-review.json",
     "productionReleaseAuthorized": true,
     "qaModelSelection": {
@@ -301,7 +301,17 @@
       "applied": true
     },
     "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
-    "independentEvidence": "operations/evidence/JRN-01/export-fix-qa/repair-local.json"
+    "independentEvidence": "operations/evidence/JRN-01/export-fix-qa/repair-local.json",
+    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+    "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+    "preReleaseModelSelection": {
+      "model": "gpt-6-sol",
+      "thinking": "medium",
+      "reason": "固定修复之上的文档和证据增量，确定性摘要与差分核验；延用可用Sol但重新评估范围",
+      "upgradeCondition": "若出现运行时差异或安全语义不明，停止并重新评估high；环境问题不升级"
+    },
+    "productionAcceptance": "PASS",
+    "productionEvidence": "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json"
   },
   "secondAccountLogin": {
     "authorized": true,
@@ -309,5 +319,22 @@
     "identityConfirmation": "user-confirmed-controlled-B",
     "handoff": "Google existing B account verify identity page; no credentials requested in chat",
     "isolationAcceptance": "PASS_SCOPED_UI_READ_ONLY"
+  },
+  "journeyCoverage": {
+    "reportDelivery": "CLOSED",
+    "overallProductionJourney": "INCOMPLETE",
+    "csvAnonymousFailure": "RESOLVED",
+    "aBaReadOnlyIsolation": "PASS (prior exact evidence; not repeated this release)",
+    "productionFixAcceptance": "PASS",
+    "blocked": [
+      "real paid owned CSV success and foreign-workspace denial",
+      "actual authenticated Free HTTP403 path",
+      "production cross-workspace write API negatives",
+      "complete positive ELIGIBLE analysis",
+      "authorized expired/deleted assets and precise permanent deletion confirmation",
+      "real payment/pack/portal writes"
+    ],
+    "quality": "Real authorized double-annotated samples NOT_PROVIDED; no quality conclusion",
+    "value": "test/unknown excluded; real business-source input still needed"
   }
 }

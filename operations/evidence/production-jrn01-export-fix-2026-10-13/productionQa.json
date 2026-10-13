@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "unitId": "JRN-01-EXPORT-FIX",
+  "qaCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-13T06:06:27.003Z",
+  "checks": [
+    {
+      "name": "health exact release",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous batch CSV authorization",
+      "status": "PASS"
+    }
+  ],
+  "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+  "scope": "http"
+}

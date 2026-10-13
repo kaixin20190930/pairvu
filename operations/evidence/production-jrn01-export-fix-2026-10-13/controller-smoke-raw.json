@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-13T06:00:09.853Z",
+  "checks": [
+    {
+      "name": "health",
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+        "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924"
+      }
+    },
+    {
+      "name": "batch-export",
+      "url": "https://pairvu.com/api/batches/9e24fe37-4e56-4fad-8edd-b4589bbcb698/export",
+      "status": 401,
+      "body": {
+        "error": "authentication_required"
+      }
+    }
+  ]
+}

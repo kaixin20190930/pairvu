@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01-EXPORT-FIX",
+  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "baseAcceptedFixSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:55:01.758390+00:00",
+  "result": "PASS",
+  "scope": "Local runtime implementation acceptance only; production release not yet verified",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "actual": "New exact release commit is descendant of locally accepted fix and prior release; route and focused test bytes unchanged.",
+      "evidence": {
+        "path": "/private/tmp/pairvu-jrn01-release-qa-final/release-preflight.json",
+        "sha256": "9e6031a8774d66a111d393d4fcfcd14a877c42eab80b977d2abb4d2c75c3f78c"
+      }
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "actual": "Earlier fixed-handler independent local PASS (11 specialized replay plus 7 independent handler cases) remains applicable through two verified non-runtime increments.",
+      "evidence": [
+        {
+          "path": "operations/evidence/JRN-01/export-fix-qa/repair-local.json",
+          "sha256": "27ef95f73a7df5d2f9fd975bca9e99e56e4d9a5881333debaa7f79fb29effb94"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn01-release-qa/release-preflight.json",
+          "sha256": "a832129a781be831a4af6628859ec3e9846d0e4cbe02e5fca4724c4791c1c823"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn01-release-qa-final/release-preflight.json",
+          "sha256": "9e6031a8774d66a111d393d4fcfcd14a877c42eab80b977d2abb4d2c75c3f78c"
+        }
+      ]
+    }
+  ],
+  "originalProductionCsvFailure": "OPEN",
+  "overallProductionJourney": "INCOMPLETE",
+  "blockedProductionScope": [
+    "Real paid owner and foreign exports have no paid account.",
+    "Production anonymous export and health are pending same-SHA deploy and independent smoke."
+  ],
+  "authorizationAnnotation": "Committed source still annotates prior planned SHA; final schema-2 authorization must bind exact deployment SHA before manifest import.",
+  "nextAction": {
+    "action": "Controller plan-syncs and claims runtime unit, binds original independent roles, records QA PASS and release-ready, then performs authorized GitHub-first release gates.",
+    "dependency": "Formal state transitions and final-SHA authorization/migration/remote evidence.",
+    "automatic": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "unitId": "JRN-01-EXPORT-FIX",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "environment": "production",
+  "origin": "https://pairvu.com",
+  "action": "deploy",
+  "authorized": true,
+  "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 latest user request: 授权发布这次 CSV 修复，按仓库规则先推送 GitHub、核验远端，再部署 Cloudflare 并完成独立生产复验，有问题继续修复。通过后更新整体进度，说明下一步做什么。；最终发布提交仅追加授权/契约/证据8个管理文件，由独立QA固定SHA复核，不扩大修复范围。",
+  "authorizedAt": "2026-10-13T05:45:20.748Z"
+}

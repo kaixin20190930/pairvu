@@ -131,3 +131,6 @@ UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、�
 
 ## 2026-10-13 JRN-01补验及修复独立完成
 真实A/B/A只读隔离和A恢复后复读PASS；CSV匿名500实质失败的修复50341a7本地独立PASS。正式JRN-01 QA_FAIL保留线上原失败，当前原角色均完成。下一步只在用户明确授权本次修复发布后遵守GitHub-first并实际生产复验；不将local_only清单关闭当运行时发布，不自动恢复pairvu-2。证据operations/evidence/JRN-01/qa-current.json及export-fix-qa/repair-local.json。剩余paid/写隔离/eligible/生命周期/付款缺口明确保留。
+
+## 2026-10-13 CSV修复生产关闭（当前）
+JRN-01报告交付与JRN-01-EXPORT-FIX runtime均经正式CLI CLOSED；发布bbbe62c110e526604a76b316c0ec0b5e90b13fca / Worker c88179e1-d880-4a19-8988-e041b25a2924。用户此次授权已完成，禁止重复部署。独立2项HTTP+5组真实A会话只读PASS，匿名CSV401，原FAIL保留。整体旅程仍INCOMPLETE；下一优先是真实paid导出与跨workspace拒绝，依赖真实paid会话，新付款仍需授权。不要把两账号UI只读PASS扩张为写API隔离PASS；真实样本/业务输入仍缺，API/Webhook未开工。pairvu-2保持PAUSED，完成汇报需下一步及依赖。证据operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json。

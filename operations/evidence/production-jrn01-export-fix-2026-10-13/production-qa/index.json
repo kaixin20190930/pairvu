@@ -1,0 +1,56 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "createdAt": "2026-10-13T06:06:27.003544Z",
+  "files": {
+    "account-after.ax.txt": {
+      "sha256": "48a06631d00e05bd8e024d0a4df716d76737147c835cfb23afd5dd2ee6d18698",
+      "bytes": 8321
+    },
+    "account-before.ax.txt": {
+      "sha256": "5af36219cfe36460c940929c2bd3f3fdaa31eb897241bcb18afaec2d3854d6aa",
+      "bytes": 8224
+    },
+    "analysis-expanded.ax.txt": {
+      "sha256": "4879b1825dd94ddd2f47b7f3b4a9626c06bf8e425c93b13fd331d1d34ce693a2",
+      "bytes": 35667
+    },
+    "analysis.ax.txt": {
+      "sha256": "99c888555914832fab36bd7769d1dcc13c4910f1bd9f1050a40a08c30354e2ae",
+      "bytes": 33176
+    },
+    "anonymous-batch-export-body.json": {
+      "sha256": "94f52329fae0081ae8bc88617360b2c4d80e8c0ea3d8916d3c8d526cdf81d889",
+      "bytes": 35
+    },
+    "batch.ax.txt": {
+      "sha256": "bac05e358222838b6f5c308173baf6f3ecc9f4ec80258ef68da1144a14f821f6",
+      "bytes": 5207
+    },
+    "functional-report.json": {
+      "sha256": "d44bf2726f17096640dbbca0893a8b9f303f1fb41aa2bc33467dc1018b1174a5",
+      "bytes": 2942
+    },
+    "health-body.json": {
+      "sha256": "6521e1167025d7f910a29157e0f75362e42891bd44994d466be85d213ce6009d",
+      "bytes": 165
+    },
+    "http-report.json": {
+      "sha256": "bbae8c2c8e6c54ea993e92de8ee1ac2ad6aa06fa95eb447c5467d26c989e4458",
+      "bytes": 1729
+    },
+    "product.ax.txt": {
+      "sha256": "adedecf86e3833c82e302b0106b080d7d8f1ad07f3003097cf73e975d2e4204e",
+      "bytes": 8683
+    },
+    "products.ax.txt": {
+      "sha256": "e6137b97f83c278907147e2daa55e29a5707e8bbfde064d83a7611d263861211",
+      "bytes": 5366
+    },
+    "release-target.txt": {
+      "sha256": "5120d7404df4c1cd681489c3a962f682a2b7753f39aa959a32175bc263393dac",
+      "bytes": 2572
+    }
+  }
+}
