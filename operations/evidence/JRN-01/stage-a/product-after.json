@@ -1,0 +1,124 @@
+{
+  "observedAt": "2026-10-12T14:33:12.588Z",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "fields": [
+    {
+      "disabled": false,
+      "label": "Reference view",
+      "type": "select-one",
+      "value": "front"
+    },
+    {
+      "disabled": false,
+      "label": "New approved reference",
+      "type": "file",
+      "value": ""
+    },
+    {
+      "disabled": false,
+      "label": "Product name",
+      "type": "text",
+      "value": "Pairvu QA Synthetic Blue Box 20261010"
+    },
+    {
+      "disabled": false,
+      "label": "SKU",
+      "type": "text",
+      "value": "PAIRVU-QA-SYNTH-20261010"
+    },
+    {
+      "disabled": false,
+      "label": "Brand",
+      "type": "text",
+      "value": "Pairvu QA Synthetic"
+    },
+    {
+      "disabled": false,
+      "label": "Variant",
+      "type": "text",
+      "value": "Blue box v5 QA lifecycle retained draft"
+    },
+    {
+      "disabled": false,
+      "label": "Packaging version",
+      "type": "text",
+      "value": "QA-5"
+    },
+    {
+      "disabled": false,
+      "label": "Capacity",
+      "type": "text",
+      "value": "250"
+    },
+    {
+      "disabled": false,
+      "label": "Unit",
+      "type": "select-one",
+      "value": "ml"
+    },
+    {
+      "checked": false,
+      "disabled": false,
+      "label": "background",
+      "type": "checkbox",
+      "value": "on"
+    },
+    {
+      "checked": false,
+      "disabled": false,
+      "label": "lighting",
+      "type": "checkbox",
+      "value": "on"
+    },
+    {
+      "checked": false,
+      "disabled": false,
+      "label": "shadow",
+      "type": "checkbox",
+      "value": "on"
+    },
+    {
+      "checked": false,
+      "disabled": false,
+      "label": "placement",
+      "type": "checkbox",
+      "value": "on"
+    },
+    {
+      "checked": false,
+      "disabled": false,
+      "label": "camera angle",
+      "type": "checkbox",
+      "value": "on"
+    },
+    {
+      "disabled": true,
+      "label": "Product name",
+      "type": "text",
+      "value": "Pairvu QA Synthetic Blue Box 20261010"
+    },
+    {
+      "disabled": true,
+      "label": "SKU (optional)",
+      "type": "text",
+      "value": "PAIRVU-QA-SYNTH-20261010"
+    }
+  ],
+  "headings": [
+    "Pairvu QA Synthetic Blue Box 20261010",
+    "Use the view that corresponds to the candidate",
+    "Add or replace a corresponding view",
+    "Approved versions",
+    "Associated batches",
+    "Text version 7",
+    "Name, SKU, and lifecycle"
+  ],
+  "images": [
+    {
+      "alt": "Front approved reference for Pairvu QA Synthetic Blue Box 20261010",
+      "complete": true,
+      "naturalWidth": 512,
+      "src": "/api/assets/57e13972-abe1-4607-916a-d72ca98615f6"
+    }
+  ]
+}

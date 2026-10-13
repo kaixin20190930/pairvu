@@ -1,0 +1,83 @@
+{
+  "unitId": "JRN-01",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "observedAt": "2026-10-12T14:38:34.299548+00:00",
+  "environment": "local source inspection",
+  "checks": [
+    {
+      "path": "app/api/batches/route.ts",
+      "markers": {
+        "export async function GET": true,
+        "batchId": true
+      },
+      "interpretation": "Batch GET is collection query with batchId; item route is not the read endpoint."
+    },
+    {
+      "path": "app/api/batches/[batchId]/route.ts",
+      "markers": {
+        "export async function PATCH": true,
+        "export async function DELETE": true
+      },
+      "interpretation": "Item route permits PATCH/DELETE, not GET."
+    },
+    {
+      "path": "app/api/assets/[assetId]/route.ts",
+      "markers": {
+        "canAccessOwnedResource": true,
+        "410": true,
+        "409": true,
+        "503": true,
+        "RequestAccessError": true
+      },
+      "interpretation": "Ownership gate precedes lifecycle; anonymous identity error is 400; deleted/expired410, failed409, binary missing503."
+    },
+    {
+      "path": "lib/releases/policy.ts",
+      "markers": {
+        "selected_checks_incomplete": true,
+        "high_risk_difference": true,
+        "human_approval_required": true,
+        "machine_limitations_present": true
+      },
+      "interpretation": "Completeness applies to all selected checks; machine-only and high-risk/limited sources do not become eligible merely by approval."
+    },
+    {
+      "path": "components/ReviewDecision.tsx",
+      "markers": {
+        "revoke": true,
+        "Refresh review history": true,
+        "Retry same decision request": true
+      },
+      "interpretation": "Normal review UI supports append-only actions with conservative retry and restoration of decision meaning."
+    },
+    {
+      "path": "app/account/products/[productId]/ProductProfileClient.tsx",
+      "markers": {
+        "Save product standard": true,
+        "Load latest and keep draft": true
+      },
+      "interpretation": "Versioned product name/SKU update through standard editor; preserve the remaining profile."
+    },
+    {
+      "path": "app/account/products/[productId]/SavedProductSettingsClient.tsx",
+      "markers": {
+        "Archive product": true,
+        "Restore product": true,
+        "Load latest before confirming": true
+      },
+      "interpretation": "Archive/restore is reversible; current conflict is resolved by reviewing latest before resubmission."
+    },
+    {
+      "path": "app/account/releases/ReleaseWorkbenchClient.tsx",
+      "markers": {
+        "Export this search page": true,
+        "Search": true,
+        "Retry": true
+      },
+      "interpretation": "Free UI gate and bounded search/retry are distinct from authenticated export HTTP behavior."
+    }
+  ],
+  "runtimeTestReruns": 0,
+  "rationale": "No runtime difference from deployed baseline; bound developer originals and limited source checks reused. Fresh production counterexample independently observed; full unchanged suites not rerun.",
+  "limitations": "Source inspection is not production session, paid entitlement, asset HTTP410, frozen JSON identity, or double-account write proof."
+}

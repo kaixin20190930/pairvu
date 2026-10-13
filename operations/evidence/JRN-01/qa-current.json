@@ -1,0 +1,32 @@
+{
+  "unitId": "JRN-01",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "FAIL",
+  "overallProductionJourney": "INCOMPLETE",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "available scope completed",
+      "status": "FAIL",
+      "reason": "Original production CSV failure still requires authorized deployment and targeted recheck; local fix independently PASS."
+    },
+    {
+      "name": "blocked coverage explicitly documented",
+      "status": "PASS"
+    }
+  ],
+  "originalReport": {
+    "path": "operations/evidence/JRN-01/export-fix-qa/jrn-final-after-reread.json",
+    "sha256": "986e96224b651d28873d5d87c384a7c42c3286de950989776005cfa93207d1b7"
+  },
+  "localRepairReport": "operations/evidence/JRN-01/export-fix-qa/repair-local.json",
+  "wrapperNote": "Controller schema adapter; original independent reports preserved unchanged; no production PASS inferred."
+}

@@ -1,0 +1,153 @@
+{
+  "unitId": "JRN-01",
+  "role": "developer",
+  "developerThreadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "sourceBaselineSha": "c5bb59d9db5f243fdd9ffb9b30c6d98a92307c97",
+  "declaredProductionBaseline": {
+    "sha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "workerVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "freshlyObservedByDeveloper": false
+  },
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoningEffort": "medium",
+    "rationale": "Code-backed acceptance document and limited existing regressions.",
+    "escalationCondition": "Substantive cross-module auth/billing/concurrency defect requires separately scoped repair and high reassessment."
+  },
+  "stage": "DEV_READY_PENDING_INDEPENDENT_QA",
+  "overallProductionJourney": "INCOMPLETE",
+  "createdAt": "2026-10-12T14:19:28.412Z",
+  "checks": [
+    {
+      "id": "L01",
+      "command": "pnpm test:m1:workspace-analysis",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "exitCode": 0,
+      "status": "PASS",
+      "scope": "MemoryR2/pure ownership and static migration/credit wiring assertions",
+      "stdout": "/private/tmp/pairvu-jrn01-local/workspace-analysis.txt"
+    },
+    {
+      "id": "L02",
+      "command": "'/Users/liukai/Documents/Product Visual QA Platform/node_modules/.bin/tsx' '/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-retention.ts'",
+      "cwd": "/private/tmp/pairvu-jrn01-local",
+      "exitCode": 0,
+      "status": "PASS",
+      "scope": "FakeD1/FakeR2 deletion, retry and deletion-attempt audit; no asset HTTP execution",
+      "stdout": "/private/tmp/pairvu-jrn01-local/retention.txt",
+      "report": "/private/tmp/pairvu-jrn01-local/eval/real-m0/reports/retention-verification-latest.json"
+    },
+    {
+      "id": "L03",
+      "command": "pnpm exec tsx scripts/verify-release-workbench.ts /private/tmp/pairvu-jrn01-local/release-workbench.json",
+      "cwd": "/Users/liukai/Documents/Product Visual QA Platform",
+      "exitCode": 0,
+      "status": "PASS",
+      "caseCount": 76,
+      "requestCount": 1851,
+      "scope": "Actual local workerd D1/migrations/repos/routes; synthetic session/account/paid boundaries; no production/model/R2/payment",
+      "stdout": "/private/tmp/pairvu-jrn01-local/release-workbench.txt",
+      "report": "/private/tmp/pairvu-jrn01-local/release-workbench.json"
+    },
+    {
+      "command": "git diff --cached --check before commit; document links/scenario IDs/staged scope/hash validation",
+      "status": "PASS",
+      "exitCode": 0,
+      "links": 51,
+      "scenarios": 19
+    }
+  ],
+  "documentValidation": {
+    "linkCount": 51,
+    "localLinksResolve": true,
+    "scenarioIds": [
+      "L01",
+      "L02",
+      "L03",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15",
+      "P16"
+    ]
+  },
+  "sourceHashes": {
+    "app/account/batches/new/BatchCreationClient.tsx": "b038c49e915a8bf65fd670e5edaf3ab34b07827398d931fa397f6558312055c3",
+    "app/account/page.tsx": "5cb2ee5fdcc926f2d0276229ea395ce186cd151491f810f3368760c297c00144",
+    "app/account/products/[productId]/ProductProfileClient.tsx": "eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6",
+    "app/account/products/[productId]/SavedProductSettingsClient.tsx": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb",
+    "app/account/releases/ReleaseWorkbenchClient.tsx": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+    "app/api/analyses/[analysisId]/route.ts": "0820c314882858ac202ad81dfa6ffa683e66599f1f8b471469d0da0bc8dbe543",
+    "app/api/assets/[assetId]/route.ts": "8d6009a7b7f15746a958b8f9d797639770aa0c02f201ae57e83811ca7b45ba30",
+    "app/api/batches/[batchId]/export/route.ts": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f",
+    "app/api/batches/[batchId]/route.ts": "8701366a3c7c5253feedd7c3b4113f52a7910f2cf07bf21422b5e741ed42cf10",
+    "app/api/batches/route.ts": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+    "app/api/products/[productId]/route.ts": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+    "app/api/releases/export/route.ts": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b",
+    "app/api/releases/route.ts": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+    "app/api/releases/status/route.ts": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+    "components/ReviewDecision.tsx": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+    "docs/05-evaluation/core-production-journey-acceptance.md": "5c0279771194cef67c071bd2bc27336365f2b30d17ad3f9f33ddc949cc8206db",
+    "fixtures/release-workbench/sql-worker.mjs": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "lib/assets/deletion.ts": "31b11bad82dcf8e7c6a9fd64620d8dc8973947cb7f1370bc1004fbabe080784b",
+    "lib/assets/repository.ts": "b0fadc1e33411abdba57716b6dbcbf2902fad4a5ee06b9c603cf1ce14a4a55bd",
+    "lib/auth/request-access.ts": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "lib/releases/http.ts": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "lib/releases/repository.ts": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+    "lib/reviews/http.ts": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+    "lib/reviews/repository.ts": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+    "scripts/verify-m1-workspace-analysis.ts": "1e4fce19114902542b0eab6006db3e4933603c49cc73a15b763443e16b6ef12e",
+    "scripts/verify-release-workbench.ts": "65c66c213bd774dce0acd40c149bc7ec8dd1b8c92965eb8f2ed02205b5307d40",
+    "scripts/verify-retention.ts": "a7e25885941d71c93cfb53014feb8c7b01011c80e8bf2edd9a4c0a60fd6170b9"
+  },
+  "evidenceHashes": {
+    "/private/tmp/pairvu-jrn01-local/workspace-analysis.txt": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb",
+    "/private/tmp/pairvu-jrn01-local/retention.txt": "0fa51bf24b6afd790e14f26b3262a8b930ee44c979531e6baa7cae897ea15575",
+    "/private/tmp/pairvu-jrn01-local/release-workbench.txt": "0dfc2c6f718d52d9b92c13bb5b31fb4edc66e987c84ae0a23933cb0d048e4e47",
+    "/private/tmp/pairvu-jrn01-local/release-workbench.json": "ccd88232b9ab069f0c2a2e78f6fd86ba6b9c7d551f6c578c3322c50b923a2a2e",
+    "/private/tmp/pairvu-jrn01-local/eval/real-m0/reports/retention-verification-latest.json": "3a29c3e90a1204ad9258e9df7996c21a52f78b4057eed77f46ee773d7622e4c9"
+  },
+  "limitations": [
+    "No fresh production or real-login observation by developer.",
+    "Local workspace suite is not real D1 transaction proof; retention uses fake storage and is not HTTP 410 proof.",
+    "Release suite synthetic paid/session boundaries do not establish real payment, accounts or production writes.",
+    "Production second-account, paid, complete ELIGIBLE, lifecycle/delete and all-write-path coverage must not be represented as PASS.",
+    "No runtime change/build/typecheck needed for this document-only change; original acceptance is not restated as current complete production PASS."
+  ],
+  "nextAction": {
+    "action": "Controller automatically hands fixed document candidate SHA to the existing independent QA; complete available production scope and retain all blocked subcases.",
+    "dependencies": "Local developer commit; QA normally switches to the confirmed authorized B account and verifies different workspace. Paid/eligible/delete confirmation still require input if unavailable; no second-account absence claim.",
+    "automatic": true
+  },
+  "forbiddenActionsPerformed": false,
+  "accountAvailabilityUpdate": {
+    "source": "operations/evidence/JRN-01/account-availability-sanitized.json",
+    "sha256": "e055159fc83499a028140c6395c90afe966c2ec9d768e3ebb39feda6ad5df59f",
+    "controllerCheckedAt": "2026-10-12T14:14:37.540508+00:00",
+    "secondAccountControlledAndAuthorized": true,
+    "secondUISessionLoginPending": true,
+    "currentPlans": {
+      "A": "free",
+      "B": "free"
+    },
+    "currentPaidAvailable": false,
+    "secretRead": false
+  },
+  "commitDiff": "370d3ecc88e3165d12020943b0d5aee3a42ec77b Document core production journey acceptance and gaps\n .../core-production-journey-acceptance.md          | 110 +++++++++++++++++++++\n 1 file changed, 110 insertions(+)",
+  "workingTreeStatus": " M operations/task-registry.json\n?? operations/evidence/JRN-01/\n"
+}

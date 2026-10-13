@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-10-12T14:46:54.941738+00:00",
+  "fixedWindow": {
+    "start": "2026-09-01T00:00:00.000Z",
+    "end": "2026-10-12T00:00:00.000Z",
+    "startInclusive": true,
+    "endExclusive": true
+  },
+  "fixedMetricDisplayUnchanged": true,
+  "defaultUnknown": 4,
+  "fixedUnknown": 5,
+  "ninetyDayUnknown": 52,
+  "businessIncluded": 0,
+  "testExcluded": 0,
+  "allRatioDenominators": 0,
+  "ratioDisplay": "Not available",
+  "knownCostDisplay": "Not available",
+  "qualityEvidence": false,
+  "valueEvidence": false,
+  "utcInvalidErrorObserved": true,
+  "invalidWindowRemovedCompleteCards": true,
+  "generationModelDisplay": "unknown",
+  "waitingIsNotHumanEffort": true,
+  "businessClassificationNotImported": true,
+  "status": "PASS",
+  "limits": [
+    "No business positive records or test-classified positive cohort were present. Unknown exclusion and empty denominator behavior were observed; test exclusion remains code/local/historical evidence.",
+    "No authenticated API status or headers were extracted; current evidence is actual visible UI."
+  ]
+}

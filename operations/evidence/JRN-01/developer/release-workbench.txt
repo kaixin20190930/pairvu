@@ -1,0 +1,85 @@
+PASS code default remains off/strict and authorized production configuration is enabled
+PASS strict query rejects identities, policy overrides, duplicates, lengths and malformed cursors
+PASS complete actual persisted six-check machine PASS still needs human approval
+PASS actual UPG05 approval snapshot matches deterministic atomic six-check mapping
+PASS anonymous, forged server workspace, foreign owner and inactive workspace fail closed
+PASS approved unknown engine remains blocked
+PASS approved missing risk version remains blocked
+PASS approved unknown model policy remains blocked
+PASS approved running remains blocked
+PASS approved failed remains blocked
+PASS approved missing observations remains blocked
+PASS approved no selected checks remains blocked
+PASS approved unknown prompt remains blocked
+PASS approved failed model call remains blocked
+PASS approved missing model call remains blocked
+PASS approved foreign evidence owner remains blocked
+PASS approved missing original machine timestamp remains blocked
+PASS unknown mismatch cannot masquerade as complete REVIEW without a product issue
+PASS approve + quantity high/critical mismatch cannot release
+PASS approve + logo high/critical mismatch cannot release
+PASS persisted issue severity downgrade is detected
+PASS approved malformed evidence missing_identity fails closed
+PASS approved malformed evidence unknown_guard fails closed
+PASS approved malformed evidence missing_regions fails closed
+PASS approved malformed evidence foreign_regions fails closed
+PASS approved malformed evidence missing_summary fails closed
+PASS approved malformed evidence malformed_visible fails closed
+PASS approved malformed evidence partial fails closed
+PASS machine limitations stay visible and blocked despite approval
+PASS reject and revoke priorities preserve machine PASS
+PASS approved deleted image is unavailable and blocked
+PASS approved expired image is unavailable and blocked
+PASS approved invalid expiry image is unavailable and blocked
+PASS approved failed image is unavailable and blocked
+PASS approval source changed after review cannot remain eligible
+PASS frozen SKU/profile survives current product rename and archive
+PASS invalid frozen snapshot SHA fails closed
+PASS single and batch filters use owned associations and foreign batch yields empty
+PASS atomic SQL snapshot remains old revision even if peer commits before JS evaluation
+PASS actual server page redirects anonymous and rejects feature-off or foreign owner
+PASS actual routes reject anonymous, disabled flag, forged params and foreign owner
+PASS actual paid gate denies free/inactive plans and requires explicit bounded export
+PASS CSV cells protect formulas, Unicode/invisible prefixes and preserve quotes/newlines
+PASS actual CSV exports original machine/frozen versions, rule hash, reason and consistent revision without private actor/note
+release_workbench_read_failed Error: Synthetic local D1 unavailable
+    at LocalD1.send (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:37:173)
+    at Prepared.all (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:28:46)
+    at listReleases (/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-Gz60MH/list.cjs:7039:168)
+    at async Object.GET (/private/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-releases-Gz60MH/list.cjs:7075:45)
+    at async <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:123:126)
+    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:53:77)
+    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/verify-release-workbench.ts:123:5)
+PASS D1 failure becomes no-store 503 rather than empty or eligible
+PASS existing paid batch CSV uses the shared formula/quote/newline protection
+PASS CSV atomic snapshot does not mix a peer review committed after its SELECT
+PASS pending_review and decided filters preserve their documented overlap with blocked
+PASS oversized machine source explicitly blocks rather than quietly truncating evidence
+PASS CSV refuses a page containing incomplete diagnostic source
+PASS frozen snapshot with foreign or missing version binding is blocked
+PASS empty bounded blocked scan continues and finds late matches without silent truncation
+PASS full keyset traversal with tied timestamps has no duplicate or skipped sources
+PASS cursor is tied to ownership and normalized filters
+PASS bounded CSV explicitly exposes scan continuation including an empty window
+PASS rule hash deterministic across evaluations and corresponding CSV response
+PASS QA original 72,656-byte Han evidence is blocked with null source hash and CSV409
+PASS UTF-8 observation exact boundary preserves source/CSV consistency
+PASS UTF-8 observation boundary+1 preserves source/CSV consistency
+PASS UTF-8 issue exact boundary preserves source/CSV consistency
+PASS UTF-8 issue boundary+1 preserves source/CSV consistency
+PASS UTF-8 limitation exact boundary preserves source/CSV consistency
+PASS UTF-8 limitation boundary+1 preserves source/CSV consistency
+PASS UTF-8 input_usage exact boundary preserves source/CSV consistency
+PASS UTF-8 input_usage boundary+1 preserves source/CSV consistency
+PASS UTF-8 output_usage exact boundary preserves source/CSV consistency
+PASS UTF-8 output_usage boundary+1 preserves source/CSV consistency
+PASS UTF-8 input_assets exact boundary preserves source/CSV consistency
+PASS UTF-8 input_assets boundary+1 preserves source/CSV consistency
+PASS UTF-8 selected_checks exact boundary preserves source/CSV consistency
+PASS UTF-8 selected_checks boundary+1 preserves source/CSV consistency
+PASS UTF-8 product_snapshot exact boundary preserves source/CSV consistency
+PASS UTF-8 product_snapshot boundary+1 preserves source/CSV consistency
+PASS UTF-8 review_snapshot exact boundary preserves source/CSV consistency
+PASS UTF-8 review_snapshot boundary+1 preserves source/CSV consistency
+PASS embedded NUL cannot hide a UTF-8 evidence overflow
+PASS: 76 cases, 1851 local D1 requests; /private/tmp/pairvu-jrn01-local/release-workbench.json

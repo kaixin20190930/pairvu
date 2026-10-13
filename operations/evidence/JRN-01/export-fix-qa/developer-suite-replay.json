@@ -1,0 +1,126 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "role": "developer",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "no Cookie/session uses real identity resolver; 401 before entitlement or batch lookup",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session"
+      ]
+    },
+    {
+      "name": "signed-in identity without workspace remains 401 before entitlement",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account"
+      ]
+    },
+    {
+      "name": "Free stays 403; batch params and repository are not read",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement:workspace-owner"
+      ]
+    },
+    {
+      "name": "synthetic paid foreign workspace gets 404 with server-derived workspace",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement:workspace-other",
+        "params",
+        "batch:owned-batch:workspace-other"
+      ]
+    },
+    {
+      "name": "synthetic paid owner gets existing private CSV with formula/quote/newline protection",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement:workspace-owner",
+        "params",
+        "batch:owned-batch:workspace-owner"
+      ]
+    },
+    {
+      "name": "unknown env failure stays generic 500 with no CSV",
+      "status": "PASS",
+      "events": [
+        "env"
+      ]
+    },
+    {
+      "name": "unknown session failure stays generic 500 with no CSV",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session"
+      ]
+    },
+    {
+      "name": "unknown account failure stays generic 500 with no CSV",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account"
+      ]
+    },
+    {
+      "name": "unknown entitlement failure stays generic 500 with no CSV",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement:workspace-owner"
+      ]
+    },
+    {
+      "name": "unknown batch failure stays generic 500 with no CSV",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement:workspace-owner",
+        "params",
+        "batch:owned-batch:workspace-owner"
+      ]
+    },
+    {
+      "name": "error name alone cannot masquerade as RequestAccessError",
+      "status": "PASS",
+      "events": [
+        "env",
+        "session"
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "app/api/batches/[batchId]/export/route.ts": "8f58ea6c6d252b4376bec988ace142468cda6dc11845cd4e4923ae3b5bc6ee82",
+    "lib/auth/request-access.ts": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+    "lib/releases/csv.ts": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+    "scripts/verify-batch-export-auth.ts": "7054dd9248a81cf76cec465b926218e328b9d9aa69ede3c23b4bb655e2f48e15"
+  },
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-batch-export-auth-Yxnr0X",
+  "synthetic": true,
+  "productionVerified": false,
+  "limitations": [
+    "Actual route, NextRequest/NextResponse, RequestAccessError and resolveRequestAccess; session/account/entitlement/batch dependency fixtures only.",
+    "No production, real paid identity, database, model or payment calls; independent fixed-SHA and later authorized production verification remain required."
+  ],
+  "failure": null
+}

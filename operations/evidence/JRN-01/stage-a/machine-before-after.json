@@ -1,0 +1,9 @@
+{
+  "observedAt": "2026-10-12T14:43:28.229618+00:00",
+  "status": "PASS",
+  "machineSectionsUnchanged": true,
+  "provenanceUnchanged": true,
+  "imageRenderDimensionsAndAvailabilityUnchanged": true,
+  "ephemeralBlobUrlsChanged": true,
+  "limit": "Raw whole-object equality is false because reopening creates new local blob URLs; those are retained in originals and are not machine-source identity. No pixel-byte digest or production DB comparison was performed. Exact original machine-source and reviewed-snapshot hashes are independently visible in release UI."
+}

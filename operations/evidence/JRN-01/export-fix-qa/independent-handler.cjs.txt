@@ -1,0 +1,52 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { createRequire } = require('node:module');
+const { createHash } = require('node:crypto');
+
+(async () => {
+  const project = process.cwd();
+  const projectRequire = createRequire(path.join(project, 'package.json'));
+  const wranglerRequire = createRequire(projectRequire.resolve('wrangler/package.json'));
+  const esbuild = wranglerRequire('esbuild');
+  const { NextRequest } = projectRequire('next/server');
+  const routePath = path.join(project, 'app/api/batches/[batchId]/export/route.ts');
+  const bundleDir = fs.mkdtempSync(path.join(os.tmpdir(), 'pairvu-jrn-independent-'));
+  const bundlePath = path.join(bundleDir, 'route.cjs');
+  const stubs = {
+    '@/lib/cloudflare/bindings': `export function getVisualQAEnv(){let s=globalThis.__jrnIndependent;s.events.push('env');return {VISUALQA_DB:{}}}`,
+    '@/lib/auth/server': `export function createPairvuAuth(){return {api:{async getSession(){let s=globalThis.__jrnIndependent;s.events.push('session');if(!s.signedIn)return null;return {user:{id:'qa-user',name:'QA',email:'qa@example.test'}}}}}}`,
+    '@/lib/accounts/repository': `export async function getWorkspaceAccountSnapshot(){let s=globalThis.__jrnIndependent;s.events.push('account');return {workspaceId:s.workspace,retentionDays:7}}export async function getWorkspaceBatchEntitlement(){let s=globalThis.__jrnIndependent;s.events.push('entitlement');if(s.namedFailure){let e=new Error('ordinary infrastructure failure');e.name='RequestAccessError';throw e}return {csvExportEnabled:s.paid}}`,
+    '@/lib/batches/repository': `export async function getBatchById(db,id,workspace){let s=globalThis.__jrnIndependent;s.events.push('batch:'+workspace);return id==='qa-batch'&&workspace==='owner'?{id:'qa-batch',workspaceId:'owner',profileState:'no_profile',productSnapshot:null,items:[{position:0,status:'completed',verdict:'review',issueCount:0,limitationCount:1,clientLabel:'qa image',completedAt:'2026-10-12T00:00:00.000Z',analysisId:'qa-analysis'}]}:null}`
+  };
+  await esbuild.build({entryPoints:[routePath],outfile:bundlePath,bundle:true,platform:'node',format:'cjs',plugins:[{name:'independent-boundary-fixtures',setup(build){build.onResolve({filter:/^@\//},args=>stubs[args.path]?{path:args.path,namespace:'qa-fixture'}:undefined);build.onLoad({filter:/.*/,namespace:'qa-fixture'},args=>({contents:stubs[args.path],loader:'js',resolveDir:project}));}}]});
+  const route = require(bundlePath);
+  const checks = [];
+  async function run(name, state, expected, expectedError, expectedEvents, options={}) {
+    const fixture = globalThis.__jrnIndependent = {signedIn:false,workspace:null,paid:false,namedFailure:false,events:[],...state};
+    let logged=0;const old=console.error;console.error=()=>{logged++};
+    let response;
+    try {
+      const context = {get params(){fixture.events.push('params');return options.paramsReject?Promise.reject(new Error('param loader failed')):Promise.resolve({batchId:'qa-batch'})}};
+      response=await route.GET(new NextRequest('https://qa.invalid/api/batches/qa-batch/export'),context);
+    } finally {console.error=old}
+    assert.equal(response.status,expected,name);
+    assert.deepEqual(fixture.events,expectedEvents,name+' gate order');
+    assert.equal(response.headers.get('content-disposition')===null,expected!==200,name+' CSV disposition');
+    if(expectedError){const json=await response.json();assert.equal(json.error,expectedError,name+' error');assert.equal(logged,expected===500?1:0,name+' logging')}
+    else {assert.match(await response.text(),/"qa-batch","1","qa image","completed","REVIEW"/);assert.equal(response.headers.get('cache-control'),'private, no-store')}
+    checks.push({name,status:'PASS',httpStatus:expected,events:fixture.events,errorCode:expectedError||null,consoleErrors:logged});
+  }
+  await run('anonymous real resolver class',{},401,'authentication_required',['env','session']);
+  await run('signed in without workspace',{signedIn:true},401,'authentication_required',['env','session','account']);
+  await run('Free before batch lookup',{signedIn:true,workspace:'owner'},403,'csv_export_upgrade_required',['env','session','account','entitlement']);
+  await run('paid foreign source bound to session workspace',{signedIn:true,workspace:'foreign',paid:true},404,'batch_not_found',['env','session','account','entitlement','params','batch:foreign']);
+  await run('paid owner existing CSV',{signedIn:true,workspace:'owner',paid:true},200,null,['env','session','account','entitlement','params','batch:owner']);
+  await run('ordinary Error named RequestAccessError stays 500',{signedIn:true,workspace:'owner',paid:true,namedFailure:true},500,'csv_export_failed',['env','session','account','entitlement']);
+  await run('unexpected params failure stays 500',{signedIn:true,workspace:'owner',paid:true},500,'csv_export_failed',['env','session','account','entitlement','params'],{paramsReject:true});
+  delete globalThis.__jrnIndependent;
+  const report={unitId:'JRN-01-EXPORT-FIX',role:'independent QA',candidateSha:'50341a7827037eb70505cdc34c93ebb988f89f34',status:'PASS',realHandler:true,realIdentityResolver:true,syntheticDependencies:['session','account','entitlement','batch'],sourceHashSha256:createHash('sha256').update(fs.readFileSync(routePath)).digest('hex'),checks,productionVerified:false};
+  fs.writeFileSync('/tmp/pairvu-jrn01-export-fix-qa/independent-handler-results.json',JSON.stringify(report,null,2)+'\n');
+  process.stdout.write(JSON.stringify({status:report.status,cases:checks.length,statuses:checks.map(c=>c.httpStatus)})+'\n');
+})().catch(error=>{console.error(error);process.exitCode=1});

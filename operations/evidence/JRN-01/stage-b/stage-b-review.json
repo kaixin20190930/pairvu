@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:26:25.582889+00:00",
+  "stage": "B_READ_ISOLATION_COMPLETE",
+  "result": "FAIL",
+  "stageBReadIsolationResult": "PASS_SCOPED_UI",
+  "overallProductionJourney": "INCOMPLETE",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "available B readonly scope completed",
+      "status": "PASS"
+    },
+    {
+      "name": "blocked coverage explicitly documented",
+      "status": "PASS"
+    },
+    {
+      "name": "overall production acceptance",
+      "status": "FAIL",
+      "reason": "Original production CSV 500 remains unresolved in deployed release."
+    }
+  ],
+  "production": {
+    "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "bindingSource": "Stage A actual /api/health 200 at 2026-10-12T14:24Z and controller-declared unchanged deployment; no fresh B health response",
+    "httpStatusesForBPrivateRoutesObserved": false,
+    "deploymentPerformed": false
+  },
+  "stageB": {
+    "normalBSessionObserved": true,
+    "accountIdentityArchivedAsAliasOnly": true,
+    "differentWorkspaceCorroboration": "Sanitized controller D1 account availability plus real B personal workspace and A-resource denials; exact workspace IDs not exposed in UI archive",
+    "ownProductListEmpty": true,
+    "aProductDetailVisible404": true,
+    "ownBatchListEmpty": true,
+    "aBatchRestoreBatchNotFound": true,
+    "aAnalysisForeignWorkspaceMessage": true,
+    "aMachineAndHumanControlsAbsent": true,
+    "releaseDefaultCount": 0,
+    "releaseAExactSkuBatchCount": 0,
+    "bPlan": "Free",
+    "bAvailableBefore": 10,
+    "bAvailableAfter": 10,
+    "bUsedBeforeAfter": 0,
+    "bReservedBeforeAfter": 0,
+    "bHistoryEmptyBeforeAfter": true,
+    "mutatingActions": 0
+  },
+  "originalProductionFailure": {
+    "id": "P02.batchExport / P10.anonymousBatchExport",
+    "expected": "401 authentication_required",
+    "actual": "500 csv_export_failed",
+    "status": "OPEN",
+    "stageAOriginal": "operations/evidence/JRN-01/stage-a/failure-anonymous-batch-export.json",
+    "localFixIsNotDeployedProductionProof": true
+  },
+  "limits": [
+    "Private route HTTP statuses were not captured; product 404 is visible page content only.",
+    "Read denials do not prove cross-workspace write rejection.",
+    "Free CSV disabled does not prove paid foreign-export isolation.",
+    "B has no own positive analysis, so no bilateral analysis read comparison.",
+    "A post-B relogin and reread pending.",
+    "Direct asset HTTP authorization was not tested in B.",
+    "The earlier B /api/health browser navigation was client-blocked; its former temporary original was unavailable after environment renewal. No health bypass or fabricated result.",
+    "A preliminary temporary B directory disappeared across environment renewal; only fresh observations in this stage-b directory are indexed. Stage A originals remain preserved in repository."
+  ],
+  "forbiddenActions": {
+    "sessionOrCookieExtracted": false,
+    "networkFetchInBrowser": false,
+    "remoteD1Used": false,
+    "modelsInvoked": 0,
+    "payments": 0,
+    "permanentDeletions": 0,
+    "sharedRepositoryWrites": false,
+    "codeEdits": false,
+    "commits": false,
+    "deployments": false,
+    "otherThreadsMessaged": false
+  },
+  "coverage": {
+    "path": "/tmp/pairvu-jrn01-qa/stage-b/coverage-stage-b.json",
+    "sha256": "c20dd40aafecc4ba462d3fe8d87c45b1e60dfb53853c9f777cd7becd88d6692f"
+  },
+  "nextAction": {
+    "action": "Controller incorporates scoped B read result, independently accepts local CSV repair commit, and keeps original production failure open until authorized GitHub-first release and targeted production retest. A post-B reread requires normal A login if full round-trip evidence is required.",
+    "dependency": "CSV release authorization and exact remote-commit validation; normal A login for optional reread; real paid input for export-positive proof.",
+    "automatic": "Controller can process evidence and local repair acceptance automatically; release and account switch require user input/authorization."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:28:58.186233+00:00",
+  "result": "FAIL",
+  "overallProductionJourney": "INCOMPLETE",
+  "implementation": {
+    "fix": "LOCAL_QA_PASS",
+    "evidence": {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/repair-local.json",
+      "sha256": "27ef95f73a7df5d2f9fd975bca9e99e56e4d9a5881333debaa7f79fb29effb94"
+    }
+  },
+  "deployment": {
+    "productionBuildShaFromStageAHealth": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "platformVersionFromStageAHealth": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "newCandidateProductionVerified": false,
+    "reviewerDeployed": false
+  },
+  "featureEnablement": {
+    "changed": false
+  },
+  "acceptance": {
+    "stageBReadIsolation": "PASS_SCOPED_UI",
+    "stageBReview": {
+      "path": "/tmp/pairvu-jrn01-qa/stage-b/stage-b-review.json",
+      "sha256": "dca14392b0078067124e5c8a4b348b0e78942b84e3db7920b5f89713e5888f25"
+    },
+    "originalAnonymousCsv": "FAIL_OPEN",
+    "originalFailure": "operations/evidence/JRN-01/stage-a/failure-anonymous-batch-export.json",
+    "paidExport": "BLOCKED",
+    "crossWorkspaceWrite": "BLOCKED",
+    "AAfterBSwitchReread": "PENDING_NORMAL_UI_SWITCH"
+  },
+  "nextAction": {
+    "action": "Controller retains original production FAIL, records local fix PASS, then follows user-authorized next steps. A post-B reread via normal UI is pending; production release requires explicit authorization.",
+    "dependency": "Normal A account switch for readback; release authorization for deployment.",
+    "automatic": "QA attempts normal UI account switch; controller can process local result automatically."
+  }
+}

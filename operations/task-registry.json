@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "JRN-01",
-  "baselineSha": "eb7c279ca1015d4f25a9009c5ef1c72d15e9e424",
+  "baselineSha": "c5bb59d9db5f243fdd9ffb9b30c6d98a92307c97",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
-      "model": "gpt-6.1-sol",
+      "model": "gpt-6-sol",
       "thinking": "medium",
-      "reason": "已有实现的精确场景梳理与有限回归，范围明确",
-      "upgradeCondition": "跨模块安全/计费/并发缺陷进入独立修复单后重评high",
+      "reason": "原Sol6.1容量不足；本轮仅明确单路由修复与有限验证，使用工具可用通用Sol备选，不因环境问题升级最高模型",
+      "upgradeCondition": "重复可定位鉴权推理缺陷才重新评估high；容量问题单独处理",
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "63a5f94a-4031-4617-aba3-fe6eb9db31c5:34",
+    "afterCursor": "23beb2e0-1e0a-45d1-bea7-0733eac50ccd:10",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -29,13 +29,13 @@
     "hostId": "local",
     "clientThreadId": null,
     "modelSelection": {
-      "model": "gpt-6.1-sol",
+      "model": "gpt-6-sol",
       "thinking": "high",
-      "reason": "真实生产身份、快照、人审资格及隔离需跨层独立核对",
-      "upgradeCondition": "同类实质推理缺口重复且缩域仍不足才重评；账号/环境问题不升级",
-      "applied": false
+      "reason": "B真实隔离与后续固定SHA鉴权复验需要跨层推理；使用工具可用Sol备选恢复原中断角色",
+      "upgradeCondition": "缩域后仍出现具体推理不足才重评更高模型；环境/会话问题不升级",
+      "applied": true
     },
-    "afterCursor": "973e0d28-4acf-4320-bf75-b44ba12d9e0c:95",
+    "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:42",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -76,10 +76,10 @@
     ],
     "receipt": "operations/evidence/UPG-10.json"
   },
-  "candidateSha": null,
-  "state": "SCOPED",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "state": "QA_FAIL",
   "automationId": "pairvu-2",
-  "notes": "启动JRN-01；本轮清单与可执行范围交付不等于完整生产旅程PASS。运行时修复另按明确契约固定SHA验收，发布需新授权。",
+  "notes": "A/B/A真实只读隔离通过；修复50341a7本地独立PASS，未推送/部署。整体JRN保持QA_FAIL以保留生产原FAIL；不关闭、不恢复巡检。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -192,9 +192,9 @@
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
   "nextAction": {
-    "action": "原开发清单和本地回归→固定SHA独立QA及实际生产可执行项目；FAIL返工",
-    "dependency": "第二账号/付费会话/付款授权缺口单列，不阻塞其他项目",
-    "automatic": true
+    "action": "授权后GitHub-first发布已独立通过的CSV修复，再完成生产针对性复验",
+    "dependency": "本次修复明确发布授权；paid/写隔离/eligible/删除/付款缺口另列",
+    "automatic": false
   },
   "completedUnitId": "UPG-10",
   "completedCandidateSha": "3f6447c1c5e3af159ae86be3f7a413a31db1a169",
@@ -281,5 +281,38 @@
     "latestReceipt": "operations/evidence/security-upg10-2026-10-12/incident-current.json",
     "newTokenStatus": "ACTIVE",
     "residualFollowUp": "HUMAN-05"
+  },
+  "journeyFailure": {
+    "status": "OPEN",
+    "case": "P02.batchExport",
+    "productionSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "evidence": "operations/evidence/JRN-01/failure-anonymous-batch-export-original.json",
+    "sha256": "cbcb85181ed7b5129a9868e6d7bea2659f28fe569e4e70bdd54e78b71e40fffa",
+    "repairContract": "operations/contracts/JRN-01-EXPORT-FIX.md",
+    "productionReleaseAuthorized": false,
+    "localRepair": "PASS",
+    "production": "FAIL_OPEN"
+  },
+  "repair": {
+    "contract": "operations/contracts/JRN-01-EXPORT-FIX.md",
+    "state": "LOCAL_QA_PASS_RELEASE_AUTHORIZATION_PENDING",
+    "parentFailureEvidence": "operations/evidence/JRN-01/stage-a/stage-a-review.json",
+    "productionReleaseAuthorized": false,
+    "qaModelSelection": {
+      "model": "gpt-6-sol",
+      "thinking": "high",
+      "reason": "B真实隔离与后续固定SHA鉴权复验需要跨层推理；使用工具可用Sol备选恢复原中断角色",
+      "upgradeCondition": "缩域后仍出现具体推理不足才重评更高模型；环境/会话问题不升级",
+      "applied": true
+    },
+    "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+    "independentEvidence": "operations/evidence/JRN-01/export-fix-qa/repair-local.json"
+  },
+  "secondAccountLogin": {
+    "authorized": true,
+    "status": "VERIFIED_B_AND_NORMAL_RETURN_TO_A",
+    "identityConfirmation": "user-confirmed-controlled-B",
+    "handoff": "Google existing B account verify identity page; no credentials requested in chat",
+    "isolationAcceptance": "PASS_SCOPED_UI_READ_ONLY"
   }
 }

@@ -1,4 +1,14 @@
-# Pairvu 项目整体进展（更新于2026-10-12）
+# Pairvu 项目整体进展（更新于2026-10-13）
+
+## JRN-01 核心生产旅程补验（2026-10-13）
+
+原账号A的产品生命周期、冻结快照、人审批准/拒绝/撤销及恢复、筛选/重试、指标窗口和额度对照已执行；新增文本v7和人审revision4–6保留，最终产品active、人审None/revoke revision6、原机器来源哈希不变、额度6/4/0。真实B已登录，8项可执行只读隔离检查通过；B不能看到A指定产品、批次、分析、人审控件和发布记录，额度10/0/0且无历史保持。再经正常Google选择器切回A，资源/冻结v5与参考v1、机器与规则来源、审核和额度复读通过。仅限UI只读；页面404不冒充捕获的HTTP状态或跨账号写API验证。
+
+发现一个真实生产缺陷：匿名批次CSV返回500，应401，未见CSV泄漏。原开发最小修复候选 `50341a7827037eb70505cdc34c93ebb988f89f34` 已提交；11项开发专项/typecheck/lint/build通过，独立11项重放+7项真实handler反例、typecheck/lint通过。模型容量中断后复用原角色，以gpt-6-sol/medium开发、high验收恢复，未重复创建。修复仅本地独立PASS，未推送或部署；生产仍 `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c` / Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。
+
+正式control已记录候选50341a7的整体QA_FAIL，原因是原生产问题未实际发布修复及复验。保留原FAIL，不把本地修复PASS或账号只读PASS写成整个生产旅程PASS。JRN-01整体仍INCOMPLETE；原独立报告及哈希归档在 [JRN-01证据](../../operations/evidence/JRN-01/qa-current.json)，[修复独立报告](../../operations/evidence/JRN-01/export-fix-qa/repair-local.json)。
+
+下一步优先发布已验收的最小CSV修复：需要用户明确授权，再提交发布材料、推GitHub、fresh fetch核验精确提交、同SHA Cloudflare部署、独立匿名/登录针对性复验。没有授权时不自动发布、不恢复pairvu-2。后续缺口分别为当前真实paid/正向CSV、跨workspace写入及paid导出隔离、完整ELIGIBLE正向素材、已授权到期/精确可删素材及永久删除确认、真实付款/加量包验收。UPG-07真实授权双标样本仍缺；UPG-08 API/UPG-09 Webhook仍待契约及依赖。
 
 UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 
@@ -26,7 +36,7 @@ UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、�
 
 本地浏览器使用实际组件/CSS与合成API/导航夹具；API/SSR/DB另行本地验证。归档源码构建因无Git元数据嵌入SHA unknown，仅为本地固定源码构建成功，不是可部署的GitHub-first发布产物。该本地验收阶段未做生产登录、模型调用、付款或真实业务分类；后续本轮已补真实登录验收，仍未进行模型调用、付款或业务分类。
 
-[独立原报告](../../operations/evidence/UPG-10.json)、[56份原始材料与摘要映射](../../operations/evidence/UPG-10/archive-index.json)、[指标与分类口径](../01-architecture/value-metrics-contract.md)、[开发自测与失败记录](../../fixtures/value-metrics/validation/README.md)。正式CLI已完成生产证据导入→PROD_VERIFIED→CLOSED，当前没有运行中的开发/QA。
+[独立原报告](../../operations/evidence/UPG-10.json)、[56份原始材料与摘要映射](../../operations/evidence/UPG-10/archive-index.json)、[指标与分类口径](../01-architecture/value-metrics-contract.md)、[开发自测与失败记录](../../fixtures/value-metrics/validation/README.md)。UPG-10正式CLI已完成生产证据导入→PROD_VERIFIED→CLOSED；当前JRN-01本地修复独立通过、生产原FAIL保留，等待发布授权。
 
 ## 哪些失败已修，哪些仍未验证
 

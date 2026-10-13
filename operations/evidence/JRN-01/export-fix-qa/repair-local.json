@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01-EXPORT-FIX",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "baselineSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:28:58.186233+00:00",
+  "result": "PASS",
+  "scope": "Exact-commit independent local acceptance; no production verification",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "evidence": {
+        "path": "/tmp/pairvu-jrn01-export-fix-qa/fixed-source-and-developer-evidence.json",
+        "sha256": "02d7c08720fbd938a5d72899ad2a3bca343e9373d3b927e96d80afa717bfed21"
+      }
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "available scope completed",
+      "status": "PASS",
+      "detail": "11 specialized replay and 7 independent actual-handler checks; independent typecheck, scoped lint, diff check exit 0; developer build evidence hash verified, no duplicate build."
+    },
+    {
+      "name": "blocked coverage explicitly documented",
+      "status": "PASS",
+      "detail": "Paid, owner and foreign branches use synthetic session/account/entitlement/batch dependencies; no real paid production account."
+    }
+  ],
+  "handlerValidation": {
+    "actualRouteExecuted": true,
+    "actualRequestAccessResolverExecuted": true,
+    "actualNextRequestAndNextResponseExecuted": true,
+    "syntheticDependencies": [
+      "session",
+      "account",
+      "entitlement",
+      "batch"
+    ],
+    "specializedReplayCases": 11,
+    "independentCases": 7,
+    "independentStatuses": [
+      401,
+      401,
+      403,
+      404,
+      200,
+      500,
+      500
+    ],
+    "ordinaryNamedErrorStill500": true,
+    "unexpectedParamsFailureStill500": true,
+    "freeBeforeBatchLookup": true,
+    "foreignUsesServerWorkspace": true,
+    "ownerCsvPrivateNoStore": true,
+    "denialHasNoCsv": true
+  },
+  "staticChecks": {
+    "typecheckExitCode": 0,
+    "scopedLintExitCode": 0,
+    "diffCheckExitCode": 0,
+    "developerBuildExitCode": 0,
+    "developerBuildOriginalHashVerified": true,
+    "independentBuildRerun": false
+  },
+  "evidence": [
+    {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/developer-suite-replay.json",
+      "sha256": "924872a469fe5624d1b94356af196ce61daf58617f67f0785bb3c01e290f61a7"
+    },
+    {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/independent-handler-results.json",
+      "sha256": "3e9abcbe6d20011ea5855f7f9ebaaa7f49d7b1a758672c78236cccf9f8a8f94a"
+    },
+    {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/independent-handler.cjs",
+      "sha256": "be2b42c648acf7dd24fb9f9b495c6f086cf98905d2de68938bb02b74fbb6b5fe"
+    },
+    {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/fixed-source-and-developer-evidence.json",
+      "sha256": "02d7c08720fbd938a5d72899ad2a3bca343e9373d3b927e96d80afa717bfed21"
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-developer-validation.json",
+      "sha256": "7c01310872eb193a5bfa1c2029ec2c65267fd815a2035a4c51d10c00180e0c43"
+    }
+  ],
+  "limitations": [
+    "Actual committed handler and resolver were executed with isolated dependencies; no real paid production session or database.",
+    "Original production anonymous batch CSV 500 remains open until authorized same-commit deployment and targeted production retest.",
+    "Controller-owned shared repository changes were preserved untouched."
+  ],
+  "forbiddenActions": {
+    "credentialsRead": false,
+    "sessionOrCookieExtracted": false,
+    "remoteD1Used": false,
+    "payments": 0,
+    "modelsInvoked": 0,
+    "codeEdits": false,
+    "sharedRepositoryWrites": false,
+    "commits": false,
+    "pushes": false,
+    "deployments": false,
+    "otherThreadsMessaged": false
+  },
+  "nextAction": {
+    "action": "Controller records local PASS for exact commit and holds runtime at RELEASE_READY; production release needs separate authorization and GitHub-first checks.",
+    "dependency": "Release authorization, remote exact commit, same-commit deploy and production smoke.",
+    "automatic": "Local result processing automatic; release needs user input."
+  }
+}

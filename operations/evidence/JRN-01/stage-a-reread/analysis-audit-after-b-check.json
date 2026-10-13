@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-10-13T05:31:25.739Z",
+  "url": "https://pairvu.com/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+  "accountAlias": "A",
+  "machineVerdictReview": true,
+  "noProductIssues": true,
+  "currentDecisionNoneRevision6": true,
+  "auditLatest6": true,
+  "actions1to6": [
+    {
+      "action": "Revision 1 · approve",
+      "present": true
+    },
+    {
+      "action": "Revision 2 · reject",
+      "present": true
+    },
+    {
+      "action": "Revision 3 · revoke",
+      "present": true
+    },
+    {
+      "action": "Revision 4 · approve",
+      "present": true
+    },
+    {
+      "action": "Revision 5 · reject",
+      "present": true
+    },
+    {
+      "action": "Revision 6 · revoke",
+      "present": true
+    }
+  ],
+  "qaEngine": true,
+  "riskPolicy": true,
+  "modelPolicy": true,
+  "providerPrompt": true,
+  "referenceImageVisible": true,
+  "candidateImageVisible": true
+}

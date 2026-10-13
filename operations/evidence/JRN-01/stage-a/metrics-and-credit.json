@@ -1,0 +1,61 @@
+{
+  "observedAt": "2026-10-12T14:46:54.941738+00:00",
+  "fixedWindow": {
+    "start": "2026-09-01T00:00:00.000Z",
+    "end": "2026-10-12T00:00:00.000Z",
+    "startInclusive": true,
+    "endExclusive": true
+  },
+  "fixedMetricDisplayUnchanged": true,
+  "defaultUnknown": 4,
+  "fixedUnknown": 5,
+  "ninetyDayUnknown": 52,
+  "businessIncluded": 0,
+  "testExcluded": 0,
+  "allRatioDenominators": 0,
+  "ratioDisplay": "Not available",
+  "knownCostDisplay": "Not available",
+  "qualityEvidence": false,
+  "valueEvidence": false,
+  "utcInvalidErrorObserved": true,
+  "invalidWindowRemovedCompleteCards": true,
+  "generationModelDisplay": "unknown",
+  "waitingIsNotHumanEffort": true,
+  "businessClassificationNotImported": true,
+  "status": "PASS",
+  "limits": [
+    "No business positive records or test-classified positive cohort were present. Unknown exclusion and empty denominator behavior were observed; test exclusion remains code/local/historical evidence.",
+    "No authenticated API status or headers were extracted; current evidence is actual visible UI."
+  ],
+  "accountBefore": {
+    "observedAt": "2026-10-12T14:24:42.189Z",
+    "accountAlias": "A",
+    "expectedIdentityConfirmed": true,
+    "plan": "Free",
+    "available": 6,
+    "used": 4,
+    "reserved": 0,
+    "retentionDays": 7,
+    "targetAnalysis": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+    "targetSummary": "REVIEW; 11 review items; Oct 11 2026 08:29 UTC; Images available",
+    "otherExpiredHistoryVisible": true
+  },
+  "accountAfter": {
+    "observedAt": "2026-10-12T14:49:12.573Z",
+    "accountAlias": "A",
+    "expectedIdentityConfirmed": true,
+    "plan": "Free",
+    "available": 6,
+    "used": 4,
+    "reserved": 0,
+    "retentionDays": 7,
+    "targetAnalysis": "batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+    "targetSummary": "REVIEW\n11 review items\nOct 11, 2026, 8:29 AM UTC\nImages available",
+    "signOutButtonVisible": true
+  },
+  "balanceUnchanged": true,
+  "analysisModelInvocations": 0,
+  "humanReviewWrites": 3,
+  "productSuccessfulMutations": 4,
+  "paymentOperations": 0
+}

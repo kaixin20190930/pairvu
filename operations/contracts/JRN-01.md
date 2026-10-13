@@ -25,3 +25,6 @@
 
 ## 固定回传与总控
 QA结构含unitId,candidateSha,reviewerThreadId,result,checks（fixed candidate SHA、independent QA report、available scope completed、blocked coverage explicitly documented）；报告总结果只针对已定义清单交付。独立coverage逐条保留FAIL/BLOCKED，overallProductionJourney=INCOMPLETE只要有生产缺口；不把证据报告PASS写成整体生产PASS。遇可修产品FAIL先返开发修复；报告不得掩盖未解决FAIL后关闭。总控wait_threads/afterCursor持续回收，完成立即read_thread，原FAIL保留。正式CLI推进，禁止手改control；pairvu-2继续PAUSED。最终更新整体进度、缺口及下一步自动或需用户输入。
+
+## 独立FAIL后的明确修复范围
+2026-10-12 A阶段独立FAIL已正式导入并rework，原报告operations/evidence/JRN-01/stage-a/stage-a-review.json。运行时最小修复严格按JRN-01-EXPORT-FIX.md，复用原角色；这是本轮发现失败的明确修复契约，不扩大功能。JRN-01仍为旅程交付跟踪，不因本地修复PASS就close；生产原FAIL持续开放，直至另获发布授权并实际复验。B真实登录仍需用户完成。

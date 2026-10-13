@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "stage": "B_PRODUCTION_READ_ISOLATION",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "productionBuildShaFromPriorStageAHealth": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "platformVersionFromPriorStageAHealth": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+  "createdAt": "2026-10-13T05:26:25.582889+00:00",
+  "checks": [
+    {
+      "id": "P15.BIdentityAndBaseline",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "Normal B session showed a personal Free workspace, 10 available, 0 used, 0 reserved, and empty recent checks. Account identity was observed in UI and redacted from archive. Sanitized controller availability confirms two separate accounts/workspaces; this report does not expose account identifiers.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/account-before.json",
+          "sha256": "8cbcbdb53c5c9ac9c31d46f9a073d21b21d1ad3d38cdf07e1f8bfac2dba8d251"
+        },
+        "operations/evidence/JRN-01/account-availability-sanitized.json"
+      ]
+    },
+    {
+      "id": "P15.BProductList",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "No Saved Products; A synthetic product absent.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/products-list.json",
+          "sha256": "3f32566ad5040551303afc66eb22caa497f09bb19bef3aeadb00fa987fcb37e2"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/products-empty.png",
+          "sha256": "14ba66c20f0f527b1a28237656c72f01258676466594637cdb7230e6f48e53d7"
+        }
+      ]
+    },
+    {
+      "id": "P15.AProductDirectAsB",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "Known A product detail rendered 404 page; no A product fields or reference history visible. HTTP response status not captured.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-product-direct-denied.json",
+          "sha256": "1820eb789f9454c26de4550d40eadf0cd5bacad4aaf89d9accfb12998039094b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-product-denied.png",
+          "sha256": "581a0fb62a3b2d2b9b8b3521e4c3a0a258b30eb55bbcac20f1ea16f6abdbe442"
+        }
+      ]
+    },
+    {
+      "id": "P15.BBatchList",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "No batches yet; A batch absent.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/batches-list.json",
+          "sha256": "eb79ef843e3f2e0bfe6df15778f423e8cc6048dc8e92d870e68e6dd086724971"
+        }
+      ]
+    },
+    {
+      "id": "P15.ABatchDirectAsB",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "Known A batch URL finished restore with Batch not found; no saved result shown. HTTP response status not captured.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-batch-direct-denied.json",
+          "sha256": "0b22eb1b3820f54f85ab35e43f10aa2ee10731b500492cc908f6661baab0acc1"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-batch-denied.png",
+          "sha256": "9be85c77726e38585589fb11834b2d6d6a8389e74ed64e5de36b65974b41b04e"
+        }
+      ]
+    },
+    {
+      "id": "P15.AAnalysisAndHumanReviewAsB",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "Known A analysis URL said result belongs to a workspace unavailable in current session; A machine verdict and human-review controls absent. No review action attempted.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-analysis-direct-denied.json",
+          "sha256": "465b272be8d621441a45f78565ddabe39bdf60003f309ed3cad8eedc5abb487d"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-analysis-controls.json",
+          "sha256": "0da86c4e8168a55721562c7470e7e64898fee8c5d288c4d6b692f393a211fc09"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/a-analysis-denied.png",
+          "sha256": "b15562d2511b45c8aca195c987f0ac00c7d31267618152aa3672d9489e4b52c9"
+        }
+      ]
+    },
+    {
+      "id": "P15.BReleaseWorkbench",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "Default 0 records; exact A frozen SKU and batch search still 0. Free CSV button disabled, which is a plan gate only.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/releases-default.json",
+          "sha256": "e3ebad6e60ba9c78d4b5de0bf0a4d4d3f119e5a7b6421f7651f7a8bcaa47fd58"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/releases-a-filter.json",
+          "sha256": "c1783873d6de580b130fb57113346bec820294848c60ff98e9bd416a4e8c7755"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/releases-a-filter-query.json",
+          "sha256": "03e60a41760105da0b9eadfaa6f7c074d9d70f61e17e807c7d947b35d2ba1e43"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/releases-a-filter-empty.png",
+          "sha256": "a4d593f44f63b9cad89dd3debe63231f1c6f083221af4bf50202aacb75273dbf"
+        }
+      ]
+    },
+    {
+      "id": "P15.BCreditsAndHistoryUnchanged",
+      "status": "PASS",
+      "environment": "production UI",
+      "actual": "After readonly checks B remained Free, available 10, used 0, reserved 0, empty history.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/account-before.json",
+          "sha256": "8cbcbdb53c5c9ac9c31d46f9a073d21b21d1ad3d38cdf07e1f8bfac2dba8d251"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/account-after.json",
+          "sha256": "8bdaaf18fc1910b7a70518fff48cf52d85e44d3050a5f2e75d51f33965f99bf1"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-b/account-before-after.json",
+          "sha256": "6056adc0ce580641d658f48bc1b4da34751cdbeb826b0198592af604443483d6"
+        }
+      ]
+    },
+    {
+      "id": "P15.CrossWorkspaceWriteIsolation",
+      "status": "BLOCKED",
+      "environment": "production",
+      "actual": "No authorized normal-UI cross-owner write path; read denials do not prove write-API rejection. No write attempted.",
+      "dependency": "Specific reversible cross-owner write path and authorization if required."
+    },
+    {
+      "id": "P15.PaidForeignExportIsolation",
+      "status": "BLOCKED",
+      "environment": "production",
+      "actual": "Both current accounts Free; disabled CSV control demonstrates plan gate, not foreign paid export denial. No paid request attempted.",
+      "dependency": "Real paid account and permitted export path."
+    },
+    {
+      "id": "P15.APostBSwitchReread",
+      "status": "NOT_RUN",
+      "environment": "production",
+      "actual": "B session left intact; no normal A relogin occurred after B checks. Prior A baseline was observed in stage A.",
+      "dependency": "Normal user A login then readonly rerun if controller requests full round trip."
+    },
+    {
+      "id": "P15.FreshBHealthBinding",
+      "status": "BLOCKED",
+      "environment": "production",
+      "actual": "Current B browser health navigation was previously blocked by client; no current B HTTP health result archived. Stage A actual 200 confirms build SHA and platform version at 2026-10-12T14:24Z only. No bypass or alternate request made in resumed stage.",
+      "evidence": [
+        "operations/evidence/JRN-01/stage-a/health.json"
+      ]
+    },
+    {
+      "id": "P02/P10.OriginalAnonymousBatchCSV",
+      "status": "FAIL",
+      "environment": "production",
+      "actual": "Original Stage A anonymous batch CSV returned 500 csv_export_failed instead of 401 authentication_required. Local repair commit is not production verification.",
+      "evidence": [
+        "operations/evidence/JRN-01/stage-a/failure-anonymous-batch-export.json"
+      ]
+    }
+  ],
+  "statusCounts": {
+    "PASS": 8,
+    "FAIL": 1,
+    "BLOCKED": 3,
+    "NOT_RUN": 1
+  },
+  "note": "B read-only scope passed for exact A synthetic product, batch, analysis/human-review surface and release search. Original Stage A coverage is immutable and retains its two references to one distinct production CSV failure."
+}

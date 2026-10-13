@@ -1,0 +1,55 @@
+{
+  "observedAt": "2026-10-12T14:54:29.589146+00:00",
+  "status": "PASS",
+  "visitedRoutes": [
+    "/account",
+    "/account/products",
+    "/account/products/8e023cd4-16b4-4e77-a957-238e7253947f",
+    "/account/batches/new?batchId=9e24fe37-4e56-4fad-8edd-b4589bbcb698",
+    "/?analysis=batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+    "/account/releases",
+    "/account/value-metrics",
+    "/account/batches/new",
+    "/account/batches",
+    "/pricing"
+  ],
+  "filterCountsWhileApproved": {
+    "Needs review": 0,
+    "Blocked by rule": 1,
+    "Current approve or reject": 1,
+    "All records": 1,
+    "nonMatchingSku": 0,
+    "restoredFrozenSkuAndBatch": 1
+  },
+  "naturalNetworkError": "Failed to fetch; one normal Retry restored the same blocked record. Cause not diagnosed; original/error/recovery preserved.",
+  "pagination": {
+    "observedAt": "2026-10-12T14:47:37.692Z",
+    "firstCount": 20,
+    "secondCount": 20,
+    "intersectionCount": 0,
+    "firstWithinPageUnique": true,
+    "secondWithinPageUnique": true,
+    "firstOrderedNamesSha256": "6bc8807a58908b4bce75a4040c4b86d7aa58f95dc3f4b7859daea1f6f387eaa5",
+    "secondOrderedNamesSha256": "eb6145c953536a62a69adb9a6aeeffe1933f790ecb7b7f25281b95e3e8d1cceb",
+    "resourceNamesNotArchived": true,
+    "boundedSearchNotice": true
+  },
+  "backToFirst": {
+    "observedAt": "2026-10-12T14:48:07.153Z",
+    "count": 20,
+    "orderedNamesSha256": "6bc8807a58908b4bce75a4040c4b86d7aa58f95dc3f4b7859daea1f6f387eaa5",
+    "matchesFirstPage": true
+  },
+  "newSearchCursorReset": {
+    "observedAt": "2026-10-12T14:48:39.872Z",
+    "batchId": "9e24fe37-4e56-4fad-8edd-b4589bbcb698",
+    "recordCount": 1,
+    "backToFirstButtonCount": 0,
+    "targetAnalysisVisible": true
+  },
+  "currentAccountOverviewAriaCurrent": "page",
+  "limits": [
+    "Active highlighting explicitly recorded only for final Overview; route and content navigation recorded for other destinations.",
+    "CUA locator waits/label matching occasionally failed before data finished loading; fresh state and visible-control locators were used. These tool timing/locator failures are not reported as product failures."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-10-12T14:27:39.352Z",
+  "images": [
+    {
+      "alt": "Reference preview",
+      "complete": true,
+      "naturalWidth": 512,
+      "src": "blob:https://pairvu.com/90fc7b21-316f-4bb7-8a9a-34f47a710403"
+    },
+    {
+      "alt": "Candidate preview",
+      "complete": true,
+      "naturalWidth": 512,
+      "src": "blob:https://pairvu.com/ea22ae49-5cd1-4f8e-b5ac-454d8140832f"
+    }
+  ],
+  "provenance": "Analysis provenance\n\nThis is the saved machine result. Identity evidence is model reported and regions have not been independently verified. Opening this result does not rerun analysis or revise its stored verdict.\n\nDetector: m0-qa-engine-008 · Decision policy: m0-risk-policy-003 · Model policy: m0-model-policy-002\n\nModel: gpt-4.1-mini · Prompt: m0-real-mvp-009+regions-003 · Provider: openai",
+  "sections": [
+    {
+      "id": "verdict-title",
+      "text": "VERDICT\n\nREVIEW"
+    },
+    {
+      "id": "differences-title",
+      "text": "PRODUCT DIFFERENCES\n\nActual detected fidelity issues\n\nNo product issues were confirmed."
+    },
+    {
+      "id": "review-title",
+      "text": "NEEDS REVIEW / COULD NOT VERIFY\n\nObservability problems and analysis limitations\nCould not run a check · High confidence\n\nProvider did not return an observation for visible_text.\n\nVisible text\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for quantity.\n\nProduct count\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for dominant_color.\n\nMain color\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for major_components.\n\nMajor components\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nProvider did not return an observation for major_shape_packaging.\n\nShape and packaging\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nNot visible enough · High confidence\n\nlogo is not sufficiently observable.\n\nLogo\n\nREFERENCE · VISIBLE EXPECTED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nCANDIDATE · OBSERVED\nBlue rectangular container with black cap and central white label area, but no textual brand name visible\nREFERENCE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nCANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE\nabsent\nWHAT CHANGED\nNot visible\nSUMMARY\nNo meaningful visible difference detected in logo or brand mark identity; both show a blue container with black cap and central white area where brand could be expected.\nORIGINAL VISIBLE\nNo\nCANDIDATE VISIBLE\nNo\nVISIBLE EVIDENCE\nblue rectangular container, black cap, white central label area\nWHY UNCERTAIN\nIdentity evidence must declare directly comparable readable text or a brand name; untyped, symbolic and object geometry evidence cannot establish identity.\nReference · visible expected\nImage zoom\n100%\n\nRelevant evidence is not visible.\n\nCandidate · observed\nImage zoom\n100%\n\nRelevant evidence is not visible.\n\nCould not run a check · High confidence\n\nvisible_text was not returned by the provider.\n\nVisible text\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nquantity was not returned by the provider.\n\nProduct count\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\ndominant_color was not returned by the provider.\n\nMain color\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nmajor_components was not returned by the provider.\n\nMajor components\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCould not run a check · High confidence\n\nmajor_shape_packaging was not returned by the provider.\n\nShape and packaging\n\nREFERENCE · VISIBLE EXPECTED\n—\nCANDIDATE · OBSERVED\n—\nWHAT CHANGED\n—\nSUMMARY\n—\nORIGINAL VISIBLE\n—\nCANDIDATE VISIBLE\n—\nVISIBLE EVIDENCE\n—\nWHY UNCERTAIN\n—\nReference · visible expected\nImage zoom\n100%\n\nRegion not recorded for this result.\n\nCandidate · observed\nImage zoom\n100%\n\nRegion not recorded for this result."
+    },
+    {
+      "id": "verified-title",
+      "text": "MODEL-SUPPORTED CHECKS\n\nChecks the model reports as matching\n\nNo checks were cleanly verified."
+    }
+  ]
+}

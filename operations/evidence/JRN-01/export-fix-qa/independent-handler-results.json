@@ -1,0 +1,111 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "role": "independent QA",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "status": "PASS",
+  "realHandler": true,
+  "realIdentityResolver": true,
+  "syntheticDependencies": [
+    "session",
+    "account",
+    "entitlement",
+    "batch"
+  ],
+  "sourceHashSha256": "8f58ea6c6d252b4376bec988ace142468cda6dc11845cd4e4923ae3b5bc6ee82",
+  "checks": [
+    {
+      "name": "anonymous real resolver class",
+      "status": "PASS",
+      "httpStatus": 401,
+      "events": [
+        "env",
+        "session"
+      ],
+      "errorCode": "authentication_required",
+      "consoleErrors": 0
+    },
+    {
+      "name": "signed in without workspace",
+      "status": "PASS",
+      "httpStatus": 401,
+      "events": [
+        "env",
+        "session",
+        "account"
+      ],
+      "errorCode": "authentication_required",
+      "consoleErrors": 0
+    },
+    {
+      "name": "Free before batch lookup",
+      "status": "PASS",
+      "httpStatus": 403,
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement"
+      ],
+      "errorCode": "csv_export_upgrade_required",
+      "consoleErrors": 0
+    },
+    {
+      "name": "paid foreign source bound to session workspace",
+      "status": "PASS",
+      "httpStatus": 404,
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement",
+        "params",
+        "batch:foreign"
+      ],
+      "errorCode": "batch_not_found",
+      "consoleErrors": 0
+    },
+    {
+      "name": "paid owner existing CSV",
+      "status": "PASS",
+      "httpStatus": 200,
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement",
+        "params",
+        "batch:owner"
+      ],
+      "errorCode": null,
+      "consoleErrors": 0
+    },
+    {
+      "name": "ordinary Error named RequestAccessError stays 500",
+      "status": "PASS",
+      "httpStatus": 500,
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement"
+      ],
+      "errorCode": "csv_export_failed",
+      "consoleErrors": 1
+    },
+    {
+      "name": "unexpected params failure stays 500",
+      "status": "PASS",
+      "httpStatus": 500,
+      "events": [
+        "env",
+        "session",
+        "account",
+        "entitlement",
+        "params"
+      ],
+      "errorCode": "csv_export_failed",
+      "consoleErrors": 1
+    }
+  ],
+  "productionVerified": false
+}

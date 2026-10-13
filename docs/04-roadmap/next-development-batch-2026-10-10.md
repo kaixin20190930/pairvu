@@ -1,5 +1,7 @@
 # 剩余开发与验收任务（更新于2026-10-12）
 
+2026-10-13当前优先级：先获授权发布已独立验收的JRN-01匿名CSV修复50341a7，并做生产针对性复验；其后补真实paid导出、跨workspace写入与素材生命周期等核心旅程缺口。A/B/A只读隔离已通过，不再列缺第二账号。UPG-07仍需真实授权双标样本，UPG-08/09仍待最小调用方契约和前置依赖。新发布授权尚无，pairvu-2不恢复。
+
 UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 
 | 优先级 | 任务 | 下一步及验收 | 依赖/推进方式 |

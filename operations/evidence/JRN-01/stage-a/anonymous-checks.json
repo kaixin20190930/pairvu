@@ -1,0 +1,349 @@
+{
+  "observedAt": "2026-10-12T14:24:30.808538+00:00",
+  "authentication": "none; curl config disabled; no cookies or Authorization supplied; redirects not followed",
+  "requests": [
+    {
+      "path": "/api/health",
+      "startedAt": "2026-10-12T14:24:20.191657+00:00",
+      "finishedAt": "2026-10-12T14:24:22.698913+00:00",
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/00-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+        "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/account",
+      "startedAt": "2026-10-12T14:24:20.191801+00:00",
+      "finishedAt": "2026-10-12T14:24:22.996256+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/01-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 16895,
+      "status": "PASS"
+    },
+    {
+      "path": "/account/products",
+      "startedAt": "2026-10-12T14:24:20.191894+00:00",
+      "finishedAt": "2026-10-12T14:24:23.491616+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in?next=/account/products",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/02-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 17587,
+      "status": "PASS"
+    },
+    {
+      "path": "/account/batches",
+      "startedAt": "2026-10-12T14:24:20.194322+00:00",
+      "finishedAt": "2026-10-12T14:24:22.354424+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in?next=/account/batches",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/03-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 17582,
+      "status": "PASS"
+    },
+    {
+      "path": "/account/batches/new",
+      "startedAt": "2026-10-12T14:24:22.354624+00:00",
+      "finishedAt": "2026-10-12T14:24:25.322744+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in?next=/account/batches/new",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/04-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 17924,
+      "status": "PASS"
+    },
+    {
+      "path": "/account/releases",
+      "startedAt": "2026-10-12T14:24:22.699033+00:00",
+      "finishedAt": "2026-10-12T14:24:25.410669+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in?next=/account/releases",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/05-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 17790,
+      "status": "PASS"
+    },
+    {
+      "path": "/account/value-metrics",
+      "startedAt": "2026-10-12T14:24:22.996417+00:00",
+      "finishedAt": "2026-10-12T14:24:24.925678+00:00",
+      "httpStatus": 307,
+      "expectedStatus": 307,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "text/html; charset=utf-8",
+        "location": "/sign-in?next=/account/value-metrics",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/06-body.txt",
+      "credentialHeadersSent": false,
+      "bodyBytes": 18016,
+      "status": "PASS"
+    },
+    {
+      "path": "/api/account/session",
+      "startedAt": "2026-10-12T14:24:23.491788+00:00",
+      "finishedAt": "2026-10-12T14:24:25.150841+00:00",
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/07-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "authenticated": false
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/billing/context",
+      "startedAt": "2026-10-12T14:24:24.925989+00:00",
+      "finishedAt": "2026-10-12T14:24:26.726292+00:00",
+      "httpStatus": 200,
+      "expectedStatus": 200,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/08-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "authenticated": false
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/products",
+      "startedAt": "2026-10-12T14:24:25.150960+00:00",
+      "finishedAt": "2026-10-12T14:24:26.895168+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/09-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to manage Saved Products."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/batches",
+      "startedAt": "2026-10-12T14:24:25.322901+00:00",
+      "finishedAt": "2026-10-12T14:24:26.989180+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/10-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to create or view a batch."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/releases",
+      "startedAt": "2026-10-12T14:24:25.410829+00:00",
+      "finishedAt": "2026-10-12T14:24:27.784631+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/11-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to use the release workbench."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/value-metrics",
+      "startedAt": "2026-10-12T14:24:26.726417+00:00",
+      "finishedAt": "2026-10-12T14:24:28.830141+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/12-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to view metrics.",
+        "complete": false
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/analyses/batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001",
+      "startedAt": "2026-10-12T14:24:26.895279+00:00",
+      "finishedAt": "2026-10-12T14:24:29.261625+00:00",
+      "httpStatus": 400,
+      "expectedStatus": 400,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/13-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "access_identity_required",
+        "message": "A signed-in account or valid anonymous session is required."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/analyses/batch-analysis-d79c71c7-417e-4ce9-8601-3353185d2001/reviews",
+      "startedAt": "2026-10-12T14:24:26.989305+00:00",
+      "finishedAt": "2026-10-12T14:24:28.766104+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/14-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to review this analysis."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/releases/export?scope=page",
+      "startedAt": "2026-10-12T14:24:27.784747+00:00",
+      "finishedAt": "2026-10-12T14:24:29.420109+00:00",
+      "httpStatus": 401,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch,Cookie"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/15-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "authentication_required",
+        "message": "Sign in to use the release workbench."
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "/api/batches/9e24fe37-4e56-4fad-8edd-b4589bbcb698/export",
+      "startedAt": "2026-10-12T14:24:28.766250+00:00",
+      "finishedAt": "2026-10-12T14:24:30.808335+00:00",
+      "httpStatus": 500,
+      "expectedStatus": 401,
+      "exitCode": 0,
+      "stderr": "",
+      "responseHeaders": {
+        "content-type": "application/json",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/16-body.txt",
+      "credentialHeadersSent": false,
+      "json": {
+        "error": "csv_export_failed",
+        "message": "The CSV export could not be created."
+      },
+      "status": "FAIL"
+    }
+  ]
+}

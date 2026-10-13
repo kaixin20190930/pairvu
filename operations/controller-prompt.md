@@ -128,3 +128,6 @@ UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、�
 
 ## JRN-01已授权核心旅程补验
 按contracts/JRN-01.md复用原开发Sol/medium与原独立QASol/high。先执行不受阻塞项目；账号/支付/完整eligible素材缺口单列，不造权限或质量数据。报告交付local_only CLOSED不等于完整生产PASS；可修实质产品FAIL需继续处理，新增运行时修复需固定SHA独立验收，未经明确授权不发布。继续主动wait/read，pairvu-2保持PAUSED。
+
+## 2026-10-13 JRN-01补验及修复独立完成
+真实A/B/A只读隔离和A恢复后复读PASS；CSV匿名500实质失败的修复50341a7本地独立PASS。正式JRN-01 QA_FAIL保留线上原失败，当前原角色均完成。下一步只在用户明确授权本次修复发布后遵守GitHub-first并实际生产复验；不将local_only清单关闭当运行时发布，不自动恢复pairvu-2。证据operations/evidence/JRN-01/qa-current.json及export-fix-qa/repair-local.json。剩余paid/写隔离/eligible/生命周期/付款缺口明确保留。

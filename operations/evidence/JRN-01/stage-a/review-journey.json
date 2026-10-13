@@ -1,0 +1,39 @@
+{
+  "observedAt": "2026-10-12T14:42:42.540Z",
+  "status": "PASS",
+  "baselineCurrentDecision": null,
+  "baselineRevision": 3,
+  "finalCurrentDecision": null,
+  "finalRevision": 6,
+  "finalAction": "revoke",
+  "newEvents": [
+    {
+      "revision": 4,
+      "action": "approve",
+      "createdAt": "2026-10-12T14:34:27.426Z"
+    },
+    {
+      "revision": 5,
+      "action": "reject",
+      "createdAt": "2026-10-12T14:40:37.484Z"
+    },
+    {
+      "revision": 6,
+      "action": "revoke",
+      "createdAt": "2026-10-12T14:42:11.299Z"
+    }
+  ],
+  "allNewReasonsMarked": "JRN-01 QA",
+  "originalRevisionsRetained": [
+    1,
+    2,
+    3
+  ],
+  "actorIdentityArchived": false,
+  "machineSourceHash": "d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb",
+  "reviewedMachineHash": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e",
+  "sourceHashesEqualAcrossBeforeApproveRejectRevoke": true,
+  "limits": [
+    "Production D1 was not queried. Current and appended audit revisions/actions/timestamps came from actual UI; reviewed hash came from release provenance."
+  ]
+}

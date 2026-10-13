@@ -1,0 +1,7 @@
+{
+  "excludedFromArchival": [
+    "candidate-and-evidence.json"
+  ],
+  "reason": "Original git fuller metadata includes commit identity; derived evidence retains candidate/hash/diff facts while omitting identity. Original temporary artifact preserved, not modified or deleted.",
+  "screenshots": "Only product/release/metrics UI, no account identity or expanded actor rows screenshot."
+}

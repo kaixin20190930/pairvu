@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-12T14:54:29.614588+00:00",
+  "stage": "A_COMPLETE_PENDING_B_LOGIN",
+  "result": "FAIL",
+  "resultScope": "Fixed checklist review and current executable A acceptance. One real production failure remains; no closing acceptance or whole-journey PASS.",
+  "overallProductionJourney": "INCOMPLETE",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS"
+    },
+    {
+      "name": "available scope completed",
+      "status": "FAIL",
+      "note": "A execution/restoration complete and READY_FOR_B_LOGIN; accepted anonymous batch-export failure unresolved; B stage not yet run."
+    },
+    {
+      "name": "blocked coverage explicitly documented",
+      "status": "PASS"
+    }
+  ],
+  "modelSelection": {
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "reason": "Real identity, frozen snapshot display, human audit and cross-workspace boundaries require independent reasoning. Missing account/paid inputs do not cause model escalation.",
+    "source": "JRN-01 contract/controller dispatch; no configuration change by reviewer"
+  },
+  "candidateValidation": {
+    "headAtStart": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+    "runtimeDiffFromProduction": [],
+    "documentLinks": 51,
+    "allLinksResolve": true,
+    "sourceHashesVerified": 30,
+    "developerEvidenceHashesVerified": 5,
+    "independentRuntimeSuiteReruns": 0
+  },
+  "production": {
+    "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "publicRequestCount": 18,
+    "publicExpectedResultsPassed": 17,
+    "publicFailedRequests": 1,
+    "deploymentPerformed": false,
+    "featureFlagsChanged": false
+  },
+  "failure": {
+    "id": "P02.batchExport / P10.anonymousBatchExport",
+    "endpoint": "/api/batches/9e24fe37-4e56-4fad-8edd-b4589bbcb698/export",
+    "expected": "401 authentication_required",
+    "actual": "500 csv_export_failed",
+    "sourceInference": "Uncaught RequestAccessError reaches generic export500 catch before workspace401 guard. Controller accepted for separately scoped runtime repair.",
+    "evidence": "/tmp/pairvu-jrn01-qa/failure-anonymous-batch-export.json"
+  },
+  "restoration": {
+    "productCurrentTextVersion": 7,
+    "baselineTextVersion": 5,
+    "productNameSkuAndAllVisibleProfileRestored": true,
+    "productFinalState": "active",
+    "oldBatchFrozenTextVersion": 5,
+    "oldReferenceVersion": 1,
+    "reviewBaselineRevision": 3,
+    "reviewFinalRevision": 6,
+    "reviewCurrentDecision": null,
+    "newReviewEvents": [
+      {
+        "revision": 4,
+        "action": "approve",
+        "createdAt": "2026-10-12T14:34:27.426Z"
+      },
+      {
+        "revision": 5,
+        "action": "reject",
+        "createdAt": "2026-10-12T14:40:37.484Z"
+      },
+      {
+        "revision": 6,
+        "action": "revoke",
+        "createdAt": "2026-10-12T14:42:11.299Z"
+      }
+    ],
+    "auditEventsRetained": true,
+    "machineSourceHashUnchanged": true,
+    "originalReviewedMachineHashUnchanged": true,
+    "plan": "Free",
+    "available": 6,
+    "used": 4,
+    "reserved": 0
+  },
+  "handoff": {
+    "observedAt": "2026-10-12T14:50:25.278Z",
+    "status": "READY_FOR_B_LOGIN",
+    "browserId": "2",
+    "tabId": "2",
+    "url": "https://pairvu.com/account",
+    "currentAccountAlias": "A",
+    "currentExpectedIdentityConfirmed": true,
+    "normalSignOutVisible": true,
+    "productSemanticRestorationConfirmed": true,
+    "productActive": true,
+    "productCurrentTextVersion": 7,
+    "baselineTextVersion": 5,
+    "reviewCurrentDecision": null,
+    "reviewLatestAction": "revoke",
+    "reviewRevision": 6,
+    "baselineReviewRevision": 3,
+    "availableChecks": 6,
+    "usedChecks": 4,
+    "reservedChecks": 0,
+    "secondAccountControlledAndAuthorized": true,
+    "secondLoginStatus": "PENDING_NORMAL_USER_LOGIN",
+    "bIsolationStatus": "NOT_RUN_NOT_CLOSED",
+    "uiHandoff": "User can normally sign out and sign in as B; no cookie extraction or constructed session; controller will request B login and resume same reviewer task."
+  },
+  "coverage": {
+    "path": "/tmp/pairvu-jrn01-qa/coverage-stage-a.json",
+    "counts": {
+      "PASS": 22,
+      "FAIL": 2,
+      "BLOCKED": 13,
+      "NOT_RUN": 2
+    },
+    "originalFailuresAndBlockedPreserved": true
+  },
+  "evidenceLimitations": [
+    "Active highlighting explicitly recorded only for final Overview; route and content navigation recorded for other destinations.",
+    "CUA locator waits/label matching occasionally failed before data finished loading; fresh state and visible-control locators were used. These tool timing/locator failures are not reported as product failures.",
+    "Full frozen version UUIDs/JSON and exact timestamps are not exposed in the observed UI; no hidden state/session extraction or remote D1 reads were performed.",
+    "CUA inventory had browser2/tab2, not dispatched tab3; fresh real inventory and A identity verification were used.",
+    "No paid/eligible-positive/expired-asset/production-deletion/cross-workspace write proof is claimed. B session is authorized but pending normal user login.",
+    "Blob preview URLs change on reopening. Machine text/provenance/source hashes remained equal; image bytes were not hashed."
+  ],
+  "forbiddenActions": {
+    "credentialFilesRead": false,
+    "originalLeakLogsRead": false,
+    "sessionExtracted": false,
+    "remoteD1Used": false,
+    "modelsInvoked": 0,
+    "payments": 0,
+    "permanentDeletions": 0,
+    "sharedRepositoryWrites": false,
+    "codeEdits": false,
+    "commits": false,
+    "deployments": false,
+    "otherThreadsMessaged": false
+  },
+  "nextAction": {
+    "status": "READY_FOR_B_LOGIN",
+    "action": "Controller requests normal B login on existing Pairvu account page, then dispatches P15 to this same reviewer. Separately return accepted batch-export failure to original developer under explicit repair contract.",
+    "dependency": "User normal B login and real different-workspace corroboration; CSV repair needs controller-scoped development and independent fixed-candidate acceptance.",
+    "automatic": "Controller can automatically scope repair; B stage requires user login, reviewer stops browser actions until handoff.",
+    "doNotClose": "JRN-01 remains incomplete/FAIL pending repair and B stage; permanent/paid/eligible input gaps stay explicit."
+  }
+}

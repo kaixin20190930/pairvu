@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-13T05:28:37.675055+00:00",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "candidateHeadExact": true,
+  "sourceHashes": [
+    {
+      "file": "app/api/batches/[batchId]/export/route.ts",
+      "expected": "8f58ea6c6d252b4376bec988ace142468cda6dc11845cd4e4923ae3b5bc6ee82",
+      "actual": "8f58ea6c6d252b4376bec988ace142468cda6dc11845cd4e4923ae3b5bc6ee82",
+      "matches": true
+    },
+    {
+      "file": "lib/auth/request-access.ts",
+      "expected": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+      "actual": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+      "matches": true
+    },
+    {
+      "file": "lib/releases/csv.ts",
+      "expected": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+      "actual": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+      "matches": true
+    },
+    {
+      "file": "scripts/verify-batch-export-auth.ts",
+      "expected": "7054dd9248a81cf76cec465b926218e328b9d9aa69ede3c23b4bb655e2f48e15",
+      "actual": "7054dd9248a81cf76cec465b926218e328b9d9aa69ede3c23b4bb655e2f48e15",
+      "matches": true
+    }
+  ],
+  "developerEvidenceHashes": [
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-results.json",
+      "expected": "7d0e7de8e1e5be354c11c65a0fe10618036ed948f4bcd9c3f53892382d858bdc",
+      "actual": "7d0e7de8e1e5be354c11c65a0fe10618036ed948f4bcd9c3f53892382d858bdc",
+      "matches": true
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-specialized.txt",
+      "expected": "f42a3dc3aacad95de06cba6809fd3a808337ae680aae2c69877de09b48ed1842",
+      "actual": "f42a3dc3aacad95de06cba6809fd3a808337ae680aae2c69877de09b48ed1842",
+      "matches": true
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-typecheck.txt",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-lint.txt",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-export-fix-build.txt",
+      "expected": "c999b6a9f1641e349c3de8df08aa5ee69dda76d824411ad1968f445372f106fe",
+      "actual": "c999b6a9f1641e349c3de8df08aa5ee69dda76d824411ad1968f445372f106fe",
+      "matches": true
+    }
+  ],
+  "developerOriginal": "/private/tmp/pairvu-jrn01-export-fix-developer-validation.json",
+  "developerOriginalSha256": "7c01310872eb193a5bfa1c2029ec2c65267fd815a2035a4c51d10c00180e0c43",
+  "routeAndScriptWorkingCopiesMatchFixedCommit": true,
+  "diffPaths": [
+    "app/api/batches/[batchId]/export/route.ts",
+    "scripts/verify-batch-export-auth.ts"
+  ],
+  "diffCheck": "PASS"
+}

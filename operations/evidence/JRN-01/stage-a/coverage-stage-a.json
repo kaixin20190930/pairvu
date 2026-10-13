@@ -1,0 +1,1065 @@
+{
+  "unitId": "JRN-01",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "stage": "A_COMPLETE_PENDING_B_LOGIN",
+  "result": "FAIL",
+  "overallProductionJourney": "INCOMPLETE",
+  "checks": [
+    {
+      "id": "P01",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:22.698913+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No credentials; public origin",
+      "steps": "Independent curl -q public health",
+      "expected": "200/ok and exact deployed SHA/platform version",
+      "actual": "200; a0b27ac... / 3e8dc987... exact full identifiers recorded",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/health.json",
+          "sha256": "7fa2861903c04cc2038485689ce0f5c0dba92263ec4234a5a1d3d34743ade916"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P02.pages",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:30.808538+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Separate unauthenticated curl requests; A cookie jar untouched",
+      "steps": "Read six protected account routes without redirects",
+      "expected": "307 to sign-in; no private result",
+      "actual": "All six 307 with login locations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P02.sessionAndBilling",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:30.808538+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Unauthenticated public requests",
+      "steps": "Read session and billing context",
+      "expected": "200 authenticated=false only",
+      "actual": "Both 200 {authenticated:false}",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P02.protectedReadAndReleaseExport",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:30.808538+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Unauthenticated public requests",
+      "steps": "Read products/batches/releases/metrics/reviews/release export",
+      "expected": "401, no private payload/CSV",
+      "actual": "All expected authentication_required401; metrics complete:false",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P02.analysisAndAssetNoIdentity",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:30.808538+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Authorized synthetic IDs; asset src obtained from authorized product DOM",
+      "steps": "Read analysis and approved-reference asset with no identity",
+      "expected": "400 access_identity_required; no private data/pixels",
+      "actual": "Both exact400 access_identity_required",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-asset-check.json",
+          "sha256": "ad5b3b8f79a21bee7bcfcd574af334685a5c3d5824160e65c05983daa48c2627"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P02.batchExport",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:54:29.590568+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Authorized batch; no credentials",
+      "steps": "GET designated batch export",
+      "expected": "401 authentication_required, no CSV",
+      "actual": "500 csv_export_failed; no data disclosure observed",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/failure-anonymous-batch-export.json",
+          "sha256": "cbcb85181ed7b5129a9868e6d7bea2659f28fe569e4e70bdd54e78b71e40fffa"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": "Controller accepted failure; separately scoped runtime repair required, then fixed candidate and fresh production recheck."
+    },
+    {
+      "id": "P02.validAnonymousOwnerIsolation",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:30.808538+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No approved independent valid anonymous identity input",
+      "steps": "Not executed; do not invent anonymous owner identity",
+      "expected": "Valid non-owner cannot read private workspace resources",
+      "actual": "Missing approved valid-anonymous test input",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": "Need authorized anonymous test identities/resources; no manufactured owner headers."
+    },
+    {
+      "id": "P03",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:42.189Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A identity confirmed via real UI; synthetic product marker and own-product batch link verified",
+      "steps": "Record own plan/credits/result before and after all permitted actions",
+      "expected": "Plan/credits/machine stay unchanged; new audit revisions recorded",
+      "actual": "Free; available6 used4 reserved0 retention7; REVIEW11; final audit revision6 versus baseline3",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-before.json",
+          "sha256": "cfafe2c42ebf146321d638c45cb2aaa636b2ba614972ecacac5bfa82c054cc2d"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-after.json",
+          "sha256": "ad28b8c8658b7c369ba64e806f6d8cd6859bef63fceac1db73562bca1e6490bd"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/asset-scope-confirmation.json",
+          "sha256": "1659c72dd66c971d1fbdd2565ed79e420e0e292c2dbf02681e3a21b91e505a9a"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/batch-scope-confirmation.json",
+          "sha256": "037ad3df624f331f3ad991be90534c15aa551691b3b0a2d75dd067c024815738"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-before-after.json",
+          "sha256": "3f12ace49e237724caf3a39139e627e831f58d241666896423990bfa2f68fc7b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-journey.json",
+          "sha256": "2028e5a2305bf03952eca5a5fab35a94577c2c847c9c8a70a1c8b8670a3086c4"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P04.navigationAndFilters",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:54:29.589146+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A real session; designated batch/SKU search",
+      "steps": "Navigate routes, four filters, nonexistent SKU, restore actual form inputs",
+      "expected": "Matching content, honest empty state, restored record",
+      "actual": "Needs0 / Blocked1 / Decided1 / All1; nonexistentSKU0; restore1; final Overview aria-current page",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/navigation-filter-recovery.json",
+          "sha256": "97a99411e7d3f326e685c49a4e62bad963d9e42883dd12432253053eb0f9fdba"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/navigation-current.json",
+          "sha256": "9f6ff65422edf4f02c57afb5ed6ea53428cea57291514160c5327ae1eaca2e6b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/filter-needs-review.json",
+          "sha256": "c6e2951ddeca422cfd94df340f6cefcbaa3e0cbb835e2826629c0fdfc96443ac"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/filter-blocked-by-rule.json",
+          "sha256": "b260f485d631981b7b4d8f1360494bce881a95ccf94292d57eb51178ca213faa"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/filter-current-approve-or-reject.json",
+          "sha256": "0a3a9092ee4edb755701995ae46dfef82adf9dcf1fcf748aac44a349888fefb4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/filter-no-matching-sku.json",
+          "sha256": "c0151b2a50b8d8550b9c9562ac9dfaa2a9b958787d8c6a3366936f9e518d58f2"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/filter-all-restored.json",
+          "sha256": "0cc23b170e4ecc1325713dc2b2218c2420eb5124491db8854fee5af34b677d15"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P04.pagination",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:47:37.692Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Current A release list; only list-row identity used in memory; no non-authorized detail/write",
+      "steps": "Continue search; Back to first; new designated-batch search",
+      "expected": "No duplicates; same first-page order; new search resets cursor",
+      "actual": "20+20 rows; intersection0; first-page hash restored; single-record new search has no Back control",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/pagination-two-pages.json",
+          "sha256": "ce2d72a98a855ee894cf1ed4883ae704005025db54be9ef0bd26056b76aa5e75"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/pagination-back-first.json",
+          "sha256": "3874f8836577b349b8789cfb845faee6bf36cc918cb620072ec71d9b3c8c5bc4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/pagination-new-search-reset.json",
+          "sha256": "981375dc702e48ee45b1100ecee711a902c7e63f676bca571e8190496d4dfdb3"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P04.naturalErrorRecovery",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:37:36.560Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Naturally occurring fetch failure; no production fault injection",
+      "steps": "Record Failed to fetch and one Retry",
+      "expected": "Error shown without stale complete rows; successful retry restores query",
+      "actual": "Same designated blocked record recovered; cause not diagnosed",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-natural-fetch-error.json",
+          "sha256": "462f23d2ed7ed44533d6d48f38067550e9ab85409d731b94e2882d3e623929fa"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-retry-recovered.json",
+          "sha256": "b36fe838fd5e6efd3c8efd5a85d815ea851dcf39e8cbca3e929974cd9eb0e7a9"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P04.metricsWindowRecovery",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:44:45.316Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Real UI; no classification writes",
+      "steps": "Fixed valid UTC, malformed UTC, exact90days, fixed window restored",
+      "expected": "Bad window removes complete cards; valid window restores metrics",
+      "actual": "Fixed5unknown; invalid error/no complete cards; 90days52unknown; fixed metric values unchanged",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-fixed-before.json",
+          "sha256": "789c003495f5339076c62075a00e4ec261a02dcbf8104c6d2ed2d76be84c1148"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-invalid-window.json",
+          "sha256": "6318ac6bff73d884698c5f50f441f94de024aea02881e061b78b951bc333d118"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-ninety-days.json",
+          "sha256": "84db934c3d5126ffe4ce04be06f3eee1f1e11d22198998d7574d3578207a8bb6"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-fixed-after.json",
+          "sha256": "996f3aa499ffada6c69f99fd5b5a8b9bdea012dbf93adbba21c582c70fbfdea4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-and-credit.json",
+          "sha256": "eb2f8437934aa0c55593148802d2f22dba90c34100c1e3bcf3d1f9ce0f9d8c90"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P04.activeMarkersAllRoutes",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:51:02.332Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Overview current marker actually captured",
+      "steps": "Other route active-marker attributes not separately captured",
+      "expected": "Current marker consistent on every route",
+      "actual": "Only final Overview aria-current=page explicitly recorded",
+      "status": "NOT_RUN",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/navigation-current.json",
+          "sha256": "9f6ff65422edf4f02c57afb5ed6ea53428cea57291514160c5327ae1eaca2e6b"
+        }
+      ],
+      "dependency": "Routing/content checked; per-route active-marker evidence remains unrecorded, not inferred."
+    },
+    {
+      "id": "P05.singleAuthorizedFrozenCombination",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:28:41.188Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Only approved product/batch/analysis; UI ownership and synthetic marker confirmed",
+      "steps": "Compare standard v5/ref1 and frozen text before/after rename/archive/restore",
+      "expected": "Old frozen display and associations unchanged",
+      "actual": "Old batch retains name/SKU/profile fields v5/ref1 while current product advances v7",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/frozen-before.json",
+          "sha256": "23327910a51d7c7a238029f593478fd64d60bb660cd6b1c6faccc9335e0d9bdf"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/batch-before-visible.json",
+          "sha256": "e20d3291f7952f9cb9341dd8f3bfde2612edee119e5422d60437dd8a36a12718"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/batch-after-rename-visible.json",
+          "sha256": "1b3d401dec96d3040518afd0cad663fa23762cc8a69f3352faa0b284ed515c4e"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/batch-while-archived-visible.json",
+          "sha256": "8bd95d611d263a80a9119a0eba5736598d3db72c41bfcaa887d111b784ee4f0c"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-restored-visible.json",
+          "sha256": "8c4d8b5487c79b109a4af6b2cb5cda9a0994942ee32cff6e3ccef45f858faaba"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P05.fullFrozenIdentifiersAndJson",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:28:41.188Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "UI-only scope; no hidden state/remote D1",
+      "steps": "Record exposed version numbers/labels/hashes; do not retrieve hidden payload",
+      "expected": "Full frozen UUIDs/JSON/boundAt can be compared only with proper source",
+      "actual": "UI does not expose version UUIDs, full frozen JSON/hash or exact boundAt/completion precision",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/frozen-before.json",
+          "sha256": "23327910a51d7c7a238029f593478fd64d60bb660cd6b1c6faccc9335e0d9bdf"
+        }
+      ],
+      "dependency": "Controller may supply narrowly authorized sanitized before/after snapshot evidence; QA must not fetch sessions/D1."
+    },
+    {
+      "id": "P05.multipleSku",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:25:11.084Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Contract authorizes one exact product only",
+      "steps": "No unrelated product inspection/mutation",
+      "expected": "At least two explicitly authorized QA SKU combinations",
+      "actual": "Second authorized comparison SKU absent",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/asset-scope-confirmation.json",
+          "sha256": "1659c72dd66c971d1fbdd2565ed79e420e0e292c2dbf02681e3a21b91e505a9a"
+        }
+      ],
+      "dependency": "Need explicit second QA SKU and matching frozen history; visible other products are not authorization."
+    },
+    {
+      "id": "P06",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:33:12.588Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Complete visible authorized profile saved before; exact synthetic product",
+      "steps": "Rename+SKU savev6; restore savev7; archive; review latest after conflict; restore active",
+      "expected": "Full semantic values restored, old snapshot/history retained, selector excludes/reincludes",
+      "actual": "All visible fields and approved-reference src/render restored; v1-v7 history remains; target absent archived/present active",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-mutations.json",
+          "sha256": "f63310652cab85de3b140eb3cd740587b35f4e8b9b216188a0e93d1eb8cf4892"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-before.json",
+          "sha256": "3a1b68162e4b457e54a23c0dbe0884d0b61b5b9926f8b35b1c9ed367084a1037"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-after.json",
+          "sha256": "cbe2fbc09cd2663fac3a61135704f60928841a432c5621e2cf462ecc9cc0d0d7"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-archive-conflict.json",
+          "sha256": "6e26f472d844efa92eeb9c1633ceb72e30c44dbf1a5ad6663989910c6f52e413"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-history-after.json",
+          "sha256": "401daa9a8e1deffdd4364b4e5203b2070c4bff32371201445716e4abe907c60d"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/archived-selector.json",
+          "sha256": "4607d9eddf986fada6b343765feb541076770fafb0cb200ebeb757bbbcedce57"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/restored-selector.json",
+          "sha256": "6bd6926c11f8e1d1d349000ef84117ad413ac82a4149d794f92b24ca88506dbb"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-restored.png",
+          "sha256": "6e40ad3e816fe753bfb625b8c5de7fff2ab8b8098f9a73f6edaff537b6d39285"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P07",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:42:42.540Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A owned synthetic analysis; baseline None/rev3; no rerun",
+      "steps": "Approve4; reject5; revoke6; review audit and workbench after every action",
+      "expected": "Continuous append-only actions, unchanged machine evidence/hashes",
+      "actual": "All6 retained; three JRN01QA reasons/timestamps; source hash and reviewed hash constant",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-journey.json",
+          "sha256": "2028e5a2305bf03952eca5a5fab35a94577c2c847c9c8a70a1c8b8670a3086c4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-approved.json",
+          "sha256": "42f4ce9bd05aa8c03c222fd421a2b3df0c3d56526284730e4186f7c57911e1c8"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-rejected.json",
+          "sha256": "0ec353aa47c07e19fff09c5d766f7588e1b52fad273eb8cb0074f766b1264260"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-restored.json",
+          "sha256": "119b123a15adae0fbd2fc3177367436775f9f02f625c530b64e7d943cbbc3a3b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-before-after.json",
+          "sha256": "3f12ace49e237724caf3a39139e627e831f58d241666896423990bfa2f68fc7b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-approved-visible.json",
+          "sha256": "46530725db9820ba718cb49dd382cf143e6595d7ce4e02de05600b0d741eec12"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-rejected-visible.json",
+          "sha256": "45b024f287fff3ae1eba447c580f28a67fc6fef9b9f9304683c4126d957242a8"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-restored-visible.json",
+          "sha256": "8c4d8b5487c79b109a4af6b2cb5cda9a0994942ee32cff6e3ccef45f858faaba"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P08",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:42:42.540Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Baseline no current decision/latestrevoke3",
+      "steps": "Final revoke6; account and original-source compare",
+      "expected": "Restore meaning, retain new audit, unchanged credits/machine",
+      "actual": "Current None/latestrevoke6; Free6/4/0; source unchanged; no audit deletion",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-journey.json",
+          "sha256": "2028e5a2305bf03952eca5a5fab35a94577c2c847c9c8a70a1c8b8670a3086c4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/review-restored.json",
+          "sha256": "119b123a15adae0fbd2fc3177367436775f9f02f625c530b64e7d943cbbc3a3b"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-after.json",
+          "sha256": "ad28b8c8658b7c369ba64e806f6d8cd6859bef63fceac1db73562bca1e6490bd"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-before-after.json",
+          "sha256": "3f12ace49e237724caf3a39139e627e831f58d241666896423990bfa2f68fc7b"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P09.missingSourceNegative",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:35:40.367Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Actual missing selected observations and machine limitations",
+      "steps": "Compare approval4 against rule output; then reject/revoke",
+      "expected": "Approval cannot bypass incomplete evidence",
+      "actual": "Approve remainsBLOCKED with selected_checks_incomplete, observation_insufficient, identity_evidence_invalid, machine_limitations_present, machine_derivation_invalid",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-approved-visible.json",
+          "sha256": "46530725db9820ba718cb49dd382cf143e6595d7ce4e02de05600b0d741eec12"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-rejected-visible.json",
+          "sha256": "45b024f287fff3ae1eba447c580f28a67fc6fef9b9f9304683c4126d957242a8"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-restored-visible.json",
+          "sha256": "8c4d8b5487c79b109a4af6b2cb5cda9a0994942ee32cff6e3ccef45f858faaba"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P09.highRiskNegative",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:27:39.352Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No exact approved high-risk analysis in contract",
+      "steps": "Not executed on other account records",
+      "expected": "High-risk remains blocked even after approval",
+      "actual": "Authorized analysis has missing-source negative but no high-risk product issue",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-before.json",
+          "sha256": "8027d4266d0c10522f16954a9115178dd3137d27169f5cdba218a70da16dc6e2"
+        }
+      ],
+      "dependency": "Need separately authorized high-risk synthetic source; local evidence remains separate."
+    },
+    {
+      "id": "P09.eligiblePositive",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:35:40.367Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Authorized analysis is incomplete REVIEW",
+      "steps": "No machine evidence alteration/model invocation",
+      "expected": "Complete supported selected checks/current approve yield eligible",
+      "actual": "No authorized complete eligible source provided",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/release-approved-visible.json",
+          "sha256": "46530725db9820ba718cb49dd382cf143e6595d7ce4e02de05600b0d741eec12"
+        }
+      ],
+      "dependency": "Need existing authorized complete supported source; cannot fabricate or invoke model to fill PASS."
+    },
+    {
+      "id": "P10.freeUiAndAnonymousReleaseExport",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:39:59.039Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A currentFree; independent anonymous release-export read",
+      "steps": "Observe disabled workbench CSV and batch upgrade link; public release export",
+      "expected": "No Free UI CSV; anonymous401",
+      "actual": "UI gates and anonymous release401 observed; batch anonymous endpoint has separateFAIL",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/export-ui-gates.json",
+          "sha256": "df185906a63ccbcac3b05bd702d2610b7821820f34090e017bdcab9c4abc2402"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/batch-before-visible.json",
+          "sha256": "e20d3291f7952f9cb9341dd8f3bfde2612edee119e5422d60437dd8a36a12718"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/anonymous-checks.json",
+          "sha256": "41d046f1160e1f3cd8e033fd689917f5225e3258d401264d17150250ef5e4595"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P10.anonymousBatchExport",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:54:29.602708+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Same endpoint as P02.batchExport",
+      "steps": "Reuse one actual anonymous request; no duplicate expansion",
+      "expected": "401 noCSV",
+      "actual": "500 csv_export_failed",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/failure-anonymous-batch-export.json",
+          "sha256": "cbcb85181ed7b5129a9868e6d7bea2659f28fe569e4e70bdd54e78b71e40fffa"
+        }
+      ],
+      "dependency": "Same single accepted failure, not an additional distinct defect."
+    },
+    {
+      "id": "P11",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:39:59.039Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Free UI has disabled CSV and upgrade link only",
+      "steps": "No scripted fetch/session extraction or fabricated request",
+      "expected": "Observe real authenticated403 through an exposed UI action",
+      "actual": "No compliant actionable Free export request path exposed",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/export-ui-gates.json",
+          "sha256": "df185906a63ccbcac3b05bd702d2610b7821820f34090e017bdcab9c4abc2402"
+        }
+      ],
+      "dependency": "Need real UI-observable request path; disabled UI/anonymous401 do not replace logged-inHTTP403."
+    },
+    {
+      "id": "P12",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:39:59.039Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A/B currentFree per controller sanitized source; A freshly confirmed",
+      "steps": "No purchase/entitlement mutation",
+      "expected": "Real paid200CSV with bound data",
+      "actual": "No current authorized paid session",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/export-ui-gates.json",
+          "sha256": "df185906a63ccbcac3b05bd702d2610b7821820f34090e017bdcab9c4abc2402"
+        }
+      ],
+      "dependency": "Need existing paid test session; not buying or forging paid state."
+    },
+    {
+      "id": "P13.availableAndRetentionUi",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:26:01.817Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Authorized synthetic product/analysis only",
+      "steps": "Observe reference expiry and loaded image previews/history",
+      "expected": "Correct available display and retention; no model rerun",
+      "actual": "Reference untilOct17; 512px loaded reference/candidate; account7day policy; designated images available",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-before.json",
+          "sha256": "3a1b68162e4b457e54a23c0dbe0884d0b61b5b9926f8b35b1c9ed367084a1037"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/product-after.json",
+          "sha256": "cbe2fbc09cd2663fac3a61135704f60928841a432c5621e2cf462ecc9cc0d0d7"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-before.json",
+          "sha256": "8027d4266d0c10522f16954a9115178dd3137d27169f5cdba218a70da16dc6e2"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/machine-after.json",
+          "sha256": "939ebc5413f0c5702f4d8360495107be40dfaf8c5d1bbaabe8df7037ea289430"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-before.json",
+          "sha256": "cfafe2c42ebf146321d638c45cb2aaa636b2ba614972ecacac5bfa82c054cc2d"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-after.json",
+          "sha256": "ad28b8c8658b7c369ba64e806f6d8cd6859bef63fceac1db73562bca1e6490bd"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P13.expiredDeletedHttpAndOtherFailures",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:24:42.189Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Allowed three IDs have currently available images; other history not authorized for detail",
+      "steps": "No time/DB mutations or unrelated expired asset reads",
+      "expected": "Actual authorized410/409/503 lifecycle response proofs",
+      "actual": "Expired history badges visible only; no exact authorized expired/deleted test asset or direct authenticatedHTTP status capture",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/account-before.json",
+          "sha256": "cfafe2c42ebf146321d638c45cb2aaa636b2ba614972ecacac5bfa82c054cc2d"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/frozen-before.json",
+          "sha256": "23327910a51d7c7a238029f593478fd64d60bb660cd6b1c6faccc9335e0d9bdf"
+        }
+      ],
+      "dependency": "Need exact approved lifecycle asset and normal observable UI path. LocalFake tests are not production410."
+    },
+    {
+      "id": "P14",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:50:25.278Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No exact permanent-deletion final authorization/confirmation",
+      "steps": "No delete buttons invoked",
+      "expected": "Safely confirmed minimum deletion and audit survival",
+      "actual": "No production deletion performed",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-handoff.json",
+          "sha256": "fdb44990244621ac071eaea11a5d959e4c3008a22b7b64c2bb48bc523c4839cd"
+        }
+      ],
+      "dependency": "Requires exact disposable asset/shared-reference impact and final user handoff; not part of this A stage."
+    },
+    {
+      "id": "P15.readIsolation",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:50:25.278Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "B controlled and authorized; current real session remains A",
+      "steps": "Stop READY_FOR_B_LOGIN; no constructed B session",
+      "expected": "Two normal sessions/differentworkspace and A-resource unreadability",
+      "actual": "A restored; B normalUI login pending, not absent",
+      "status": "NOT_RUN",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-handoff.json",
+          "sha256": "fdb44990244621ac071eaea11a5d959e4c3008a22b7b64c2bb48bc523c4839cd"
+        }
+      ],
+      "dependency": "Controller asks user to normally login B; resume same reviewer; confirm distinct workspace using UI plus sanitized corroboration."
+    },
+    {
+      "id": "P15.writeIsolation",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:50:25.278Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "B not yet logged in; no cross-owner form exposed",
+      "steps": "No forged authenticated write requests",
+      "expected": "Observe authorized cross-workspace write rejection if normalUI path exists",
+      "actual": "No legitimate observable cross-owner write path yet available",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-handoff.json",
+          "sha256": "fdb44990244621ac071eaea11a5d959e4c3008a22b7b64c2bb48bc523c4839cd"
+        }
+      ],
+      "dependency": "After B login assess actual UI path; page404 alone is not writeAPI rejection proof."
+    },
+    {
+      "id": "P15.paidExportIsolation",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:39:59.039Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "Both current accountsFree",
+      "steps": "No entitlement fabrication",
+      "expected": "Paid own-export versus foreign404",
+      "actual": "No paid session",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/export-ui-gates.json",
+          "sha256": "df185906a63ccbcac3b05bd702d2610b7821820f34090e017bdcab9c4abc2402"
+        }
+      ],
+      "dependency": "Paid403 only proves plan gate; need real paid test input for foreign404."
+    },
+    {
+      "id": "P16.readonlyMetricsAndCredits",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:46:54.941738+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "A exactidentity, owncredits, allcurrentwindow recordsunknown",
+      "steps": "Default/fixed/90day/error/recovery; plan/credits beforeafter; pricing read only",
+      "expected": "No credit changes; unknown excluded; empty rates/cost unavailable, value/quality unverified",
+      "actual": "Default4/fixed5/90day52 unknown excluded; business0; all denominators0; no knowncost; Free6/4/0 beforeafter; no payments",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-and-credit.json",
+          "sha256": "eb2f8437934aa0c55593148802d2f22dba90c34100c1e3bcf3d1f9ce0f9d8c90"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/pricing-readonly.json",
+          "sha256": "3c1e63fc5756ff65e2a113e6297cea34b31f6b2dcb633e7e1d4601468f6470d5"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-restored.png",
+          "sha256": "654216493a92014f9237418545f9a4e31e156e4655e06986113571743c591d21"
+        }
+      ],
+      "dependency": null
+    },
+    {
+      "id": "P16.businessAndTestPositive",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:46:54.941738+00:00",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No controlled business or test labels imported",
+      "steps": "No classification spoof/import",
+      "expected": "True sourced inclusion/test exclusion with positive records",
+      "actual": "Only actualunknown exclusion and empty metrics verified",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-and-credit.json",
+          "sha256": "eb2f8437934aa0c55593148802d2f22dba90c34100c1e3bcf3d1f9ce0f9d8c90"
+        }
+      ],
+      "dependency": "Requires independently authorized source-classified records; no actual business/quality conclusion."
+    },
+    {
+      "id": "P16.paymentPackPortal",
+      "environment": "production",
+      "observedAt": "2026-10-12T14:49:44.812Z",
+      "deploymentSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+      "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "independent QA",
+      "preconditions": "No purchase/pack/portalwrite authorization",
+      "steps": "Only Pricing read; no action buttons used",
+      "expected": "No unapproved payment operations",
+      "actual": "Payment operations0",
+      "status": "BLOCKED",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/pricing-readonly.json",
+          "sha256": "3c1e63fc5756ff65e2a113e6297cea34b31f6b2dcb633e7e1d4601468f6470d5"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/metrics-and-credit.json",
+          "sha256": "eb2f8437934aa0c55593148802d2f22dba90c34100c1e3bcf3d1f9ce0f9d8c90"
+        }
+      ],
+      "dependency": "Need separate payment authorization and exact scope for real transactions."
+    },
+    {
+      "id": "L01",
+      "environment": "local",
+      "observedAt": "2026-10-12T14:24:20.060719+00:00",
+      "deploymentSha": null,
+      "platformVersion": null,
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "developer execution; independently inspected/hash-verified",
+      "preconditions": "Developer originals independently inspected and SHA-bound; unchanged runtime source",
+      "steps": "Reuse current originals; no redundant independent full rerun",
+      "expected": "Accurate evidence provenance and limits",
+      "actual": "MemoryR2/pure ownership/static credit wiring",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/candidate-and-evidence-sanitized.json",
+          "sha256": "a5af6c1cb2619450a9dffa9584d170a3b1f01d0c52edcf15732348da25cafbe9"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/document-rule-review.json",
+          "sha256": "18f4ca5eb4b034c2bfd94bc4edf063a2e8e553fba57ef408719c03167ad314e2"
+        }
+      ],
+      "dependency": "Local evidence only; not real production payment/identity/HTTP410/double-account acceptance."
+    },
+    {
+      "id": "L02",
+      "environment": "local",
+      "observedAt": "2026-10-12T14:24:20.060719+00:00",
+      "deploymentSha": null,
+      "platformVersion": null,
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "developer execution; independently inspected/hash-verified",
+      "preconditions": "Developer originals independently inspected and SHA-bound; unchanged runtime source",
+      "steps": "Reuse current originals; no redundant independent full rerun",
+      "expected": "Accurate evidence provenance and limits",
+      "actual": "FakeD1/FakeR2 retention/delete-attempt tests",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/candidate-and-evidence-sanitized.json",
+          "sha256": "a5af6c1cb2619450a9dffa9584d170a3b1f01d0c52edcf15732348da25cafbe9"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/document-rule-review.json",
+          "sha256": "18f4ca5eb4b034c2bfd94bc4edf063a2e8e553fba57ef408719c03167ad314e2"
+        }
+      ],
+      "dependency": "Local evidence only; not real production payment/identity/HTTP410/double-account acceptance."
+    },
+    {
+      "id": "L03",
+      "environment": "local",
+      "observedAt": "2026-10-12T14:24:20.060719+00:00",
+      "deploymentSha": null,
+      "platformVersion": null,
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "developer execution; independently inspected/hash-verified",
+      "preconditions": "Developer originals independently inspected and SHA-bound; unchanged runtime source",
+      "steps": "Reuse current originals; no redundant independent full rerun",
+      "expected": "Accurate evidence provenance and limits",
+      "actual": "76 synthetic local workerd D1 cases /1851requests, synthetic account/paid boundaries",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/candidate-and-evidence-sanitized.json",
+          "sha256": "a5af6c1cb2619450a9dffa9584d170a3b1f01d0c52edcf15732348da25cafbe9"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/document-rule-review.json",
+          "sha256": "18f4ca5eb4b034c2bfd94bc4edf063a2e8e553fba57ef408719c03167ad314e2"
+        }
+      ],
+      "dependency": "Local evidence only; not real production payment/identity/HTTP410/double-account acceptance."
+    },
+    {
+      "id": "H.UPG10",
+      "environment": "historical",
+      "observedAt": "2026-10-12T14:24:22.698913+00:00",
+      "deploymentSha": null,
+      "platformVersion": null,
+      "sourceCandidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+      "evidenceOrigin": "historical baseline referenced by contract; current health separately executed",
+      "preconditions": "Historical deployed/verified baseline only",
+      "steps": "Record prior baseline separately; fresh health independently verifies version",
+      "expected": "Do not substitute historical acceptance for this production journey",
+      "actual": "Past UPG10 closure is a baseline statement; currentJRN failures/gaps remain",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/health.json",
+          "sha256": "7fa2861903c04cc2038485689ce0f5c0dba92263ec4234a5a1d3d34743ade916"
+        }
+      ],
+      "dependency": null
+    }
+  ],
+  "distinctProductFailureCount": 1,
+  "coverageCounts": {
+    "PASS": 22,
+    "FAIL": 2,
+    "BLOCKED": 13,
+    "NOT_RUN": 2
+  },
+  "note": "The same anonymous batch export failure appears under P02 and P10. Local/historical PASS does not replace production gaps."
+}

@@ -1,5 +1,7 @@
 # Pairvu 自动开发与独立验收
 
+2026-10-13 JRN-01最新：真实A/B/A只读隔离、冻结与审核恢复、额度对照已完成；匿名批次CSV生产500真实FAIL发现并修复。候选50341a7本地独立PASS，尚未推送/部署，正式JRN-01 QA_FAIL保留生产未修状态。下一步需本次修复发布授权，再GitHub-first发布与生产复验；paid/跨workspace写入/完整eligible/删除/付款缺口保留，pairvu-2暂停。详见docs/04-roadmap/project-progress-2026-10-10.md及operations/evidence/JRN-01/qa-current.json。
+
 2026-10-12当前：UPG-10已按GitHub-first顺序完成推送与fresh远端核验、0022迁移、同SHA Cloudflare部署及启用。发布SHA `a0b27ac7b5432e9482ffbe50e5ea0f43be18680c`，Worker `3e8dc987-8ec4-4f59-9950-5beebcfb4494`。独立7项HTTP、18项真实登录检查PASS，正式CLI record-deployment→verify-production→close，状态CLOSED。生产90天52条历史记录全部unknown并排除，未补业务标签，余额/原结果/审计链未变；不代表真实价值或质量已验证。pairvu-2继续PAUSED。
 
 2026-10-12安全处置更新：PairVu账户令牌已由用户受控轮换并本地替换；正确账户端点旧值401、新值200/active，Wrangler部署记录、D1/R2访问与公开服务验证通过，独立12项复核PASS。事件状态为REMEDIATION_VERIFIED_WITH_RESIDUAL_LIMITATIONS；生产a0b27ac/Worker 3e8dc987保持不变，未重复部署。外部CI/其他设备依赖未穷尽，审计不能排除误用，原账户级10项权限未收敛；这些保留为HUMAN-05后续项，不再描述为旧令牌尚未轮换。

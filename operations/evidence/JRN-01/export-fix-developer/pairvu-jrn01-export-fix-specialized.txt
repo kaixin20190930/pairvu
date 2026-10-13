@@ -1,0 +1,12 @@
+PASS no Cookie/session uses real identity resolver; 401 before entitlement or batch lookup
+PASS signed-in identity without workspace remains 401 before entitlement
+PASS Free stays 403; batch params and repository are not read
+PASS synthetic paid foreign workspace gets 404 with server-derived workspace
+PASS synthetic paid owner gets existing private CSV with formula/quote/newline protection
+PASS unknown env failure stays generic 500 with no CSV
+PASS unknown session failure stays generic 500 with no CSV
+PASS unknown account failure stays generic 500 with no CSV
+PASS unknown entitlement failure stays generic 500 with no CSV
+PASS unknown batch failure stays generic 500 with no CSV
+PASS error name alone cannot masquerade as RequestAccessError
+Report: /private/tmp/pairvu-jrn01-export-fix-results.json

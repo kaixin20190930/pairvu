@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "stage": "A_POST_B_READBACK",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "observedAt": "2026-10-13T05:32:52.900398+00:00",
+  "productionBuildShaFromStageAHealth": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+  "result": "PASS_SCOPED_READ_ONLY",
+  "normalAccountSwitch": {
+    "BSignOut": true,
+    "existingGoogleAChooser": true,
+    "passwordOrMFARequested": false,
+    "AIdentityConfirmedInPairvuUI": true,
+    "accountIdentifierArchived": false
+  },
+  "checks": [
+    {
+      "name": "A account/credits after B",
+      "status": "PASS",
+      "actual": "A Free 6 available, 4 used, 0 reserved; original target analysis remains in recent history; final reread unchanged.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/account-after-b.json",
+          "sha256": "f5d04e1c5edd97c1f5f191bb477cd92ba0337ce64f34f69a01d996c643361e3c"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/account-final-after-b.json",
+          "sha256": "5b02eb757eb2e7ae9420d01a1d6c96ae2be6c1a45b3b6b93b3791df569004863"
+        }
+      ]
+    },
+    {
+      "name": "A product restored",
+      "status": "PASS",
+      "actual": "Original synthetic product active; name/SKU restored, text version 7 and approved reference version 1 visible.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/product-after-b.json",
+          "sha256": "37f61c2f8ef1ebc6114cb0cedf80398bb77ecfefbca610b64169939bddbc4566"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/product-after-b-check.json",
+          "sha256": "9084039ca0881ea024060f89df2e9dcfb4c85ab3a84d9e6066ebbe1054372675"
+        }
+      ]
+    },
+    {
+      "name": "A frozen batch preserved",
+      "status": "PASS",
+      "actual": "Known batch Completed 1/1 REVIEW11; frozen text version 5 and reference version 1.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/batch-after-b.json",
+          "sha256": "6c1d5d020254fe2103cec0453b9242f2ab8b84d9e3cd690b7056bf6089667553"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/batch-after-b-check.json",
+          "sha256": "a9675be006fdecdb441878ae0adf0e98da818e9cc2a5c2c101e46b70701a6321"
+        }
+      ]
+    },
+    {
+      "name": "A analysis/audit preserved",
+      "status": "PASS",
+      "actual": "Machine REVIEW and 0 confirmed product issues; current decision None revision 6; all six immutable approve/reject/revoke events visible, original and JRN-added.",
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/analysis-audit-after-b.json",
+          "sha256": "3a2975494df0ea5a09685bc9560f0dabe2dc0c7c31b29261681c89f747a17f3e"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/analysis-audit-after-b-check.json",
+          "sha256": "5448ef10427b9392f57e3ea32274e5299db459b3e82377d6fcce07fa4a22c8cf"
+        }
+      ]
+    },
+    {
+      "name": "A source/eligibility preserved",
+      "status": "PASS",
+      "actual": "One exact target release row, machine REVIEW, human REVOKE revision 6, eligibility BLOCKED; machine/rule/reviewed snapshot hashes exactly match stage A.",
+      "hashes": {
+        "machineHash": "d2ffcb414209837399348041e86187dc2443510a8cd9cde1c606368fc30528eb",
+        "ruleHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4",
+        "reviewedMachineSnapshotHash": "267c64a061afeb1d1470ff7a81d88fe78902b9256f769b910f653d4ed663947e"
+      },
+      "evidence": [
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/release-after-b.json",
+          "sha256": "7cf84e604efd222ace13d46963a6168261e153bbdce33f3a7a7a097afb0e0ac4"
+        },
+        {
+          "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/release-after-b-check.json",
+          "sha256": "c0716d3a6d3e83bb449b2fd38f106e9dd259564f29c3bcc713d08d0f50326fb1"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "UI-visible readback only; no hidden JSON/version UUID or HTTP status captured.",
+    "No new analysis/model call, human review write, paid export or production mutation.",
+    "Original production CSV failure remains open despite separate local repair acceptance."
+  ],
+  "nextAction": {
+    "action": "Controller combines B denial and A positive reread as scoped read-only round trip. Keep write/paid/export/production repair boundaries separate.",
+    "dependency": "Production CSV release authorization and paid/write-specific input for remaining scopes.",
+    "automatic": "Evidence integration automatic; release needs user authorization."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "unitId": "JRN-01",
+  "candidateSha": "50341a7827037eb70505cdc34c93ebb988f89f34",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "reviewedAt": "2026-10-13T05:32:52.900398+00:00",
+  "result": "FAIL",
+  "overallProductionJourney": "INCOMPLETE",
+  "implementation": {
+    "CSVFixLocalQA": "PASS",
+    "evidence": {
+      "path": "/tmp/pairvu-jrn01-export-fix-qa/repair-local.json",
+      "sha256": "27ef95f73a7df5d2f9fd975bca9e99e56e4d9a5881333debaa7f79fb29effb94"
+    }
+  },
+  "deployment": {
+    "currentProvenProductionBuildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "currentProvenPlatformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494",
+    "fixCandidateProductionVerified": false
+  },
+  "featureEnablement": {
+    "changed": false
+  },
+  "acceptance": {
+    "BExactSyntheticResourceReadIsolation": "PASS_SCOPED_UI",
+    "BAfterReadCredits": "PASS",
+    "APostBReadback": "PASS_SCOPED_READ_ONLY",
+    "BReport": {
+      "path": "/tmp/pairvu-jrn01-qa/stage-b/stage-b-review.json",
+      "sha256": "dca14392b0078067124e5c8a4b348b0e78942b84e3db7920b5f89713e5888f25"
+    },
+    "AReadbackReport": {
+      "path": "/tmp/pairvu-jrn01-qa/stage-a-reread/review.json",
+      "sha256": "617b829dba246d17446ca0edb2200df92dc8c76caf72c52b1be33bb922fb2ab7"
+    },
+    "originalProductionAnonymousBatchCsv": "FAIL_OPEN",
+    "originalFailure": "operations/evidence/JRN-01/stage-a/failure-anonymous-batch-export.json",
+    "crossWorkspaceWrite": "BLOCKED",
+    "paidForeignExport": "BLOCKED",
+    "positiveEligible": "BLOCKED"
+  },
+  "limits": [
+    "Original production CSV 500 remains until authorized deployment and production smoke.",
+    "B private HTTP statuses not captured, only UI denial.",
+    "Write and paid boundaries not exercised.",
+    "Fresh B health navigation blocked by client, exact build binding relies on prior Stage A actual health and controller release state."
+  ],
+  "nextAction": {
+    "action": "Controller records local fix PASS and A/B scoped read round trip PASS, keeps JRN production FAIL open; seek explicit release authorization, then GitHub-first same-commit deployment and independent anonymous CSV smoke.",
+    "dependency": "Release authorization; remaining paid/write inputs separately.",
+    "automatic": "Evidence/state processing automatic; production release requires user input."
+  }
+}

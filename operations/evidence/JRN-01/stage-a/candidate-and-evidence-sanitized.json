@@ -1,0 +1,394 @@
+{
+  "observedAt": "2026-10-12T14:24:20.060719+00:00",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "head": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "sourceHashChecks": [
+    {
+      "path": "app/account/batches/new/BatchCreationClient.tsx",
+      "expected": "b038c49e915a8bf65fd670e5edaf3ab34b07827398d931fa397f6558312055c3",
+      "actual": "b038c49e915a8bf65fd670e5edaf3ab34b07827398d931fa397f6558312055c3"
+    },
+    {
+      "path": "app/account/page.tsx",
+      "expected": "5cb2ee5fdcc926f2d0276229ea395ce186cd151491f810f3368760c297c00144",
+      "actual": "5cb2ee5fdcc926f2d0276229ea395ce186cd151491f810f3368760c297c00144"
+    },
+    {
+      "path": "app/account/products/[productId]/ProductProfileClient.tsx",
+      "expected": "eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6",
+      "actual": "eef7e1188bd89bb97b71f8c56a1257344d798e9e3738376953c5ae76f38266b6"
+    },
+    {
+      "path": "app/account/products/[productId]/SavedProductSettingsClient.tsx",
+      "expected": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb",
+      "actual": "4f58db6275f13f120e7f1d40646761d490e6329e863d4143919684e2c0136deb"
+    },
+    {
+      "path": "app/account/releases/ReleaseWorkbenchClient.tsx",
+      "expected": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379",
+      "actual": "3dee7a2dfa4371c0fdb82f86ca87978c2dfd512c6762b5534f61dee65b781379"
+    },
+    {
+      "path": "app/api/analyses/[analysisId]/route.ts",
+      "expected": "0820c314882858ac202ad81dfa6ffa683e66599f1f8b471469d0da0bc8dbe543",
+      "actual": "0820c314882858ac202ad81dfa6ffa683e66599f1f8b471469d0da0bc8dbe543"
+    },
+    {
+      "path": "app/api/assets/[assetId]/route.ts",
+      "expected": "8d6009a7b7f15746a958b8f9d797639770aa0c02f201ae57e83811ca7b45ba30",
+      "actual": "8d6009a7b7f15746a958b8f9d797639770aa0c02f201ae57e83811ca7b45ba30"
+    },
+    {
+      "path": "app/api/batches/[batchId]/export/route.ts",
+      "expected": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f",
+      "actual": "30f65d84046e700cc8708f0c06d2e037c62c14f9c196dafde867b57dd45bc40f"
+    },
+    {
+      "path": "app/api/batches/[batchId]/route.ts",
+      "expected": "8701366a3c7c5253feedd7c3b4113f52a7910f2cf07bf21422b5e741ed42cf10",
+      "actual": "8701366a3c7c5253feedd7c3b4113f52a7910f2cf07bf21422b5e741ed42cf10"
+    },
+    {
+      "path": "app/api/batches/route.ts",
+      "expected": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661",
+      "actual": "ca6722da2b4b5153b3669aacb576d9576d68ac9f1def7d04f7c2c3f749d2b661"
+    },
+    {
+      "path": "app/api/products/[productId]/route.ts",
+      "expected": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b",
+      "actual": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b"
+    },
+    {
+      "path": "app/api/releases/export/route.ts",
+      "expected": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b",
+      "actual": "4c23a823ae9cab36cb562a510958cd3cb43e406b75ffb1b88f87368772bf152b"
+    },
+    {
+      "path": "app/api/releases/route.ts",
+      "expected": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394",
+      "actual": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394"
+    },
+    {
+      "path": "app/api/releases/status/route.ts",
+      "expected": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955",
+      "actual": "43e2201829223385633781947734710ef1c9ad9b01c299afa862df7f66a36955"
+    },
+    {
+      "path": "components/ReviewDecision.tsx",
+      "expected": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1",
+      "actual": "5bf707ff380855892cf6fa55cb6c88697e4883ca122d1278ca2f6d6d5a068bf1"
+    },
+    {
+      "path": "docs/05-evaluation/core-production-journey-acceptance.md",
+      "expected": "5c0279771194cef67c071bd2bc27336365f2b30d17ad3f9f33ddc949cc8206db",
+      "actual": "5c0279771194cef67c071bd2bc27336365f2b30d17ad3f9f33ddc949cc8206db"
+    },
+    {
+      "path": "fixtures/release-workbench/sql-worker.mjs",
+      "expected": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b",
+      "actual": "5d91cd9e33e1c5c678713484304552f5b83f3e814472f8dc3c56b7e92421904b"
+    },
+    {
+      "path": "lib/analysis/repository.ts",
+      "expected": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+      "actual": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91"
+    },
+    {
+      "path": "lib/assets/deletion.ts",
+      "expected": "31b11bad82dcf8e7c6a9fd64620d8dc8973947cb7f1370bc1004fbabe080784b",
+      "actual": "31b11bad82dcf8e7c6a9fd64620d8dc8973947cb7f1370bc1004fbabe080784b"
+    },
+    {
+      "path": "lib/assets/repository.ts",
+      "expected": "b0fadc1e33411abdba57716b6dbcbf2902fad4a5ee06b9c603cf1ce14a4a55bd",
+      "actual": "b0fadc1e33411abdba57716b6dbcbf2902fad4a5ee06b9c603cf1ce14a4a55bd"
+    },
+    {
+      "path": "lib/auth/request-access.ts",
+      "expected": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9",
+      "actual": "a538f128a191396c1fe91a1166fae972fa2e4772a2fa88396d72e337bf45b1c9"
+    },
+    {
+      "path": "lib/releases/csv.ts",
+      "expected": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1",
+      "actual": "63af3b4100bf67d68b650e5f87fdce718900e989cf0f862769dc4b50d6575ca1"
+    },
+    {
+      "path": "lib/releases/http.ts",
+      "expected": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66",
+      "actual": "1cb69deed03afa0463ebedbc9dc6cf0c28185c93b9e9b3b650e24af70907eb66"
+    },
+    {
+      "path": "lib/releases/policy.ts",
+      "expected": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+      "actual": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6"
+    },
+    {
+      "path": "lib/releases/repository.ts",
+      "expected": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d",
+      "actual": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d"
+    },
+    {
+      "path": "lib/reviews/http.ts",
+      "expected": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e",
+      "actual": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e"
+    },
+    {
+      "path": "lib/reviews/repository.ts",
+      "expected": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b",
+      "actual": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b"
+    },
+    {
+      "path": "scripts/verify-m1-workspace-analysis.ts",
+      "expected": "1e4fce19114902542b0eab6006db3e4933603c49cc73a15b763443e16b6ef12e",
+      "actual": "1e4fce19114902542b0eab6006db3e4933603c49cc73a15b763443e16b6ef12e"
+    },
+    {
+      "path": "scripts/verify-release-workbench.ts",
+      "expected": "65c66c213bd774dce0acd40c149bc7ec8dd1b8c92965eb8f2ed02205b5307d40",
+      "actual": "65c66c213bd774dce0acd40c149bc7ec8dd1b8c92965eb8f2ed02205b5307d40"
+    },
+    {
+      "path": "scripts/verify-retention.ts",
+      "expected": "a7e25885941d71c93cfb53014feb8c7b01011c80e8bf2edd9a4c0a60fd6170b9",
+      "actual": "a7e25885941d71c93cfb53014feb8c7b01011c80e8bf2edd9a4c0a60fd6170b9"
+    }
+  ],
+  "developerEvidenceHashChecks": [
+    {
+      "path": "/private/tmp/pairvu-jrn01-local/workspace-analysis.txt",
+      "expected": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb",
+      "actual": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb"
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-local/retention.txt",
+      "expected": "0fa51bf24b6afd790e14f26b3262a8b930ee44c979531e6baa7cae897ea15575",
+      "actual": "0fa51bf24b6afd790e14f26b3262a8b930ee44c979531e6baa7cae897ea15575"
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-local/release-workbench.txt",
+      "expected": "0dfc2c6f718d52d9b92c13bb5b31fb4edc66e987c84ae0a23933cb0d048e4e47",
+      "actual": "0dfc2c6f718d52d9b92c13bb5b31fb4edc66e987c84ae0a23933cb0d048e4e47"
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-local/release-workbench.json",
+      "expected": "ccd88232b9ab069f0c2a2e78f6fd86ba6b9c7d551f6c578c3322c50b923a2a2e",
+      "actual": "ccd88232b9ab069f0c2a2e78f6fd86ba6b9c7d551f6c578c3322c50b923a2a2e"
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn01-local/eval/real-m0/reports/retention-verification-latest.json",
+      "expected": "3a29c3e90a1204ad9258e9df7996c21a52f78b4057eed77f46ee773d7622e4c9",
+      "actual": "3a29c3e90a1204ad9258e9df7996c21a52f78b4057eed77f46ee773d7622e4c9"
+    }
+  ],
+  "links": [
+    {
+      "target": "../../operations/contracts/JRN-01.md",
+      "exists": true
+    },
+    {
+      "target": "/private/tmp/pairvu-jrn01-local/workspace-analysis.txt",
+      "exists": true
+    },
+    {
+      "target": "/private/tmp/pairvu-jrn01-local/retention.txt",
+      "exists": true
+    },
+    {
+      "target": "/private/tmp/pairvu-jrn01-local/eval/real-m0/reports/retention-verification-latest.json",
+      "exists": true
+    },
+    {
+      "target": "/private/tmp/pairvu-jrn01-local/release-workbench.json",
+      "exists": true
+    },
+    {
+      "target": "/private/tmp/pairvu-jrn01-local/release-workbench.txt",
+      "exists": true
+    },
+    {
+      "target": "../../operations/evidence/production-upg10-2026-10-12/manifest.json",
+      "exists": true
+    },
+    {
+      "target": "../../operations/evidence/production-upg10-2026-10-12/production-functional.json",
+      "exists": true
+    },
+    {
+      "target": "../../operations/evidence/production-upg06-2026-10-12/manifest.json",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/health/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/release-version.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/auth/request-access.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/analyses/[analysisId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/assets/[assetId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/reviews/http.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/http.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/value-metrics/http.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/page.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/billing/context/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/releases/ReleaseWorkbenchClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/repository.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/value-metrics/ValueMetricsClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/batches/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/batches/new/BatchCreationClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/policy.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/products/[productId]/ProductProfileClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/products/[productId]/SavedProductSettingsClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/products/[productId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../components/ReviewDecision.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../lib/reviews/repository.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/policy.ts",
+      "exists": true
+    },
+    {
+      "target": "../../components/ReviewDecision.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../lib/reviews/validation.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/policy.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/releases/export/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/batches/[batchId]/export/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/batches/new/BatchCreationClient.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/csv.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/assets/[assetId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/page.tsx",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/analyses/[analysisId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/batches/[batchId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/account/assets/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/assets/deletion.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/auth/request-access.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/products/[productId]/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/reviews/repository.ts",
+      "exists": true
+    },
+    {
+      "target": "../../lib/releases/repository.ts",
+      "exists": true
+    },
+    {
+      "target": "../01-architecture/value-metrics-contract.md",
+      "exists": true
+    },
+    {
+      "target": "../../app/api/value-metrics/route.ts",
+      "exists": true
+    },
+    {
+      "target": "../../app/account/BillingActions.tsx",
+      "exists": true
+    }
+  ],
+  "runtimeChangedPaths": [],
+  "workingTreeStatus": " M operations/task-registry.json\n?? operations/evidence/JRN-01/\n",
+  "localEvidenceDisposition": "Developer originals inspected and hash-bound, not claimed as independent reruns.",
+  "candidateCommitSummary": "370d3ecc88e3165d12020943b0d5aee3a42ec77b; one committed document path; runtime unchanged from production baseline; Git author identity intentionally excluded from archive."
+}

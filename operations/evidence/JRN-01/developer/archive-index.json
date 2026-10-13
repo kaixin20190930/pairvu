@@ -1,0 +1,37 @@
+{
+  "unitId": "JRN-01",
+  "candidateSha": "370d3ecc88e3165d12020943b0d5aee3a42ec77b",
+  "role": "developer",
+  "files": [
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/developer-validation.json",
+      "archive": "operations/evidence/JRN-01/developer/developer-validation.json",
+      "sha256": "c3964f02b8f082a5c9d28ae4d0c73991fd3766ac9e2a6eebaa655f539792d886"
+    },
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/workspace-analysis.txt",
+      "archive": "operations/evidence/JRN-01/developer/workspace-analysis.txt",
+      "sha256": "725dc9f07b0a004399653e67df1793b974288185a59a43c3ad5fe831943615bb"
+    },
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/retention.txt",
+      "archive": "operations/evidence/JRN-01/developer/retention.txt",
+      "sha256": "0fa51bf24b6afd790e14f26b3262a8b930ee44c979531e6baa7cae897ea15575"
+    },
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/release-workbench.json",
+      "archive": "operations/evidence/JRN-01/developer/release-workbench.json",
+      "sha256": "ccd88232b9ab069f0c2a2e78f6fd86ba6b9c7d551f6c578c3322c50b923a2a2e"
+    },
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/release-workbench.txt",
+      "archive": "operations/evidence/JRN-01/developer/release-workbench.txt",
+      "sha256": "0dfc2c6f718d52d9b92c13bb5b31fb4edc66e987c84ae0a23933cb0d048e4e47"
+    },
+    {
+      "source": "/private/tmp/pairvu-jrn01-local/eval/real-m0/reports/retention-verification-latest.json",
+      "archive": "operations/evidence/JRN-01/developer/retention-verification-latest.json",
+      "sha256": "3a29c3e90a1204ad9258e9df7996c21a52f78b4057eed77f46ee773d7622e4c9"
+    }
+  ]
+}

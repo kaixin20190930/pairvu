@@ -1,0 +1,14 @@
+{
+  "observedAt": "2026-10-12T14:31:33.583531+00:00",
+  "finishedAt": "2026-10-12T14:31:35.651920+00:00",
+  "assetIdSource": "Rendered approved reference src of authorized product",
+  "httpStatus": 400,
+  "exitCode": 0,
+  "body": {
+    "error": "access_identity_required",
+    "message": "A signed-in account or valid anonymous session is required."
+  },
+  "authentication": "none",
+  "expected": "400 access_identity_required, no pixels",
+  "status": "PASS"
+}

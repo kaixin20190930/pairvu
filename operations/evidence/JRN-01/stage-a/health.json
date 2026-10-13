@@ -1,0 +1,23 @@
+{
+  "path": "/api/health",
+  "startedAt": "2026-10-12T14:24:20.191657+00:00",
+  "finishedAt": "2026-10-12T14:24:22.698913+00:00",
+  "httpStatus": 200,
+  "expectedStatus": 200,
+  "exitCode": 0,
+  "stderr": "",
+  "responseHeaders": {
+    "content-type": "application/json",
+    "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+  },
+  "bodyPath": "/tmp/pairvu-jrn01-qa/public-http/00-body.txt",
+  "credentialHeadersSent": false,
+  "json": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "a0b27ac7b5432e9482ffbe50e5ea0f43be18680c",
+    "platformVersion": "3e8dc987-8ec4-4f59-9950-5beebcfb4494"
+  },
+  "status": "PASS"
+}

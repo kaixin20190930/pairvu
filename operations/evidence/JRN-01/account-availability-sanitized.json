@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-12T14:14:37.540508+00:00",
+  "source": "User-authorized production D1 SELECTs, no session/auth secrets accessed",
+  "queries": 5,
+  "rowsWritten": 0,
+  "accountCount": 2,
+  "accounts": [
+    {
+      "label": "A current signed-in account",
+      "currentPlan": "free",
+      "workspaceActive": true,
+      "analysisCount": 52,
+      "historyPlan": "starter",
+      "historyPeriodStart": "2026-08-18T15:43:04.000Z",
+      "historyPeriodEnd": "2026-09-18T15:43:04.000Z",
+      "historicalPack": "internal_e2e_1 exhausted, one credit, no payment intent; not standard paid pack acceptance"
+    },
+    {
+      "label": "B second existing Google account",
+      "currentPlan": "free",
+      "workspaceActive": true,
+      "analysisCount": 0,
+      "loginAccessConfirmedByUser": true,
+      "productionIsolationAuthorized": true
+    }
+  ],
+  "paymentEvidence": "Live-mode invoice/checkout/subscription events exist; some historical events have null workspace, so do not assign them all to A without provider-level corroboration. No current paid account; no purchase authorized.",
+  "privateRecords": "Account identity results retained only under /tmp/pairvu-jrn01-private with 0600, not committed",
+  "sourceSha256": {
+    "accounts": "0cc8bd7b858d9e92fb30fd10b82199845c41cbc44bf9e231eedc00e13a17d1ac",
+    "history": "d978a07fa64142a4516c5ad5c5d469be02e40820e46d9027c577398e7c48e167"
+  }
+}

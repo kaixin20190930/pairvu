@@ -1,0 +1,33 @@
+{
+  "observedAt": "2026-10-12T14:33:12.588Z",
+  "status": "PASS",
+  "productId": "8e023cd4-16b4-4e77-a957-238e7253947f",
+  "baselineTextVersion": 5,
+  "renameTextVersion": 6,
+  "restoredTextVersion": 7,
+  "completeVisibleFieldsRestored": true,
+  "approvedReferenceUnchanged": true,
+  "finalActive": true,
+  "oldVersionsRetained": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "successfulMutations": [
+    "save rename/SKU v6",
+    "save restored name/SKU v7",
+    "archive",
+    "restore active"
+  ],
+  "conflict": "First archive after standard save returned product version conflict; UI loaded latest then one explicit archive retry succeeded. Original conflict retained.",
+  "newBatchModelCalls": 0,
+  "imageUploads": 0,
+  "limits": [
+    "Product revision/version UUIDs were not exposed by reviewed UI; text version numbers and displayed profile contents were observed.",
+    "Restoration preserves semantic profile and active state; historical/new versions are not removed."
+  ]
+}

@@ -1,0 +1,6 @@
+
+> product-visual-qa-platform@0.1.0 test:m1:workspace-analysis /Users/liukai/Documents/Product Visual QA Platform
+> tsx scripts/verify-m1-workspace-analysis.ts
+
+M1 workspace analysis verification passed.
+Verified workspace ownership, anonymous isolation, retention, idempotency, and credit lifecycle wiring.
