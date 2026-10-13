@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "JRN-01-EXPORT-FIX",
+  "unitId": "JRN-02",
   "baselineSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
@@ -9,12 +9,12 @@
     "clientThreadId": null,
     "modelSelection": {
       "model": "gpt-6-sol",
-      "thinking": "medium",
-      "reason": "原Sol6.1容量不足；本轮仅明确单路由修复与有限验证，使用工具可用通用Sol备选，不因环境问题升级最高模型",
-      "upgradeCondition": "重复可定位鉴权推理缺陷才重新评估high；容量问题单独处理",
+      "thinking": "high",
+      "reason": "独立本地D1/身份与Stripe事件到CSV多层隔离；实际API与安全门禁需较深推理",
+      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
       "applied": true
     },
-    "observedStatus": "completed",
+    "observedStatus": "active",
     "afterCursor": "23beb2e0-1e0a-45d1-bea7-0733eac50ccd:10",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
@@ -31,9 +31,9 @@
     "modelSelection": {
       "model": "gpt-6-sol",
       "thinking": "high",
-      "reason": "B真实隔离与后续固定SHA鉴权复验需要跨层推理；使用工具可用Sol备选恢复原中断角色",
-      "upgradeCondition": "缩域后仍出现具体推理不足才重评更高模型；环境/会话问题不升级",
-      "applied": true
+      "reason": "独立核验实际Stripe测试付款/真实认证、生产隔离与付费所有权反例",
+      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
+      "applied": false
     },
     "afterCursor": "cdaffe7d-afca-48cd-b2bb-5e97ad234ebb:91",
     "observedStatus": "completed",
@@ -75,8 +75,8 @@
     ],
     "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/http-report.json"
   },
-  "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "DEV_ACTIVE",
   "automationId": "pairvu-2",
   "notes": "2026-10-13 CSV修复已按GitHub-first fresh核验/无待迁移/同SHA部署，独立HTTP和真实A会话只读复验PASS；正式runtime CLOSED。JRN-01报告交付CLOSED不代表整个生产旅程PASS，仍INCOMPLETE。原FAIL及原件不覆盖，pairvu-2继续PAUSED。",
   "nextUnitId": null,
@@ -204,7 +204,7 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "P1先补真实paid CSV成功和paid跨workspace拒绝，依赖可控制的真实付费生产会话；无新付款授权不支付、不伪造套餐。可进一步梳理写入隔离/生命周期最小契约，真实质量样本和业务来源仍缺；UPG-08/09未启动，pairvu-2继续PAUSED。",
+  "nextAction": "实现JRN-02隔离环境与最小真实Stripe测试付款/CSV链路，固定SHA独立QA，FAIL返原开发；不修改生产计费或真实扣款。",
   "completedUnitId": "JRN-01-EXPORT-FIX",
   "completedCandidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
   "completedReleaseRepair": {
@@ -336,5 +336,14 @@
     ],
     "quality": "Real authorized double-annotated samples NOT_PROVIDED; no quality conclusion",
     "value": "test/unknown excluded; real business-source input still needed"
+  },
+  "sandboxAcceptance": {
+    "contract": "operations/contracts/JRN-02.md",
+    "state": "SCOPED",
+    "stripeTestKeyValidated": true,
+    "testStarterPriceActive": true,
+    "productionChangesAuthorized": false,
+    "realChargesAuthorized": false,
+    "identityReuse": "Existing A/B email identities, fresh isolated local workspaces; no production session/database copy"
   }
 }

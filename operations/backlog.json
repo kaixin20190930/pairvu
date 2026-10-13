@@ -336,6 +336,24 @@
         "fixed candidate SHA",
         "independent QA report"
       ]
+    },
+    {
+      "id": "JRN-02",
+      "title": "Stripe Test Mode隔离付款与CSV所有权验收",
+      "priority": 1,
+      "dependsOn": [
+        "JRN-01-EXPORT-FIX"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "isolated environment",
+        "Stripe test payment",
+        "paid CSV and workspace isolation",
+        "production unchanged"
+      ]
     }
   ]
 }
