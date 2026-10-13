@@ -1,0 +1,377 @@
+{
+  "unitId": "JRN-04",
+  "runId": "49d7ec15-76c0-4c57-b26f-cd9427224bf5",
+  "status": "PASS",
+  "startedAt": "2026-10-13T09:42:59.977Z",
+  "finishedAt": "2026-10-13T09:44:33.313Z",
+  "temporaryDirectory": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW",
+  "baselineSha": "463887050e4ba3fbd294fd45b59607b5d80ec31b",
+  "cases": [
+    {
+      "name": "real A/B sessions, own private image bytes, foreign and anonymous read denial",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-01-pass.json"
+    },
+    {
+      "name": "expiry boundary revokes GET while objects remain; null and invalid dates fail closed",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-02-pass.json"
+    },
+    {
+      "name": "null-expiry source rejected by asset GET cannot become ELIGIBLE after actual approval",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-03-pass.json"
+    },
+    {
+      "name": "release availability keeps valid future source and blocks expired/invalid dates",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-04-pass.json"
+    },
+    {
+      "name": "small-page real retention cleanup deduplicates keys, audits and preserves nontargets",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-05-pass.json"
+    },
+    {
+      "name": "anonymous analysis/account/batch DELETE returns authentication denial without storage change",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-06-pass.json"
+    },
+    {
+      "name": "A/B bidirectional valid foreign analysis and batch deletion deny with full storage unchanged",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-07-pass.json"
+    },
+    {
+      "name": "queued/running analysis and queued/processing batch delete protections return 409 unchanged",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-08-pass.json"
+    },
+    {
+      "name": "owner analysis DELETE preserves SKU reference, revokes candidate and ELIGIBLE without altering audit/source/credits",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-09-pass.json"
+    },
+    {
+      "name": "owner batch DELETE preserves SKU reference, deletes candidate and is idempotent",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-10-pass.json"
+    },
+    {
+      "name": "real R2 deletion failure reports partial failure; route retry converges with audit preserved",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-11-pass.json"
+    },
+    {
+      "name": "R2 success then D1 mark failure does not report success; retry completes without restoring same ID",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-12-pass.json"
+    },
+    {
+      "name": "account image DELETE ignores forged workspace and only deletes authenticated workspace; replay idempotent",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-13-pass.json"
+    },
+    {
+      "name": "final object accounting and retained machine/review audit; local fixture orphan cleanup",
+      "status": "PASS",
+      "artifact": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/case-14-pass.json"
+    }
+  ],
+  "setupFailure": null,
+  "expectedFailures": [
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/expected-r2-failure-original.json",
+    "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-AnsBDW/expected-d1-mark-failure-original.json"
+  ],
+  "actualBetterAuth": true,
+  "localD1": true,
+  "localR2": true,
+  "actualRoutes": true,
+  "productionLifecycleCovered": false,
+  "qualityEvidence": false,
+  "syntheticMachineEvidence": true,
+  "modelCallsExecuted": 0,
+  "outboundCount": 0,
+  "queueWrites": 0,
+  "injections": [
+    {
+      "layer": "R2 delete before real bucket operation",
+      "key": "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png"
+    },
+    {
+      "layer": "D1 markAssetDeleted before real statement execution",
+      "assetId": "696db67a-ffbb-402b-9b2b-48a9132ed5f5"
+    }
+  ],
+  "deleteCalls": [
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/c99a1053-87b8-48f3-ac7d-cd52bdd5cfdf/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/daf48893-1ff5-437b-a23d-d1134735bb2e/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/9e21cd2d-bdd2-4ada-9d6f-5aa62689c832/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/17c15d2a-3089-4a49-a15d-ad7e87df000c/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/70f68c21-6202-4d18-87e4-bd05467d09ca/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/original.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/normalized.png",
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/thumbnail.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3e25d20b-0b81-453b-be57-52e80800983e/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11664e90-1a5b-4c54-afe9-6376a4ca55a5/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/bef18c9a-7544-4c0b-b3a7-4b882705ce35/original.png"
+    ],
+    [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/6002cc77-548a-4fbb-9508-2d1c648f8f49/original.png"
+    ]
+  ],
+  "finalStorage": {
+    "tableHashes": {
+      "analyses": "ba995eb9cd986aa3aa7adb97caa77f0dba4757f965d07a2811faf78a9e8c801d",
+      "analysis_execution_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_feedback": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_issues": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_limitations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "analysis_model_calls": "ff11e1bf4ec65f0ed5f2261152bbcf3ada92f79bb9c348d22fafc6a5145949f7",
+      "analysis_observations": "bc4429dc0a3b91f50db63ababb4c79a673f14a426ffbf9d243a2da8194a7bc75",
+      "analysis_product_snapshots": "3dab1e1ae4fa94bf6e1db2fb9b02d3f3ce4f61279d527b281cff38dc6899d3a4",
+      "analysis_references": "8fd14b13d1fc4e2c7301ce912364791626c8492632efc71635c49c83941d47ed",
+      "analysis_value_classifications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "anonymous_sessions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "asset_deletion_attempts": "85105736c4c7178dea5f638f70db644715b046e68311e080fbaad8cf563f5633",
+      "assets": "edf9c50482b454fbee5cdf25f8c613ab04bb139fc8a5389668c3ee2ac2bb52f8",
+      "batch_items": "0a66fa368c9330c33ba7208247571395ecba818578eda96b8cef2639a83a45a3",
+      "batch_product_snapshots": "83627508acdbfe6d7e98573a955154b39b3522927b9cfa090cb3db712880525b",
+      "batches": "52c60674dff78255f958c3db2eb8a9447ecf260a10acf2ac89f8052386a11d0a",
+      "credit_lot_ledger": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservation_allocations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "credit_reservations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "plans": "38ed653ffba7ca770f568ed73245687380dc75e7f59a543a325a314589013147",
+      "product_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "product_mutation_requests": "cd4a7ae09e5e9a49ac63f091076a09b68b0a79810869302d7eb8bfefb5adc49d",
+      "product_profile_versions": "b61a5a47ddc807e89e78fb3a5b5cd09254817a439eee076042a9e94eff017863",
+      "product_reference_versions": "4385201f68dbf1bc63f535ab71f455bd2d743ede0818a0b2e63942eb6ba02d05",
+      "product_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "products": "2864cdb2f8945de1ba6a7b5c68585a8892eec6717a29c287a520837ae3fa8485",
+      "review_events": "5684ccc8c7577ce51eb3aa2680747596ddb24566023c40b9b3f59621bc8d77b3",
+      "review_heads": "a47f08a2f16811e35018f92b9c0d2ff1c20f1ca30e2de10d66b601629d875180",
+      "review_write_guards": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "stripe_webhook_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "usage_ledger": "e20383c899e4e9d48ee20c2d211fcb21e127d9f777e6140c575f07873492768c",
+      "workspace_credit_lots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "workspace_credit_periods": "d4864a733a44102d0d277f278d9dc203bc2ccee8f84da4def3c70c50d75a7b60",
+      "workspace_memberships": "a99b4cfc8270fe46e37b691a43c2330f3be4ded3b4ef4e4de6993dd9c20baa46",
+      "workspace_subscriptions": "0e0054c4692bb4cfd19c5b24109f2a6128ddfc2361dd9ba286b9348bf8bf504d",
+      "workspaces": "2cba789f1050dee357ae1aecb9e7d22ae94b4c0b01785f33af8dc827e2ff32bd"
+    },
+    "objects": {
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11664e90-1a5b-4c54-afe9-6376a4ca55a5/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/17c15d2a-3089-4a49-a15d-ad7e87df000c/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3e25d20b-0b81-453b-be57-52e80800983e/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/6002cc77-548a-4fbb-9508-2d1c648f8f49/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/70f68c21-6202-4d18-87e4-bd05467d09ca/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/9e21cd2d-bdd2-4ada-9d6f-5aa62689c832/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/bef18c9a-7544-4c0b-b3a7-4b882705ce35/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/c99a1053-87b8-48f3-ac7d-cd52bdd5cfdf/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/daf48893-1ff5-437b-a23d-d1134735bb2e/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/normalized.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/original.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/thumbnail.png": null,
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf/original.png": null
+    },
+    "assetHashes": {
+      "045e532b-fc14-4129-9fa1-6a2d038527c7": "9d01377e3926806fb80bbecdbd1f433fb17932a16fef2ef68dd8e85729c488e2",
+      "11664e90-1a5b-4c54-afe9-6376a4ca55a5": "4a1827f22b4fb71b98a64ca78119bb6ce2043678a7d4d54851da77deb94b098e",
+      "11ea5607-e45f-463d-be8a-d76de2eb6935": "f9f050e463bc07ece0896dff3d499cf596dbb4dfdfd81abe87d91c5845760dc4",
+      "17c15d2a-3089-4a49-a15d-ad7e87df000c": "aa81aabc253636dd48db272e1da18420d5bf2a13f251a856c55e6cd8210298a3",
+      "1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0": "bfeb70ceeb9988d4e35bdc0a682b57ad7658894d9480083999e0b01a93b02de9",
+      "29c19f17-cbd2-4bd8-a84f-720071812a39": "80a7be43aa2aca14e875891bf5c7f6014cc3febffca915f17d6d9991c1aa7288",
+      "2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0": "621837dbcad421e022e8191e4938864a47f024828e589a659779f6a82e0faae1",
+      "353a79a9-a9b0-43b3-911e-c92c34cc6852": "eeafab4c1909019b45f856fa973d8e973ddc2b8fcf742659fd213e252f2101c5",
+      "3e25d20b-0b81-453b-be57-52e80800983e": "e2919748d3a38523dd704ba7dc18b04d74f6b81c20d58ca19f8c5187cecf8f16",
+      "3f673949-22be-464f-9809-a963d0bd61bd": "9a31131169f3b62b9738f78168cac02f09696872f63922822ba81f30694cc0f8",
+      "54224867-a4bb-4155-b7cd-971ee987266d": "25be03cafd650324cc0daa75f70033102b268a330cd2db79637c08b570a0f805",
+      "58a2e96f-b1f6-4a38-b7f2-b1965da40bb7": "3633339edf4d0acbbcab2c88744a80e202fea4f95901bd697261b5bea0fa1874",
+      "5cb1bb6e-a15c-40be-8aaf-d3178e69abb7": "0c9914529136a6b8810031d01cd2d1859af08e6ccf0fa3f7fabc8cec154f10b1",
+      "6002cc77-548a-4fbb-9508-2d1c648f8f49": "57bd58336248c4f2526c169f871b5f3e529025ba4ece7e7fec291d42460c0c72",
+      "696db67a-ffbb-402b-9b2b-48a9132ed5f5": "2887a0f3b27a866b87098dd8ab01637d7ead82c5bbbd825c40fdd738d4fd314b",
+      "70f68c21-6202-4d18-87e4-bd05467d09ca": "af48b36a18c11c0ea18045ed86b967289c43cd1ca227f1076e266be86a25018d",
+      "8b0e9881-5a11-4824-8eca-e2dea5f1e8fe": "46fd5ef5e9b89280a7610e291e517343bd645832d81abec0005e146563cfe3b0",
+      "9e21cd2d-bdd2-4ada-9d6f-5aa62689c832": "a72411fde0652d383c7e1c9559fe5feda113c7fd62426bcb9bb03cf5ba70415b",
+      "a0bd96c6-0837-41d8-b64c-5080c355d710": "0f9ee84ebcbe5b978a7e09b5899a3ef43acc9c239cc04fcf2262d23c0c883fd4",
+      "bef18c9a-7544-4c0b-b3a7-4b882705ce35": "f7d3eddc8f78e706d7daa609a3804e204aadc579c597b49d723372dc66dbef18",
+      "c99a1053-87b8-48f3-ac7d-cd52bdd5cfdf": "7f6893cd9d547a7a590bb2d1afc65026d8af2d5e1477ddd290fb1995b9edf7ec",
+      "d2f7b37f-2343-4889-b4f6-045eb69e06c0": "bedfcb72af244cf3b3243c543c591da16533846049c4ad38efb8a5db8d9aa57d",
+      "daf48893-1ff5-437b-a23d-d1134735bb2e": "4eb135d84dff4ed94e8f826b478b1aa1184f2cdd5c7b330e1ec758a650170824",
+      "e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d": "29e117a1ff634644f4b195ae704b6263f0c51019114ff891e2fc2f29b3a3b288",
+      "e6f8f759-c36a-48fb-b6d9-0e7d41fa2492": "5b46332d4a574f4ad0ac05dcd9aac9b8ab440a8ce5f1b5e42e419b14b94b1d6f",
+      "eb477d2f-1eeb-4344-8faf-4b6e638f3b51": "49b48656605c7af9346ed727a2c0d145a3ff032dfbb19e16a1313bc1b8954da8",
+      "fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf": "47d5a16d31c068199dee38ad12438045bef6a778476f1770e45490faab4f6a55"
+    },
+    "sha256": "94c0427b177b75469c538e0b4c8a227e8d85d36683dca2850abc81c2baaf4d0e",
+    "excludedAuthenticationMetadata": [
+      "user",
+      "session",
+      "account",
+      "verification",
+      "rateLimit",
+      "workspaces.updated_at"
+    ]
+  },
+  "servicesStopped": true,
+  "limitations": [
+    "Image bytes, machine observations and model provenance rows are synthetic; no model ran.",
+    "Fixture status transitions and expiry clock are explicit local inputs.",
+    "Narrow pass-through faults sit around real D1/R2 operations; these are not production failure probes.",
+    "Private D1/R2 storage stays only in the temporary directory; no browser E2E was required for this backend unit."
+  ]
+}

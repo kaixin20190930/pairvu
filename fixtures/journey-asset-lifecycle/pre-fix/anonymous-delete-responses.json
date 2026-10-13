@@ -1,0 +1,26 @@
+[
+  {
+    "key": "analysis",
+    "status": 401,
+    "body": {
+      "error": "access_identity_required",
+      "message": "A signed-in account or valid anonymous session is required."
+    }
+  },
+  {
+    "key": "account",
+    "status": 401,
+    "body": {
+      "error": "access_identity_required",
+      "message": "A signed-in account or valid anonymous session is required."
+    }
+  },
+  {
+    "key": "batch",
+    "status": 500,
+    "body": {
+      "error": "image_deletion_failed",
+      "message": "The batch images could not be fully deleted. Please retry."
+    }
+  }
+]

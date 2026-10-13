@@ -1,0 +1,312 @@
+{
+  "name": "owner analysis DELETE preserves SKU reference, revokes candidate and ELIGIBLE without altering audit/source/credits",
+  "status": "PASS",
+  "detail": [
+    {
+      "alias": "A",
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 1,
+            "deleted": 1,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      },
+      "originalRelease": {
+        "analysisId": "6b7fa0ea-35b8-4db1-8074-9563ca05343c",
+        "createdAt": "2026-10-13T09:34:24.143Z",
+        "batchId": null,
+        "productSnapshot": {
+          "schemaVersion": 1,
+          "productId": "1ce9db96-796e-4b47-acc6-7ef9945aa615",
+          "revision": 1,
+          "profileVersionId": "cbca4e59-64a6-459e-a5d1-046d8514423b",
+          "profileVersionNumber": 1,
+          "profile": {
+            "profileSchemaVersion": 1,
+            "name": "JRN-04 synthetic Northstar",
+            "skuLabel": "JRN04-SYNTHETIC",
+            "brand": "Northstar",
+            "variant": null,
+            "capacity": null,
+            "packagingVersion": null,
+            "criticalAttributes": [],
+            "allowedChanges": []
+          },
+          "referenceVersionId": "4addbc2e-a974-436d-87f2-c60b4d71cad7",
+          "referenceVersionNumber": 1,
+          "referenceRole": "front",
+          "referenceAssetId": "72049904-cddc-4012-8894-11a114e8817b",
+          "boundAt": "2026-10-13T09:34:24.218Z"
+        },
+        "productSnapshotJson": "{\"schemaVersion\":1,\"productId\":\"1ce9db96-796e-4b47-acc6-7ef9945aa615\",\"revision\":1,\"profileVersionId\":\"cbca4e59-64a6-459e-a5d1-046d8514423b\",\"profileVersionNumber\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"JRN-04 synthetic Northstar\",\"skuLabel\":\"JRN04-SYNTHETIC\",\"brand\":\"Northstar\",\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]},\"referenceVersionId\":\"4addbc2e-a974-436d-87f2-c60b4d71cad7\",\"referenceVersionNumber\":1,\"referenceRole\":\"front\",\"referenceAssetId\":\"72049904-cddc-4012-8894-11a114e8817b\",\"boundAt\":\"2026-10-13T09:34:24.218Z\"}",
+        "productSnapshotHash": "0e439c84b08f30a5e4ef6238cd40ccad204afd40bc308f0eca80f2ce16c069cb",
+        "machine": {
+          "status": "completed",
+          "verdict": "pass",
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002",
+          "completedAt": "2026-10-13T09:34:24.263Z",
+          "issueCount": 0,
+          "limitations": [],
+          "sourceHash": "016ea125cbbd1b2a174a88d50ae5b53089da458294f86cff7d84666e7596ee76",
+          "sourceComplete": true,
+          "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"6b7fa0ea-35b8-4db1-8074-9563ca05343c\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T09:34:24.263Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"72049904-cddc-4012-8894-11a114e8817b\",\"candidateAssetId\":\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\",\"observations\":[{\"id\":\"4fd5ca10-7249-4c93-a408-ab65aa63782e\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"485971d2-cf6c-42e3-b123-8bf640fc166d\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"8a9f6c13-5449-467a-85f2-79a258928359\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"54098ae4-f6ff-4c57-a8d8-642cb2806de4\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"bf0f359d-ffae-48d1-aec7-ad890d3eccc9\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"df170bd9-9edb-47c8-92d4-e1aee51f4c84\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"a74cd7bb-82e6-4640-a80e-bebd5f46998b\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+        },
+        "assets": {
+          "referenceAvailable": true,
+          "candidateAvailable": true
+        },
+        "human": {
+          "action": "approve",
+          "category": "other",
+          "reason": "JRN-04 synthetic lifecycle approval; no quality claim.",
+          "revision": 1,
+          "createdAt": "2026-10-13T09:34:24.926Z",
+          "machineHash": "2c8765f787108f6e5062f64e65da1bed002397e47dbd565185d4778966e8a6ad"
+        },
+        "eligibility": "eligible",
+        "reasons": [
+          {
+            "code": "complete_source_approved",
+            "message": "Complete supported evidence and a current source-matching human approval satisfy this rule."
+          }
+        ],
+        "evaluatedAt": "2026-10-13T09:35:14.629Z",
+        "policyVersion": "release-policy-001",
+        "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+      },
+      "blockedRelease": {
+        "analysisId": "6b7fa0ea-35b8-4db1-8074-9563ca05343c",
+        "createdAt": "2026-10-13T09:34:24.143Z",
+        "batchId": null,
+        "productSnapshot": {
+          "schemaVersion": 1,
+          "productId": "1ce9db96-796e-4b47-acc6-7ef9945aa615",
+          "revision": 1,
+          "profileVersionId": "cbca4e59-64a6-459e-a5d1-046d8514423b",
+          "profileVersionNumber": 1,
+          "profile": {
+            "profileSchemaVersion": 1,
+            "name": "JRN-04 synthetic Northstar",
+            "skuLabel": "JRN04-SYNTHETIC",
+            "brand": "Northstar",
+            "variant": null,
+            "capacity": null,
+            "packagingVersion": null,
+            "criticalAttributes": [],
+            "allowedChanges": []
+          },
+          "referenceVersionId": "4addbc2e-a974-436d-87f2-c60b4d71cad7",
+          "referenceVersionNumber": 1,
+          "referenceRole": "front",
+          "referenceAssetId": "72049904-cddc-4012-8894-11a114e8817b",
+          "boundAt": "2026-10-13T09:34:24.218Z"
+        },
+        "productSnapshotJson": "{\"schemaVersion\":1,\"productId\":\"1ce9db96-796e-4b47-acc6-7ef9945aa615\",\"revision\":1,\"profileVersionId\":\"cbca4e59-64a6-459e-a5d1-046d8514423b\",\"profileVersionNumber\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"JRN-04 synthetic Northstar\",\"skuLabel\":\"JRN04-SYNTHETIC\",\"brand\":\"Northstar\",\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]},\"referenceVersionId\":\"4addbc2e-a974-436d-87f2-c60b4d71cad7\",\"referenceVersionNumber\":1,\"referenceRole\":\"front\",\"referenceAssetId\":\"72049904-cddc-4012-8894-11a114e8817b\",\"boundAt\":\"2026-10-13T09:34:24.218Z\"}",
+        "productSnapshotHash": "0e439c84b08f30a5e4ef6238cd40ccad204afd40bc308f0eca80f2ce16c069cb",
+        "machine": {
+          "status": "completed",
+          "verdict": "pass",
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002",
+          "completedAt": "2026-10-13T09:34:24.263Z",
+          "issueCount": 0,
+          "limitations": [],
+          "sourceHash": "016ea125cbbd1b2a174a88d50ae5b53089da458294f86cff7d84666e7596ee76",
+          "sourceComplete": true,
+          "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"6b7fa0ea-35b8-4db1-8074-9563ca05343c\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T09:34:24.263Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"72049904-cddc-4012-8894-11a114e8817b\",\"candidateAssetId\":\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\",\"observations\":[{\"id\":\"4fd5ca10-7249-4c93-a408-ab65aa63782e\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"485971d2-cf6c-42e3-b123-8bf640fc166d\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"8a9f6c13-5449-467a-85f2-79a258928359\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"54098ae4-f6ff-4c57-a8d8-642cb2806de4\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"bf0f359d-ffae-48d1-aec7-ad890d3eccc9\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"df170bd9-9edb-47c8-92d4-e1aee51f4c84\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"a74cd7bb-82e6-4640-a80e-bebd5f46998b\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"72049904-cddc-4012-8894-11a114e8817b\\\",\\\"435fcc96-660d-4c6c-bf4e-7b2b6569da88\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+        },
+        "assets": {
+          "referenceAvailable": true,
+          "candidateAvailable": false
+        },
+        "human": {
+          "action": "approve",
+          "category": "other",
+          "reason": "JRN-04 synthetic lifecycle approval; no quality claim.",
+          "revision": 1,
+          "createdAt": "2026-10-13T09:34:24.926Z",
+          "machineHash": "2c8765f787108f6e5062f64e65da1bed002397e47dbd565185d4778966e8a6ad"
+        },
+        "eligibility": "blocked",
+        "reasons": [
+          {
+            "code": "assets_unavailable",
+            "message": "Original reference or candidate image is deleted, failed, expired or unavailable."
+          }
+        ],
+        "evaluatedAt": "2026-10-13T09:35:17.080Z",
+        "policyVersion": "release-policy-001",
+        "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+      }
+    },
+    {
+      "alias": "B",
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 1,
+            "deleted": 1,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      },
+      "originalRelease": {
+        "analysisId": "6a2d67b0-530e-41ff-aaca-5c8aacc982e6",
+        "createdAt": "2026-10-13T09:34:26.831Z",
+        "batchId": null,
+        "productSnapshot": {
+          "schemaVersion": 1,
+          "productId": "8d97d90d-3dd4-40a2-80b8-5d565460748b",
+          "revision": 1,
+          "profileVersionId": "180bf318-9495-43f7-b49d-beec24fb3dba",
+          "profileVersionNumber": 1,
+          "profile": {
+            "profileSchemaVersion": 1,
+            "name": "JRN-04 synthetic Northstar",
+            "skuLabel": "JRN04-SYNTHETIC",
+            "brand": "Northstar",
+            "variant": null,
+            "capacity": null,
+            "packagingVersion": null,
+            "criticalAttributes": [],
+            "allowedChanges": []
+          },
+          "referenceVersionId": "55b5cb6d-7d8b-4335-8b16-128e64a2ff65",
+          "referenceVersionNumber": 1,
+          "referenceRole": "front",
+          "referenceAssetId": "24c4a202-627d-4156-960c-ba09217a5ff7",
+          "boundAt": "2026-10-13T09:34:26.900Z"
+        },
+        "productSnapshotJson": "{\"schemaVersion\":1,\"productId\":\"8d97d90d-3dd4-40a2-80b8-5d565460748b\",\"revision\":1,\"profileVersionId\":\"180bf318-9495-43f7-b49d-beec24fb3dba\",\"profileVersionNumber\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"JRN-04 synthetic Northstar\",\"skuLabel\":\"JRN04-SYNTHETIC\",\"brand\":\"Northstar\",\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]},\"referenceVersionId\":\"55b5cb6d-7d8b-4335-8b16-128e64a2ff65\",\"referenceVersionNumber\":1,\"referenceRole\":\"front\",\"referenceAssetId\":\"24c4a202-627d-4156-960c-ba09217a5ff7\",\"boundAt\":\"2026-10-13T09:34:26.900Z\"}",
+        "productSnapshotHash": "d00b337189315a1acd5b36b2483329d313256cf4e9c93054f15d4cf6c59b4b49",
+        "machine": {
+          "status": "completed",
+          "verdict": "pass",
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002",
+          "completedAt": "2026-10-13T09:34:26.959Z",
+          "issueCount": 0,
+          "limitations": [],
+          "sourceHash": "358a4db28705a4954bd0a6d33cafe71bad31e5aa5384b5eb520c53c6c908a4a6",
+          "sourceComplete": true,
+          "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"6a2d67b0-530e-41ff-aaca-5c8aacc982e6\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T09:34:26.959Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"24c4a202-627d-4156-960c-ba09217a5ff7\",\"candidateAssetId\":\"812220fc-d84d-4cc4-8282-193087f301b6\",\"observations\":[{\"id\":\"f01a0842-aba8-4d7d-bf84-4af60a1fb2bb\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"4d77370d-64bf-4050-b6b7-3985a04e6a42\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"5b6e9402-ed22-4864-a7c9-fd6486fdb6fc\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"4ff78e21-456a-40ba-9e57-36b2e9284470\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"f7d760c2-4b08-4b2a-b007-f323333dd7a1\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"9abe0f53-011e-4b92-a182-76715065c05f\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"78636d84-c291-4148-965b-9457286517d9\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+        },
+        "assets": {
+          "referenceAvailable": true,
+          "candidateAvailable": true
+        },
+        "human": {
+          "action": "approve",
+          "category": "other",
+          "reason": "JRN-04 synthetic lifecycle approval; no quality claim.",
+          "revision": 1,
+          "createdAt": "2026-10-13T09:34:27.537Z",
+          "machineHash": "51349736f6c9406c7268c20c5e204dbaf656283dd13025c15aafd9f9bea979a7"
+        },
+        "eligibility": "eligible",
+        "reasons": [
+          {
+            "code": "complete_source_approved",
+            "message": "Complete supported evidence and a current source-matching human approval satisfy this rule."
+          }
+        ],
+        "evaluatedAt": "2026-10-13T09:35:20.097Z",
+        "policyVersion": "release-policy-001",
+        "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+      },
+      "blockedRelease": {
+        "analysisId": "6a2d67b0-530e-41ff-aaca-5c8aacc982e6",
+        "createdAt": "2026-10-13T09:34:26.831Z",
+        "batchId": null,
+        "productSnapshot": {
+          "schemaVersion": 1,
+          "productId": "8d97d90d-3dd4-40a2-80b8-5d565460748b",
+          "revision": 1,
+          "profileVersionId": "180bf318-9495-43f7-b49d-beec24fb3dba",
+          "profileVersionNumber": 1,
+          "profile": {
+            "profileSchemaVersion": 1,
+            "name": "JRN-04 synthetic Northstar",
+            "skuLabel": "JRN04-SYNTHETIC",
+            "brand": "Northstar",
+            "variant": null,
+            "capacity": null,
+            "packagingVersion": null,
+            "criticalAttributes": [],
+            "allowedChanges": []
+          },
+          "referenceVersionId": "55b5cb6d-7d8b-4335-8b16-128e64a2ff65",
+          "referenceVersionNumber": 1,
+          "referenceRole": "front",
+          "referenceAssetId": "24c4a202-627d-4156-960c-ba09217a5ff7",
+          "boundAt": "2026-10-13T09:34:26.900Z"
+        },
+        "productSnapshotJson": "{\"schemaVersion\":1,\"productId\":\"8d97d90d-3dd4-40a2-80b8-5d565460748b\",\"revision\":1,\"profileVersionId\":\"180bf318-9495-43f7-b49d-beec24fb3dba\",\"profileVersionNumber\":1,\"profile\":{\"profileSchemaVersion\":1,\"name\":\"JRN-04 synthetic Northstar\",\"skuLabel\":\"JRN04-SYNTHETIC\",\"brand\":\"Northstar\",\"variant\":null,\"capacity\":null,\"packagingVersion\":null,\"criticalAttributes\":[],\"allowedChanges\":[]},\"referenceVersionId\":\"55b5cb6d-7d8b-4335-8b16-128e64a2ff65\",\"referenceVersionNumber\":1,\"referenceRole\":\"front\",\"referenceAssetId\":\"24c4a202-627d-4156-960c-ba09217a5ff7\",\"boundAt\":\"2026-10-13T09:34:26.900Z\"}",
+        "productSnapshotHash": "d00b337189315a1acd5b36b2483329d313256cf4e9c93054f15d4cf6c59b4b49",
+        "machine": {
+          "status": "completed",
+          "verdict": "pass",
+          "qaEngineVersion": "m0-qa-engine-008",
+          "riskPolicyVersion": "m0-risk-policy-003",
+          "modelPolicyVersion": "m0-model-policy-002",
+          "completedAt": "2026-10-13T09:34:26.959Z",
+          "issueCount": 0,
+          "limitations": [],
+          "sourceHash": "358a4db28705a4954bd0a6d33cafe71bad31e5aa5384b5eb520c53c6c908a4a6",
+          "sourceComplete": true,
+          "sourceSnapshotJson": "{\"sourceComplete\":true,\"analysisId\":\"6a2d67b0-530e-41ff-aaca-5c8aacc982e6\",\"status\":\"completed\",\"verdict\":\"pass\",\"qaEngineVersion\":\"m0-qa-engine-008\",\"riskPolicyVersion\":\"m0-risk-policy-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"completedAt\":\"2026-10-13T09:34:26.959Z\",\"selectedChecks\":[\"logo\",\"visible_text\",\"quantity\",\"dominant_color\",\"major_components\",\"major_shape_packaging\"],\"referenceAssetId\":\"24c4a202-627d-4156-960c-ba09217a5ff7\",\"candidateAssetId\":\"812220fc-d84d-4cc4-8282-193087f301b6\",\"observations\":[{\"id\":\"f01a0842-aba8-4d7d-bf84-4af60a1fb2bb\",\"checkType\":\"logo\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"Northstar\\\",\\\"candidate\\\":\\\"Northstar\\\",\\\"referenceKind\\\":\\\"brand_name\\\",\\\"candidateKind\\\":\\\"brand_name\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"4d77370d-64bf-4050-b6b7-3985a04e6a42\",\"checkType\":\"visible_text\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"identityEvidence\\\":{\\\"reference\\\":\\\"NORTHSTAR 500 ML\\\",\\\"candidate\\\":\\\"NORTHSTAR 500 ML\\\",\\\"referenceKind\\\":\\\"readable_text\\\",\\\"candidateKind\\\":\\\"readable_text\\\",\\\"validationVersion\\\":\\\"identity-evidence-004\\\"},\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"5b6e9402-ed22-4864-a7c9-fd6486fdb6fc\",\"checkType\":\"quantity\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"4ff78e21-456a-40ba-9e57-36b2e9284470\",\"checkType\":\"dominant_color\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"f7d760c2-4b08-4b2a-b007-f323333dd7a1\",\"checkType\":\"major_components\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"},{\"id\":\"9abe0f53-011e-4b92-a182-76715065c05f\",\"checkType\":\"major_shape_packaging\",\"status\":\"match\",\"differenceKind\":\"none\",\"referenceObservability\":\"observable\",\"candidateObservability\":\"observable\",\"coverage\":\"sufficient\",\"confidence\":\"high\",\"evidenceJson\":\"{\\\"referenceObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"candidateObservation\\\":\\\"Northstar label and complete product are visible.\\\",\\\"comparisonSummary\\\":\\\"Synthetic matching product view.\\\",\\\"visibleEvidence\\\":[\\\"Readable Northstar brand and visible product.\\\"],\\\"regions\\\":{\\\"schemaVersion\\\":1,\\\"reference\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null},\\\"candidate\\\":{\\\"coordinateSpace\\\":\\\"analysis_image_normalized\\\",\\\"assetId\\\":\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\",\\\"region\\\":null,\\\"reason\\\":\\\"uncertain_location\\\",\\\"confidence\\\":null}}}\",\"explanation\":\"JRN-04 synthetic visible comparison; no model executed.\"}],\"productIssues\":[],\"limitations\":[],\"modelCalls\":[{\"id\":\"78636d84-c291-4148-965b-9457286517d9\",\"provider\":\"openai\",\"purpose\":\"analysis\",\"model\":\"gpt-4.1-mini\",\"promptVersion\":\"m0-real-mvp-009+regions-003\",\"modelPolicyVersion\":\"m0-model-policy-002\",\"status\":\"completed\",\"errorCode\":null,\"errorMessage\":null,\"inputAssetIdsJson\":\"[\\\"24c4a202-627d-4156-960c-ba09217a5ff7\\\",\\\"812220fc-d84d-4cc4-8282-193087f301b6\\\"]\",\"inputUsageJson\":null,\"outputUsageJson\":null,\"latencyMs\":1,\"estimatedCostUsd\":null}]}"
+        },
+        "assets": {
+          "referenceAvailable": true,
+          "candidateAvailable": false
+        },
+        "human": {
+          "action": "approve",
+          "category": "other",
+          "reason": "JRN-04 synthetic lifecycle approval; no quality claim.",
+          "revision": 1,
+          "createdAt": "2026-10-13T09:34:27.537Z",
+          "machineHash": "51349736f6c9406c7268c20c5e204dbaf656283dd13025c15aafd9f9bea979a7"
+        },
+        "eligibility": "blocked",
+        "reasons": [
+          {
+            "code": "assets_unavailable",
+            "message": "Original reference or candidate image is deleted, failed, expired or unavailable."
+          }
+        ],
+        "evaluatedAt": "2026-10-13T09:35:23.073Z",
+        "policyVersion": "release-policy-001",
+        "policyHash": "7f1353af95671155be2aefbeb2da83de01d412fb30b25670d976dfacf56d8af4"
+      }
+    }
+  ]
+}

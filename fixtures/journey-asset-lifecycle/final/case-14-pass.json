@@ -1,0 +1,237 @@
+{
+  "name": "final object accounting and retained machine/review audit; local fixture orphan cleanup",
+  "status": "PASS",
+  "detail": {
+    "remainingBeforeFixtureCleanup": [
+      "jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/6002cc77-548a-4fbb-9508-2d1c648f8f49/original.png"
+    ],
+    "remainingAfter": [],
+    "manifestAssets": 27,
+    "auditAttempts": [
+      {
+        "asset_id": "045e532b-fc14-4129-9fa1-6a2d038527c7",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/045e532b-fc14-4129-9fa1-6a2d038527c7/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:15.501Z",
+        "completed_at": "2026-10-13T09:44:15.501Z"
+      },
+      {
+        "asset_id": "11664e90-1a5b-4c54-afe9-6376a4ca55a5",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11664e90-1a5b-4c54-afe9-6376a4ca55a5/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "11ea5607-e45f-463d-be8a-d76de2eb6935",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/11ea5607-e45f-463d-be8a-d76de2eb6935/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:43:56.217Z",
+        "completed_at": "2026-10-13T09:43:56.217Z"
+      },
+      {
+        "asset_id": "17c15d2a-3089-4a49-a15d-ad7e87df000c",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/17c15d2a-3089-4a49-a15d-ad7e87df000c/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "29c19f17-cbd2-4bd8-a84f-720071812a39",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/29c19f17-cbd2-4bd8-a84f-720071812a39/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/2c1e5378-7af6-4d36-b4ca-bf0d1c3551e0/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:42:59.977Z",
+        "completed_at": "2026-10-13T09:42:59.977Z"
+      },
+      {
+        "asset_id": "353a79a9-a9b0-43b3-911e-c92c34cc6852",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/353a79a9-a9b0-43b3-911e-c92c34cc6852/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:00.675Z",
+        "completed_at": "2026-10-13T09:44:00.675Z"
+      },
+      {
+        "asset_id": "3e25d20b-0b81-453b-be57-52e80800983e",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3e25d20b-0b81-453b-be57-52e80800983e/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "3f673949-22be-464f-9809-a963d0bd61bd",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/3f673949-22be-464f-9809-a963d0bd61bd/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "54224867-a4bb-4155-b7cd-971ee987266d",
+        "status": "failed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/thumbnail.png\"]",
+        "error_message": "jrn04_injected_r2_delete_failure",
+        "attempted_at": "2026-10-13T09:44:11.399Z",
+        "completed_at": "2026-10-13T09:44:11.399Z"
+      },
+      {
+        "asset_id": "54224867-a4bb-4155-b7cd-971ee987266d",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/54224867-a4bb-4155-b7cd-971ee987266d/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:13.297Z",
+        "completed_at": "2026-10-13T09:44:13.297Z"
+      },
+      {
+        "asset_id": "58a2e96f-b1f6-4a38-b7f2-b1965da40bb7",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/58a2e96f-b1f6-4a38-b7f2-b1965da40bb7/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "5cb1bb6e-a15c-40be-8aaf-d3178e69abb7",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/5cb1bb6e-a15c-40be-8aaf-d3178e69abb7/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:07.979Z",
+        "completed_at": "2026-10-13T09:44:07.979Z"
+      },
+      {
+        "asset_id": "696db67a-ffbb-402b-9b2b-48a9132ed5f5",
+        "status": "failed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/thumbnail.png\"]",
+        "error_message": "jrn04_injected_mark_failure",
+        "attempted_at": "2026-10-13T09:44:15.501Z",
+        "completed_at": "2026-10-13T09:44:15.501Z"
+      },
+      {
+        "asset_id": "696db67a-ffbb-402b-9b2b-48a9132ed5f5",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/696db67a-ffbb-402b-9b2b-48a9132ed5f5/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:17.051Z",
+        "completed_at": "2026-10-13T09:44:17.051Z"
+      },
+      {
+        "asset_id": "70f68c21-6202-4d18-87e4-bd05467d09ca",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/70f68c21-6202-4d18-87e4-bd05467d09ca/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "8b0e9881-5a11-4824-8eca-e2dea5f1e8fe",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/8b0e9881-5a11-4824-8eca-e2dea5f1e8fe/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:42:59.977Z",
+        "completed_at": "2026-10-13T09:42:59.977Z"
+      },
+      {
+        "asset_id": "9e21cd2d-bdd2-4ada-9d6f-5aa62689c832",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/9e21cd2d-bdd2-4ada-9d6f-5aa62689c832/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "a0bd96c6-0837-41d8-b64c-5080c355d710",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/a0bd96c6-0837-41d8-b64c-5080c355d710/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "bef18c9a-7544-4c0b-b3a7-4b882705ce35",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/bef18c9a-7544-4c0b-b3a7-4b882705ce35/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "c99a1053-87b8-48f3-ac7d-cd52bdd5cfdf",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/c99a1053-87b8-48f3-ac7d-cd52bdd5cfdf/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:42:59.977Z",
+        "completed_at": "2026-10-13T09:42:59.977Z"
+      },
+      {
+        "asset_id": "d2f7b37f-2343-4889-b4f6-045eb69e06c0",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/d2f7b37f-2343-4889-b4f6-045eb69e06c0/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:11.399Z",
+        "completed_at": "2026-10-13T09:44:11.399Z"
+      },
+      {
+        "asset_id": "daf48893-1ff5-437b-a23d-d1134735bb2e",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/daf48893-1ff5-437b-a23d-d1134735bb2e/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      },
+      {
+        "asset_id": "e6f8f759-c36a-48fb-b6d9-0e7d41fa2492",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/e6f8f759-c36a-48fb-b6d9-0e7d41fa2492/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:19.773Z",
+        "completed_at": "2026-10-13T09:44:19.773Z"
+      },
+      {
+        "asset_id": "eb477d2f-1eeb-4344-8faf-4b6e638f3b51",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/original.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/normalized.png\",\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/eb477d2f-1eeb-4344-8faf-4b6e638f3b51/thumbnail.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:04.611Z",
+        "completed_at": "2026-10-13T09:44:04.611Z"
+      },
+      {
+        "asset_id": "fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/49d7ec15-76c0-4c57-b26f-cd9427224bf5/fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf/original.png\"]",
+        "error_message": null,
+        "attempted_at": "2026-10-13T09:44:25.882Z",
+        "completed_at": "2026-10-13T09:44:25.882Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "account image DELETE ignores forged workspace and only deletes authenticated workspace; replay idempotent",
+  "status": "PASS",
+  "detail": [
+    {
+      "actor": "B",
+      "forged": "A",
+      "targetIds": [
+        "58a2e96f-b1f6-4a38-b7f2-b1965da40bb7",
+        "e6f8f759-c36a-48fb-b6d9-0e7d41fa2492",
+        "1b1f6ee4-adbc-4465-9f69-0cf610a3d6b0",
+        "daf48893-1ff5-437b-a23d-d1134735bb2e",
+        "9e21cd2d-bdd2-4ada-9d6f-5aa62689c832",
+        "17c15d2a-3089-4a49-a15d-ad7e87df000c",
+        "70f68c21-6202-4d18-87e4-bd05467d09ca"
+      ],
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 7,
+            "deleted": 7,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      }
+    },
+    {
+      "actor": "A",
+      "forged": "B",
+      "targetIds": [
+        "29c19f17-cbd2-4bd8-a84f-720071812a39",
+        "3f673949-22be-464f-9809-a963d0bd61bd",
+        "a0bd96c6-0837-41d8-b64c-5080c355d710",
+        "3e25d20b-0b81-453b-be57-52e80800983e",
+        "e2aaec47-4b5b-49a4-87f8-c1fe0e30a18d",
+        "fb4e625c-db41-4e2d-ab0f-3dcf67bb8fdf",
+        "11664e90-1a5b-4c54-afe9-6376a4ca55a5",
+        "bef18c9a-7544-4c0b-b3a7-4b882705ce35"
+      ],
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 8,
+            "deleted": 8,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      }
+    }
+  ]
+}

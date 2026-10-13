@@ -1,0 +1,44 @@
+{
+  "name": "A/B bidirectional valid foreign analysis and batch deletion deny with full storage unchanged",
+  "status": "PASS",
+  "detail": [
+    {
+      "actor": "A",
+      "target": "B",
+      "key": "analysis",
+      "status": 404,
+      "body": {
+        "error": "analysis_not_found"
+      }
+    },
+    {
+      "actor": "A",
+      "target": "B",
+      "key": "batch",
+      "status": 404,
+      "body": {
+        "error": "batch_not_found",
+        "message": "Batch not found."
+      }
+    },
+    {
+      "actor": "B",
+      "target": "A",
+      "key": "analysis",
+      "status": 404,
+      "body": {
+        "error": "analysis_not_found"
+      }
+    },
+    {
+      "actor": "B",
+      "target": "A",
+      "key": "batch",
+      "status": 404,
+      "body": {
+        "error": "batch_not_found",
+        "message": "Batch not found."
+      }
+    }
+  ]
+}

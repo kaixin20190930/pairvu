@@ -1,0 +1,12 @@
+{
+  "name": "expiry boundary revokes GET while objects remain; null and invalid dates fail closed",
+  "status": "PASS",
+  "detail": {
+    "boundaryMilliseconds": [
+      -1,
+      0,
+      1
+    ],
+    "noR2Deletion": true
+  }
+}

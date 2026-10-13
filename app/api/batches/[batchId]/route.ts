@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getWorkspaceBatchEntitlement } from "@/lib/accounts/repository";
-import { resolveRequestAccess } from "@/lib/auth/request-access";
+import { RequestAccessError, resolveRequestAccess } from "@/lib/auth/request-access";
 import { enqueueBatchItems } from "@/lib/batches/queue";
 import {
   cancelQueuedBatchItems,
@@ -108,6 +108,9 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
     }
     return NextResponse.json({ deletion });
   } catch (error) {
+    if (error instanceof RequestAccessError) {
+      return response("authentication_required", "Sign in to delete batch images.", 401);
+    }
     console.error("batch_image_deletion_failed", error);
     return response("image_deletion_failed", "The batch images could not be fully deleted. Please retry.", 500);
   }
