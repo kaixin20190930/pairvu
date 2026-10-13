@@ -1,0 +1,168 @@
+{
+  "name": "queued/running analysis and queued/processing batch delete protections return 409 unchanged",
+  "status": "PASS",
+  "detail": [
+    {
+      "alias": "A",
+      "source": "queued",
+      "status": 409,
+      "body": {
+        "error": "analysis_still_running",
+        "message": "Wait for this check to finish before deleting its images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "workspace with only queued analysis",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "running",
+      "status": 409,
+      "body": {
+        "error": "analysis_still_running",
+        "message": "Wait for this check to finish before deleting its images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "workspace with only running analysis",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "queued",
+      "status": 409,
+      "body": {
+        "error": "batch_still_running",
+        "message": "Cancel or finish this batch before deleting its images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "workspace with only queued batch",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "processing",
+      "status": 409,
+      "body": {
+        "error": "batch_still_running",
+        "message": "Cancel or finish this batch before deleting its images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "workspace with only processing batch",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "A",
+      "source": "workspace active",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "queued",
+      "status": 409,
+      "body": {
+        "error": "analysis_still_running",
+        "message": "Wait for this check to finish before deleting its images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "workspace with only queued analysis",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "running",
+      "status": 409,
+      "body": {
+        "error": "analysis_still_running",
+        "message": "Wait for this check to finish before deleting its images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "workspace with only running analysis",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "queued",
+      "status": 409,
+      "body": {
+        "error": "batch_still_running",
+        "message": "Cancel or finish this batch before deleting its images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "workspace with only queued batch",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "processing",
+      "status": 409,
+      "body": {
+        "error": "batch_still_running",
+        "message": "Cancel or finish this batch before deleting its images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "workspace with only processing batch",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    },
+    {
+      "alias": "B",
+      "source": "workspace active",
+      "status": 409,
+      "body": {
+        "error": "workspace_checks_running",
+        "message": "Wait for active checks to finish before deleting all workspace images."
+      }
+    }
+  ]
+}

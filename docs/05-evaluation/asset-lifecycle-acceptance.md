@@ -1,5 +1,15 @@
 # JRN-04 合成素材生命周期本地补验
 
+## 独立 QA 返工：删除窗口的发布资格
+
+候选 `94a818b835b62170ea484be177f7b1ee7a97b72a` 的独立验收为 **FAIL**，原件保留在 [qa-attempt-1-originals/qa.json](../../fixtures/journey-asset-lifecycle/qa-attempt-1-originals/qa.json)。此前 14 项开发 PASS 是该候选的历史自测，不覆盖独立发现的 P1：已有 SKU 保护参考图的完整批准来源，仅候选 R2 删除成功、D1 标记失败时，图片 GET503，但发布查询仍返回 ELIGIBLE。独立 [finding.json](../../fixtures/journey-asset-lifecycle/qa-attempt-1-originals/finding.json) 和原始窗口证据均逐字保留，QA 脚本没有修改或重新执行，未覆盖它的报告。
+
+返工只修改 `lib/releases/repository.ts` 的素材可用性表达式：任何已记录的永久删除意图都排除该素材的发布资格。应用已在 R2 删除前写入 `asset_deletion_attempts`；查询使用其现有 asset 索引，无迁移、无需修改 `lib/assets/deletion.ts`，永久删除、失败审计和重试语义保持既有流程。`available` 表示可用于发布，因此 R2 失败后仍能 GET200 的图片也会因删除意图退出资格；正常未来素材没有删除意图时继续 ELIGIBLE。机器/人审/source hash 和冻结产品快照不由该可用性保护修改。
+
+新增 `scripts/jrn04-partial-window.ts` 使用真实 SKU/profile、真实批准和仅候选图可删除的目标，分别观察实际审计 started（暂停真实 R2 删除前）、R2 删除 failed，以及 R2 成功后 D1 标记 failed。旧代码上的自有复现 [rework-pre-fix/partial-final-report.json](../../fixtures/journey-asset-lifecycle/rework-pre-fix/partial-final-report.json) 为 3 PASS / 3 FAIL；修复后 [rework-partial-pass/partial-final-report.json](../../fixtures/journey-asset-lifecycle/rework-partial-pass/partial-final-report.json) 为 **6 PASS**，三个窗口均先 BLOCKED，重试完成后仍 BLOCKED，受保护参考、正常 A/B 来源、所有非目标对象与业务/额度不变。补验的是已有删除意图的失败窗口，不宣称发布查询逐个读取 R2。
+
+相关完整旅程 [rework-journey-pass/final-report.json](../../fixtures/journey-asset-lifecycle/rework-journey-pass/final-report.json) **14 PASS**；两个新环境 runId 分别是 `10ea80f4-a21e-4ecb-a55c-84648b4b00dd` 和 `e3893329-7349-4c6e-911e-6bcf4d7501b8`，所有 manifest 对象清理、服务停止。Typecheck 与返工源码 lint 通过；提交后仍须对精确候选做隔离构建和独立复验。[rework-archive-index.json](../../fixtures/journey-asset-lifecycle/rework-archive-index.json) 记录 53 份旧 QA 原件、自有复现与新 PASS 原件的原始路径、归档路径、字节数和 SHA-256；此前所有失败档案继续保留。以下为首轮实施说明及历史开发结果。
+
 本单元使用全新 Miniflare/workerd D1/R2、所有实际迁移、真实 Better Auth 魔法链接签发/本地邮件捕获/验证，以及两个 `example.test` Free 账号。应用认证、所有权、删除、审核、发布查询均使用实际代码；仅 Cloudflare 绑定替换为本次本地存储。小型 PNG、机器观察和满足来源 schema 的模型元数据行全部是合成输入，机器结果经实际风险策略与 `persistCompletedAnalysis` 保存。`productionLifecycleCovered=false`、`qualityEvidence=false`、`modelCallsExecuted=0`。
 
 启动命令从仓库根目录执行：
@@ -33,9 +43,9 @@ env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" LANG="${LANG:-C.UTF-8}" pnpm e
 
 修复范围由总控明确追加到 JRN-04，并另以 JRN-04-FIX 跟踪运行时门禁。最初工具开发中的 D1 原生接口代理缺 `exec`、工作空间认证触碰时间误入摘要、batch 路径复数错误已修正；[harness-attempt-1](../../fixtures/journey-asset-lifecycle/harness-attempt-1) 保留首次完整失败原件，修复前独立矩阵仍如实保留两个产品 FAIL。首个 bootstrap 工具输出为 `Failed to initialize database adapter`，该次尚未生成报告；后续 bootstrap 失败也会在唯一临时目录保存原件。
 
-最新专项报告及每项原件见 [final](../../fixtures/journey-asset-lifecycle/final)。两个预期故障的错误响应、对象状态和失败审计原件分别为 `expected-r2-failure-original.json`、`expected-d1-mark-failure-original.json`。最终核对全部 manifest 对象已消失、审核/机器历史保留、额度与队列未动；故意预置的 deleted 状态孤立对象只在明确标注的本地夹具收尾中删除。Miniflare 结束前生成最终存储摘要，之后 dispose；无常驻 HTTP 服务。
+首轮开发专项报告及每项原件见 [final](../../fixtures/journey-asset-lifecycle/final)。两个预期故障的错误响应、对象状态和失败审计原件分别为 `expected-r2-failure-original.json`、`expected-d1-mark-failure-original.json`。核对全部 manifest 对象已消失、审核/机器历史保留、额度与队列未动；故意预置的 deleted 状态孤立对象只在明确标注的本地夹具收尾中删除。Miniflare 结束前生成最终存储摘要，之后 dispose；无常驻 HTTP 服务。
 
-最终 runId `49d7ec15-76c0-4c57-b26f-cd9427224bf5`：14 场景全部 PASS，27 个合成素材，外发网络调用与队列写入均为 0。typecheck 与五个改动源码文件 lint 通过。[archive-index.json](../../fixtures/journey-asset-lifecycle/archive-index.json) 为 78 份旅程原件及另附的构建失败原件记录原始路径、归档路径、字节数与 SHA-256，复制后逐字节复核一致；包含工具早期失败、修复前产品失败、首次修复通过与最终增强断言通过，未归档私有数据库。
+首轮开发 runId `49d7ec15-76c0-4c57-b26f-cd9427224bf5`：14 场景全部 PASS，27 个合成素材，外发网络调用与队列写入均为 0。typecheck 与五个改动源码文件 lint 通过。[archive-index.json](../../fixtures/journey-asset-lifecycle/archive-index.json) 为 78 份旅程原件及另附的构建失败原件记录原始路径、归档路径、字节数与 SHA-256，复制后逐字节复核一致；包含工具早期失败、修复前产品失败、首次修复通过与增强断言通过，未归档私有数据库。
 
 验证包括实际路由/真实存储矩阵、typecheck、改动文件 lint，并在提交后用 `node scripts/jrn04-build.mjs FULL_CANDIDATE_SHA` 做一次精确 Git archive 源码构建。构建工具使用环境白名单，按文件名排除 `.env*`/`.dev.vars*`（包括模板）而不读取内容，以 macOS APFS 克隆本地依赖并阻断非 loopback Node 网络。首次构建因 Turbopack 拒绝越过源码 root 的依赖符号链接而失败，[build-attempt-1](../../fixtures/journey-asset-lifecycle/build-attempt-1) 保留原始 log/report；构建工具改为目录内依赖克隆，应用源码不因此改变。构建原始 log/report 留在新的临时目录；归档无 Git 元数据，嵌入 SHA 可为 unknown，不能用作生产发布 artifact。
 

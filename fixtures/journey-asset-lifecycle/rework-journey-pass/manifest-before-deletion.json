@@ -1,0 +1,744 @@
+{
+  "unitId": "JRN-04",
+  "runId": "e3893329-7349-4c6e-911e-6bcf4d7501b8",
+  "clock": {
+    "anchor": "2026-10-13T12:53:59.565Z",
+    "routeBoundary": "Date.now overridden only during boundary GETs",
+    "sweeper": "explicit options.now"
+  },
+  "identities": {
+    "A": {
+      "email": "jrn04-a-e3893329-7349-4c6e-911e-6bcf4d7501b8@example.test",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D"
+    },
+    "B": {
+      "email": "jrn04-b-e3893329-7349-4c6e-911e-6bcf4d7501b8@example.test",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp"
+    }
+  },
+  "assets": [
+    {
+      "id": "fe6849ac-1129-43fa-ac2f-3181b37094be",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-future-sentinel",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "4265db2f-9a1b-4d36-8e38-1c64a4dcbaac",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-protected-sku-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "b7e90252-4a49-40da-bf4d-cad2cf27e54c",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-reviewed-analysis-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "071f2830-a56b-4010-a78c-320c6796cabb",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-completed-batch-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "363f49d5-2fe5-4e60-b87f-9ce35e2b2104",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-new-current-sku-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "6a5b540e-ea98-4ca6-a511-2e3822a0a123",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-active-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/6a5b540e-ea98-4ca6-a511-2e3822a0a123/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "4f64e340-2cfd-4179-b3cf-8787ad522c75",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "A-active-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4f64e340-2cfd-4179-b3cf-8787ad522c75/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "70afaa47-0bfa-45f5-913c-0a6b99bdc5c9",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-future-sentinel",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "29cd5476-45e2-4c91-bb0e-ea7324ede805",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-protected-sku-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "b68d5309-c108-4abc-b553-e986debf5a79",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-reviewed-analysis-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "748fdba6-ef1d-42a3-b37b-472ba8bfd935",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-completed-batch-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "aaac8443-c700-40eb-9b6f-dba55cd152dc",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-new-current-sku-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "ebee0a3d-81a0-44fc-b1b1-aae04d9b0ab9",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-active-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/ebee0a3d-81a0-44fc-b1b1-aae04d9b0ab9/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "004f0eb5-2678-45ec-ba2c-5e0b068d1b94",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "B-active-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/004f0eb5-2678-45ec-ba2c-5e0b068d1b94/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "67a2f46b-8dbb-49c0-94fa-faa655d072e2",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "fault-r2-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "63da86b0-c8bd-4fe9-be22-c477a17ab99a",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "fault-r2-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "c6575d26-fdf0-481e-acb9-76644a63b220",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "fault-mark-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "51688b60-8e7e-4996-95f2-a718084bf5b2",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "fault-mark-candidate",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "dd29df6a-a911-4969-9953-e181efc40c84",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "expiry-boundary",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/dd29df6a-a911-4969-9953-e181efc40c84/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2026-10-13T12:53:59.565Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "expired-A",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2026-10-13T12:53:58.565Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "cfb02c45-183c-4cb6-b5b0-2642a283bbda",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "expired-B",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/original.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/normalized.png",
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/thumbnail.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2026-10-13T12:53:57.565Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "bd50b813-7bf3-452c-8e4c-b067ead72b25",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "null-expiry",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/bd50b813-7bf3-452c-8e4c-b067ead72b25/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": null,
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "c51954da-fbae-4a61-9c0f-7f898537165d",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "null-expiry-analysis-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c51954da-fbae-4a61-9c0f-7f898537165d/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "80e028c1-1d39-476a-b65d-554647473464",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "invalid-expiry",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/80e028c1-1d39-476a-b65d-554647473464/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "not-a-date",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "e738cd0b-443b-4bdf-bcf2-595747b76a2a",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "expired-release-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/e738cd0b-443b-4bdf-bcf2-595747b76a2a/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "f05decc6-56d1-436b-abba-8f31f52cc611",
+      "owner": "B",
+      "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+      "label": "invalid-release-reference",
+      "kind": "reference",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/f05decc6-56d1-436b-abba-8f31f52cc611/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2099-12-31T00:00:00.000Z",
+      "initialStatus": "analyzed"
+    },
+    {
+      "id": "be4defd8-ffa8-42e4-9467-b3768719423c",
+      "owner": "A",
+      "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+      "label": "already-deleted-retention-sentinel",
+      "kind": "candidate",
+      "keys": [
+        "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/be4defd8-ffa8-42e4-9467-b3768719423c/original.png"
+      ],
+      "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+      "expiresAt": "2026-10-13T12:53:56.565Z",
+      "initialStatus": "deleted"
+    }
+  ],
+  "relations": {
+    "A": {
+      "reference": {
+        "id": "4265db2f-9a1b-4d36-8e38-1c64a4dcbaac",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "A-protected-sku-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/4265db2f-9a1b-4d36-8e38-1c64a4dcbaac/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "b7e90252-4a49-40da-bf4d-cad2cf27e54c",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "A-reviewed-analysis-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b7e90252-4a49-40da-bf4d-cad2cf27e54c/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "2a05e700-cd1a-4d1e-afd4-b3e5cc63ef6d",
+      "sentinel": {
+        "id": "fe6849ac-1129-43fa-ac2f-3181b37094be",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "A-future-sentinel",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/fe6849ac-1129-43fa-ac2f-3181b37094be/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "productId": "34632a5e-b975-45a0-9615-fd40e2fe740b",
+      "batchId": "81a680f9-7fa9-4605-bc86-26346cc6809c",
+      "batchCandidate": {
+        "id": "071f2830-a56b-4010-a78c-320c6796cabb",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "A-completed-batch-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/071f2830-a56b-4010-a78c-320c6796cabb/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "replacementReference": {
+        "id": "363f49d5-2fe5-4e60-b87f-9ce35e2b2104",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "A-new-current-sku-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/363f49d5-2fe5-4e60-b87f-9ce35e2b2104/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "activeAnalysisId": "228dc507-5432-412b-b285-c91dee6e1c35",
+      "activeBatchId": "41029c17-b9d0-4921-9196-db8ac5c574a1"
+    },
+    "B": {
+      "reference": {
+        "id": "29cd5476-45e2-4c91-bb0e-ea7324ede805",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "B-protected-sku-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/29cd5476-45e2-4c91-bb0e-ea7324ede805/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "b68d5309-c108-4abc-b553-e986debf5a79",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "B-reviewed-analysis-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/b68d5309-c108-4abc-b553-e986debf5a79/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "4a700126-55ed-416a-ac7b-605e1fe08372",
+      "sentinel": {
+        "id": "70afaa47-0bfa-45f5-913c-0a6b99bdc5c9",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "B-future-sentinel",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/70afaa47-0bfa-45f5-913c-0a6b99bdc5c9/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "productId": "c7a1b527-239d-4394-8df2-78e639ed8bef",
+      "batchId": "b7043912-cb53-44bb-8178-8773a606f803",
+      "batchCandidate": {
+        "id": "748fdba6-ef1d-42a3-b37b-472ba8bfd935",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "B-completed-batch-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/748fdba6-ef1d-42a3-b37b-472ba8bfd935/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "replacementReference": {
+        "id": "aaac8443-c700-40eb-9b6f-dba55cd152dc",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "B-new-current-sku-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/aaac8443-c700-40eb-9b6f-dba55cd152dc/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "activeAnalysisId": "8af1d6da-dbf3-4cdc-86de-57aa0dbef9a3",
+      "activeBatchId": "5c02c1d5-05d3-48ee-b99a-40e56e77d556"
+    }
+  },
+  "faultAnalyses": {
+    "r2": {
+      "reference": {
+        "id": "67a2f46b-8dbb-49c0-94fa-faa655d072e2",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "fault-r2-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "63da86b0-c8bd-4fe9-be22-c477a17ab99a",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "fault-r2-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/63da86b0-c8bd-4fe9-be22-c477a17ab99a/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "12eb60b9-3071-4065-8f6d-8c23650800a3"
+    },
+    "mark": {
+      "reference": {
+        "id": "c6575d26-fdf0-481e-acb9-76644a63b220",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "fault-mark-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c6575d26-fdf0-481e-acb9-76644a63b220/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "51688b60-8e7e-4996-95f2-a718084bf5b2",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "fault-mark-candidate",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/51688b60-8e7e-4996-95f2-a718084bf5b2/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "7b93f3e8-8f8d-437d-9ba6-9e90275d31bc"
+    }
+  },
+  "expiryAnalyses": {
+    "null": {
+      "reference": {
+        "id": "c51954da-fbae-4a61-9c0f-7f898537165d",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "null-expiry-analysis-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/c51954da-fbae-4a61-9c0f-7f898537165d/original.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "bd50b813-7bf3-452c-8e4c-b067ead72b25",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "null-expiry",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/bd50b813-7bf3-452c-8e4c-b067ead72b25/original.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": null,
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "563a2950-3d02-43c4-b926-388b9f0a6b5e"
+    },
+    "expired": {
+      "reference": {
+        "id": "e738cd0b-443b-4bdf-bcf2-595747b76a2a",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "expired-release-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/e738cd0b-443b-4bdf-bcf2-595747b76a2a/original.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e",
+        "owner": "A",
+        "workspaceId": "personal_W8VBAa36Tnw5hY7gXGr3SKsxGSrSix3D",
+        "label": "expired-A",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/original.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/normalized.png",
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/thumbnail.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2026-10-13T12:53:58.565Z",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "f4e61800-fe76-429e-8495-dddadf145768"
+    },
+    "invalid": {
+      "reference": {
+        "id": "f05decc6-56d1-436b-abba-8f31f52cc611",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "invalid-release-reference",
+        "kind": "reference",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/f05decc6-56d1-436b-abba-8f31f52cc611/original.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "2099-12-31T00:00:00.000Z",
+        "initialStatus": "analyzed"
+      },
+      "candidate": {
+        "id": "80e028c1-1d39-476a-b65d-554647473464",
+        "owner": "B",
+        "workspaceId": "personal_EXzmBDJfXLXQZXhyqNINQQqMOEZL5Mmp",
+        "label": "invalid-expiry",
+        "kind": "candidate",
+        "keys": [
+          "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/80e028c1-1d39-476a-b65d-554647473464/original.png"
+        ],
+        "sha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "expiresAt": "not-a-date",
+        "initialStatus": "analyzed"
+      },
+      "analysisId": "c234c61b-c766-400d-94ea-55424c57d59b"
+    }
+  },
+  "expectedScope": {
+    "retention": [
+      "dd29df6a-a911-4969-9953-e181efc40c84",
+      "65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e",
+      "cfb02c45-183c-4cb6-b5b0-2642a283bbda"
+    ],
+    "analysisDeletePreservesSkuReferences": [
+      "4265db2f-9a1b-4d36-8e38-1c64a4dcbaac",
+      "29cd5476-45e2-4c91-bb0e-ea7324ede805"
+    ],
+    "accountDelete": "all remaining nondeleted assets only in the authenticated workspace"
+  },
+  "syntheticMachineEvidence": true,
+  "qualityEvidence": false,
+  "modelCallsExecuted": 0
+}

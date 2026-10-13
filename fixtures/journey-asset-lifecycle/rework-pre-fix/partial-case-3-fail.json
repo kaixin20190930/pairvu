@@ -1,0 +1,5 @@
+{
+  "name": "actual R2 failure keeps readable bytes but failed deletion intent blocks eligibility until retry",
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'eligible'\n- 'blocked'\n\n    at <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:105:292)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:60:26)\n    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:99:5)"
+}

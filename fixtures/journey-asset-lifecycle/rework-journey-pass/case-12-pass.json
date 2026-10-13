@@ -1,0 +1,29 @@
+{
+  "name": "R2 success then D1 mark failure does not report success; retry completes without restoring same ID",
+  "status": "PASS",
+  "detail": {
+    "failure": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/expected-d1-mark-failure-original.json",
+    "retry": {
+      "status": 200,
+      "body": {
+        "deletion": {
+          "requested": 1,
+          "deleted": 1,
+          "failed": 0
+        }
+      }
+    },
+    "attempts": [
+      {
+        "status": "failed"
+      },
+      {
+        "status": "completed"
+      }
+    ],
+    "injection": {
+      "layer": "D1 markAssetDeleted before real statement execution",
+      "assetId": "c6575d26-fdf0-481e-acb9-76644a63b220"
+    }
+  }
+}

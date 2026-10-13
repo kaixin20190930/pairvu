@@ -1,0 +1,56 @@
+{
+  "id": "JRN04-QA-P1-PARTIAL-DELETION-ELIGIBILITY",
+  "severity": "P1",
+  "title": "Approved source remains ELIGIBLE after its candidate object is gone when D1 mark fails",
+  "candidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "actual": {
+    "deleteHTTP": 500,
+    "deletion": {
+      "requested": 1,
+      "deleted": 0,
+      "failed": 1
+    },
+    "candidateImageHTTP": 503,
+    "candidateImageError": "asset_binary_missing",
+    "releaseEligibility": "eligible",
+    "releaseReferenceAvailable": true,
+    "releaseCandidateAvailable": true,
+    "candidateR2ObjectsPresent": false,
+    "candidateD1Status": "analyzed",
+    "candidateDeletedAt": null,
+    "deletionAuditStatus": "failed"
+  },
+  "expected": "Once the original candidate bytes are gone, the release rule must not declare the approved source ELIGIBLE or the candidate available. Failure reporting and retry convergence must coexist with safe release eligibility during this non-atomic window.",
+  "steps": [
+    "Create fresh actual Miniflare D1/R2 and real A/B Better Auth sessions with all migrations.",
+    "Persist six complete synthetic observations and source-bound provenance using actual risk/persistence code; approve via actual review POST; actual release GET is ELIGIBLE.",
+    "Create a real SKU product referencing the same reference asset, so actual analysis DELETE protects the reference and targets only the candidate.",
+    "Inject a one-shot failure only on the real candidate markAssetDeleted D1 statement; execute actual owner analysis DELETE.",
+    "R2 removes candidate bytes, D1 marking fails and audit records failure. Observe DELETE500 / image GET503 alongside actual release GET still ELIGIBLE.",
+    "Retry the same actual deletion: metadata and audit converge and release becomes BLOCKED; original bytes are not restored."
+  ],
+  "reproductionCommand": "env -i PATH=\"$PATH\" HOME=\"$HOME\" TMPDIR=\"$TMPDIR\" LANG=\"${LANG:-C.UTF-8}\" pnpm exec tsx /private/tmp/pairvu-jrn04-qa-evidence/partial-window.ts",
+  "originalEvidence": {
+    "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json",
+    "bytes": 22816,
+    "sha256": "6e6db53998ad5e58734b8cbbfd61192b357c883ed8c53d59f7a7cde1b68d54d0"
+  },
+  "independentReport": {
+    "path": "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.json",
+    "bytes": 8464,
+    "sha256": "9a88e39dcc756cc904bbc37cf63e5b60fba4f70235a8e455ba977ae4e64e7060"
+  },
+  "exactFiles": [
+    {
+      "path": "lib/assets/deletion.ts",
+      "reason": "deleteAssetsImmediately removes R2 objects before D1 metadata marking; a failed mark leaves status analyzed while recording a failed deletion attempt."
+    },
+    {
+      "path": "lib/releases/repository.ts",
+      "line": 39,
+      "reason": "Availability uses asset metadata/expiry only and ignores the failed deletion state, so it advertises a missing original as available."
+    }
+  ],
+  "repairScopeDecisionOwner": "controller; QA did not modify application code",
+  "productionReproduction": false
+}

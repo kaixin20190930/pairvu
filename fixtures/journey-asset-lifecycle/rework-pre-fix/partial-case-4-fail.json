@@ -1,0 +1,5 @@
+{
+  "name": "protected reference plus R2-success/D1-mark-failure candidate is unavailable and BLOCKED before retry",
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'eligible'\n- 'blocked'\n\n    at <anonymous> (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:114:435)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:60:26)\n    at async main (/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn04-partial-window.ts:108:5)"
+}

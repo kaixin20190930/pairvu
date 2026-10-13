@@ -1,0 +1,51 @@
+{
+  "name": "small-page real retention cleanup deduplicates keys, audits and preserves nontargets",
+  "status": "PASS",
+  "detail": {
+    "summaries": [
+      {
+        "scanned": 2,
+        "deleted": 2,
+        "failed": 0,
+        "hasMore": true
+      },
+      {
+        "scanned": 1,
+        "deleted": 1,
+        "failed": 0,
+        "hasMore": false
+      }
+    ],
+    "repeat": {
+      "scanned": 0,
+      "deleted": 0,
+      "failed": 0,
+      "hasMore": false
+    },
+    "before": "b43a576190161137fc2d2cd4f832d03a1610ff6fa33db30fb3f90533360b8d77",
+    "after": "551a203f7e34615a0d58b19ab1fee46c5c7432be2fbd8499e62b096aa549f00d",
+    "attempts": [
+      {
+        "asset_id": "65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/original.png\",\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/normalized.png\",\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/65cc4b9a-b5ba-4f11-b0b0-182f9a519b6e/thumbnail.png\"]",
+        "attempted_at": "2026-10-13T12:53:59.565Z",
+        "completed_at": "2026-10-13T12:53:59.565Z"
+      },
+      {
+        "asset_id": "cfb02c45-183c-4cb6-b5b0-2642a283bbda",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/original.png\",\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/normalized.png\",\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/cfb02c45-183c-4cb6-b5b0-2642a283bbda/thumbnail.png\"]",
+        "attempted_at": "2026-10-13T12:53:59.565Z",
+        "completed_at": "2026-10-13T12:53:59.565Z"
+      },
+      {
+        "asset_id": "dd29df6a-a911-4969-9953-e181efc40c84",
+        "status": "completed",
+        "object_keys_json": "[\"jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/dd29df6a-a911-4969-9953-e181efc40c84/original.png\"]",
+        "attempted_at": "2026-10-13T12:53:59.565Z",
+        "completed_at": "2026-10-13T12:53:59.565Z"
+      }
+    ]
+  }
+}

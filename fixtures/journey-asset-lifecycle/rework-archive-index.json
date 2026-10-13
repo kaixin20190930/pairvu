@@ -1,0 +1,325 @@
+{
+  "unitId": "JRN-04",
+  "reworkFromCandidateSha": "94a818b835b62170ea484be177f7b1ee7a97b72a",
+  "rawCopiedVerbatim": true,
+  "files": [
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-1-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-1-pass.json",
+      "bytes": 23799,
+      "sha256": "7f8d3704ddc2c164dd7f191e4904d9560f2288f87b44b0289eb6d5b9c29c7147"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-2-fail.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-2-fail.json",
+      "bytes": 662,
+      "sha256": "50f7f222e531efb73992032c28fd65c1eb9835e48c11bb7277f710d1139c061f"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-3-fail.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-3-fail.json",
+      "bytes": 685,
+      "sha256": "9a77b7f2ce0eeb97a2d5c7baab2a895c9229ac57779bff776ca14cdf54537c7c"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-4-fail.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-4-fail.json",
+      "bytes": 691,
+      "sha256": "f3e64436306620e84d13005c614fc9ef0c9d685318bde105d666bb506b186352"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-5-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-5-pass.json",
+      "bytes": 24848,
+      "sha256": "607c16b9b88f869fce5f4e7ed0c987385efd77e363d65b0f1ec261beda70d642"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-case-6-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-case-6-pass.json",
+      "bytes": 168,
+      "sha256": "2a182fa2807abecdb14c01ed27e1c5e591331c5d67ba7681c6af56f6524db346"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-final-report.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-final-report.json",
+      "bytes": 14372,
+      "sha256": "aac9ec37774153e7504d0bcda775253c199d735a11220d927b506dd4bd93b775"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-manifest-before-deletion.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-manifest-before-deletion.json",
+      "bytes": 73193,
+      "sha256": "015d53c26e6477f77faafe757fa289596269b30ef3b036473bf3197d2842d552"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-mark-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-mark-failure-original.json",
+      "bytes": 25120,
+      "sha256": "b05c5f9f2f8e1c2ffc57d58127802b38ba8480471a36f18100acc112e26a365d"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-mark-retry-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-mark-retry-original.json",
+      "bytes": 13841,
+      "sha256": "c2dc1a7508ad10b6b42297b42a15464783f6cab27a683fa1d9d6948b6eaef35a"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-r2-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-r2-failure-original.json",
+      "bytes": 24979,
+      "sha256": "0cb22d73c2a63b2c3c9e7b268f684c8d1aed813786d309fca5ced9dbb088fda7"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-r2-retry-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-r2-retry-original.json",
+      "bytes": 13846,
+      "sha256": "57bdf13964bb8d1f8307140be47f15f68cd034c8e7894cc0f2d2aa53d75ead31"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-started-completion-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-started-completion-original.json",
+      "bytes": 121,
+      "sha256": "a4bfd60404e1e4f399c611afb26fcef4256b71ee37e25f0fd627da899223ab7d"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-domSJe/partial-started-window-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-pre-fix/partial-started-window-original.json",
+      "bytes": 24643,
+      "sha256": "64e463d0f737f4a55bd21b4b6da5d307043e122c6a4f2aa3fb0544df5e17b3b6"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-1-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-1-pass.json",
+      "bytes": 23799,
+      "sha256": "0ab7c4c999229b03b694527d9a90f211436ec6154713d351113e88b3058b086f"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-2-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-2-pass.json",
+      "bytes": 12079,
+      "sha256": "56dda6b1310f1c984cee73f990d40db56f642f8e78f5ffcd00d9579bfd3a0d97"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-3-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-3-pass.json",
+      "bytes": 12097,
+      "sha256": "fdba35f1cd1a7273117c5fe7f909f10bdef7afcec92115c62b42d5ec5d0820aa"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-4-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-4-pass.json",
+      "bytes": 12104,
+      "sha256": "c48ccf3dfd5ade375c761160289bbd0bb632f9c85a7c2d4a2f2d527a443ffc16"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-5-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-5-pass.json",
+      "bytes": 24848,
+      "sha256": "95039f64f28f6acbef5346c3afd5653d1e030af7f9ec7ec8427049316af27155"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-case-6-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-case-6-pass.json",
+      "bytes": 168,
+      "sha256": "2a182fa2807abecdb14c01ed27e1c5e591331c5d67ba7681c6af56f6524db346"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-final-report.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-final-report.json",
+      "bytes": 14372,
+      "sha256": "cf618ac70f072ca28cdd911f79ee2a4f33916e2c3f5acb78b1407729029f0b08"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-manifest-before-deletion.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-manifest-before-deletion.json",
+      "bytes": 73193,
+      "sha256": "e7e36880e32c57a354726bc1ff848a9fc4d700be9ebda31da87d52e3faba8111"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-mark-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-mark-failure-original.json",
+      "bytes": 25104,
+      "sha256": "2ce01eb28ecd7219f6011260cacefa9b628250e9ad509a4cf15d4dd03a1b6efa"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-mark-retry-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-mark-retry-original.json",
+      "bytes": 13841,
+      "sha256": "400c43e5249a85347f38b1ed50398030c86c9d3054e80ea838d05ade619ec45d"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-r2-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-r2-failure-original.json",
+      "bytes": 24963,
+      "sha256": "9ac8d10b47532e21fc76ad09ac4edb733ef8c6906b8df0a9d5b62a217625a6ce"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-r2-retry-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-r2-retry-original.json",
+      "bytes": 13846,
+      "sha256": "61d6603788ad0dab8f25aef4b3c3a844406f561f631631c9306c1acc1e706503"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-started-completion-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-started-completion-original.json",
+      "bytes": 121,
+      "sha256": "a4bfd60404e1e4f399c611afb26fcef4256b71ee37e25f0fd627da899223ab7d"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-4RlFHL/partial-started-window-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-partial-pass/partial-started-window-original.json",
+      "bytes": 24627,
+      "sha256": "4669a3b16834a8a48dc1971820d179ec5cd829eca02fc87432b899fe8432809c"
+    },
+    {
+      "originalPath": "operations/evidence/JRN-04/attempt-1/qa.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/qa.json",
+      "bytes": 11891,
+      "sha256": "d6cc8fd69d558bd12a521753e19a00db1fd930f294207bc6120609d24c9b63fe"
+    },
+    {
+      "originalPath": "/private/tmp/pairvu-jrn04-qa-evidence/finding.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/finding.json",
+      "bytes": 3059,
+      "sha256": "3f98cc7c7a8795ba528cbef51792ccace90059e463e67faceefe3711ca285180"
+    },
+    {
+      "originalPath": "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.ts",
+      "archivedPath": "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/partial-window.ts.txt",
+      "bytes": 6948,
+      "sha256": "fc87dc4339343371abd1b0a6034e62173f4d2ffbcb72cfbea5e098fc59d92399"
+    },
+    {
+      "originalPath": "/private/tmp/pairvu-jrn04-qa-evidence/partial-window.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/partial-window.json",
+      "bytes": 8464,
+      "sha256": "9a88e39dcc756cc904bbc37cf63e5b60fba4f70235a8e455ba977ae4e64e7060"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-UJSXyp/qa-approved-partial-window-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/qa-attempt-1-originals/qa-approved-partial-window-original.json",
+      "bytes": 22816,
+      "sha256": "6e6db53998ad5e58734b8cbbfd61192b357c883ed8c53d59f7a7cde1b68d54d0"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/anonymous-delete-responses.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/anonymous-delete-responses.json",
+      "bytes": 549,
+      "sha256": "11e747aa2373e890dc1367a391bb0895ef0bf90163f02b6d629ce2b39862ba6f"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-01-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-01-pass.json",
+      "bytes": 302,
+      "sha256": "207274767aab52f2b10b066c54fd9637cdbb76204ecfa64a93c0936ee3f8e167"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-02-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-02-pass.json",
+      "bytes": 229,
+      "sha256": "6f71dce57d8c5ef9feb4e76bec13b1a0d32f521929a2c74d82738870b4a1e7f2"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-03-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-03-pass.json",
+      "bytes": 20683,
+      "sha256": "09027a45f271815607898c4117770d8aebe77d0c8b5da09c0f9bacb03ce78af2"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-04-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-04-pass.json",
+      "bytes": 33387,
+      "sha256": "bd1bfe356d2d45eb1cdb71be622c694e04143fa64c78d2e485c02c6568dc4897"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-05-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-05-pass.json",
+      "bytes": 2086,
+      "sha256": "79f91e5e9a4a88d49d43e409edff114eed9b5b9efa6eeabe553f5ae4845dfbd4"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-06-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-06-pass.json",
+      "bytes": 741,
+      "sha256": "7dac37238480055ff7cd0c5ec22a1d51c359e39e77309b3d7fd9f594f9f0ceb5"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-07-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-07-pass.json",
+      "bytes": 861,
+      "sha256": "ab6980ee4963209fafcb441f82c6aeeaf6c26abaf4bb52f5c57612f77bac5ea8"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-08-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-08-pass.json",
+      "bytes": 4604,
+      "sha256": "7a5208e0f68a7adb0e84a8a2ca7a3a3228d374841b29c5b453a6df97ab221e2c"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-09-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-09-pass.json",
+      "bytes": 48808,
+      "sha256": "b49227947e5c8ba86cc5a6467db246f2793771155da431b55404824c6dafdcbb"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-10-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-10-pass.json",
+      "bytes": 970,
+      "sha256": "879622712974d9335a01566bde411a30fe9c72504634597aa8357dcfaa726603"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-11-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-11-pass.json",
+      "bytes": 745,
+      "sha256": "5769fee9edb1271ec0146a0b8850d6463633acef473926d03508fe065dc53880"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-12-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-12-pass.json",
+      "bytes": 717,
+      "sha256": "1832ed8f888ba2de0a3749ce9cb550c5e728aa31a3729ae28f9645d37885373b"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-13-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-13-pass.json",
+      "bytes": 1816,
+      "sha256": "9c3a9caccefa802c353c23407511bd83622f89f123daa075b41240a887eb9aa1"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/case-14-pass.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/case-14-pass.json",
+      "bytes": 14381,
+      "sha256": "d870cd5dcffe7a0b8dd97450cbf84e1aa422fbb43d5a8c1d915ac5bac14a31f8"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/expected-d1-mark-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/expected-d1-mark-failure-original.json",
+      "bytes": 3831,
+      "sha256": "33a06c2d7dfb954fce6f7ee5a6c79865a568102d3fed4c0963fc1a5be02068ff"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/expected-r2-failure-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/expected-r2-failure-original.json",
+      "bytes": 3829,
+      "sha256": "76162c783274dd890bd87019237c10c8f4860133d8434d2b5de7c89838dd09a1"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/final-report.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/final-report.json",
+      "bytes": 25580,
+      "sha256": "fcc7f291067538aa4a75db65e6169eb2066192897d27f06eb4795cd0c1906b51"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/manifest-before-deletion.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/manifest-before-deletion.json",
+      "bytes": 33615,
+      "sha256": "5312f6fe066f408bb0306231da8d745b3d19992a89e03cf3d0975bb8394053a7"
+    },
+    {
+      "originalPath": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/null-expiry-release-original.json",
+      "archivedPath": "fixtures/journey-asset-lifecycle/rework-journey-pass/null-expiry-release-original.json",
+      "bytes": 90864,
+      "sha256": "fff6c7cd0f6d9dba5318ede43ba5b102711bdabadfa28713a4cf91256a1462f4"
+    }
+  ]
+}

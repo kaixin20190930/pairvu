@@ -1,0 +1,29 @@
+{
+  "name": "real R2 deletion failure reports partial failure; route retry converges with audit preserved",
+  "status": "PASS",
+  "detail": {
+    "failure": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-199RWM/expected-r2-failure-original.json",
+    "retry": {
+      "status": 200,
+      "body": {
+        "deletion": {
+          "requested": 1,
+          "deleted": 1,
+          "failed": 0
+        }
+      }
+    },
+    "attempts": [
+      {
+        "status": "failed"
+      },
+      {
+        "status": "completed"
+      }
+    ],
+    "injection": {
+      "layer": "R2 delete before real bucket operation",
+      "key": "jrn04/e3893329-7349-4c6e-911e-6bcf4d7501b8/67a2f46b-8dbb-49c0-94fa-faa655d072e2/original.png"
+    }
+  }
+}

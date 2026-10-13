@@ -1,0 +1,52 @@
+{
+  "name": "owner batch DELETE preserves SKU reference, deletes candidate and is idempotent",
+  "status": "PASS",
+  "detail": [
+    {
+      "alias": "A",
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 1,
+            "deleted": 1,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      }
+    },
+    {
+      "alias": "B",
+      "response": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 1,
+            "deleted": 1,
+            "failed": 0
+          }
+        }
+      },
+      "repeat": {
+        "status": 200,
+        "body": {
+          "deletion": {
+            "requested": 0,
+            "deleted": 0,
+            "failed": 0
+          }
+        }
+      }
+    }
+  ]
+}
