@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
-  "unitId": "JRN-02",
-  "baselineSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
+  "unitId": "JRN-03",
+  "baselineSha": "d6c7810f8ba56db30b89b202ae797d5864428a16",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -10,9 +10,9 @@
     "modelSelection": {
       "model": "gpt-6-sol",
       "thinking": "high",
-      "reason": "独立本地D1/身份与Stripe事件到CSV多层隔离；实际API与安全门禁需较深推理",
-      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
-      "applied": true
+      "reason": "真实会话、跨workspace写入事务、审核来源与SKU/区域/规则多层链路；可用Sol足够，不默认最高档",
+      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
+      "applied": false
     },
     "observedStatus": "idle",
     "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:100",
@@ -38,12 +38,12 @@
     "modelSelection": {
       "model": "gpt-6-sol",
       "thinking": "high",
-      "reason": "独立核验实际Stripe测试付款/真实认证、生产隔离与付费所有权反例",
-      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/密钥/会话/网络不升级",
-      "applied": true
+      "reason": "独立设计有效目标越权写入反例、不变性快照及真实处理层与合成证据边界",
+      "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
+      "applied": false
     },
     "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:50",
-    "observedStatus": "completed_PASS",
+    "observedStatus": "idle",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -89,8 +89,8 @@
       "applied": true
     }
   },
-  "candidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
-  "state": "CLOSED",
+  "candidateSha": null,
+  "state": "SCOPED",
   "automationId": "pairvu-2",
   "notes": "2026-10-13 CSV修复已按GitHub-first fresh核验/无待迁移/同SHA部署，独立HTTP和真实A会话只读复验PASS；正式runtime CLOSED。JRN-01报告交付CLOSED不代表整个生产旅程PASS，仍INCOMPLETE。原FAIL及原件不覆盖，pairvu-2继续PAUSED。",
   "nextUnitId": null,
@@ -218,7 +218,7 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "本轮自动收尾完成。建议下一单元先明确可逆跨workspace写API负向与完整ELIGIBLE正向的最小契约及合成资产，再由总控开发/独立验收；需用户确认启动范围，不自动新付款、生产写入或开启API/Webhook。生产paid正向仍为独立覆盖缺口，真实质量/价值缺数据。",
+  "nextAction": "自动完成JRN-03隔离工具与最小矩阵→固定SHA独立QA→失败返工→本地关闭并更新整体进度；不生产部署或改真实客户数据。",
   "completedUnitId": "JRN-02",
   "completedCandidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
   "completedReleaseRepair": {
@@ -378,5 +378,15 @@
     "productionUnchanged": true,
     "productionPaidExportCovered": false,
     "GoogleOAuthCovered": false
+  },
+  "writeEligibilityAcceptance": {
+    "state": "SCOPED",
+    "contract": "operations/contracts/JRN-03.md",
+    "productionWriteIsolationCovered": false,
+    "productionEligibleCovered": false,
+    "syntheticMachineEvidence": true,
+    "qualityEvidence": false,
+    "realChargesAuthorized": false,
+    "customerDataWritesAuthorized": false
   }
 }

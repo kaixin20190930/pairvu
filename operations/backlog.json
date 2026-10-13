@@ -354,6 +354,24 @@
         "paid CSV and workspace isolation",
         "production unchanged"
       ]
+    },
+    {
+      "id": "JRN-03",
+      "title": "跨账号写入隔离与完整ELIGIBLE正向补验",
+      "priority": 1,
+      "dependsOn": [
+        "JRN-02"
+      ],
+      "mode": "local_only",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "isolated authenticated environment",
+        "cross-account write isolation",
+        "complete eligible journey",
+        "cleanup and coverage boundaries"
+      ]
     }
   ]
 }
