@@ -1,0 +1,76 @@
+import hashlib
+import json
+import pathlib
+from datetime import datetime, timezone
+
+base = pathlib.Path('/private/tmp/pairvu-jrn03-qa')
+repo = pathlib.Path('/Users/liukai/Documents/Product Visual QA Platform')
+replay = json.loads((base / 'replay.json').read_text())
+audit = json.loads((base / 'audit.json').read_text())
+
+def evidence(path):
+    path = pathlib.Path(path)
+    return {'path': str(path), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+
+checks = [
+    {
+        'name': 'fixed candidate SHA', 'result': 'PASS',
+        'detail': 'HEAD exactly ab6d66bb09355eb1a398c3159c6357622de17b0f; candidate-owned scripts, fixtures and acceptance document have no working-tree changes. Candidate adds only harness, fixtures and documentation; no app/lib/migration/wrangler change.',
+        'evidence': [evidence(repo / 'scripts/jrn03-journey.ts'), evidence(repo / 'scripts/jrn03-ui.mjs')],
+    },
+    {
+        'name': 'independent QA report', 'result': 'PASS',
+        'detail': 'Fresh independent replay passed all 17 valid scenarios; separate read-only SQLite and release-response audit passed. Original developer final report and UI check preserved unchanged.',
+        'validCaseCount': 17,
+        'evidence': [evidence(base / 'replay.json'), evidence(base / 'audit.json'), evidence(repo / 'fixtures/journey-write-eligibility/final-report.json'), evidence(repo / 'fixtures/journey-write-eligibility/ui-check.json')],
+    },
+    {
+        'name': 'isolated authenticated environment', 'result': 'PASS',
+        'detail': 'Two real Better Auth magic-link sessions created distinct Free workspaces; actual route handlers used fresh isolated Miniflare D1/R2. Mail and queue were local captures; outbound fetch blocked. No real model call, credential, Stripe, production or external email.',
+        'evidence': [evidence(base / 'replay.json'), evidence(base / 'audit.json')],
+    },
+    {
+        'name': 'cross-account write isolation', 'result': 'PASS',
+        'detail': 'Bidirectional valid foreign product, reference, completed analysis and queued/failed batch targets rejected. Harness checked full scoped product/analysis/review/credit tables unchanged after each denial and queue unchanged for foreign batch actions. Own valid writes succeeded; read-only SQLite audit confirmed final owner joins.',
+        'evidence': [evidence(base / 'replay.json'), evidence(base / 'audit.json')],
+    },
+    {
+        'name': 'complete eligible journey', 'result': 'PASS',
+        'detail': 'Frozen versioned product and batch source, six synthetic supported observations, source-bound synthetic model provenance and PASS machine result reached NEEDS_REVIEW. Actual review POST produced ELIGIBLE; revoke then reapprove restored it at revision 3. Current SKU edit left frozen source unchanged. Four independently approved negative rows stayed BLOCKED. Actual ReleaseWorkbenchClient visibly rendered five rows using saved local release response fixture.',
+        'evidence': [evidence(base / 'replay.json'), evidence(base / 'audit.json'), evidence(base / 'ui.png'), evidence(replay['uiPage'])],
+    },
+    {
+        'name': 'cleanup and coverage boundaries', 'result': 'PASS',
+        'detail': 'Miniflare worker disposed; temporary loopback UI server and browser tab closed. Local D1/R2 and replay evidence retained in the temporary QA directory. UI used actual component with fixture transport, not authenticated browser E2E. Machine observations and model-call provenance were synthetic; modelCallsExecuted=0, qualityEvidence=false, productionWriteIsolationCovered=false and productionEligibleCovered=false.',
+        'evidence': [evidence(base / 'replay.json'), evidence(base / 'ui.png')],
+    },
+]
+
+assert replay['status'] == audit['status'] == 'PASS'
+assert len(replay['cases']) == 17 and all(c['status'] == 'PASS' for c in replay['cases'])
+assert replay['modelCallsExecuted'] == 0 and not replay['qualityEvidence']
+assert not replay['productionWriteIsolationCovered'] and not replay['productionEligibleCovered']
+result = {
+    'unitId': 'JRN-03',
+    'candidateSha': 'ab6d66bb09355eb1a398c3159c6357622de17b0f',
+    'reviewerThreadId': '01a1248d-0f67-7333-8dca-5c4696459457',
+    'result': 'PASS',
+    'acceptanceScope': 'local_only',
+    'reviewedAt': datetime.now(timezone.utc).isoformat(),
+    'checks': checks,
+    'limitations': {
+        'qualityEvidence': False,
+        'productionWriteIsolationCovered': False,
+        'productionEligibleCovered': False,
+        'modelCallsExecuted': 0,
+        'syntheticMachineEvidence': True,
+        'uiFixtureTransport': True,
+        'authenticatedBrowserE2E': False,
+    },
+    'nextAction': 'Controller should record local_only acceptance and close JRN-03 at the fixed SHA automatically. Production coverage, actual model-quality evidence, and any feature enablement or release need separate evidence and authorization.',
+    'nextActionAutomatic': True,
+    'blocker': 'No blocker to local_only close. Production release is outside this QA scope and has no authorization.',
+}
+out = pathlib.Path('/private/tmp/pairvu-jrn03-qa.json')
+out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
+print(json.dumps({'result': result['result'], 'reportPath': str(out), 'checks': len(checks)}))

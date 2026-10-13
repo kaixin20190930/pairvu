@@ -1,0 +1,214 @@
+{
+  "unitId": "JRN-03",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "preparedAt": "2026-10-13T08:21:48.840739Z",
+  "result": "PREPARATION_ONLY",
+  "candidateSha": null,
+  "fixedCandidateAcceptance": false,
+  "model": {
+    "name": "gpt-6-sol",
+    "reasoningEffort": "high",
+    "rationale": "有效跨workspace目标写入不变性、审核来源链和完整ELIGIBLE资格跨层验证；环境缺失不升模。"
+  },
+  "scope": "只读契约和现有路由预审；未运行JRN-03开发工具、未修改共享文件或临时DB、未读凭据、未调用Stripe/生产/模型。",
+  "reviewedSources": [
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/AGENTS.md",
+      "sha256": "4b2cd9ee2d3577d0aaac89b21ad5ab2455200499ef4004d19b84c1fa04b7e210"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/README.md",
+      "sha256": "75981a55bbb6bb54599d87a4a6e243af1a97460e3be0a77969ecd800d2d4103d"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/controller-prompt.md",
+      "sha256": "bc5919fae49c1db546395563dae492c8ae705836fe74e3e30682d5257c2ca3a0"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/model-selection-policy.md",
+      "sha256": "789a7931d0534f38b6a9bff9441ec00a28f27e281fa86e34a74d4e20df8a4210"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/contracts/JRN-03.md",
+      "sha256": "3ec8333f687d396d97f25fe073462f64f53cd21ea78790388410484a871525b3"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/products/route.ts",
+      "sha256": "2651d41d1d7da29016983823107a6968d4e4e18ecf98450dd956107272fcb1aa"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/products/[productId]/route.ts",
+      "sha256": "9c85f56b1ee41dfa421f29f1ed9f6bc435d01097d29189238b23143495bb1b4b"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/products/[productId]/profile/route.ts",
+      "sha256": "f47b5957a9cb7e29b9099ad579ab135cacd1a56ce2e8d9237946fe3b458a3dc9"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/products/[productId]/references/route.ts",
+      "sha256": "d2ee54506ee48922029ccd0be8920c6492f07dfbbe8da2db386952e545283796"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/analyses/[analysisId]/reviews/route.ts",
+      "sha256": "9a054d832b5767598bea51b0d0bf2a4ab54f54fe02763c5150bbd29b91745205"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/batches/[batchId]/route.ts",
+      "sha256": "8701366a3c7c5253feedd7c3b4113f52a7910f2cf07bf21422b5e741ed42cf10"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/app/api/releases/route.ts",
+      "sha256": "235ea38e49d10789cd96a6ee49a34ec2abfd5a8f67ac35782d687e9556c4e394"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/reviews/http.ts",
+      "sha256": "bb57e7433fb3da7c34ea306771aec0eb7b19d2a9d856fd232d05aeb8ff05df2e"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/reviews/repository.ts",
+      "sha256": "bda0e5277897127ab53c77265e0434b73f6ec7e157e832a9f93f37f0d964455b"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/releases/policy.ts",
+      "sha256": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/releases/repository.ts",
+      "sha256": "beb7c6107b9ea1b971a74cc63398925edf4ae2ee188cb0368a027149c0f6ed7d"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/analysis/repository.ts",
+      "sha256": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91"
+    },
+    {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/lib/products/repository.ts",
+      "sha256": "e63504a6e6d2ad098c5c53ccdb0ee88b623be5465c1cc8cc2ad53cf7ae548b4a"
+    }
+  ],
+  "pendingFixedShaMatrix": [
+    {
+      "id": "candidate_and_isolation",
+      "counterexampleOrTarget": "固定SHA、允许文件范围、独立QA只写/tmp；全新临时workerd/D1/R2和本机loopback、禁生产绑定与外发。",
+      "requiredEvidence": "完整candidateSha、候选树和差分；进程/绑定清单、临时D1/R2路径、出站拦截与停止记录。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "actual_AB_auth",
+      "counterexampleOrTarget": "A/B使用example.test合成身份，通过实际Better Auth魔法链接和session cookie创建不同Free workspace；匿名拒绝。",
+      "requiredEvidence": "实际session验证与workspace ID不等、两个Free基线；不得stub auth/resolveRequestAccess/workspace repository。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "valid_targets_and_baselines",
+      "counterexampleOrTarget": "每个越权目标在对方workspace中确实存在，且本人以同样合法body可成功操作；先做跨账号拒绝，再做会消耗目标状态的本人正向。",
+      "requiredEvidence": "资产清单含runId/owner/UUID/版本/状态；本人成功响应；外部ID负例引用已存在对象而非随机不存在ID。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "product_mutations",
+      "counterexampleOrTarget": "实际products POST、profile PUT、lifecycle PATCH、reference POST分别双向A→B/B→A拒绝；自有产品+外部referenceAssetId亦拒绝。",
+      "requiredEvidence": "合法UUID和完整有效body；受害对象revision、profile/reference版本、mutation requests/journal、资产绑定前后完全一致；伪造workspaceId/actor单独测，不能仅拿schema 400当隔离。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "review_mutations",
+      "counterexampleOrTarget": "真实reviews POST对completed分析approve/reject/revoke本人可写；双向外部analysis有效请求被拒，匿名拒绝。",
+      "requiredEvidence": "完整UUID/expectedRevision/action/category/reason且same-origin；拒绝前后review_heads、review_events、机器source/hash不变；同requestId重放不追加，旧revision冲突不覆写。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "batch_mutations",
+      "counterexampleOrTarget": "真实batch PATCH cancel作用于queued，retry作用于failed item；跨账号双向拒绝，保留404/409实际语义。",
+      "requiredEvidence": "本人cancel/retry证明目标可操作；越权前后batch/item、credit reservation、usage ledger不变且queue enqueue计数0；队列仅本地捕获不执行模型。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "complete_machine_source",
+      "counterexampleOrTarget": "A自有版本化SKU+reference、analysis/batch冻结快照；六个唯一selected checks各一条充分可观察match，identity guard及区域asset ID正确，支持的engine/risk/model/prompt字段和synthetic model-call来源。",
+      "requiredEvidence": "真实risk计算和persistCompletedAnalysis落库；source/hash、asset可用、零limitations/高危issue、冻结版本的原件；显著声明syntheticMachineEvidence=true、qualityEvidence=false、modelCallsExecuted=0。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "eligible_positive",
+      "counterexampleOrTarget": "同一A analysis在审核前实际release GET为needs_review；真实review POST approve后同一ID在release GET和eligible filter变eligible，理由complete_source_approved。",
+      "requiredEvidence": "机器/source/hash和policy版本/哈希、冻结SKU版本前后稳定；只证明资格计算，不声称外部发布或模型质量。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "eligible_reversal_and_blockers",
+      "counterexampleOrTarget": "revoke后needs_review，重新approve恢复eligible；缺证据、图片不可用、高危差异或源变更即使approve也不能eligible。",
+      "requiredEvidence": "审核事件revision连续且source snapshot可追；破坏性反例在隔离副本，标明注入层，保留原正向fixture与原机器证据。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "frozen_product_and_B_visibility",
+      "counterexampleOrTarget": "更新当前SKU/标准不改旧analysis冻结snapshot；B工作台与伪造筛选参数看不到A eligible行。",
+      "requiredEvidence": "旧source/hash/snapshot保持、当前产品新版本；B实际release handler响应零A行，A eligible记录仍可读。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "component_visibility",
+      "counterexampleOrTarget": "本地实际工作台组件显示机器、人工、资格三层分离及ELIGIBLE正向。",
+      "requiredEvidence": "一次独立组件/UI检查及截图或可复验输出；若fixture transport，明确层级，不冒充生产浏览器端到端。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    },
+    {
+      "id": "cleanup_and_claims",
+      "counterexampleOrTarget": "本地队列/进程停止、临时资产清单完整；不调用生产、Stripe、模型或外部邮件。",
+      "requiredEvidence": "清理日志与去敏证据哈希；报告productionWriteIsolationCovered=false、productionEligibleCovered=false、qualityEvidence=false。",
+      "status": "PENDING_FIXED_CANDIDATE"
+    }
+  ],
+  "potentialGaps": [
+    {
+      "id": "schema_rejection_not_ownership",
+      "observation": "profile PUT和reviews POST限制字段；含伪造workspaceId/actor的400可只由schema触发。",
+      "finalRequirement": "另用合法body和外部已存在ID双向试验，比较受害者D1不变性。"
+    },
+    {
+      "id": "invalid_target_false_positive",
+      "observation": "产品、审核、批次路由都可对不存在目标返回拒绝。",
+      "finalRequirement": "证明目标在B/A实际存在且owner可操作；失败目标不得仅是随机UUID。"
+    },
+    {
+      "id": "retry_status_ambiguity",
+      "observation": "batch retry非retryable目标可返回409；status本身不能证明workspace检查。",
+      "finalRequirement": "使用确实failed的外部item，并检查零队列、零额度/保留变化。"
+    },
+    {
+      "id": "synthetic_model_provenance",
+      "observation": "release policy要求完整六项观察、支持的model-call字段、identity/region/schema及source-matching review；合成字段可能满足规则但不是实际模型运行。",
+      "finalRequirement": "标记合成来源、qualityEvidence=false/modelCallsExecuted=0，实际risk计算+持久化+真实release handler；不把eligible当真实质量。"
+    },
+    {
+      "id": "source_change_fixture_layer",
+      "observation": "缺失证据/图片不可用/源变更通常需在本地fixture层注入，不是公开写入路由。",
+      "finalRequirement": "隔离副本、标注注入层，不破坏同一正向原件或把fixture变更称为真实用户API。"
+    },
+    {
+      "id": "component_transport",
+      "observation": "组件fixture transport可检查显示，但不覆盖真实登录浏览器工作台。",
+      "finalRequirement": "报告准确区分组件/UI与实际后端身份/状态证据；浏览器若需要只用CUA。"
+    }
+  ],
+  "requiredEvidenceNames": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "isolated authenticated environment",
+    "cross-account write isolation",
+    "complete eligible journey",
+    "cleanup and coverage boundaries"
+  ],
+  "stopConditions": [
+    "无固定候选提交不得给PASS",
+    "真实认证或实际handler缺失则对应覆盖BLOCKED",
+    "外部目标不存在、请求body无效或只看状态码不得判定所有权PASS",
+    "任何生产/客户/Stripe/模型调用或凭据读取越界立即停止",
+    "合成来源必须保留qualityEvidence=false"
+  ],
+  "nextAction": {
+    "action": "等待总控提供固定candidateSha和开发原始证据后，仅在独立/tmp环境执行最小矩阵；失败返原开发。",
+    "dependency": "开发候选尚未固定。",
+    "proceed": "总控固定候选后自动续派独立QA；本准备报告本身不构成验收。"
+  }
+}

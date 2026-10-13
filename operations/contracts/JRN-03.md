@@ -14,7 +14,7 @@
 2. 产品写入：实际products create/profile PUT/lifecycle PATCH/reference POST路由。本人成功后，对另一账号确实存在且可正常修改的产品发起同样合法请求，双向A→B/B→A验证拒绝。包含自有产品引用外部referenceAsset反例、伪造workspaceId/actor字段不能扩大权限；如果正式schema拒绝未知字段，单独覆盖合法body的外部ID请求避免仅测schema。跨账号拒绝前后核对产品revision、profile/reference版本、mutation journal和引用绑定均不变。
 3. 审核写入：真实reviews POST执行approve/reject/revoke。本人正向可写；双向跨账号对确实存在completed分析请求应拒绝，不追加审核事件、不改变head/source snapshot，匿名也拒绝。不要把无效body或不存在目标当所有权证据。replay/expectedRevision冲突不得重复写或覆盖别人状态。
 4. 批次写入：实际PATCH cancel/retry，对另一账号确实存在queued/failed的batch/item双向拒绝（保留正式契约404/409语义，不要求统一状态码），DB批次/项/额度ledger/reservation前后不变，queue enqueue次数0。本人cancel或本地retry证明目标有效，队列仅本地捕获不执行模型；不调用DELETE或清理生产资产。
-5. 完整正向：A自有真实版本化SKU+reference绑定、冻结analysis/batch快照、六项完整可观察match、受支持来源和区域schema、可用图片、无limitations、高危issue为0；实际release GET初始needs_review，真实review POST approve后实际release GET/filter eligible返回同一analysis eligible且理由complete_source_approved、policy/hash/冻结SKU版本及machine/source/hash一致。至少一条完整源绑定路径，不能直接写eligibility或review head伪造成功。
+5. 完整正向：A自有真实版本化SKU+reference绑定、冻结analysis/batch快照、六项完整可观察match、受支持来源和区域schema、可用图片、无limitations、高危issue为0；实际release GET初始needs_review，真实review POST approve后实际release GET及正式支持的筛选（如state=decided或batchId/productId）返回同一analysis eligible且理由complete_source_approved、policy/hash/冻结SKU版本及machine/source/hash一致。至少一条完整源绑定路径，不能直接写eligibility或review head伪造成功。
 6. 反例/恢复：批准不能绕过缺失机器证据/图片不可用/高危差异/源变更；撤销后needs_review（无其他阻断时），重新批准可恢复eligible；更新当前SKU不改已冻结analysis快照或旧来源。不篡改同一正向原件，破坏性反例仅隔离副本fixture，准确标记注入层。机器结果、原始hash和审核审计各自保留。B工作台不能看到A eligible行，伪造筛选参数不能扩大范围。
 7. 可见结果：本地实际发布工作台组件显示机器/人工/资格分离和ELIGIBLE正向，至少一次独立组件/UI核对；若使用组件fixture transport，明确其层级，不冒充生产浏览器E2E。浏览器只用CUA，禁止自建Playwright/CDP。后端身份/状态结论必须由真实路由+D1支持。
 
@@ -27,3 +27,6 @@
 
 ## 回传与完成
 开发回完整candidateSha、文件范围、原始报告/失败记录、启动/停止方式、真实handler/认证/存储与fixture替代层、每项结果及限制。固定SHA候选后冻结文件，独立QA回unitId/candidateSha/reviewerThreadId/result/checks，requiredEvidence原名：fixed candidate SHA、independent QA report、isolated authenticated environment、cross-account write isolation、complete eligible journey、cleanup and coverage boundaries。先read_thread回收再正式CLI；FAIL返原开发，不重复创建角色。本地PASS正式close并更新总体进度；始终保留productionWriteIsolationCovered=false、productionEligibleCovered=false、qualityEvidence=false，除非另有真实证据。下一步列明生产覆盖、生命周期/真实样本等剩余条件；不自动启动其他功能或恢复pairvu-2。
+
+## 完成记录
+固定候选ab6d66bb09355eb1a398c3159c6357622de17b0f独立PASS并正式local_only CLOSED；证据../evidence/JRN-03/qa-final.json。17场景、独立SQLite审计和实际组件fixture检查通过；上述生产/质量限制继续有效。

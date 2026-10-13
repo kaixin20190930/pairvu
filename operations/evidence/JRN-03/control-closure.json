@@ -1,0 +1,157 @@
+{
+  "unit": {
+    "id": "JRN-03",
+    "title": "\u8de8\u8d26\u53f7\u5199\u5165\u9694\u79bb\u4e0e\u5b8c\u6574ELIGIBLE\u6b63\u5411\u8865\u9a8c",
+    "priority": 1,
+    "dependsOn": [
+      "JRN-02"
+    ],
+    "mode": "local_only",
+    "autoEligible": true,
+    "requiredEvidence": [
+      "fixed candidate SHA",
+      "independent QA report",
+      "isolated authenticated environment",
+      "cross-account write isolation",
+      "complete eligible journey",
+      "cleanup and coverage boundaries"
+    ],
+    "status": "CLOSED",
+    "roles": {
+      "dev": {
+        "id": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
+        "pending": false
+      },
+      "qa": {
+        "id": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "pending": false
+      }
+    },
+    "baseline": "7c90674e10cc3f76ce4d3ba673d69c48c6d4becf",
+    "candidate": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+    "qa": {
+      "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-03/qa-final.json",
+      "digest": "7978c323c19d9c1a644261781f2c2d086671d924112171d2347c2cf4c4b5d6b5",
+      "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+      "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+      "result": "PASS"
+    }
+  },
+  "events": [
+    {
+      "seq": 184,
+      "at": "2026-10-13T08:18:27.845Z",
+      "action": "plan-sync",
+      "args": [
+        "operations/backlog.json"
+      ],
+      "unitId": null,
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/backlog.json",
+        "digest": "c6d0098a2cdc2d1bf6293ecddf13164004496ecf79f1f1d9f3394f3f3e0456f7",
+        "changes": [
+          {
+            "unitId": "JRN-03",
+            "before": null,
+            "after": {
+              "id": "JRN-03",
+              "title": "\u8de8\u8d26\u53f7\u5199\u5165\u9694\u79bb\u4e0e\u5b8c\u6574ELIGIBLE\u6b63\u5411\u8865\u9a8c",
+              "priority": 1,
+              "dependsOn": [
+                "JRN-02"
+              ],
+              "mode": "local_only",
+              "autoEligible": true,
+              "requiredEvidence": [
+                "fixed candidate SHA",
+                "independent QA report",
+                "isolated authenticated environment",
+                "cross-account write isolation",
+                "complete eligible journey",
+                "cleanup and coverage boundaries"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seq": 185,
+      "at": "2026-10-13T08:18:28.008Z",
+      "action": "claim",
+      "args": [
+        "JRN-03"
+      ],
+      "unitId": "JRN-03",
+      "details": null
+    },
+    {
+      "seq": 186,
+      "at": "2026-10-13T08:18:28.123Z",
+      "action": "bind-role",
+      "args": [
+        "dev",
+        "01a12489-e94e-7bd3-afb2-6a2c90e70970"
+      ],
+      "unitId": "JRN-03",
+      "details": null
+    },
+    {
+      "seq": 187,
+      "at": "2026-10-13T08:18:28.248Z",
+      "action": "bind-role",
+      "args": [
+        "qa",
+        "01a1248d-0f67-7333-8dca-5c4696459457"
+      ],
+      "unitId": "JRN-03",
+      "details": null
+    },
+    {
+      "seq": 188,
+      "at": "2026-10-13T08:51:15.719Z",
+      "action": "candidate",
+      "args": [
+        "ab6d66bb09355eb1a398c3159c6357622de17b0f"
+      ],
+      "unitId": "JRN-03",
+      "details": null
+    },
+    {
+      "seq": 189,
+      "at": "2026-10-13T08:51:15.838Z",
+      "action": "start-qa",
+      "args": [],
+      "unitId": "JRN-03",
+      "details": null
+    },
+    {
+      "seq": 190,
+      "at": "2026-10-13T09:13:08.265Z",
+      "action": "qa",
+      "args": [
+        "PASS",
+        "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+        "operations/evidence/JRN-03/qa-final.json"
+      ],
+      "unitId": "JRN-03",
+      "details": {
+        "path": "/Users/liukai/Documents/Product Visual QA Platform/operations/evidence/JRN-03/qa-final.json",
+        "digest": "7978c323c19d9c1a644261781f2c2d086671d924112171d2347c2cf4c4b5d6b5",
+        "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+        "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+        "result": "PASS"
+      }
+    },
+    {
+      "seq": 191,
+      "at": "2026-10-13T09:13:08.415Z",
+      "action": "close",
+      "args": [
+        "JRN-03"
+      ],
+      "unitId": "JRN-03",
+      "details": null
+    }
+  ]
+}

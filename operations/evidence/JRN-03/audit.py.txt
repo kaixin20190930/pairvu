@@ -1,0 +1,81 @@
+import hashlib
+import json
+import pathlib
+import sqlite3
+
+report_path = pathlib.Path('/private/tmp/pairvu-jrn03-qa/replay.json')
+report = json.loads(report_path.read_text())
+page = json.loads(pathlib.Path(report['uiPage']).read_text())
+root = pathlib.Path(report['temporaryDirectory'])
+db_path = next(p for p in root.glob('d1/**/*.sqlite') if p.name != 'metadata.sqlite')
+db = sqlite3.connect(f'file:{db_path}?mode=ro', uri=True)
+db.row_factory = sqlite3.Row
+
+def rows(query, params=()):
+    return [dict(r) for r in db.execute(query, params)]
+
+def one(query, params=()):
+    result = rows(query, params)
+    assert len(result) == 1, (query, len(result))
+    return result[0]
+
+assert report['unitId'] == 'JRN-03' and report['status'] == 'PASS'
+assert len(report['cases']) == 17 and all(c['status'] == 'PASS' for c in report['cases'])
+assert report['outboundBlocked'] == 0 and report['modelCallsExecuted'] == 0
+assert report['syntheticMachineEvidence'] and not report['qualityEvidence']
+assert not report['productionWriteIsolationCovered'] and not report['productionEligibleCovered']
+a, b = (report['sessions'][key]['workspaceId'] for key in ('A', 'B'))
+assert a != b
+
+checks = {}
+for alias, workspace in (('A', a), ('B', b)):
+    product = one('select workspace_id, status, revision from products where id=?', (report['products'][alias],))
+    analysis = one('select workspace_id, status, verdict, selected_checks_json from analyses where id=?', (report['analyses'][alias],))
+    batch = one('select workspace_id, product_id from batches where id=?', (report['batches'][alias]['queued'],))
+    item = one('select workspace_id, analysis_id from batch_items where id=?', (report['batches'][alias]['item'],))
+    assert product['workspace_id'] == analysis['workspace_id'] == batch['workspace_id'] == item['workspace_id'] == workspace
+    assert batch['product_id'] == report['products'][alias] and item['analysis_id'] == report['analyses'][alias]
+    assert analysis['status'] == 'completed' and len(json.loads(analysis['selected_checks_json'])) == 6
+    assert len(rows('select check_type from analysis_observations where analysis_id=?', (report['analyses'][alias],))) == 6
+    source = one('select workspace_id, snapshot_sha256, profile_version_id, reference_version_id from analysis_product_snapshots where analysis_id=?', (report['analyses'][alias],))
+    batch_source = one('select workspace_id, snapshot_sha256, profile_version_id, reference_version_id from batch_product_snapshots where batch_id=?', (report['batches'][alias]['queued'],))
+    assert source == batch_source and source['workspace_id'] == workspace
+    checks[alias] = {'workspaceIsolated': True, 'completedSixChecks': True, 'frozenSourceMatchesBatch': True}
+
+for table in ('products', 'product_reference_versions', 'product_profile_versions', 'batches', 'batch_items', 'analyses', 'analysis_observations', 'analysis_model_calls', 'review_events', 'review_heads', 'assets'):
+    foreign = rows(f'select distinct workspace_id from {table} where workspace_id not in (?,?)', (a, b))
+    assert not foreign, (table, foreign)
+
+eligible = [r for r in page['rows'] if r['analysisId'] == report['analyses']['A']]
+assert len(eligible) == 1
+eligible = eligible[0]
+assert eligible['eligibility'] == 'eligible'
+assert [reason['code'] for reason in eligible['reasons']] == ['complete_source_approved']
+assert eligible['machine']['sourceComplete'] and eligible['machine']['issueCount'] == 0
+assert eligible['assets']['referenceAvailable'] and eligible['assets']['candidateAvailable']
+assert eligible['productSnapshot']['profile']['skuLabel'] == 'JRN03-SKU'
+events = rows('select action, revision, workspace_id from review_events where analysis_id=? order by revision', (report['analyses']['A'],))
+assert [(e['action'], e['revision'], e['workspace_id']) for e in events] == [('approve', 1, a), ('revoke', 2, a), ('approve', 3, a)]
+
+blocked = [r for r in page['rows'] if r['eligibility'] == 'blocked']
+assert len(page['rows']) == 5 and len(blocked) == 4
+reason_codes = {code for r in blocked for code in (reason['code'] for reason in r['reasons'])}
+assert {'selected_checks_incomplete', 'assets_unavailable', 'high_risk_difference', 'review_source_changed'} <= reason_codes
+assert all(one('select workspace_id from analyses where id=?', (r['analysisId'],))['workspace_id'] == a for r in page['rows'])
+
+result = {
+    'status': 'PASS',
+    'candidateSha': 'ab6d66bb09355eb1a398c3159c6357622de17b0f',
+    'runId': report['runId'],
+    'independentReadOnlyD1': True,
+    'storage': {'d1Database': str(db_path), 'r2Files': sum(p.is_file() for p in root.glob('r2/**/*'))},
+    'ownerChecks': checks,
+    'eligibleReviewActions': [e['action'] for e in events],
+    'pageRowCount': len(page['rows']),
+    'blockedReasonCodes': sorted(reason_codes),
+    'fixtureTransport': True,
+    'notProduction': True,
+}
+out = pathlib.Path('/private/tmp/pairvu-jrn03-qa/audit.json')
+out.write_text(json.dumps(result, indent=2) + '\n')
+print(json.dumps({'status': result['status'], 'auditPath': str(out), 'pageRowCount': len(page['rows'])}))

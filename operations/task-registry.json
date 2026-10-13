@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "JRN-03",
-  "baselineSha": "d6c7810f8ba56db30b89b202ae797d5864428a16",
+  "baselineSha": "7c90674e10cc3f76ce4d3ba673d69c48c6d4becf",
   "development": {
     "threadId": "01a12489-e94e-7bd3-afb2-6a2c90e70970",
     "hostId": "local",
@@ -12,10 +12,10 @@
       "thinking": "high",
       "reason": "真实会话、跨workspace写入事务、审核来源与SKU/区域/规则多层链路；可用Sol足够，不默认最高档",
       "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
-      "applied": false
+      "applied": true
     },
-    "observedStatus": "idle",
-    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:100",
+    "observedStatus": "completed",
+    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:165",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
@@ -40,10 +40,10 @@
       "thinking": "high",
       "reason": "独立设计有效目标越权写入反例、不变性快照及真实处理层与合成证据边界",
       "upgradeCondition": "具体重复推理缺口先缩域再评估；权限/环境故障不升级",
-      "applied": false
+      "applied": true
     },
-    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:50",
-    "observedStatus": "idle",
+    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:88",
+    "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "medium",
@@ -80,7 +80,7 @@
         "action": "resume same QA role/model/scope; no replacement or duplicate"
       }
     ],
-    "receipt": "operations/evidence/JRN-02/qa-final.json",
+    "receipt": "operations/evidence/JRN-03/qa-final.json",
     "cleanupModelSelection": {
       "model": "gpt-6-sol",
       "thinking": "high",
@@ -89,10 +89,10 @@
       "applied": true
     }
   },
-  "candidateSha": null,
-  "state": "SCOPED",
+  "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+  "state": "CLOSED",
   "automationId": "pairvu-2",
-  "notes": "2026-10-13 CSV修复已按GitHub-first fresh核验/无待迁移/同SHA部署，独立HTTP和真实A会话只读复验PASS；正式runtime CLOSED。JRN-01报告交付CLOSED不代表整个生产旅程PASS，仍INCOMPLETE。原FAIL及原件不覆盖，pairvu-2继续PAUSED。",
+  "notes": "JRN-03固定候选ab6d66b独立PASS，正式qa PASS→close；17场景和独立持久化/UI复核通过。本轮仅本地工具与证据，无生产部署/启用、真实扣款、客户数据修改或模型调用；整体生产旅程仍INCOMPLETE，pairvu-2继续PAUSED。",
   "nextUnitId": null,
   "production": {
     "status": "PROD_VERIFIED",
@@ -218,9 +218,9 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "自动完成JRN-03隔离工具与最小矩阵→固定SHA独立QA→失败返工→本地关闭并更新整体进度；不生产部署或改真实客户数据。",
-  "completedUnitId": "JRN-02",
-  "completedCandidateSha": "d3fcb9c228c858b81a104baafa902f7aac096217",
+  "nextAction": "建议下一单元：合成资产到期/删除与权限回收补验，先明确本地隔离范围和恢复标准，待用户确认启动；不自动扩大生产操作、付款或客户数据修改。",
+  "completedUnitId": "JRN-03",
+  "completedCandidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
   "completedReleaseRepair": {
     "unitId": "JRN-01-EXPORT-FIX",
     "candidateSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
@@ -343,14 +343,15 @@
     "blocked": [
       "production real paid owned CSV success and foreign-workspace denial (isolated Test Mode PASS)",
       "production actual authenticated Free HTTP403 path (isolated actual handler PASS)",
-      "production cross-workspace write API negatives",
-      "complete positive ELIGIBLE analysis",
+      "production cross-workspace write API negatives (JRN-03 local_only PASS)",
+      "production complete positive ELIGIBLE analysis (JRN-03 synthetic local_only PASS)",
       "authorized expired/deleted assets and precise permanent deletion confirmation",
       "real payment/pack/portal writes"
     ],
     "quality": "Real authorized double-annotated samples NOT_PROVIDED; no quality conclusion",
     "value": "test/unknown excluded; real business-source input still needed",
-    "isolatedTestPaymentCsvAndCancellation": "JRN-02 PASS/local_only CLOSED; production checkout, paid CSV and local Google OAuth not covered"
+    "isolatedTestPaymentCsvAndCancellation": "JRN-02 PASS/local_only CLOSED; production checkout, paid CSV and local Google OAuth not covered",
+    "localWriteIsolationAndEligible": "JRN-03 PASS/local_only CLOSED; 17 scenarios, independent SQLite audit and actual component with fixture transport; not production or quality evidence"
   },
   "sandboxAcceptance": {
     "contract": "operations/contracts/JRN-02.md",
@@ -380,13 +381,21 @@
     "GoogleOAuthCovered": false
   },
   "writeEligibilityAcceptance": {
-    "state": "SCOPED",
+    "state": "CLOSED",
     "contract": "operations/contracts/JRN-03.md",
     "productionWriteIsolationCovered": false,
     "productionEligibleCovered": false,
     "syntheticMachineEvidence": true,
     "qualityEvidence": false,
     "realChargesAuthorized": false,
-    "customerDataWritesAuthorized": false
+    "customerDataWritesAuthorized": false,
+    "qaPreparation": "operations/evidence/JRN-03/qa-preparation.json",
+    "acceptance": "PASS local_only",
+    "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+    "qaEvidence": "operations/evidence/JRN-03/qa-final.json",
+    "validCaseCount": 17,
+    "modelCallsExecuted": 0,
+    "uiFixtureTransport": true,
+    "authenticatedBrowserE2E": false
   }
 }

@@ -2,9 +2,19 @@
 
 ## 当前结论
 
-核心工程链路已上线：基础检测/批次、SKU标准版本、结构化区域证据、独立人工审核与审计、发布工作台/规则版本、价值指标。匿名批次CSV错误已修复并完成独立生产复验；JRN-02 Stripe测试模式的付款→权限→CSV→跨账号隔离→取消降级已固定SHA独立PASS并local_only CLOSED。但完整付费/生命周期/跨workspace写入旅程尚未覆盖；真实检测质量与商业价值仍没有充分数据证明，不能称为全部产品验收完成。
+核心工程链路已上线：基础检测/批次、SKU标准版本、结构化区域证据、独立人工审核与审计、发布工作台/规则版本、价值指标。匿名批次CSV错误已修复并完成独立生产复验；JRN-02 Stripe测试模式的付款→权限→CSV→跨账号隔离→取消降级已固定SHA独立PASS并local_only CLOSED。JRN-03跨账号写入隔离与完整合成ELIGIBLE正向也已独立PASS并local_only CLOSED。但完整生产付费/生命周期/跨workspace写入旅程尚未覆盖；真实检测质量与商业价值仍没有充分数据证明，不能称为全部产品验收完成。
 
 当前生产发布 `bbbe62c110e526604a76b316c0ec0b5e90b13fca`，Cloudflare Worker `c88179e1-d880-4a19-8988-e041b25a2924`。本次无待执行数据库迁移，没有新增开关；既有SKU、发布工作台和价值指标保持启用。GitHub推送→fresh远端核验→同SHA构建部署→独立生产复验已完成。发布后的进度/证据提交不等于新的生产部署。
+
+## 2026-10-13 JRN-03 独立验收正式关闭
+
+固定候选 `ab6d66bb09355eb1a398c3159c6357622de17b0f` 已独立PASS，正式CLI `qa PASS → close`，local_only CLOSED。全新隔离D1/R2中17场景通过：实际Better Auth会话与路由，A/B双向跨账号产品、参考、审核和批次写入拒绝，拒绝前后业务数据/额度/队列不变，本人有效操作成功。完整合成来源经真实审核批准→撤销→再批准得到ELIGIBLE→NEEDS_REVIEW→ELIGIBLE，冻结SKU来源不随当前编辑改变；四个缺证据/图片不可用/高风险/来源变更反例保持BLOCKED。
+
+独立QA另以只读SQLite复核归属、快照及审计链，并通过实际工作台组件核对机器/人工/资格分离。UI使用本地路由响应fixture，非真实登录浏览器E2E；机器输入明确合成，零模型调用，不提供真实质量结论。临时服务已停止；未进行生产部署/启用、真实付款或客户数据修改。生产写隔离和生产ELIGIBLE覆盖仍缺，整个生产旅程仍INCOMPLETE。原始QA逐字归档；CLI报告只映射checks.result为checks.status，未改变结论。
+
+下一步建议合成素材到期/删除与权限回收补验：先限定全新本地资产、精确删除对象和恢复标准，待用户确认启动。当前授权单元已自动收尾；不自动开展新生产操作、API/Webhook或恢复pairvu-2。
+
+[独立报告](../../operations/evidence/JRN-03/qa-final.json)、[原始证据索引](../../operations/evidence/JRN-03/archive-index.json)、[正式关闭](../../operations/evidence/JRN-03/control-closure.json)。
 
 ## JRN-02 测试模式验收已关闭
 
@@ -35,6 +45,7 @@
 |---|---|---|
 | 基础检测、批次、账户额度、付费入口和内容 | 已上线 | 完整真实付款及商业验证未完成 |
 | AUTO-01/02 总控与独立验收系统 | CLOSED | 主动wait/read完成JRN-02开发→固定SHA独立QA→受控清理→独立增量QA→CLOSED；pairvu-2保持暂停 |
+| JRN-03 写入隔离与完整ELIGIBLE | 独立PASS/local_only CLOSED | 17场景、SQLite与组件复核；合成证据不等于生产/真实质量 |
 | JRN-02 测试付款、CSV与账号隔离 | 独立PASS/local_only CLOSED | 真实Stripe测试事件、实际认证/路由及取消降级；未覆盖生产paid路径 |
 | UPG-01 发布版本追踪 | 生产通过/CLOSED | SHA、Worker来源可核对 |
 | UPG-02 评测契约与离线校验 | 本地独立通过/CLOSED | 真实授权双标留出集仍缺 |
@@ -66,11 +77,11 @@
 
 ## 下一步做什么
 
-1. **优先补不依赖真实付款的核心旅程。** JRN-02测试付款和paid导出隔离已完成，下一单元先明确可逆跨workspace写API负向与完整ELIGIBLE正向案例的最小契约、合成资产和状态恢复标准；确认启动范围后由总控持续开发/独立验收。
+1. **下一优先为素材生命周期补验。** 跨账号写入与完整ELIGIBLE已完成本地补验；下一单元限定合成素材到期/删除、权限回收和恢复标准，确认范围后再启动。
 2. **保留生产覆盖缺口并按条件补验。** 测试模式不等于生产paid正向，后者可等可用的真实付费会话和最小验收范围，不必为了本轮测试再付费。到期/删除素材另定受控契约；永久删除及真实付款需对应授权。
 3. **准备真实样本和真实业务来源。** UPG-07需授权样本、双标/仲裁、冻结留出集（[15项缺口](../05-evaluation/reference-view-sample-readiness.md)）；UPG-10需来源证明与分类授权。无材料保持BLOCKED/unknown。
 4. **安全收尾及后续集成。** 负责人补外部依赖清单后制定最小权限方案；UPG-08 API需具体调用方最小契约，UPG-09 Webhook依赖API，均未启动。
 
-本轮已自动完成JRN-02开发、固定SHA独立验收、测试订阅清理、正式关闭与进度同步。下一步建议启动上述可逆核心旅程单元，需用户确认最小范围；不自动扩大生产操作、启动API/Webhook或真实扣款。pairvu-2按既有决定保持PAUSED。
+本轮已自动完成JRN-03开发、固定SHA独立验收、正式关闭与进度同步。下一单元需确认合成素材生命周期范围；生产补验、真实付款和客户数据修改不自动扩大。pairvu-2保持PAUSED。
 
 [完整升级方案](product-upgrade-plan-2026-10-10.md)、[按优先级剩余任务](next-development-batch-2026-10-10.md)、[任务台账](../../operations/task-registry.json)。历史UPG-10交付依据：[manifest](../../operations/evidence/production-upg10-2026-10-12/manifest.json)、[登录验收](../../operations/evidence/production-upg10-2026-10-12/production-functional.json)。

@@ -1,0 +1,140 @@
+{
+  "unitId": "JRN-03",
+  "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "acceptanceScope": "local_only",
+  "reviewedAt": "2026-10-13T09:09:21.354717+00:00",
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "result": "PASS",
+      "detail": "HEAD exactly ab6d66bb09355eb1a398c3159c6357622de17b0f; candidate-owned scripts, fixtures and acceptance document have no working-tree changes. Candidate adds only harness, fixtures and documentation; no app/lib/migration/wrangler change.",
+      "evidence": [
+        {
+          "path": "/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn03-journey.ts",
+          "sha256": "f32f97c54b0280b0936f4e70662fb7542da90e46469d4bced5d0361f5fdcab37"
+        },
+        {
+          "path": "/Users/liukai/Documents/Product Visual QA Platform/scripts/jrn03-ui.mjs",
+          "sha256": "f9e93afb539cc0e02f40a434cc1e24e2984b50bd1ebbb54eed4f0138bc6cc799"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "independent QA report",
+      "result": "PASS",
+      "detail": "Fresh independent replay passed all 17 valid scenarios; separate read-only SQLite and release-response audit passed. Original developer final report and UI check preserved unchanged.",
+      "validCaseCount": 17,
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/replay.json",
+          "sha256": "ebfb2c0501f00d3ca33904c990dfb148b17e661cfb7844e5b6361cd4103ecb99"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/audit.json",
+          "sha256": "1a591d5e0826ddf9013d21c2cd99b48981195932aef7df51bd88fac0fadc8482"
+        },
+        {
+          "path": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-write-eligibility/final-report.json",
+          "sha256": "06a5fee659763ccd283fa13dbd4cd90e109a8c945b9db09d1a9a0acc6612b3ea"
+        },
+        {
+          "path": "/Users/liukai/Documents/Product Visual QA Platform/fixtures/journey-write-eligibility/ui-check.json",
+          "sha256": "3238d5f6bc856aa609dda85ee019cba2d743bb6d685acb8e239844dbaee19822"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "isolated authenticated environment",
+      "result": "PASS",
+      "detail": "Two real Better Auth magic-link sessions created distinct Free workspaces; actual route handlers used fresh isolated Miniflare D1/R2. Mail and queue were local captures; outbound fetch blocked. No real model call, credential, Stripe, production or external email.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/replay.json",
+          "sha256": "ebfb2c0501f00d3ca33904c990dfb148b17e661cfb7844e5b6361cd4103ecb99"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/audit.json",
+          "sha256": "1a591d5e0826ddf9013d21c2cd99b48981195932aef7df51bd88fac0fadc8482"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "cross-account write isolation",
+      "result": "PASS",
+      "detail": "Bidirectional valid foreign product, reference, completed analysis and queued/failed batch targets rejected. Harness checked full scoped product/analysis/review/credit tables unchanged after each denial and queue unchanged for foreign batch actions. Own valid writes succeeded; read-only SQLite audit confirmed final owner joins.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/replay.json",
+          "sha256": "ebfb2c0501f00d3ca33904c990dfb148b17e661cfb7844e5b6361cd4103ecb99"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/audit.json",
+          "sha256": "1a591d5e0826ddf9013d21c2cd99b48981195932aef7df51bd88fac0fadc8482"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "complete eligible journey",
+      "result": "PASS",
+      "detail": "Frozen versioned product and batch source, six synthetic supported observations, source-bound synthetic model provenance and PASS machine result reached NEEDS_REVIEW. Actual review POST produced ELIGIBLE; revoke then reapprove restored it at revision 3. Current SKU edit left frozen source unchanged. Four independently approved negative rows stayed BLOCKED. Actual ReleaseWorkbenchClient visibly rendered five rows using saved local release response fixture.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/replay.json",
+          "sha256": "ebfb2c0501f00d3ca33904c990dfb148b17e661cfb7844e5b6361cd4103ecb99"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/audit.json",
+          "sha256": "1a591d5e0826ddf9013d21c2cd99b48981195932aef7df51bd88fac0fadc8482"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/ui.png",
+          "sha256": "097e4d31dd63676150ac12edf5569a8bad38318b729282f99e1d8c4b1e2a857f"
+        },
+        {
+          "path": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn03-7jYJhr/ui-page.json",
+          "sha256": "48f458497934946a5e3d5183f8854db1f1acd2ecb0ad3388113ccc9d4ac3dbb8"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "cleanup and coverage boundaries",
+      "result": "PASS",
+      "detail": "Miniflare worker disposed; temporary loopback UI server and browser tab closed. Local D1/R2 and replay evidence retained in the temporary QA directory. UI used actual component with fixture transport, not authenticated browser E2E. Machine observations and model-call provenance were synthetic; modelCallsExecuted=0, qualityEvidence=false, productionWriteIsolationCovered=false and productionEligibleCovered=false.",
+      "evidence": [
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/replay.json",
+          "sha256": "ebfb2c0501f00d3ca33904c990dfb148b17e661cfb7844e5b6361cd4103ecb99"
+        },
+        {
+          "path": "/private/tmp/pairvu-jrn03-qa/ui.png",
+          "sha256": "097e4d31dd63676150ac12edf5569a8bad38318b729282f99e1d8c4b1e2a857f"
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "limitations": {
+    "qualityEvidence": false,
+    "productionWriteIsolationCovered": false,
+    "productionEligibleCovered": false,
+    "modelCallsExecuted": 0,
+    "syntheticMachineEvidence": true,
+    "uiFixtureTransport": true,
+    "authenticatedBrowserE2E": false
+  },
+  "nextAction": "Controller should record local_only acceptance and close JRN-03 at the fixed SHA automatically. Production coverage, actual model-quality evidence, and any feature enablement or release need separate evidence and authorization.",
+  "nextActionAutomatic": true,
+  "blocker": "No blocker to local_only close. Production release is outside this QA scope and has no authorization.",
+  "sourceReport": {
+    "path": "operations/evidence/JRN-03/qa-final-raw.json",
+    "sha256": "11ee5e94490b42bd5313ae13812f3ec560057f751cfaf2b4b81e90d041105890"
+  },
+  "formatConversion": "Controller maps each original checks.result to CLI checks.status; original report preserved byte-for-byte; no acceptance result changed."
+}

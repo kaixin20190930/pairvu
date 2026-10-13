@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "candidateSha": "ab6d66bb09355eb1a398c3159c6357622de17b0f",
+  "runId": "3d5a19b7-d12c-4380-9fec-e3df9d316e52",
+  "independentReadOnlyD1": true,
+  "storage": {
+    "d1Database": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn03-7jYJhr/d1/miniflare-D1DatabaseObject/1a12ec2416e2331cdfe9e93986aef05b9af7154a604ee210f90736a34ffdf741.sqlite",
+    "r2Files": 16
+  },
+  "ownerChecks": {
+    "A": {
+      "workspaceIsolated": true,
+      "completedSixChecks": true,
+      "frozenSourceMatchesBatch": true
+    },
+    "B": {
+      "workspaceIsolated": true,
+      "completedSixChecks": true,
+      "frozenSourceMatchesBatch": true
+    }
+  },
+  "eligibleReviewActions": [
+    "approve",
+    "revoke",
+    "approve"
+  ],
+  "pageRowCount": 5,
+  "blockedReasonCodes": [
+    "assets_unavailable",
+    "high_risk_difference",
+    "machine_derivation_invalid",
+    "review_source_changed",
+    "selected_checks_incomplete"
+  ],
+  "fixtureTransport": true,
+  "notProduction": true
+}

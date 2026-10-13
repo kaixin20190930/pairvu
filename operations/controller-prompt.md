@@ -1,5 +1,16 @@
 # Pairvu 总控 heartbeat 执行指令
 
+## 2026-10-13 JRN-03 独立验收正式关闭
+
+固定候选 `ab6d66bb09355eb1a398c3159c6357622de17b0f` 已独立PASS，正式CLI `qa PASS → close`，local_only CLOSED。全新隔离D1/R2中17场景通过：实际Better Auth会话与路由，A/B双向跨账号产品、参考、审核和批次写入拒绝，拒绝前后业务数据/额度/队列不变，本人有效操作成功。完整合成来源经真实审核批准→撤销→再批准得到ELIGIBLE→NEEDS_REVIEW→ELIGIBLE，冻结SKU来源不随当前编辑改变；四个缺证据/图片不可用/高风险/来源变更反例保持BLOCKED。
+
+独立QA另以只读SQLite复核归属、快照及审计链，并通过实际工作台组件核对机器/人工/资格分离。UI使用本地路由响应fixture，非真实登录浏览器E2E；机器输入明确合成，零模型调用，不提供真实质量结论。临时服务已停止；未进行生产部署/启用、真实付款或客户数据修改。生产写隔离和生产ELIGIBLE覆盖仍缺，整个生产旅程仍INCOMPLETE。原始QA逐字归档；CLI报告只映射checks.result为checks.status，未改变结论。
+
+下一步建议合成素材到期/删除与权限回收补验：先限定全新本地资产、精确删除对象和恢复标准，待用户确认启动。当前授权单元已自动收尾；不自动开展新生产操作、API/Webhook或恢复pairvu-2。
+
+[独立QA](evidence/JRN-03/qa-final.json) · [归档索引](evidence/JRN-03/archive-index.json)
+
+
 用户已要求建立自动化开发和独立验收系统。本任务为唯一总控。先读 AGENTS.md、operations/README.md、operations/task-registry.json、operations/backlog.json 和升级方案；再用 `pnpm control status` 读取实际状态。不要仅凭聊天摘要宣称完成。
 
 0. 活跃回收循环（必须执行）：派单或返工后保持总控本轮运行，立即 wait_threads，带返回的 afterCursor 每次等待最多 60 秒；超时不是完成，也不是结束本轮的理由。子任务完成后 read_thread 获取最终结果并在本轮推进下一状态。开发结束立即派固定 SHA 的 QA，QA FAIL 立即返原开发，QA PASS 按门禁关闭并继续用户已授权下一项。不能在 DEV_ACTIVE/QA_ACTIVE 且无实际阻塞时用“已启动、定时巡检会跟进”作为最终答复。只等待当前有新工作的角色，避免已完成任务反复触发。若用户主动打断，保留状态和游标，由恢复巡检或下次本轮接续。每 60 秒以内给出有意义的简短进度，不重复状态噪声。
@@ -139,3 +150,6 @@ JRN-01报告交付与JRN-01-EXPORT-FIX runtime均经正式CLI CLOSED；发布bbb
 
 用户已授权的隔离Stripe Test Mode付款/权限/CSV/跨账号验收已完成。候选d3fcb9c228c858b81a104baafa902f7aac096217固定SHA独立PASS，正式CLI qa PASS→close，local_only CLOSED。唯一测试订单由用户在Sandbox提交，无真实扣款；真实签名回调、A Starter150/B Free10、两个CSV实际路由及隔离通过。本轮订阅已取消，真实删除回调使A恢复Free，两个CSV403；监听器停止。生产计费六表前/付款后/清理后三次相同，生产仍bbbe62c/Worker c88179e1。
 最终报告operations/evidence/JRN-02/qa-final.json；冻结候选文档内待清理状态为历史，以最终报告为准。不重跑付款、不恢复巡检、不将本地PASS记成生产paid/Google OAuth/正式checkout入口PASS。下一步建议可逆跨workspace写API负向和完整ELIGIBLE正向最小契约，需用户确认启动范围；本轮只完成收尾和计划更新，不擅自新生产操作或启动UPG08/09。
+
+## 2026-10-13 JRN-03已授权启动
+用户已确认启动跨账号写入隔离及完整ELIGIBLE正向补验，operations/contracts/JRN-03.md限定全新本地D1/R2、合成A/B、实际BetterAuth和真实路由、来源/冻结快照与UI分层证据；禁止真实付款/生产客户修改/模型调用。原开发和QA按风险分别选择Sol/high，已正式plan-sync/claim/bind，必须持续wait/read→固定SHA独立QA，FAIL返原开发。当前DEV_ACTIVE，不再以“下一单元待确认”阻塞本单元。若发现runtime缺陷先最小复现，由总控在已有修复授权内界定范围和发布门禁，不擅自部署。通过后本地关闭、更新整体进度和下一步，pairvu-2继续PAUSED。
