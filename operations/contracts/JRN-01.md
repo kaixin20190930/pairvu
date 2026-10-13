@@ -28,3 +28,6 @@ QA结构含unitId,candidateSha,reviewerThreadId,result,checks（fixed candidate 
 
 ## 独立FAIL后的明确修复范围
 2026-10-12 A阶段独立FAIL已正式导入并rework，原报告operations/evidence/JRN-01/stage-a/stage-a-review.json。运行时最小修复严格按JRN-01-EXPORT-FIX.md，复用原角色；这是本轮发现失败的明确修复契约，不扩大功能。JRN-01仍为旅程交付跟踪，不因本地修复PASS就close；生产原FAIL持续开放，直至另获发布授权并实际复验。B真实登录仍需用户完成。
+
+## 2026-10-13 发布授权后的交付分离
+用户已明确授权CSV修复生产发布及必要修复。为保留正式单槽状态机和独立运行时发布证据，将已完成的清单/证据报告与生产修复分离：原JRN-01仅在独立QA明确核实清单、已执行范围与缺口记录完整后以local_only关闭，原FAIL不可覆盖，overallProductionJourney仍INCOMPLETE；生产问题保持OPEN，转交唯一运行时JRN-01-EXPORT-FIX。此关闭不表示CSV生产已修复，替代此前“JRN-01等生产修复才关闭”的混合跟踪方式；实际问题只在后者生产独立复验通过后解决。先CLI关闭报告，再plan-sync新运行时单元、绑定原角色、固定提交QA和RELEASE_READY；无手改状态。

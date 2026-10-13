@@ -1,0 +1,13 @@
+{
+  "unitId": "JRN-01-EXPORT-FIX",
+  "authorizedAt": "2026-10-13T05:45:20.748Z",
+  "authorized": true,
+  "releaseSha": "89cc51e6efbc31c25dc0364907e2de9e30e0a0d8",
+  "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 latest user request: 授权发布这次 CSV 修复，按仓库规则先推送 GitHub、核验远端，再部署 Cloudflare 并完成独立生产复验，有问题继续修复。通过后更新整体进度，说明下一步做什么。",
+  "qaModelSelection": {
+    "model": "gpt-6-sol",
+    "thinking": "medium",
+    "reason": "固定修复之上的文档和证据增量，确定性摘要与差分核验；延用可用Sol但重新评估范围",
+    "upgradeCondition": "若出现运行时差异或安全语义不明，停止并重新评估high；环境问题不升级"
+  }
+}

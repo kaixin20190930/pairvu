@@ -322,6 +322,20 @@
         "available scope completed",
         "blocked coverage explicitly documented"
       ]
+    },
+    {
+      "id": "JRN-01-EXPORT-FIX",
+      "title": "匿名批次CSV鉴权错误映射生产修复",
+      "priority": 0,
+      "dependsOn": [
+        "JRN-01"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report"
+      ]
     }
   ]
 }

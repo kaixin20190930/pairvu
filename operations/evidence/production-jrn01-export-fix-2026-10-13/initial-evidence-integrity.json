@@ -1,0 +1,43 @@
+{
+  "releaseSha": "89cc51e6efbc31c25dc0364907e2de9e30e0a0d8",
+  "originalLocalRepairSha256": "27ef95f73a7df5d2f9fd975bca9e99e56e4d9a5881333debaa7f79fb29effb94",
+  "repairArchiveExact": true,
+  "archiveGroups": [
+    {
+      "mapping": "operations/evidence/JRN-01/developer/archive-index.json",
+      "count": 6,
+      "allHashesMatch": true
+    },
+    {
+      "mapping": "operations/evidence/JRN-01/export-fix-developer/archive-index.json",
+      "count": 6,
+      "allHashesMatch": true
+    },
+    {
+      "mapping": "operations/evidence/JRN-01/export-fix-qa/archive-mapping.json",
+      "count": 9,
+      "allHashesMatch": true
+    },
+    {
+      "mapping": "operations/evidence/JRN-01/stage-b/archive-mapping.json",
+      "count": 21,
+      "allHashesMatch": true
+    },
+    {
+      "mapping": "operations/evidence/JRN-01/stage-a-reread/archive-mapping.json",
+      "count": 13,
+      "allHashesMatch": true
+    },
+    {
+      "mapping": "operations/evidence/JRN-01/stage-a/original-index.json",
+      "count": 107,
+      "allHashesMatch": true
+    }
+  ],
+  "qaCurrentResult": "FAIL",
+  "qaCurrentOriginalReportHashMatch": true,
+  "journeyFailureStatus": "OPEN",
+  "journeyFailureHashMatch": true,
+  "changedTextPatternScan": "PASS",
+  "patternHits": []
+}
