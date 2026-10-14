@@ -1,0 +1,22 @@
+{
+  "scope": {
+    "objects": 2,
+    "analyses": 1,
+    "products": 1,
+    "profileVersions": 0,
+    "batches": 0,
+    "modelRequests": 0,
+    "creditWrites": 0,
+    "seedRows": 14,
+    "seedReviewRows": 0,
+    "persistentRowsAfterCompleteCleanup": 19
+  },
+  "restrictions": [
+    "Each production D1 mutation is an exact single-row operation and must report changes=1 before advancing.",
+    "Do not use whole-account DELETE, D1 import/file mode, migrations, model requests, payments or storage-failure injection.",
+    "Review POST must be performed through the real production UI; this package never seeds review events or heads.",
+    "Null expiry restoration occurs before any R2 deletion and is fixture-state transition, not restoration of deleted images.",
+    "Seeded started/failed audit row remains explicitly synthetic; genuine cleanup creates separate actual completed audit attempts.",
+    "Immutable test classification, machine source and human review history are retained; do not hard-delete them."
+  ]
+}

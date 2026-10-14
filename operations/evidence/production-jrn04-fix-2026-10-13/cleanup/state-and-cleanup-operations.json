@@ -1,0 +1,134 @@
+{
+  "operations": {
+    "nullExpiry": {
+      "sql": "UPDATE assets SET retention_expires_at=NULL,updated_at=? WHERE id=? AND workspace_id=? AND r2_key_original=? AND sha256=? AND status='analyzed' AND retention_expires_at=?",
+      "params": [
+        "2026-10-13T14:43:48.806Z",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/candidate-cddb395f-f442-46de-b19f-ff3e0b6e4905.png",
+        "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "2026-10-14T14:43:48.806Z"
+      ]
+    },
+    "restoreExpiry": {
+      "sql": "UPDATE assets SET retention_expires_at=?,updated_at=? WHERE id=? AND workspace_id=? AND r2_key_original=? AND sha256=? AND status='analyzed' AND retention_expires_at IS NULL",
+      "params": [
+        "2026-10-14T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/candidate-cddb395f-f442-46de-b19f-ff3e0b6e4905.png",
+        "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d"
+      ]
+    },
+    "started": {
+      "sql": "INSERT INTO asset_deletion_attempts(id,asset_id,status,object_keys_json,error_message,attempted_at,completed_at,created_at,updated_at) SELECT ?,?,'started',?,?,?,NULL,?,? WHERE EXISTS(SELECT 1 FROM assets WHERE id=? AND workspace_id=? AND status='analyzed') AND NOT EXISTS(SELECT 1 FROM asset_deletion_attempts WHERE id=?)",
+      "params": [
+        "e2150416-024d-45f1-a753-80e86259f93c",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905",
+        "[\"jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/candidate-cddb395f-f442-46de-b19f-ff3e0b6e4905.png\"]",
+        "JRN04-PROD-SYNTHETIC controlled intent fixture; no live deletion job or real storage failure.",
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "e2150416-024d-45f1-a753-80e86259f93c"
+      ]
+    },
+    "failed": {
+      "sql": "UPDATE asset_deletion_attempts SET status='failed',completed_at=?,updated_at=?,error_message=? WHERE id=? AND asset_id=? AND status='started' AND error_message LIKE 'JRN04-PROD-SYNTHETIC%'",
+      "params": [
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "JRN04-PROD-SYNTHETIC controlled failed-state fixture; no production fault injected.",
+        "e2150416-024d-45f1-a753-80e86259f93c",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905"
+      ]
+    },
+    "archiveSku": {
+      "sql": "UPDATE products SET status='archived',updated_at=? WHERE id=? AND workspace_id=? AND name=? AND sku_label=? AND current_profile_version_id IS NULL AND revision=0",
+      "params": [
+        "2026-10-13T14:43:48.806Z",
+        "9ae63465-9838-43a4-83a6-5598061c83a7",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "JRN04-PROD-SYNTHETIC-95ddbce0-1b07-4c83-b838-16aa854fe07e",
+        "JRN04-PROD-SYNTHETIC-95ddbce0-1b07-4c83-b838-16aa854fe07e"
+      ]
+    },
+    "referenceAudit": {
+      "sql": "INSERT INTO asset_deletion_attempts(id,asset_id,status,object_keys_json,error_message,attempted_at,completed_at,created_at,updated_at) SELECT ?,?,'started',?,NULL,?,NULL,?,? WHERE EXISTS(SELECT 1 FROM assets WHERE id=? AND workspace_id=? AND status='analyzed' AND sha256=? AND r2_key_original=?) AND NOT EXISTS(SELECT 1 FROM asset_deletion_attempts WHERE id=?)",
+      "params": [
+        "27870c28-98b1-47a8-ae00-c8111da11367",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "[\"jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/reference-fe6a5d38-9544-43a8-a545-8e4145698c99.png\"]",
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/reference-fe6a5d38-9544-43a8-a545-8e4145698c99.png",
+        "27870c28-98b1-47a8-ae00-c8111da11367"
+      ]
+    },
+    "referenceMark": {
+      "sql": "UPDATE assets SET status='deleted',deleted_at=?,updated_at=? WHERE id=? AND workspace_id=? AND status='analyzed' AND sha256=? AND r2_key_original=? AND EXISTS(SELECT 1 FROM asset_deletion_attempts WHERE id=? AND asset_id=? AND status='started')",
+      "params": [
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+        "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+        "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/reference-fe6a5d38-9544-43a8-a545-8e4145698c99.png",
+        "27870c28-98b1-47a8-ae00-c8111da11367",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99"
+      ]
+    },
+    "referenceComplete": {
+      "sql": "UPDATE asset_deletion_attempts SET status='completed',completed_at=?,updated_at=? WHERE id=? AND asset_id=? AND status='started' AND EXISTS(SELECT 1 FROM assets WHERE id=? AND workspace_id=? AND status='deleted')",
+      "params": [
+        "2026-10-13T14:43:48.806Z",
+        "2026-10-13T14:43:48.806Z",
+        "27870c28-98b1-47a8-ae00-c8111da11367",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz"
+      ]
+    }
+  },
+  "phaseTimeParamIndexes": {
+    "nullExpiry": [
+      0
+    ],
+    "restoreExpiry": [
+      1
+    ],
+    "started": [
+      4,
+      5,
+      6
+    ],
+    "failed": [
+      0,
+      1
+    ],
+    "archiveSku": [
+      0
+    ],
+    "referenceAudit": [
+      3,
+      4,
+      5
+    ],
+    "referenceMark": [
+      0,
+      1
+    ],
+    "referenceComplete": [
+      0,
+      1
+    ]
+  }
+}

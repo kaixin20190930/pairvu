@@ -1,0 +1,30 @@
+container Release record b4034673-3347-42ec-b0cb-2c3c18a1d6d6
+			81 heading Analysis without a frozen product standard, Value: 2
+				82 text Analysis without a frozen product standard
+			83 text No frozen product identity is available.
+			84 container
+				85 text Analysis  b4034673-3347-42ec-b0cb-2c3c18a1d6d6
+			86 link Description: View evidence and human review, Value: pairvu.com/?analysis=b4034673-3347-42ec-b0cb-2c3c18a1d6d6
+			87 container
+				88 heading Machine result, Value: 3
+					89 text Machine result
+				90 text PASS completed  ·  0  product differences Detection:  m0-qa-engine-008
+				91 text Risk:  m0-risk-policy-003
+				92 text Model policy:  m0-model-policy-002 Reference image:  available
+				93 text Candidate image:  unavailable
+			94 container
+				95 heading Human decision, Value: 3
+					96 text Human decision
+				97 text APPROVE Revision  1 JRN04-PROD-SYNTHETIC-95ddbce0-1b07-4c83-b838-16aa854fe07e; controlled synthetic production-route acceptance, no model/image quality claim.
+			98 container
+				99 heading Rule eligibility, Value: 3
+					100 text Rule eligibility
+				101 text BLOCKED
+				102 content list
+					103 container
+						104 AXListMarker • 
+						105 text Original reference or candidate image is deleted, failed, expired or unavailable. assets_unavailable
+				106 text release-policy-001  · current evaluation
+			107 button (collapsed) Source and decision provenance, Secondary Actions: Expand
+				108 text Source and decision provenance
+		109 

@@ -1,0 +1,69 @@
+{
+  "unitId": "JRN-04-FIX",
+  "result": "PARTIAL",
+  "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+  "platformVersion": "65719c81-734a-4019-b724-47e470304eb3",
+  "runId": "95ddbce0-1b07-4c83-b838-16aa854fe07e",
+  "completed": [
+    "previous HTTP source/anonymous401 checks",
+    "real UI approve revision1 and future ELIGIBLE",
+    "null expiry BLOCKED and real UI expiry warning",
+    "restoreExpiry completed for cleanup",
+    "interrupted exact UI deletion was not replayed; resumed UI unavailable and candidate object404 verified",
+    "exact reference cleanup and completed deletion audit",
+    "final25 non-target D1/billing table hashes unchanged",
+    "final account Free: available6, used4, reserved0"
+  ],
+  "notExecuted": [
+    "restored eligibility UI recheck",
+    "started/failed production fixture-state matrix",
+    "deletion replay/idempotency recheck",
+    "production value-metrics UI exclusion check",
+    "full production functional acceptance and formal close"
+  ],
+  "imagesCleanupComplete": true,
+  "imageObjects": [
+    {
+      "kind": "reference",
+      "assetId": "fe6a5d38-9544-43a8-a545-8e4145698c99",
+      "r2Status": 404
+    },
+    {
+      "kind": "candidate",
+      "assetId": "cddb395f-f442-46de-b19f-ff3e0b6e4905",
+      "r2Status": 404
+    }
+  ],
+  "referenceMetadataMarkedDeleted": true,
+  "referenceAuditCompleted": true,
+  "nonTargetChangedTables": [],
+  "account": {
+    "available": 6,
+    "used": 4,
+    "reserved": 0
+  },
+  "blocker": null,
+  "limitations": [
+    "matrix stopped at user request; not full business PASS",
+    "candidate UI delete click was interrupted; outcome verified after resume rather than blindly repeated",
+    "direct asset document navigation was browser-blocked; null expiry was observed through normal result UI"
+  ],
+  "history": "machine/review/test classification retained; no hard deletion or image restoration",
+  "qualityEvidence": false,
+  "modelCallsExecuted": 0,
+  "productionFullFunctionalPass": false,
+  "evidencePaths": [
+    "/private/tmp/pairvu-jrn04-production-qa.json",
+    "/private/tmp/pairvu-jrn04-production-qa-evidence/ui-approve-recorded.txt",
+    "/private/tmp/pairvu-jrn04-production-qa-evidence/ui-future-eligible.txt",
+    "/private/tmp/pairvu-jrn04-production-qa-evidence/ui-null-blocked.txt",
+    "/private/tmp/pairvu-jrn04-production-qa-evidence/ui-null-image-expired.txt",
+    "/private/tmp/pairvu-jrn04-release/fixture-evidence/reference-object-deleted.json",
+    "/private/tmp/pairvu-jrn04-release/fixture-evidence/mutation-referenceMark.json",
+    "/private/tmp/pairvu-jrn04-release/fixture-evidence/mutation-referenceComplete.json",
+    "/private/tmp/pairvu-jrn04-release/fixture-evidence/snapshot-cleaned.json",
+    "/private/tmp/pairvu-jrn04-production-qa-evidence/account-cleanup-final.txt"
+  ],
+  "nextAction": "Controller completes only requested workflow closeout; formal production acceptance remains paused. No additional matrix or fixture starts automatically.",
+  "recordedAt": "2026-10-14T01:59:23.727283+00:00"
+}

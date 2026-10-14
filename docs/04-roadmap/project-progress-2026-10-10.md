@@ -1,5 +1,13 @@
 # Pairvu 项目整体进展（更新于2026-10-13）
 
+## 2026-10-14 当前：流程收尾与合成素材清理
+
+JRN-04-FIX已按GitHub-first发布a359c2d / Worker65719c81-734a-4019-b724-47e470304eb3，独立HTTP通过；真实生产UI批准、正常ELIGIBLE已有证据。原生产业务矩阵尚未完成，保持PARTIAL，正式control仍RELEASE_READY待完整证据导入，不把该状态误读成尚未部署。
+
+用户已明确先修复碎片化/过度验收。新执行规则已写入AGENTS、operations/controller-prompt.md和README，历史指令移出执行入口；当前契约/台账固定为原QA清理两个既有合成对象、一次非目标/额度核对、总控文档检查。无需新工具、构建或部署；未执行项不伪造PASS。原QA已完成两图清理：两对象404，reference删除标记/审计完成，25张非目标表摘要及额度6/4/0未变；机器/审核/test分类历史保留。[独立交接](../../operations/evidence/production-jrn04-fix-2026-10-13/cleanup-handoff.json)。
+
+本轮流程与清理已完成，停止扩展。剩余生产矩阵保持PARTIAL，明确继续范围后才安排；真实质量/业务价值仍待授权材料，新的生产补验或功能需明确启动范围。pairvu-2保持PAUSED。以下为历史阶段，旧待发布授权/自动扩展指令不再适用。
+
 ## 2026-10-13 JRN-04补验完成，运行时修复待发布
 
 候选 `c20cf48c06269fe463043a4dbf5d4a11841c1da6` 独立复验PASS。正式CLI已关闭local_only JRN-04，并将runtime JRN-04-FIX推进至RELEASE_READY；未推送GitHub、部署Cloudflare或在生产启用本轮修复。现有生产仍为bbbe62c / Worker c88179e1-d880-4a19-8988-e041b25a2924（本轮未操作或重新验收生产）。

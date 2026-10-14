@@ -15,13 +15,13 @@
       "applied": true
     },
     "observedStatus": "completed",
-    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:266",
+    "afterCursor": "b4cb466d-2f28-4164-953b-ebe663d0b523:288",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
       "reason": "精确合成生产对象与事务/清理边界，禁止客户数据变更",
       "upgradeCondition": "具体推理不足先缩域；权限不升级",
-      "applied": false
+      "applied": true
     },
     "cleanupModelSelection": {
       "model": "gpt-6-sol",
@@ -42,14 +42,14 @@
       "upgradeCondition": "反复实质推理缺口先缩域；环境与权限问题不升级",
       "applied": true
     },
-    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:145",
+    "afterCursor": "d21da526-09af-4d6c-8e42-2cfac64a8ea5:209",
     "observedStatus": "completed",
     "releaseModelSelection": {
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "固定发布SHA相对已验收候选仅文档证据，核验差分与摘要",
       "upgradeCondition": "新增runtime差异重评high",
-      "applied": false
+      "applied": true
     },
     "releaseRecheckModelSelection": {
       "model": "gpt-6.1-sol",
@@ -70,7 +70,7 @@
       "thinking": "high",
       "reason": "真实登录及合成生产资产/资格/清理跨层独立核验",
       "upgradeCondition": "具体推理不足先缩域；环境/会话不升级",
-      "applied": false
+      "applied": true
     },
     "environmentIncidents": [
       {
@@ -83,29 +83,33 @@
     ],
     "receipt": "operations/evidence/JRN-04/recheck/fix-qa.json",
     "cleanupModelSelection": {
-      "model": "gpt-6-sol",
-      "thinking": "high",
-      "reason": "同一本地D1真实取消回调、权限回收及精确测试对象范围独立核对",
-      "upgradeCondition": "具体推理不足先缩域；环境故障不升级",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "既有审查过的精确两对象清理计划与工具，范围固定，无新安全设计；同角色保存独立观察",
+      "upgradeCondition": "仅出现无法定位的归属/删除状态矛盾时缩域后重评high；网络和审批不升级",
       "applied": true
     }
   },
   "candidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
   "state": "RELEASE_READY",
   "automationId": "pairvu-2",
-  "notes": "JRN-04已固定c20cf48独立PASS并正式local_only CLOSED；JRN-04-FIX正式RELEASE_READY，含空到期资格、匿名删除401、删除失败窗口资格3项修复，未推送/部署/启用。原FAIL及限制保留，pairvu-2仍PAUSED。",
+  "notes": "流程调整已落实当前契约与台账；原QA单次收尾8分钟完成，两对象404、25张非目标表不变、额度6/4/0。未构建/部署/扩样本，正式运行时状态未改。",
   "nextUnitId": null,
   "production": {
-    "status": "PROD_VERIFIED",
-    "unitId": "JRN-01-EXPORT-FIX",
-    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
-    "platformVersion": "c88179e1-d880-4a19-8988-e041b25a2924",
+    "unitId": "JRN-04-FIX",
+    "status": "DEPLOYED_ACCEPTANCE_PARTIAL",
+    "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+    "platformVersion": "65719c81-734a-4019-b724-47e470304eb3",
     "featureEnabled": true,
-    "featureEnablement": "CSV route fix active; existing SKU/workbench/value-metrics flags unchanged true",
-    "evidenceDirectory": "operations/evidence/production-jrn01-export-fix-2026-10-13",
-    "scope": "Independent 2 public HTTP checks and 5 actual A-session UI groups PASS; paid/Free HTTP403/write-isolation/eligible/lifecycle/payment coverage not claimed",
-    "receipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/manifest.json",
-    "functionalReceipt": "operations/evidence/production-jrn01-export-fix-2026-10-13/production-qa/functional-report.json"
+    "featureEnablement": "修复已生效，无新增开关；本轮流程调整不部署",
+    "httpIndependentQA": "PASS",
+    "functionalIndependentQA": "PARTIAL",
+    "evidenceDirectory": "operations/evidence/production-jrn04-fix-2026-10-13",
+    "receipt": null,
+    "formalState": "RELEASE_READY; complete production manifest not imported",
+    "scope": "真实生产UI批准及正常ELIGIBLE已有证据，其余以原QA原件为准；不声明原业务矩阵全部通过",
+    "functionalReceipt": "operations/evidence/production-jrn04-fix-2026-10-13/cleanup-handoff.json",
+    "cleanupComplete": true
   },
   "bootstrap": {
     "unitId": "AUTO-02",
@@ -219,7 +223,7 @@
     "frozenBatchTextVersion": 3,
     "scope": "真实合成SKU旅程；Free CSV未执行，503为本地反例"
   },
-  "nextAction": "已授权JRN-04-FIX GitHub-first生产发布与独立合成资产复验，立即推进",
+  "nextAction": "流程调整与两图清理已完成；按PARTIAL保留未执行生产矩阵，下一批先明确最小范围，不自动继续。",
   "completedUnitId": "JRN-04",
   "completedCandidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
   "completedReleaseRepair": {
@@ -254,12 +258,16 @@
     "productionEvidence": "operations/evidence/production-upg10-2026-10-12/production-functional.json"
   },
   "releaseAuthorization": {
-    "unitId": "JRN-01-EXPORT-FIX",
-    "authorizedAt": "2026-10-13T05:45:20.748Z",
+    "schemaVersion": 2,
+    "unitId": "JRN-04-FIX",
+    "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+    "environment": "production",
+    "origin": "https://pairvu.com",
+    "action": "deploy",
     "authorized": true,
-    "releaseSha": "bbbe62c110e526604a76b316c0ec0b5e90b13fca",
-    "recordRef": "controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919 latest user request: 授权发布这次 CSV 修复，按仓库规则先推送 GitHub、核验远端，再部署 Cloudflare 并完成独立生产复验，有问题继续修复。通过后更新整体进度，说明下一步做什么。",
-    "evidence": "operations/evidence/production-jrn01-export-fix-2026-10-13/authorization.json"
+    "recordRef": "Controller thread 01a0bcd5-909b-7b72-b64b-399e8028c919: user explicitly authorizes JRN-04-FIX GitHub-first Cloudflare release and independent production verification using synthetic assets only; recorded in release commit operations/contracts/JRN-04-FIX.md",
+    "authorizedAt": "2026-10-13T14:12:26.934Z",
+    "evidence": "operations/evidence/production-jrn04-fix-2026-10-13/authorization.json"
   },
   "securityIncident": {
     "id": "UPG10-QA-CREDENTIAL-01",
@@ -425,6 +433,57 @@
     "qaEvidence": "operations/evidence/JRN-04/recheck/qa.json",
     "runtimeState": "RELEASE_READY",
     "runtimeEvidence": "operations/evidence/JRN-04/recheck/fix-qa.json",
-    "modelCallsExecuted": 0
+    "modelCallsExecuted": 0,
+    "releaseExecution": {
+      "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+      "platformVersion": "65719c81-734a-4019-b724-47e470304eb3",
+      "deployment": "COMPLETED",
+      "httpIndependentQA": "PASS",
+      "functionalIndependentQA": "PARTIAL",
+      "formalState": "RELEASE_READY pending complete manifest",
+      "syntheticRunId": "95ddbce0-1b07-4c83-b838-16aa854fe07e",
+      "testAssetsPendingCleanup": 0,
+      "nonTargetTablesUnchangedAfterSeed": 25,
+      "cleanupComplete": true,
+      "nonTargetTablesUnchangedAfterCleanup": 25,
+      "cleanupEvidence": "operations/evidence/production-jrn04-fix-2026-10-13/cleanup-handoff.json"
+    }
+  },
+  "currentExecutionPlan": {
+    "date": "2026-10-14",
+    "scope": "流程文档收尾及run95ddbce0两张合成图片清理；不继续生产业务矩阵",
+    "requiredChecks": [
+      "新执行规则及当前契约/台账一致",
+      "精确manifest两张R2图片不存在且D1删除状态和审计有证据",
+      "一次最终非目标D1摘要与账户额度核对；缺证据如实列缺口",
+      "文档链接、JSON和git diff检查"
+    ],
+    "reuse": [
+      "a359c2d固定SHA发布增量QA和真实部署/HTTP证据",
+      "已有真实UI批准、正常ELIGIBLE及null阶段原件",
+      "snapshot-before/seeded的25张非目标表摘要"
+    ],
+    "excluded": [
+      "started/failed生产状态造设",
+      "新增样本、工具、矩阵或角色",
+      "应用构建/全量回归/重复部署",
+      "真实质量、付费或客户数据操作"
+    ],
+    "assets": {
+      "runId": "95ddbce0-1b07-4c83-b838-16aa854fe07e",
+      "ids": [
+        "fe6a5d38-9544-43a8-a545-8e4145698c99",
+        "cddb395f-f442-46de-b19f-ff3e0b6e4905"
+      ],
+      "count": 2
+    },
+    "completion": "两图安全清理且范围内证据已核对，文档更新即停止；原生产业务矩阵保持PARTIAL，不伪造CLOSED",
+    "diagnosticCheckpointMinutes": 15,
+    "nextAction": "本轮结束；剩余生产业务缺口保留，不自动补验或启动新功能。",
+    "blocker": null,
+    "status": "COMPLETED",
+    "imagesCleanupComplete": true,
+    "remainingProductionAcceptance": "PARTIAL",
+    "resultEvidence": "operations/evidence/production-jrn04-fix-2026-10-13/cleanup-handoff.json"
   }
 }

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "unitId": "JRN-04-FIX",
+  "qaCandidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-13T14:07:24.505Z",
+  "checks": [
+    {
+      "name": "fixed release SHA and docs/operations-only descendant diff",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime scripts configuration and migrations identical to QA candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "independent candidate QA hashes and original FAIL preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate exact-source build evidence verified",
+      "status": "PASS"
+    },
+    {
+      "name": "authored diff check passes with byte-identical immutable log exceptions",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate typecheck and lint evidence applicable to unchanged source",
+      "status": "PASS"
+    }
+  ]
+}

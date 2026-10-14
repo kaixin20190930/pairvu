@@ -1,0 +1,118 @@
+{
+  "at": "2026-10-14T01:56:16.774Z",
+  "nonTargetTables": {
+    "assets": {
+      "count": 126,
+      "sha256": "73771f2c76fb358ab98fc818e6b17ea51e85ba3ea133c7d12670938bca856fba"
+    },
+    "products": {
+      "count": 3,
+      "sha256": "962a4481954c6a3e8d84e40ec4e02ce58e288510596b924df38d045a5acee61d"
+    },
+    "product_reference_versions": {
+      "count": 6,
+      "sha256": "17976616dbb93ce518c45d567641939e268b7b3ef6c133ddda413bacbeaf4ac7"
+    },
+    "product_profile_versions": {
+      "count": 7,
+      "sha256": "f1c7bcbd71e73ff2f918fc578ca7beaf45bf81deb169392a615d83853d225593"
+    },
+    "analysis_product_snapshots": {
+      "count": 4,
+      "sha256": "67e4af353002caa380d1c6d237b4347d1c0f3a6471a118810fafb096a5aa2c5f"
+    },
+    "analyses": {
+      "count": 73,
+      "sha256": "2ccd1c744484d8b413f33c0e512d7ea93384199b96b06ffa2520081f9bc05d7f"
+    },
+    "analysis_references": {
+      "count": 73,
+      "sha256": "ced91dbff8ff7a37d59e8cefb187cd01564cf07bc8384dec9591cddf2f1a3a13"
+    },
+    "analysis_observations": {
+      "count": 392,
+      "sha256": "0b7055bb94ce5888c6a32a1e0eaae07b818ee21c1b76cb762b4113f703a688d5"
+    },
+    "analysis_issues": {
+      "count": 73,
+      "sha256": "7489196ea01074704fc09d2033af1e7340649411300b94bf74ad07f8a77e93bb"
+    },
+    "analysis_limitations": {
+      "count": 66,
+      "sha256": "0e2f193c8de5ed4949c75755194fc13c27eb7b357fef5cbf19010306e2924a7a"
+    },
+    "analysis_model_calls": {
+      "count": 67,
+      "sha256": "9685a3ee1318e7de7a90540d91072b75000483176ff0fec6d23628c2c78c876b"
+    },
+    "analysis_value_classifications": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "review_events": {
+      "count": 6,
+      "sha256": "8c51d162faf7a9ceff1f2268ae94f1bd2ce0eef347204d8fb538d3d04976de9e"
+    },
+    "review_heads": {
+      "count": 1,
+      "sha256": "810f6bf6594479332afb9268d011e9eebf5d73a5e0e62fd6380186b84d7c7946"
+    },
+    "asset_deletion_attempts": {
+      "count": 121,
+      "sha256": "221726eb4be55a5855bbccac87a8587c01817f2482352182885c997c0a9e1ea9"
+    },
+    "batches": {
+      "count": 13,
+      "sha256": "b6fc3bd2ae731caa853c0252335ad71f3a7cf2b18daf188e3a42da912d64341b"
+    },
+    "batch_items": {
+      "count": 41,
+      "sha256": "99fbcbed801a39f73efc01380d9b0454377f0ab1321fd5bba2f23ee2b315d342"
+    },
+    "workspace_subscriptions": {
+      "count": 2,
+      "sha256": "e7c987acdadf2c2a09d330708cce280503e17f538738415e577645deb5f9a056"
+    },
+    "workspace_credit_periods": {
+      "count": 6,
+      "sha256": "a8c66427ca8c523e0a5a22626c41c37e8f013c37669216fd9176207b4e25b36f"
+    },
+    "workspace_credit_lots": {
+      "count": 1,
+      "sha256": "b859c5bf67acead917292896db33b792758b78d592535e1a9bc16f11641fbe6f"
+    },
+    "credit_reservations": {
+      "count": 15,
+      "sha256": "781baacbc4007e8def05e961b937f3cd60d5941ccea76c0478389cb6ab770676"
+    },
+    "credit_reservation_allocations": {
+      "count": 5,
+      "sha256": "5e5c570c5e40d12825b684f5218eadd6e7caca8098b5a8a179acf6151eb0bbed"
+    },
+    "usage_ledger": {
+      "count": 35,
+      "sha256": "91f5d2291829fce39a59e9e8130209d191d0ce08a6505013d2d2b3613297bdd0"
+    },
+    "credit_lot_ledger": {
+      "count": 3,
+      "sha256": "df90cc397fc729fe7d34b006f3bafb0d856f2bb436360017952dcac6f45a6244"
+    },
+    "stripe_webhook_events": {
+      "count": 6,
+      "sha256": "7535460d9cba76dd5166ce210fb3a671c374b8b82cdb18408919c95dfbbaf558"
+    }
+  },
+  "syntheticObjects": [
+    {
+      "key": "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/reference-fe6a5d38-9544-43a8-a545-8e4145698c99.png",
+      "status": 404,
+      "sha256": null
+    },
+    {
+      "key": "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/candidate-cddb395f-f442-46de-b19f-ff3e0b6e4905.png",
+      "status": 404,
+      "sha256": null
+    }
+  ],
+  "scope": "D1 non-target source and billing rows; no real customer image contents read"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "DEPLOYED_HTTP_PASS_FUNCTIONAL_PARTIAL_CLEANUP_COMPLETE",
+  "releaseQaNormalization": "Original immutable preserved; reviewedAt converted to UTC millisecond ISO without changing represented event or QA conclusion.",
+  "controllerHttpClientObservation": "Python urllib returned403; curl returned200 exact SHA/Worker. Only actual curl response supports smoke.",
+  "migrationEvidence": "Remote migrations list returned No migrations to apply.",
+  "sourceHashes": {
+    "release-qa-original.json": "dd2a12f8afc80875ddc70121cab9b5412d7ea56a8a44fde9a593eac75fb7ff30",
+    "release-qa.json": "1ca9d96bfa0b4f7b50a24feee105b5a1bf47d25168912deab8a36a955c5d8a88",
+    "production-http.json": "72b11939264b318d8684db31d4ae1f57eaad97153881944ceb4feaf7c851a109",
+    "deployment.json": "d76d07bf19cdede15b31c1d126b2abd1102672eae73a0e40e1fca4592dedf2ba",
+    "migration.json": "7cd837d2c5fab6f72bae81ae85d120554c4d5c545b11adffd0179091cb17d79f",
+    "initial-preflight.json": "59b8c28b5c86ba16861fa2dc3bfb3afaba613952e52427bb4c8831daa0d7a51b",
+    "deploy-receipt.json": "31864ff4409b27f40d37585d609218469a5456b45f1cb57773486fb25f366e20",
+    "migrations-receipt.json": "128c6d2a2ba7cdbc0549e5d1af57c463d396f50535ed5736d2296fed1d6b04d7",
+    "authorization.json": "c88e02d9a434c4d9c4e02d89ae0b3bafe1733db49eecc167ae591a0a8afbde00",
+    "production-qa.json": "a0201e211882dde375d2d5be18fdc882a0ff3c75e0a4e381539563674687d770",
+    "deploy.log": "dac3da3ae7a0447ede06f9aff8aa31261febf743b86dd83e00f50bad8d54667f",
+    "migrations.log": "593181eaacfc4789e2c35e8ea0037425b179d01e15dafe8cfc9b4615b665cae9",
+    "health-body.json": "d4ec8d4421ccc59c955e9be26c55aa0b7cad91b98ec0b0b33f3078fbbc5d7690",
+    "smoke.json": "32314e8d17a4f180826a2255eb5063e584b1be8a89a1f2e1d61562fc22e0d16f",
+    "build.json": "78aeb7450cb0ff47b1a27a4fedda816c54ad8d68085594b62575a7bc41118ac7"
+  }
+}

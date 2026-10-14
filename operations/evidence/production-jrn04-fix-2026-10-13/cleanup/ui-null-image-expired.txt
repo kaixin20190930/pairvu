@@ -1,0 +1,472 @@
+Browser tab: 2, Title: "Pairvu - AI Product Image Checker", URL: "https://pairvu.com/?analysis=b4034673-3347-42ec-b0cb-2c3c18a1d6d6#checker".
+1 AXWebArea Pairvu - AI Product Image Checker, URL: pairvu.com/?analysis=b4034673-3347-42ec-b0cb-2c3c18a1d6d6#checker
+	2 link Description: Skip to content, Value: pairvu.com/?analysis=b4034673-3347-42ec-b0cb-2c3c18a1d6d6#main-content
+	3 container
+		4 link Description: Pairvu home, Value: pairvu.com/
+		5 button (collapsed) Menu, Secondary Actions: Expand
+	6 container
+		7 container Did AI change your product?
+			8 container checker
+				9 text PAIRVU AI PRODUCT IMAGE CHECKER
+				10 heading Did AI change your product?, Value: 1, ID: headline
+					11 text Did AI change your product?
+				12 text Quality control for AI product photography.
+				13 text Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The AI product image checker reviews visible identity text, logo, color, quantity, components, and packaging shape.
+				14 container Pairvu
+				15 container Use two views that make the same product details observable
+					16 text YOUR FIRST CHECK
+					17 heading Use two views that make the same product details observable, Value: 2, ID: checker-quick-start-title
+						18 text Use two views that make the same product details observable
+					19 content list
+						20 container
+							21 text 1. Approved original Use the product image you trust.
+						22 container
+							23 text 2. Candidate Add the generated, edited, or proposed image.
+						24 container
+							25 text 3. Verdict Review PASS, REVIEW, or FAIL with visible evidence.
+					26 text For the clearest result, show the complete product, readable label text, and the corresponding package face where possible. A hidden detail should produce REVIEW, not proof of a product change.
+				27 container
+					28 text ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product.
+					29 button ORIGINAL PRODUCT IMAGE Upload a real or approved image of the product. Approved original Reference preview
+					30 text Approved original
+					151 image Reference preview
+				31 container
+					32 text IMAGE TO CHECK Upload the generated, edited or candidate image.
+					33 button IMAGE TO CHECK Upload the generated, edited or candidate image. Image checked
+					34 text Image checked
+				152 text One or both saved images reached the end of their retention period. The analysis result remains available.
+				35 container
+					36 text Anonymous images are kept for up to 24 hours. Signed-in images follow the retention period shown in your account (7 days on Free). Images are sent to OpenAI only to perform this check and are not added to our evaluation set. 
+					37 link Description: Privacy details, Value: pairvu.com/privacy
+				38 button (disabled) Check image
+				153 button Check another image
+				154 container PASS
+					155 text VERDICT
+					156 heading PASS, Value: 2, ID: verdict-title
+						157 text PASS
+				158 container Actual detected fidelity issues
+					159 text PRODUCT DIFFERENCES
+					160 heading Actual detected fidelity issues, Value: 2, ID: differences-title
+						161 text Actual detected fidelity issues
+					162 text No product issues were confirmed.
+				163 container Observability problems and analysis limitations
+					164 text NEEDS REVIEW / COULD NOT VERIFY
+					165 heading Observability problems and analysis limitations, Value: 2, ID: review-title
+						166 text Observability problems and analysis limitations
+					167 text No limitations were recorded.
+				168 container Checks the model reports as matching
+					169 text MODEL-SUPPORTED CHECKS
+					170 heading Checks the model reports as matching, Value: 2, ID: verified-title
+						171 text Checks the model reports as matching
+					172 container
+						173 text Shape and packaging  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						174 definition list
+							175 container REFERENCE · VISIBLE EXPECTED
+								176 text REFERENCE · VISIBLE EXPECTED
+							177 text Synthetic Northstar source fixture only.
+							178 container CANDIDATE · OBSERVED
+								179 text CANDIDATE · OBSERVED
+							180 text Synthetic Northstar source fixture only.
+							181 container WHAT CHANGED
+								182 text WHAT CHANGED
+							183 text —
+							184 container SUMMARY
+								185 text SUMMARY
+							186 text Controlled matching fixture.
+							187 container ORIGINAL VISIBLE
+								188 text ORIGINAL VISIBLE
+							189 text —
+							190 container CANDIDATE VISIBLE
+								191 text CANDIDATE VISIBLE
+							192 text —
+							193 container VISIBLE EVIDENCE
+								194 text VISIBLE EVIDENCE
+							195 text Explicit synthetic source fixture; not a visual-quality observation.
+							196 container WHY UNCERTAIN
+								197 text WHY UNCERTAIN
+							198 text —
+						199 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						200 container Reference · visible expected
+							201 text Reference · visible expected
+							202 image Reference · visible expected image
+							203 container
+								204 text Image zoom
+								205 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								206 text 100 %
+							207 text Location has not been independently verified; no box is shown.
+						208 container Candidate · observed
+							209 text Candidate · observed
+							210 text Image preview unavailable. Recorded evidence remains readable.
+							211 text Location has not been independently verified; no box is shown.
+					212 container
+						213 text Main color  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						214 definition list
+							215 container REFERENCE · VISIBLE EXPECTED
+								216 text REFERENCE · VISIBLE EXPECTED
+							217 text Synthetic Northstar source fixture only.
+							218 container CANDIDATE · OBSERVED
+								219 text CANDIDATE · OBSERVED
+							220 text Synthetic Northstar source fixture only.
+							221 container WHAT CHANGED
+								222 text WHAT CHANGED
+							223 text —
+							224 container SUMMARY
+								225 text SUMMARY
+							226 text Controlled matching fixture.
+							227 container ORIGINAL VISIBLE
+								228 text ORIGINAL VISIBLE
+							229 text —
+							230 container CANDIDATE VISIBLE
+								231 text CANDIDATE VISIBLE
+							232 text —
+							233 container VISIBLE EVIDENCE
+								234 text VISIBLE EVIDENCE
+							235 text Explicit synthetic source fixture; not a visual-quality observation.
+							236 container WHY UNCERTAIN
+								237 text WHY UNCERTAIN
+							238 text —
+						239 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						240 container Reference · visible expected
+							241 text Reference · visible expected
+							242 image Reference · visible expected image
+							243 container
+								244 text Image zoom
+								245 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								246 text 100 %
+							247 text Location has not been independently verified; no box is shown.
+						248 container Candidate · observed
+							249 text Candidate · observed
+							250 text Image preview unavailable. Recorded evidence remains readable.
+							251 text Location has not been independently verified; no box is shown.
+					252 container
+						253 text Visible text  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						254 definition list
+							255 container REFERENCE · VISIBLE EXPECTED
+								256 text REFERENCE · VISIBLE EXPECTED
+							257 text Synthetic Northstar source fixture only.
+							258 container CANDIDATE · OBSERVED
+								259 text CANDIDATE · OBSERVED
+							260 text Synthetic Northstar source fixture only.
+							261 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								262 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							263 text NORTHSTAR 500 ML
+							264 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								265 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							266 text NORTHSTAR 500 ML
+							267 container WHAT CHANGED
+								268 text WHAT CHANGED
+							269 text —
+							270 container SUMMARY
+								271 text SUMMARY
+							272 text Controlled matching fixture.
+							273 container ORIGINAL VISIBLE
+								274 text ORIGINAL VISIBLE
+							275 text —
+							276 container CANDIDATE VISIBLE
+								277 text CANDIDATE VISIBLE
+							278 text —
+							279 container VISIBLE EVIDENCE
+								280 text VISIBLE EVIDENCE
+							281 text Explicit synthetic source fixture; not a visual-quality observation.
+							282 container WHY UNCERTAIN
+								283 text WHY UNCERTAIN
+							284 text —
+						285 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						286 container Reference · visible expected
+							287 text Reference · visible expected
+							288 image Reference · visible expected image
+							289 container
+								290 text Image zoom
+								291 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								292 text 100 %
+							293 text Location has not been independently verified; no box is shown.
+						294 container Candidate · observed
+							295 text Candidate · observed
+							296 text Image preview unavailable. Recorded evidence remains readable.
+							297 text Location has not been independently verified; no box is shown.
+					298 container
+						299 text Logo  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						300 definition list
+							301 container REFERENCE · VISIBLE EXPECTED
+								302 text REFERENCE · VISIBLE EXPECTED
+							303 text Synthetic Northstar source fixture only.
+							304 container CANDIDATE · OBSERVED
+								305 text CANDIDATE · OBSERVED
+							306 text Synthetic Northstar source fixture only.
+							307 container REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+								308 text REFERENCE · MODEL-REPORTED IDENTITY EVIDENCE
+							309 text Northstar
+							310 container CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+								311 text CANDIDATE · MODEL-REPORTED IDENTITY EVIDENCE
+							312 text Northstar
+							313 container WHAT CHANGED
+								314 text WHAT CHANGED
+							315 text —
+							316 container SUMMARY
+								317 text SUMMARY
+							318 text Controlled matching fixture.
+							319 container ORIGINAL VISIBLE
+								320 text ORIGINAL VISIBLE
+							321 text —
+							322 container CANDIDATE VISIBLE
+								323 text CANDIDATE VISIBLE
+							324 text —
+							325 container VISIBLE EVIDENCE
+								326 text VISIBLE EVIDENCE
+							327 text Explicit synthetic source fixture; not a visual-quality observation.
+							328 container WHY UNCERTAIN
+								329 text WHY UNCERTAIN
+							330 text —
+						331 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						332 container Reference · visible expected
+							333 text Reference · visible expected
+							334 image Reference · visible expected image
+							335 container
+								336 text Image zoom
+								337 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								338 text 100 %
+							339 text Location has not been independently verified; no box is shown.
+						340 container Candidate · observed
+							341 text Candidate · observed
+							342 text Image preview unavailable. Recorded evidence remains readable.
+							343 text Location has not been independently verified; no box is shown.
+					344 container
+						345 text Product count  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						346 definition list
+							347 container REFERENCE · VISIBLE EXPECTED
+								348 text REFERENCE · VISIBLE EXPECTED
+							349 text Synthetic Northstar source fixture only.
+							350 container CANDIDATE · OBSERVED
+								351 text CANDIDATE · OBSERVED
+							352 text Synthetic Northstar source fixture only.
+							353 container WHAT CHANGED
+								354 text WHAT CHANGED
+							355 text —
+							356 container SUMMARY
+								357 text SUMMARY
+							358 text Controlled matching fixture.
+							359 container ORIGINAL VISIBLE
+								360 text ORIGINAL VISIBLE
+							361 text —
+							362 container CANDIDATE VISIBLE
+								363 text CANDIDATE VISIBLE
+							364 text —
+							365 container VISIBLE EVIDENCE
+								366 text VISIBLE EVIDENCE
+							367 text Explicit synthetic source fixture; not a visual-quality observation.
+							368 container WHY UNCERTAIN
+								369 text WHY UNCERTAIN
+							370 text —
+						371 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						372 container Reference · visible expected
+							373 text Reference · visible expected
+							374 image Reference · visible expected image
+							375 container
+								376 text Image zoom
+								377 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								378 text 100 %
+							379 text Location has not been independently verified; no box is shown.
+						380 container Candidate · observed
+							381 text Candidate · observed
+							382 text Image preview unavailable. Recorded evidence remains readable.
+							383 text Location has not been independently verified; no box is shown.
+					384 container
+						385 text Major components  · Model reports a match ·  High confidence JRN04-PROD-SYNTHETIC source fixture; no real model/image quality assertion.
+						386 definition list
+							387 container REFERENCE · VISIBLE EXPECTED
+								388 text REFERENCE · VISIBLE EXPECTED
+							389 text Synthetic Northstar source fixture only.
+							390 container CANDIDATE · OBSERVED
+								391 text CANDIDATE · OBSERVED
+							392 text Synthetic Northstar source fixture only.
+							393 container WHAT CHANGED
+								394 text WHAT CHANGED
+							395 text —
+							396 container SUMMARY
+								397 text SUMMARY
+							398 text Controlled matching fixture.
+							399 container ORIGINAL VISIBLE
+								400 text ORIGINAL VISIBLE
+							401 text —
+							402 container CANDIDATE VISIBLE
+								403 text CANDIDATE VISIBLE
+							404 text —
+							405 container VISIBLE EVIDENCE
+								406 text VISIBLE EVIDENCE
+							407 text Explicit synthetic source fixture; not a visual-quality observation.
+							408 container WHY UNCERTAIN
+								409 text WHY UNCERTAIN
+							410 text —
+						411 text Reference:  observable  · Candidate:  observable  · Coverage:  sufficient
+						412 container Reference · visible expected
+							413 text Reference · visible expected
+							414 image Reference · visible expected image
+							415 container
+								416 text Image zoom
+								417 slider (settable, integer) Description: Reference · visible expected image zoom, Value: 100
+								418 text 100 %
+							419 text Location has not been independently verified; no box is shown.
+						420 container Candidate · observed
+							421 text Candidate · observed
+							422 text Image preview unavailable. Recorded evidence remains readable.
+							423 text Location has not been independently verified; no box is shown.
+				424 button (collapsed) Analysis provenance, Secondary Actions: Expand
+					425 text Analysis provenance
+				426 container Independent human decision
+					427 text HUMAN REVIEW
+					428 heading Independent human decision, Value: 2, ID: human-review-b4034673-3347-42ec-b0cb-2c3c18a1d6d6
+						429 text Independent human decision
+					430 container
+						431 text Machine verdict:  pass . Human approval does not establish release eligibility.
+					432 container
+						433 text Current human decision:  approve  · Revision  1
+					434 container Decision draft
+						435 text Decision draft
+						436 container
+							437 text Decision
+							438 pop up button (collapsed, settable) Description: Human decision, Value: Approve, Secondary Actions: Expand
+								439 menu
+									440 (disabled) Approve
+									441 (disabled) Reject
+									442 (disabled) Revoke current decision
+						443 container
+							444 text Reason category
+							445 pop up button (collapsed, settable) Description: Review category, Value: other, Secondary Actions: Expand
+								446 menu
+									447 (disabled) false positive
+									448 (disabled) false negative
+									449 (disabled) intentional change
+									450 (disabled) wrong reference
+									451 (disabled) insufficient evidence
+									452 (disabled) other
+						453 container
+							454 text Reason (required, up to 1000 characters)
+							455 text entry area (settable) Review reason
+						456 container
+							457 text Optional note (up to 2000 characters)
+							458 text entry area (settable) Review note
+					459 button (disabled) Record human decision
+					460 button Refresh review history
+					461 button (collapsed) Audit history · latest 1 of up to 100 events, Secondary Actions: Expand
+						462 text Audit history · latest 
+						463 text 1
+						464 text  of up to 100 events
+				465 container Tell us whether this result was right
+					466 text FEEDBACK
+					467 heading Tell us whether this result was right, Value: 2, ID: feedback-title
+						468 text Tell us whether this result was right
+					469 button Correct
+					470 button False alarm
+					471 button Missed something
+		41 container See PASS, REVIEW, and FAIL before your first check
+			42 text CONTROLLED COMPARISON EXAMPLES
+			43 heading See PASS, REVIEW, and FAIL before your first check, Value: 2, ID: home-example-title
+				44 text See PASS, REVIEW, and FAIL before your first check
+			45 text These are controlled examples, not customer case studies or statistical performance claims.
+			46 link Description: View all examples, Value: pairvu.com/examples
+			47 link Description: FAIL Scent and sheet count changed FRESH LINEN 30 SHEETS became UNSCENTED 20 SHEETS., Value: pairvu.com/examples/laundry-sheets-scent-count-change
+			48 link Value: pairvu.com/examples/laundry-sheets-background-change, Description: PASS Background changed, product matched The approved carton moved into a laundry-room setting without a product change.
+			49 link Value: pairvu.com/examples/laundry-sheets-back-view-review, Description: REVIEW Front details could not be verified The candidate shows the back, so front logo, scent, and count need review.
+			50 container
+				51 text Need the complete test design?
+				52 link Description: Review the Pairvu Controlled Visual QA Benchmark, Value: pairvu.com/examples/controlled-visual-qa-benchmark
+				53 text .
+		54 container Check the product, not just the picture
+			55 text REFERENCE-BASED VISUAL QA
+			56 heading Check the product, not just the picture, Value: 2, ID: how-it-works
+				57 text Check the product, not just the picture
+			58 text Pairvu compares an AI-generated or edited product image with an approved original. It looks for visible changes that can make a product image inaccurate before the image is published.
+			59 content list
+				60 container
+					61 text 1 Add the approved original Use a clear image that represents the product you intend to show.
+				62 container
+					63 text 2 Add the image to check Upload the generated, edited, or otherwise proposed product image.
+				64 container
+					65 text 3 Review visible differences Get a PASS, REVIEW, or FAIL with evidence and observability limits.
+		66 container What Pairvu checks
+			67 text PRODUCT FIDELITY CHECKS
+			68 heading What Pairvu checks, Value: 2, ID: what-pairvu-checks
+				69 text What Pairvu checks
+			70 container
+				71 heading Logo and visible text, Value: 3
+					72 link Description: Logo and visible text, Value: pairvu.com/checks/product-logo
+				73 text Brand marks, product names, label wording, and 
+				74 link Description: printed values, Value: pairvu.com/checks/product-label-text
+				75 text  such as size or capacity.
+			76 container
+				77 heading Product count and components, Value: 3
+					78 link Description: Product count and components, Value: pairvu.com/checks/product-components
+				79 link Description: Visible product units, Value: pairvu.com/checks/product-quantity
+				80 text  and major parts that are missing, added, or materially changed.
+			81 container
+				82 heading Main color and packaging, Value: 3
+					83 link Description: Main color and packaging, Value: pairvu.com/checks/product-color
+				84 text Semantic product colors, container shape, 
+				85 link Description: packaging silhouette, Value: pairvu.com/checks/product-packaging
+				86 text , and major structural changes.
+			87 container
+				88 heading What cannot be verified, Value: 3
+					89 link Description: What cannot be verified, Value: pairvu.com/checks/product-image-observability
+				90 text Occlusion, unreadable text, incomplete coverage, and viewpoint differences are kept in review.
+		91 container Create faster without losing product truth
+			92 text AI PRODUCT PHOTOGRAPHY
+			93 heading Create faster without losing product truth, Value: 2, ID: market-context
+				94 text Create faster without losing product truth
+			95 text AI can change a scene quickly, but it can also alter a label, logo, color, count, component, or package. Pairvu adds a reference-based quality-control step between image creation and publishing.
+			96 link Description: Learn about quality control for AI product photography, Value: pairvu.com/ai-product-photography
+		97 container Build a safer pre-publish workflow
+			98 text LEARN FROM REAL FAILURE MODES
+			99 heading Build a safer pre-publish workflow, Value: 2, ID: explore-pairvu
+				100 text Build a safer pre-publish workflow
+			101 link Description: Comparison examples See the visible changes Pairvu is designed to catch., Value: pairvu.com/examples
+			102 link Value: pairvu.com/checks, Description: Product checks Use Pairvu's evidence rules for logo, text, quantity, color, components, packaging, and observability.
+			103 link Description: Product categories Review category-specific risks across the five supported packaged-goods families., Value: pairvu.com/categories
+			104 link Description: Pre-publish checklist Review product fidelity before an image goes live., Value: pairvu.com/guides/ai-product-photography-checklist
+			105 link Description: How Pairvu works Understand the comparison method, verdicts, and visible-evidence limits., Value: pairvu.com/how-pairvu-works
+			106 link Description: Use cases Fit Pairvu into brand, creative, and commerce workflows., Value: pairvu.com/use-cases
+		107 container About the checker
+			108 text COMMON QUESTIONS
+			109 heading About the checker, Value: 2, ID: home-faq
+				110 text About the checker
+			111 button (collapsed) Does Pairvu generate product images?, Secondary Actions: Expand
+				112 text Does Pairvu generate product images?
+			113 button (collapsed) Does a PASS guarantee marketplace approval?, Secondary Actions: Expand
+				114 text Does a PASS guarantee marketplace approval?
+			115 button (collapsed) What happens when a detail is hidden or unreadable?, Secondary Actions: Expand
+				116 text What happens when a detail is hidden or unreadable?
+	117 container
+		118 link pairvu.com/
+		119 text Quality control for AI product photography.
+		120 heading PRODUCT, Value: 2
+			121 text PRODUCT
+		122 link Description: AI Product Image Checker, Value: pairvu.com/
+		123 link Description: Check Image, Value: pairvu.com/#checker
+		124 link Description: How It Works, Value: pairvu.com/how-pairvu-works
+		125 link Description: Pricing, Value: pairvu.com/pricing
+		126 heading LEARN, Value: 2
+			127 text LEARN
+		128 link Description: AI Product Photography, Value: pairvu.com/ai-product-photography
+		129 link Description: Examples, Value: pairvu.com/examples
+		130 link Description: Product Categories, Value: pairvu.com/categories
+		131 link Description: Product Checks, Value: pairvu.com/checks
+		132 link Description: Guides, Value: pairvu.com/guides
+		133 link Description: Checklist, Value: pairvu.com/guides/ai-product-photography-checklist
+		134 heading USE CASES, Value: 2
+			135 text USE CASES
+		136 link Description: Ecommerce, Value: pairvu.com/use-cases/ecommerce-product-image-qa
+		137 link Description: Amazon Sellers, Value: pairvu.com/use-cases/amazon-product-image-qa
+		138 link Description: Shopify Stores, Value: pairvu.com/use-cases/shopify-product-image-qa
+		139 link Description: Brands, Value: pairvu.com/use-cases/brands
+		140 link Description: Creative Agencies, Value: pairvu.com/use-cases/creative-agencies
+		141 heading LEGAL, Value: 2
+			142 text LEGAL
+		143 link Description: Privacy, Value: pairvu.com/privacy
+		144 heading OTHER PRODUCTS, Value: 2
+			145 text OTHER PRODUCTS
+		146 link Description: Moxion, Value: moxion.ai/
+		147 link Description: Sigoo, Value: sigoo.ai/
+		148 link Description: AI Best Tool, Value: aibesttool.com/
+		149 link Description: Triptrace, Value: triptrace.ai/
+		150 text ©  2026  Pairvu Visible product QA, not marketplace certification.
+
+The focused UI element is 1 AXWebArea Pairvu - AI Product Image Checker, URL: pairvu.com/?analysis=b4034673-3347-42ec-b0cb-2c3c18a1d6d6#checker

@@ -39,6 +39,17 @@ RELEASE_READY. Explicit authorization permits the release only through the
 Production Deployment Rule above. Never treat local QA as production verification.
 The Production Deployment Rule above remains mandatory.
 
+## Bounded Acceptance and Continuous Handoff
+
+Freeze the required checks, reusable evidence, exclusions, test assets, cleanup,
+and completion criteria before dispatch. Follow `operations/controller-prompt.md`
+for diagnostic time budgets and stopping rules. Reuse unaffected passing evidence;
+do not build a new test framework or expand a small repair into unrelated coverage.
+Give each role a complete handoff and let it finish the authorized stage without
+per-check redispatch. Preserve independent acceptance and all release gates.
+Unperformed checks remain PARTIAL/BLOCKED, never PASS. Once required checks and
+cleanup are complete, close the unit; new non-blocking risks are follow-up candidates.
+
 ## Task-specific Model Selection
 
 Follow `operations/model-selection-policy.md` before creating or reusing a

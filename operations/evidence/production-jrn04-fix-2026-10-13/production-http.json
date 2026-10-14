@@ -1,0 +1,83 @@
+{
+  "unitId": "JRN-04-FIX",
+  "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+  "platformVersion": "65719c81-734a-4019-b724-47e470304eb3",
+  "result": "PASS",
+  "scope": "actual public HTTP and anonymous error mapping only",
+  "origin": "https://pairvu.com",
+  "checkedAt": "2026-10-13T14:19:29Z",
+  "reviewedAt": "2026-10-13T14:20:44.627137+00:00",
+  "deploymentCompletedAtReportedByController": "2026-10-13T14:15:29.296Z",
+  "independentlyRequested": true,
+  "requestConfiguration": "env -i; curl -q disables curl config; no auth, cookies, request body or redirect following",
+  "checks": [
+    {
+      "name": "deployed source and Worker provenance",
+      "method": "GET",
+      "url": "https://pairvu.com/api/health",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "body": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+        "platformVersion": "65719c81-734a-4019-b724-47e470304eb3"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous synthetic noncreated batch deletion denied",
+      "method": "DELETE",
+      "url": "https://pairvu.com/api/batches/b981a478-43c0-4931-9cf5-62015d61e349",
+      "targetSource": "fresh locally generated UUID; no existing production batch identifier read or used",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "body": {
+        "error": "authentication_required",
+        "message": "Sign in to delete batch images."
+      },
+      "status": "PASS",
+      "ownershipOrDataExistenceQueriedByQA": false,
+      "authenticatedDeletionPerformed": false
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/private/tmp/pairvu-jrn04-production-qa-evidence/http-request-plan.json",
+      "sha256": "e52eb39672ee7615cd50399b574c93ecd24c7a102c8d36e8204b2b6b6f93f1e8",
+      "bytes": 319
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn04-production-qa-evidence/health-headers.txt",
+      "sha256": "2bfc759e3694400b9c93ffa1ac2bb712bf8a80f93d7306aa2d718b0e5a3f004a",
+      "bytes": 562
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn04-production-qa-evidence/health-body.json",
+      "sha256": "d4ec8d4421ccc59c955e9be26c55aa0b7cad91b98ec0b0b33f3078fbbc5d7690",
+      "bytes": 165
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn04-production-qa-evidence/anonymous-delete-headers.txt",
+      "sha256": "4096c6aa871e17500ea8df7c642cb367c3ed1f2e7c1231bfaca6564f54220b17",
+      "bytes": 564
+    },
+    {
+      "path": "/private/tmp/pairvu-jrn04-production-qa-evidence/anonymous-delete-body.json",
+      "sha256": "1bace68964e0ba1a64c695086162f10c638e2744e5e60a71d9cff14becf0a520",
+      "bytes": 79
+    }
+  ],
+  "limitations": {
+    "realLoginVerified": false,
+    "syntheticLifecycleBusinessVerified": false,
+    "productionLifecycleCovered": false,
+    "qualityEvidence": false,
+    "modelCallsExecuted": 0,
+    "storageOrCreditInvarianceChecked": false,
+    "developerSmokeNotUsed": true
+  },
+  "nextAction": "Wait for developer exact synthetic manifest, controller scope review and browser handoff, then independently execute production functional verification.",
+  "nextActionAutomaticAfterHandoff": true
+}

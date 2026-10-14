@@ -1,0 +1,45 @@
+{
+  "unitId": "JRN-04-FIX",
+  "runId": "95ddbce0-1b07-4c83-b838-16aa854fe07e",
+  "label": "JRN04-PROD-SYNTHETIC-95ddbce0-1b07-4c83-b838-16aa854fe07e",
+  "context": {
+    "workspaceId": "personal_ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+    "ownerId": "ti3e9ByCeptHvqhrSO85AHsoUj2AbNvz",
+    "serverTime": "2026-10-13T14:43:48.806Z",
+    "scope": "PRODUCTION_CONTROLLED_TEST",
+    "deployedReleaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+    "realSessionConfirmed": true,
+    "controlledTestAccountConfirmed": true,
+    "runtimeSourceMatchesPreparation": true,
+    "controllerReviewed": true
+  },
+  "productionExecuted": false,
+  "productionBindingRequired": false,
+  "sourceFileHashes": {
+    "lib/releases/repository.ts": "3f17ebbe28525e2259a016a1465096a3f5ac1db83c4eb65dea8acb61487ccf15",
+    "lib/releases/policy.ts": "3e938711c5702236e9cb0389882bc1dffa77b86a1d034044d855861cc535bad6",
+    "lib/assets/deletion.ts": "31b11bad82dcf8e7c6a9fd64620d8dc8973947cb7f1370bc1004fbabe080784b",
+    "lib/analysis/repository.ts": "b923da7a9e6a11a4e31b4bbb4050d2da0c2ddc0dae68a9c7ddc7cfdef3634d91",
+    "migrations/0022_value_metrics_classifications.sql": "07cd84d04101f8ffe71cca72bba0e066e50c598d960e8fd3922812d183a4a125"
+  },
+  "assetIds": [
+    "fe6a5d38-9544-43a8-a545-8e4145698c99",
+    "cddb395f-f442-46de-b19f-ff3e0b6e4905"
+  ],
+  "objectKeys": [
+    "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/reference-fe6a5d38-9544-43a8-a545-8e4145698c99.png",
+    "jrn04-production-acceptance/95ddbce0-1b07-4c83-b838-16aa854fe07e/candidate-cddb395f-f442-46de-b19f-ff3e0b6e4905.png"
+  ],
+  "objectSha256": "b0e8a8eb92c36f8866407013c607f13127ae9f48b7f6750f236851d23426664d",
+  "analysisId": "b4034673-3347-42ec-b0cb-2c3c18a1d6d6",
+  "productId": "9ae63465-9838-43a4-83a6-5598061c83a7",
+  "referenceVersionId": "d30f1a23-41b6-4f3c-a394-73b3984e117b",
+  "intentId": "e2150416-024d-45f1-a753-80e86259f93c",
+  "referenceCleanupAuditId": "27870c28-98b1-47a8-ae00-c8111da11367",
+  "futureExpiry": "2026-10-14T14:43:48.806Z",
+  "syntheticMachineEvidence": true,
+  "modelCallsExecuted": 0,
+  "qualityEvidence": false,
+  "classificationId": "vc_784054f9eb6d91f6c7b0788d19d9176a7856088448125de556bedce927c3f84e",
+  "manifestSha256": "ccbd07ff2bb120a6a0fb8c9bd1d6c8c5d42493be8571171d9921fdf68e67cd58"
+}

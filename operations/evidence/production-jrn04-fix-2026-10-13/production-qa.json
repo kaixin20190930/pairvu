@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "unitId": "JRN-04-FIX",
+  "qaCandidateSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",
+  "releaseSha": "a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d",
+  "reviewerThreadId": "01a1248d-0f67-7333-8dca-5c4696459457",
+  "result": "PASS",
+  "reviewedAt": "2026-10-13T14:20:44.627137+00:00",
+  "checks": [
+    {
+      "name": "actual health release SHA and Worker UUID match deployment",
+      "status": "PASS"
+    },
+    {
+      "name": "actual anonymous noncreated synthetic batch DELETE401 authentication_required",
+      "status": "PASS"
+    }
+  ],
+  "platformVersion": "65719c81-734a-4019-b724-47e470304eb3",
+  "scope": "http"
+}

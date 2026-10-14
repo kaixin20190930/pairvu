@@ -1,0 +1,71 @@
+import json,pathlib,hashlib,urllib.request,urllib.error,urllib.parse,shlex,sys,datetime
+ROOT=pathlib.Path('/Users/liukai/Documents/Product Visual QA Platform')
+BASE=pathlib.Path('/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-production-bound-minimal-U775uw')
+OUT=pathlib.Path('/private/tmp/pairvu-jrn04-release/fixture-evidence');OUT.mkdir(exist_ok=True)
+M=json.loads((BASE/'bound-manifest.json').read_text());SEED=json.loads((BASE/'seed-single-row-operations.json').read_text());OPS=json.loads((BASE/'state-and-cleanup-operations.json').read_text())
+TOKEN=None
+for line in (ROOT/'.dev.vars').read_text().splitlines():
+ if line.startswith('CLOUDFLARE_API_TOKEN='):TOKEN=shlex.split(line.split('=',1)[1])[0]
+assert TOKEN and M['runId']=='95ddbce0-1b07-4c83-b838-16aa854fe07e'
+API='https://api.cloudflare.com/client/v4/accounts/23e53b75ddd6ee2d8b80031f6a1e45e0'
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='milliseconds').replace('+00:00','Z')
+def sha(b):return hashlib.sha256(b).hexdigest()
+def save(n,d):
+ p=OUT/(n+'.json');assert not p.exists(), 'receipt already exists'
+ p.write_text(json.dumps(d,indent=2)+'\n')
+def request(path,method='GET',data=None,headers=None):
+ h={'Authorization':'Bearer '+TOKEN,'User-Agent':'Pairvu-JRN04-Controlled-Synthetic'};h.update(headers or {})
+ req=urllib.request.Request(API+path,data=data,method=method,headers=h)
+ try:
+  with urllib.request.urlopen(req,timeout=45) as r:return r.status,r.read()
+ except urllib.error.HTTPError as e:
+  if e.code==404:return 404,b''
+  raise RuntimeError('Cloudflare HTTP '+str(e.code)) from None
+def query(sql,params=[]):
+ status,body=request('/d1/database/2d16e86a-fa00-4990-982a-ce4cc7ea31aa/query','POST',json.dumps({'sql':sql,'params':params}).encode(),{'Content-Type':'application/json'})
+ d=json.loads(body);assert status==200 and d.get('success'), 'D1 query rejected'
+ assert len(d['result'])==1 and d['result'][0].get('success'), 'D1 result rejected'
+ return d['result'][0]
+def object_request(key,method='GET',data=None):
+ assert key in M['objectKeys'];return request('/r2/buckets/pairvu-assets-production/objects/'+urllib.parse.quote(key,safe='/'),method,data,{'Content-Type':'image/png','cf-r2-data-catalog-check':'true'})
+def mutate(name):
+ op=json.loads(json.dumps(OPS['operations'][name]));t=query("SELECT strftime('%Y-%m-%dT%H:%M:%fZ','now') AS t")['results'][0]['t']
+ for i in OPS['phaseTimeParamIndexes'][name]:op['params'][i]=t
+ r=query(op['sql'],op['params']);save('mutation-'+name,{'operation':name,'at':now(),'changes':r['meta']['changes'],'sqlSha256':sha(op['sql'].encode())});assert r['meta']['changes']==1
+def snapshot(label):
+ tables=['assets','products','product_reference_versions','product_profile_versions','analysis_product_snapshots','analyses','analysis_references','analysis_observations','analysis_issues','analysis_limitations','analysis_model_calls','analysis_value_classifications','review_events','review_heads','asset_deletion_attempts','batches','batch_items','workspace_subscriptions','workspace_credit_periods','workspace_credit_lots','credit_reservations','credit_reservation_allocations','usage_ledger','credit_lot_ledger','stripe_webhook_events']
+ ids=set(M['assetIds']+[M['analysisId'],M['productId'],M['referenceVersionId'],M['intentId'],M['referenceCleanupAuditId'],M['classificationId']]);result={}
+ for table in tables:
+  rows=query('SELECT * FROM '+table)['results'];keep=[r for r in rows if not any(isinstance(v,str) and v in ids for v in r.values())]
+  encoded=sorted(json.dumps(r,sort_keys=True,separators=(',',':')) for r in keep);result[table]={'count':len(keep),'sha256':sha(json.dumps(encoded).encode())}
+ objects=[]
+ for key in M['objectKeys']:
+  status,body=object_request(key);assert status in (200,404);objects.append({'key':key,'status':status,'sha256':sha(body) if status==200 else None})
+ save('snapshot-'+label,{'at':now(),'nonTargetTables':result,'syntheticObjects':objects,'scope':'D1 non-target source and billing rows; no real customer image contents read'})
+def seed():
+ assert not (OUT/'seed-complete.json').exists()
+ # Exact ID collision checks and exact object absence precede all writes.
+ for table,ids in [('assets',M['assetIds']),('analyses',[M['analysisId']]),('products',[M['productId']]),('product_reference_versions',[M['referenceVersionId']]),('asset_deletion_attempts',[M['intentId'],M['referenceCleanupAuditId']]),('analysis_value_classifications',[M['classificationId']])]:
+  assert query('SELECT count(*) AS n FROM '+table+' WHERE id IN ('+','.join('?' for _ in ids)+')',ids)['results'][0]['n']==0
+ for key in M['objectKeys']:assert object_request(key)[0]==404
+ snapshot('before')
+ png=pathlib.Path('/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/pairvu-jrn04-production-minimal-HG6nsZ/synthetic.png').read_bytes();assert sha(png)==M['objectSha256']
+ for i,key in enumerate(M['objectKeys']):
+  status,_=object_request(key,'PUT',png);assert status in (200,201,204);status,body=object_request(key);assert status==200 and sha(body)==M['objectSha256'];save('object-put-'+str(i),{'key':key,'at':now(),'sha256':sha(body),'classification':'synthetic-test'})
+ for i,op in enumerate(SEED):
+  assert op['sql'].lstrip().upper().startswith('INSERT INTO ')
+  r=query(op['sql'],op['params']);save('seed-row-'+str(i),{'at':now(),'sqlSha256':sha(op['sql'].encode()),'changes':r['meta']['changes']});assert r['meta']['changes']==1
+ save('seed-complete',{'at':now(),'rowOperations':len(SEED),'modelCallsExecuted':0,'qualityEvidence':False,'classification':'test','runId':M['runId']});snapshot('seeded')
+def reference_cleanup():
+ assert object_request(M['objectKeys'][1])[0]==404,'candidate not deleted by product route yet'
+ mutate('archiveSku');mutate('referenceAudit');key=M['objectKeys'][0];status,body=object_request(key);assert status==200 and sha(body)==M['objectSha256'];status,_=object_request(key,'DELETE');assert status in (200,204);assert object_request(key)[0]==404;save('reference-object-deleted',{'at':now(),'key':key,'operatorCleanup':True});mutate('referenceMark');mutate('referenceComplete');snapshot('cleaned')
+try:
+ action=sys.argv[1]
+ if action=='seed':seed()
+ elif action in ['nullExpiry','restoreExpiry','started','failed']:mutate(action)
+ elif action=='cleanup-reference':reference_cleanup()
+ elif action=='snapshot':snapshot(sys.argv[2])
+ else:raise RuntimeError('Action not allowed')
+ print(json.dumps({'action':action,'result':'PASS','evidenceDirectory':str(OUT),'at':now()}))
+except Exception as e:
+ print(json.dumps({'action':sys.argv[1] if len(sys.argv)>1 else None,'result':'STOP','errorType':type(e).__name__,'message':str(e).replace(TOKEN,'[redacted]')[:180]}));sys.exit(1)
