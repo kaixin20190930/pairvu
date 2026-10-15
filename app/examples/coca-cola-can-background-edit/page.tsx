@@ -18,7 +18,7 @@ const images = [
   {
     file: "candidate.png", label: "Only AI edit output · October 15, 2026", width: 1434, height: 1097,
     alt: "Only AI edit output showing the red Coca-Cola can and referee figurine on a pale gray studio surface",
-    detail: "The requested studio background appears, with changes to composition, highlights, and surface rendering.",
+    detail: "The requested studio background appears, with changes to lighting, highlights, and surface rendering.",
   },
 ];
 
@@ -94,8 +94,8 @@ export default function CocaColaBackgroundEditPage() {
         <section className="article-section" aria-labelledby="human-observation">
           <h2 id="human-observation">Human observation: the background changed, and so did presentation</h2>
           <p>The glass, paper, wooden table, and distant objects were replaced by the requested studio setting. The red can, opened top, referee figurine, Coca-Cola mark, ORIGINAL TASTE line, Las Vegas promotion, and 330 mL marking remain recognizable at the displayed scale.</p>
-          <p>The recorded human review also noted that the candidate enlarged the can and moved it from the lower-right composition toward the center, despite the instruction to keep its position and scale. Lighting, highlights, and some surface details were rendered again. Those are material deviations from the editing brief even when identity checks report match.</p>
-          <p>Unaided visual inspection cannot prove character-level identity. The machine’s partial-coverage explanation and the human’s composition observations are separate findings; neither establishes that the complete packaging shape was preserved. REVIEW remains unresolved here, with no human approval or release decision implied.</p>
+          <p>In the full frames, the can’s position and relative size appear similar at the displayed scale; no precise pixel-alignment measurement was completed. Lighting, highlights, and some surface details were rendered again. These visual observations remain separate from the machine’s identity-check matches.</p>
+          <p>Unaided visual inspection cannot prove character-level identity. The machine’s partial-coverage explanation and the human’s lighting and surface observations are separate findings; neither establishes that the complete packaging shape was preserved. REVIEW remains unresolved here, with no human approval or release decision implied.</p>
         </section>
 
         <section className="article-section" aria-labelledby="practical-next-step">
@@ -107,7 +107,7 @@ export default function CocaColaBackgroundEditPage() {
         <section className="article-section" aria-labelledby="rights-and-limits">
           <h2 id="rights-and-limits">Source, modifications, and limits of this case</h2>
           <p>The source is <a className="text-link" href={sourcePage}>Coca-Cola 330ml can.jpg by Ossewa on Wikimedia Commons</a>, photographed May 1, 2018 and published as the photographer’s own work under <a className="text-link" href={license}>Creative Commons Attribution-ShareAlike 4.0</a>. This is historical 2018 packaging; it does not describe the current product or packaging.</p>
-          <p>The original photograph retains that license. Pairvu’s candidate adapts the photograph by replacing the surroundings and changing composition, lighting, and surface rendering, as disclosed above; the adapted image is offered under CC BY-SA 4.0. The license applies to the original photograph and this derivative image, rather than granting a blanket license to the website, software, or unrelated page material. Retain attribution, the license link, and an indication of changes when reusing the images.</p>
+          <p>The original photograph retains that license. Pairvu’s candidate adapts the photograph by replacing the surroundings and changing lighting, highlights, and surface rendering, as disclosed above; the adapted image is offered under CC BY-SA 4.0. The license applies to the original photograph and this derivative image, rather than granting a blanket license to the website, software, or unrelated page material. Retain attribution, the license link, and an indication of changes when reusing the images.</p>
           <p>Packaging artwork and trademarks remain subject to their respective rights. This use does not imply Coca-Cola’s endorsement, an official collaboration, or brand approval. The brand is the subject of this example.</p>
           <p>One edit and one local Pairvu run support only the process and observations reported here. This is not a customer case study, a traffic or demand claim, a tool ranking, a statistical accuracy result, or a broader quality benchmark.</p>
           <details style={{ overflowWrap: "anywhere" }}><summary>File integrity: SHA-256</summary><p>Original: <code>88e32149a0c6d97d519edd24f5179f0bbf5d1fe14308358c9d7617db8b563924</code></p><p>Only candidate: <code>95509d417dc34aa96695cddf65e8b7a5bfc740cb729891e82c83c6ef6d93be05</code></p></details>

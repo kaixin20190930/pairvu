@@ -46,7 +46,7 @@ export const seoPages: readonly SeoPage[] = [
     relatedRoutes: ["/examples", "/checks/product-label-text", "/checks/product-image-observability", "/guides/keep-products-consistent-in-ai-images"],
     title: "Does an AI Background Edit Preserve the Product Label?",
     h1: "Does an AI Background Edit Preserve the Product Label?",
-    description: "One historical Coca-Cola can photo, one background edit, and one local Pairvu run: REVIEW, with five observable checks and disclosed composition changes.",
+    description: "One historical Coca-Cola can photo, one edit, one local Pairvu run: REVIEW, with five observable checks, lighting/surface changes and shape-observability limits.",
     indexable: true,
     sitemapPriority: 0.7,
     changeFrequency: "monthly",
