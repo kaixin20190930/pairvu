@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-08-04T03:32:34.954Z",
-  "label": "color-label-crop-v009",
-  "expectedBehavior": "REVIEW",
-  "matchedExpectedBehavior": true,
+  "generatedAt": "2026-10-15T06:41:45.354Z",
+  "label": "seo-02-coca-cola-background-edit-2026-10-15",
+  "matchedExpectedBehavior": null,
   "reference": {
-    "fileName": "COLOR-02-v3-original-laundry-pods-pouch.png",
-    "mimeType": "image/png",
-    "sha256": "ea01de61e29065d9127ee6571a6290e670b7f9a98d412e9066a26bf3054a3897"
+    "fileName": "original.jpg",
+    "mimeType": "image/jpeg",
+    "sha256": "88e32149a0c6d97d519edd24f5179f0bbf5d1fe14308358c9d7617db8b563924"
   },
   "candidate": {
-    "fileName": "COLOR-03-main-color-outside-crop.png",
+    "fileName": "candidate.png",
     "mimeType": "image/png",
-    "sha256": "efa1b06d38b76b4b21a242377593b779b30ef0b7145548cf3039932800b97cb1"
+    "sha256": "95509d417dc34aa96695cddf65e8b7a5bfc740cb729891e82c83c6ef6d93be05"
   },
-  "category": "household packaged goods",
+  "category": "beverage",
   "finalVerdict": "review",
   "observations": [
     {
@@ -26,14 +25,63 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "No meaningful visible difference in logo identity, presence, or placement.",
+      "explanation": "No meaningful visible difference in logo identity or placement detected.",
       "evidence": {
-        "referenceObservation": "Circular star-like icon above the brand name 'TIDORA' in dark blue.",
-        "candidateObservation": "Circular star-like icon above the brand name 'TIDORA' in dark blue.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.4,
+              "y": 0.44,
+              "width": 0.25,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.38,
+              "y": 0.44,
+              "width": 0.27,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "identityEvidence": {
+          "reference": "Coca-Cola",
+          "candidate": "Coca-Cola",
+          "referenceKind": "brand_name",
+          "candidateKind": "brand_name",
+          "validationVersion": "identity-evidence-004"
+        },
+        "referenceObservation": "Brand logo 'Coca-Cola' clearly visible on red can front.",
+        "candidateObservation": "Brand logo 'Coca-Cola' clearly visible on red can front.",
         "differenceKind": "none",
-        "comparisonSummary": "No meaningful visible difference in logo identity, presence, or placement.",
+        "comparisonSummary": "No meaningful visible difference in logo identity or placement detected.",
         "visibleEvidence": [
-          "Both images show the circular star-like icon above 'TIDORA' brand name in dark blue on a white background."
+          "reference image shows clear Coca-Cola logo on can",
+          "candidate image shows clear Coca-Cola logo on can"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -49,14 +97,63 @@
         "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "No meaningful change in visible text or printed values on corresponding package faces.",
+      "explanation": "No visible change in identity-bearing text or values between images.",
       "evidence": {
-        "referenceObservation": "TIDORA, LAUNDRY PODS, CLEAN COTTON, 24 PODS in dark blue text on white label.",
-        "candidateObservation": "TIDORA, LAUNDRY PODS, CLEAN COTTON, 24 PODS in dark blue text on white label.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.38,
+              "y": 0.3,
+              "width": 0.5,
+              "height": 0.4
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.38,
+              "y": 0.3,
+              "width": 0.5,
+              "height": 0.38
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "identityEvidence": {
+          "reference": "ORIGINAL TASTE WIN A TRIP WITH Coca-Cola TO Las Vegas 330 ml",
+          "candidate": "ORIGINAL TASTE WIN A TRIP WITH Coca-Cola TO Las Vegas 330 ml",
+          "referenceKind": "readable_text",
+          "candidateKind": "readable_text",
+          "validationVersion": "identity-evidence-004"
+        },
+        "referenceObservation": "Text: 'ORIGINAL TASTE', 'WIN A TRIP WITH Coca-Cola TO Las Vegas', '330 ml'.",
+        "candidateObservation": "Text: 'ORIGINAL TASTE', 'WIN A TRIP WITH Coca-Cola TO Las Vegas', '330 ml'.",
         "differenceKind": "none",
-        "comparisonSummary": "No meaningful change in visible text or printed values on corresponding package faces.",
+        "comparisonSummary": "No visible change in identity-bearing text or values between images.",
         "visibleEvidence": [
-          "Both images show matching text: 'TIDORA', 'LAUNDRY PODS', 'CLEAN COTTON', '24 PODS'."
+          "reference text readable on can: ORIGINAL TASTE, WIN A TRIP WITH Coca-Cola TO Las Vegas, 330 ml",
+          "candidate text readable on can: ORIGINAL TASTE, WIN A TRIP WITH Coca-Cola TO Las Vegas, 330 ml"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -64,69 +161,194 @@
     },
     {
       "checkType": "quantity",
-      "status": "not_observable",
-      "differenceKind": "not_visible",
+      "status": "match",
+      "differenceKind": "none",
       "observability": {
         "reference": "observable",
-        "candidate": "not_observable",
-        "coverage": "partial"
+        "candidate": "observable",
+        "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
+      "explanation": "Both images show exactly one complete primary product.",
       "evidence": {
-        "referenceObservation": "One complete product visible.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.45,
+              "y": 0.28,
+              "width": 0.1,
+              "height": 0.33
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.5,
+              "y": 0.36,
+              "width": 0.1,
+              "height": 0.3
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "referenceObservation": "One single complete can visible, upright on table.",
+        "candidateObservation": "One single complete can visible, upright on plain background.",
+        "differenceKind": "none",
+        "comparisonSummary": "Both images show exactly one complete primary product.",
         "visibleEvidence": [
-          "Reference shows entire pouch product. Candidate shows only a close-up of the white label with text.",
-          "No full product is visible in candidate image."
+          "One full can in reference image",
+          "One full can in candidate image"
         ],
         "referenceVisible": true,
-        "candidateVisible": false
+        "candidateVisible": true
       }
     },
     {
       "checkType": "dominant_color",
-      "status": "not_observable",
-      "differenceKind": "not_visible",
+      "status": "match",
+      "differenceKind": "none",
       "observability": {
         "reference": "observable",
-        "candidate": "not_observable",
-        "coverage": "partial"
+        "candidate": "observable",
+        "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
+      "explanation": "No meaningful difference detected in dominant color of the main package body.",
       "evidence": {
-        "referenceObservation": "Orange/red dominant color of entire pouch surrounding white label.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.25,
+              "width": 0.3,
+              "height": 0.45
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.25,
+              "width": 0.3,
+              "height": 0.45
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "referenceObservation": "Dominant color is red for the can body with white text.",
+        "candidateObservation": "Dominant color is red for the can body with white text.",
+        "differenceKind": "none",
+        "comparisonSummary": "No meaningful difference detected in dominant color of the main package body.",
         "visibleEvidence": [
-          "Reference shows orange/red pouch surrounding white label.",
-          "Candidate shows only white label area with no surrounding pouch color visible."
+          "Red can body dominant color in reference",
+          "Red can body dominant color in candidate"
         ],
         "referenceVisible": true,
-        "candidateVisible": false
+        "candidateVisible": true
       }
     },
     {
       "checkType": "major_components",
-      "status": "not_observable",
-      "differenceKind": "not_visible",
+      "status": "match",
+      "differenceKind": "none",
       "observability": {
         "reference": "observable",
-        "candidate": "partially_observable",
-        "coverage": "partial"
+        "candidate": "observable",
+        "coverage": "sufficient"
       },
       "confidence": "high",
-      "explanation": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
+      "explanation": "Same components present with no components missing or extra.",
       "evidence": {
-        "referenceObservation": "Components visible: pouch package body with resealable zipper and white label panel.",
-        "candidateObservation": "Only white label panel visible, no pouch body or zipper visible in candidate image.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.4,
+              "y": 0.2,
+              "width": 0.25,
+              "height": 0.5
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.4,
+              "y": 0.2,
+              "width": 0.25,
+              "height": 0.5
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "referenceObservation": "Visible components: aluminum can body, pull tab opening, small figurine figure on top of pull tab.",
+        "candidateObservation": "Visible components: aluminum can body, pull tab opening, small figurine figure on top of pull tab.",
+        "differenceKind": "none",
+        "comparisonSummary": "Same components present with no components missing or extra.",
         "visibleEvidence": [
-          "Reference image shows full pouch package including zipper seal and white label panel.",
-          "Candidate image shows only a close-up of the white label panel, omitting zipper and pouch body."
+          "Reference shows can body, pull tab, figurine",
+          "Candidate shows can body, pull tab, figurine"
         ],
         "referenceVisible": true,
         "candidateVisible": true
@@ -135,24 +357,67 @@
     {
       "checkType": "major_shape_packaging",
       "status": "not_observable",
-      "differenceKind": "not_visible",
+      "differenceKind": "unknown",
       "observability": {
         "reference": "observable",
-        "candidate": "not_observable",
+        "candidate": "observable",
         "coverage": "partial"
       },
-      "confidence": "high",
-      "explanation": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
+      "confidence": "medium",
+      "explanation": "Both images have partial coverage of the can shape with some crop; full outer silhouette and proportions are not visible for complete shape comparison.",
       "evidence": {
-        "referenceObservation": "Pouch packaging with flat bottom and zipper seal, standing upright silhouette mostly visible.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.15,
+              "width": 0.3,
+              "height": 0.55
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.15,
+              "width": 0.3,
+              "height": 0.55
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "referenceObservation": "Reference is a cylindrical aluminum can with visible top and body, but sides are partly cropped and handling glass partially occludes view.",
+        "candidateObservation": "Candidate is a cylindrical aluminum can with visible top and body, but sides are partly cropped by image edges.",
+        "differenceKind": "unknown",
+        "comparisonSummary": "Both images have partial coverage of the can shape with some crop; full outer silhouette and proportions are not visible for complete shape comparison.",
         "visibleEvidence": [
-          "Reference shows full pouch shape with standing base and zipper seal.",
-          "Candidate image shows only close-up of label, no packaging shape seen."
+          "Reference can partly cropped by framing and glass",
+          "Candidate can partly cropped by image edges"
         ],
+        "uncertainReason": "Cropped sides limit full shape verification",
         "referenceVisible": true,
-        "candidateVisible": false
+        "candidateVisible": true
       }
     }
   ],
@@ -161,113 +426,92 @@
     {
       "kind": "limitation",
       "type": "attribute_not_observable",
-      "sourceCheckType": "quantity",
-      "confidence": "high",
-      "message": "quantity is not sufficiently observable.",
+      "sourceCheckType": "major_shape_packaging",
+      "confidence": "medium",
+      "message": "major_shape_packaging is not sufficiently observable.",
       "evidence": {
-        "referenceObservation": "One complete product visible.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image shows only a close-up label panel without the entire product, so quantity cannot be determined.",
+        "regions": {
+          "schemaVersion": 1,
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_reference",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "assetId": "f41f65d2-e769-4bfe-85a8-dd207fd45f1d_candidate",
+            "region": null,
+            "reason": "uncertain_location",
+            "confidence": null
+          }
+        },
+        "regionRaw": {
+          "reference": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.15,
+              "width": 0.3,
+              "height": 0.55
+            },
+            "reason": null,
+            "confidence": "high"
+          },
+          "candidate": {
+            "coordinateSpace": "analysis_image_normalized",
+            "region": {
+              "x": 0.35,
+              "y": 0.15,
+              "width": 0.3,
+              "height": 0.55
+            },
+            "reason": null,
+            "confidence": "high"
+          }
+        },
+        "referenceObservation": "Reference is a cylindrical aluminum can with visible top and body, but sides are partly cropped and handling glass partially occludes view.",
+        "candidateObservation": "Candidate is a cylindrical aluminum can with visible top and body, but sides are partly cropped by image edges.",
+        "differenceKind": "unknown",
+        "comparisonSummary": "Both images have partial coverage of the can shape with some crop; full outer silhouette and proportions are not visible for complete shape comparison.",
         "visibleEvidence": [
-          "Reference shows entire pouch product. Candidate shows only a close-up of the white label with text.",
-          "No full product is visible in candidate image."
+          "Reference can partly cropped by framing and glass",
+          "Candidate can partly cropped by image edges"
         ],
-        "referenceVisible": true,
-        "candidateVisible": false,
-        "raw": {
-          "uncertainReason": "Relevant attribute is not observable."
-        }
-      }
-    },
-    {
-      "kind": "limitation",
-      "type": "attribute_not_observable",
-      "sourceCheckType": "dominant_color",
-      "confidence": "high",
-      "message": "dominant_color is not sufficiently observable.",
-      "evidence": {
-        "referenceObservation": "Orange/red dominant color of entire pouch surrounding white label.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image shows only the white label panel without the surrounding pouch color; dominant color of package not visible in candidate.",
-        "visibleEvidence": [
-          "Reference shows orange/red pouch surrounding white label.",
-          "Candidate shows only white label area with no surrounding pouch color visible."
-        ],
-        "referenceVisible": true,
-        "candidateVisible": false,
-        "raw": {
-          "uncertainReason": "Relevant attribute is not observable."
-        }
-      }
-    },
-    {
-      "kind": "limitation",
-      "type": "attribute_not_observable",
-      "sourceCheckType": "major_components",
-      "confidence": "high",
-      "message": "major_components is not sufficiently observable.",
-      "evidence": {
-        "referenceObservation": "Components visible: pouch package body with resealable zipper and white label panel.",
-        "candidateObservation": "Only white label panel visible, no pouch body or zipper visible in candidate image.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image is a label close-up without visible pouch or zipper components; cannot fully compare components.",
-        "visibleEvidence": [
-          "Reference image shows full pouch package including zipper seal and white label panel.",
-          "Candidate image shows only a close-up of the white label panel, omitting zipper and pouch body."
-        ],
+        "uncertainReason": "Cropped sides limit full shape verification",
         "referenceVisible": true,
         "candidateVisible": true,
         "raw": {
-          "uncertainReason": "Relevant attribute is not observable."
-        }
-      }
-    },
-    {
-      "kind": "limitation",
-      "type": "attribute_not_observable",
-      "sourceCheckType": "major_shape_packaging",
-      "confidence": "high",
-      "message": "major_shape_packaging is not sufficiently observable.",
-      "evidence": {
-        "referenceObservation": "Pouch packaging with flat bottom and zipper seal, standing upright silhouette mostly visible.",
-        "differenceKind": "not_visible",
-        "comparisonSummary": "Candidate image missing full product body and shape visible, only label close-up; cannot compare overall shape or packaging form.",
-        "visibleEvidence": [
-          "Reference shows full pouch shape with standing base and zipper seal.",
-          "Candidate image shows only close-up of label, no packaging shape seen."
-        ],
-        "referenceVisible": true,
-        "candidateVisible": false,
-        "raw": {
-          "uncertainReason": "Relevant attribute is not observable."
+          "uncertainReason": "Cropped sides limit full shape verification"
         }
       }
     }
   ],
   "coverage": {
     "selectedChecks": 6,
-    "sufficientlyObservableChecks": 2,
-    "insufficientChecks": 4
+    "sufficientlyObservableChecks": 5,
+    "insufficientChecks": 1
   },
   "versions": {
-    "qaEngineVersion": "m0-qa-engine-005",
+    "qaEngineVersion": "m0-qa-engine-008",
     "riskPolicyVersion": "m0-risk-policy-003",
     "modelPolicyVersion": "m0-model-policy-002"
   },
   "modelCall": {
     "provider": "openai",
     "model": "gpt-4.1-mini",
-    "promptVersion": "m0-real-mvp-009",
-    "latencyMs": 28320,
-    "estimatedCostUsd": 0.004883200000000001,
+    "promptVersion": "m0-real-mvp-009+regions-003",
+    "latencyMs": 36986,
+    "estimatedCostUsd": 0.007286,
     "inputUsage": {
-      "inputTokens": 6784,
+      "inputTokens": 8195,
       "cachedInputTokens": 0
     },
     "outputUsage": {
-      "outputTokens": 1356
+      "outputTokens": 2505
     }
   },
-  "totalLatencyMs": 28322,
-  "estimatedCostUsd": 0.004883200000000001
+  "totalLatencyMs": 36996,
+  "estimatedCostUsd": 0.007286
 }

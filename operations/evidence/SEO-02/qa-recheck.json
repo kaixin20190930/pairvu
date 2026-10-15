@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "unitId": "SEO-02",
+  "candidateSha": "170fd1dcd216b3b146d243883896ed862c3dbfd1",
+  "previousCandidateSha": "fef44f9e06891ad535a293d626c3e887dff9304b",
+  "reviewerThreadId": "/root/seo02_qa",
+  "result": "PASS",
+  "recordedAt": "2026-10-15T07:10:06.241204+00:00",
+  "requiredEvidence": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "source license and attribution record",
+    "actual edit and Pairvu result record"
+  ],
+  "priorReport": {
+    "path": "operations/evidence/SEO-02/qa.json",
+    "result": "FAIL",
+    "sha256": "46e589d255749136971dc6443061190932579fa32d74f5afacddee3bfd18dbef",
+    "preservedUnchanged": true
+  },
+  "acceptanceScope": "Controller froze incremental recheck: five-file factual repair, independent inventory/overlap/typecheck/diffcheck, one exact-candidate clean-clone build and static HTML checks. Desktop/mobile screenshot work explicitly excluded by revised instruction; none performed or claimed. This report does not retroactively mark prior blocked render checks PASS.",
+  "checks": [
+    {
+      "id": "incremental-diff-and-factual-repair",
+      "result": "PASS",
+      "evidence": "Direct previous..candidate git diff: exactly five files, eight additions/eight deletions, confined to unsupported composition assertions. New case caption, human observations, license modifications paragraph, registry description, hub and guide/check incoming-link paragraphs no longer assert enlargement, recentering or composition change. They separately disclose lighting/highlight/surface changes and similar apparent full-frame position/relative size with no precise pixel-alignment measurement. Registry intent still mentions generic composition limitations but does not claim composition changed."
+    },
+    {
+      "id": "corrected-manifest-consistency",
+      "result": "PASS",
+      "path": "operations/evidence/SEO-02/test-manifest.json",
+      "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1",
+      "evidence": "Current humanObservation aligns with repaired candidate prose and independent visual observation from prior QA. No machine-result rewrite or new image/model call."
+    },
+    {
+      "id": "independent-seo-inventory",
+      "result": "PASS",
+      "command": "pnpm exec tsx scripts/verify-seo-inventory.ts",
+      "exitCode": 0,
+      "evidence": "67 published routes / 150 source files / 67 sitemap entries; unique keyword ownership and registered incoming-link checks passed."
+    },
+    {
+      "id": "independent-overlap",
+      "result": "PASS",
+      "command": "pnpm seo:overlap-report",
+      "exitCode": 0,
+      "evidence": "No published route pairs at or above 0.62."
+    },
+    {
+      "id": "independent-typecheck",
+      "result": "PASS",
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "id": "independent-diffcheck",
+      "result": "PASS",
+      "command": "git diff --check fef44f9e06891ad535a293d626c3e887dff9304b 170fd1dcd216b3b146d243883896ed862c3dbfd1",
+      "exitCode": 0
+    },
+    {
+      "id": "fresh-exact-candidate-build",
+      "result": "PASS",
+      "cwd": "/private/tmp/pairvu-seo02-qa-170fd1d",
+      "command": "pnpm build",
+      "exitCode": 0,
+      "evidence": "Created local no-hardlinks clone, detached exact candidate and directly copied real node_modules directory; no external node_modules symlink created. Build compiled, completed TypeScript and generated 74/74 static pages. required-server-files.json config.env.PAIRVU_BUILD_SHA exactly matches candidate. Clone git status --short empty after build.",
+      "buildSha": "170fd1dcd216b3b146d243883896ed862c3dbfd1",
+      "buildId": "xQRGM7LQHQJutpMDejyrL"
+    },
+    {
+      "id": "built-static-html-content-schema-and-links",
+      "result": "PASS",
+      "htmlPath": "/private/tmp/pairvu-seo02-qa-170fd1d/.next/server/app/examples/coca-cola-can-background-edit.html",
+      "htmlSha256": "a9c078917e3465b5b76080cfb718c0557fb5da43e7fe3f2e81290aa86b81438f",
+      "evidence": "Independently parsed built HTML: unsupported old enlargement/recentering/composition-change phrases absent; corrected similar-position/relative-size and no-measurement observation present; metadata description corrected. Exactly one Article with two ImageObjects licensed CC BY-SA 4.0 and Commons acquireLicensePage, nonempty image alt, source/date/license/historical-packaging/endorsement limits and REVIEW/5-of-6/not_observable present. No Product/Review/aggregateRating/reviewRating schema. Built HTML from examples hub, consistency guide and label-text check each includes actual href to new case."
+    },
+    {
+      "id": "reused-unaffected-license-edit-and-machine-evidence",
+      "result": "PASS",
+      "evidence": "Prior independent source-license/attribution, preserved unique imagegen output and one Pairvu raw JSON mapping remain applicable: incremental git diff changes no image, raw machine JSON, prompt, machine table or license terms. Fresh-clone image SHAs independently verified unchanged. Raw machine verdict remains REVIEW, five matches and major_shape_packaging not_observable. Original broader test:seo checks passed at prior candidate; unaffected category/check/benchmark/Amazon/ecommerce implementation and dependency files are unchanged, while inventory was independently rerun at new SHA. No imagegen or Pairvu rerun."
+    },
+    {
+      "id": "scope-and-audit-preservation",
+      "result": "PASS",
+      "evidence": "QA changed no shared application code, performed no push/deploy/production operation/customer upload, created no new model output. Original qa.json FAIL SHA verified unchanged before exclusive creation of this recheck report. Local clone/build artifacts retained for audit; this recheck started no server/browser/GUI."
+    }
+  ],
+  "implementation": "Narrow factual repair accepted at exact candidate.",
+  "deployment": "Not performed.",
+  "featureEnablement": "No production enablement verified.",
+  "acceptance": "PASS for revised bounded independent acceptance; case machine verdict remains unresolved REVIEW.",
+  "nextAction": {
+    "action": "Controller may advance the exact accepted candidate through formal QA_PASS to RELEASE_READY. Stop there absent production authorization.",
+    "dependency": "Formal controller transitions and any remaining pre-release repository gates.",
+    "automatic": true,
+    "requiresUserInputFor": "Production release authorization only; no such authorization inferred by this report."
+  }
+}

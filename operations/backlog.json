@@ -404,6 +404,35 @@
         "fixed candidate SHA",
         "independent QA report"
       ]
+    },
+    {
+      "id": "SEO-01",
+      "title": "六个存量SEO页面的内容与内链改版",
+      "priority": 1,
+      "dependsOn": [],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "six page content and internal-link inventory"
+      ]
+    },
+    {
+      "id": "SEO-02",
+      "title": "开放许可真实商品图片背景编辑实测",
+      "priority": 2,
+      "dependsOn": [
+        "SEO-01"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "source license and attribution record",
+        "actual edit and Pairvu result record"
+      ]
     }
   ]
 }

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "unitId": "SEO-02",
+  "status": "ACTUAL_SINGLE_CASE_COMPLETE",
+  "performedAt": "2026-10-15",
+  "source": {
+    "title": "Coca-Cola 330ml can.jpg",
+    "author": "Ossewa",
+    "capturedAt": "2018-05-01",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Coca-Cola_330ml_can.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Coca-Cola_330ml_can.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "localPath": "public/examples/coca-cola-can-background-edit/original.jpg",
+    "sha256": "88e32149a0c6d97d519edd24f5179f0bbf5d1fe14308358c9d7617db8b563924",
+    "dimensions": "2740x2095",
+    "rightsBoundary": "The photo license requires attribution and share-alike. Packaging graphics and trademarks may carry separate rights. Use does not imply brand endorsement or a current-package claim."
+  },
+  "edit": {
+    "tool": "Codex built-in imagegen",
+    "calls": 1,
+    "outputs": 1,
+    "originalGeneratedPath": "/Users/liukai/.codex/generated_images/01a0bcd5-909b-7b72-b64b-399e8028c919/exec-974380e4-398d-489c-a268-3023e39e94e7.png",
+    "projectPath": "public/examples/coca-cola-can-background-edit/candidate.png",
+    "sha256": "95509d417dc34aa96695cddf65e8b7a5bfc740cb729891e82c83c6ef6d93be05",
+    "dimensions": "1434x1097",
+    "prompt": "Use case: precise-object-edit\nAsset type: documented real-product background-edit test for a public comparison page\nPrimary request: Replace only the surrounding environment with a clean, pale neutral-gray studio tabletop and seamless neutral-gray studio background. Remove the drinking glass, paper/map, wooden table, and distant background objects.\nInput image: the provided photograph is the edit target.\nSubject invariants: Preserve the red 330 mL Coca-Cola can exactly as shown, including its position, crop, proportions, silhouette, opened top, highlights, red color, every visible printed word and logo, the 330 mL marking, and the tiny yellow-and-black football referee figurine sitting on the can. Preserve the subject's original viewing angle and scale.\nComposition/framing: keep the original landscape framing and the can in the same location; do not zoom or crop the can.\nLighting: neutral soft studio light while retaining physically plausible reflections on the unchanged can.\nConstraints: one actual output only; change only background and surrounding non-product objects; no added text, no added products, no watermark, no redesign, no repaired or invented package text.\nAvoid: altering the can, label, logo, typography, printed claims, color, tab/opening, or figurine."
+  },
+  "pairvuRun": {
+    "calls": 1,
+    "environment": "local isolated explicit file pair",
+    "productionUpload": false,
+    "customerDataUsed": false,
+    "command": "pnpm eval:m0:pair -- --reference public/examples/coca-cola-can-background-edit/original.jpg --candidate public/examples/coca-cola-can-background-edit/candidate.png --category beverage --label seo-02-coca-cola-background-edit-2026-10-15",
+    "rawResult": "operations/evidence/SEO-02/pairvu-result.json",
+    "rawResultSha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf",
+    "verdict": "REVIEW",
+    "coverage": "5 of 6 selected checks sufficiently observable",
+    "matchedChecks": [
+      "logo",
+      "visible_text",
+      "quantity",
+      "dominant_color",
+      "major_components"
+    ],
+    "reviewChecks": [
+      "major_shape_packaging"
+    ],
+    "model": "gpt-4.1-mini",
+    "promptVersion": "m0-real-mvp-009+regions-003",
+    "qaEngineVersion": "m0-qa-engine-008",
+    "riskPolicyVersion": "m0-risk-policy-003",
+    "totalLatencyMs": 36996,
+    "estimatedCostUsd": 0.007286
+  },
+  "humanObservation": {
+    "background": "The glass, paper, wooden table, and distant objects were replaced by a neutral studio setting.",
+    "retained": "The red can, opened top, referee figurine, visible Coca-Cola mark, ORIGINAL TASTE line, Las Vegas promotion and 330 mL marking remain recognizable in the only output.",
+    "changedOrUncertain": "The can's full-frame position and relative size appear similar at the displayed scale; no precise pixel-alignment measurement was completed. Lighting, highlights, and some surface rendering changed. Character-level identity cannot be proven by unaided visual inspection alone.",
+    "comparisonWithMachine": "The human observation agrees that the five reported identity/component attributes appear preserved at the displayed scale. The human separately records rerendered lighting and surface detail; Pairvu routed the case to REVIEW because full packaging shape/proportions were not sufficiently comparable."
+  },
+  "claimBoundary": "One licensed-photo edit and one Pairvu run support only this case report. They do not establish population accuracy, brand endorsement, current packaging, customer demand, or a quality benchmark."
+}

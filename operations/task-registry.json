@@ -95,6 +95,71 @@
   "automationId": "pairvu-2",
   "notes": "流程调整已落实当前契约与台账；原QA单次收尾8分钟完成，两对象404、25张非目标表不变、额度6/4/0。未构建/部署/扩样本，正式运行时状态未改。",
   "nextUnitId": null,
+  "queuedWork": {
+    "unitId": "SEO-02",
+    "contract": "operations/contracts/SEO-02.md",
+    "formalTracking": "BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "formalTrackingReason": "旧单元生产验收按用户要求保留PARTIAL，控制CLI仍将其视为唯一活动单元；不得伪造完整生产manifest或手改关闭。SEO-01继续以固定候选SHA和独立QA原件跟踪，发布前必须解决正式状态门禁。",
+    "authorization": "一个开放许可真实商品图片实测及案例内页；不含push、生产发布或对外分发",
+    "development": {
+      "agent": "/root/seo02_developer",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "常规页面与一次受控本地实测，需要跨图片、机器结果和内容事实一致性；无需最高档",
+      "upgradeCondition": "模型结果与原始JSON或页面解释出现实质冲突时先缩小事实，再评估high",
+      "status": "completed",
+      "candidateSha": "170fd1dcd216b3b146d243883896ed862c3dbfd1",
+      "checks": {
+        "test:seo": "PASS_67_ROUTES",
+        "seo:overlap-report": "PASS",
+        "typecheck": "PASS",
+        "diffCheck": "PASS",
+        "assetSha": "PASS",
+        "fixedCandidateBuild": "PASS"
+      }
+    },
+    "qa": {
+      "agent": null,
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "独立核对固定SHA、公开许可、唯一输出、原始结果与页面一致性",
+      "upgradeCondition": "许可适用或结果解释出现实质争议时再评估high",
+      "candidateSha": "170fd1dcd216b3b146d243883896ed862c3dbfd1",
+      "attempts": [
+        {
+          "candidateSha": "fef44f9e06891ad535a293d626c3e887dff9304b",
+          "result": "FAIL",
+          "evidence": "operations/evidence/SEO-02/qa.json",
+          "reason": "页面及manifest对罐体放大/移向中心作无证据的确定性描述"
+        },
+        {
+          "candidateSha": "170fd1dcd216b3b146d243883896ed862c3dbfd1",
+          "result": "PASS",
+          "evidence": "operations/evidence/SEO-02/qa-recheck.json",
+          "evidenceSha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+        }
+      ],
+      "status": "completed",
+      "result": "PASS"
+    },
+    "nextUnitId": null,
+    "releaseState": "LOCAL_CANDIDATE_ONLY_NOT_PUSHED_OR_DEPLOYED",
+    "formalState": "QA_PASS_UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+    "nextAction": "等待用户另行授权发布SEO-01/SEO-02；发布前先解决控制器旧JRN-04-FIX正式活动状态，并按GitHub-first核验同一发布提交。不会自动发布或对外分发。"
+  },
+  "completedQueuedWork": [
+    {
+      "unitId": "SEO-01",
+      "candidateSha": "e2accd2236beb67f5884b7aaeae19dd1ace4783e",
+      "developmentAgent": "/root/seo01_developer",
+      "qaAgent": "/root/seo01_qa",
+      "result": "PASS",
+      "evidence": "operations/evidence/SEO-01.json",
+      "evidenceSha256": "0a84ab4d23c03d559b3955a2269ffd454fd33dd149a852579d40ae6a9f9617da",
+      "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+      "releaseState": "LOCAL_CANDIDATE_ONLY_NOT_PUSHED_OR_DEPLOYED"
+    }
+  ],
   "production": {
     "unitId": "JRN-04-FIX",
     "status": "DEPLOYED_ACCEPTANCE_PARTIAL",

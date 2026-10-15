@@ -1,0 +1,462 @@
+{
+  "unitId": "SEO-01",
+  "candidateSha": "e2accd2236beb67f5884b7aaeae19dd1ace4783e",
+  "reviewerThreadId": "/root/seo01_qa",
+  "result": "PASS",
+  "generatedAt": "2026-10-15T06:37:56.755971+00:00",
+  "modelSelection": {
+    "model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "reason": "Bounded six-page content/link and exact-candidate SEO regression; no substantive product/keyword dispute.",
+    "upgradeCondition": "Escalate only for substantive cross-page keyword ownership or product capability dispute; none found."
+  },
+  "requiredEvidence": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "six page content and internal-link inventory"
+  ],
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "details": "e2accd2236beb67f5884b7aaeae19dd1ace4783e; detached local clone; clean tracked/untracked status excluding ignored build/dependencies."
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "details": "Independent source diff and all six full pages reviewed by /root/seo01_qa; no application changes by reviewer."
+    },
+    {
+      "name": "six page content and internal-link inventory",
+      "status": "PASS",
+      "details": "See sixPageInventory; actual JSX Link targets and built HTML checked, relatedRoutes not substituted for rendered links."
+    },
+    {
+      "name": "content, product boundaries and counterexamples",
+      "status": "PASS",
+      "details": "Controlled examples remain controlled; no unsupported customer/accuracy/certification/publishing/licensed live-test/search-volume claim. Logo and label approved evidence unchanged. Product/ref snapshots, review/revoke, release policy and paid CSV boundaries match current source."
+    },
+    {
+      "name": "metadata, dates and keyword ownership",
+      "status": "PASS",
+      "details": "One metadata export, canonical, title and H1 per page; publishedAt unchanged, only six updatedAt dates changed to 2026-10-15. Main and secondary keyword ownership unchanged."
+    },
+    {
+      "name": "pnpm test:seo",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": "66 published routes / sitemap entries; 149 source files; 6 category pages; 7 check pages; 19 controlled cases / 7 product families / 8 attributes; Amazon and ecommerce requirement quality passed."
+    },
+    {
+      "name": "pnpm seo:overlap-report",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": "No published route pairs at or above 0.62."
+    },
+    {
+      "name": "pnpm typecheck",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "pnpm build",
+      "status": "PASS",
+      "exitCode": 0,
+      "details": "After explicitly authorized local dependency-copy correction: Next.js 16.2.12 Turbopack compiled, TypeScript completed, 73/73 static pages generated."
+    },
+    {
+      "name": "PAIRVU_BUILD_SHA manifest",
+      "status": "PASS",
+      "details": {
+        "manifest": "/private/tmp/pairvu-seo01-qa-e2accd2/.next/required-server-files.json",
+        "PAIRVU_BUILD_SHA": "e2accd2236beb67f5884b7aaeae19dd1ace4783e",
+        "candidateWorkingTreeClean": true
+      }
+    },
+    {
+      "name": "cleanup and write boundaries",
+      "status": "PASS",
+      "details": "No accounts, model calls, customer images, database changes, remote writes, push or deployment. Only allowed QA evidence created in shared workspace. Isolated clone/build retained as local QA provenance."
+    }
+  ],
+  "sixPageInventory": [
+    {
+      "route": "/guides/keep-products-consistent-in-ai-images",
+      "contentAssessment": "Logo, text, color, quantity, components and packaging coverage; executable background-edit workflow; observability, checklist and PASS/FAIL/REVIEW controlled examples; editor generates/repairs outside Pairvu.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/guides/keep-products-consistent-in-ai-images",
+        "status": "published",
+        "indexable": true,
+        "title": "How to Keep Products Consistent in AI Images",
+        "h1": "How to Keep Products Consistent in AI Images",
+        "description": "Change AI product image backgrounds while protecting logos, label text, color, count, components, and packaging with a repeatable reference comparison workflow.",
+        "primaryKeyword": "keep products consistent in AI images",
+        "publishedAt": "2026-07-31",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "/#checker",
+        "/account/products",
+        "/checks/product-color",
+        "/checks/product-components",
+        "/checks/product-image-observability",
+        "/checks/product-label-text",
+        "/checks/product-logo",
+        "/checks/product-packaging",
+        "/checks/product-quantity",
+        "/examples/background-change-ai-product-image",
+        "/examples/logo-change-ai-product-image",
+        "/examples/packaging-shape-change-ai-product-image",
+        "/examples/partially-hidden-product-logo",
+        "/guides/ai-product-photography-checklist",
+        "/guides/compare-original-and-ai-product-images",
+        "/how-pairvu-works"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/checks/product-label-text/page.tsx",
+        "app/checks/product-logo/page.tsx",
+        "app/guides/compare-original-and-ai-product-images/page.tsx",
+        "app/guides/page.tsx",
+        "app/how-pairvu-works/page.tsx",
+        "app/use-cases/creative-agencies/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": null,
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    },
+    {
+      "route": "/guides/compare-original-and-ai-product-images",
+      "contentAssessment": "Exact SKU/package/reference view first; corresponding evidence and human/release decisions; logo/text/observability/checklist and three controlled examples; viewpoint alone and provenance/authenticity explicitly excluded.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/guides/compare-original-and-ai-product-images",
+        "status": "published",
+        "indexable": true,
+        "title": "How to Compare Original and AI Product Images",
+        "h1": "How to Compare Original and AI Product Images",
+        "description": "Choose the right SKU and view, compare visible product details, resolve missing evidence, and review human approval and release eligibility before publishing.",
+        "primaryKeyword": "compare original and AI product images",
+        "publishedAt": "2026-07-31",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "/#checker",
+        "/account/products",
+        "/checks/product-image-observability",
+        "/checks/product-label-text",
+        "/checks/product-logo",
+        "/examples/label-value-change-ai-product-image",
+        "/examples/large-viewpoint-difference-product-image",
+        "/examples/logo-change-ai-product-image",
+        "/guides/ai-product-photography-checklist",
+        "/guides/keep-products-consistent-in-ai-images",
+        "/how-pairvu-works"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/checks/product-label-text/page.tsx",
+        "app/checks/product-logo/page.tsx",
+        "app/guides/keep-products-consistent-in-ai-images/page.tsx",
+        "app/guides/page.tsx",
+        "app/how-pairvu-works/page.tsx",
+        "app/use-cases/creative-agencies/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": null,
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    },
+    {
+      "route": "/checks/product-logo",
+      "contentAssessment": "Approved decision/evidence content remains unchanged; new lettering/background workflow links both guides and logo FAIL/covered-mark REVIEW; unknown-brand recognition, repair and trademark certification excluded.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/checks/product-logo",
+        "status": "published",
+        "indexable": true,
+        "title": "Compare Product Logos in AI Images | Pairvu",
+        "h1": "Check Whether AI Changed a Product Logo",
+        "description": "Pairvu compares an approved product image with an AI candidate to find changed, replaced, hidden, or unverifiable logos. It is not a reverse-logo lookup tool.",
+        "primaryKeyword": "compare product logos in AI images",
+        "publishedAt": "2026-08-03",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "#logo-decisions",
+        "/#checker",
+        "/categories/cosmetics-product-image-qa",
+        "/checks",
+        "/checks/product-color",
+        "/checks/product-label-text",
+        "/examples",
+        "/examples/controlled-visual-qa-benchmark",
+        "/examples/logo-change-ai-product-image",
+        "/examples/partially-hidden-product-logo",
+        "/guides/ai-product-photography-checklist",
+        "/guides/compare-original-and-ai-product-images",
+        "/guides/keep-products-consistent-in-ai-images"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/checks/product-label-text/page.tsx",
+        "app/examples/background-change-ai-product-image/page.tsx",
+        "app/examples/controlled-visual-qa-benchmark/page.tsx",
+        "app/examples/logo-change-ai-product-image/page.tsx",
+        "app/examples/partially-hidden-product-logo/page.tsx",
+        "app/examples/shadow-reflection-change-product-image/page.tsx",
+        "app/guides/compare-original-and-ai-product-images/page.tsx",
+        "app/guides/keep-products-consistent-in-ai-images/page.tsx",
+        "app/how-pairvu-works/page.tsx",
+        "app/page.tsx",
+        "app/use-cases/amazon-product-image-qa/page.tsx",
+        "app/use-cases/creative-agencies/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": "Existing approvedContent.evidence href links retained and validated by test:seo; not counted as registry relatedRoutes.",
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    },
+    {
+      "route": "/checks/product-label-text",
+      "contentAssessment": "Approved decision/evidence content remains unchanged; product name/variant/capacity/count workflow links both guides and readable-value/unreadable-label examples; unreadability requires REVIEW; OCR/regulatory certification excluded.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/checks/product-label-text",
+        "status": "published",
+        "indexable": true,
+        "title": "Check Product Label Text in AI Images | Pairvu",
+        "h1": "How to Check Product Label Text in AI Images",
+        "description": "Check visible brand names, variants, claims, and printed values in AI product images. Learn when label text should pass, fail, or need a clearer view.",
+        "primaryKeyword": "check product label text in AI images",
+        "publishedAt": "2026-08-03",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "#label-text-decisions",
+        "/#checker",
+        "/categories/cosmetics-product-image-qa",
+        "/checks",
+        "/checks/product-logo",
+        "/checks/product-quantity",
+        "/examples",
+        "/examples/controlled-visual-qa-benchmark",
+        "/examples/label-value-change-ai-product-image",
+        "/examples/unreadable-product-label-text",
+        "/guides/ai-product-photography-checklist",
+        "/guides/compare-original-and-ai-product-images",
+        "/guides/keep-products-consistent-in-ai-images"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/categories/skincare-product-image-qa/page.tsx",
+        "app/checks/product-color/page.tsx",
+        "app/checks/product-logo/page.tsx",
+        "app/examples/cold-brew-flavor-volume-change/page.tsx",
+        "app/examples/controlled-visual-qa-benchmark/page.tsx",
+        "app/examples/identical-product-images-pass/page.tsx",
+        "app/examples/label-value-change-ai-product-image/page.tsx",
+        "app/examples/large-viewpoint-difference-product-image/page.tsx",
+        "app/examples/laundry-sheets-back-view-review/page.tsx",
+        "app/examples/laundry-sheets-scent-count-change/page.tsx",
+        "app/examples/partially-visible-product-image/page.tsx",
+        "app/guides/compare-original-and-ai-product-images/page.tsx",
+        "app/guides/keep-products-consistent-in-ai-images/page.tsx",
+        "app/how-pairvu-works/page.tsx",
+        "app/page.tsx",
+        "app/use-cases/amazon-product-image-qa/page.tsx",
+        "app/use-cases/creative-agencies/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": "Existing approvedContent.evidence href links retained and validated by test:seo; not counted as registry relatedRoutes.",
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    },
+    {
+      "route": "/use-cases/creative-agencies",
+      "contentAssessment": "Brief through external editing, batch QA, human approval/rejection/revocation and paid CSV handoff; relevant account/check/example/method/pricing links; client sign-off separate and no external publication.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/use-cases/creative-agencies",
+        "status": "published",
+        "indexable": true,
+        "title": "Creative Agency Product Image QA for AI-Assisted Visuals",
+        "h1": "Review AI Product Visuals Before Client Delivery",
+        "description": "Take client-approved references through batch product image QA, human review, release eligibility, and paid CSV handoff records before agency delivery.",
+        "primaryKeyword": "creative agency product image QA",
+        "publishedAt": "2026-07-31",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "/#checker",
+        "/account/batches/new",
+        "/account/products",
+        "/account/releases",
+        "/checks/product-label-text",
+        "/checks/product-logo",
+        "/examples/background-change-ai-product-image",
+        "/examples/packaging-shape-change-ai-product-image",
+        "/examples/unreadable-product-label-text",
+        "/guides/compare-original-and-ai-product-images",
+        "/guides/keep-products-consistent-in-ai-images",
+        "/how-pairvu-works",
+        "/pricing"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/how-pairvu-works/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": null,
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    },
+    {
+      "route": "/how-pairvu-works",
+      "contentAssessment": "Single/batch, Saved Product named views and frozen reference/profile history, machine evidence, human decisions and release eligibility separated; paid CSV bounded UI window; incomplete evidence/high risk blocks approval; no publication.",
+      "h1Count": 1,
+      "primaryCheckerCtaCount": 1,
+      "metadataExportCount": 1,
+      "metadata": {
+        "route": "/how-pairvu-works",
+        "status": "published",
+        "indexable": true,
+        "title": "How Pairvu Checks AI Product Images",
+        "h1": "How Pairvu Checks AI Product Images",
+        "description": "Learn how single and batch checks use approved references, and how machine results, human decisions, release eligibility, and paid CSV records stay separate.",
+        "primaryKeyword": "how Pairvu works",
+        "publishedAt": "2026-07-31",
+        "updatedAt": "2026-10-15"
+      },
+      "literalRenderedOutgoingLinks": [
+        "/#checker",
+        "/account/batches/new",
+        "/account/products",
+        "/account/releases",
+        "/checks/product-image-observability",
+        "/checks/product-label-text",
+        "/checks/product-logo",
+        "/examples",
+        "/examples/background-change-ai-product-image",
+        "/examples/logo-change-ai-product-image",
+        "/examples/unreadable-product-label-text",
+        "/guides/compare-original-and-ai-product-images",
+        "/guides/keep-products-consistent-in-ai-images",
+        "/pricing",
+        "/use-cases/creative-agencies"
+      ],
+      "literalRenderedIncomingPages": [
+        "app/examples/controlled-visual-qa-benchmark/page.tsx",
+        "app/examples/identical-product-images-pass/page.tsx",
+        "app/guides/compare-original-and-ai-product-images/page.tsx",
+        "app/guides/keep-products-consistent-in-ai-images/page.tsx",
+        "app/guides/page.tsx",
+        "app/page.tsx",
+        "app/pricing/page.tsx",
+        "app/use-cases/creative-agencies/page.tsx"
+      ],
+      "invalidTargets": [],
+      "utmPresent": false,
+      "dynamicEvidenceLinks": null,
+      "builtHtml": {
+        "h1Count": 1,
+        "canonicalCount": 1,
+        "titleCount": 1,
+        "primaryCheckerCtaCount": 1
+      }
+    }
+  ],
+  "candidateFiles": [
+    {
+      "path": "app/checks/product-label-text/page.tsx",
+      "sha256": "12b8e90c61c8f3b77a6e01354949aca687efad91d617f1f6174625422bdb1a4b"
+    },
+    {
+      "path": "app/checks/product-logo/page.tsx",
+      "sha256": "aeeebfd3423ac998cc1d85ce078a7db7b9dcf11fcdc4ea122f60fb80ef530b22"
+    },
+    {
+      "path": "app/guides/compare-original-and-ai-product-images/page.tsx",
+      "sha256": "f58762c3eb26e0246103083d5cd75431d1fef2161402690a11c8a7f9f2871cfd"
+    },
+    {
+      "path": "app/guides/keep-products-consistent-in-ai-images/page.tsx",
+      "sha256": "1f0a6f93486cd9dd0428e9261b0613fd4cb7f66cc76838a67114104839ee707d"
+    },
+    {
+      "path": "app/how-pairvu-works/page.tsx",
+      "sha256": "5800055d77495915a1ac5f65a9fbd283679ae6ce07b3c7f1fed5626d0dc88d29"
+    },
+    {
+      "path": "app/use-cases/creative-agencies/page.tsx",
+      "sha256": "03bff42f861689446d2e8bbfa385b2af8eba34d91909b46d061f984f294f96a4"
+    },
+    {
+      "path": "lib/seo/content-registry.ts",
+      "sha256": "ad86f35de1fd1a10f5a7562f3b3756a7c49189f0feb47e2fe53c203048a80234"
+    }
+  ],
+  "productBoundarySources": [
+    "lib/releases/policy.ts",
+    "lib/releases/repository.ts",
+    "app/api/releases/export/route.ts",
+    "app/account/releases/ReleaseWorkbenchClient.tsx",
+    "lib/batches/repository.ts",
+    "lib/seo/check-content.ts"
+  ],
+  "buildAttempts": [
+    {
+      "command": "pnpm build",
+      "exitCode": 1,
+      "result": "BLOCKED",
+      "reason": "Turbopack rejected external node_modules symlink: Symlink [project]/node_modules is invalid, it points out of the filesystem root.",
+      "panicLog": "/var/folders/kq/603dhp110dl8931c2gp1j1dc0000gn/T/next-panic-7bb08ce89affa357930d127990d1f389.log"
+    },
+    {
+      "authorizedCorrection": "Parent explicitly authorized one deterministic local-only correction after first failure: unlink node_modules; cp -cR main workspace node_modules into clone, no install/network.",
+      "copyExitCode": 0,
+      "command": "pnpm build",
+      "exitCode": 0,
+      "result": "PASS"
+    }
+  ],
+  "notes": [
+    "Review is bound only to candidate seven files, not uncommitted controller contracts/registry/research files in shared workspace.",
+    "No blocking finding. No model escalation required.",
+    "Production pages, feature flag enablement, GSC/rankings, Core Web Vitals, billing/login matrix, real-image trial and accuracy are excluded and not reported PASS.",
+    "Release not authorized by this unit; acceptance supports RELEASE_READY only. Implementation accepted; deployment/production verification/feature enablement not performed.",
+    "Next action: controller may record independent PASS and advance SEO-01 to RELEASE_READY, then freeze SEO-02 asset permission scope automatically under existing authorization. Production release still requires user authorization and repository release gates."
+  ]
+}

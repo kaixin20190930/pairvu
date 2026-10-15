@@ -1,5 +1,7 @@
 # Pairvu Product Documentation
 
+- [2026-10-14 SEO 内容与获客建设方案](03-growth/seo-demand-content-plan-2026-10-14.md)：当前结构审计、问题关键词、内链、真实图片实测及外链分发优先级。
+
 This is the working documentation baseline for Pairvu.
 
 Current status reconciled on 2026-10-10:

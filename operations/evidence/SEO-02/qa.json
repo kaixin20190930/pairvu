@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "unitId": "SEO-02",
+  "candidateSha": "fef44f9e06891ad535a293d626c3e887dff9304b",
+  "baselineSha": "e2accd2236beb67f5884b7aaeae19dd1ace4783e",
+  "reviewerThreadId": "/root/seo02_qa",
+  "result": "FAIL",
+  "recordedAt": "2026-10-15T06:58:59.675162+00:00",
+  "requiredEvidence": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "source license and attribution record",
+    "actual edit and Pairvu result record"
+  ],
+  "checks": [
+    {
+      "id": "fixed-candidate-diff",
+      "result": "PASS",
+      "evidence": "Direct git diff baseline..candidate contains exactly seven files: new case page, registry entry, original and candidate assets, and one contextual incoming link each from examples hub, consistency guide, and label-text check. Clone /private/tmp/pairvu-seo02-build-fef44f9 HEAD is exact candidate and git status --short was empty."
+    },
+    {
+      "id": "source-license-attribution",
+      "result": "PASS",
+      "source": "https://commons.wikimedia.org/wiki/File:Coca-Cola_330ml_can.jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "evidence": "Independently opened Commons source and Creative Commons license deed. Commons summary identifies Ossewa, Own work, 1 May 2018, 2740x2095; license is CC BY-SA 4.0. Candidate page shows photographer/source/date/license, adaptation and same-license statement, historical-packaging and endorsement/trademark boundaries."
+    },
+    {
+      "id": "image-and-raw-result-integrity",
+      "result": "PASS",
+      "originalSha256": "88e32149a0c6d97d519edd24f5179f0bbf5d1fe14308358c9d7617db8b563924",
+      "candidateSha256": "95509d417dc34aa96695cddf65e8b7a5bfc740cb729891e82c83c6ef6d93be05",
+      "rawResultSha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf",
+      "evidence": "Independently computed shasum for both project assets, raw JSON, and preserved imagegen output /Users/liukai/.codex/generated_images/01a0bcd5-909b-7b72-b64b-399e8028c919/exec-974380e4-398d-489c-a268-3023e39e94e7.png. Preserved imagegen output exactly equals candidate asset."
+    },
+    {
+      "id": "single-run-record",
+      "result": "PASS",
+      "evidence": "Existing test-manifest records one imagegen call and one output with full prompt/date/path; one local explicit-file Pairvu invocation is preserved in pairvu-result.json with both matching file SHAs, 2026-10-15 execution date and model/prompt/rule versions. QA reused originals and did not rerun either service. The one-call count is recorded provenance, not independently reconstructed service telemetry."
+    },
+    {
+      "id": "machine-result-mapping",
+      "result": "PASS",
+      "evidence": "Raw finalVerdict=review; coverage=5 sufficiently observable / 6 selected; logo, visible_text, quantity, dominant_color, major_components each match; major_shape_packaging=not_observable with partial coverage. Page faithfully lists REVIEW, 5/6, all five matches and not_observable. Model gpt-4.1-mini, prompt m0-real-mvp-009+regions-003, engine m0-qa-engine-008 and risk m0-risk-policy-003 match raw JSON. Machine status is attributed as model observation and not converted into overall PASS or character-level proof."
+    },
+    {
+      "id": "human-observation-factuality",
+      "result": "FAIL",
+      "files": [
+        "app/examples/coca-cola-can-background-edit/page.tsx:94",
+        "operations/evidence/SEO-02/test-manifest.json"
+      ],
+      "evidence": "Direct independent viewing of both full source images does not support the categorical assertion that the can was enlarged and moved from the lower-right toward the center. The can remains on the right in both full frames with closely similar normalized size and placement. Approximate visual bounds are x=0.50..0.81 of frame width in both; these are visual estimates, not a completed pixel segmentation or numerical measurement. Lighting/highlight and surface-rendering differences can be observed separately. The page/manifest must remove or qualify the unsupported enlargement/recentering claim rather than present it as established human evidence.",
+      "expectedRepair": "Preserve exact images and raw machine JSON. Correct only unsupported human composition/scale observations and dependent summaries; retain separately supported background, light/highlight and surface observations and unresolved REVIEW."
+    },
+    {
+      "id": "keyword-schema-and-incoming-links",
+      "result": "PASS",
+      "evidence": "Direct seven-file source diff and independent test:seo: primary keyword AI background edit preserve product label is uniquely owned; title/H1/description agree with case purpose. Page emits Article with two licensed ImageObjects including credit, creator, source, dimensions and license; no Product, Review or rating schema added. Three real source-level contextual anchors exist from /examples, /guides/keep-products-consistent-in-ai-images, /checks/product-label-text. Both images have descriptive alt text, dimensions, headings and caption attribution. Browser-rendered validation not completed."
+    },
+    {
+      "id": "independent-test-seo",
+      "result": "PASS",
+      "command": "pnpm test:seo",
+      "cwd": "/private/tmp/pairvu-seo02-build-fef44f9",
+      "exitCode": 0,
+      "evidence": "67 published routes / 150 source files / 67 sitemap entries; 6 category pages, 7 check pages, 19 benchmark cases, Amazon and ecommerce guide checks passed."
+    },
+    {
+      "id": "independent-overlap",
+      "result": "PASS",
+      "command": "pnpm seo:overlap-report",
+      "cwd": "/private/tmp/pairvu-seo02-build-fef44f9",
+      "exitCode": 0,
+      "evidence": "No published route pair at or above 0.62."
+    },
+    {
+      "id": "independent-typecheck",
+      "result": "PASS",
+      "command": "pnpm typecheck",
+      "cwd": "/private/tmp/pairvu-seo02-build-fef44f9",
+      "exitCode": 0
+    },
+    {
+      "id": "fixed-candidate-build",
+      "result": "PASS",
+      "evidence": "Reused existing clean exact-candidate clone build. .next/required-server-files.json config.env.PAIRVU_BUILD_SHA=fef44f9e06891ad535a293d626c3e887dff9304b; .next/BUILD_ID=nJurjPt5CReiNRK0gKYuN. Case static .html/.meta/.rsc and page bundle exist. QA did not rebuild. Detailed static HTML/schema parsing was not completed; direct page source inspection is recorded separately."
+    },
+    {
+      "id": "desktop-mobile-render-and-static-html-detail",
+      "result": "BLOCKED",
+      "evidence": "Existing built server started on localhost:3112. Playwright bundled default browser unavailable; existing Chrome launch failed under sandbox with SIGABRT/EPERM. Required escalation was requested and user aborted before execution. No desktop/mobile screenshots, DOM measurements, rendered inbound-link checks or detailed static HTML parsing were obtained. Controller instructed immediate stop and no further tools. These unperformed checks are not PASS."
+    },
+    {
+      "id": "scope-and-cleanup",
+      "result": "PARTIAL",
+      "evidence": "QA modified no shared application code, did not push/deploy, upload production/customer data or rerun imagegen/Pairvu. Original audit assets preserved. Local next-start session 32226 was started for QA and may remain running after aborted approval; controller stop instruction prohibited further cleanup tools. Controller should terminate that exact local QA server session as authorized cleanup."
+    }
+  ],
+  "findings": [
+    {
+      "priority": "P2",
+      "blocking": true,
+      "summary": "Unsupported human claim of can enlargement and recentering in a factual single-case report.",
+      "file": "app/examples/coca-cola-can-background-edit/page.tsx",
+      "line": 94
+    }
+  ],
+  "implementation": "Candidate contains scoped case page and three incoming links; factual correction required.",
+  "deployment": "Not performed or authorized by QA.",
+  "featureEnablement": "Not evaluated in production.",
+  "acceptance": "FAIL; required rendering/static-HTML detail also incomplete.",
+  "nextAction": {
+    "action": "Return to original developer for narrowly scoped factual correction; preserve original qa.json and all actual edit/result evidence. Controller must also stop local QA server session 32226. Then bind independent incremental acceptance to repaired candidate and complete previously blocked render/static-HTML check.",
+    "dependency": "Corrected candidate SHA and authorized working local browser environment.",
+    "automatic": true,
+    "needsUserInput": "Only if local browser escalation remains necessary; no production release authorization inferred."
+  }
+}
