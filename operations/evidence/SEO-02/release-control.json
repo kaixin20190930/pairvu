@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "candidateSha": "0e915b099c617b1d82e748240dd97b4463ce744c",
+  "reviewerThreadId": "/root/seo02_qa",
+  "result": "PASS",
+  "generatedAt": "2026-10-15T07:34:57.985292+00:00",
+  "derivedEvidence": true,
+  "derivation": "Schema-1 control import manifest derived by independent final reviewer from immutable original acceptance and exact-SHA incremental preflight. No new tests or production verification.",
+  "releasePreflight": {
+    "path": "operations/evidence/SEO-02/release-preflight.json",
+    "sha256": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0",
+    "result": "PASS",
+    "conclusion": "Final candidate contains accepted SEO-01 and SEO-02 candidates; subsequent 13-file diff is administrative/research/evidence only, with no runtime/build/SEO-page/asset differences."
+  },
+  "limits": [
+    "Acceptance and content preflight only; not release authorization or production verification.",
+    "Formal controller gates and repository production deployment rules remain applicable.",
+    "Original evidence is preserved; this is an explicitly derived import record."
+  ],
+  "unitId": "SEO-02",
+  "requiredEvidence": [
+    "fixed candidate SHA",
+    "independent QA report",
+    "source license and attribution record",
+    "actual edit and Pairvu result record"
+  ],
+  "sourceEvidence": [
+    {
+      "path": "operations/evidence/SEO-02/qa-recheck.json",
+      "sha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+    },
+    {
+      "path": "operations/evidence/SEO-02/test-manifest.json",
+      "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1"
+    },
+    {
+      "path": "operations/evidence/SEO-02/pairvu-result.json",
+      "sha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf"
+    }
+  ],
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "details": "Exact final SHA 0e915b099c617b1d82e748240dd97b4463ce744c includes repaired independently accepted SEO-02 candidate 170fd1dcd216b3b146d243883896ed862c3dbfd1. Preflight verified no later runtime/build/SEO-page/asset differences and confirmed candidate ancestry.",
+      "evidence": [
+        {
+          "path": "operations/evidence/SEO-02/qa-recheck.json",
+          "sha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+        },
+        {
+          "path": "operations/evidence/SEO-02/test-manifest.json",
+          "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1"
+        },
+        {
+          "path": "operations/evidence/SEO-02/pairvu-result.json",
+          "sha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf"
+        },
+        {
+          "path": "operations/evidence/SEO-02/release-preflight.json",
+          "sha256": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0"
+        }
+      ]
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "details": "Original independent PASS qa-recheck.json and exact-SHA release-preflight PASS are preserved with recorded hashes. Original qa.json FAIL remains immutable; this derived import manifest does not erase it or retroactively pass its unperformed render checks.",
+      "evidence": [
+        {
+          "path": "operations/evidence/SEO-02/qa-recheck.json",
+          "sha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+        },
+        {
+          "path": "operations/evidence/SEO-02/test-manifest.json",
+          "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1"
+        },
+        {
+          "path": "operations/evidence/SEO-02/pairvu-result.json",
+          "sha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf"
+        },
+        {
+          "path": "operations/evidence/SEO-02/release-preflight.json",
+          "sha256": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0"
+        }
+      ]
+    },
+    {
+      "name": "source license and attribution record",
+      "status": "PASS",
+      "details": "Source/license/attribution provenance in test-manifest and original QA was independently inspected: Ossewa, Commons source, 2018-05-01, CC BY-SA 4.0 and same-license adaptation/changes/endorsement limits. Accepted page and images are unchanged at final SHA per preflight.",
+      "evidence": [
+        {
+          "path": "operations/evidence/SEO-02/qa-recheck.json",
+          "sha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+        },
+        {
+          "path": "operations/evidence/SEO-02/test-manifest.json",
+          "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1"
+        },
+        {
+          "path": "operations/evidence/SEO-02/pairvu-result.json",
+          "sha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf"
+        },
+        {
+          "path": "operations/evidence/SEO-02/release-preflight.json",
+          "sha256": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0"
+        }
+      ]
+    },
+    {
+      "name": "actual edit and Pairvu result record",
+      "status": "PASS",
+      "details": "Preserved unique imagegen output and one actual Pairvu JSON are unchanged. Raw result SHA-256 matches manifest; verdict REVIEW, five of six sufficiently observable and match, major_shape_packaging not_observable. Repaired human observations separate lighting/surface changes and similar apparent frame placement from unmeasured pixel alignment. No model rerun.",
+      "evidence": [
+        {
+          "path": "operations/evidence/SEO-02/qa-recheck.json",
+          "sha256": "5645596de5c238e3a887e245dceeaeeae7b338ad02d4cb7b3f9ac29fa99af66f"
+        },
+        {
+          "path": "operations/evidence/SEO-02/test-manifest.json",
+          "sha256": "23bad46d2754d743bcd640ab0811ef24ab2be6b96d0361b9edef0f0764052fc1"
+        },
+        {
+          "path": "operations/evidence/SEO-02/pairvu-result.json",
+          "sha256": "376b50d9aac26ac0a15eed73626c264e3416ba75fd633491be8d1e6b02fdf8cf"
+        },
+        {
+          "path": "operations/evidence/SEO-02/release-preflight.json",
+          "sha256": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0"
+        }
+      ]
+    }
+  ]
+}
