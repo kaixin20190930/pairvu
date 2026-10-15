@@ -99,7 +99,7 @@
     "unitId": "SEO-02",
     "contract": "operations/contracts/SEO-02.md",
     "formalTracking": "BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
-    "formalTrackingReason": "旧单元生产验收按用户要求保留PARTIAL，控制CLI仍将其视为唯一活动单元；不得伪造完整生产manifest或手改关闭。SEO-01继续以固定候选SHA和独立QA原件跟踪，发布前必须解决正式状态门禁。",
+    "formalTrackingReason": "旧单元生产验收按用户要求保留PARTIAL，控制CLI仍将其视为唯一活动单元；不得伪造完整生产manifest或手改关闭。SEO-01与SEO-02以固定候选SHA和独立QA原件跟踪，发布前必须解决正式状态门禁。",
     "authorization": "一个开放许可真实商品图片实测及案例内页；不含push、生产发布或对外分发",
     "development": {
       "agent": "/root/seo02_developer",
@@ -119,7 +119,7 @@
       }
     },
     "qa": {
-      "agent": null,
+      "agent": "/root/seo02_qa",
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "独立核对固定SHA、公开许可、唯一输出、原始结果与页面一致性",
