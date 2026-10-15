@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "unitId": "SEO-02",
+  "qaCandidateSha": "0e915b099c617b1d82e748240dd97b4463ce744c",
+  "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+  "reviewerThreadId": "/root/seo02_qa",
+  "result": "PASS",
+  "reviewedAt": "2026-10-15T07:35:56.376389Z",
+  "checks": [
+    {
+      "name": "exact release HEAD and clean working tree",
+      "status": "PASS",
+      "details": "HEAD exactly e08ea130028655682d3e197136ec0e7c6f1704c4; git status --porcelain empty."
+    },
+    {
+      "name": "evidence-only release delta",
+      "status": "PASS",
+      "details": "Only the three expected evidence files were added; no runtime/build/SEO-page/asset differences.",
+      "files": [
+        "operations/evidence/SEO-01-release.json",
+        "operations/evidence/SEO-02/release-control.json",
+        "operations/evidence/SEO-02/release-preflight.json"
+      ]
+    },
+    {
+      "name": "release diff whitespace check",
+      "status": "PASS",
+      "details": "git diff --check 0e915b099c617b1d82e748240dd97b4463ce744c e08ea130028655682d3e197136ec0e7c6f1704c4 returned 0."
+    },
+    {
+      "name": "preserved evidence content and hashes",
+      "status": "PASS",
+      "details": "Exact release git blobs and working files match prior independently returned SHA-256 hashes and bind PASS to qaCandidateSha.",
+      "sha256": {
+        "operations/evidence/SEO-01-release.json": "f34f4feca59613c89eca105ad6d075e2b1dd4a87d3eed8b63cdd6edeb6b7d41f",
+        "operations/evidence/SEO-02/release-control.json": "995cdf7279d19880df6aad5459fbc52ab3a9be65d1a864eb2802bc0389f562b8",
+        "operations/evidence/SEO-02/release-preflight.json": "a803b75f6d049e61bb6ff0ebac19d14367588f5fa4cccce3af0f7b6984900cb0"
+      }
+    },
+    {
+      "name": "accepted QA candidate ancestry",
+      "status": "PASS",
+      "details": "git merge-base --is-ancestor 0e915b099c617b1d82e748240dd97b4463ce744c e08ea130028655682d3e197136ec0e7c6f1704c4 returned 0."
+    }
+  ],
+  "limitations": [
+    "Final release delta and evidence-integrity acceptance only; no new build, remote verification, deployment or production verification.",
+    "Original acceptance and exact QA-candidate preflight remain the source of runtime/SEO acceptance. No repository or formal control state changed by this review."
+  ]
+}

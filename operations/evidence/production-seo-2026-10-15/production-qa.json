@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 2,
+  "unitId": "SEO-02",
+  "qaCandidateSha": "0e915b099c617b1d82e748240dd97b4463ce744c",
+  "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+  "reviewerThreadId": "/root/seo02_qa",
+  "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3",
+  "scope": "http",
+  "result": "PASS",
+  "reviewedAt": "2026-10-15T07:48:27.772072Z",
+  "checks": [
+    {
+      "name": "production health exact release and platform version",
+      "status": "PASS",
+      "url": "https://pairvu.com/api/health",
+      "httpStatus": 200,
+      "buildSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+      "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3"
+    },
+    {
+      "name": "production content and contextual links /guides/keep-products-consistent-in-ai-images",
+      "status": "PASS",
+      "url": "https://pairvu.com/guides/keep-products-consistent-in-ai-images",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "Inspect the final export.",
+        "position and relative size appeared similar"
+      ],
+      "assertedMainLinks": [
+        "/checks/product-logo",
+        "/checks/product-label-text",
+        "/examples/coca-cola-can-background-edit"
+      ]
+    },
+    {
+      "name": "production content and contextual links /guides/compare-original-and-ai-product-images",
+      "status": "PASS",
+      "url": "https://pairvu.com/guides/compare-original-and-ai-product-images",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "Review in an order that prevents false confidence",
+        "Eligibility does not publish an image externally."
+      ],
+      "assertedMainLinks": [
+        "/checks/product-logo",
+        "/checks/product-label-text",
+        "/how-pairvu-works"
+      ]
+    },
+    {
+      "name": "production content and contextual links /checks/product-logo",
+      "status": "PASS",
+      "url": "https://pairvu.com/checks/product-logo",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "When an AI edit changes the logo or its lettering",
+        "does not identify unknown brands, repair logos"
+      ],
+      "assertedMainLinks": [
+        "/guides/keep-products-consistent-in-ai-images",
+        "/guides/compare-original-and-ai-product-images"
+      ]
+    },
+    {
+      "name": "production content and contextual links /checks/product-label-text",
+      "status": "PASS",
+      "url": "https://pairvu.com/checks/product-label-text",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "Catch product-name, variant, and amount drift after editing",
+        "no measured pixel alignment"
+      ],
+      "assertedMainLinks": [
+        "/guides/keep-products-consistent-in-ai-images",
+        "/guides/compare-original-and-ai-product-images",
+        "/examples/coca-cola-can-background-edit"
+      ]
+    },
+    {
+      "name": "production content and contextual links /use-cases/creative-agencies",
+      "status": "PASS",
+      "url": "https://pairvu.com/use-cases/creative-agencies",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "From the client brief to a recorded delivery decision",
+        "Freeze the brief and reference"
+      ],
+      "assertedMainLinks": [
+        "/account/products",
+        "/account/batches/new",
+        "/account/releases"
+      ]
+    },
+    {
+      "name": "production content and contextual links /how-pairvu-works",
+      "status": "PASS",
+      "url": "https://pairvu.com/how-pairvu-works",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "Start with one pair or a batch of final candidates",
+        "Keep three decisions distinct",
+        "Export a record for the next handoff"
+      ],
+      "assertedMainLinks": [
+        "/guides/compare-original-and-ai-product-images",
+        "/pricing",
+        "/use-cases/creative-agencies"
+      ]
+    },
+    {
+      "name": "production content and contextual links /examples/coca-cola-can-background-edit",
+      "status": "PASS",
+      "url": "https://pairvu.com/examples/coca-cola-can-background-edit",
+      "httpStatus": 200,
+      "assertedPhrases": [
+        "Pairvu’s single local result: REVIEW",
+        "5 of 6 selected checks",
+        "not_observable",
+        "Partial coverage",
+        "Ossewa",
+        "May 1, 2018",
+        "CC BY-SA 4.0",
+        "same license",
+        "historical 2018 packaging",
+        "no precise pixel-alignment measurement",
+        "does not imply Coca-Cola"
+      ],
+      "assertedMainLinks": [
+        "https://commons.wikimedia.org/wiki/File:Coca-Cola_330ml_can.jpg",
+        "https://creativecommons.org/licenses/by-sa/4.0/"
+      ]
+    },
+    {
+      "name": "production image availability original.jpg",
+      "status": "PASS",
+      "url": "https://pairvu.com/examples/coca-cola-can-background-edit/original.jpg",
+      "httpStatus": 200,
+      "sha256": "88e32149a0c6d97d519edd24f5179f0bbf5d1fe14308358c9d7617db8b563924",
+      "bytes": 1217297
+    },
+    {
+      "name": "production image availability candidate.png",
+      "status": "PASS",
+      "url": "https://pairvu.com/examples/coca-cola-can-background-edit/candidate.png",
+      "httpStatus": 200,
+      "sha256": "95509d417dc34aa96695cddf65e8b7a5bfc740cb729891e82c83c6ef6d93be05",
+      "bytes": 1833433
+    },
+    {
+      "name": "production sitemap seven accepted URLs",
+      "status": "PASS",
+      "url": "https://pairvu.com/sitemap.xml",
+      "httpStatus": 200,
+      "actualUrlCount": 67,
+      "requiredPaths": [
+        "/guides/keep-products-consistent-in-ai-images",
+        "/guides/compare-original-and-ai-product-images",
+        "/checks/product-logo",
+        "/checks/product-label-text",
+        "/use-cases/creative-agencies",
+        "/how-pairvu-works",
+        "/examples/coca-cola-can-background-edit"
+      ]
+    }
+  ],
+  "limits": [
+    "Read-only public GET checks only. No login, payment, customer data, model call, image generation, rank/indexation verification, visual browser rendering or model-quality assessment.",
+    "Production response provides exact build SHA/platform version. This HTTP acceptance does not replace separate business acceptance outside the frozen SEO scope."
+  ]
+}

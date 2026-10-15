@@ -98,9 +98,9 @@
   "queuedWork": {
     "unitId": "SEO-02",
     "contract": "operations/contracts/SEO-02.md",
-    "formalTracking": "BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
-    "formalTrackingReason": "旧单元生产验收按用户要求保留PARTIAL，控制CLI仍将其视为唯一活动单元；不得伪造完整生产manifest或手改关闭。SEO-01与SEO-02以固定候选SHA和独立QA原件跟踪，发布前必须解决正式状态门禁。",
-    "authorization": "一个开放许可真实商品图片实测及案例内页；不含push、生产发布或对外分发",
+    "formalTracking": "PRODUCTION_VERIFIED_OUTSIDE_FORMAL_CLI_DUE_TO_JRN-04-FIX_RELEASE_READY",
+    "formalTrackingReason": "旧JRN-04-FIX按用户要求保留PARTIAL，正式CLI不能在不伪造完整PASS的情况下释放槽位；SEO发布和独立生产验收原件已保存，未手改control。",
+    "authorization": "2026-10-15 用户授权继续发布SEO-01/SEO-02至GitHub和Cloudflare并完成生产验收",
     "development": {
       "agent": "/root/seo02_developer",
       "model": "gpt-6.1-sol",
@@ -143,9 +143,17 @@
       "result": "PASS"
     },
     "nextUnitId": null,
-    "releaseState": "LOCAL_CANDIDATE_ONLY_NOT_PUSHED_OR_DEPLOYED",
+    "releaseState": "PRODUCTION_VERIFIED",
     "formalState": "QA_PASS_UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
-    "nextAction": "等待用户另行授权发布SEO-01/SEO-02；发布前先解决控制器旧JRN-04-FIX正式活动状态，并按GitHub-first核验同一发布提交。不会自动发布或对外分发。"
+    "nextAction": "观察抓取与内容到checker转化，准备两份渠道稿和五个高相关合作对象候选；实际外发需用户明确授权。",
+    "release": {
+      "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+      "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3",
+      "deploymentId": "51601e6b-76ea-49a8-a8ed-7157d5254843",
+      "remoteSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+      "productionAcceptance": "PASS",
+      "evidence": "operations/evidence/production-seo-2026-10-15/release-record.json"
+    }
   },
   "completedQueuedWork": [
     {
@@ -157,7 +165,9 @@
       "evidence": "operations/evidence/SEO-01.json",
       "evidenceSha256": "0a84ab4d23c03d559b3955a2269ffd454fd33dd149a852579d40ae6a9f9617da",
       "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
-      "releaseState": "LOCAL_CANDIDATE_ONLY_NOT_PUSHED_OR_DEPLOYED"
+      "releaseState": "PRODUCTION_VERIFIED",
+      "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+      "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3"
     }
   ],
   "production": {
@@ -550,5 +560,16 @@
     "imagesCleanupComplete": true,
     "remainingProductionAcceptance": "PARTIAL",
     "resultEvidence": "operations/evidence/production-jrn04-fix-2026-10-13/cleanup-handoff.json"
+  },
+  "seoProduction": {
+    "status": "PROD_VERIFIED",
+    "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+    "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3",
+    "deploymentId": "51601e6b-76ea-49a8-a8ed-7157d5254843",
+    "scope": "six revised pages plus one licensed real-product case",
+    "independentAcceptance": "PASS",
+    "evidenceDirectory": "operations/evidence/production-seo-2026-10-15",
+    "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+    "externalDistribution": "NOT_STARTED"
   }
 }

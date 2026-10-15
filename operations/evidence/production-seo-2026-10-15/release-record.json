@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "units": ["SEO-01", "SEO-02"],
+  "environment": "production",
+  "origin": "https://pairvu.com",
+  "releaseSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+  "remote": "origin",
+  "branch": "main",
+  "remoteSha": "e08ea130028655682d3e197136ec0e7c6f1704c4",
+  "freshFetchCheckedAt": "2026-10-15T07:37:45.551Z",
+  "migration": {
+    "conclusion": "not_required",
+    "result": "PASS",
+    "basis": "No migrations/ diff from prior deployed release a359c2d9bc1ed9f9e9e971e822e3a3e9696e4a7d to this release."
+  },
+  "build": {
+    "result": "PASS",
+    "initialCheckedAt": "2026-10-15T07:44:19.735Z",
+    "completedAt": "2026-10-15T07:45:10.387Z",
+    "artifactSha256": "8f7d0c5fb44531b4c4eec86db067174b5730a8561dec9e01cfb110b1cdc9cc2a"
+  },
+  "deployment": {
+    "result": "PASS",
+    "deploymentId": "51601e6b-76ea-49a8-a8ed-7157d5254843",
+    "platformVersion": "45863c89-a175-46c0-b783-1b88b06db0d3",
+    "completedAt": "2026-10-15T07:46:50.141041Z"
+  },
+  "productionAcceptance": {
+    "result": "PASS",
+    "scope": "public HTTP checks for the six revised pages, one real-product case, two published image assets, sitemap and exact health source",
+    "reviewedAt": "2026-10-15T07:48:27.772072Z",
+    "report": "production-qa.json"
+  },
+  "formalControl": {
+    "status": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+    "reason": "The legacy JRN-04-FIX production matrix was intentionally stopped as PARTIAL. The CLI cannot close or supersede it without a complete PASS manifest; its state was not hand-edited or falsified."
+  },
+  "recordedAt": "2026-10-15T07:49:22Z"
+}
