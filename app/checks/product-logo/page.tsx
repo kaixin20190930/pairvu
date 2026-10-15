@@ -60,6 +60,13 @@ export default function ProductLogoCheckPage() {
           <p>{approvedContent.scopeDistinction}</p>
         </section>
 
+        <section className="article-section" aria-labelledby="logo-editing">
+          <h2 id="logo-editing">When an AI edit changes the logo or its lettering</h2>
+          <p>A background edit can leave a convincing bottle while redrawing its symbol, wordmark letters, or approved arrangement. Compare the exact approved mark on the same package face before deciding whether typography reflects a real identity change or only perspective, shadow, or insufficient resolution.</p>
+          <p>Start with the <Link className="text-link" href="/guides/keep-products-consistent-in-ai-images">workflow for keeping product identity consistent during edits</Link>, then use the <Link className="text-link" href="/guides/compare-original-and-ai-product-images">original-to-candidate comparison steps</Link> on the final export. The <Link className="text-link" href="/examples/logo-change-ai-product-image">controlled symbol-replacement example</Link> shows a confirmed change; the <Link className="text-link" href="/examples/partially-hidden-product-logo">covered-wordmark example</Link> needs REVIEW because the full mark cannot be verified.</p>
+          <p>This is a comparison against your supplied reference. Pairvu does not identify unknown brands, repair logos, or certify trademark ownership.</p>
+        </section>
+
         <section className="article-section" aria-labelledby="logo-model">
           <p className="section-label">Brand identity evidence model</p>
           <h2 id="logo-model">Seven layers that distinguish a logo from nearby artwork</h2>
@@ -178,7 +185,7 @@ export default function ProductLogoCheckPage() {
           <h2>Approve the identity, not only a familiar package</h2>
           <p>Compare the approved mark with the final export, correct confirmed replacements, and request a clear brand-area view when required identity evidence is hidden.</p>
           <div className="content-actions">
-            <Link className="primary-link-button" href="/#checker">Check image</Link>
+            <Link className="text-link" href="/#checker">Compare the final export</Link>
             <Link className="text-link" href="/checks">See all product checks</Link>
             <Link className="text-link" href="/categories/cosmetics-product-image-qa">Use the Cosmetics workflow</Link>
             <Link className="text-link" href="/guides/ai-product-photography-checklist">Use the pre-publish checklist</Link>
@@ -186,6 +193,7 @@ export default function ProductLogoCheckPage() {
         </section>
 
         <p className="content-updated">Evidence and decision model reviewed {approvedContent.founderApprovedAt}.</p>
+        <p className="content-updated">Workflow and links updated: October 15, 2026.</p>
       </div>
     </main>
   );

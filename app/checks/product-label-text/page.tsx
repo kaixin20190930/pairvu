@@ -60,6 +60,13 @@ export default function ProductLabelTextCheckPage() {
           <p>{approvedContent.scopeDistinction}</p>
         </section>
 
+        <section className="article-section" aria-labelledby="label-text-editing">
+          <h2 id="label-text-editing">Catch product-name, variant, and amount drift after editing</h2>
+          <p>Before comparing a final export, confirm the approved SKU and packaging version. Read the product name and variant first, then compare capacity, count, digits, and units on the corresponding label face. A familiar layout cannot establish that Vanilla stayed Vanilla or that 330 mL stayed 330 mL.</p>
+          <p>The <Link className="text-link" href="/examples/label-value-change-ai-product-image">controlled 330 mL to 500 mL example</Link> isolates a readable value change. The <Link className="text-link" href="/examples/unreadable-product-label-text">unreadable-label example</Link> instead requires REVIEW. Request a sharper export or corresponding view, then rerun; unreadable text cannot support an exact match or a confirmed text change.</p>
+          <p>Use the <Link className="text-link" href="/guides/keep-products-consistent-in-ai-images">consistency workflow during background and scene edits</Link> and the <Link className="text-link" href="/guides/compare-original-and-ai-product-images">original-to-candidate comparison guide</Link> before approval. Pairvu provides visible text comparison, not an OCR transcription service or regulatory certification of label claims.</p>
+        </section>
+
         <section className="article-section" aria-labelledby="label-text-model">
           <p className="section-label">Text evidence model</p>
           <h2 id="label-text-model">Five label-text layers with different approval risk</h2>
@@ -177,7 +184,7 @@ export default function ProductLabelTextCheckPage() {
           <h2>Approve the words, not just the look of the label</h2>
           <p>Compare the approved package image with the final export, then correct readable drift or request the exact view needed to resolve uncertain text.</p>
           <div className="content-actions">
-            <Link className="primary-link-button" href="/#checker">Check image</Link>
+            <Link className="text-link" href="/#checker">Compare the final export</Link>
             <Link className="text-link" href="/checks">See all product checks</Link>
             <Link className="text-link" href="/categories/cosmetics-product-image-qa">Use the Cosmetics workflow</Link>
             <Link className="text-link" href="/guides/ai-product-photography-checklist">Use the pre-publish checklist</Link>
@@ -185,6 +192,7 @@ export default function ProductLabelTextCheckPage() {
         </section>
 
         <p className="content-updated">Evidence and decision model reviewed {approvedContent.founderApprovedAt}.</p>
+        <p className="content-updated">Workflow and links updated: October 15, 2026.</p>
       </div>
     </main>
   );
