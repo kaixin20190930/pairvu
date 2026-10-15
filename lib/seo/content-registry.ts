@@ -35,6 +35,27 @@ export type BreadcrumbItem = {
 
 export const seoPages: readonly SeoPage[] = [
   {
+    route: "/examples/coca-cola-can-background-edit",
+    family: "case_study",
+    status: "published",
+    primaryKeyword: "AI background edit preserve product label",
+    ownedSecondaryKeywords: ["real can background edit label preservation test"],
+    supportingTopics: ["single licensed photograph edit", "machine match and human review", "historical package label"],
+    intent: "Inspect one licensed real-can background edit and its single local Pairvu REVIEW result, including label evidence and composition limitations.",
+    parentRoute: "/examples",
+    relatedRoutes: ["/examples", "/checks/product-label-text", "/checks/product-image-observability", "/guides/keep-products-consistent-in-ai-images"],
+    title: "Does an AI Background Edit Preserve the Product Label?",
+    h1: "Does an AI Background Edit Preserve the Product Label?",
+    description: "One historical Coca-Cola can photo, one background edit, and one local Pairvu run: REVIEW, with five observable checks and disclosed composition changes.",
+    indexable: true,
+    sitemapPriority: 0.7,
+    changeFrequency: "monthly",
+    publishedAt: "2026-10-15",
+    updatedAt: "2026-10-15",
+    evidenceSource: "Ossewa CC BY-SA 4.0 Commons photograph; one imagegen edit and one local Pairvu run with recorded human observations",
+    evidenceDate: "2026-10-15",
+  },
+  {
     route: "/",
     family: "product",
     status: "published",
@@ -91,6 +112,7 @@ export const seoPages: readonly SeoPage[] = [
     intent: "See the kinds of visible product changes that require pre-publish review.",
     parentRoute: "/",
     relatedRoutes: [
+      "/examples/coca-cola-can-background-edit",
       "/",
       "/ai-product-photography",
       "/examples/logo-change-ai-product-image",

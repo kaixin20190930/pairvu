@@ -338,6 +338,12 @@ export default function ExamplesPage() {
           </Link>
         </section>
 
+        <section className="article-section" aria-labelledby="licensed-photo-edit">
+          <p className="section-label">Licensed real photograph · Single edit</p>
+          <h2 id="licensed-photo-edit">Did a background edit preserve the product label?</h2>
+          <p>Our <Link className="text-link" href="/examples/coca-cola-can-background-edit">historical Coca-Cola can background-edit case</Link> records one actual AI output and one local Pairvu comparison. The result was REVIEW: five checks were sufficiently observable, while packaging shape remained uncertain. Human observations also disclose composition and surface-rendering changes. The case includes the original photograph, edited image, source attribution, and CC BY-SA 4.0 terms.</p>
+        </section>
+
         <section className="article-section wide-article-section" aria-labelledby="real-comparisons">
           <h2 id="real-comparisons">Original and candidate comparisons</h2>
           <p>
