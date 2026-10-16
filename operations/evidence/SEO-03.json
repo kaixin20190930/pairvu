@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "unitId": "SEO-03",
+  "candidateSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
+  "baselineSha": "3b7a12670231d8b8336033ed0db9e940780445cb",
+  "reviewerThreadId": "/root/seo02_qa",
+  "result": "PASS",
+  "generatedAt": "2026-10-16T14:29:48.345731Z",
+  "modelSelection": {
+    "model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "reason": "Bounded React analytics/storage and homepage-content review with deterministic synthetic counterexamples.",
+    "upgradeCondition": "Substantive cross-session attribution or event-idempotency semantic conflict; no escalation required."
+  },
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "details": "HEAD exactly 1471419b2e04c4f8b91902d97bc34803f601ebf8; complete baseline..candidate seven-file diff reviewed; git status --short empty before QA evidence creation; git diff --check returned 0."
+    },
+    {
+      "name": "independent QA report",
+      "status": "PASS",
+      "details": "Independent reviewer /root/seo02_qa read constitution, operations entry/controller/model rules and SEO-03 frozen contract; modified no runtime code or formal state."
+    },
+    {
+      "name": "content landing normal path and shared anonymous actor",
+      "status": "PASS",
+      "details": "Independent in-memory TypeScript transpilation and minimal synthetic React effect/storage/fetch execution used actual ContentLandingAnalytics, ActivationView and client functions. Published /guides/compare-original-and-ai-product-images produced landing_view with surface=content, matching route/content_id and page_family=guide. Stable rerender produced no extra effect. Subsequent synthetic homepage checker_started used same anonymousSessionId and retained qa-content UTM. Existing ProductChecker capture/event wiring independently read; its actor helper and acquisition context remain the same functions."
+    },
+    {
+      "name": "excluded routes and session first touch counterexamples",
+      "status": "PASS",
+      "details": "Independent actual component calls returned null for /, /account, /sign-in, /unknown and unpublished /guides/not-published, including account/sign-in intentionally supplied in route allowlist. Synthetic fresh sessionStorage did not inherit stale localStorage sessionAttribution; durable anonymous actor and firstTouch remained. Later incoming UTM did not overwrite firstTouch. No client/storage persistence API or event schema migration added."
+    },
+    {
+      "name": "homepage H1 real case and original controlled examples",
+      "status": "PASS",
+      "details": "Existing built home HTML has exactly one H1: AI Product Image Checker: Did AI Change Your Product? Actual main anchors include Coca-Cola case and original three laundry-sheets controlled FAIL/PASS/REVIEW cases. Visible text accurately says One Coca-Cola can background edit received REVIEW and This single local run is not an accuracy estimate.; original controlled/customer/statistical disclaimer retained. Full source diff confirms examples array was not replaced.",
+      "htmlPath": ".next/server/app/index.html",
+      "htmlSha256": "ed666dc4156a391206063d66a47efe9f087a54c86f5100129b6ac60155c3ad53"
+    },
+    {
+      "name": "focused product analytics verification",
+      "status": "PASS",
+      "command": "pnpm test:product-analytics",
+      "exitCode": 0,
+      "details": "Content acquisition, exclusions, actor continuity, fresh storage, first touch, idempotency wiring and existing ownership/observability verification passed."
+    },
+    {
+      "name": "focused activation verification",
+      "status": "PASS",
+      "command": "pnpm test:activation-experience",
+      "exitCode": 0
+    },
+    {
+      "name": "typecheck",
+      "status": "PASS",
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "name": "SEO inventory",
+      "status": "PASS",
+      "command": "pnpm exec tsx scripts/verify-seo-inventory.ts",
+      "exitCode": 0,
+      "details": "67 published routes, 151 source files, 67 sitemap entries."
+    },
+    {
+      "name": "reuse exact candidate build",
+      "status": "PASS",
+      "details": "Controller relayed original developer one pnpm build exit 0, 74/74 static pages, with no separate original log retained. QA independently opened extant .next/required-server-files.json and verified config.env.PAIRVU_BUILD_SHA exactly matches candidate; existing BUILD_ID and built home HTML inspected. Candidate source/working tree unchanged. No build rerun.",
+      "buildSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
+      "buildId": "_6zVD7qkU4mIqRV5dEKam",
+      "provenanceLimit": "Build command completion is reused developer evidence; exact manifest and built HTML independently inspected by QA."
+    },
+    {
+      "name": "write boundaries and cleanup",
+      "status": "PASS",
+      "details": "Only QA evidence written in repository. Synthetic events intercepted in memory; no actual event API request, model/image call, customer asset, account, database write, new server/browser process, push/deploy or control-state mutation. No synthetic assets require cleanup."
+    }
+  ],
+  "limitations": [
+    "Synthetic browser storage/effect/fetch tests and existing built HTML inspection; no full browser/E2E production check. Fresh-session isolation tested with an empty sessionStorage object, not browser-specific opener/duplicate-tab cloning behavior.",
+    "Anonymous session ID remains the pre-existing durable localStorage identifier; session source now lives in sessionStorage. Durable identity was deliberately preserved under the contract.",
+    "Existing ActivationView idempotency key is reused for per-route landing; no new event type or database behavior introduced. Synthetic stable rerender and source wiring checked; no production event-count/analytics report assertions.",
+    "No GSC/rankings, external distribution, payment/login/customer-data or model-quality checks. No production deployment/enablement/verification."
+  ],
+  "implementation": "Accepted at exact candidate; existing event and storage semantics reused with scoped session-source storage change.",
+  "deployment": "Not performed or authorized by this QA.",
+  "featureEnablement": "No production enablement checked.",
+  "acceptance": "Independent local bounded PASS.",
+  "nextAction": {
+    "action": "Controller may record independent PASS through formal CLI if its existing gate permits and advance to release-ready; preserve any legacy JRN-04-FIX blocker rather than overriding it. Stop absent explicit production release authorization.",
+    "dependency": "Formal-controller availability and future explicit production authorization.",
+    "automatic": "Controller handles authorized local acceptance/state bookkeeping; production requires user authorization."
+  }
+}

@@ -604,7 +604,15 @@
       "production release",
       "external distribution"
     ],
-    "status": "SCOPED",
-    "nextAction": "原开发完成单一候选后，由原独立QA做固定SHA最小验收。"
+    "status": "LOCAL_ACCEPTED",
+    "candidateSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
+    "acceptance": {
+      "result": "PASS",
+      "reviewer": "/root/seo02_qa",
+      "evidence": "operations/evidence/SEO-03.json",
+      "scope": "固定SHA下的内容落地归因、会话隔离反例、首页H1与真实REVIEW案例入口",
+      "productionVerified": false
+    },
+    "nextAction": "等待用户明确授权后按GitHub-first规则发布；未授权前不推送或部署。"
   }
 }
