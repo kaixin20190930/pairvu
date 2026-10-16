@@ -571,5 +571,40 @@
     "evidenceDirectory": "operations/evidence/production-seo-2026-10-15",
     "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
     "externalDistribution": "NOT_STARTED"
+  },
+  "seo03": {
+    "unitId": "SEO-03",
+    "contract": "operations/contracts/SEO-03.md",
+    "authorization": "本地开发与独立验收；不含生产发布或站外分发",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "agent": "/root/seo01_developer",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "局部React、浏览器存储和既有事件语义改动，范围明确，无需最高档",
+      "upgradeCondition": "若事件schema或数据库必须迁移则停止报告，不自动扩建"
+    },
+    "qa": {
+      "agent": "/root/seo02_qa",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "固定SHA下核对会话隔离、landing反例和首页真实表达",
+      "upgradeCondition": "出现跨会话归因或事件幂等语义冲突再评估high"
+    },
+    "scope": [
+      "public content landing_view reuse",
+      "session-scoped attribution",
+      "homepage combined H1",
+      "real case contextual link"
+    ],
+    "excluded": [
+      "new event schema or migration",
+      "new SEO routes",
+      "new analytics platform",
+      "production release",
+      "external distribution"
+    ],
+    "status": "SCOPED",
+    "nextAction": "原开发完成单一候选后，由原独立QA做固定SHA最小验收。"
   }
 }

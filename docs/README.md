@@ -78,6 +78,8 @@ The product is not successful because a model can compare two images. It is succ
 
 ## Current Organic Acquisition Decision
 
+- [2026-10-16 SEO 与转化完整优化方案](03-growth/seo-complete-optimization-plan-2026-10-16.md)：对照当前生产站修正外部“从零建设”方案，给出数据、归因、真实案例、技术 SEO、分发和 90 天执行路线。
+
 - Pairvu is the brand.
 - `AI product image checker` is the product category and is owned by `/`.
 - `AI product photography` is the market topic and is owned by

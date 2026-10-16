@@ -433,6 +433,20 @@
         "source license and attribution record",
         "actual edit and Pairvu result record"
       ]
+    },
+    {
+      "id": "SEO-03",
+      "title": "内容归因与首页可信表达小修",
+      "priority": 1,
+      "dependsOn": [],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "content landing attribution and session isolation",
+        "homepage truthful evidence entry"
+      ]
     }
   ]
 }
