@@ -34,11 +34,14 @@ async function main() {
     "/examples/laundry-sheets-background-change",
     "/examples/laundry-sheets-back-view-review",
     "/examples/controlled-visual-qa-benchmark",
+    "/examples/coca-cola-can-background-edit",
     "/examples",
   ]) {
     assert.match(examples, new RegExp(escapeRegExp(href)));
   }
   assert.match(examples, /controlled examples, not customer case studies/i);
+  assert.match(examples, /One Coca-Cola can background edit received REVIEW/);
+  assert.match(checker, /<h1 id="headline">AI Product Image Checker: Did AI Change Your Product\?<\/h1>/);
 
   assert.match(checker, /Use two views that make the same product details observable/);
   assert.match(checker, /billingContext\.available === 0/);

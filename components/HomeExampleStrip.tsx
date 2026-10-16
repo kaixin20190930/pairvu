@@ -74,6 +74,17 @@ export function HomeExampleStrip() {
           </ActivationLink>
         ))}
       </div>
+      <p>
+        See a real product edit too:{" "}
+        <ActivationLink
+          className="text-link"
+          eventName="example_cta_clicked"
+          href="/examples/coca-cola-can-background-edit"
+          properties={{ surface: "home_example_strip", destination: "/examples/coca-cola-can-background-edit", verdict: "review" }}
+        >
+          One Coca-Cola can background edit received REVIEW
+        </ActivationLink>. This single local run is not an accuracy estimate.
+      </p>
       <p className="home-example-benchmark">
         Need the complete test design?{" "}
         <ActivationLink

@@ -29,7 +29,7 @@ export function getAnonymousSessionId() {
 
 export function captureAcquisitionContext(): ClientAcquisitionContext {
   const incoming = readIncomingAttribution();
-  const existingSession = readStoredAttribution(SESSION_ATTRIBUTION_KEY);
+  const existingSession = readStoredAttribution(SESSION_ATTRIBUTION_KEY, window.sessionStorage);
   const sessionAttribution = hasAttribution(incoming) ? incoming : existingSession;
   const firstTouch = readStoredAttribution(FIRST_TOUCH_KEY);
 
@@ -37,7 +37,7 @@ export function captureAcquisitionContext(): ClientAcquisitionContext {
     storeAttribution(FIRST_TOUCH_KEY, sessionAttribution);
   }
 
-  storeAttribution(SESSION_ATTRIBUTION_KEY, sessionAttribution);
+  storeAttribution(SESSION_ATTRIBUTION_KEY, sessionAttribution, window.sessionStorage);
 
   let pageViewId = window.sessionStorage.getItem(PAGE_VIEW_KEY);
   if (!pageViewId) {
@@ -115,8 +115,8 @@ function externalReferrerDomain() {
   }
 }
 
-function readStoredAttribution(key: string): AcquisitionAttribution {
-  const stored = window.localStorage.getItem(key);
+function readStoredAttribution(key: string, storage: Storage = window.localStorage): AcquisitionAttribution {
+  const stored = storage.getItem(key);
   if (!stored) return {};
 
   try {
@@ -126,8 +126,24 @@ function readStoredAttribution(key: string): AcquisitionAttribution {
   }
 }
 
-function storeAttribution(key: string, attribution: AcquisitionAttribution) {
-  window.localStorage.setItem(key, JSON.stringify(compactAttribution(attribution)));
+function storeAttribution(key: string, attribution: AcquisitionAttribution, storage: Storage = window.localStorage) {
+  storage.setItem(key, JSON.stringify(compactAttribution(attribution)));
+}
+
+export function contentLandingProperties(pathname: string, publishedRoutes: readonly string[]) {
+  if (!publishedRoutes.includes(pathname)) return null;
+  const prefix = pathname.split("/")[1];
+  const pageFamily = ({
+    guides: "guide",
+    examples: "example",
+    checks: "check",
+    categories: "category",
+    "use-cases": "use_case",
+    "how-pairvu-works": "guide",
+    "ai-product-photography": "market",
+  } as Record<string, string>)[prefix];
+  if (!pageFamily) return null;
+  return { surface: "content", route: pathname, content_id: pathname, page_family: pageFamily };
 }
 
 function compactAttribution(attribution: AcquisitionAttribution): AcquisitionAttribution {

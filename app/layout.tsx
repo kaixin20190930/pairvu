@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ContentLandingAnalytics } from "@/components/ContentLandingAnalytics";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StructuredData } from "@/components/StructuredData";
-import { organizationSchema } from "@/lib/seo/content-registry";
+import { organizationSchema, seoPages } from "@/lib/seo/content-registry";
 import "./globals.css";
 
 const productionUrl = new URL("https://pairvu.com");
@@ -43,6 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StructuredData data={organizationSchema()} />
+        <ContentLandingAnalytics publishedRoutes={seoPages.filter((page) => page.status === "published" && page.indexable).map((page) => page.route)} />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

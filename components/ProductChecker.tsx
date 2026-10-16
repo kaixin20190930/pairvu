@@ -834,7 +834,7 @@ export function ProductChecker() {
       <div className="checker-header">
         <div>
           <p className="eyebrow">Pairvu AI product image checker</p>
-          <h1 id="headline">Did AI change your product?</h1>
+          <h1 id="headline">AI Product Image Checker: Did AI Change Your Product?</h1>
           <p className="positioning-line">Quality control for AI product photography.</p>
           <p className="lede">
             Pairvu compares a real or approved reference image with an AI-generated, edited, or candidate image. The
