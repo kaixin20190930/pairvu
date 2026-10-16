@@ -604,15 +604,23 @@
       "production release",
       "external distribution"
     ],
-    "status": "LOCAL_ACCEPTED",
+    "status": "PROD_VERIFIED",
     "candidateSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
     "acceptance": {
       "result": "PASS",
       "reviewer": "/root/seo02_qa",
       "evidence": "operations/evidence/SEO-03.json",
       "scope": "固定SHA下的内容落地归因、会话隔离反例、首页H1与真实REVIEW案例入口",
-      "productionVerified": false
+      "productionVerified": true
     },
-    "nextAction": "等待用户明确授权后按GitHub-first规则发布；未授权前不推送或部署。"
+    "production": {
+      "releaseSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+      "platformVersion": "cb83041c-829b-48f8-a4bc-a31450660d52",
+      "result": "PASS",
+      "scope": "只读health、首页内容与一个公开guide；未写生产事件",
+      "evidenceDirectory": "operations/evidence/production-seo03-2026-10-16",
+      "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
+    },
+    "nextAction": "准备首轮站外分发与下一例开放许可真实商品案例；对外发送或发布前需要用户明确授权。"
   }
 }

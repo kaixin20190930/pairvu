@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "unitId": "SEO-03",
+  "environment": "production",
+  "origin": "https://pairvu.com",
+  "qaCandidateSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
+  "releaseSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+  "remote": "origin",
+  "branch": "main",
+  "remoteSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+  "freshFetchCheckedAt": "2026-10-16T14:34:46.184Z",
+  "migration": {
+    "result": "PASS",
+    "conclusion": "not_required",
+    "basis": "No migration files changed from prior production release e08ea130028655682d3e197136ec0e7c6f1704c4 to this release."
+  },
+  "build": {
+    "result": "PASS",
+    "embeddedBuildSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+    "artifactSha256": "1adeadc89ffd5e2cbeb7d3ab28fa6aa39344fa48fd926dee25e5130a6199fbbc",
+    "staticPages": "74/74"
+  },
+  "deployment": {
+    "result": "PASS",
+    "platformVersion": "cb83041c-829b-48f8-a4bc-a31450660d52",
+    "completedAt": "2026-10-16T14:36:41.771Z",
+    "note": "Cloudflare version list and exact production health confirmed completion after the local wrapper output ended before its final marker; the dead wrapper PID and stale release lock were inspected before the lock was removed. No deployment was replayed."
+  },
+  "productionAcceptance": {
+    "result": "PASS",
+    "scope": "read-only health, homepage content and one published guide",
+    "report": "production-qa.json",
+    "reviewedAt": "2026-10-16T14:39:03.925386Z",
+    "eventIngestion": "NOT_WRITTEN_OR_VERIFIED"
+  },
+  "formalControl": {
+    "status": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+    "reason": "The existing formal controller slot remains occupied by legacy JRN-04-FIX. SEO-03 status was not hand-edited into .pairvu-control."
+  },
+  "recordedAt": "2026-10-16T14:39:20Z"
+}

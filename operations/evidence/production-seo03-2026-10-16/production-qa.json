@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "unitId": "SEO-03",
+  "qaCandidateSha": "1471419b2e04c4f8b91902d97bc34803f601ebf8",
+  "releaseSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+  "reviewerThreadId": "/root/seo02_qa",
+  "platformVersion": "cb83041c-829b-48f8-a4bc-a31450660d52",
+  "scope": "http",
+  "result": "PASS",
+  "reviewedAt": "2026-10-16T14:39:03.925386Z",
+  "checks": [
+    {
+      "name": "production health exact build and platform version",
+      "status": "PASS",
+      "url": "https://pairvu.com/api/health",
+      "httpStatus": 200,
+      "buildSha": "9b8d67cf76523a1a86f7bdcd9e45364d2d2e1e9a",
+      "platformVersion": "cb83041c-829b-48f8-a4bc-a31450660d52"
+    },
+    {
+      "name": "production homepage H1 real case and controlled links",
+      "status": "PASS",
+      "url": "https://pairvu.com/",
+      "httpStatus": 200,
+      "h1": [
+        "AI Product Image Checker: Did AI Change Your Product?"
+      ],
+      "requiredMainLinks": [
+        "/examples/coca-cola-can-background-edit",
+        "/examples/laundry-sheets-scent-count-change",
+        "/examples/laundry-sheets-background-change",
+        "/examples/laundry-sheets-back-view-review"
+      ],
+      "requiredVisiblePhrases": [
+        "One Coca-Cola can background edit received REVIEW",
+        "This single local run is not an accuracy estimate.",
+        "These are controlled examples, not customer case studies or statistical performance claims."
+      ],
+      "responseSha256": "6fbdffce0b4c962fd6385785d561d8670122a1c2284652c085e8587bb7b36c3d"
+    },
+    {
+      "name": "published guide public availability",
+      "status": "PASS",
+      "url": "https://pairvu.com/guides/compare-original-and-ai-product-images",
+      "httpStatus": 200,
+      "h1": [
+        "How to Compare Original and AI Product Images"
+      ],
+      "requiredVisiblePhrase": "Prepare images that can be compared",
+      "responseSha256": "5b2187437dc7ffb0338cd3a5fd2c99df7f308b7673b72f4df813889b554b3639"
+    },
+    {
+      "name": "reuse independent local semantics at unchanged runtime",
+      "status": "PASS",
+      "details": "Candidate is ancestor of release; complete subsequent diff is docs/operations only. Direct runtime/config/dependency path diff is empty. Original independent local QA PASS hash unchanged; reuse actual content landing wiring, anonymous actor continuity, excluded-route and fresh-session/first-touch checks without production event writes.",
+      "qaEvidence": "operations/evidence/SEO-03.json",
+      "qaEvidenceSha256": "cce23a98f72c7a686ce6a097f656d4541b25881e15baa66b3afbb0573d261d6a",
+      "administrativeFiles": [
+        "docs/03-growth/seo-complete-optimization-plan-2026-10-16.md",
+        "operations/contracts/SEO-03.md",
+        "operations/evidence/SEO-03.json",
+        "operations/task-registry.json"
+      ]
+    }
+  ],
+  "productionEventIngestion": "NOT_WRITTEN_OR_VERIFIED",
+  "limitations": [
+    "Public production GET only: /api/health, homepage and one guide. No /api/events writes, login, customer data, model calls, site-wide regression or build.",
+    "Production event ingestion was not actually written or verified. Content landing/session attribution semantics reuse original independent local candidate acceptance because release runtime/source/config/dependencies are unchanged.",
+    "No claim of actual production analytics ingestion, ranking, conversion or model quality. No formal-control mutation, push or deployment performed by this reviewer."
+  ],
+  "nextAction": {
+    "action": "Controller records this bounded production HTTP PASS and completes authorized evidence/state bookkeeping; preserve the explicit event-ingestion limitation.",
+    "dependency": "Existing formal controller gate handling.",
+    "automatic": true
+  }
+}
