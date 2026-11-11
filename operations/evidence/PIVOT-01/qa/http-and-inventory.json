@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "candidateSha": "f3c3e8ce2af473059516140c7e6c4b751e5c867e",
+  "environment": "local Next.js 16.2.12 production build at 127.0.0.1:3111",
+  "public200": [
+    "/", "/compare", "/compare/claude-vs-gpt", "/compare/gpt-vs-gemini",
+    "/compare/claude-vs-gemini", "/compare/fable-5-2-vs-opus",
+    "/models/qwen3-8b", "/models/fable-5-2", "/models/glm-5",
+    "/llm-pricing", "/best/chinese-models", "/best/open-source-models",
+    "/benchmarks/cursorbench", "/benchmarks/browsecomp", "/leaderboard", "/privacy"
+  ],
+  "redirects": {
+    "/examples": "/",
+    "/examples/": "/",
+    "/ai-product-photography": "/",
+    "/ai-product-photography/": "/",
+    "/checks": "/leaderboard",
+    "/checks/": "/leaderboard"
+  },
+  "gone": {
+    "status": 410,
+    "testedAllLegacyForms": true,
+    "legacySitemapUrls": 67,
+    "forms": "all non-root legacy paths tested with and without trailing slash",
+    "countFromInventory": 62,
+    "customBodyHasSixEntrypoints": true
+  },
+  "negative": {
+    "/definitely-not-a-route": 404,
+    "/api/health": 200
+  },
+  "sitemap": {
+    "status": 200,
+    "urlCount": 16,
+    "unique": true,
+    "retiredRouteLeak": false,
+    "matchesCommittedSnapshot": true
+  },
+  "metadata": {
+    "all16HaveUniqueTitle": true,
+    "all16HaveUniqueH1": true,
+    "all16HaveSelfCanonical": true,
+    "sourcePagesShowAccessDateAndLinks": true,
+    "publicCheckoutCtaFound": false
+  },
+  "commands": {
+    "pnpm test:model-pivot": "PASS",
+    "pnpm typecheck": "PASS",
+    "pnpm lint": "PASS with 16 pre-existing warnings and 0 errors",
+    "pnpm build": "PASS",
+    "git diff --check HEAD^ HEAD": "PASS"
+  },
+  "external": {
+    "gscExportAndSubmission": "NOT_RUN",
+    "stripeSubscriptionDisposition": "NOT_RUN",
+    "productionDeploymentAndSmoke": "NOT_RUN",
+    "externalLinkBuilding": "NOT_RUN"
+  },
+  "cleanup": "temporary local server stopped; no customer, payment, or production data created"
+}

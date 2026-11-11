@@ -1,0 +1,28 @@
+{
+  "unitId": "PIVOT-01",
+  "candidateSha": "f3c3e8ce2af473059516140c7e6c4b751e5c867e",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "checks": [
+    { "name": "fixed candidate SHA", "status": "PASS" },
+    { "name": "independent QA report", "status": "PASS" },
+    { "name": "archived 67 URL inventory", "status": "PASS" },
+    { "name": "verified model source inventory", "status": "PASS" },
+    { "name": "redirect and gone status matrix", "status": "PASS" },
+    { "name": "new sitemap inventory", "status": "PASS" },
+    { "name": "public page metadata and source visibility", "status": "PASS" },
+    { "name": "unknown route and API exclusion boundary", "status": "PASS" },
+    { "name": "GSC export, submission, and indexing", "status": "NOT_RUN" },
+    { "name": "Stripe subscription disposition", "status": "NOT_RUN" },
+    { "name": "production deployment and smoke", "status": "NOT_RUN" }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-01/qa/http-and-inventory.json",
+    "operations/evidence/PIVOT-01/qa/source-audit.md",
+    "operations/evidence/PIVOT-01/legacy-sitemap-2026-11-11.xml",
+    "operations/evidence/PIVOT-01/legacy-url-inventory.csv",
+    "operations/evidence/PIVOT-01/model-source-inventory.json",
+    "operations/evidence/PIVOT-01/new-sitemap.xml"
+  ],
+  "limitations": "This is local acceptance of the fixed candidate only. GSC, Stripe customer state, external links, production deployment, ranking, and indexing were not exercised and are not claimed."
+}
