@@ -1,0 +1,33 @@
+{
+  "unitId": "PIVOT-01",
+  "candidateSha": "931de7a05e502735f7062192405f99c49d5944c7",
+  "reviewerThreadId": "/root/pivot01_release_fix_qa",
+  "result": "PASS",
+  "checks": [
+    { "name": "fixed candidate SHA", "status": "PASS" },
+    { "name": "release repair diff scope", "status": "PASS", "detail": "Runtime delta is proxy.ts to experimental-edge middleware.ts; remaining changes are focused assertions and preserved release evidence." },
+    { "name": "specialized inventory and middleware boundaries", "status": "PASS", "command": "pnpm test:model-pivot" },
+    { "name": "typecheck", "status": "PASS", "command": "pnpm typecheck" },
+    { "name": "lint", "status": "PASS", "detail": "0 errors; 16 warnings in unchanged legacy files" },
+    { "name": "Next production build", "status": "PASS", "command": "pnpm build" },
+    { "name": "Cloudflare OpenNext bundle", "status": "PASS", "command": "pnpm exec opennextjs-cloudflare build", "detail": "OpenNext build complete; .open-next/worker.js imports .open-next/middleware/handler.mjs and the bundled manifest records experimental-edge middleware." },
+    { "name": "redirect and gone status matrix", "status": "PASS", "detail": "All 67 archived paths and applicable trailing-slash forms matched expected status and redirect target; 124 gone-form responses were 410 and 6 redirect-form responses were 301." },
+    { "name": "public pages and exclusions", "status": "PASS", "detail": "16 public pages were 200; unknown route 404; /api/health 200." },
+    { "name": "new sitemap inventory", "status": "PASS", "detail": "16 URLs and no retired route prefixes." },
+    { "name": "production deployment and smoke", "status": "NOT_RUN", "detail": "This report is pre-release acceptance of the fixed local candidate only." }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-01/release-attempt-1/failure.json",
+    "operations/evidence/PIVOT-01/release-attempt-1/developer-repair.json",
+    "operations/evidence/PIVOT-01/release-attempt-1/qa/http-matrix.json"
+  ],
+  "limitations": [
+    "Next.js 16.2.12 warns that middleware.ts and experimental-edge are deprecated or experimental. OpenNext 1.20.2 nevertheless bundles this edge middleware successfully; it is a compatibility bridge until Node proxy middleware is supported.",
+    "Local acceptance is not production verification."
+  ],
+  "cleanup": {
+    "temporaryServerStopped": true,
+    "customerDataCreated": false,
+    "paymentDataCreated": false
+  }
+}
