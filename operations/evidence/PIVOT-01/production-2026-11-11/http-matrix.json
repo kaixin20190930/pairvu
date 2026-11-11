@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "environment": "https://pairvu.com",
+  "releaseSha": "e365b6432b40ef558c08bd3ca10906c8c0a9af42",
+  "platformVersion": "63b0fcbf-661f-4be2-b222-91137a53ed4a",
+  "legacyInventoryRows": 67,
+  "legacyForms": {
+    "gone410": 124,
+    "redirect301": 6,
+    "retainedOrRewritten200": 2,
+    "errors": []
+  },
+  "publicPages": {
+    "expected200": 16,
+    "actual200": 16,
+    "uniqueTitles": 16,
+    "uniqueH1s": 16,
+    "selfCanonicals": 16
+  },
+  "negativeBoundaries": {
+    "unknownRoute": 404,
+    "apiHealth": 200,
+    "pricing": 410
+  },
+  "sitemap": {
+    "status": 200,
+    "urlCount": 16,
+    "retiredRouteLeak": false
+  },
+  "robotsDeclaresSitemap": true,
+  "gonePageHasSixEntrypoints": true,
+  "publicCheckoutEntryFound": false,
+  "errors": []
+}

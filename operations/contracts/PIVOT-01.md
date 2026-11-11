@@ -43,3 +43,13 @@
 ## 角色交接
 
 开发回传固定 SHA、完整差分、来源清单、实际命令、正常/反例结果、未发布页面及原因。独立 QA 不修共享运行时代码，保留原始证据；FAIL 返回开发，仅复验受影响差分。
+
+## 完成记录
+
+- 用户于 2026-11-11 明确授权推送和生产发布，并确认 Stripe 无存量订阅。
+- 首个发布候选因 OpenNext 不支持 Node `proxy.ts` 在上传前安全停止；生产未受影响。修复改用 OpenNext 1.20.2 可打包的 Edge middleware，并对新候选重新独立验收。
+- 生产 release：`e365b6432b40ef558c08bd3ca10906c8c0a9af42`。
+- Cloudflare Version ID：`63b0fcbf-661f-4be2-b222-91137a53ed4a`。
+- 生产独立验收：PASS；16 个新页面 200，旧 URL 双形态为 124×410、6×301、2×200，未知路径 404，health 与 release/version 精确匹配。
+- 正式控制状态仍受历史 `JRN-04-FIX` `RELEASE_READY` 占槽，未手工改写；完整生产原件见 `operations/evidence/PIVOT-01/production-2026-11-11/`。
+- GSC 提交、收录和外链建设尚未执行，需要用户账户侧操作或后续授权。

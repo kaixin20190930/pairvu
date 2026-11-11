@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-01",
+  "authorizedAt": "2026-11-11",
+  "authorization": "User explicitly requested push and production release and confirmed Stripe has no subscriptions.",
+  "releaseSha": "e365b6432b40ef558c08bd3ca10906c8c0a9af42",
+  "remote": "origin",
+  "branch": "main",
+  "remoteShaVerified": "e365b6432b40ef558c08bd3ca10906c8c0a9af42",
+  "databaseMigration": "NOT_REQUIRED",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "63b0fcbf-661f-4be2-b222-91137a53ed4a",
+  "artifactSha256": "c1fc37822eb3c4d898831c460a45d9e7d6234a18468df694d0c15b898db9c13e",
+  "deployment": "PASS",
+  "productionAcceptance": "PASS",
+  "productionQa": "operations/evidence/PIVOT-01/production-2026-11-11/production-qa.json",
+  "health": "operations/evidence/PIVOT-01/production-2026-11-11/health.json",
+  "httpMatrix": "operations/evidence/PIVOT-01/production-2026-11-11/http-matrix.json",
+  "formalControlState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+  "notes": [
+    "The first deployment attempt of 8aefe6d stopped before production mutation because OpenNext rejected Node proxy middleware.",
+    "The compatibility repair was independently accepted before e365b64 was pushed and deployed.",
+    "GSC submission, indexing, and external link work were not performed."
+  ]
+}

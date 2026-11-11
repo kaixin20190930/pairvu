@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-01",
+  "role": "independent-production-qa",
+  "reviewerThreadId": "/root/pivot01_release_fix_qa",
+  "releaseSha": "e365b6432b40ef558c08bd3ca10906c8c0a9af42",
+  "platformVersion": "63b0fcbf-661f-4be2-b222-91137a53ed4a",
+  "result": "PASS",
+  "checks": [
+    { "name": "health release identity", "status": "PASS", "detail": "HTTP 200; buildSha and platformVersion exactly match the authorized deployment." },
+    { "name": "16 public URLs", "status": "PASS", "detail": "All returned 200 with 16 unique titles, 16 unique H1s, and self canonicals." },
+    { "name": "visible source evidence", "status": "PASS", "detail": "Source-bearing model, comparison, benchmark, best and pricing pages show the 2026-11-11 check date and provider or benchmark-owner links; leaderboard links to the source-backed model and benchmark pages." },
+    { "name": "redirects", "status": "PASS", "detail": "Both slash forms of /examples and /ai-product-photography single-hop 301 to /; both forms of /checks single-hop 301 to /leaderboard." },
+    { "name": "gone inventory", "status": "PASS", "detail": "All 62 legacy 410 paths returned 410 in both slash forms, 124 responses total; the custom body exposes six new-site entry links." },
+    { "name": "pricing retirement", "status": "PASS", "detail": "/pricing and /pricing/ return real 410; no public checkout or subscription CTA was found on the 16 new public pages." },
+    { "name": "unknown and API boundaries", "status": "PASS", "detail": "Unknown synthetic path returned 404 and /api/health remained 200." },
+    { "name": "sitemap and robots", "status": "PASS", "detail": "sitemap.xml contains 16 URLs and no retired prefixes; robots.txt declares https://pairvu.com/sitemap.xml." },
+    { "name": "production writes", "status": "NOT_RUN", "detail": "Acceptance was intentionally read-only; no events, customer data, payments, Stripe, GSC, or external publishing were mutated." }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-01/production-2026-11-11/health.json",
+    "operations/evidence/PIVOT-01/production-2026-11-11/http-matrix.json"
+  ],
+  "cleanup": {
+    "productionDataCreated": false,
+    "customerDataCreated": false,
+    "paymentDataCreated": false,
+    "temporaryAssetsCreated": false
+  },
+  "limitations": [
+    "This verifies the public production pivot and release identity only; authenticated account journeys and model-data freshness after 2026-11-11 were not exercised.",
+    "GSC submission, indexing, external backlinks, and search ranking remain outside this read-only production acceptance."
+  ]
+}
