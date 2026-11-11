@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-01",
+  "role": "developer-repair",
+  "baselineSha": "8aefe6d5a6788dfc00695464faccc97a8817927b",
+  "result": "PASS",
+  "cause": "Next.js 16 proxy.ts uses the Node.js middleware runtime, which @opennextjs/cloudflare 1.20.2 rejects.",
+  "repair": "Replace proxy.ts with the legacy middleware.ts convention and explicitly select experimental-edge so OpenNext can bundle the request gate for Cloudflare.",
+  "checks": [
+    {
+      "name": "specialized inventory and middleware boundaries",
+      "status": "PASS",
+      "command": "pnpm test:model-pivot"
+    },
+    {
+      "name": "typecheck",
+      "status": "PASS",
+      "command": "pnpm typecheck"
+    },
+    {
+      "name": "lint",
+      "status": "PASS_WITH_EXISTING_WARNINGS",
+      "command": "pnpm lint",
+      "detail": "0 errors; 16 warnings in unchanged legacy files"
+    },
+    {
+      "name": "Cloudflare production bundle",
+      "status": "PASS",
+      "command": "pnpm exec opennextjs-cloudflare build",
+      "detail": "OpenNext build complete; middleware function bundled and .open-next/worker.js produced"
+    },
+    {
+      "name": "HTTP redirect and gone matrix",
+      "status": "PASS",
+      "detail": "All 67 archived paths plus their trailing-slash forms matched expected 200/301/410; unknown route 404, /api/health 200, /compare and /sitemap.xml 200"
+    },
+    {
+      "name": "diff whitespace",
+      "status": "PASS",
+      "command": "git diff --check"
+    }
+  ],
+  "limitations": [
+    "Next.js reports that middleware.ts and experimental-edge are deprecated/experimental, but OpenNext 1.20.2 requires the edge convention and successfully bundles it; this is a compatibility bridge pending Node middleware support.",
+    "No production deployment or push was performed by the repair role."
+  ],
+  "cleanup": {
+    "temporaryServerStopped": true,
+    "customerDataCreated": false,
+    "paymentDataCreated": false
+  }
+}

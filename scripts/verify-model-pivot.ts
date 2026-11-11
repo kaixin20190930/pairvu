@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import sitemap from "../app/sitemap";
 import { comparisons, modelMap, models, publishedModelSlugs } from "../lib/models/catalog";
+import { NextRequest } from "next/server";
+import { middleware } from "../middleware";
 
 const urls = sitemap().map((entry) => new URL(entry.url).pathname);
 assert.equal(urls.length, 16, "expected the 15 first-week content URLs plus privacy");
@@ -29,4 +31,17 @@ for (const model of models) {
 }
 assert(!modelMap.has("qwen-3-8-27b"));
 assert(modelMap.has("fable-5-2"));
+
+const responseFor = (path: string) => middleware(new NextRequest(`https://pairvu.test${path}`));
+for (const path of ["/api/health", "/api/runtime-config", "/account", "/sign-in"]) {
+  const response = responseFor(path);
+  assert.equal(response.status, 200, `${path} must pass through middleware`);
+  assert.equal(response.headers.get("x-middleware-next"), "1", `${path} must not be rewritten`);
+}
+for (const path of ["/guides", "/guides/", "/pricing", "/pricing/", "/examples/retired", "/checks/retired"]) {
+  assert.equal(responseFor(path).status, 410, `${path} must return 410`);
+}
+assert.equal(responseFor("/examples").status, 301);
+assert.equal(responseFor("/examples/").status, 301);
+assert.equal(responseFor("/checks").headers.get("location"), "https://pairvu.test/leaderboard");
 console.log(`PIVOT-01 inventory passed: ${urls.length} sitemap URLs, ${models.length} sourced model records, ${comparisons.length} comparisons.`);

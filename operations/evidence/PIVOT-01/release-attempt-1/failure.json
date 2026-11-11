@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-01",
+  "releaseCandidateSha": "8aefe6d5a6788dfc00695464faccc97a8817927b",
+  "command": "pnpm run deploy --candidate 8aefe6d5a6788dfc00695464faccc97a8817927b --remote origin --branch main",
+  "stage": "OpenNext build after successful Next.js build",
+  "result": "FAIL",
+  "error": "Node.js middleware is not currently supported. Consider switching to Edge Middleware.",
+  "cause": "Next.js 16 proxy.ts always runs on the Node.js runtime; @opennextjs/cloudflare 1.20.2 rejects Node.js middleware.",
+  "source": "Controller release-attempt handoff; exact failure text preserved verbatim.",
+  "productionMutation": false
+}
