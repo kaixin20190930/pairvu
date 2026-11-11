@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-01",
+  "role": "developer",
+  "candidateBinding": "The Git commit containing this immutable report and its referenced evidence files.",
+  "result": "PASS",
+  "checks": [
+    { "name": "archived 67 URL inventory", "status": "PASS", "evidence": "legacy-sitemap-2026-11-11.xml and legacy-url-inventory.csv; 67 loc entries, with live Title/H1/canonical capture" },
+    { "name": "verified model source inventory", "status": "PASS", "evidence": "model-source-inventory.json and lib/models/catalog.ts; official provider/model-owner sources and field-level source indexes" },
+    { "name": "new sitemap inventory", "status": "PASS", "evidence": "new-sitemap.xml; 15 first-week content pages plus privacy, no retired route prefixes" },
+    { "name": "redirect and gone status matrix", "status": "PASS", "evidence": "dev-http-status-matrix.csv; exact roots are single-hop 301, retired pages are 410 with and without slash, unknown is 404" },
+    { "name": "specialized inventory test", "status": "PASS", "command": "pnpm test:model-pivot" },
+    { "name": "typecheck", "status": "PASS", "command": "pnpm typecheck" },
+    { "name": "lint", "status": "PASS_WITH_EXISTING_WARNINGS", "command": "pnpm lint", "detail": "0 errors; 16 warnings in unchanged legacy files" },
+    { "name": "application build", "status": "PASS", "command": "pnpm exec next build", "detail": "Next.js 16.2.12 compiled, typechecked, and generated 88 pages before the final evidence-only refresh" },
+    { "name": "production deployment", "status": "NOT_RUN", "detail": "No production release authorization; no push, migration, deployment, Stripe, or GSC mutation." }
+  ],
+  "limitations": [
+    "The formal control CLI remains occupied by historical JRN-04-FIX RELEASE_READY; PIVOT-01 is in backlog but was not manually forced into state.",
+    "The requested qwen-3-8-27b name does not identify an official model; the page uses verified Qwen3-8B and a corrected canonical slug.",
+    "Local Next dev emitted sandbox file-watcher/Wrangler registry warnings. Public HTTP checks completed; legacy /account needs Cloudflare dev context and is not claimed as a local 200.",
+    "GSC links/indexing, Stripe subscription disposition, external backlinks, and production behavior require external authority or data and remain NOT_RUN."
+  ],
+  "cleanup": { "temporaryServerStopped": true, "customerDataCreated": false, "paymentDataCreated": false }
+}

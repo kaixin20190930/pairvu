@@ -1,0 +1,2 @@
+import type { Source } from "@/lib/models/catalog";
+export function SourceList({ sources }: { sources: Source[] }) { return <section className="source-box" aria-labelledby="sources"><h2 id="sources">Sources</h2><p>Facts checked {sources[0]?.accessed}. Prices are USD per million tokens unless noted.</p><ul>{sources.map((source) => <li key={source.url}><a href={source.url} rel="noreferrer" target="_blank">{source.label}</a> <span>— accessed {source.accessed}</span></li>)}</ul></section>; }

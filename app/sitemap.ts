@@ -1,13 +1,4 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, seoPages } from "@/lib/seo/content-registry";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  return seoPages
-    .filter((page) => page.status === "published" && page.indexable)
-    .map((page) => ({
-      url: absoluteUrl(page.route),
-      lastModified: new Date(page.updatedAt),
-      changeFrequency: page.changeFrequency,
-      priority: page.sitemapPriority,
-    }));
-}
+import { comparisons, publishedModelSlugs } from "@/lib/models/catalog";
+const base="https://pairvu.com"; const fixed=["/","/compare","/llm-pricing","/best/chinese-models","/best/open-source-models","/benchmarks/cursorbench","/benchmarks/browsecomp","/leaderboard","/privacy"];
+export default function sitemap():MetadataRoute.Sitemap{const routes=[...fixed,...publishedModelSlugs.map(s=>`/models/${s}`),...comparisons.map(c=>`/compare/${c.slug}`)];return routes.map(route=>({url:`${base}${route}`,lastModified:new Date("2026-11-11"),changeFrequency:route==="/"?"weekly":"monthly",priority:route==="/"?1:0.7}));}

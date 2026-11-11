@@ -15,6 +15,7 @@ export function readBuildSha(): string {
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  skipTrailingSlashRedirect: true,
 };
 
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";

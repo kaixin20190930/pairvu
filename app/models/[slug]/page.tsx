@@ -1,0 +1,9 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { SourceList } from "@/components/SourceList";
+import { formatTokens, modelMap, publishedModelSlugs, usd } from "@/lib/models/catalog";
+
+export function generateStaticParams() { return publishedModelSlugs.map((slug) => ({ slug })); }
+export async function generateMetadata({ params }: { params: Promise<{slug:string}> }): Promise<Metadata> { const {slug}=await params; const m=modelMap.get(slug); if(!m || !publishedModelSlugs.includes(slug as never)) return {}; return { title: `${m.name} specs, pricing and sources`, description: `${m.name} context, pricing, release and source links.`, alternates:{canonical:`/models/${slug}`} }; }
+export default async function ModelPage({ params }: { params: Promise<{slug:string}> }) { const {slug}=await params; const m=modelMap.get(slug); if(!m || !publishedModelSlugs.includes(slug as never)) notFound(); return <main className="model-shell"><p className="eyebrow">Model profile · checked 2026-11-11</p><h1>{m.name}</h1><p className="lede">{m.summary}</p><dl className="stat-grid"><div><dt>Provider</dt><dd>{m.provider}</dd></div><div><dt>Release</dt><dd>{m.releaseDate}</dd></div><div><dt>Context</dt><dd>{formatTokens(m.contextTokens)} tokens</dd></div><div><dt>Parameters</dt><dd>{m.parameters ?? "Not disclosed"}</dd></div><div><dt>Input / 1M</dt><dd>{usd(m.inputUsd)}</dd></div><div><dt>Output / 1M</dt><dd>{usd(m.outputUsd)}</dd></div></dl><p className="note">Prices and limits change. Follow the linked provider source before purchasing or deploying.</p><h2>Explore related comparisons</h2><div className="pill-links"><Link href="/compare">All comparisons</Link><Link href="/leaderboard">Model matrix</Link><Link href="/llm-pricing">LLM pricing</Link><Link href="/benchmarks/browsecomp">BrowseComp</Link></div><SourceList sources={m.sources}/></main>; }

@@ -447,6 +447,22 @@
         "content landing attribution and session isolation",
         "homepage truthful evidence entry"
       ]
+    },
+    {
+      "id": "PIVOT-01",
+      "title": "AI 模型对比站首批切换",
+      "priority": 0,
+      "dependsOn": [],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "archived 67 URL inventory",
+        "verified model source inventory",
+        "redirect and gone status matrix",
+        "new sitemap inventory"
+      ]
     }
   ]
 }

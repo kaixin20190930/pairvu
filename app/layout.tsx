@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
-import { ContentLandingAnalytics } from "@/components/ContentLandingAnalytics";
 import { SiteHeader } from "@/components/SiteHeader";
-import { StructuredData } from "@/components/StructuredData";
-import { organizationSchema, seoPages } from "@/lib/seo/content-registry";
 import "./globals.css";
 
 const productionUrl = new URL("https://pairvu.com");
@@ -12,22 +9,22 @@ export const metadata: Metadata = {
   metadataBase: productionUrl,
   applicationName: "Pairvu",
   title: {
-    default: "Pairvu - AI Product Image Checker",
+    default: "Pairvu - AI Model Comparison",
     template: "%s | Pairvu",
   },
   description:
-    "Compare an AI-generated or edited product image with the original and catch visible product changes before publishing.",
+    "Compare AI models by pricing, context, benchmarks, and original sources.",
   openGraph: {
     type: "website",
     url: "/",
     siteName: "Pairvu",
-    title: "Pairvu - AI Product Image Checker",
-    description: "Compare an AI product image with the approved original before publishing.",
+    title: "Pairvu - AI Model Comparison",
+    description: "Compare AI models with evidence-linked facts.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pairvu - AI Product Image Checker",
-    description: "Compare an AI product image with the approved original before publishing.",
+    title: "Pairvu - AI Model Comparison",
+    description: "Compare AI models with evidence-linked facts.",
   },
   robots: {
     index: true,
@@ -43,8 +40,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StructuredData data={organizationSchema()} />
-        <ContentLandingAnalytics publishedRoutes={seoPages.filter((page) => page.status === "published" && page.indexable).map((page) => page.route)} />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "accessedAt": "2026-11-11",
+  "policy": "Only provider, model-owner, or benchmark-owner sources support published facts.",
+  "publishedModels": [
+    { "slug": "gpt-5-2", "source": "https://developers.openai.com/api/docs/models/gpt-5.2" },
+    { "slug": "claude-opus-4-5", "source": "https://www.anthropic.com/news/claude-opus-4-5" },
+    { "slug": "gemini-3-1-pro-preview", "source": "https://ai.google.dev/gemini-api/docs/gemini-3", "comparisonOnly": true },
+    { "slug": "qwen3-8b", "source": "https://qwenlm.github.io/blog/qwen3/" },
+    { "slug": "glm-5", "source": "https://z.ai/blog/glm-5" },
+    { "slug": "fable-5-2", "source": "https://platform.claude.com/docs/en/models/fable-5-2/overview" }
+  ],
+  "benchmarks": [
+    { "slug": "cursorbench", "source": "https://cursor.com/cursorbench", "version": "4.0" },
+    { "slug": "browsecomp", "source": "https://openai.com/index/browsecomp/", "version": "original release" }
+  ],
+  "notPublished": [
+    { "requestedSlug": "qwen-3-8-27b", "reason": "No official model with this combined 8/27B name was found; published the verified Qwen3-8B record instead." }
+  ]
+}
