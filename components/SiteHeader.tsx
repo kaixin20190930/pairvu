@@ -1,4 +1,4 @@
 "use client";
 import Link from "next/link"; import { usePathname } from "next/navigation";
-const links=[{href:"/compare",label:"Compare"},{href:"/models/qwen3-8b",label:"Models"},{href:"/benchmarks/cursorbench",label:"Benchmarks"},{href:"/leaderboard",label:"Leaderboard"},{href:"/llm-pricing",label:"Pricing"}];
+const links=[{href:"/compare",label:"Compare"},{href:"/models/qwen3-8b",label:"Models"},{href:"/benchmarks",label:"Benchmarks"},{href:"/leaderboard",label:"Leaderboard"},{href:"/llm-pricing",label:"Pricing"}];
 export function SiteHeader(){const path=usePathname();return <header className="site-header"><div className="site-header-inner"><Link className="site-logo" href="/" aria-label="Pairvu home">Pairvu</Link><nav className="simple-nav" aria-label="Primary navigation">{links.map(l=><Link aria-current={path===l.href||path.startsWith(`${l.href}/`)?"page":undefined} href={l.href} key={l.href}>{l.label}</Link>)}</nav><Link className="header-cta" href="/compare">Compare models</Link></div></header>}

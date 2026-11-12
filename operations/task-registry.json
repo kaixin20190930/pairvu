@@ -572,6 +572,45 @@
     "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
     "externalDistribution": "NOT_STARTED"
   },
+  "pivot03": {
+    "unitId": "PIVOT-03",
+    "contract": "operations/contracts/PIVOT-03.md",
+    "authorization": "开发、独立验收、GitHub-first生产发布，以及创建定期观察提醒；不含伪造或无连接写入GSC",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "agent": "/root/pivot01_developer",
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "跨官方来源、价格换算、Next.js页面和互链一致性，事实风险高但范围已冻结",
+      "upgradeCondition": "精确型号来源缺失时降级表述或停止该项，不扩建采集系统"
+    },
+    "qa": {
+      "agent": "/root/pivot01_qa",
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "固定SHA下独立核对来源、不可比反例、互链和旧路由回归",
+      "upgradeCondition": "来源不能支持页面事实时直接FAIL，不修改共享代码"
+    },
+    "scope": [
+      "existing page SEO and pricing repair",
+      "two Qwen comparisons",
+      "paired Qwen4 preview pages",
+      "benchmarks hub",
+      "one fixed three-way comparison",
+      "one version-explicit DeepSeek comparison",
+      "product boundary documentation",
+      "scheduled monitoring reminders"
+    ],
+    "excluded": [
+      "bulk comparison generation",
+      "CMS crawler or live FX",
+      "fabricated or cross-harness scores",
+      "account Stripe API or customer changes",
+      "unverified GSC results"
+    ],
+    "status": "SCOPED",
+    "nextAction": "开发交付固定候选SHA后由独立QA连续验收；PASS后按用户授权自动执行GitHub-first发布。"
+  },
   "seo03": {
     "unitId": "SEO-03",
     "contract": "operations/contracts/SEO-03.md",

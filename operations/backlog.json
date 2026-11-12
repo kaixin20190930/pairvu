@@ -480,6 +480,23 @@
         "model comparison benchmark link matrix",
         "legacy route regression matrix"
       ]
+    },
+    {
+      "id": "PIVOT-03",
+      "title": "证据化内容网络与产品边界",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-02"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "official source and pricing inventory",
+        "content and internal-link matrix",
+        "product boundary and monitoring record"
+      ]
     }
   ]
 }
