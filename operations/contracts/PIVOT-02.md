@@ -38,3 +38,12 @@
 - 独立 QA：GPT-6.1 Sol / high。原因：必须独立核对固定 SHA 的官方来源、页面计数、互链反例与 OpenNext 路由回归；若来源不能支持页面事实，直接 FAIL，不修共享代码。
 
 开发回传固定 SHA、差分、模型/价格/benchmark 来源、页面与互链清单、命令结果、限制和清理。QA 保留原始证据，不改运行时代码。
+
+## 完成记录
+
+- 首个候选 `71a9ae6fa310abc1b66ea37f2fc0579099c9844e` 因 BrowseComp 厂商结果缺报告日期和具体上下文策略被独立 QA 判 FAIL，原件完整保留。
+- 修复候选 `008b64d97648436aa7fa45cac8514d3188e281a0` 只补 2026-02-12 报告日期、最近五轮与 discard-all 策略，独立复验 PASS。
+- 用户于 2026-11-12 明确授权生产发布；release `d63cfe7bcb928c5ea6236913e936b0154e4dbf56` 已推送并部署。
+- Cloudflare Version ID：`7fb2787c-52b1-4d73-89b7-603d81b4e9c8`。
+- 独立生产验收 PASS：26 个 sitemap URL 全部 200；12 个模型页、4 个对比页、价格与 benchmark 互链、两个 best 页、privacy/legacy、Qwen alias 和完整旧路由矩阵均通过。
+- 正式控制状态仍受历史 `JRN-04-FIX` `RELEASE_READY` 占槽，未手工改写。GSC、排名、外链、登录态、客户数据和 Stripe 未执行。

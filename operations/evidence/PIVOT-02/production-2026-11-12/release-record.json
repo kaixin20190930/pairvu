@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-02",
+  "authorization": "User explicitly authorized production release on 2026-11-12.",
+  "releaseSha": "d63cfe7bcb928c5ea6236913e936b0154e4dbf56",
+  "remote": "origin",
+  "branch": "main",
+  "remoteShaVerified": "d63cfe7bcb928c5ea6236913e936b0154e4dbf56",
+  "databaseMigration": "NOT_REQUIRED",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "7fb2787c-52b1-4d73-89b7-603d81b4e9c8",
+  "artifactSha256": "2b7708f507b37c662ba7bde9f06754c97b9e9e4719816fb527b2463ac9f7527a",
+  "deployment": "PASS",
+  "productionAcceptance": "PASS",
+  "productionQa": "operations/evidence/PIVOT-02/production-2026-11-12/production-qa.json",
+  "health": "operations/evidence/PIVOT-02/production-2026-11-12/health.json",
+  "httpContentMatrix": "operations/evidence/PIVOT-02/production-2026-11-12/http-content-matrix.json",
+  "formalControlState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY",
+  "limitations": [
+    "GSC submission, indexing, ranking, and backlink work were not performed.",
+    "Authenticated legacy account journeys, customer data, Stripe, and write APIs were not exercised."
+  ]
+}

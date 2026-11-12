@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-02",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "environment": "https://pairvu.com",
+  "releaseSha": "d63cfe7bcb928c5ea6236913e936b0154e4dbf56",
+  "platformVersion": "7fb2787c-52b1-4d73-89b7-603d81b4e9c8",
+  "result": "PASS",
+  "checks": [
+    {"name": "deployed release identity", "status": "PASS", "detail": "/api/health exactly matched the authorized Release SHA and Cloudflare Version ID."},
+    {"name": "26-URL production sitemap", "status": "PASS", "detail": "Exactly 26 URLs, all returned 200, with 12 model and 4 comparison pages and no retired directory leakage."},
+    {"name": "12 production model profiles", "status": "PASS", "detail": "All profiles returned 200 with unique Title/H1, self-canonical, source access date, and explicit provider/region/currency/mode/date pricing or an explicit open-weight cost basis."},
+    {"name": "comparison and benchmark interlinks", "status": "PASS", "detail": "All four comparisons link both endpoint profiles; CursorBench and BrowseComp link only scored profiles and those profiles link back."},
+    {"name": "Qwen alias redirects", "status": "PASS", "detail": "Both slash forms returned a single 301 to /models/qwen3-8-27b."},
+    {"name": "best-page candidate quality", "status": "PASS", "detail": "Both pages expose exactly eight source-backed candidates and explicitly reject an absolute ranking."},
+    {"name": "BrowseComp production content", "status": "PASS", "detail": "Separate 2025 baseline/vendor tables, 2026-02-12 date, latest-five-turn and discard-all configurations, and non-comparability warning are visible."},
+    {"name": "privacy legacy and checkout boundary", "status": "PASS", "detail": "Privacy and legacy return 200; legacy is absent from primary navigation, states migration/support boundaries, and no public checkout CTA was found."},
+    {"name": "complete legacy route matrix", "status": "PASS", "detail": "All 124 gone forms returned 410 and all 6 redirect forms returned 301; root/privacy retained semantics passed, unknown returned 404, and API health remained 200."},
+    {"name": "external mutation boundary", "status": "PASS", "detail": "Acceptance used only public read-only requests; no event, account, payment, Stripe, customer-data, or GSC action was performed."}
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-02/production-2026-11-12/health.json",
+    "operations/evidence/PIVOT-02/production-2026-11-12/http-content-matrix.json"
+  ],
+  "limitations": "Public unauthenticated production acceptance only. Search indexing/ranking, GSC, authenticated account journeys, customer data, billing/Stripe execution, write APIs, and origin-internal observability were not exercised. No CDN retry was needed.",
+  "cleanup": "No temporary server, account, event, payment, or production data was created. No commit, push, deploy, or configuration change was performed."
+}

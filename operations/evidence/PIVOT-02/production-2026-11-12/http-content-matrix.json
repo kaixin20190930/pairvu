@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "environment": "https://pairvu.com",
+  "releaseSha": "d63cfe7bcb928c5ea6236913e936b0154e4dbf56",
+  "platformVersion": "7fb2787c-52b1-4d73-89b7-603d81b4e9c8",
+  "sitemap": {
+    "status": 200,
+    "urlCount": 26,
+    "allUrls200": true,
+    "retiredRouteLeak": false,
+    "publicModelUrls": 12,
+    "comparisonUrls": 4
+  },
+  "models": {
+    "count": 12,
+    "allStatus200": true,
+    "uniqueTitles": 12,
+    "uniqueH1s": 12,
+    "allSelfCanonical": true,
+    "allShowSourceAccessDate": true,
+    "allShowExplicitPricingOrOpenWeightCostBasis": true,
+    "pricingSpotChecks": {
+      "glm5": "Z.ai · International · Model API pay-as-you-go: USD 1 in / 3.2 out; checked 2026-11-12",
+      "qwen3_8b": "Alibaba Model Studio · China (Beijing) · Custom deployment, non-thinking: CNY 0.5 in / 2 out; checked 2026-11-12",
+      "qwen3_8_27b": "Distinct canonical profile from Qwen3-8B with provider/region/currency/mode/date presentation"
+    }
+  },
+  "comparisons": {
+    "count": 4,
+    "allStatus200": true,
+    "allLinkBothEndpointProfiles": true,
+    "pages": {
+      "/compare/claude-vs-gpt": ["/models/claude-opus-4-5", "/models/gpt-5-2"],
+      "/compare/gpt-vs-gemini": ["/models/gpt-5-2", "/models/gemini-3-1-pro-preview"],
+      "/compare/claude-vs-gemini": ["/models/claude-opus-4-5", "/models/gemini-3-1-pro-preview"],
+      "/compare/fable-5-2-vs-opus": ["/models/fable-5-2", "/models/claude-opus-5-5"]
+    }
+  },
+  "benchmarkInterlinks": {
+    "cursorBench": ["/models/fable-5-2", "/models/claude-opus-5-5"],
+    "browseComp": ["/models/glm-5"],
+    "modelProfilesLinkBackToRelevantBenchmark": true,
+    "unscoredModelsStateNoCurrentPairvuBenchmark": true
+  },
+  "browseComp": {
+    "status": 200,
+    "separate2025OpenAiBaseline": true,
+    "separateLatestVendorTable": true,
+    "vendorReportDate": "2026-02-12",
+    "withoutContextManagement": "retains the latest five turns",
+    "withContextManagement": "discard-all strategy",
+    "notDirectlyComparableWarning": true,
+    "officialSourcesVisible": true
+  },
+  "bestPages": {
+    "chineseModels": {"status": 200, "candidateCount": 8, "officialSourcePerCandidate": true, "disclaimsAbsoluteRanking": true},
+    "openSourceModels": {"status": 200, "candidateCount": 8, "officialSourcePerCandidate": true, "disclaimsAbsoluteRanking": true}
+  },
+  "qwenAlias": {
+    "/models/qwen-3-8-27b": {"status": 301, "location": "/models/qwen3-8-27b", "singleHop": true},
+    "/models/qwen-3-8-27b/": {"status": 301, "location": "/models/qwen3-8-27b", "singleHop": true}
+  },
+  "legalAndMigration": {
+    "privacyStatus": 200,
+    "legacyStatus": 200,
+    "legacyAbsentFromPrimaryNavigation": true,
+    "legacyExplainsOldAccountApiAndDeletionBoundaries": true,
+    "publicCheckoutCtaFound": false
+  },
+  "legacyInventory": {
+    "inventoryRows": 67,
+    "gone410Responses": 124,
+    "redirect301Responses": 6,
+    "retainedSemanticUrls": 2,
+    "successful200Requests": 3,
+    "successful200RequestNote": "The two retained semantic URLs are root and privacy; privacy was checked with and without a trailing slash, producing the third 200 request.",
+    "errors": []
+  },
+  "negativeBoundaries": {
+    "unknownRoute": 404,
+    "apiHealth": 200,
+    "apiHealthUnaffectedByLegacyRules": true
+  },
+  "cdnRetryUsed": false,
+  "errors": []
+}
