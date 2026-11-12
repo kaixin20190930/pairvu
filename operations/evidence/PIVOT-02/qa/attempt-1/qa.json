@@ -1,0 +1,33 @@
+{
+  "unitId": "PIVOT-02",
+  "candidateSha": "71a9ae6fa310abc1b66ea37f2fc0579099c9844e",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "FAIL",
+  "checks": [
+    { "name": "fixed candidate SHA", "status": "PASS" },
+    { "name": "independent QA report", "status": "PASS" },
+    { "name": "official model and pricing source inventory", "status": "PASS" },
+    { "name": "model comparison benchmark link matrix", "status": "FAIL" },
+    { "name": "legacy route regression matrix", "status": "PASS" },
+    { "name": "12-model and 26-URL inventory", "status": "PASS" },
+    { "name": "two eight-candidate best pages", "status": "PASS" },
+    { "name": "structured regional pricing", "status": "PASS" },
+    { "name": "BrowseComp dated configured split", "status": "FAIL" },
+    { "name": "privacy and legacy boundary", "status": "PASS" },
+    { "name": "GSC, production, login, and Stripe", "status": "NOT_RUN" }
+  ],
+  "failures": [
+    {
+      "name": "BrowseComp latest vendor report lacks the required visible date and meaningful configuration",
+      "file": "app/benchmarks/[bench]/page.tsx",
+      "detail": "The page separates the 2025 baseline and GLM-5 vendor results and warns against direct comparison, but shows no GLM-5 report date. Its configuration values are generic labels rather than the source-defined latest-five-turn versus discard-all context-management setup."
+    }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-02/qa/attempt-1/http-and-build.json",
+    "operations/evidence/PIVOT-02/qa/attempt-1/source-audit.md",
+    "operations/evidence/PIVOT-02/source-inventory.md",
+    "operations/evidence/PIVOT-02/link-matrix.md"
+  ],
+  "limitations": "Local fixed-candidate acceptance only. GSC, production, authenticated journeys, Stripe, customer data, ranking, and indexing were not exercised or claimed."
+}

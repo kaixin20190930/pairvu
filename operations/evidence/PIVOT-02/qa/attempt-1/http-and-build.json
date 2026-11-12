@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "candidateSha": "71a9ae6fa310abc1b66ea37f2fc0579099c9844e",
+  "environment": "local Next.js 16.2.12 production build at 127.0.0.1:3112",
+  "commands": {
+    "pnpm test:model-pivot": "PASS: 12 models, 26 sitemap URLs, two 8-candidate lists",
+    "pnpm typecheck": "PASS",
+    "pnpm lint": "PASS with 0 errors and 16 pre-existing warnings",
+    "pnpm build": "PASS",
+    "pnpm exec opennextjs-cloudflare build": "PASS; .open-next/worker.js generated",
+    "git diff --check HEAD^ HEAD": "PASS"
+  },
+  "http": {
+    "sitemapUrlCount": 26,
+    "publicModelPages": 12,
+    "uniqueTitles": true,
+    "uniqueH1s": true,
+    "selfCanonicals": true,
+    "legacyOriginalForms": {
+      "gone410": 124,
+      "redirect301": 6,
+      "successful200Requests": 3,
+      "note": "The two retained semantic URLs are root and privacy; privacy was also checked with a trailing slash, producing the third 200 request."
+    },
+    "qwenAlias": {
+      "/models/qwen-3-8-27b": "301 /models/qwen3-8-27b",
+      "/models/qwen-3-8-27b/": "301 /models/qwen3-8-27b"
+    },
+    "unknownRoute": 404,
+    "apiHealth": 200,
+    "temporaryServerStopped": true
+  },
+  "content": {
+    "bestChineseCandidateCount": 8,
+    "bestOpenCandidateCount": 8,
+    "legacyInMainNavigation": false,
+    "publicCheckoutCtaFound": false,
+    "browseComp2025BaselineSeparated": true,
+    "browseCompLatestVendorTableSeparated": true,
+    "browseCompNotDirectlyComparableWarning": true,
+    "browseCompLatestReportDateVisible": false,
+    "browseCompConfigurationSpecificity": "FAIL: rows say only Vendor evaluation / Vendor evaluation with context management; the official source's latest-five-turn versus discard-all configuration is not shown."
+  },
+  "external": {
+    "gsc": "NOT_RUN",
+    "production": "NOT_RUN",
+    "loginJourney": "NOT_RUN",
+    "stripe": "NOT_RUN"
+  }
+}

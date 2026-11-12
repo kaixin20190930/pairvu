@@ -15,3 +15,7 @@ No accounts, API customer data, Stripe, GSC, database, production deployment, ne
 - `/api/runtime-config` reached its handler but returned 500 under `next start` because Cloudflare development context was not initialized. This is an environment-specific negative result, not a middleware redirect or rewrite; the OpenNext production bundle itself passed.
 
 Candidate SHA is recorded in the controller handoff after commit creation.
+
+## QA attempt-1 repair
+
+The original FAIL evidence in `qa/attempt-1` is preserved. The BrowseComp vendor section now shows the 2026-02-12 report date and the source-defined context policies: latest-five-turn retention without context management, and discard-all with context management. OpenNext evidence is reused because middleware and dependencies did not change.
