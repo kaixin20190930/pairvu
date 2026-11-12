@@ -608,16 +608,30 @@
       "account Stripe API or customer changes",
       "unverified GSC results"
     ],
-    "status": "QA_PASS",
+    "status": "PROD_VERIFIED",
     "candidateSha": "d7fcd41f8d5343f2776b845a96269766d18c8a63",
     "acceptance": {
       "result": "PASS",
       "reviewer": "/root/pivot01_qa",
       "evidence": "operations/evidence/PIVOT-03/qa/qa.json",
       "scope": "固定SHA下的官方来源、价格边界、不可比反例、34个公开URL、互链、产品路线和定向旧路由回归",
-      "productionVerified": false
+      "productionVerified": true
     },
-    "nextAction": "按用户授权提交独立证据，推送GitHub并核对远端精确SHA后部署同一提交；随后独立生产验收。"
+    "production": {
+      "releaseSha": "dd165c84d8d37614568ad8ef44de0283c8d8c38f",
+      "platformVersion": "a0ffc1d1-d00b-42c0-8ebf-c3b49e61d498",
+      "result": "PASS",
+      "sitemapUrlCount": 34,
+      "evidenceDirectory": "operations/evidence/PIVOT-03/production-2026-11-12",
+      "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
+    },
+    "automations": [
+      {"id": "pairvu-2", "name": "Pairvu 每周内容与来源健康检查", "status": "ACTIVE"},
+      {"id": "pairvu-gsc", "name": "Pairvu GSC 分批收录周报", "status": "ACTIVE"},
+      {"id": "pairvu-3", "name": "Pairvu 每月产品与放量门槛复盘", "status": "ACTIVE"},
+      {"id": "qwen4-preview", "name": "Qwen4 Preview 到期检查", "status": "ACTIVE"}
+    ],
+    "nextAction": "等待定时观察；GSC连接或人工导出是收录结论依赖。当前14个模型且未达到全部逐模型comparison覆盖，不自动放量。"
   },
   "seo03": {
     "unitId": "SEO-03",

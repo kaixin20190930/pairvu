@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-03",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "environment": "https://pairvu.com",
+  "checkedAt": "2026-11-12T07:07:54Z",
+  "releaseSha": "dd165c84d8d37614568ad8ef44de0283c8d8c38f",
+  "platformVersion": "a0ffc1d1-d00b-42c0-8ebf-c3b49e61d498",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "production release identity",
+      "status": "PASS",
+      "detail": "/api/health returned 200 and exactly reported buildSha dd165c84d8d37614568ad8ef44de0283c8d8c38f and platformVersion a0ffc1d1-d00b-42c0-8ebf-c3b49e61d498."
+    },
+    {
+      "name": "production sitemap inventory",
+      "status": "PASS",
+      "detail": "The live sitemap contains 34 unique URLs, including 14 model profiles and 9 comparison pages. Every sitemap URL returned 200 and no retired route prefix leaked into the sitemap."
+    },
+    {
+      "name": "public metadata",
+      "status": "PASS",
+      "detail": "All 34 sitemap pages have unique Title and H1 values and a self-canonical URL."
+    },
+    {
+      "name": "Qwen4 paired lifecycle",
+      "status": "PASS",
+      "detail": "The Qwen4-Max-Preview model and GPT-5.2 comparison both return 200, link through the model/comparison network, and display Token Plan-only access, no pay-as-you-go price, and the 2026-11-25 retirement boundary."
+    },
+    {
+      "name": "pricing FX and original CNY",
+      "status": "PASS",
+      "detail": "/llm-pricing returns 200 and visibly identifies the dated 2026-11-06 Federal Reserve H.10 conversion of 1 USD = 6.676 CNY while retaining original CNY amounts."
+    },
+    {
+      "name": "historical exact-model pricing boundary",
+      "status": "PASS",
+      "detail": "DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 profiles return 200 and explicitly state that their cited exact-model sources do not publish a current model-specific hosted price; no successor hosted price is substituted."
+    },
+    {
+      "name": "comparison evidence boundary",
+      "status": "PASS",
+      "detail": "The Qwen pair, Qwen4/GPT-5.2, DeepSeek/GPT-5.2, Claude/GPT-5.2 and fixed three-model pages state that no directly comparable or universal score is shown without a common exact-version harness."
+    },
+    {
+      "name": "source URL deduplication",
+      "status": "PASS",
+      "detail": "Every focused model, pricing, best and comparison page had unique URLs within its rendered Sources section."
+    },
+    {
+      "name": "production content links",
+      "status": "PASS",
+      "detail": "New comparison pages link their participating model profiles; corresponding model profiles link back. The /benchmarks hub returns 200 and exposes CursorBench and BrowseComp; comparison and benchmark links remain separately labelled."
+    },
+    {
+      "name": "targeted retired-route boundaries",
+      "status": "PASS",
+      "detail": "/guides and /guides/ returned 410. Without following redirects, /examples returned one 301 to / and /checks returned one 301 to /leaderboard. An unknown path returned 404; /privacy and /legacy returned 200."
+    },
+    {
+      "name": "local fixed-SHA evidence reuse",
+      "status": "PASS",
+      "detail": "The PIVOT-03 fixed-candidate local test, typecheck, lint, build, source and roadmap evidence remains applicable. Per the production contract, the full 124/6 legacy matrix and local build were not redundantly rerun."
+    },
+    {
+      "name": "GSC login payment and customer data",
+      "status": "NOT_RUN",
+      "detail": "No GSC, authenticated journey, payment, Stripe, event write, customer data or production mutation was performed."
+    }
+  ],
+  "observed": {
+    "healthStatus": 200,
+    "sitemapStatus": 200,
+    "sitemapUrlCount": 34,
+    "sitemapUrlsReturning200": 34,
+    "modelPageCount": 14,
+    "comparisonPageCount": 9,
+    "uniqueTitles": 34,
+    "uniqueH1s": 34,
+    "selfCanonicals": 34,
+    "retiredRouteLeak": false,
+    "cdnRetryUsed": false,
+    "boundaryStatuses": {
+      "/guides": 410,
+      "/guides/": 410,
+      "/examples": "301 /",
+      "/checks": "301 /leaderboard",
+      "/qa-pivot03-prod-unknown": 404,
+      "/privacy": 200,
+      "/legacy": 200
+    }
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-03/qa/qa.json",
+    "operations/evidence/PIVOT-03/qa/http-and-build.json",
+    "operations/evidence/PIVOT-03/qa/source-audit.md"
+  ],
+  "limitations": "Public unauthenticated production acceptance only. GSC indexing and rankings, authenticated account journeys, billing/Stripe execution, customer data, write APIs and origin-internal observability were not exercised. The unchanged full legacy 124x410/6x301 matrix was not rerun.",
+  "cleanup": "Only public read-only HTTP requests were issued. No temporary account, event, payment, customer asset or local server was created. No code, production configuration, commit, push or deployment was changed."
+}

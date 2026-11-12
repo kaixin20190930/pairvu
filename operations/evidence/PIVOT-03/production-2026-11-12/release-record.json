@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-03",
+  "releaseSha": "dd165c84d8d37614568ad8ef44de0283c8d8c38f",
+  "remote": "origin",
+  "branch": "main",
+  "remoteShaVerified": true,
+  "databaseMigrations": "NOT_REQUIRED",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "a0ffc1d1-d00b-42c0-8ebf-c3b49e61d498",
+  "productionUrl": "https://pairvu.com",
+  "deployedAt": "2026-11-12T07:07:00Z",
+  "controllerSmoke": "PASS",
+  "independentProductionAcceptance": "PASS",
+  "productionEvidence": "operations/evidence/PIVOT-03/production-2026-11-12/production-qa.json",
+  "notes": "The first credential-free upload attempt stopped before deployment. The authorized retry loaded the existing repository Cloudflare credential in-process without printing it and deployed the exact pushed SHA."
+}
