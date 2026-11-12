@@ -21,6 +21,10 @@ function gonePage() {
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname.replace(/\/$/, "") || "/";
 
+  if (path === "/models/qwen-3-8-27b") {
+    return NextResponse.redirect(new URL("/models/qwen3-8-27b", request.url), 301);
+  }
+
   if (path === "/examples" || path === "/ai-product-photography") {
     return NextResponse.redirect(new URL("/", request.url), 301);
   }

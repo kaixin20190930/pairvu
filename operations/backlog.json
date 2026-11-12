@@ -463,6 +463,23 @@
         "redirect and gone status matrix",
         "new sitemap inventory"
       ]
+    },
+    {
+      "id": "PIVOT-02",
+      "title": "模型目录与证据互链补强",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-01"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "fixed candidate SHA",
+        "independent QA report",
+        "official model and pricing source inventory",
+        "model comparison benchmark link matrix",
+        "legacy route regression matrix"
+      ]
     }
   ]
 }

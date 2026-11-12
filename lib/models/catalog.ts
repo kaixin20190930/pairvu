@@ -1,99 +1,31 @@
-export type Source = { label: string; url: string; accessed: string };
-export type ModelRecord = {
-  slug: string; name: string; provider: string; releaseDate: string; openWeights: boolean;
-  parameters?: string; contextTokens: number; inputUsd?: number; outputUsd?: number;
-  summary: string; sources: Source[];
-  fieldSources: { releaseDate: number; contextTokens: number; parameters: number | null; inputUsd: number | null; outputUsd: number | null };
-};
-
-export const accessed = "2026-11-11";
-
-export const models: ModelRecord[] = [
-  {
-    slug: "gpt-5-2", name: "GPT-5.2", provider: "OpenAI", releaseDate: "2025-12-11",
-    openWeights: false, contextTokens: 400000, inputUsd: 1.75, outputUsd: 14,
-    summary: "A proprietary reasoning model for professional and agentic work.",
-    sources: [{ label: "OpenAI model documentation", url: "https://developers.openai.com/api/docs/models/gpt-5.2", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 0, parameters: null, inputUsd: 0, outputUsd: 0 },
-  },
-  {
-    slug: "claude-opus-4-5", name: "Claude Opus 4.5", provider: "Anthropic", releaseDate: "2025-11-24",
-    openWeights: false, contextTokens: 200000, inputUsd: 5, outputUsd: 25,
-    summary: "A proprietary Claude model aimed at coding, agents, and complex professional tasks.",
-    sources: [{ label: "Anthropic launch announcement", url: "https://www.anthropic.com/news/claude-opus-4-5", accessed }, { label: "Anthropic model overview", url: "https://docs.anthropic.com/en/docs/about-claude/models/overview", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 1, parameters: null, inputUsd: 0, outputUsd: 0 },
-  },
-  {
-    slug: "gemini-3-1-pro-preview", name: "Gemini 3.1 Pro Preview", provider: "Google", releaseDate: "2026 (preview)",
-    openWeights: false, contextTokens: 1000000, inputUsd: 2, outputUsd: 12,
-    summary: "A preview multimodal reasoning model; listed prices apply below 200k input tokens.",
-    sources: [{ label: "Google Gemini 3 developer guide", url: "https://ai.google.dev/gemini-api/docs/gemini-3", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 0, parameters: null, inputUsd: 0, outputUsd: 0 },
-  },
-  {
-    slug: "qwen3-8b", name: "Qwen3-8B", provider: "Qwen / Alibaba", releaseDate: "2025-04-29",
-    openWeights: true, parameters: "8B", contextTokens: 32768,
-    summary: "An open-weight hybrid thinking/non-thinking model with strong Chinese and multilingual coverage.",
-    sources: [
-      { label: "Qwen3 release", url: "https://qwenlm.github.io/blog/qwen3/", accessed },
-      { label: "Qwen3-8B model card", url: "https://huggingface.co/Qwen/Qwen3-8B", accessed },
-    ],
-    fieldSources: { releaseDate: 0, contextTokens: 1, parameters: 1, inputUsd: null, outputUsd: null },
-  },
-  {
-    slug: "glm-5", name: "GLM-5", provider: "Z.ai", releaseDate: "2026-02-12",
-    openWeights: true, parameters: "744B total / 40B active", contextTokens: 200000,
-    summary: "An MIT-licensed mixture-of-experts model focused on coding and long-horizon agents.",
-    sources: [{ label: "Z.ai GLM-5 release", url: "https://z.ai/blog/glm-5", accessed }, { label: "GLM-5 official model card", url: "https://huggingface.co/zai-org/GLM-5", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 1, parameters: 0, inputUsd: null, outputUsd: null },
-  },
-  {
-    slug: "fable-5-2", name: "Claude Fable 5.2", provider: "Anthropic", releaseDate: "2026-11-09",
-    openWeights: false, contextTokens: 1000000, inputUsd: 8, outputUsd: 40,
-    summary: "Anthropic's model for demanding reasoning and long-horizon agentic work, with always-on adaptive thinking.",
-    sources: [{ label: "Anthropic Fable 5.2 model documentation", url: "https://platform.claude.com/docs/en/models/fable-5-2/overview", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 0, parameters: null, inputUsd: 0, outputUsd: 0 },
-  },
-  {
-    slug: "claude-opus-5-5", name: "Claude Opus 5.5", provider: "Anthropic", releaseDate: "2026-09-22",
-    openWeights: false, contextTokens: 1000000, inputUsd: 4, outputUsd: 20,
-    summary: "Anthropic's general-purpose flagship for agentic coding and knowledge work.",
-    sources: [{ label: "Anthropic Fable 5.2 model comparison", url: "https://platform.claude.com/docs/en/models/fable-5-2/overview", accessed }],
-    fieldSources: { releaseDate: 0, contextTokens: 0, parameters: null, inputUsd: 0, outputUsd: 0 },
-  },
+export type Source={label:string;url:string;accessed:string};
+export type PriceQuote={provider:string;region:string;currency:"USD"|"CNY";mode:string;accessedAt:string;inputPerMillion?:number;outputPerMillion?:number;note?:string;source:Source};
+export type ModelRecord={slug:string;name:string;provider:string;releaseDate:string;openWeights:boolean;parameters?:string;contextTokens:number;summary:string;sources:Source[];pricing:PriceQuote[]};
+export const accessed="2026-11-12";
+const s=(label:string,url:string):Source=>({label,url,accessed});
+const self=(source:Source):PriceQuote=>({provider:"Self-hosted",region:"User-selected",currency:"USD",mode:"Open weights / self-hosted",accessedAt:accessed,note:"Infrastructure-dependent; no single official token price.",source});
+const api=(provider:string,region:string,currency:"USD"|"CNY",mode:string,inputPerMillion:number,outputPerMillion:number,source:Source,note?:string):PriceQuote=>({provider,region,currency,mode,accessedAt:accessed,inputPerMillion,outputPerMillion,source,note});
+const openai=s("OpenAI GPT-5.2 documentation","https://developers.openai.com/api/docs/models/gpt-5.2"),anthropic=s("Anthropic model overview and pricing","https://docs.anthropic.com/en/docs/about-claude/models/overview"),gemini=s("Google Gemini 3 developer guide","https://ai.google.dev/gemini-api/docs/gemini-3"),qwen3=s("Qwen3-8B official model card","https://huggingface.co/Qwen/Qwen3-8B"),qwenDeploy=s("Alibaba deployment token billing","https://help.aliyun.com/en/model-studio/model-deployment-token"),glm=s("Z.ai GLM-5 release","https://z.ai/blog/glm-5"),glmPrice=s("Z.ai official model API pricing","https://docs.z.ai/guides/overview/pricing"),fable=s("Anthropic Fable 5.2 documentation","https://platform.claude.com/docs/en/models/fable-5-2/overview"),qwen38=s("Qwen3.8-27B official model card","https://huggingface.co/Qwen/Qwen3.8-27B"),qwenPrice=s("Alibaba Model Studio official pricing","https://help.aliyun.com/en/model-studio/model-pricing"),deepseek=s("DeepSeek-V3.2 official release","https://www.deepseek.com/en/news/deepseek-v3-2/"),kimi=s("Kimi K2.5 official model card","https://huggingface.co/moonshotai/Kimi-K2.5"),minimax=s("MiniMax M2.1 official release","https://www.minimax.io/news/minimax-m21"),qwenMax=s("Qwen3.8-2.4T-A95B official model card","https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B");
+export const models:ModelRecord[]=[
+ {slug:"gpt-5-2",name:"GPT-5.2",provider:"OpenAI",releaseDate:"2025-12-11",openWeights:false,contextTokens:400000,summary:"A proprietary reasoning model for professional and agentic work.",sources:[openai],pricing:[api("OpenAI","Global API","USD","Standard API",1.75,14,openai)]},
+ {slug:"claude-opus-4-5",name:"Claude Opus 4.5",provider:"Anthropic",releaseDate:"2025-11-24",openWeights:false,contextTokens:200000,summary:"A proprietary Claude model for coding, agents, and complex work.",sources:[s("Anthropic Opus 4.5 launch","https://www.anthropic.com/news/claude-opus-4-5"),anthropic],pricing:[api("Anthropic","Global API","USD","Standard API",5,25,anthropic)]},
+ {slug:"gemini-3-1-pro-preview",name:"Gemini 3.1 Pro Preview",provider:"Google",releaseDate:"2026 (preview)",openWeights:false,contextTokens:1000000,summary:"A preview multimodal reasoning model.",sources:[gemini],pricing:[api("Google","Global API","USD","Standard API, prompts ≤200K",2,12,gemini)]},
+ {slug:"qwen3-8b",name:"Qwen3-8B",provider:"Qwen / Alibaba",releaseDate:"2025-04-29",openWeights:true,parameters:"8B",contextTokens:32768,summary:"An Apache-2.0 hybrid thinking model.",sources:[s("Qwen3 official release","https://qwenlm.github.io/blog/qwen3/"),qwen3,qwenDeploy],pricing:[api("Alibaba Model Studio","China (Beijing)","CNY","Custom deployment, non-thinking",0.5,2,qwenDeploy,"Output is CNY 5/M in thinking mode."),self(qwen3)]},
+ {slug:"glm-5",name:"GLM-5",provider:"Z.ai",releaseDate:"2026-02-12",openWeights:true,parameters:"744B total / 40B active",contextTokens:200000,summary:"An MIT-licensed model for coding and long-horizon agents.",sources:[glm,s("GLM-5 official model card","https://huggingface.co/zai-org/GLM-5"),glmPrice],pricing:[api("Z.ai","International","USD","Model API pay-as-you-go",1,3.2,glmPrice),self(glm)]},
+ {slug:"fable-5-2",name:"Claude Fable 5.2",provider:"Anthropic",releaseDate:"2026-11-09",openWeights:false,contextTokens:1000000,summary:"Anthropic's high-effort reasoning model.",sources:[fable],pricing:[api("Anthropic","Global API","USD","Standard API",8,40,fable)]},
+ {slug:"claude-opus-5-5",name:"Claude Opus 5.5",provider:"Anthropic",releaseDate:"2026-09-22",openWeights:false,contextTokens:1000000,summary:"Anthropic's flagship for agentic coding and knowledge work.",sources:[fable],pricing:[api("Anthropic","Global API","USD","Standard API",4,20,fable)]},
+ {slug:"qwen3-8-27b",name:"Qwen3.8-27B",provider:"Qwen / Alibaba",releaseDate:"2026-11",openWeights:true,parameters:"27B",contextTokens:262144,summary:"An Apache-2.0 vision-language model with 262K native context.",sources:[qwen38,qwenPrice],pricing:[api("Alibaba Model Studio","China (Beijing)","CNY","Hosted API, 0–1M input",3,12,qwenPrice),self(qwen38)]},
+ {slug:"deepseek-v3-2",name:"DeepSeek-V3.2",provider:"DeepSeek",releaseDate:"2025-12-01",openWeights:true,parameters:"671B total / 37B active",contextTokens:128000,summary:"An open-weight reasoning model for agents and tool use.",sources:[deepseek],pricing:[self(deepseek)]},
+ {slug:"kimi-k2-5",name:"Kimi K2.5",provider:"Moonshot AI",releaseDate:"2026-01",openWeights:true,parameters:"1T total / 32B active",contextTokens:256000,summary:"An open-weight multimodal agent model.",sources:[kimi],pricing:[self(kimi)]},
+ {slug:"minimax-m2-1",name:"MiniMax M2.1",provider:"MiniMax",releaseDate:"2025-12-23",openWeights:true,parameters:"230B total / ~10B active",contextTokens:200000,summary:"An open-weight model for coding and agent workflows.",sources:[minimax,s("MiniMax agent-model engineering note","https://www.minimax.io/news/post-training-experience-and-insights-for-agent-models")],pricing:[self(minimax)]},
+ {slug:"qwen3-8-2-4t-a95b",name:"Qwen3.8-2.4T-A95B",provider:"Qwen / Alibaba",releaseDate:"2026-11",openWeights:true,parameters:"2.4T total / 95B active",contextTokens:262144,summary:"A large Qwen reasoning model under the Qwen3.8-Max license.",sources:[qwenMax,qwenPrice],pricing:[api("Alibaba Model Studio","China (Beijing)","CNY","Hosted API, 0–1M input",12,36,qwenPrice),self(qwenMax)]},
 ];
-
-export const modelMap = new Map(models.map((model) => [model.slug, model]));
-export const publishedModelSlugs = ["qwen3-8b", "fable-5-2", "glm-5"] as const;
-
-export const comparisons = [
-  { slug: "claude-vs-gpt", a: "claude-opus-4-5", b: "gpt-5-2", verdict: "Choose GPT-5.2 when API token cost and a larger context window dominate. Choose Claude Opus 4.5 when your own evaluation favors its coding or agent behavior; its published token price is higher." },
-  { slug: "gpt-vs-gemini", a: "gpt-5-2", b: "gemini-3-1-pro-preview", verdict: "Gemini offers the larger listed context window, while GPT-5.2 has lower listed input pricing. Gemini is a preview, so production buyers should re-check availability and price tiers." },
-  { slug: "claude-vs-gemini", a: "claude-opus-4-5", b: "gemini-3-1-pro-preview", verdict: "Gemini has the larger listed context window and lower standard token prices. Claude Opus 4.5 is the older stable release in this snapshot; evaluate both in your own agent harness before choosing." },
-  { slug: "fable-5-2-vs-opus", a: "fable-5-2", b: "claude-opus-5-5", verdict: "Start with Opus 5.5 for general coding and knowledge work: its listed token prices are half of Fable 5.2's. Move to Fable 5.2 only when your evaluation shows that its higher-effort reasoning justifies the added cost and mandatory 30-day data retention." },
-] as const;
-export const comparisonMap: Map<string, (typeof comparisons)[number]> = new Map(comparisons.map((item) => [item.slug, item]));
-
-export const cursorBench = {
-  source: { label: "CursorBench 4.0 official leaderboard", url: "https://cursor.com/cursorbench", accessed },
-  rows: [
-    { model: "Gemini 4 Carbon High", score: 60.4, cost: 9.22 },
-    { model: "Gemini 4 Carbon Medium", score: 60.1, cost: 8.49 },
-    { model: "Fable 5.2 Max", score: 60.0, cost: 32.79 },
-    { model: "Gemini 4 Carbon Low", score: 58.6, cost: 11.89 },
-    { model: "Opus 5.5 Max", score: 57.8, cost: 13.43 },
-  ],
-};
-
-export const browseComp = {
-  source: { label: "OpenAI BrowseComp release and paper", url: "https://openai.com/index/browsecomp/", accessed },
-  rows: [
-    { model: "Deep research (64 trials)", score: 51.5 },
-    { model: "OpenAI o1", score: 9.9 },
-    { model: "GPT-4o with browsing", score: 1.9 },
-    { model: "GPT-4.5", score: 0.9 },
-  ],
-};
-
-export function formatTokens(value: number) { return value >= 1000000 ? `${value / 1000000}M` : `${Math.round(value / 1000)}K`; }
-export function usd(value?: number) { return value === undefined ? "Not listed" : `$${value.toFixed(value % 1 ? 2 : 0)}`; }
+export const modelMap=new Map(models.map(m=>[m.slug,m])); export const publishedModelSlugs=models.map(m=>m.slug);
+export const comparisons=[{slug:"claude-vs-gpt",a:"claude-opus-4-5",b:"gpt-5-2",verdict:"Choose GPT-5.2 when listed API cost and context dominate; evaluate Claude in your own harness."},{slug:"gpt-vs-gemini",a:"gpt-5-2",b:"gemini-3-1-pro-preview",verdict:"Gemini lists more context; GPT-5.2 lists lower input pricing."},{slug:"claude-vs-gemini",a:"claude-opus-4-5",b:"gemini-3-1-pro-preview",verdict:"Gemini lists more context and lower token prices; evaluate both consistently."},{slug:"fable-5-2-vs-opus",a:"fable-5-2",b:"claude-opus-5-5",verdict:"Start with Opus 5.5; use Fable only if evaluation justifies its higher cost."}] as const;
+export const comparisonMap:Map<string,(typeof comparisons)[number]>=new Map(comparisons.map(c=>[c.slug,c]));
+export const qwen35Candidate={name:"Qwen3.5-397B-A17B",source:s("Qwen3.5-397B-A17B official model card","https://huggingface.co/Qwen/Qwen3.5-397B-A17B")};
+export const bestChinese=["qwen3-8b","qwen3-8-27b","qwen3-8-2-4t-a95b","glm-5","deepseek-v3-2","kimi-k2-5","minimax-m2-1"],bestOpen=[...bestChinese];
+export const cursorBench={source:s("CursorBench 4.0 official leaderboard","https://cursor.com/cursorbench"),rows:[{model:"Gemini 4 Carbon High",score:60.4,cost:9.22},{model:"Fable 5.2 Max",slug:"fable-5-2",score:60,cost:32.79},{model:"Opus 5.5 Max",slug:"claude-opus-5-5",score:57.8,cost:13.43}]};
+export const browseComp={source:s("OpenAI BrowseComp release and paper","https://openai.com/index/browsecomp/"),rows:[{model:"Deep research (64 trials)",score:51.5},{model:"OpenAI o1",score:9.9},{model:"GPT-4o with browsing",score:1.9},{model:"GPT-4.5",score:.9}],latestSource:glm,latest:[{model:"GLM-5 (thinking)",slug:"glm-5",score:62,configuration:"Vendor evaluation"},{model:"GLM-5 + context management",slug:"glm-5",score:75.9,configuration:"Vendor evaluation with context management"}]};
+export const relatedComparisons=(slug:string)=>comparisons.filter(c=>c.a===slug||c.b===slug); export const relatedBenchmarks=(slug:string)=>slug==="fable-5-2"||slug==="claude-opus-5-5"?["cursorbench"]:slug==="glm-5"?["browsecomp"]:[];
+export const formatTokens=(v:number)=>v>=1000000?`${v/1000000}M`:`${Math.round(v/1000)}K`; export const priceText=(p:PriceQuote)=>p.inputPerMillion===undefined?(p.note??p.mode):`${p.currency} ${p.inputPerMillion} in / ${p.outputPerMillion} out`;
