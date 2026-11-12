@@ -608,8 +608,16 @@
       "account Stripe API or customer changes",
       "unverified GSC results"
     ],
-    "status": "SCOPED",
-    "nextAction": "开发交付固定候选SHA后由独立QA连续验收；PASS后按用户授权自动执行GitHub-first发布。"
+    "status": "QA_PASS",
+    "candidateSha": "d7fcd41f8d5343f2776b845a96269766d18c8a63",
+    "acceptance": {
+      "result": "PASS",
+      "reviewer": "/root/pivot01_qa",
+      "evidence": "operations/evidence/PIVOT-03/qa/qa.json",
+      "scope": "固定SHA下的官方来源、价格边界、不可比反例、34个公开URL、互链、产品路线和定向旧路由回归",
+      "productionVerified": false
+    },
+    "nextAction": "按用户授权提交独立证据，推送GitHub并核对远端精确SHA后部署同一提交；随后独立生产验收。"
   },
   "seo03": {
     "unitId": "SEO-03",

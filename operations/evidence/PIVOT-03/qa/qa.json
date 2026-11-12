@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-03",
+  "candidateSha": "d7fcd41f8d5343f2776b845a96269766d18c8a63",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "checks": [
+    {"name": "fixed candidate SHA and clean pre-QA tree", "status": "PASS"},
+    {"name": "complete candidate diff review", "status": "PASS"},
+    {"name": "14-model and 34-URL inventory", "status": "PASS"},
+    {"name": "nine actual comparison pages", "status": "PASS"},
+    {"name": "public metadata and HTTP", "status": "PASS"},
+    {"name": "Qwen4 paired preview lifecycle", "status": "PASS"},
+    {"name": "dated FX conversion and original CNY", "status": "PASS"},
+    {"name": "exact-model historical pricing boundary", "status": "PASS"},
+    {"name": "exact-version comparison evidence rule", "status": "PASS"},
+    {"name": "source URL deduplication", "status": "PASS"},
+    {"name": "comparison and benchmark section boundary", "status": "PASS"},
+    {"name": "model backlinks and benchmark hub", "status": "PASS"},
+    {"name": "product roadmap and expansion gates", "status": "PASS"},
+    {"name": "targeted legacy route regression", "status": "PASS"},
+    {"name": "GSC indexing and rankings", "status": "NOT_RUN"}
+  ],
+  "details": {
+    "inventory": "The sitemap contains 34 unique public URLs: 14 model profiles, eight binary comparison pages, the fixed three-model comparison, /benchmarks, and the remaining contracted public pages. Every sitemap URL returned 200 locally.",
+    "metadata": "All 34 sitemap pages have unique Title and H1 values and a self-canonical URL.",
+    "qwen4": "The model profile and its GPT-5.2 comparison both exist and link back. Both visibly state the 2026-11-25 retirement boundary, Token Plan-only access and no pay-as-you-go price.",
+    "pricing": "The pricing page cites and dates the Fed H.10 6.676 CNY/USD snapshot and keeps original CNY values. DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 use explicit unknown exact-model hosted pricing language rather than successor prices.",
+    "comparisonEvidence": "No unsupported direct score was added. Pages lacking one common exact-version harness explicitly state that no directly comparable result is available.",
+    "links": "Focused rendered pages contained no duplicate source URL. More comparisons contains only comparison links; benchmarks are separately labelled. New comparisons link their participating models, model pages link back, and /benchmarks reaches CursorBench and BrowseComp.",
+    "roadmap": "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md defines positioning and evidence rules, at least 20 sourced models, one reasonable comparison inbound link per model, an 80% per-batch GSC indexing gate without concentrated canonical/soft-404 failures, Qwen4 retirement handling, and weekly/monthly observation cadence.",
+    "regression": "Targeted checks preserved 410 for /guides in both forms, single-hop redirects for /examples and /checks, unknown 404, and /api/health 200. The unchanged complete PIVOT-02 production legacy matrix was not redundantly rerun."
+  },
+  "evidence": [
+    "operations/evidence/PIVOT-03/qa/http-and-build.json",
+    "operations/evidence/PIVOT-03/qa/source-audit.md",
+    "operations/evidence/PIVOT-03/source-inventory.md",
+    "operations/evidence/PIVOT-03/page-link-matrix.md",
+    "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md"
+  ],
+  "limitations": "Fixed-candidate local acceptance only. Production, GSC, indexing, rankings, authenticated journeys, payment, Stripe and customer data were not exercised or claimed.",
+  "cleanup": "The local server was stopped. No account, payment, customer-data, GSC, production, commit, push or deployment operation was performed."
+}
