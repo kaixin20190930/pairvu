@@ -1,0 +1,33 @@
+{
+  "candidateSha": "008b64d97648436aa7fa45cac8514d3188e281a0",
+  "checkedAt": "2026-11-12",
+  "commands": [
+    {
+      "command": "pnpm test:model-pivot",
+      "status": "PASS",
+      "result": "12 models, 26 sitemap URLs, two 8-candidate lists"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "PASS"
+    },
+    {
+      "command": "pnpm build",
+      "status": "PASS",
+      "result": "Next.js 16.2.12 production build compiled, typechecked, and generated 98/98 static pages"
+    },
+    {
+      "command": "pnpm exec next start -H 127.0.0.1 -p 3113; curl -sS http://127.0.0.1:3113/benchmarks/browsecomp",
+      "status": "PASS",
+      "result": "Rendered 200 page contains a time element dated 2026-02-12, separate 2025 and vendor tables, latest-five-turn and discard-all configurations, non-comparability warning, Z.ai source link, canonical, Title, and H1"
+    }
+  ],
+  "renderedAssertions": {
+    "reportDate": "2026-02-12",
+    "withoutContextManagement": "No context management; retains the latest five turns",
+    "withContextManagement": "Context management using the discard-all strategy",
+    "warning": "Not directly comparable",
+    "source": "https://z.ai/blog/glm-5"
+  },
+  "cleanup": "The local Next server on port 3113 was stopped after the HTTP check."
+}

@@ -1,0 +1,39 @@
+{
+  "unitId": "PIVOT-02",
+  "candidateSha": "008b64d97648436aa7fa45cac8514d3188e281a0",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "checks": [
+    { "name": "fixed candidate SHA", "status": "PASS" },
+    { "name": "independent QA report", "status": "PASS" },
+    { "name": "official model and pricing source inventory", "status": "PASS" },
+    { "name": "model comparison benchmark link matrix", "status": "PASS" },
+    { "name": "legacy route regression matrix", "status": "PASS" },
+    { "name": "BrowseComp dated configured split", "status": "PASS" },
+    { "name": "focused model pivot verification", "status": "PASS" },
+    { "name": "TypeScript typecheck", "status": "PASS" },
+    { "name": "Next production build", "status": "PASS" },
+    { "name": "direct BrowseComp render", "status": "PASS" },
+    { "name": "GSC, production, login, and Stripe", "status": "NOT_RUN" }
+  ],
+  "review": {
+    "candidateBinding": "HEAD was exactly 008b64d97648436aa7fa45cac8514d3188e281a0 and the worktree was clean before QA evidence was written.",
+    "delta": "Relative to failed candidate 71a9ae6fa310abc1b66ea37f2fc0579099c9844e, runtime changes are limited to the BrowseComp vendor report date, the two source-defined configuration descriptions, and focused assertions. The original attempt-1 failure evidence is preserved.",
+    "sourceConclusion": "The official Z.ai GLM-5 release supports the 2026-02-12 report date, 62.0 without context management while retaining the latest five turns, and 75.9 with context management using discard-all. The rendered page now states those distinctions and retains the warning that the vendor report is not directly comparable to the 2025 OpenAI baseline.",
+    "renderConclusion": "A local production server returned the BrowseComp page with the exact date and configurations, separate baseline/vendor tables, canonical, unique Title/H1, source link and accessed date."
+  },
+  "reuse": {
+    "openNextBuild": "PASS reused from operations/evidence/PIVOT-02/qa/attempt-1/http-and-build.json. The candidate delta does not touch middleware, route definitions, build adapter/configuration, dependencies, or deployment code; Next production build was rerun on the fixed candidate.",
+    "legacyRouteRegression": "PASS reused from operations/evidence/PIVOT-02/qa/attempt-1/http-and-build.json. The complete 124x410, 6x301, retained-page, unknown-404, Qwen-alias, sitemap and API-health matrix is unaffected because the delta changes only BrowseComp content/data and its focused test assertions.",
+    "unchangedInventories": "The official model/pricing inventory and full model/compare/benchmark link matrix remain supported by operations/evidence/PIVOT-02/source-inventory.md and operations/evidence/PIVOT-02/link-matrix.md; the focused verifier was rerun and passed."
+  },
+  "evidence": [
+    "operations/evidence/PIVOT-02/qa/recheck/http-and-content.json",
+    "operations/evidence/PIVOT-02/qa/attempt-1/http-and-build.json",
+    "operations/evidence/PIVOT-02/qa/attempt-1/source-audit.md",
+    "operations/evidence/PIVOT-02/source-inventory.md",
+    "operations/evidence/PIVOT-02/link-matrix.md"
+  ],
+  "limitations": "Fixed-candidate local acceptance only. GSC, production, authenticated journeys, Stripe, customer data, rankings, indexing, and deployment were not exercised or claimed.",
+  "cleanup": "Local server stopped. No account, payment, customer-data, GSC, production, commit, push, or deployment operation was performed."
+}
