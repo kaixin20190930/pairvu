@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "A",
+  "attempt": 2,
+  "candidateSha": "3ae4778c35075ca5b0b2dac8026b454bd7b1ae99",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "modelSelection": {
+    "requested": "GPT-6.1 Sol / high",
+    "actual": "Inherited configuration of the reused independent-QA thread; the thread tool did not expose a safe way to reset the model or effort.",
+    "claim": "No model switch is claimed."
+  },
+  "checks": [
+    {
+      "name": "fixed repair candidate SHA",
+      "status": "PASS",
+      "detail": "HEAD resolved to 3ae4778c35075ca5b0b2dac8026b454bd7b1ae99 and the worktree was clean before attempt-2 evidence was written."
+    },
+    {
+      "name": "repair delta review",
+      "status": "PASS",
+      "detail": "Relative to failed candidate 511d052536d6a4439a69ba131a76536bfa74b46e, the functional repair only removes the redundant .next/dev/types include from tsconfig.json. The developer report adds the root-cause record and the original FAIL evidence is preserved unchanged."
+    },
+    {
+      "name": "standalone TypeScript typecheck",
+      "status": "PASS",
+      "detail": "pnpm typecheck exited 0; the prior .next/types/validator.ts Route/never TS2344 failure did not recur."
+    },
+    {
+      "name": "focused model pivot verification",
+      "status": "PASS",
+      "detail": "pnpm test:model-pivot reported 14 models, 35 sitemap URLs and 9 comparisons."
+    },
+    {
+      "name": "35 URL 14 model 9 comparison inventory",
+      "status": "PASS",
+      "detail": "The rendered sitemap contains 35 URLs, including 14 model profiles and 9 comparison pages. Every sitemap URL returned 200 and no retired URL prefix leaked into it."
+    },
+    {
+      "name": "public metadata",
+      "status": "PASS",
+      "detail": "All 35 sitemap pages have unique Title and H1 values and self-canonical URLs."
+    },
+    {
+      "name": "open-source target term",
+      "status": "PASS",
+      "detail": "The rendered page Title is 'Open Source LLMs: 8 Open-Weight Models Compared | Pairvu', H1 is 'Open source LLMs: 8 open-weight models compared', and the opening paragraph naturally includes 'open source LLMs and open-weight models'."
+    },
+    {
+      "name": "six priority comparison SEO records",
+      "status": "PASS",
+      "detail": "Claude/GPT, DeepSeek/ChatGPT, ChatGPT/Claude/Gemini, GPT/Gemini, Claude/Gemini and Fable/Opus return 200 with distinct search-intent Titles, natural H1 values, exact-version subtitles and self-canonicals."
+    },
+    {
+      "name": "models directory and navigation",
+      "status": "PASS",
+      "detail": "/models returns 200 with self-canonical metadata. Header, homepage, footer and model-profile return navigation link to /models."
+    },
+    {
+      "name": "exact-model pricing states",
+      "status": "PASS",
+      "detail": "DeepSeek-V3.2, Kimi K2.5, MiniMax M2.1 and Qwen3.5-397B-A17B visibly label the exact hosted price as unconfirmed/unknown, not free, and do not substitute a successor-model price."
+    },
+    {
+      "name": "Qwen4 display and lifecycle",
+      "status": "PASS",
+      "detail": "The rendered display name is 'Qwen 4 Max Preview'; the profile shows model ID qwen4-max-preview, Token Plan-only availability, no pay-as-you-go price and the 2026-11-25 24:00 UTC+8 retirement boundary without claiming early retirement."
+    },
+    {
+      "name": "targeted legacy and health boundaries",
+      "status": "PASS",
+      "detail": "/guides and /guides/ returned 410; /examples returned one 301 to /; /checks returned one 301 to /leaderboard; unknown returned 404; /api/health returned 200."
+    },
+    {
+      "name": "complete unchanged legacy matrix",
+      "status": "PASS",
+      "detail": "Reused from PIVOT-03 production and fixed-candidate evidence because stage A and the repair candidate do not change middleware, retired-route inventory, API boundaries or account/payment behavior."
+    },
+    {
+      "name": "GSC ranking login payment and customer data",
+      "status": "NOT_RUN"
+    }
+  ],
+  "buildReuse": "The successful stage-A Next production build and its 107-route output are reused from operations/evidence/PIVOT-04/stage-a-developer-report.md. Runtime application code is byte-for-byte unchanged from the built failed candidate; attempt 2 changes only which generated type directory standalone tsc includes. Per controller direction, no redundant build was run. The existing production build was started for targeted rendered HTTP checks and then stopped.",
+  "evidence": [
+    "operations/evidence/PIVOT-04/qa/stage-a/qa.json",
+    "operations/evidence/PIVOT-04/stage-a-developer-report.md",
+    "operations/evidence/PIVOT-04/stage-a-source-and-page-inventory.md",
+    "operations/evidence/PIVOT-03/production-2026-11-12/production-qa.json"
+  ],
+  "limitations": "Fixed-candidate local acceptance only. Production, GSC, indexing, rankings, authenticated journeys, payment, Stripe and customer data were not exercised. The unchanged full 124x410/6x301 matrix was reused rather than rerun.",
+  "cleanup": "The local server on port 3115 was stopped. No account, payment, customer asset, GSC or production mutation was created. QA did not modify runtime code, commit, push or deploy."
+}
