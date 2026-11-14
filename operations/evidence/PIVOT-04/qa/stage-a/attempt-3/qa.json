@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "A",
+  "attempt": 3,
+  "candidateSha": "48e78b877cd3367806fae054811bbb370a4480e0",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixed stable-repair candidate",
+      "status": "PASS",
+      "detail": "HEAD resolved exactly to 48e78b877cd3367806fae054811bbb370a4480e0 and the working tree was clean before attempt-3 evidence was written."
+    },
+    {
+      "name": "minimal delta review",
+      "status": "PASS",
+      "detail": "Relative to attempt-2 candidate 3ae4778c35075ca5b0b2dac8026b454bd7b1ae99, runtime application code is unchanged. The stable repair restores Next's managed .next/dev/types include and excludes that same generated directory from TypeScript compilation; the prior PASS evidence and developer root-cause/release-gate record are added without overwriting original evidence."
+    },
+    {
+      "name": "standalone TypeScript typecheck",
+      "status": "PASS",
+      "detail": "Independent pnpm typecheck exited 0 with both generated include entries present and .next/dev/types excluded."
+    },
+    {
+      "name": "focused model pivot verification",
+      "status": "PASS",
+      "detail": "Independent pnpm test:model-pivot reported 14 models, 35 sitemap URLs and 9 comparisons."
+    },
+    {
+      "name": "build configuration stability evidence",
+      "status": "PASS",
+      "detail": "The current tsconfig.json SHA-1 is 5ab72107d0aa1fa6e60fccb99789687520bce72f, exactly matching the developer-recorded checksum before and after the full 107-route Next build. The build therefore did not rewrite the committed configuration."
+    },
+    {
+      "name": "dirty release-gate record",
+      "status": "PASS",
+      "detail": "The developer report explicitly preserves that the first repair was stopped before upload when Next rewrote tsconfig and the working tree became dirty. It does not claim a release or bypass."
+    },
+    {
+      "name": "stage-A rendered page acceptance",
+      "status": "PASS",
+      "detail": "Reused from attempt 2 because no runtime page, catalog, component, route, middleware, dependency or sitemap code changed. That evidence covers all 35 pages, open-source target terms, six comparison SEO records, /models navigation, exact-price states, Qwen4 lifecycle and targeted route boundaries."
+    },
+    {
+      "name": "GSC production ranking login payment and customer data",
+      "status": "NOT_RUN"
+    }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-04/qa/stage-a/qa.json",
+    "operations/evidence/PIVOT-04/qa/stage-a/attempt-2/qa.json",
+    "operations/evidence/PIVOT-04/stage-a-developer-report.md"
+  ],
+  "reuse": "The attempt-2 rendered HTTP and page-content PASS is unaffected because attempt 3 changes only generated-type inclusion/exclusion behavior. No 35-page matrix or build was redundantly rerun. The full developer build is used only for its recorded configuration-stability result; independent typecheck, focused inventory test, checksum and clean-tree checks were rerun on the fixed candidate.",
+  "limitations": "Fixed-candidate local configuration acceptance only. Production, GSC, indexing, rankings, authenticated journeys, payment, Stripe and customer data were not exercised.",
+  "cleanup": "No local server or test asset was created. QA did not modify runtime code, commit, push or deploy."
+}
