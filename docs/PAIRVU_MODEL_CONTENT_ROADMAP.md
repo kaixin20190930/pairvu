@@ -27,6 +27,8 @@ Only add these comparisons: Kimi K2.5 vs DeepSeek-V3.2; MiniMax M2.1 vs GLM-5; Q
 
 Stage B depends on Stage A production verification and must independently prove no orphan model, bidirectional links, unique metadata/canonical, and no cross-harness score synthesis.
 
+Stage A passed independent production acceptance on release `3e207dfc18aea85f14bf79ff2127bab6b01774f9` (Cloudflare `7027e158-cb0e-415e-a17b-6d567bef5fed`), so Stage B development is now authorized. The Stage B implementation contains exactly the four named comparisons, 39 sitemap URLs, 14 models, and 13 comparison pages; every model now has at least one comparison inbound link. This is a development result only until fixed-SHA QA and production verification pass. Stage C remains blocked.
+
 ### Stage C — benchmark depth, no new URL
 
 Deepen `/benchmarks`, CursorBench, and BrowseComp with method, version, update date, coverage matrix, configuration, cost, and limitations. Keep BrowseComp’s benchmark-owner baseline separate from vendor reports. Improve high-value decision copy only where sources support it. Do not create a composite score or expand the URL inventory.

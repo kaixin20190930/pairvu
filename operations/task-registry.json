@@ -653,10 +653,12 @@
       "reason": "固定SHA下独立检查目标词、来源、canonical、互链和旧路由反例",
       "upgradeCondition": "事实不受一手来源支持时直接FAIL，不修改共享应用"
     },
-    "scope": ["stage A only: open-source SEO, model directory, six comparison SEO records, four exact-model price states, Qwen4 display and lifecycle"],
-    "excluded": ["stages B C D application changes", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
+    "scope": ["stage B only: four contracted orphan-model comparisons, finite comparison facts, bidirectional links and relevant More comparisons"],
+    "excluded": ["stages C D application changes", "any comparison beyond the four contracted pairs", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
     "status": "DEV_ACTIVE",
-    "nextAction": "阶段A固定候选后独立QA；QA与生产验收PASS前不得开始阶段B。"
+    "stageAProduction": {"releaseSha":"3e207dfc18aea85f14bf79ff2127bab6b01774f9","platformVersion":"7027e158-cb0e-415e-a17b-6d567bef5fed","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"},
+    "stageBDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"orphanModels":0,"result":"DEV_READY_PENDING_FIXED_SHA_QA"},
+    "nextAction": "阶段B固定候选后独立QA；QA与生产验收PASS前不得开始阶段C。"
   },
   "seo03": {
     "unitId": "SEO-03",

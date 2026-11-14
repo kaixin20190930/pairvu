@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "A",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "environment": "https://pairvu.com",
+  "releaseSha": "3e207dfc18aea85f14bf79ff2127bab6b01774f9",
+  "platformVersion": "7027e158-cb0e-415e-a17b-6d567bef5fed",
+  "result": "PASS",
+  "checks": [
+    {"name":"production release identity","status":"PASS","detail":"/api/health returned 200 and exactly matched the expected release SHA and Cloudflare version."},
+    {"name":"35 URL production inventory","status":"PASS","detail":"The live sitemap contains 35 URLs: 14 model profiles and 9 comparison pages. All 35 returned 200, Title/H1 values are unique, canonicals self-reference, and no retired URL leaked into the sitemap."},
+    {"name":"models directory navigation","status":"PASS","detail":"/models returns 200 with the expected Title, H1 and canonical. Header, homepage, footer and model profiles link to the directory."},
+    {"name":"open-source target term","status":"PASS","detail":"The live Title is 'Open Source LLMs: 8 Open-Weight Models Compared | Pairvu', H1 is 'Open source LLMs: 8 open-weight models compared', and the opening paragraph naturally includes open source LLMs and open-weight models."},
+    {"name":"six comparison SEO records","status":"PASS","detail":"Claude/GPT, DeepSeek/ChatGPT, ChatGPT/Claude/Gemini, GPT/Gemini, Claude/Gemini and Fable/Opus all return 200 with their intended search Titles, natural H1 values, exact-version opening subtitles and self-canonicals."},
+    {"name":"exact-model price status","status":"PASS","detail":"DeepSeek-V3.2, Kimi K2.5, MiniMax M2.1 and Qwen3.5-397B-A17B visibly label exact hosted pricing as unconfirmed/unknown, not free, without substituting successor pricing."},
+    {"name":"Qwen4 display and lifecycle","status":"PASS","detail":"The live profile displays 'Qwen 4 Max Preview', model ID qwen4-max-preview, Token Plan-only access, no pay-as-you-go price and the 2026-11-25 24:00 UTC+8 retirement boundary without claiming premature retirement."},
+    {"name":"targeted retired-route boundaries","status":"PASS","detail":"/guides and /guides/ returned 410. Without following redirects, /examples returned 301 to / and /checks returned 301 to /leaderboard. An unknown route returned 404."},
+    {"name":"production mutation boundary","status":"PASS","detail":"Only public read-only HTTP requests were made. No account, GSC, payment, customer-data, commit, push, deployment or production configuration write occurred."}
+  ],
+  "observed": {
+    "healthStatus": 200,
+    "sitemapStatus": 200,
+    "sitemapUrlCount": 35,
+    "sitemapUrlsReturning200": 35,
+    "modelPageCount": 14,
+    "comparisonPageCount": 9,
+    "uniqueTitles": 35,
+    "uniqueH1s": 35,
+    "selfCanonicals": 35,
+    "retiredRouteLeak": false,
+    "boundaryStatuses": {
+      "/guides": 410,
+      "/guides/": 410,
+      "/examples": "301 /",
+      "/checks": "301 /leaderboard",
+      "/qa-pivot04-a-prod-unknown": 404
+    }
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-04/qa/stage-a/attempt-3/qa.json",
+    "operations/evidence/PIVOT-04/qa/stage-a/attempt-2/qa.json"
+  ],
+  "limitations": "Public unauthenticated Stage-A production acceptance only. The unchanged complete legacy matrix, GSC, indexing, rankings, login, payment, Stripe, customer data and write APIs were not exercised.",
+  "cleanup": "No local server or test asset was created. No production data or configuration was changed."
+}
