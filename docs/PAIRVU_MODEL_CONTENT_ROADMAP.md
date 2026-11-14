@@ -1,28 +1,65 @@
 # Pairvu model-content roadmap and evidence rules
 
-## Product position
+This is the single current route into Pairvu model-content planning. Work advances one independently accepted and production-verified stage at a time; completing code for a later stage early is not allowed.
 
-Pairvu is an evidence-linked model comparison publication. It explains versioned model facts, prices, and benchmark results without manufacturing a universal score. Pages are useful only when a reader can reach the model owner, API provider, or benchmark owner that supports each material claim.
+## Product boundary
 
-## Data and comparison rules
+Pairvu is a single-language English evidence-linked model comparison publication. It is not an API aggregator, paywall, model tool, CMS, crawler, live-FX service, arbitrary N-model comparator, or universal scoring system. Every material fact identifies the exact model version, owner source, access date, region, currency, and billing mode when relevant.
 
-- Record the exact model version, provider, source URL, access date, region, currency, and billing mode.
-- Convert currencies only with a dated, cited snapshot while preserving the original amount. Do not build live FX behavior.
-- Show a direct quality comparison only when one source and one harness cover every exact version in the table. Otherwise state that no directly comparable result exists.
-- Keep benchmark-owner baselines separate from vendor reports and disclose configurations that materially affect scores.
-- Treat “no current model-specific public hosted price” as unknown—not free and not permission to substitute a successor model.
-- Deduplicate sources by URL and keep model, comparison, and relevant benchmark pages mutually reachable.
+No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
+
+## Four-stage delivery plan
+
+### Stage A — foundation (current PIVOT-04 scope)
+
+- Repair `/best/open-source-models` title, description, H1, and opening paragraph for the approved target “open source LLMs,” while retaining license caveats and non-ranking language.
+- Add `/models`; route Header, homepage, Footer, and every model profile back to the directory.
+- Give six priority comparisons unique search-oriented metadata, H1, and an exact-version subtitle without “Which Wins” framing: Claude vs GPT, DeepSeek vs ChatGPT, ChatGPT vs Claude vs Gemini, GPT vs Gemini, Claude vs Gemini, and Fable vs Opus.
+- Verify DeepSeek-V3.2, Kimi K2.5, MiniMax M2.1, and Qwen3.5-397B-A17B price status from their model-owner sources. If an exact-model hosted price is not established, say precisely that it is unknown and link the official weights/source; never substitute a successor price.
+- Present “Qwen 4 Max Preview” naturally while preserving model ID `qwen4-max-preview`, canonical `/models/qwen-4-max-preview`, Token Plan-only access, no pay-as-you-go price, and the 2026-11-25 24:00 UTC+8 preview boundary.
+- Expected inventory: 35 sitemap URLs, 14 model profiles, 9 comparison pages including the fixed three-model page.
+
+Stage A acceptance requires the existing model-pivot check, typecheck, necessary build, targeted HTTP 200/metadata/canonical checks, unchanged legacy status behavior, fixed candidate SHA, independent QA on that SHA, and production verification. **Stage B cannot start before all of those gates pass.**
+
+### Stage B — complete the internal-link network
+
+Only add these comparisons: Kimi K2.5 vs DeepSeek-V3.2; MiniMax M2.1 vs GLM-5; Qwen3.8-2.4T-A95B vs Qwen3.8-27B; Qwen3.5-397B-A17B vs Qwen3.8-27B. Each page must cover parameters, modality, license/weights, access/deployment state, source-compatible quality evidence, and a pair-specific human recommendation. Expected inventory: 39 URLs, 14 models, 13 comparisons, with every model receiving at least one reasonable comparison inbound link.
+
+Stage B depends on Stage A production verification and must independently prove no orphan model, bidirectional links, unique metadata/canonical, and no cross-harness score synthesis.
+
+### Stage C — benchmark depth, no new URL
+
+Deepen `/benchmarks`, CursorBench, and BrowseComp with method, version, update date, coverage matrix, configuration, cost, and limitations. Keep BrowseComp’s benchmark-owner baseline separate from vendor reports. Improve high-value decision copy only where sources support it. Do not create a composite score or expand the URL inventory.
+
+Stage C depends on Stage B production verification and independently verifies visible method/version/configuration, source traceability, and absence of composite or cross-harness ranking.
+
+### Stage D — two evidence-backed model pairs
+
+After official source verification, add a Sonnet 5.5 profile plus Opus 5.5 comparison, and a Muse Wonder profile plus GPT-5.2 comparison. Exact model ID, price, context, date, and preview boundary are required. If exact-model evidence cannot support both pages in a pair, publish neither. Expected inventory: 43 URLs, 16 models, 15 comparisons.
+
+Stage D depends on Stage C production verification. The remaining four model candidates require a later sourcing decision and are not authorized by PIVOT-04. Coding best pages, new benchmarks, and 100–300 bulk comparisons also remain later decisions.
+
+## Evidence, acceptance, and release rules
+
+For every stage: freeze the page list and owner sources; run only the existing focused inventory/type checks plus one necessary build and targeted HTTP; stop temporary services; create a fixed candidate commit; obtain independent QA on that exact SHA; then follow GitHub-first push, fetch/exact-SHA verification, same-SHA deployment, and targeted production verification. A local PASS is never a production PASS. Accounts, Stripe, APIs, customer data, GSC writes, migrations, bulk generation, and new test frameworks are outside this roadmap.
+
+Legacy routing remains invariant: `/guides` with or without slash returns 410; `/examples` redirects once to `/`; `/checks` redirects once to `/leaderboard`; unknown paths return 404; health returns 200.
 
 ## Controlled expansion gate
 
-Do not scale comparison inventory until all conditions hold: at least 20 sourced public model profiles; every public model has at least one reasonable comparison inbound link; each release batch reaches at least 80% GSC indexing; and there is no concentrated canonical or soft-404 problem. Without connected GSC evidence, the indexing gate is BLOCKED and the decision is **do not scale**.
+Do not evaluate scaled comparison publishing until all conditions hold simultaneously: at least 20 sourced model profiles; every model has a reasonable comparison inbound link; each stable GSC release batch has at least 80% indexing; there is no concentrated canonical, soft-404, or crawled-not-indexed problem; and pages show real impressions. Without connected GSC data or a current manual export, the indexing gate is BLOCKED and the decision is **do not scale**.
 
-## Qwen4 preview lifecycle
+## GSC batches and observation cadence
 
-Qwen4-Max-Preview is a paired model/comparison release. Alibaba documents Token Plan-only access, no pay-as-you-go price, and retirement at 2026-11-25 24:00 UTC+8. On expiry, mark availability as a retired preview and reassess current-list placement; preserve the historical URLs rather than silently deleting them.
+Track first launch, PIVOT-02, PIVOT-03, Stage A, Stage B, and Stage D as separate batches. Stage A edits existing URLs and must not reset their original first-published date.
 
-## Observation cadence
+- `pairvu-2`, Mondays 09:30 Asia/Shanghai: read-only official source, model availability, broken-link, orphan, sitemap, and status-code health report.
+- `pairvu-gsc`, Wednesdays 10:00: batch-level submitted/indexed/crawled/canonical/soft-404/impression report. Without a GSC connection, request a manual export and do not infer results.
+- `pairvu-3`, monthly on day 1 at 10:30: model count, per-model comparison coverage, staleness, batch indexing, and expansion-gate decision. Any unmet condition means **do not scale**.
+- `qwen4-preview`, 2026-11-26 09:00: verify post-preview availability. Until the documented 2026-11-25 24:00 UTC+8 boundary, do not call it retired. After verification, preserve its URL and links, mark the historical preview accurately, and remove it from current recommendations where applicable.
 
-- Weekly: check official price/model availability, Qwen4 lifecycle, broken sources, orphaned profiles, sitemap, and status codes.
-- Weekly GSC reminder: report data only when connected; otherwise request a manual export and never infer submission or indexing.
-- Monthly: review model count, comparison coverage, staleness, and batch indexing. If any expansion gate is unmet, record **do not scale**.
+These are existing read-only observation tasks. Do not create duplicates, add pages, or publish automatically from an observation run.
+
+## Current dependency record
+
+Stage A runs under PIVOT-04. Historical `JRN-04-FIX` remains `RELEASE_READY`, so the formal control CLI cannot safely claim this runtime unit; record candidates and evidence in the registry without altering or deleting the historical lock/state. The developer role actually inherits GPT-6.1 Sol/high; if source evidence is insufficient, reduce the claim or stop that item rather than expanding collection architecture.

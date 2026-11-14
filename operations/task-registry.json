@@ -633,6 +633,31 @@
     ],
     "nextAction": "等待定时观察；GSC连接或人工导出是收录结论依赖。当前14个模型且未达到全部逐模型comparison覆盖，不自动放量。"
   },
+  "pivot04": {
+    "unitId": "PIVOT-04",
+    "contract": "operations/contracts/PIVOT-04.md",
+    "authorization": "逐阶段开发、独立验收和GitHub-first发布；本候选仅阶段A，B/C/D依赖A生产验收",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "agent": "/root/pivot01_developer",
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "actualConfiguration": "inherited",
+      "reason": "阶段A涉及跨官方来源的精确价格边界、SEO、目录和互链一致性",
+      "upgradeCondition": "精确型号来源不足时降级表述或停止该项，不扩建采集系统"
+    },
+    "qa": {
+      "agent": "/root/pivot01_qa",
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "固定SHA下独立检查目标词、来源、canonical、互链和旧路由反例",
+      "upgradeCondition": "事实不受一手来源支持时直接FAIL，不修改共享应用"
+    },
+    "scope": ["stage A only: open-source SEO, model directory, six comparison SEO records, four exact-model price states, Qwen4 display and lifecycle"],
+    "excluded": ["stages B C D application changes", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
+    "status": "DEV_ACTIVE",
+    "nextAction": "阶段A固定候选后独立QA；QA与生产验收PASS前不得开始阶段B。"
+  },
   "seo03": {
     "unitId": "SEO-03",
     "contract": "operations/contracts/SEO-03.md",

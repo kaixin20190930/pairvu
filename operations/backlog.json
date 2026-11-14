@@ -497,6 +497,21 @@
         "content and internal-link matrix",
         "product boundary and monitoring record"
       ]
+    },
+    {
+      "id": "PIVOT-04",
+      "title": "分阶段内容修复与增量建设",
+      "priority": 0,
+      "dependsOn": ["PIVOT-03"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "stage-specific fixed candidate SHA",
+        "independent QA report",
+        "official exact-model source inventory",
+        "page metadata and internal-link matrix",
+        "targeted HTTP and legacy route regression"
+      ]
     }
   ]
 }
