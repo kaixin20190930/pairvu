@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "A",
+  "candidateSha": "511d052536d6a4439a69ba131a76536bfa74b46e",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "FAIL",
+  "modelSelection": {
+    "requested": "GPT-6.1 Sol / high",
+    "actual": "Inherited configuration of the reused independent-QA thread; the thread tool did not expose a safe way to reset the model or effort.",
+    "claim": "No model switch is claimed."
+  },
+  "checks": [
+    {
+      "name": "fixed candidate SHA",
+      "status": "PASS",
+      "detail": "HEAD and git rev-parse 511d052 both resolved to 511d052536d6a4439a69ba131a76536bfa74b46e; the worktree was clean before QA evidence was written."
+    },
+    {
+      "name": "complete stage-A diff review",
+      "status": "PASS",
+      "detail": "Reviewed the 17-file diff from baseline 782749f through the fixed candidate."
+    },
+    {
+      "name": "standalone TypeScript typecheck",
+      "status": "FAIL",
+      "detail": "pnpm typecheck exited 1. .next/types/validator.ts line 25 emitted TS2344 twice: Type 'Route' does not satisfy the constraint 'never'; Type '\"/\"' is not assignable to type 'never'."
+    },
+    {
+      "name": "Next build TypeScript result",
+      "status": "PARTIAL",
+      "detail": "Developer reports the final Next build passed its internal TypeScript step, but that does not override the independently reproducible standalone typecheck failure required by the frozen contract."
+    },
+    {
+      "name": "35 URL, 14 model, 9 comparison inventory",
+      "status": "NOT_RUN",
+      "detail": "Stopped after the blocking required typecheck failure; no expanded local HTTP matrix was run."
+    },
+    {
+      "name": "open-source Title H1 and first-paragraph target term",
+      "status": "NOT_RUN",
+      "detail": "Deferred until a new fixed candidate resolves the blocking typecheck failure."
+    },
+    {
+      "name": "six comparison SEO and exact-version content",
+      "status": "NOT_RUN",
+      "detail": "Deferred until a new fixed candidate resolves the blocking typecheck failure."
+    },
+    {
+      "name": "models navigation pricing and Qwen4 lifecycle",
+      "status": "NOT_RUN",
+      "detail": "Deferred until a new fixed candidate resolves the blocking typecheck failure."
+    },
+    {
+      "name": "unchanged complete legacy route matrix",
+      "status": "NOT_RUN",
+      "detail": "Eligible for reuse from PIVOT-03 only after the replacement candidate's route/middleware diff is checked."
+    },
+    {
+      "name": "GSC ranking login payment and customer data",
+      "status": "NOT_RUN"
+    }
+  ],
+  "failures": [
+    {
+      "name": "Required standalone typecheck fails",
+      "command": "pnpm typecheck",
+      "exitCode": 1,
+      "location": ".next/types/validator.ts:25",
+      "diagnostic": "TS2344: Type 'Route' does not satisfy the constraint 'never'. Type '\"/\"' is not assignable to type 'never'.",
+      "blockingReason": "The PIVOT-04 contract requires existing typecheck validation. A successful Next build internal TypeScript phase cannot mask a directly reproducible required command failure."
+    }
+  ],
+  "evidence": [
+    "operations/evidence/PIVOT-04/stage-a-developer-report.md",
+    "operations/evidence/PIVOT-04/stage-a-source-and-page-inventory.md"
+  ],
+  "limitations": "Acceptance stopped at the first blocking required validation failure. No production, GSC, ranking, authenticated journey, payment, Stripe, customer-data, full legacy matrix, local server, or deployment check was performed.",
+  "cleanup": "No local server, account, payment, customer asset or production mutation was created. QA changed only this evidence file and did not modify runtime code, commit, push or deploy."
+}
