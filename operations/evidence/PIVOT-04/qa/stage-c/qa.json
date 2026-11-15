@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "C",
+  "candidateSha": "05377ce8a94d3f424fe8c2ef74e57a47bbead432",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "result": "PASS",
+  "checks": [
+    {"name":"fixed candidate SHA and clean pre-QA tree","status":"PASS"},
+    {"name":"complete stage-C diff review","status":"PASS","detail":"The runtime diff deepens the benchmark hub and two existing detail pages plus finite benchmark metadata; no URL, model, comparison or benchmark was added."},
+    {"name":"focused inventory test","status":"PASS","detail":"pnpm test:model-pivot reported 14 models, 39 sitemap URLs, 13 comparisons and two benchmark detail pages."},
+    {"name":"standalone typecheck","status":"PASS","detail":"pnpm typecheck exited 0."},
+    {"name":"benchmark inventory invariant","status":"PASS","detail":"The rendered inventory remains 39 sitemap URLs, 14 model profiles, 13 comparison pages and two benchmark detail pages."},
+    {"name":"benchmark hub depth","status":"PASS","detail":"/benchmarks returns 200 with unique metadata, a coverage matrix, version/date, Pairvu coverage, configuration/cost semantics, limitations and an explicit statement rejecting a composite score across unrelated harnesses."},
+    {"name":"CursorBench method and coverage","status":"PASS","detail":"The page returns 200 and visibly shows CursorBench 4.0, 2026-11-12 snapshot date, owner method, three-row coverage boundary, named effort configurations, score, owner-reported average cost per task, model-profile coverage and limitations."},
+    {"name":"CursorBench related links","status":"PASS","detail":"The page links the Fable 5.2 and Opus 5.5 profiles and their exact comparison."},
+    {"name":"BrowseComp method and coverage","status":"PASS","detail":"The page returns 200 and visibly shows the 2025-04-10 original 1,266-task release, method, four owner baselines, two vendor configurations, per-row configuration, explicit unreported cost states, catalog coverage and limitations."},
+    {"name":"BrowseComp evidence separation","status":"PASS","detail":"The 2025 OpenAI benchmark-owner baseline and 2026 Z.ai vendor report are separate ordered tables. The later table retains the last-five-turn and discard-all context-management descriptions and a not-directly-comparable warning."},
+    {"name":"unsupported 64-trials label removed","status":"PASS","detail":"The 51.5% owner row is labelled 'Deep research' as in the OpenAI release. Neither source data nor rendered benchmark content contains the unsupported '64 trials' qualifier."},
+    {"name":"no composite or cross-harness ranking","status":"PASS","detail":"No composite score or merged OpenAI/Z.ai ranking is rendered; the hub and detail page explicitly explain the comparability boundary."},
+    {"name":"owner-source support","status":"PASS","detail":"Independent checks of CursorBench, OpenAI BrowseComp and the existing Z.ai GLM-5 source support the displayed scores, dates, method/configuration boundaries and cost-reporting statements."},
+    {"name":"high-value comparison choice copy","status":"PASS","detail":"Reviewed the catalog comparison verdicts in the complete diff. Claims remain tied to published price/context/deployment facts or explicitly state that no common exact-version harness supports a quality score."},
+    {"name":"targeted route boundaries","status":"PASS","detail":"/guides and /guides/ returned 410; /examples returned 301 to /; /checks returned 301 to /leaderboard; unknown returned 404; /api/health returned 200."},
+    {"name":"Stage A/B and full legacy matrix","status":"PASS","detail":"Reused from prior fixed-candidate and production evidence because Stage C does not alter those page inventories, middleware, account/API boundaries or retired-route rules."},
+    {"name":"GSC production ranking login payment and customer data","status":"NOT_RUN"}
+  ],
+  "renderedPages": {
+    "/benchmarks": {"status":200,"selfCanonical":true,"coverageMatrix":true,"rejectsCompositeScore":true},
+    "/benchmarks/cursorbench": {"status":200,"version":"4.0","snapshotDate":"2026-11-12","rows":3,"costPerTaskVisible":true,"relatedModelAndComparisonLinks":true},
+    "/benchmarks/browsecomp": {"status":200,"releaseDate":"2025-04-10","taskCount":1266,"ownerRows":4,"vendorRows":2,"tablesSeparated":true,"unreportedCostVisible":true,"unsupported64TrialsAbsent":true}
+  },
+  "sourceSpotChecks": [
+    "https://cursor.com/cursorbench",
+    "https://openai.com/index/browsecomp/",
+    "https://z.ai/blog/glm-5"
+  ],
+  "buildReuse": "The successful developer build generating 111 pages is reused from operations/evidence/PIVOT-04/stage-c-developer-report.md. Independent focused tests, typecheck, diff inspection, primary-source checks and targeted production-build HTTP were run; no redundant build was necessary.",
+  "evidence": [
+    "operations/evidence/PIVOT-04/stage-c-developer-report.md",
+    "operations/evidence/PIVOT-04/stage-c-source-and-coverage-inventory.md",
+    "operations/evidence/PIVOT-04/qa/stage-b/qa.json",
+    "operations/evidence/PIVOT-04/production-2026-11-15/stage-b-production-qa.json"
+  ],
+  "limitations": "Fixed-candidate local Stage-C acceptance only. Production, GSC, indexing, rankings, authenticated journeys, payment, Stripe and customer data were not exercised. Stage-A/B page matrices and the complete old legacy matrix were not redundantly rerun.",
+  "cleanup": "The local server on port 3117 was stopped. No account, payment, customer asset, GSC or production mutation was created. QA did not modify runtime code, commit, push or deploy."
+}
