@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04-stage-d",
+  "role": "independent-qa",
+  "result": "PASS",
+  "candidateSha": "30db6587d3c7db6b99ca8b9ec849c82f99a806d7",
+  "candidateBinding": {
+    "headExact": true,
+    "worktreeCleanBeforeQa": true,
+    "branchState": "main ahead of origin/main by 1",
+    "baseReviewed": "7daa548307ac3c21b33dbf6cfa03424ee1fb6258",
+    "scope": "Stage D adds exactly two model records and two comparison records; shared model/compare rendering, focused verifier, roadmap/registry and evidence changed. No additional public route family was introduced."
+  },
+  "modelSelection": {
+    "model": "GPT-6.1 Sol",
+    "effort": "high",
+    "rationale": "Independent acceptance of exact-version technical facts, first-party sources, metadata, interlinking and HTTP behavior."
+  },
+  "checks": [
+    {
+      "name": "fixed candidate and complete diff",
+      "status": "PASS",
+      "evidence": "git rev-parse HEAD matched the candidate; git status was clean before QA; full 7daa548..candidate name-status and content diff reviewed."
+    },
+    {
+      "name": "first-party Sonnet 5.5 facts",
+      "status": "PASS",
+      "evidence": "Anthropic owner documentation states model ID claude-sonnet-5-5, 1M context, USD 2/10 per MTok, Active status and release September 28 2026. The Anthropic announcement independently carries the same date and price."
+    },
+    {
+      "name": "first-party Muse Wonder facts",
+      "status": "PASS",
+      "evidence": "Meta owner docs state model ID muse-wonder-1.0, 1,048,576-token context, Preview, Standard-mode pay-as-you-go USD 4/20, release announcement October 12 2026, and explicitly state max effort does not select Muse Wonder Full. Cursor is retained only as the named CursorBench harness source, not as the model/pricing authority."
+    },
+    {
+      "name": "focused automated verifier",
+      "status": "PASS",
+      "command": "pnpm test:model-pivot",
+      "evidence": "PIVOT-04 stage D passed: 16 models, 43 sitemap URLs, 15 comparisons, no orphan models."
+    },
+    {
+      "name": "typecheck",
+      "status": "PASS",
+      "command": "pnpm typecheck",
+      "evidence": "tsc --noEmit exited 0."
+    },
+    {
+      "name": "build",
+      "status": "PASS_REUSED",
+      "evidence": "Reused candidate-bound developer Next build evidence reporting 115 generated routes. Independent QA did not rebuild because the contract authorizes reuse and targeted HTTP exercised the resulting build."
+    },
+    {
+      "name": "four approved public pages",
+      "status": "PASS",
+      "evidence": "Local next start returned 200 for both new model pages and both new comparison pages. Each rendered one distinct Title, one H1 and the expected self-canonical. Unapproved /compare/claude-sonnet-5-5-vs-opus-5-5 returned 404."
+    },
+    {
+      "name": "facts rendered with collection dates and owner sources",
+      "status": "PASS",
+      "evidence": "Rendered pages showed 2026-11-15 checked dates, exact model IDs/status/context/prices, Meta max-versus-Full warning, and links to Anthropic or Meta owner sources. SourceList de-duplicates source inventory URLs; comparison pages had no duplicate source-list URL."
+    },
+    {
+      "name": "quality comparison boundaries",
+      "status": "PASS",
+      "evidence": "Muse vs GPT explicitly says no cited common harness and shows no direct quality score. Sonnet vs Opus identifies the genuine common exact-version CursorBench 4.0 harness and limits it as harness-specific rather than a universal ranking; the shared quality-evidence warning requires same prompts/tools/budgets/judge."
+    },
+    {
+      "name": "bidirectional and relevant interlinking",
+      "status": "PASS",
+      "evidence": "Both new model pages link their approved comparison; Opus 5.5 and GPT-5.2 model pages link back to the corresponding new comparison. More-comparisons logic is endpoint membership based. Focused verifier confirmed all 16 models have a comparison and no orphan."
+    },
+    {
+      "name": "inventory and route regression boundary",
+      "status": "PASS",
+      "evidence": "Rendered sitemap contained exactly 43 loc entries, including 16 /models/ and 15 /compare/ entries. /guides and /guides/ returned 410; /examples returned a single 301 to /; /checks returned a single 301 to /leaderboard; unknown returned 404; /api/health returned 200 JSON."
+    },
+    {
+      "name": "whitespace and evidence integrity",
+      "status": "PASS",
+      "command": "git diff --check",
+      "evidence": "Exited 0 before evidence creation; original developer and earlier-stage QA evidence was preserved."
+    }
+  ],
+  "sourceAudit": [
+    {
+      "url": "https://platform.claude.com/docs/en/models/sonnet-5-5/overview",
+      "owner": "Anthropic",
+      "supports": ["model ID", "1M context", "USD 2/10", "release date", "active status"]
+    },
+    {
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "owner": "Anthropic",
+      "supports": ["September 28 2026 announcement", "USD 2/10", "Sonnet versus Opus positioning"]
+    },
+    {
+      "url": "https://dev.meta.ai/docs/muse-wonder",
+      "owner": "Meta",
+      "supports": ["model ID", "1,048,576 context", "Standard-mode availability", "max does not select Full"]
+    },
+    {
+      "url": "https://dev.meta.ai/docs/models",
+      "owner": "Meta",
+      "supports": ["Preview status", "model ID", "context and modalities"]
+    },
+    {
+      "url": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "owner": "Meta",
+      "supports": ["Standard USD 4 input / 20 output", "Contributor unavailable", "no long-context premium"]
+    },
+    {
+      "url": "https://research.meta.ai/blog/muse-wonder",
+      "owner": "Meta",
+      "supports": ["October 12 2026 release date", "product positioning and availability"]
+    }
+  ],
+  "httpEvidence": {
+    "server": "next start on 127.0.0.1:3118 using existing candidate build",
+    "new200": [
+      "/models/claude-sonnet-5-5",
+      "/models/muse-wonder",
+      "/compare/claude-sonnet-5-5-vs-claude-opus-5-5",
+      "/compare/muse-wonder-vs-gpt-5-2"
+    ],
+    "negative404": [
+      "/compare/claude-sonnet-5-5-vs-opus-5-5",
+      "/not-a-real-stage-d-page"
+    ],
+    "legacyBoundary": {
+      "/guides": 410,
+      "/guides/": 410,
+      "/examples": "301 -> /",
+      "/checks": "301 -> /leaderboard"
+    },
+    "health": {
+      "status": 200,
+      "body": {"ok": true, "service": "pairvu", "release": "public-beta", "buildSha": "unknown", "platformVersion": "unknown"}
+    }
+  },
+  "cleanup": {
+    "qaServer": "stopped with SIGINT after checks",
+    "developerTemporaryPid74371": "Controller reported system kill completed successfully before this handoff; QA did not find or reuse it."
+  },
+  "notRun": [
+    "Production deployment or production smoke: not authorized for this local acceptance stage.",
+    "GSC, login, payment, customer data and full legacy 124/6 matrix: excluded by contract.",
+    "Fresh build: not rerun; reused candidate-bound 115-route build evidence as explicitly authorized."
+  ],
+  "limitations": [
+    "Local /api/health buildSha and platformVersion are unknown by design; production binding must be checked after an authorized pushed deployment.",
+    "This is local candidate acceptance, not production verification."
+  ],
+  "nextAction": {
+    "action": "Controller may record Stage D RELEASE_READY and, under the existing explicit release authorization, commit/push and deploy only through the repository production gate, followed by independent read-only production QA.",
+    "dependency": "Exact candidate or controller-created release commit must be pushed and remote-verified with a clean production worktree.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}
