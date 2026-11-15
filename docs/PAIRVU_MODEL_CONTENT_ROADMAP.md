@@ -10,7 +10,7 @@ No published price means unknown, not free. Open weights do not imply a common o
 
 ## Four-stage delivery plan
 
-### Stage A — foundation (current PIVOT-04 scope)
+### Stage A — foundation
 
 - Repair `/best/open-source-models` title, description, H1, and opening paragraph for the approved target “open source LLMs,” while retaining license caveats and non-ranking language.
 - Add `/models`; route Header, homepage, Footer, and every model profile back to the directory.
@@ -27,7 +27,7 @@ Only add these comparisons: Kimi K2.5 vs DeepSeek-V3.2; MiniMax M2.1 vs GLM-5; Q
 
 Stage B depends on Stage A production verification and must independently prove no orphan model, bidirectional links, unique metadata/canonical, and no cross-harness score synthesis.
 
-Stage A passed independent production acceptance on release `3e207dfc18aea85f14bf79ff2127bab6b01774f9` (Cloudflare `7027e158-cb0e-415e-a17b-6d567bef5fed`), so Stage B development is now authorized. The Stage B implementation contains exactly the four named comparisons, 39 sitemap URLs, 14 models, and 13 comparison pages; every model now has at least one comparison inbound link. This is a development result only until fixed-SHA QA and production verification pass. Stage C remains blocked.
+Stage A passed independent production acceptance on release `3e207dfc18aea85f14bf79ff2127bab6b01774f9` (Cloudflare `7027e158-cb0e-415e-a17b-6d567bef5fed`). Stage B subsequently passed fixed-SHA independent QA and production verification on release `baea0b1b2e0cc656605bdfa783a7644d6399481e` (Cloudflare `b61e69ae-9e1e-483c-9601-dca6e61372a9`). Its accepted inventory was exactly 39 URLs, 14 models, and 13 comparisons, with no orphan model.
 
 ### Stage C — benchmark depth, no new URL
 
@@ -35,7 +35,7 @@ Deepen `/benchmarks`, CursorBench, and BrowseComp with method, version, update d
 
 Stage C depends on Stage B production verification and independently verifies visible method/version/configuration, source traceability, and absence of composite or cross-harness ranking.
 
-Stage B passed independent production acceptance on release `baea0b1b2e0cc656605bdfa783a7644d6399481e` (Cloudflare `b61e69ae-9e1e-483c-9601-dca6e61372a9`), so Stage C development is authorized. Stage C keeps the inventory at 39 sitemap URLs, 14 model profiles, 13 comparison pages, and two benchmark detail pages. It adds the owner-stated method, version/date, a catalog coverage matrix, exact configurations, owner-reported cost or an explicit “not reported” state, model/profile links, and limitations. BrowseComp’s 2025 owner baseline remains separate from Z.ai’s 2026 vendor report. This remains a development result until fixed-SHA QA and production verification pass; Stage D remains blocked.
+Stage C passed fixed-SHA independent QA and production verification on release `7daa548307ac3c21b33dbf6cfa03424ee1fb6258` (Cloudflare `1679090a-dc7d-466f-9736-8c3202a82431`). It kept 39 sitemap URLs, 14 model profiles, 13 comparison pages, and two benchmark detail pages. It added the owner-stated method, version/date, a catalog coverage matrix, exact configurations, owner-reported cost or an explicit “not reported” state, model/profile links, and limitations. BrowseComp’s 2025 owner baseline remains separate from Z.ai’s 2026 vendor report.
 
 ### Stage D — two evidence-backed model pairs
 
@@ -43,7 +43,7 @@ After official source verification, add a Sonnet 5.5 profile plus Opus 5.5 compa
 
 Stage D depends on Stage C production verification. The remaining four model candidates require a later sourcing decision and are not authorized by PIVOT-04. Coding best pages, new benchmarks, and 100–300 bulk comparisons also remain later decisions.
 
-Stage C passed independent production acceptance on release `7daa548307ac3c21b33dbf6cfa03424ee1fb6258` (Cloudflare `1679090a-dc7d-466f-9736-8c3202a82431`), so Stage D development is authorized. The Stage D implementation adds only the two contracted pairs: Claude Sonnet 5.5 with Opus 5.5, and Muse Wonder with GPT-5.2. Inventory is 43 sitemap URLs, 16 model profiles, and 15 comparison pages, with no orphan model. Anthropic supplies Sonnet 5.5's exact launch date, ID, 1M context and USD pricing. Meta supplies Muse Wonder's 2026-10-12 launch, exact ID, 1,048,576-token context, preview status, Model API availability, and Standard-mode USD pricing. Muse Wonder is not conflated with Muse Wonder Full, and max reasoning effort is not presented as the Full variant. This remains a development result until fixed-SHA QA and production verification pass.
+Stage D passed fixed-SHA independent QA and production verification on release `4aa3211de6adeda413d31d165b45cf4485085338` (Cloudflare `5d60ac49-d2d4-4cfe-a870-98df3440e2b5`). It added only the two contracted pairs: Claude Sonnet 5.5 with Opus 5.5, and Muse Wonder with GPT-5.2. The final production inventory is 43 sitemap URLs, 16 model profiles, and 15 comparison pages, with no orphan model; all 43 URLs returned 200. Anthropic supplies Sonnet 5.5's exact launch date, ID, 1M context and USD pricing. Meta supplies Muse Wonder's 2026-10-12 launch, exact ID, 1,048,576-token context, preview status, Model API availability, and Standard-mode USD pricing. Muse Wonder is not conflated with Muse Wonder Full, and max reasoning effort is not presented as the Full variant.
 
 ## Evidence, acceptance, and release rules
 
@@ -66,6 +66,10 @@ Track first launch, PIVOT-02, PIVOT-03, Stage A, Stage B, and Stage D as separat
 
 These are existing read-only observation tasks. Do not create duplicates, add pages, or publish automatically from an observation run.
 
+All four existing tasks were updated through the Automations action and confirmed ACTIVE on 2026-11-15. The next scheduled checks are content on November 16, GSC on November 18, preview availability on November 26, and monthly review on December 1, in Asia/Shanghai. Reports identify evidence, changes, blockers, and the smallest follow-up; scheduled observation does not authorize code changes or deployment.
+
 ## Current dependency record
 
-Stage A runs under PIVOT-04. Historical `JRN-04-FIX` remains `RELEASE_READY`, so the formal control CLI cannot safely claim this runtime unit; record candidates and evidence in the registry without altering or deleting the historical lock/state. The developer role actually inherits GPT-6.1 Sol/high; if source evidence is insufficient, reduce the claim or stop that item rather than expanding collection architecture.
+PIVOT-04 stages A–D are implemented, deployed, publicly enabled, and independently production-accepted. See [completion and release evidence](../operations/evidence/PIVOT-04/completion.md). Historical `JRN-04-FIX` remains `RELEASE_READY`, so the formal control CLI cannot safely claim this runtime unit; the registry records actual candidates and evidence without altering or deleting the historical lock/state. This is an administrative state limitation, not a claim that the formal unit is CLOSED.
+
+Next actions: the existing read-only checks run automatically on their schedules. GSC submission and indexing conclusions require a connected property or current user export; they remain BLOCKED without it. The remaining four models require a later evidence-and-demand selection, not automatic development to meet a count. With 16 models and no verified GSC indexing data, the decision remains **do not scale**. No additional development or deployment proceeds automatically from this completed delivery.

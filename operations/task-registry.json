@@ -626,17 +626,33 @@
       "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
     },
     "automations": [
-      {"id": "pairvu-2", "name": "Pairvu 每周内容与来源健康检查", "status": "ACTIVE"},
-      {"id": "pairvu-gsc", "name": "Pairvu GSC 分批收录周报", "status": "ACTIVE"},
-      {"id": "pairvu-3", "name": "Pairvu 每月产品与放量门槛复盘", "status": "ACTIVE"},
-      {"id": "qwen4-preview", "name": "Qwen4 Preview 到期检查", "status": "ACTIVE"}
+      {
+        "id": "pairvu-2",
+        "name": "Pairvu 每周内容与来源健康检查",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "pairvu-gsc",
+        "name": "Pairvu GSC 分批收录周报",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "pairvu-3",
+        "name": "Pairvu 每月产品与放量门槛复盘",
+        "status": "ACTIVE"
+      },
+      {
+        "id": "qwen4-preview",
+        "name": "Qwen4 Preview 到期检查",
+        "status": "ACTIVE"
+      }
     ],
     "nextAction": "等待定时观察；GSC连接或人工导出是收录结论依赖。当前14个模型且未达到全部逐模型comparison覆盖，不自动放量。"
   },
   "pivot04": {
     "unitId": "PIVOT-04",
     "contract": "operations/contracts/PIVOT-04.md",
-    "authorization": "逐阶段开发、独立验收和GitHub-first发布；当前仅最后阶段D",
+    "authorization": "用户授权A–D逐阶段开发、独立验收、GitHub-first发布和更新现有定时任务；批准范围已完成",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
     "development": {
       "agent": "/root/pivot01_developer",
@@ -653,16 +669,125 @@
       "reason": "固定SHA下独立检查精确型号、价格、发布日期未知边界、preview状态、互链和不可比反例",
       "upgradeCondition": "事实不受一手来源支持时直接FAIL，不修改共享应用"
     },
-    "scope": ["stage D only: Sonnet 5.5 profile plus Opus 5.5 comparison, Muse Wonder profile plus GPT-5.2 comparison"],
-    "excluded": ["remaining four model candidates", "any additional model comparison benchmark or URL", "Muse Full conflation", "fabricated release date or preview state", "composite or cross-harness ranking", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
-    "status": "DEV_ACTIVE",
-    "stageAProduction": {"releaseSha":"3e207dfc18aea85f14bf79ff2127bab6b01774f9","platformVersion":"7027e158-cb0e-415e-a17b-6d567bef5fed","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"},
-    "stageBDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"orphanModels":0,"result":"PRODUCTION_VERIFIED"},
-    "stageBProduction": {"releaseSha":"baea0b1b2e0cc656605bdfa783a7644d6399481e","platformVersion":"b61e69ae-9e1e-483c-9601-dca6e61372a9","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-b-production-qa.json"},
-    "stageCDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"benchmarkDetailPages":2,"result":"PRODUCTION_VERIFIED","evidence":"operations/evidence/PIVOT-04/stage-c-developer-report.md"},
-    "stageCProduction": {"releaseSha":"7daa548307ac3c21b33dbf6cfa03424ee1fb6258","platformVersion":"1679090a-dc7d-466f-9736-8c3202a82431","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-c-production-qa.json"},
-    "stageDDevelopment": {"models":16,"sitemapUrls":43,"comparisonPages":15,"orphanModels":0,"result":"DEV_READY_PENDING_FIXED_SHA_QA","evidence":"operations/evidence/PIVOT-04/stage-d-developer-report.md"},
-    "nextAction": "阶段D固定候选后独立QA；QA PASS后按GitHub-first规则发布并做最终生产验收。"
+    "scope": [
+      "stage A: SEO metadata, models directory, exact pricing states and Qwen4 lifecycle",
+      "stage B: exactly four approved comparisons and zero orphan models",
+      "stage C: existing benchmark depth and supported decision copy; no new URL",
+      "stage D: Sonnet 5.5 and Muse Wonder profiles with their two approved comparisons"
+    ],
+    "excluded": [
+      "remaining four model candidates",
+      "Muse Full conflation",
+      "fabricated release date or preview state",
+      "composite or cross-harness ranking",
+      "bulk pages",
+      "CMS or crawler",
+      "live FX",
+      "account Stripe API customer or GSC writes",
+      "any URL outside the frozen A–D page list"
+    ],
+    "status": "PROD_VERIFIED",
+    "stageAProduction": {
+      "releaseSha": "3e207dfc18aea85f14bf79ff2127bab6b01774f9",
+      "platformVersion": "7027e158-cb0e-415e-a17b-6d567bef5fed",
+      "result": "PASS",
+      "evidence": "operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"
+    },
+    "stageBDevelopment": {
+      "models": 14,
+      "sitemapUrls": 39,
+      "comparisonPages": 13,
+      "orphanModels": 0,
+      "result": "PRODUCTION_VERIFIED"
+    },
+    "stageBProduction": {
+      "releaseSha": "baea0b1b2e0cc656605bdfa783a7644d6399481e",
+      "platformVersion": "b61e69ae-9e1e-483c-9601-dca6e61372a9",
+      "result": "PASS",
+      "evidence": "operations/evidence/PIVOT-04/production-2026-11-15/stage-b-production-qa.json"
+    },
+    "stageCDevelopment": {
+      "models": 14,
+      "sitemapUrls": 39,
+      "comparisonPages": 13,
+      "benchmarkDetailPages": 2,
+      "result": "PRODUCTION_VERIFIED",
+      "evidence": "operations/evidence/PIVOT-04/stage-c-developer-report.md"
+    },
+    "stageCProduction": {
+      "releaseSha": "7daa548307ac3c21b33dbf6cfa03424ee1fb6258",
+      "platformVersion": "1679090a-dc7d-466f-9736-8c3202a82431",
+      "result": "PASS",
+      "evidence": "operations/evidence/PIVOT-04/production-2026-11-15/stage-c-production-qa.json"
+    },
+    "stageDDevelopment": {
+      "models": 16,
+      "sitemapUrls": 43,
+      "comparisonPages": 15,
+      "orphanModels": 0,
+      "result": "PRODUCTION_VERIFIED",
+      "evidence": "operations/evidence/PIVOT-04/stage-d-developer-report.md"
+    },
+    "nextAction": "现有只读任务自动按时检查并报告；下一次2026-11-16 09:30。GSC结论需用户连接或导出。不自动继续开发、放量或重复部署。",
+    "stageDProduction": {
+      "releaseSha": "4aa3211de6adeda413d31d165b45cf4485085338",
+      "platformVersion": "5d60ac49-d2d4-4cfe-a870-98df3440e2b5",
+      "result": "PASS",
+      "evidence": "operations/evidence/PIVOT-04/production-2026-11-15/stage-d-production-qa.json"
+    },
+    "acceptance": {
+      "result": "PASS",
+      "reviewer": "/root/pivot01_qa",
+      "scope": "All four stage-specific fixed candidates independently accepted; all four deployed releases independently production-verified",
+      "originalFailuresPreserved": true
+    },
+    "production": {
+      "releaseSha": "4aa3211de6adeda413d31d165b45cf4485085338",
+      "platformVersion": "5d60ac49-d2d4-4cfe-a870-98df3440e2b5",
+      "result": "PASS",
+      "evidence": "operations/evidence/PIVOT-04/production-2026-11-15/stage-d-production-qa.json",
+      "enabled": true,
+      "sitemapUrls": 43,
+      "models": 16,
+      "comparisonPages": 15,
+      "orphanModels": 0,
+      "allSitemapUrls200": true,
+      "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
+    },
+    "automations": [
+      {
+        "id": "pairvu-2",
+        "status": "ACTIVE",
+        "schedule": "Monday 09:30 Asia/Shanghai",
+        "nextRun": "2026-11-16 09:30"
+      },
+      {
+        "id": "pairvu-gsc",
+        "status": "ACTIVE",
+        "schedule": "Wednesday 10:00 Asia/Shanghai",
+        "nextRun": "2026-11-18 10:00"
+      },
+      {
+        "id": "pairvu-3",
+        "status": "ACTIVE",
+        "schedule": "Monthly day 1 10:30 Asia/Shanghai",
+        "nextRun": "2026-12-01 10:30"
+      },
+      {
+        "id": "qwen4-preview",
+        "status": "ACTIVE",
+        "schedule": "Once, 2026-11-26 09:00 Asia/Shanghai",
+        "nextRun": "2026-11-26 09:00"
+      }
+    ],
+    "completionEvidence": "operations/evidence/PIVOT-04/completion.md",
+    "cleanup": "Temporary developer PID74371 stopped by controller; QA services stopped; no test account or production asset created",
+    "remaining": {
+      "gsc": "BLOCKED: connected property or current export and sitemap submission required",
+      "additionalModels": "Four later model candidates require a sourcing decision; not automatically developed",
+      "scale": "NOT_ALLOWED: 16 models and no verified GSC indexing evidence",
+      "formalControl": "Historical JRN-04-FIX RELEASE_READY preserved; not repaired in this unit"
+    }
   },
   "seo03": {
     "unitId": "SEO-03",

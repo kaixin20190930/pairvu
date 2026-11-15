@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04-stage-d-production",
+  "role": "independent-production-qa",
+  "result": "PASS",
+  "checkedAt": "2026-11-15T14:25:00+08:00",
+  "production": {
+    "origin": "https://pairvu.com",
+    "expectedReleaseSha": "4aa3211de6adeda413d31d165b45cf4485085338",
+    "observedReleaseSha": "4aa3211de6adeda413d31d165b45cf4485085338",
+    "expectedCloudflareVersion": "5d60ac49-d2d4-4cfe-a870-98df3440e2b5",
+    "observedCloudflareVersion": "5d60ac49-d2d4-4cfe-a870-98df3440e2b5",
+    "binding": "PASS"
+  },
+  "checks": [
+    {
+      "name": "production health exact binding",
+      "status": "PASS",
+      "evidence": "GET /api/health returned 200 with ok=true, service=pairvu, release=public-beta and exact expected buildSha and platformVersion."
+    },
+    {
+      "name": "production sitemap inventory",
+      "status": "PASS",
+      "evidence": "sitemap.xml contained exactly 43 URLs: 16 model URLs and 15 dynamic comparison URLs plus the fixed public pages. Every one of the 43 sitemap URLs returned HTTP 200."
+    },
+    {
+      "name": "zero orphan production models",
+      "status": "PASS",
+      "evidence": "All 16 production model pages exposed at least one /compare/ link. Muse Wonder was separately checked after the bounded all-model request and linked /compare/muse-wonder-vs-gpt-5-2."
+    },
+    {
+      "name": "four Stage D pages production metadata",
+      "status": "PASS",
+      "evidence": "Both new model pages and both approved comparison pages returned 200 and rendered distinct Title, one H1, descriptive meta description and correct https://pairvu.com self-canonical."
+    },
+    {
+      "name": "Sonnet 5.5 production facts and approved slug",
+      "status": "PASS",
+      "evidence": "Production rendered Claude Sonnet 5.5, 2026-09-28, USD 2 input / 10 output, checked/source dates 2026-11-15, Anthropic owner links and the approved /compare/claude-sonnet-5-5-vs-claude-opus-5-5 path. The unapproved shortened Opus slug returned 404."
+    },
+    {
+      "name": "Muse Wonder production facts",
+      "status": "PASS",
+      "evidence": "Production rendered Muse Wonder, 2026-10-12, model ID muse-wonder-1.0, 1.048576M/1,048,576 context, Preview, USD 4 input / 20 output, Meta owner source links and the explicit statement that max reasoning effort does not select Muse Wonder Full."
+    },
+    {
+      "name": "comparison evidence boundary",
+      "status": "PASS",
+      "evidence": "Sonnet vs Opus names CursorBench 4.0 as an exact-version harness and does not promote it to a universal ranking. Muse vs GPT explicitly states no cited common harness and shows no direct quality score."
+    },
+    {
+      "name": "production bidirectional links",
+      "status": "PASS",
+      "evidence": "Each new model page links its approved comparison; each comparison links both endpoint model pages; existing Opus 5.5 and GPT-5.2 pages link back to the new comparisons."
+    },
+    {
+      "name": "targeted legacy and unknown route boundary",
+      "status": "PASS",
+      "evidence": "/guides and /guides/ returned 410; /examples returned one 301 to /; /checks returned one 301 to /leaderboard; unknown route returned 404."
+    }
+  ],
+  "httpMatrix": {
+    "/api/health": 200,
+    "/models/claude-sonnet-5-5": 200,
+    "/models/muse-wonder": 200,
+    "/compare/claude-sonnet-5-5-vs-claude-opus-5-5": 200,
+    "/compare/muse-wonder-vs-gpt-5-2": 200,
+    "/compare/claude-sonnet-5-5-vs-opus-5-5": 404,
+    "/guides": 410,
+    "/guides/": 410,
+    "/examples": "301 -> https://pairvu.com/",
+    "/checks": "301 -> https://pairvu.com/leaderboard",
+    "/unknown-stage-d-production": 404
+  },
+  "reuse": [
+    "Stage A, B and C production QA evidence was reused because this release changed only the approved Stage D model/comparison scope.",
+    "Candidate-bound local build, typecheck and focused automated checks were not rerun during production QA."
+  ],
+  "notRun": [
+    "No build, deployment, write API, account, login, payment, GSC or customer-data operation was performed.",
+    "The full historical 124/6 routing matrix was not repeated; only the contract's directed legacy boundaries were checked."
+  ],
+  "cleanup": {
+    "temporaryFiles": "Read-only HTTP response copies were stored under /tmp only.",
+    "persistentProcess": "none",
+    "repositoryMutation": "Only this production QA evidence file was added; no runtime code, commit, push or deployment."
+  },
+  "nextAction": {
+    "action": "Controller may close PIVOT-04 Stage D and the PIVOT-04 delivery unit as production-accepted.",
+    "dependency": "none",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}
