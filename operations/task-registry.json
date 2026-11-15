@@ -636,31 +636,33 @@
   "pivot04": {
     "unitId": "PIVOT-04",
     "contract": "operations/contracts/PIVOT-04.md",
-    "authorization": "逐阶段开发、独立验收和GitHub-first发布；当前仅阶段C，阶段D依赖C生产验收",
+    "authorization": "逐阶段开发、独立验收和GitHub-first发布；当前仅最后阶段D",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
     "development": {
       "agent": "/root/pivot01_developer",
       "model": "gpt-6.1-sol",
       "thinking": "high",
       "actualConfiguration": "inherited",
-      "reason": "阶段C涉及benchmark owner与vendor报告的版本、方法、配置、成本和不可比边界",
+      "reason": "阶段D涉及两对精确型号的一手来源、价格、状态、互链和共同harness边界",
       "upgradeCondition": "精确型号来源不足时降级表述或停止该项，不扩建采集系统"
     },
     "qa": {
       "agent": "/root/pivot01_qa",
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "固定SHA下独立检查benchmark方法、版本、覆盖、配置、成本、限制和跨harness反例",
+      "reason": "固定SHA下独立检查精确型号、价格、发布日期未知边界、preview状态、互链和不可比反例",
       "upgradeCondition": "事实不受一手来源支持时直接FAIL，不修改共享应用"
     },
-    "scope": ["stage C only: deepen the existing benchmark hub and two detail pages without changing URL, model, comparison, or benchmark counts"],
-    "excluded": ["stage D application changes", "new models comparisons benchmarks or URLs", "composite or cross-harness ranking", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
+    "scope": ["stage D only: Sonnet 5.5 profile plus Opus 5.5 comparison, Muse Wonder profile plus GPT-5.2 comparison"],
+    "excluded": ["remaining four model candidates", "any additional model comparison benchmark or URL", "Muse Full conflation", "fabricated release date or preview state", "composite or cross-harness ranking", "bulk pages", "CMS or crawler", "live FX", "account Stripe API customer or GSC writes"],
     "status": "DEV_ACTIVE",
     "stageAProduction": {"releaseSha":"3e207dfc18aea85f14bf79ff2127bab6b01774f9","platformVersion":"7027e158-cb0e-415e-a17b-6d567bef5fed","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"},
     "stageBDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"orphanModels":0,"result":"PRODUCTION_VERIFIED"},
     "stageBProduction": {"releaseSha":"baea0b1b2e0cc656605bdfa783a7644d6399481e","platformVersion":"b61e69ae-9e1e-483c-9601-dca6e61372a9","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-b-production-qa.json"},
-    "stageCDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"benchmarkDetailPages":2,"result":"DEV_READY_PENDING_FIXED_SHA_QA","evidence":"operations/evidence/PIVOT-04/stage-c-developer-report.md"},
-    "nextAction": "阶段C固定候选后独立QA；QA与生产验收PASS前不得开始阶段D。"
+    "stageCDevelopment": {"models":14,"sitemapUrls":39,"comparisonPages":13,"benchmarkDetailPages":2,"result":"PRODUCTION_VERIFIED","evidence":"operations/evidence/PIVOT-04/stage-c-developer-report.md"},
+    "stageCProduction": {"releaseSha":"7daa548307ac3c21b33dbf6cfa03424ee1fb6258","platformVersion":"1679090a-dc7d-466f-9736-8c3202a82431","result":"PASS","evidence":"operations/evidence/PIVOT-04/production-2026-11-15/stage-c-production-qa.json"},
+    "stageDDevelopment": {"models":16,"sitemapUrls":43,"comparisonPages":15,"orphanModels":0,"result":"DEV_READY_PENDING_FIXED_SHA_QA","evidence":"operations/evidence/PIVOT-04/stage-d-developer-report.md"},
+    "nextAction": "阶段D固定候选后独立QA；QA PASS后按GitHub-first规则发布并做最终生产验收。"
   },
   "seo03": {
     "unitId": "SEO-03",

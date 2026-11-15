@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "C",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "environment": "https://pairvu.com",
+  "releaseSha": "7daa548307ac3c21b33dbf6cfa03424ee1fb6258",
+  "platformVersion": "1679090a-dc7d-466f-9736-8c3202a82431",
+  "result": "PASS",
+  "checks": [
+    {"name":"production release identity","status":"PASS","detail":"/api/health returned 200 and exactly matched the expected release SHA and Cloudflare version."},
+    {"name":"unchanged production inventory","status":"PASS","detail":"The live sitemap remains 39 URLs: 14 model profiles, 13 comparison pages and two benchmark detail pages. All 39 returned 200, Titles/H1s are unique, canonicals self-reference, and no retired URL leaked into the sitemap."},
+    {"name":"benchmark hub production depth","status":"PASS","detail":"/benchmarks returns 200 with the coverage matrix, version/date, coverage, configuration/cost semantics, main limitations and explicit rejection of composite scores across unrelated harnesses."},
+    {"name":"CursorBench production depth","status":"PASS","detail":"The live page shows CursorBench 4.0, 2026-11-12 snapshot, method and three-row coverage boundary, named effort configurations, scores, average cost per task, profile coverage, limitations, both covered model profiles and their exact comparison."},
+    {"name":"BrowseComp production depth","status":"PASS","detail":"The live page shows the 2025-04-10 1,266-task release, method, four owner rows, two 2026 vendor rows, row configurations, explicit unreported cost states, catalog coverage and limitations."},
+    {"name":"BrowseComp source separation","status":"PASS","detail":"The 2025 OpenAI benchmark-owner baseline and 2026 Z.ai vendor-reported results are separate ordered tables. Last-five-turn and discard-all configurations plus the not-directly-comparable warning are visible."},
+    {"name":"unsupported qualifier and ranking boundary","status":"PASS","detail":"The Deep research row is labelled without '64 trials'. No composite score, merged owner/vendor table or cross-harness ranking is shown."},
+    {"name":"related models and comparison copy","status":"PASS","detail":"CursorBench links Fable 5.2, Opus 5.5 and their comparison; BrowseComp links GLM-5 and the relevant GLM comparison. Focused comparison pages retain their pair-specific choice and no-common-harness language."},
+    {"name":"targeted retired-route boundaries","status":"PASS","detail":"/guides and /guides/ returned 410. Without following redirects, /examples returned 301 to / and /checks returned 301 to /leaderboard. An unknown route returned 404."},
+    {"name":"unchanged Stage-A/B acceptance","status":"PASS","detail":"Stage-A and Stage-B production evidence is reused because Stage C adds no route/model/comparison and does not change their SEO, link-network, pricing or lifecycle behavior."},
+    {"name":"production mutation boundary","status":"PASS","detail":"Only public read-only HTTP requests were made; no GSC, account, payment, customer-data, code, commit, deployment or production configuration write occurred."}
+  ],
+  "observed": {
+    "healthStatus": 200,
+    "sitemapStatus": 200,
+    "sitemapUrlCount": 39,
+    "sitemapUrlsReturning200": 39,
+    "modelPageCount": 14,
+    "comparisonPageCount": 13,
+    "benchmarkDetailPageCount": 2,
+    "uniqueTitles": 39,
+    "uniqueH1s": 39,
+    "selfCanonicals": 39,
+    "browseCompOwnerVendorTablesSeparated": true,
+    "unsupported64TrialsAbsent": true,
+    "compositeScoreAbsent": true,
+    "retiredRouteLeak": false,
+    "boundaryStatuses": {
+      "/guides": 410,
+      "/guides/": 410,
+      "/examples": "301 /",
+      "/checks": "301 /leaderboard",
+      "/qa-pivot04-c-prod-unknown": 404
+    }
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-04/qa/stage-c/qa.json",
+    "operations/evidence/PIVOT-04/production-2026-11-15/stage-b-production-qa.json",
+    "operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"
+  ],
+  "limitations": "Public unauthenticated Stage-C production acceptance only. The unchanged complete legacy matrix, GSC, indexing, rankings, login, payment, Stripe, customer data and write APIs were not exercised.",
+  "cleanup": "No local server or test asset was created. No production data or configuration was changed."
+}
