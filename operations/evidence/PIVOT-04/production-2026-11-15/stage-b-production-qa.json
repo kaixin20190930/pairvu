@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-04",
+  "stage": "B",
+  "reviewerThreadId": "/root/pivot01_qa",
+  "environment": "https://pairvu.com",
+  "releaseSha": "baea0b1b2e0cc656605bdfa783a7644d6399481e",
+  "platformVersion": "b61e69ae-9e1e-483c-9601-dca6e61372a9",
+  "result": "PASS",
+  "checks": [
+    {"name":"production release identity","status":"PASS","detail":"/api/health returned 200 and exactly matched the expected release SHA and Cloudflare version."},
+    {"name":"39 URL production inventory","status":"PASS","detail":"The live sitemap contains 39 URLs: 14 model profiles and 13 comparison pages. All 39 returned 200, Titles/H1s are unique, canonicals self-reference, and no retired URL leaked into the sitemap."},
+    {"name":"four Stage-B comparison pages","status":"PASS","detail":"All four contracted pages return 200 with their exact-model Title, H1 and self-canonical URL."},
+    {"name":"finite source-backed facts","status":"PASS","detail":"Each new page visibly shows Parameters, Modality, License / weights and Access / deployment for both exact models, consistent with the fixed-candidate source audit."},
+    {"name":"pair-specific choice and no fake score","status":"PASS","detail":"Each page contains a pair-specific human choice and explicitly states that no cited common harness covers both exact versions; no directly comparable score is displayed."},
+    {"name":"bidirectional comparison links","status":"PASS","detail":"Each new comparison links both participating profiles, and all seven participating model profiles link back to every applicable new comparison."},
+    {"name":"zero orphan models","status":"PASS","detail":"All 14 live model profiles contain at least one comparison link."},
+    {"name":"related More comparisons only","status":"PASS","detail":"Every More comparisons link on the four new pages shares at least one exact participating model with the current page; no unrelated comparison appears."},
+    {"name":"targeted retired-route boundaries","status":"PASS","detail":"/guides and /guides/ returned 410. Without following redirects, /examples returned 301 to / and /checks returned 301 to /leaderboard. An unknown route returned 404."},
+    {"name":"unchanged Stage-A acceptance","status":"PASS","detail":"Stage-A production evidence is reused because Stage B does not modify its page-specific SEO, model-directory navigation, Qwen4 lifecycle or exact-price-state behavior."},
+    {"name":"production mutation boundary","status":"PASS","detail":"Only public read-only HTTP requests were made; no GSC, account, payment, customer-data, code, commit, deployment or production configuration write occurred."}
+  ],
+  "observed": {
+    "healthStatus": 200,
+    "sitemapStatus": 200,
+    "sitemapUrlCount": 39,
+    "sitemapUrlsReturning200": 39,
+    "modelPageCount": 14,
+    "comparisonPageCount": 13,
+    "uniqueTitles": 39,
+    "uniqueH1s": 39,
+    "selfCanonicals": 39,
+    "newComparisonPagesReturning200": 4,
+    "orphanModels": [],
+    "newPagesWithOnlyRelatedMoreComparisonLinks": 4,
+    "retiredRouteLeak": false,
+    "boundaryStatuses": {
+      "/guides": 410,
+      "/guides/": 410,
+      "/examples": "301 /",
+      "/checks": "301 /leaderboard",
+      "/qa-pivot04-b-prod-unknown": 404
+    }
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-04/qa/stage-b/qa.json",
+    "operations/evidence/PIVOT-04/production-2026-11-15/stage-a-production-qa.json"
+  ],
+  "limitations": "Public unauthenticated Stage-B production acceptance only. The unchanged complete legacy matrix, GSC, indexing, rankings, login, payment, Stripe, customer data and write APIs were not exercised.",
+  "cleanup": "No local server or test asset was created. No production data or configuration was changed."
+}

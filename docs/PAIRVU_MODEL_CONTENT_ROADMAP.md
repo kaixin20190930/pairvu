@@ -35,6 +35,8 @@ Deepen `/benchmarks`, CursorBench, and BrowseComp with method, version, update d
 
 Stage C depends on Stage B production verification and independently verifies visible method/version/configuration, source traceability, and absence of composite or cross-harness ranking.
 
+Stage B passed independent production acceptance on release `baea0b1b2e0cc656605bdfa783a7644d6399481e` (Cloudflare `b61e69ae-9e1e-483c-9601-dca6e61372a9`), so Stage C development is authorized. Stage C keeps the inventory at 39 sitemap URLs, 14 model profiles, 13 comparison pages, and two benchmark detail pages. It adds the owner-stated method, version/date, a catalog coverage matrix, exact configurations, owner-reported cost or an explicit “not reported” state, model/profile links, and limitations. BrowseComp’s 2025 owner baseline remains separate from Z.ai’s 2026 vendor report. This remains a development result until fixed-SHA QA and production verification pass; Stage D remains blocked.
+
 ### Stage D — two evidence-backed model pairs
 
 After official source verification, add a Sonnet 5.5 profile plus Opus 5.5 comparison, and a Muse Wonder profile plus GPT-5.2 comparison. Exact model ID, price, context, date, and preview boundary are required. If exact-model evidence cannot support both pages in a pair, publish neither. Expected inventory: 43 URLs, 16 models, 15 comparisons.

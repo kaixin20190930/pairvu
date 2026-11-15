@@ -36,8 +36,33 @@ export const comparisonSeo:Record<string,{title:string;h1:string;subtitle:string
 };
 export const qwen35Candidate={name:"Qwen3.5-397B-A17B",slug:"qwen3-5-397b-a17b",source:qwen35};
 export const bestChinese=["qwen3-8b","qwen3-8-27b","qwen3-8-2-4t-a95b","glm-5","deepseek-v3-2","kimi-k2-5","minimax-m2-1"],bestOpen=[...bestChinese];
-export const cursorBench={source:s("CursorBench 4.0 official leaderboard","https://cursor.com/cursorbench"),rows:[{model:"Gemini 4 Carbon High",score:60.4,cost:9.22},{model:"Fable 5.2 Max",slug:"fable-5-2",score:60,cost:32.79},{model:"Opus 5.5 Max",slug:"claude-opus-5-5",score:57.8,cost:13.43}]};
-export const browseComp={source:s("OpenAI BrowseComp release and paper","https://openai.com/index/browsecomp/"),rows:[{model:"Deep research (64 trials)",score:51.5},{model:"OpenAI o1",score:9.9},{model:"GPT-4o with browsing",score:1.9},{model:"GPT-4.5",score:.9}],latestSource:glm,latestReportDate:"2026-02-12",latest:[{model:"GLM-5 (thinking)",slug:"glm-5",score:62,configuration:"No context management; retains the latest five turns"},{model:"GLM-5 + context management",slug:"glm-5",score:75.9,configuration:"Context management using the discard-all strategy"}]};
+export const cursorBench={
+ version:"4.0",snapshotDate:"2026-11-12",source:s("CursorBench 4.0 official leaderboard","https://cursor.com/cursorbench"),
+ method:"Cursor evaluates coding agents on ambiguous, multi-file tasks drawn from real Cursor sessions; higher scores are better.",
+ coverage:"This Pairvu snapshot shows three named configurations from the owner leaderboard; it is not the full leaderboard.",
+ limitation:"Results depend on the exact model, effort setting, Cursor agent harness, and task budget. Small score gaps may reflect run variance and should not be treated as universal model quality.",
+ rows:[
+  {model:"Gemini 4 Carbon High",score:60.4,cost:9.22,configuration:"Carbon · High effort"},
+  {model:"Fable 5.2 Max",slug:"fable-5-2",score:60,cost:32.79,configuration:"Fable 5.2 · Max effort"},
+  {model:"Opus 5.5 Max",slug:"claude-opus-5-5",score:57.8,cost:13.43,configuration:"Opus 5.5 · Max effort"}
+ ]
+};
+export const browseComp={
+ version:"BrowseComp original release (1,266 tasks)",releaseDate:"2025-04-10",source:s("OpenAI BrowseComp release and paper","https://openai.com/index/browsecomp/"),
+ method:"BrowseComp tests whether an agent can persistently locate hard-to-find facts. Its questions have short, verifiable answers and were designed to resist simple search.",
+ coverage:"Pairvu preserves four OpenAI release baselines and two later GLM-5 vendor-reported configurations; these are separate evidence sets.",
+ limitation:"Short-answer accuracy does not represent the full distribution of open-ended browsing work. Test-time compute, browsing tools, aggregation, and context management can materially change results.",
+ rows:[
+  {model:"Deep research",score:51.5,configuration:"Benchmark-owner baseline; browsing agent",cost:"Not reported in the cited release"},
+  {model:"OpenAI o1",score:9.9,configuration:"Medium reasoning; no browsing",cost:"Not reported in the cited release"},
+  {model:"GPT-4o with browsing",score:1.9,configuration:"Browsing enabled",cost:"Not reported in the cited release"},
+  {model:"GPT-4.5",score:.9,configuration:"No browsing",cost:"Not reported in the cited release"}
+ ],
+ latestSource:glm,latestReportDate:"2026-02-12",latest:[
+  {model:"GLM-5 (thinking)",slug:"glm-5",score:62,configuration:"No context management; retains the latest five turns",cost:"Not reported by the cited vendor report"},
+  {model:"GLM-5 + context management",slug:"glm-5",score:75.9,configuration:"Context management using the discard-all strategy",cost:"Not reported by the cited vendor report"}
+ ]
+};
 export const relatedComparisons=(slug:string)=>comparisons.filter(c=>c.a===slug||c.b===slug); export const relatedBenchmarks=(slug:string)=>slug==="fable-5-2"||slug==="claude-opus-5-5"?["cursorbench"]:slug==="glm-5"?["browsecomp"]:[];
 export const relatedSpecialComparisons=(slug:string)=>["gpt-5-2","claude-opus-4-5","gemini-3-1-pro-preview"].includes(slug)?[{slug:"chatgpt-vs-claude-vs-gemini",label:"ChatGPT vs Claude vs Gemini"}]:[];
 export const fxSnapshot={cnyPerUsd:6.676,date:"2026-11-06",source:s("Federal Reserve H.10 USD/CNY rate","https://www.federalreserve.gov/releases/h10/current/")};
