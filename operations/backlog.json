@@ -502,7 +502,9 @@
       "id": "PIVOT-04",
       "title": "分阶段内容修复与增量建设",
       "priority": 0,
-      "dependsOn": ["PIVOT-03"],
+      "dependsOn": [
+        "PIVOT-03"
+      ],
       "mode": "runtime",
       "autoEligible": false,
       "requiredEvidence": [
@@ -511,6 +513,22 @@
         "official exact-model source inventory",
         "page metadata and internal-link matrix",
         "targeted HTTP and legacy route regression"
+      ]
+    },
+    {
+      "id": "PIVOT-05",
+      "title": "精确价格与对比证据修复及Haiku成对增量",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-04"
+      ],
+      "mode": "runtime",
+      "autoEligible": true,
+      "requiredEvidence": [
+        "two fixed stage candidate SHAs",
+        "independent QA per stage",
+        "official source and conditional price evidence",
+        "exact GitHub-first releases and production acceptance"
       ]
     }
   ]

@@ -8,7 +8,24 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
-## Four-stage delivery plan
+## Current authorized delivery — PIVOT-05 (2026-11-16)
+
+The previous A–D delivery is complete. The user has authorized exactly two further stages under [PIVOT-05](../operations/contracts/PIVOT-05.md), with independent fixed-commit acceptance and GitHub-first production verification after each stage. Stage 2 starts only after Stage 1 production acceptance.
+
+1. **Stage 1, existing content only (43 URLs / 16 profiles / 15 pair comparisons):** verify four missing exact-model price/access states, Qwen3.5 context/region price tiers, and the Qwen3-8B LoRA deployment condition; repair Gemini 3.1 Pro Preview's exact source; apply the approved benchmarks hub metadata and explain the two existing benchmarks; repair quality evidence/limitations for Claude/GPT/Gemini exact-version pairs and align ChatGPT vs Gemini's title/H1 while preserving Preview and the existing URL. Correct affected hard-coded model counts and real substantial-update dates. No third benchmark merely to reach a count.
+2. **Stage 2, exactly two new URLs (45 URLs / 17 profiles / 16 pair comparisons):** publish Claude Haiku 5.5 and its Opus 5.5 comparison together. Use verified release/context/model ID, conditional token pricing, same-configuration CursorBench evidence and source dates. Link the new pair bidirectionally and reuse relevant existing Anthropic profiles, including Sonnet. No invented speed figures or additional family comparison pages.
+
+Approved hub Title: `LLM Benchmarks Explained: What Each Test Measures | Pairvu`; H1 `LLM benchmarks`; description: `Every LLM benchmark on Pairvu explained — what it measures, which exact model versions were tested, and when each result was published.` Unknown publication dates remain explicitly unknown and distinct from collection dates.
+
+Approved ChatGPT/Gemini Title: `ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview | Pairvu`; H1 `ChatGPT vs Gemini`. This compares specified model versions, not the consumer subscription products.
+
+Approved Haiku model Title: `Claude Haiku 5.5: Pricing, Context and Release Facts | Pairvu`; H1 `Claude Haiku 5.5`; description: `Claude Haiku 5.5 price per million tokens, context window, release date and official sources — plus how it compares with Opus 5.5.` Comparison Title: `Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks | Pairvu`; H1 `Claude Haiku 5.5 vs Opus 5.5`; description: `Compare Claude Haiku 5.5 and Opus 5.5 pricing, context windows and published benchmark results, with official sources and configuration notes.`
+
+Missing current pricing does not establish a weights-only offering. Historical prices cannot masquerade as currently purchasable rates; later model prices cannot fill older version records. All new access dates reflect actual checks. Keep USD display with original currency and the existing dated static FX snapshot. Do not transplant Opus 5.5 or other Gemini results into Opus 4.5/GPT-5.2/Gemini 3.1 Pro Preview comparisons. Each new number needs a supporting source and exact configuration. No new benchmark, crawler, live-FX service, test framework, account/API/Stripe/customer change, or scaled page generation is authorized.
+
+Existing observation tasks retain their schedules and read-only boundary. Add price conditions, exact-source drift, lifecycle status, and the two new URLs' own GSC release batch. Stage 1 edits do not reset first publication. November 16 GSC property-owner access and sitemap submission were observed; stale November 9 legacy indexing reports do not establish indexing for the current release. Per-URL batch inspection remains PARTIAL until fresh evidence is available. With 17 profiles after Stage 2, scaling remains prohibited.
+
+## Completed four-stage delivery history
 
 ### Stage A — foundation
 

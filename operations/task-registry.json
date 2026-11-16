@@ -839,5 +839,55 @@
       "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
     },
     "nextAction": "准备首轮站外分发与下一例开放许可真实商品案例；对外发送或发布前需要用户明确授权。"
+  },
+  "pivot05": {
+    "unitId": "PIVOT-05",
+    "contract": "operations/contracts/PIVOT-05.md",
+    "baselineSha": "e6e95fafdff81154b57fec5222bc7d77a1fe6962",
+    "authorization": "2026-11-16 用户授权最终方案两阶段实施、独立验收、GitHub-first生产发布和更新现有定时任务",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "status": "STAGE_1_DEV_ACTIVE",
+    "development": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "跨官方价格、精确版本与harness和共享内容渲染；限定常规实现不需最高档",
+      "upgradeCondition": "精确来源不足降级事实；重复实质推理缺口再评估，环境问题不升级",
+      "agent": "/root/pivot05_developer",
+      "actualConfiguration": "gpt-6.1-sol/high explicitly applied by spawn_agent"
+    },
+    "qa": {
+      "model": "gpt-6.1-sol",
+      "thinking": "high",
+      "reason": "固定SHA独立核对条件价格、版本错配和必要HTTP/生产事实",
+      "upgradeCondition": "事实不足直接FAIL；不扩矩阵或修改共享应用"
+    },
+    "stages": {
+      "1": {
+        "status": "DEV_ACTIVE",
+        "expected": {
+          "urls": 43,
+          "models": 16,
+          "comparisons": 15
+        }
+      },
+      "2": {
+        "status": "WAITING_FOR_STAGE_1_PRODUCTION",
+        "expected": {
+          "urls": 45,
+          "models": 17,
+          "comparisons": 16
+        }
+      }
+    },
+    "excluded": [
+      "third benchmark",
+      "more than two new URLs",
+      "bulk generation",
+      "new test framework",
+      "live FX or crawler",
+      "account Stripe API DB customer changes",
+      "GSC writes"
+    ],
+    "nextAction": "开发阶段1；固定候选后原独立QA验收，再GitHub-first发布；阶段2等待阶段1生产验收"
   }
 }
