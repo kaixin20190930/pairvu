@@ -11,5 +11,39 @@
   "mechanism": "Automations action; existing IDs, schedules and target chat preserved",
   "readback": "all four ACTIVE",
   "boundary": "read-only report, no autonomous code changes or deployment",
-  "newGscBatch": "PIVOT-05 stage 2 only; actual first production date, old pages preserve original dates"
+  "newGscBatch": "PIVOT-05 stage 2 only; actual first production date, old pages preserve original dates",
+  "finalReadback": [
+    {
+      "id": "pairvu-2",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=30",
+      "targetThreadId": "01a1c9e1-4ea5-7951-8e82-bc8384339b1c",
+      "action": "UPDATED_THROUGH_AUTOMATIONS",
+      "promptIncludesP05": true
+    },
+    {
+      "id": "pairvu-gsc",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=WEEKLY;BYDAY=WE;BYHOUR=10;BYMINUTE=0",
+      "targetThreadId": "01a1c9e1-4ea5-7951-8e82-bc8384339b1c",
+      "action": "UPDATED_THROUGH_AUTOMATIONS",
+      "promptIncludesP05": true
+    },
+    {
+      "id": "pairvu-3",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=10;BYMINUTE=30",
+      "targetThreadId": "01a1c9e1-4ea5-7951-8e82-bc8384339b1c",
+      "action": "UPDATED_THROUGH_AUTOMATIONS",
+      "promptIncludesP05": true
+    },
+    {
+      "id": "qwen4-preview",
+      "status": "ACTIVE",
+      "rrule": "RRULE:FREQ=YEARLY;BYMONTH=11;BYMONTHDAY=26;BYHOUR=9;BYMINUTE=0;COUNT=1",
+      "targetThreadId": "01a1c9e1-4ea5-7951-8e82-bc8384339b1c",
+      "action": "PRESERVED",
+      "promptIncludesP05": false
+    }
+  ]
 }

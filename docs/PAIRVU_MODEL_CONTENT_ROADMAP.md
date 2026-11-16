@@ -8,7 +8,7 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
-## Current authorized delivery — PIVOT-05 (2026-11-16)
+## Current delivery — PIVOT-05 (completed 2026-11-16)
 
 The previous A–D delivery is complete. The user has authorized exactly two further stages under [PIVOT-05](../operations/contracts/PIVOT-05.md), with independent fixed-commit acceptance and GitHub-first production verification after each stage. Stage 2 starts only after Stage 1 production acceptance.
 
@@ -25,7 +25,7 @@ Missing current pricing does not establish a weights-only offering. Historical p
 
 Existing observation tasks retain their schedules and read-only boundary. Add price conditions, exact-source drift, lifecycle status, and the two new URLs' own GSC release batch. Stage 1 edits do not reset first publication. November 16 GSC property-owner access and sitemap submission were observed; stale November 9 legacy indexing reports do not establish indexing for the current release. Per-URL batch inspection remains PARTIAL until fresh evidence is available. With 17 profiles after Stage 2, scaling remains prohibited.
 
-Stage 1 is implemented, independently accepted, deployed and production-verified on `a987739149a5794dc64bf839dc4744c4f311ca54` (Cloudflare `e21a5c25-9d16-4c99-9726-01504f3f9daf`). Inventory remains 43/16/15 with two benchmarks. Qwen3.5 has sourced Beijing conditional rates; DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 current exact-model prices remain explicitly unconfirmed. The original local PARTIAL caused only by cleanup permission is retained alongside independent cleanup PASS. Stage 2 is now authorized to start; its two URLs are not yet claimed published.
+Stage 1 is implemented, independently accepted, deployed and production-verified on `a987739149a5794dc64bf839dc4744c4f311ca54` (Cloudflare `e21a5c25-9d16-4c99-9726-01504f3f9daf`). Inventory remains 43/16/15 with two benchmarks. Qwen3.5 has sourced Beijing conditional rates; DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 current exact-model prices remain explicitly unconfirmed. The original local PARTIAL caused only by cleanup permission is retained alongside independent cleanup PASS. Stage 2 subsequently passed independent fixed-candidate and production acceptance on `c389517a570d1e4ed0fc4ace4b689b294bf0dd93` (Cloudflare `81c33d8e-2699-49d7-8926-93735b5f69a6`). The actual inventory is 45 sitemap URLs / 17 profiles / 16 comparisons / two benchmark detail pages, with zero orphan models. Its only new URLs are `/models/claude-haiku-5-5` and `/compare/claude-haiku-5-5-vs-claude-opus-5-5`, first published in production on 2026-11-16. No GSC indexing claim is made. See [PIVOT-05 completion and evidence](../operations/evidence/PIVOT-05/completion.md).
 
 ## Completed four-stage delivery history
 
@@ -87,8 +87,14 @@ These are existing read-only observation tasks. Do not create duplicates, add pa
 
 All four existing tasks were updated through the Automations action and confirmed ACTIVE on 2026-11-15. The next scheduled checks are content on November 16, GSC on November 18, preview availability on November 26, and monthly review on December 1, in Asia/Shanghai. Reports identify evidence, changes, blockers, and the smallest follow-up; scheduled observation does not authorize code changes or deployment.
 
-## Current dependency record
+## PIVOT-04 dependency record (historical)
 
 PIVOT-04 stages A–D are implemented, deployed, publicly enabled, and independently production-accepted. See [completion and release evidence](../operations/evidence/PIVOT-04/completion.md). Historical `JRN-04-FIX` remains `RELEASE_READY`, so the formal control CLI cannot safely claim this runtime unit; the registry records actual candidates and evidence without altering or deleting the historical lock/state. This is an administrative state limitation, not a claim that the formal unit is CLOSED.
 
 Next actions: the existing read-only checks run automatically on their schedules. GSC submission and indexing conclusions require a connected property or current user export; they remain BLOCKED without it. The remaining four models require a later evidence-and-demand selection, not automatic development to meet a count. With 16 models and no verified GSC indexing data, the decision remains **do not scale**. No additional development or deployment proceeds automatically from this completed delivery.
+
+## Current dependencies and next action after PIVOT-05
+
+Implementation, both independent candidate acceptances, GitHub-first deployment, public enablement, and both independent production acceptances are complete. No temporary server or test account/production asset remains. Existing monitoring was updated through Automations and read back ACTIVE; the preview reminder was preserved. Next checks in Asia/Shanghai: GSC November 18 10:00, content November 23 09:30, Qwen4 November 26 09:00, monthly review December 1 10:30. These read-only reports proceed automatically; none authorizes further code or deployment.
+
+The three older exact-model current API quotes remain unconfirmed; source/access/lifecycle distinctions are published rather than invented rates. Fresh GSC batch/canonical/crawl/impression data is still needed; the November 16 property-owner/submission observations do not establish current indexing. Recover a property session or request the specified exports if unavailable. Scaling remains prohibited with 17 models and unverified GSC gates. A pre-existing Chinese-models best-page sentence about Qwen3.5 lacking a profile is recorded as a separate non-blocking copy follow-up; no additional page work was folded into this delivery. Historical JRN-04-FIX formal control state remains unchanged.

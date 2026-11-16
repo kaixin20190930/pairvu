@@ -846,7 +846,7 @@
     "baselineSha": "e6e95fafdff81154b57fec5222bc7d77a1fe6962",
     "authorization": "2026-11-16 用户授权最终方案两阶段实施、独立验收、GitHub-first生产发布和更新现有定时任务",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
-    "status": "STAGE_2_RELEASE_READY",
+    "status": "PROD_VERIFIED",
     "development": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
@@ -890,7 +890,7 @@
         }
       },
       "2": {
-        "status": "RELEASE_READY",
+        "status": "PROD_VERIFIED",
         "expected": {
           "urls": 45,
           "models": 17,
@@ -906,6 +906,18 @@
           "reviewer": "/root/pivot05_qa",
           "evidence": "operations/evidence/PIVOT-05/qa/stage-2-original.json",
           "cleanup": "controlled TTY closed by creator; QA independently verified no listener on 3216"
+        },
+        "production": {
+          "releaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+          "platformVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6",
+          "result": "PASS",
+          "enabled": true,
+          "firstProductionDate": "2026-11-16",
+          "newUrls": [
+            "/models/claude-haiku-5-5",
+            "/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+          ],
+          "evidence": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json"
         }
       }
     },
@@ -918,7 +930,7 @@
       "account Stripe API DB customer changes",
       "GSC writes"
     ],
-    "nextAction": "阶段2独立PASS并清理；提交证据、推送核验后发布同SHA，再独立验生产，不新增开发",
+    "nextAction": "Existing read-only GSC check2026-11-18 and content check2026-11-23 run automatically; require fresh property session/export if unavailable. No more development, bulk pages or repeat deployment automatically.",
     "automations": [
       {
         "id": "pairvu-2",
@@ -944,6 +956,34 @@
         "action": "PRESERVED_AND_READ_BACK",
         "schedule": "Once 2026-11-26 09:00 Asia/Shanghai"
       }
-    ]
+    ],
+    "production": {
+      "releaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "platformVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6",
+      "result": "PASS",
+      "enabled": true,
+      "urls": 45,
+      "models": 17,
+      "comparisons": 16,
+      "benchmarkDetails": 2,
+      "orphanModels": 0,
+      "evidence": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json",
+      "formalState": "UNRECORDED_DUE_TO_JRN-04-FIX_RELEASE_READY"
+    },
+    "acceptance": {
+      "result": "PASS",
+      "reviewer": "/root/pivot05_qa",
+      "scope": "Both exact stage candidates, metadata-only release bindings and actual production releases independently accepted",
+      "originalFailuresAndDiagnosticsPreserved": true
+    },
+    "cleanup": "No local listener on3215/3216; first precise kill approved and independently rechecked; second controlledTTY closed by creator and independently rechecked; no account or production test assets",
+    "completionEvidence": "operations/evidence/PIVOT-05/completion.md",
+    "remaining": {
+      "currentPrices": "DeepSeek-V3.2, Kimi K2.5, MiniMax M2.1 exact current official hosted quotes unconfirmed and accurately disclosed",
+      "gsc": "Fresh batch indexing/crawl/impression evidence still needed; Haiku pair first published2026-11-16; prior November9 report is stale",
+      "scale": "NOT_ALLOWED: 17 models and unverified fresh GSC gates",
+      "nonblockingCopy": "Existing /best/chinese-models says Qwen3.5 lacks profile; scoped follow-up, not silently repaired",
+      "formalControl": "Historical JRN-04-FIX RELEASE_READY unchanged; no formal CLOSED claim"
+    }
   }
 }

@@ -1,0 +1,44 @@
+{
+  "unitId": "PIVOT-05-stage-2",
+  "candidateSha": "dd93fab3bcd3ece4cc7e32f8d18c025ebcb51d20",
+  "releaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+  "platformVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "checkedAt": "2026-11-16T05:42:21.470Z",
+      "action": "deploy",
+      "artifactSha256": "76ad0ed0823243290179f834824e3e26321705283daca22cfc9a9b7533ea5934",
+      "initialCheckedAt": "2026-11-16T05:41:38.998Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "checkedAt": "2026-11-16T05:42:21.470Z",
+      "action": "deploy",
+      "artifactSha256": "76ad0ed0823243290179f834824e3e26321705283daca22cfc9a9b7533ea5934",
+      "initialCheckedAt": "2026-11-16T05:41:38.998Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "deploymentExit": 0,
+  "migrations": "NOT_REQUIRED: no DB change",
+  "rawLog": "/private/tmp/pairvu-pivot05/stage-2-deploy.log",
+  "rawLogSha256": "3d0918eb31f2b2f1a27f5054e1f36ae79ef4248f966d2ea2c6fa8d500598718e",
+  "productionAcceptance": "PASS",
+  "firstProductionDate": "2026-11-16",
+  "newUrls": [
+    "/models/claude-haiku-5-5",
+    "/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+  ],
+  "productionEvidence": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json",
+  "rawLogArchive": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-deploy-original.txt"
+}

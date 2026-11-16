@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-2-production",
+  "role": "independent-production-qa",
+  "result": "PASS",
+  "checkedAt": "2026-11-16T05:45:26.993274+00:00",
+  "production": {
+    "origin": "https://pairvu.com",
+    "expectedReleaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+    "observedReleaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+    "expectedCloudflareVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6",
+    "observedCloudflareVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6",
+    "binding": "PASS"
+  },
+  "initialObservation": {
+    "description": "First unqualified health request during immediate post-deploy cutover returned prior stage1 identifiers. Controller was notified immediately. One cache-buster read at Mon,16 Nov2026 05:44:13 GMT returned exact new identifiers. Final unqualified health in this targeted run also matches exact new identifiers. No deployment or broad retry was performed.",
+    "firstObservedBuildSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+    "firstObservedPlatformVersion": "e21a5c25-9d16-4c99-9726-01504f3f9daf",
+    "cause": "Transient cutover/cache difference is possible; exact cause not established.",
+    "cacheBusterPath": "/api/health?pivot05_stage2_qa=20261116",
+    "finalUnqualifiedResponseDate": "Mon, 16 Nov 2026 05:45:25 GMT"
+  },
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisons": 16,
+    "benchmarkDetails": 2
+  },
+  "checks": [
+    {
+      "name": "production exact binding",
+      "status": "PASS",
+      "evidence": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+        "platformVersion": "81c33d8e-2699-49d7-8926-93735b5f69a6"
+      }
+    },
+    {
+      "name": "inventory and URL scope",
+      "status": "PASS",
+      "evidence": "Actual45 unique URLs/17 profiles/16 comparisons/2 benchmarks, no old directory. Actual model/comparison directories include all corresponding sitemap paths, including exactly two approved new Haiku URLs."
+    },
+    {
+      "name": "targeted page content and approved TDK",
+      "status": "PASS",
+      "evidence": "11 targeted pages returned200 with exactly one Title/H1/self canonical and accepted descriptions. Their full visible main text matches the exact accepted candidate; this includes two approved new TDKs, exact Haiku ID/release/1M/Active and both conditional USD price tiers."
+    },
+    {
+      "name": "same Max evidence and counterexamples",
+      "status": "PASS",
+      "evidence": "New comparison retains Haiku48.4%/USD1.12 and Opus57.8%/USD13.43 per task, named Max effort, v4 harness and dated snapshot, unknown individual publication dates, differing token/compute caveat, task cost distinct from token quote and no speed claim. Old Claude-vs-GPT has no new Max table."
+    },
+    {
+      "name": "pricing and benchmark propagation",
+      "status": "PASS",
+      "evidence": "Pricing and leaderboard retain the first Haiku quote with <=100000 prompt threshold. Profile and comparison show both tiers. CursorBench displays Haiku Max row and relevant links; hub shows four named configurations and retains only two benchmarks."
+    },
+    {
+      "name": "bidirectional and family links",
+      "status": "PASS",
+      "evidence": "Both endpoint profiles link new comparison; comparison links both profiles and Sonnet; Haiku/Opus/Sonnet existing family profiles link appropriately. Model/comparison directories, pricing/leaderboard and CursorBench provide approved entry links. Unchanged source graph/no-orphan PASS is reused rather than asserting an all17-model HTTP sweep."
+    },
+    {
+      "name": "legacy directed routes",
+      "status": "PASS",
+      "evidence": {
+        "/guides": {
+          "status": 410,
+          "location": null
+        },
+        "/guides/": {
+          "status": 410,
+          "location": null
+        },
+        "/examples": {
+          "status": 301,
+          "location": "/"
+        },
+        "/checks": {
+          "status": 301,
+          "location": "/leaderboard"
+        },
+        "/pivot05-stage2-production-qa-unknown": {
+          "status": 404,
+          "location": null
+        }
+      }
+    }
+  ],
+  "targetedPageEvidence": {
+    "/models/claude-haiku-5-5": {
+      "status": 200,
+      "title": "Claude Haiku 5.5: Pricing, Context and Release Facts | Pairvu",
+      "h1": "Claude Haiku 5.5",
+      "canonical": "https://pairvu.com/models/claude-haiku-5-5",
+      "description": [
+        "Claude Haiku 5.5 price per million tokens, context window, release date and official sources — plus how it compares with Opus 5.5."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "01c6160b60315785ae95ee781c5f361209543c37299f20a5883f470c00082d69"
+    },
+    "/compare/claude-haiku-5-5-vs-claude-opus-5-5": {
+      "status": 200,
+      "title": "Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks | Pairvu",
+      "h1": "Claude Haiku 5.5 vs Opus 5.5",
+      "canonical": "https://pairvu.com/compare/claude-haiku-5-5-vs-claude-opus-5-5",
+      "description": [
+        "Compare Claude Haiku 5.5 and Opus 5.5 pricing, context windows and published benchmark results, with official sources and configuration notes."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "ca0c3b2be8724c42012738e016e16875d25ef9ce4e749175951aa17f667c68bb"
+    },
+    "/models/claude-opus-5-5": {
+      "status": 200,
+      "title": "Claude Opus 5.5 specs, pricing and sources | Pairvu",
+      "h1": "Claude Opus 5.5",
+      "canonical": "https://pairvu.com/models/claude-opus-5-5",
+      "description": [
+        "Claude Opus 5.5 context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "2f61d0314a80f6d589a4f121a380055326678150f1e989b9adac1b401c4814bc"
+    },
+    "/models/claude-sonnet-5-5": {
+      "status": 200,
+      "title": "Claude Sonnet 5.5 specs, pricing and sources | Pairvu",
+      "h1": "Claude Sonnet 5.5",
+      "canonical": "https://pairvu.com/models/claude-sonnet-5-5",
+      "description": [
+        "Claude Sonnet 5.5 context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "b9e0807a2d8071e78552725d05dea4bea9bf633997acb7e792394f9425dd2af6"
+    },
+    "/models": {
+      "status": 200,
+      "title": "AI Model Directory: Specs, Pricing and Sources | Pairvu",
+      "h1": "AI model directory",
+      "canonical": "https://pairvu.com/models",
+      "description": [
+        "Browse source-linked AI models with exact versions, context, pricing status and comparison links."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "edb6a05c3dea9d50f9c8b037fc5bf309b24ae4f597377c69a63983e6f97654e6"
+    },
+    "/compare": {
+      "status": 200,
+      "title": "Compare AI models | Pairvu",
+      "h1": "Compare AI models",
+      "canonical": "https://pairvu.com/compare",
+      "description": [
+        "Evidence-linked AI model comparisons for pricing, context and benchmarks."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "fe207ee312cd14237c1f9c8393e79eef8348727ca02630304b1f008499d7e1b1"
+    },
+    "/benchmarks/cursorbench": {
+      "status": 200,
+      "title": "CursorBench results | Pairvu",
+      "h1": "CursorBench 4.0",
+      "canonical": "https://pairvu.com/benchmarks/cursorbench",
+      "description": [
+        "Compare AI models by pricing, context, benchmarks, and original sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "d6445d4f30d26897d00cd10661ab09c918e00dcc88f61712653225be0606dbd1"
+    },
+    "/benchmarks": {
+      "status": 200,
+      "title": "LLM Benchmarks Explained: What Each Test Measures | Pairvu",
+      "h1": "LLM benchmarks",
+      "canonical": "https://pairvu.com/benchmarks",
+      "description": [
+        "Every LLM benchmark on Pairvu explained — what it measures, which exact model versions were tested, and when each result was published."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "5ed37e95985bcedc4a8b3199084e914386759c01c0a4f645221c6dffe15afa82"
+    },
+    "/llm-pricing": {
+      "status": 200,
+      "title": "LLM API pricing comparison | Pairvu",
+      "h1": "LLM pricing comparison",
+      "canonical": "https://pairvu.com/llm-pricing",
+      "description": [
+        "Compare published input and output token prices with direct provider sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "341aeb618019480c2817aa2b90496280229ca9a442a54bbff725ecb0f3e025c2"
+    },
+    "/compare/claude-vs-gpt": {
+      "status": 200,
+      "title": "Claude vs GPT: Opus 4.5 vs GPT-5.2 | Pairvu",
+      "h1": "Claude vs GPT",
+      "canonical": "https://pairvu.com/compare/claude-vs-gpt",
+      "description": [
+        "Compare Claude Opus 4.5 and GPT-5.2: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "c3fd9cf13a28be2e377b9427c47691cf10382955b03e619ecbcdb8c2081b29d2"
+    },
+    "/leaderboard": {
+      "status": 200,
+      "title": "LLM leaderboard and model matrix | Pairvu",
+      "h1": "LLM leaderboard",
+      "canonical": "https://pairvu.com/leaderboard",
+      "description": [
+        "A source-linked model matrix without a misleading composite score."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "add946bb02e804e4b61093074e56bbd42c49fb46117d2c2ac16ab88c72a3e73a"
+    }
+  },
+  "gscBatch": {
+    "firstProductionDate": "2026-11-16",
+    "urls": [
+      "https://pairvu.com/models/claude-haiku-5-5",
+      "https://pairvu.com/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+    ],
+    "basis": "Exact production deployment readback, both new pages200 and actual sitemap lastmod2026-11-16.",
+    "indexingStatus": "NOT_VERIFIED",
+    "submissionPerformed": false,
+    "boundary": "This is the new two-URL release batch, not a claim of GSC indexing or a reset of older first-publication dates."
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-05/qa/stage-2-original.json",
+    "/private/tmp/pairvu-pivot05/stage-2-release-binding.json",
+    "/private/tmp/pairvu-pivot05/stage-2-qa-targeted-http.json",
+    "Stage1 independent production/source evidence for unaffected scope."
+  ],
+  "notRun": [
+    "No full45 HTTP sweep, rebuild, official source recrawl, GSC/account/Stripe/businessAPI/customer/DB write.",
+    "No production mutation, new local service, kill or permission operation."
+  ],
+  "cleanup": {
+    "persistentProcessesCreated": false,
+    "productionAssetsCreated": false,
+    "repositoryMutation": false,
+    "temporaryFiles": "Only read-only audit JSON under/private/tmp/pairvu-pivot05, retained."
+  },
+  "nextAction": {
+    "action": "Controller may record stage2 production accepted and close the authorized PIVOT-05 delivery, then update final product documents and existing read-only observation records.",
+    "dependency": "None for product acceptance. Fresh GSC indexing remains separate and unverified.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}
