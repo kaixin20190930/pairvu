@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-2",
+  "role": "independent-qa",
+  "candidateSha": "dd93fab3bcd3ece4cc7e32f8d18c025ebcb51d20",
+  "baselineSha": "a70d6fd4b78c50df5ee327a81b68e7eeb2db5af6",
+  "checkedAt": "2026-11-16T05:36:19.304051+00:00",
+  "result": "PASS",
+  "functionalResult": "PASS",
+  "modelSelection": {
+    "model": "GPT-6.1 Sol",
+    "effort": "high",
+    "reason": "Frozen independent exact-version source, conditional pricing, configuration and shared-render acceptance."
+  },
+  "binding": {
+    "headExact": true,
+    "allSevenChangedCandidateBlobsMatch": true,
+    "blobSha256": {
+      "app/benchmarks/[bench]/page.tsx": "4159cc6d1183b63d4ed6deca5b075bd70eb1a3c457977a9925b1469c97adea0b",
+      "app/benchmarks/page.tsx": "f3145d7084b687438a1b135d31414451c92f170b3e1b152e08b3fc2793fa09e8",
+      "app/compare/[slug]/page.tsx": "f82ebcd8afe06a81756c8a7aea9025ea4648f25f066fc95089d46bae31604cac",
+      "app/models/[slug]/page.tsx": "55ab3d4e8f6c95bacc1f3849b9a03fbddabbe2b0b56055d7208257b0b01a1543",
+      "app/sitemap.ts": "13e766480838fcfc80754073743388ad4a19e6d2da945f363a82dbc0aa2a9351",
+      "lib/models/catalog.ts": "fecfec281e21dc14823ea0a139206518525995eb59516fd40ec9f88cb4a82759",
+      "scripts/verify-model-pivot.ts": "302e07b3f6029e175f56f0296487f74b34fbb3a723866849de5837e8b12261aa"
+    },
+    "localHealth": {
+      "ok": true,
+      "service": "pairvu",
+      "release": "public-beta",
+      "buildSha": "dd93fab3bcd3ece4cc7e32f8d18c025ebcb51d20",
+      "platformVersion": "unknown"
+    },
+    "manifestCandidateMatch": true,
+    "boundary": "Local exact candidate buildSha is verified; platformVersion unknown means this is not production acceptance. Controller registry and evidence changes preserved."
+  },
+  "checks": [
+    {
+      "name": "complete fixed-SHA diff",
+      "status": "PASS",
+      "evidence": "Reviewed all seven changed files: catalog, model/comparison renderers, both benchmark renderers, sitemap and existing focused verifier. Only one model and its one Opus comparison added; no dependency/config/route framework/business change."
+    },
+    {
+      "name": "Haiku exact-model owner facts",
+      "status": "PASS",
+      "evidence": "Independent Anthropic overview check confirms claude-haiku-5-5, October 7 2026, 1M context, Active latest, text/images to text and high-volume extraction/routing/subagent use. Official headline From prices are expanded into exact standard prompt tiers."
+    },
+    {
+      "name": "conditional prices and counterexample",
+      "status": "PASS",
+      "evidence": "Owner and actual profile/comparison show standard USD/M input/output 0.10/0.50 for prompts <=100000 and 0.50/2.50 for prompts >100000. Both rates governed by prompt length. Matrix first quote keeps threshold; profile notes cache/batch differences and cloud billing boundary. No universal From price or speed multiplier is claimed."
+    },
+    {
+      "name": "CursorBench exact Max rows",
+      "status": "PASS",
+      "evidence": "Owner v4 leaderboard independently confirms Haiku5.5 Max 48.4% USD1.12/task and Opus5.5 Max 57.8% USD13.43/task. Actual new comparison contains exactly these two rows under named Max effort, owner harness limitations, differing compute/token-use caveat and run cost distinct from token quotes or latency. The new Max table is absent from Claude-vs-GPT."
+    },
+    {
+      "name": "dates and benchmark scope",
+      "status": "PASS",
+      "evidence": "Version introduction 2026-09-10 and snapshot checked 2026-11-16 remain distinct from unknown individual result publication dates. Benchmark hub names four snapshot configurations; actual sitemap retains exactly two benchmark detail pages."
+    },
+    {
+      "name": "approved two-page TDK",
+      "status": "PASS",
+      "evidence": "Actual new profile and comparison each return 200 and exactly one approved Title, H1, Description and self-canonical. Comparison Title: Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks; H1: Claude Haiku 5.5 vs Opus 5.5. Profile Title: Claude Haiku 5.5: Pricing, Context and Release Facts; H1: Claude Haiku 5.5."
+    },
+    {
+      "name": "interlinks and family boundaries",
+      "status": "PASS",
+      "evidence": "Independent HTTP confirms both endpoint profiles to new comparison, comparison back to both profiles, directory links to two new pages, model/benchmark reciprocal links, and Haiku/Opus/Sonnet existing family profile links. No other family comparison or new benchmark introduced."
+    },
+    {
+      "name": "focused automated verifier and actual inventory",
+      "status": "PASS",
+      "evidence": "pnpm test:model-pivot exited0: 17 models/45 sitemap URLs/16 comparisons/no orphan models. Actual sitemap independently parses45 unique URLs/17 profiles/16 comparisons/2 benchmarks, no old directory; compare index lastmod advances to 2026-11-16."
+    },
+    {
+      "name": "targeted HTTP and directed legacy",
+      "status": "PASS",
+      "evidence": {
+        "targeted200": 11,
+        "legacy": {
+          "/guides": {
+            "status": 410,
+            "location": null
+          },
+          "/guides/": {
+            "status": 410,
+            "location": null
+          },
+          "/examples": {
+            "status": 301,
+            "location": "/"
+          },
+          "/checks": {
+            "status": 301,
+            "location": "/leaderboard"
+          },
+          "/pivot05-stage2-qa-unknown": {
+            "status": 404,
+            "location": null
+          },
+          "/api/health": {
+            "status": 200,
+            "location": null
+          }
+        },
+        "redirectDestinations": "/ and /leaderboard independently returned200 with redirect following disabled."
+      }
+    },
+    {
+      "name": "whitespace",
+      "status": "PASS",
+      "evidence": "git diff --check exited0."
+    },
+    {
+      "name": "temporary TTY cleanup",
+      "status": "PASS",
+      "evidence": "QA write_stdin session59606 Control-C immediately returned Unknown process id because session is owned by original developer. Controller dispatched the original TTY creator, who reports normal Control-C exit. Independent QA fresh lsof -nP -iTCP:3216 -sTCP:LISTEN then exited1 with no output, confirming no listener. No kill or approval requested."
+    }
+  ],
+  "sourceAudit": [
+    {
+      "url": "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+      "accessed": "2026-11-16",
+      "supports": "Exact ID, release, 1M context, active availability, input/output modes, both prompt-length standard dollar-price tiers, separate cache and batch conditions."
+    },
+    {
+      "url": "https://cursor.com/cursorbench",
+      "accessed": "2026-11-16",
+      "supports": "Exact Haiku/Opus Max row scores and task costs, v4 harness, version date and result-date limitation."
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "path": "operations/evidence/PIVOT-05/stage-2-developer.md",
+      "scope": "Untracked handoff preserved; build and typecheck PASS reused after exact app-blob binding. No duplicate build or typecheck."
+    },
+    {
+      "path": "/private/tmp/pivot05-stage2-build.log",
+      "scope": "Single candidate-SHA-bound local Next build success, no application change afterward."
+    },
+    {
+      "path": "/private/tmp/pivot05-stage2-http-result.json",
+      "scope": "Developer10 targeted pages and routing original preserved; independent11 targeted HTTP additionally includes leaderboard."
+    },
+    {
+      "path": "operations/evidence/PIVOT-05/production-2026-11-16/stage-1-production-qa.json",
+      "scope": "Unchanged stage1 sources/content/legacy boundary; no broad website/account/payment regression or source recrawl."
+    }
+  ],
+  "rawEvidence": "/private/tmp/pairvu-pivot05/stage-2-qa-targeted-http.json",
+  "factGaps": [],
+  "nonblockingFollowups": [
+    "Previously reported unchanged Chinese-model shortlist copy; no new acceptance scope added."
+  ],
+  "notRun": [
+    "No full45-page sweep, build/typecheck rerun, new framework, stage1 broad official-source checks, account/Stripe/businessAPI/customer/DB/GSC writes.",
+    "No production acceptance yet; requires actual pushed release SHA and platform version."
+  ],
+  "cleanup": {
+    "status": "PASS",
+    "sessionId": 59606,
+    "port": 3216,
+    "pid": 40633,
+    "testAccountsOrProductionAssetsCreated": false,
+    "temporaryFiles": "Only read-only HTTP/binding audit under/private/tmp; preserved.",
+    "applicationMutationByQa": false,
+    "independentPortReadback": {
+      "command": "lsof -nP -iTCP:3216 -sTCP:LISTEN",
+      "exitCode": 1,
+      "stdout": ""
+    }
+  },
+  "nextAction": {
+    "action": "Controller may archive evidence, commit/push/fetch exact release SHA and deploy through mandatory production gates. Same independent QA then verifies actual production SHA/platform version and frozen targeted stage2 pages.",
+    "dependency": "Exact pushed release SHA and deployed platform version required for production QA.",
+    "automatic": true,
+    "userInputRequired": false
+  },
+  "readyForRelease": true
+}

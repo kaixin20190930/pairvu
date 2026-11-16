@@ -1,0 +1,106 @@
+{
+  "candidate": "dd93fab3bcd3ece4cc7e32f8d18c025ebcb51d20",
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "dd93fab3bcd3ece4cc7e32f8d18c025ebcb51d20",
+    "platformVersion": "unknown"
+  },
+  "sitemap_urls": 45,
+  "models": 17,
+  "comparisons": 16,
+  "target_pages": {
+    "/models/claude-haiku-5-5": {
+      "status": 200,
+      "title": "Claude Haiku 5.5: Pricing, Context and Release Facts | Pairvu",
+      "h1": "Claude Haiku 5.5",
+      "canonical": "https://pairvu.com/models/claude-haiku-5-5"
+    },
+    "/compare/claude-haiku-5-5-vs-claude-opus-5-5": {
+      "status": 200,
+      "title": "Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks | Pairvu",
+      "h1": "Claude Haiku 5.5 vs Opus 5.5",
+      "canonical": "https://pairvu.com/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+    },
+    "/models/claude-opus-5-5": {
+      "status": 200,
+      "title": "Claude Opus 5.5 specs, pricing and sources | Pairvu",
+      "h1": "Claude Opus 5.5",
+      "canonical": "https://pairvu.com/models/claude-opus-5-5"
+    },
+    "/models/claude-sonnet-5-5": {
+      "status": 200,
+      "title": "Claude Sonnet 5.5 specs, pricing and sources | Pairvu",
+      "h1": "Claude Sonnet 5.5",
+      "canonical": "https://pairvu.com/models/claude-sonnet-5-5"
+    },
+    "/models": {
+      "status": 200,
+      "title": "AI Model Directory: Specs, Pricing and Sources | Pairvu",
+      "h1": "AI model directory",
+      "canonical": "https://pairvu.com/models"
+    },
+    "/compare": {
+      "status": 200,
+      "title": "Compare AI models | Pairvu",
+      "h1": "Compare AI models",
+      "canonical": "https://pairvu.com/compare"
+    },
+    "/benchmarks/cursorbench": {
+      "status": 200,
+      "title": "CursorBench results | Pairvu",
+      "h1": "CursorBench 4.0",
+      "canonical": "https://pairvu.com/benchmarks/cursorbench"
+    },
+    "/benchmarks": {
+      "status": 200,
+      "title": "LLM Benchmarks Explained: What Each Test Measures | Pairvu",
+      "h1": "LLM benchmarks",
+      "canonical": "https://pairvu.com/benchmarks"
+    },
+    "/llm-pricing": {
+      "status": 200,
+      "title": "LLM API pricing comparison | Pairvu",
+      "h1": "LLM pricing comparison",
+      "canonical": "https://pairvu.com/llm-pricing"
+    },
+    "/compare/claude-vs-gpt": {
+      "status": 200,
+      "title": "Claude vs GPT: Opus 4.5 vs GPT-5.2 | Pairvu",
+      "h1": "Claude vs GPT",
+      "canonical": "https://pairvu.com/compare/claude-vs-gpt"
+    }
+  },
+  "conditional_pricing": "PASS",
+  "same_Max_scores_costs_dates_limits": "PASS",
+  "bidirectional_directory_family_links": "PASS",
+  "old_pair_table_exclusion": "PASS",
+  "legacy_probes": {
+    "/guides": {
+      "status": 410,
+      "location": null
+    },
+    "/guides/": {
+      "status": 410,
+      "location": null
+    },
+    "/examples": {
+      "status": 301,
+      "location": "/"
+    },
+    "/checks": {
+      "status": 301,
+      "location": "/leaderboard"
+    },
+    "/pivot05-stage2-unknown": {
+      "status": 404,
+      "location": null
+    },
+    "/api/health": {
+      "status": 200,
+      "location": null
+    }
+  },
+  "saved_http_directory": "/private/tmp/pivot05-stage2-http"
+}
