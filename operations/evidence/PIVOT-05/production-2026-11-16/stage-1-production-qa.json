@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-1-production",
+  "role": "independent-production-qa",
+  "result": "PASS",
+  "checkedAt": "2026-11-16T05:20:04.950891+00:00",
+  "production": {
+    "origin": "https://pairvu.com",
+    "expectedReleaseSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+    "observedReleaseSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+    "expectedCloudflareVersion": "e21a5c25-9d16-4c99-9726-01504f3f9daf",
+    "observedCloudflareVersion": "e21a5c25-9d16-4c99-9726-01504f3f9daf",
+    "binding": "PASS"
+  },
+  "inventory": {
+    "urls": 43,
+    "models": 16,
+    "comparisons": 15,
+    "benchmarkDetails": 2
+  },
+  "checks": [
+    {
+      "name": "exact production identity",
+      "status": "PASS",
+      "evidence": {
+        "ok": true,
+        "service": "pairvu",
+        "release": "public-beta",
+        "buildSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+        "platformVersion": "e21a5c25-9d16-4c99-9726-01504f3f9daf"
+      }
+    },
+    {
+      "name": "actual sitemap and approved scope",
+      "status": "PASS",
+      "evidence": "43 unique URLs / 16 profiles / 15 comparisons / 2 benchmark details; no old directory or Haiku URL; expected substantive lastmods. All actual model and comparison sitemap paths appear in production directory indexes."
+    },
+    {
+      "name": "affected metadata and visible content",
+      "status": "PASS",
+      "evidence": "All 18 targeted production pages return 200; exactly one Title/H1/self-canonical and descriptions match independently accepted candidate. Their full visible main text equals the accepted local page evidence."
+    },
+    {
+      "name": "conditional pricing and lifecycle",
+      "status": "PASS",
+      "evidence": "Production retains both Beijing Qwen3.5 CNY/USD tiers and thinking/non-thinking context bounds, Qwen3-8B LoRA custom/non-thinking beside prices across profile/comparison/matrices plus full profile conditions; DeepSeek/Kimi/MiniMax unknown current rates with separate self-hosting; Kimi planned retirement and eligibility."
+    },
+    {
+      "name": "quality mismatch and TDK",
+      "status": "PASS",
+      "evidence": "Three exact-version comparisons retain owner evaluations/configuration/limitations without numerical score juxtaposition; Opus5.5/4.5 and Gemini4/3.1 mismatch exclusions survive. ChatGPT vs Gemini retains Preview and API scope. Approved benchmarks TDK, exactly two tests, publication/collection dates and separated BrowseComp tables survive."
+    },
+    {
+      "name": "links and zero orphan source graph",
+      "status": "PASS",
+      "evidence": "Affected Qwen model/comparison reciprocal links and three priority-pair benchmark links independently checked. All production directory indexes equal accepted candidate visible content; source graph/no-orphan PASS reused from unchanged release-bound candidate, rather than claiming a new all-model HTTP sweep."
+    },
+    {
+      "name": "directed legacy",
+      "status": "PASS",
+      "evidence": {
+        "/guides": {
+          "status": 410,
+          "location": null
+        },
+        "/guides/": {
+          "status": 410,
+          "location": null
+        },
+        "/examples": {
+          "status": 301,
+          "location": "/"
+        },
+        "/checks": {
+          "status": 301,
+          "location": "/leaderboard"
+        },
+        "/pivot05-qa-unknown": {
+          "status": 404,
+          "location": null
+        }
+      }
+    }
+  ],
+  "targetedPageEvidence": {
+    "/benchmarks": {
+      "status": 200,
+      "title": "LLM Benchmarks Explained: What Each Test Measures | Pairvu",
+      "h1": "LLM benchmarks",
+      "canonical": "https://pairvu.com/benchmarks",
+      "description": [
+        "Every LLM benchmark on Pairvu explained — what it measures, which exact model versions were tested, and when each result was published."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "116b37f69ba2ebc4b97ba411849e32aa0ade12da850b1225e85d3f63e7e540d3"
+    },
+    "/benchmarks/cursorbench": {
+      "status": 200,
+      "title": "CursorBench results | Pairvu",
+      "h1": "CursorBench 4.0",
+      "canonical": "https://pairvu.com/benchmarks/cursorbench",
+      "description": [
+        "Compare AI models by pricing, context, benchmarks, and original sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "0e93f013230c9837f48f77dbf502262941c53c4968566899c6af5f52bd6991ee"
+    },
+    "/benchmarks/browsecomp": {
+      "status": 200,
+      "title": "BrowseComp results | Pairvu",
+      "h1": "BrowseComp",
+      "canonical": "https://pairvu.com/benchmarks/browsecomp",
+      "description": [
+        "Compare AI models by pricing, context, benchmarks, and original sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "95e186c47220d8a4cf4c66c268209e731cc27cd395750929b8b82fc1e625cefe"
+    },
+    "/compare/claude-vs-gpt": {
+      "status": 200,
+      "title": "Claude vs GPT: Opus 4.5 vs GPT-5.2 | Pairvu",
+      "h1": "Claude vs GPT",
+      "canonical": "https://pairvu.com/compare/claude-vs-gpt",
+      "description": [
+        "Compare Claude Opus 4.5 and GPT-5.2: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "c3fd9cf13a28be2e377b9427c47691cf10382955b03e619ecbcdb8c2081b29d2"
+    },
+    "/compare/gpt-vs-gemini": {
+      "status": 200,
+      "title": "ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview | Pairvu",
+      "h1": "ChatGPT vs Gemini",
+      "canonical": "https://pairvu.com/compare/gpt-vs-gemini",
+      "description": [
+        "Compare GPT-5.2 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "385b6a98dc4a5768f57c2ac33030530242a091b694b7f52755e756f85235a29b"
+    },
+    "/compare/claude-vs-gemini": {
+      "status": 200,
+      "title": "Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview | Pairvu",
+      "h1": "Claude vs Gemini",
+      "canonical": "https://pairvu.com/compare/claude-vs-gemini",
+      "description": [
+        "Compare Claude Opus 4.5 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "fba789e33c80019f325a3e2eccd788166bb01d8848bedcf63002c4f990119eea"
+    },
+    "/models/qwen3-5-397b-a17b": {
+      "status": 200,
+      "title": "Qwen3.5-397B-A17B specs, pricing and sources | Pairvu",
+      "h1": "Qwen3.5-397B-A17B",
+      "canonical": "https://pairvu.com/models/qwen3-5-397b-a17b",
+      "description": [
+        "Qwen3.5-397B-A17B context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "e0d49a5633475389c7cc883d264da9e7a1fc3799b88cb64ee464c3621d22e57b"
+    },
+    "/compare/qwen3-5-397b-a17b-vs-qwen3-8-27b": {
+      "status": 200,
+      "title": "Qwen3.5-397B-A17B vs Qwen3.8-27B | Pairvu",
+      "h1": "Qwen3.5-397B-A17B vs Qwen3.8-27B",
+      "canonical": "https://pairvu.com/compare/qwen3-5-397b-a17b-vs-qwen3-8-27b",
+      "description": [
+        "Compare Qwen3.5-397B-A17B and Qwen3.8-27B: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "10e166c1e95f79955236c474a009862d48913ef5da78bbffcdac5b3195b2dcc0"
+    },
+    "/models/qwen3-8b": {
+      "status": 200,
+      "title": "Qwen3-8B specs, pricing and sources | Pairvu",
+      "h1": "Qwen3-8B",
+      "canonical": "https://pairvu.com/models/qwen3-8b",
+      "description": [
+        "Qwen3-8B context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "6acae006c3164ceabe01c9ff33abf121bb00520ff9cd4a3c7b22ba2a7e87d793"
+    },
+    "/compare/qwen3-8-27b-vs-qwen3-8b": {
+      "status": 200,
+      "title": "Qwen3.8-27B vs Qwen3-8B | Pairvu",
+      "h1": "Qwen3.8-27B vs Qwen3-8B",
+      "canonical": "https://pairvu.com/compare/qwen3-8-27b-vs-qwen3-8b",
+      "description": [
+        "Compare Qwen3.8-27B and Qwen3-8B: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "021703a0fb22bab4b6380232e9ef21e5ce031db3ba93a19d365dbc774df0a5ba"
+    },
+    "/models/deepseek-v3-2": {
+      "status": 200,
+      "title": "DeepSeek-V3.2 specs, pricing and sources | Pairvu",
+      "h1": "DeepSeek-V3.2",
+      "canonical": "https://pairvu.com/models/deepseek-v3-2",
+      "description": [
+        "DeepSeek-V3.2 context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "1980bf98ddeb06ddb1a9b90840fbf5d67716dfc84174641c0e78bd776c8b9e3a"
+    },
+    "/models/kimi-k2-5": {
+      "status": 200,
+      "title": "Kimi K2.5 specs, pricing and sources | Pairvu",
+      "h1": "Kimi K2.5",
+      "canonical": "https://pairvu.com/models/kimi-k2-5",
+      "description": [
+        "Kimi K2.5 context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "23ab33f929865dfc913a3dc68da7511858b021ece5b56dea258e2ad02336d6b8"
+    },
+    "/models/minimax-m2-1": {
+      "status": 200,
+      "title": "MiniMax M2.1 specs, pricing and sources | Pairvu",
+      "h1": "MiniMax M2.1",
+      "canonical": "https://pairvu.com/models/minimax-m2-1",
+      "description": [
+        "MiniMax M2.1 context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "93b574ec5fae5f6440cf7a9d0e26df51a758d5247722b5b1e52cc4cfb9e061bb"
+    },
+    "/models/gemini-3-1-pro-preview": {
+      "status": 200,
+      "title": "Gemini 3.1 Pro Preview specs, pricing and sources | Pairvu",
+      "h1": "Gemini 3.1 Pro Preview",
+      "canonical": "https://pairvu.com/models/gemini-3-1-pro-preview",
+      "description": [
+        "Gemini 3.1 Pro Preview context, pricing, release and official sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "aaa632da90d56b38a9beaaab0c549e7f059841f22639ac9e7f7615352426454a"
+    },
+    "/llm-pricing": {
+      "status": 200,
+      "title": "LLM API pricing comparison | Pairvu",
+      "h1": "LLM pricing comparison",
+      "canonical": "https://pairvu.com/llm-pricing",
+      "description": [
+        "Compare published input and output token prices with direct provider sources."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "281d6a17e9cf08086b729339f31caa0e80eee3b9f8732e5b5df2c9f652c3fcf2"
+    },
+    "/leaderboard": {
+      "status": 200,
+      "title": "LLM leaderboard and model matrix | Pairvu",
+      "h1": "LLM leaderboard",
+      "canonical": "https://pairvu.com/leaderboard",
+      "description": [
+        "A source-linked model matrix without a misleading composite score."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "45a878632275c086597673ef119d6ecc83e09784957adbe84c147de9de3c4cf1"
+    },
+    "/models": {
+      "status": 200,
+      "title": "AI Model Directory: Specs, Pricing and Sources | Pairvu",
+      "h1": "AI model directory",
+      "canonical": "https://pairvu.com/models",
+      "description": [
+        "Browse source-linked AI models with exact versions, context, pricing status and comparison links."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "3c833fd8583aefc185c259a9581f94a03fd4bc23dac388387629608cdfd38cb6"
+    },
+    "/compare": {
+      "status": 200,
+      "title": "Compare AI models | Pairvu",
+      "h1": "Compare AI models",
+      "canonical": "https://pairvu.com/compare",
+      "description": [
+        "Evidence-linked AI model comparisons for pricing, context and benchmarks."
+      ],
+      "matchesAcceptedCandidateVisibleText": true,
+      "visibleTextSha256": "6888b82a87854594b512e37eeb0fa91eccdcb1def0b7d8136ba20d3383f1dd7f"
+    }
+  },
+  "reusedEvidence": [
+    "operations/evidence/PIVOT-05/qa/stage-1-original.json (functional PASS)",
+    "operations/evidence/PIVOT-05/qa/stage-1-cleanup-recheck.json (overall candidate PASS)",
+    "/private/tmp/pairvu-pivot05/stage-1-release-binding.json",
+    "Official source facts and local focused/build/typecheck/full43 page evidence: unchanged exact release-bound application."
+  ],
+  "notRun": [
+    "No build, all43-page HTTP sweep, new official source audit, business/API/account/Stripe/customer/GSC operation.",
+    "No production write, deployment, local service, kill or permission request."
+  ],
+  "cleanup": {
+    "persistentProcessesCreated": false,
+    "productionAssetsCreated": false,
+    "temporaryFiles": "Only audit JSON under /private/tmp/pairvu-pivot05; retained, no cleanup mutations required.",
+    "repositoryMutation": false
+  },
+  "nextAction": {
+    "action": "Controller may record stage1 production accepted and proceed to the authorized stage2 handoff.",
+    "dependency": "None for stage1 acceptance; stage2 remains a separate contracted candidate and independent acceptance.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}

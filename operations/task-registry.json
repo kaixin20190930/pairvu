@@ -846,11 +846,11 @@
     "baselineSha": "e6e95fafdff81154b57fec5222bc7d77a1fe6962",
     "authorization": "2026-11-16 用户授权最终方案两阶段实施、独立验收、GitHub-first生产发布和更新现有定时任务",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
-    "status": "STAGE_1_RELEASE_READY",
+    "status": "STAGE_2_SCOPED",
     "development": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "跨官方价格、精确版本与harness和共享内容渲染；限定常规实现不需最高档",
+      "reason": "阶段2仅Haiku两页，精确官方条件价格、同Max配置和家族互链需谨慎事实核对，复用Sol/high",
       "upgradeCondition": "精确来源不足降级事实；重复实质推理缺口再评估，环境问题不升级",
       "agent": "/root/pivot05_developer",
       "actualConfiguration": "gpt-6.1-sol/high explicitly applied by spawn_agent"
@@ -858,14 +858,14 @@
     "qa": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
-      "reason": "固定SHA独立核对条件价格、版本错配和必要HTTP/生产事实",
+      "reason": "阶段2独立核验精确型号、条件价格、同Max配置和2页完整互链，保留同一Sol/high角色",
       "upgradeCondition": "事实不足直接FAIL；不扩矩阵或修改共享应用",
       "agent": "/root/pivot05_qa",
       "actualConfiguration": "gpt-6.1-sol/high explicitly applied by spawn_agent"
     },
     "stages": {
       "1": {
-        "status": "RELEASE_READY",
+        "status": "PROD_VERIFIED",
         "expected": {
           "urls": 43,
           "models": 16,
@@ -880,10 +880,17 @@
           "original": "operations/evidence/PIVOT-05/qa/stage-1-original.json",
           "cleanupRecheck": "operations/evidence/PIVOT-05/qa/stage-1-cleanup-recheck.json",
           "originalPartialPreserved": true
+        },
+        "production": {
+          "releaseSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+          "platformVersion": "e21a5c25-9d16-4c99-9726-01504f3f9daf",
+          "result": "PASS",
+          "enabled": true,
+          "evidence": "operations/evidence/PIVOT-05/production-2026-11-16/stage-1-production-qa.json"
         }
       },
       "2": {
-        "status": "WAITING_FOR_STAGE_1_PRODUCTION",
+        "status": "SCOPED",
         "expected": {
           "urls": 45,
           "models": 17,
@@ -900,7 +907,7 @@
       "account Stripe API DB customer changes",
       "GSC writes"
     ],
-    "nextAction": "阶段1已独立PASS和清理，提交证据、推送精确提交后发布；阶段2仍等待生产验收",
+    "nextAction": "阶段1生产独立PASS；自动开发阶段2，仅Haiku档案及Opus比较两页，不扩架构或测试",
     "automations": [
       {
         "id": "pairvu-2",

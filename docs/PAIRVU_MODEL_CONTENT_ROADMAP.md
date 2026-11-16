@@ -25,6 +25,8 @@ Missing current pricing does not establish a weights-only offering. Historical p
 
 Existing observation tasks retain their schedules and read-only boundary. Add price conditions, exact-source drift, lifecycle status, and the two new URLs' own GSC release batch. Stage 1 edits do not reset first publication. November 16 GSC property-owner access and sitemap submission were observed; stale November 9 legacy indexing reports do not establish indexing for the current release. Per-URL batch inspection remains PARTIAL until fresh evidence is available. With 17 profiles after Stage 2, scaling remains prohibited.
 
+Stage 1 is implemented, independently accepted, deployed and production-verified on `a987739149a5794dc64bf839dc4744c4f311ca54` (Cloudflare `e21a5c25-9d16-4c99-9726-01504f3f9daf`). Inventory remains 43/16/15 with two benchmarks. Qwen3.5 has sourced Beijing conditional rates; DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 current exact-model prices remain explicitly unconfirmed. The original local PARTIAL caused only by cleanup permission is retained alongside independent cleanup PASS. Stage 2 is now authorized to start; its two URLs are not yet claimed published.
+
 ## Completed four-stage delivery history
 
 ### Stage A — foundation

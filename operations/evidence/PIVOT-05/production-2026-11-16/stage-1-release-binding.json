@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-1",
+  "role": "independent-qa",
+  "checkedAt": "2026-11-16T05:14:42.041821+00:00",
+  "result": "PASS",
+  "acceptedCandidateSha": "44052442d1ec166cc8c44aff08e51253882a9adf",
+  "releaseSha": "a987739149a5794dc64bf839dc4744c4f311ca54",
+  "changedFiles": [
+    "operations/evidence/PIVOT-05/monitoring-update.json",
+    "operations/evidence/PIVOT-05/qa/stage-1-binding.json",
+    "operations/evidence/PIVOT-05/qa/stage-1-cleanup-recheck.json",
+    "operations/evidence/PIVOT-05/qa/stage-1-original.json",
+    "operations/evidence/PIVOT-05/qa/stage-1-targeted-http.json",
+    "operations/task-registry.json"
+  ],
+  "binding": "Entire Git name-status diff is restricted to five evidence JSON files and the controller registry. No application, configuration, dependency, script or route change exists. Candidate source/content/functional PASS and cleanup PASS apply to this release commit.",
+  "headExact": true,
+  "workingTreeClean": true,
+  "notPerformed": [
+    "No build, local server, page sweep, official source recheck, kill, permission request or production PASS."
+  ],
+  "nextAction": {
+    "action": "Await actual deployed platform version and perform the frozen targeted independent production acceptance.",
+    "dependency": "Production health must match exact release SHA and platform version.",
+    "automatic": true
+  }
+}
