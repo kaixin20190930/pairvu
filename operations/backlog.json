@@ -560,6 +560,21 @@
         "10 existing configuration score records",
         "exact GitHub-first production release and targeted acceptance"
       ]
+    },
+    {
+      "id": "PIVOT-07-B",
+      "title": "既有核心对比共同配置基准与hub内容",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-07-A"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "official comparable source records",
+        "fixed candidate independent target acceptance",
+        "GitHub-first production release and six-request acceptance"
+      ]
     }
   ]
 }

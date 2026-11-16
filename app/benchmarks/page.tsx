@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SourceList } from "@/components/SourceList";
-import { browseComp, cursorBench } from "@/lib/models/catalog";
+import { browseComp, cursorBench, sweBenchVerified } from "@/lib/models/catalog";
 
 export const metadata: Metadata = {
   title: "LLM Benchmarks Explained: What Each Test Measures",
@@ -14,7 +14,7 @@ export default function Page() {
     <p className="eyebrow">Benchmark index · updated 2026-11-16</p>
     <h1>LLM benchmarks</h1>
     <p className="lede">A benchmark score is meaningful only with its version, harness, model configuration, and source. Pairvu does not combine unrelated harnesses into a composite score.</p>
-    <p>Pairvu currently explains two benchmarks. The owner publication date, model-owner report date, and Pairvu collection date describe different events; a recent source check does not make an older result new.</p>
+    <p>Pairvu currently explains three benchmarks. The owner publication date, model-owner report date, and Pairvu collection date describe different events; a recent source check does not make an older result new.</p>
     <h2>What each test measures</h2>
     <h3><Link href="/benchmarks/cursorbench">CursorBench 4.0: coding agents in a real editor</Link></h3>
     <p>{cursorBench.method} Version 4.0 introduced long-horizon tasks on {cursorBench.versionReleaseDate}, including editing, refactoring, investigation, and design adherence. Pairvu preserves Gemini 4 Carbon High, Fable 5.2 Max, Opus 5.5 Max, and Haiku 5.5 Max, with each configuration and owner-reported cost per task.</p>
@@ -22,11 +22,22 @@ export default function Page() {
     <h3><Link href="/benchmarks/browsecomp">BrowseComp: persistent information search</Link></h3>
     <p>{browseComp.method} The original {browseComp.releaseDate} release contains 1,266 questions. Pairvu shows its Deep research, o1, GPT-4o with browsing, and GPT-4.5 baselines separately from Z.ai&apos;s {browseComp.latestReportDate} GLM-5 report.</p>
     <p>The GLM-5 thinking and context-management configurations are distinct. Neither source supplies per-task run cost for the displayed results. {browseComp.limitation} BrowseComp-Plus, named in some model launch reports, is a different evaluation and is not substituted here.</p>
+    <section id="swe-bench-verified">
+      <h3>SWE-bench Verified: repository issue resolution</h3>
+      <p>{sweBenchVerified.method}</p>
+      <p>Shared configuration: {sweBenchVerified.agent} {sweBenchVerified.version}, reasoning_effort {sweBenchVerified.reasoningEffort}, Attempts {sweBenchVerified.attempts}. Entry dates are leaderboard record dates, not established result publication dates. Source checked {sweBenchVerified.source.accessed}.</p>
+      <div className="table-wrap"><table className="model-table"><thead><tr><th>Model / reported label</th><th>Resolved</th><th>Reported model tag</th><th>Entry date / folder</th><th>Source / checked</th></tr></thead><tbody>
+        {sweBenchVerified.rows.map(row => <tr key={row.slug}><th><Link href={`/models/${row.slug}`}>{row.model}</Link><br/>{row.reportedModel}</th><td>{row.score}%</td><td>{row.tag}</td><td>{row.entryDate}<br/>{row.folder}</td><td><a href={sweBenchVerified.source.url}>{sweBenchVerified.source.label}</a><br/>{sweBenchVerified.source.accessed}</td></tr>)}
+      </tbody></table></div>
+      <p>{sweBenchVerified.coverage}</p>
+      <p className="note">{sweBenchVerified.limitation}</p>
+    </section>
     <h2>Coverage matrix</h2>
     <table className="model-table"><thead><tr><th>Benchmark</th><th>Version / date</th><th>Pairvu coverage</th><th>Configuration and cost</th><th>Main limitation</th></tr></thead><tbody>
       <tr><th><Link href="/benchmarks/cursorbench">CursorBench</Link></th><td>v{cursorBench.version} · version introduced {cursorBench.versionReleaseDate}<br/>Snapshot checked <time dateTime={cursorBench.snapshotDate}>{cursorBench.snapshotDate}</time><br/>Individual result publication dates unknown</td><td>{cursorBench.coverage}</td><td>Named effort configurations; owner-reported run cost per task.</td><td>Cursor agent harness and task budget are part of the result.</td></tr>
       <tr><th><Link href="/benchmarks/browsecomp">BrowseComp</Link></th><td>{browseComp.version}<br/>Owner release <time dateTime={browseComp.releaseDate}>{browseComp.releaseDate}</time><br/>Z.ai report {browseComp.latestReportDate}</td><td>{browseComp.coverage}</td><td>Baseline and vendor configurations are separate; cited sources do not report run cost.</td><td>Short-answer browsing tasks are not a universal measure of open-ended research.</td></tr>
+      <tr><th><Link href="#swe-bench-verified">SWE-bench Verified</Link></th><td>Leaderboard entries 2026-02-17<br/>Source checked {sweBenchVerified.source.accessed}</td><td>Claude Opus 4.5 and GPT-5.2; no matching Gemini 3.1 Pro Preview configuration in this snapshot.</td><td>{sweBenchVerified.agent} {sweBenchVerified.version} · high · Attempts 1. Historical methodology budgets are not verified per-entry settings.</td><td>Repository issue resolution; effort names do not establish equal compute or general quality.</td></tr>
     </tbody></table>
-    <SourceList sources={[cursorBench.source, browseComp.source, browseComp.latestSource]} />
+    <SourceList sources={[cursorBench.source, browseComp.source, browseComp.latestSource, sweBenchVerified.source, sweBenchVerified.methodSource]} />
   </main>;
 }

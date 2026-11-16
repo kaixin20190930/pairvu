@@ -89,3 +89,21 @@ export const relatedSpecialComparisons=(slug:string)=>["gpt-5-2","claude-opus-4-
 export const fxSnapshot={cnyPerUsd:6.676,date:"2026-11-06",source:s("Federal Reserve H.10 USD/CNY rate","https://www.federalreserve.gov/releases/h10/current/")};
 export const formatTokens=(v:number)=>v>=1000000?`${v/1000000}M`:`${Math.round(v/1000)}K`;
 export const priceText=(p:PriceQuote)=>{const value=p.inputPerMillion===undefined?(p.note??p.mode):p.currency==="CNY"?`USD ${(p.inputPerMillion/fxSnapshot.cnyPerUsd).toFixed(2)} in / ${(p.outputPerMillion!/fxSnapshot.cnyPerUsd).toFixed(2)} out (CNY ${p.inputPerMillion} / ${p.outputPerMillion})`:`USD ${p.inputPerMillion} in / ${p.outputPerMillion} out`;return p.inputPerMillion===undefined?value:`${value} · ${p.region} · ${p.mode}`;};
+
+export const sweBenchVerified = {
+  name: "SWE-bench Verified",
+  tasks: 500,
+  agent: "mini-SWE-agent",
+  version: "2.0.0",
+  reasoningEffort: "high",
+  attempts: 1,
+  source: verified("SWE-bench official Verified leaderboard", "https://www.swebench.com/"),
+  methodSource: verified("SWE-bench mini-SWE-agent methodology (2025-08-08)", "https://www.swebench.com/post-250808-gpt5.html"),
+  method: "SWE-bench Verified measures repository issue resolution on 500 human-verified software tasks. The official bash-only leaderboard uses the same mini-SWE-agent environment for these entries.",
+  limitation: "The shared agent version, high effort label, and one attempt support comparison within this leaderboard setting. A shared high label does not establish equal token budgets or compute across providers. Reported model tags are not dated API snapshots. These results are listed on the official leaderboard; Pairvu has not reproduced them or verified individual trajectories. The 2025 methodology's $3 budget and 250-step limit are general background, not individually verified settings for these 2026 entries.",
+  coverage: "This snapshot covers Claude Opus 4.5 and GPT-5.2. No matching Gemini 3.1 Pro Preview entry was found in the checked Verified snapshot; this does not mean Google has published no benchmark results. Vendor GPQA reports and differently configured SWE-bench Pro entries are not added to this comparison.",
+  rows: [
+    { slug: "claude-opus-4-5", model: "Claude Opus 4.5", reportedModel: "Claude 4.5 Opus", tag: "claude-4-5-opus", folder: "20260217_mini-v2.0.0_claude-4-5-opus-high", entryDate: "2026-02-17", score: 76.8, checked: null, logs: null },
+    { slug: "gpt-5-2", model: "GPT-5.2", reportedModel: "GPT 5.2", tag: "gpt-5-2", folder: "20260217_mini-v2.0.0_gpt-5-2-high", entryDate: "2026-02-17", score: 72.8, checked: null, logs: null },
+  ],
+};

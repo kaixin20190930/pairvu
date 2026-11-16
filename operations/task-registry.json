@@ -1107,5 +1107,51 @@
     },
     "cleanup": "No services/test accounts/production test assets created; raw tmp evidence retained with hashes",
     "completionEvidence": "operations/evidence/PIVOT-07-A/completion.md"
+  },
+  "pivot07b": {
+    "unitId": "PIVOT-07-B",
+    "contract": "operations/contracts/PIVOT-07-B.md",
+    "baselineSha": "20a105fc7ec64d758d3ef641658e21c7a07f1b7b",
+    "authorization": "2026-11-16 第二阶段官方取证，仅共同设置证据/不新增页面/独立验收/GitHub-first生产发布",
+    "status": "DEV_READY",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "agent": "/root/pivot07a_dev",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "官方输入已冻结的三文件catalog/JSX局部实现及slug隔离",
+      "upgradeCondition": "超三文件/需额外数据先停止交总控，环境不升级",
+      "actualConfiguration": "Reusing original explicitly spawned gpt-6.1-sol/medium; followup tool cannot reset model; same appropriate configuration retained"
+    },
+    "qa": {
+      "agent": "/root/pivot07a_qa",
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "独立官网原件/固定SHA/目标SSR与六HTTP的有界验收",
+      "upgradeCondition": "事实/口径/隔离FAIL返原开发；环境不升级",
+      "actualConfiguration": "Reusing original explicitly spawned gpt-6.1-sol/medium; followup tool cannot reset model; same appropriate configuration retained"
+    },
+    "sourceEvidence": "/private/tmp/pairvu-pivot07-b/official-swe-verified-extract.json",
+    "required": [
+      "official matched mini-SWE-agent2.0.0/high/1 two records",
+      "three runtime files only and core-slug isolation",
+      "hub plus three core target SSR and unchanged Haiku counterexample",
+      "fixed SHA independent candidate acceptance",
+      "same pushed release and six HTTP independent production acceptance"
+    ],
+    "excluded": [
+      "new URL/benchmark detail pages",
+      "GPQA/Pro mismatched numeric comparisons",
+      "other model/price/leaderboard changes",
+      "GSC/automation/account/DB writes",
+      "full test suite/extra build/new framework"
+    ],
+    "reuse": [
+      "PIVOT-07-A production-original release4637c6d for unchanged output/URLs",
+      "PIVOT-05 stage2 unchanged routing/model graph"
+    ],
+    "nextAction": "Freeze candidate, independent source and targetSSR acceptance; push/deploy only after PASS",
+    "developmentEvidence": "/private/tmp/pairvu-pivot07-b/developer.md",
+    "developmentResult": "PASS: initial targetedSSR15 + affected copySSR8; no extra build/full suite"
   }
 }
