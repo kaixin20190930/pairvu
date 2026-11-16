@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "checks": {
+    "exactTitle": true,
+    "exactH1": true,
+    "canonicalUnchanged": true,
+    "descriptionGrouped": true,
+    "twoBenchmarkTablesThenSpecs": true,
+    "exactFourCursorResults": true,
+    "exactFourOwnerResults": true,
+    "exactTwoVendorResults": true,
+    "browseTwoSeparateGroups": true,
+    "tenConfigurationsNotModels": true,
+    "noOverallRankColumn": true,
+    "methodologiesAndLimitsRetained": true,
+    "noFabricatedPublication": true,
+    "seventeenSpecs": true,
+    "existingEntrypoints": true,
+    "modelLinksExist": true,
+    "unknownRowsPreserveQuoteSourceAndDate": true,
+    "otherRowsUnchanged": true,
+    "fxPreserved": true
+  },
+  "metadata": {
+    "title": "LLM Benchmark Leaderboards: Scores and Model Specs",
+    "description": "Explore source-linked CursorBench 4.0 and BrowseComp scores grouped by benchmark and configuration, with official sources, check dates, and model specifications.",
+    "alternates": {
+      "canonical": "/leaderboard"
+    }
+  },
+  "counts": {
+    "cursor": 4,
+    "owner": 4,
+    "vendor": 2,
+    "specs": 17
+  },
+  "scope": "Local SSR only; no independent acceptance, build, or production claim",
+  "artifacts": [
+    "/private/tmp/pairvu-pivot07-a/leaderboard.html",
+    "/private/tmp/pairvu-pivot07-a/llm-pricing.html"
+  ]
+}

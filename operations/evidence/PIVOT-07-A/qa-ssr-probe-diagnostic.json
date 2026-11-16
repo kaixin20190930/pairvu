@@ -1,0 +1,145 @@
+{
+  "unit": "PIVOT-07-A",
+  "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+  "result": "FAIL",
+  "checkedAt": "2026-11-16T07:34:14.464Z",
+  "checks": {
+    "exactCandidate": true,
+    "twoRuntimeFilesOnly": true,
+    "threeTables": true,
+    "exactTenRows": true,
+    "independentBrowseGroups": true,
+    "noCompositeOrRank": true,
+    "publicationHonest": true,
+    "methodsLimits": true,
+    "specifications17": true,
+    "modelLinksPublished": true,
+    "exactTitle": true,
+    "exactH1": true,
+    "descriptionGrouped": true,
+    "canonical": true,
+    "rootTitleSuffix": true,
+    "unknownThree": true,
+    "allBaselineTableContentPreservedAfterOnlyAllowedAppends": false,
+    "fxPreserved": true,
+    "originalEntrypoints": true
+  },
+  "rowsCorrect": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "expectedRows": [
+    [
+      "Gemini 4 Carbon High",
+      "Carbon · High effort",
+      "60.4%",
+      "https://cursor.com/cursorbench",
+      "Unknown — not stated by source",
+      "2026-11-16"
+    ],
+    [
+      "Fable 5.2 Max",
+      "Fable 5.2 · Max effort",
+      "60%",
+      "https://cursor.com/cursorbench",
+      "Unknown — not stated by source",
+      "2026-11-16"
+    ],
+    [
+      "Opus 5.5 Max",
+      "Opus 5.5 · Max effort",
+      "57.8%",
+      "https://cursor.com/cursorbench",
+      "Unknown — not stated by source",
+      "2026-11-16"
+    ],
+    [
+      "Haiku 5.5 Max",
+      "Haiku 5.5 · Max effort",
+      "48.4%",
+      "https://cursor.com/cursorbench",
+      "Unknown — not stated by source",
+      "2026-11-16"
+    ],
+    [
+      "Deep research",
+      "Benchmark-owner baseline; browsing agent",
+      "51.5%",
+      "https://openai.com/index/browsecomp/",
+      "2025-04-10",
+      "2026-11-16"
+    ],
+    [
+      "OpenAI o1",
+      "Medium reasoning; no browsing",
+      "9.9%",
+      "https://openai.com/index/browsecomp/",
+      "2025-04-10",
+      "2026-11-16"
+    ],
+    [
+      "GPT-4o with browsing",
+      "Browsing enabled",
+      "1.9%",
+      "https://openai.com/index/browsecomp/",
+      "2025-04-10",
+      "2026-11-16"
+    ],
+    [
+      "GPT-4.5",
+      "No browsing",
+      "0.9%",
+      "https://openai.com/index/browsecomp/",
+      "2025-04-10",
+      "2026-11-16"
+    ],
+    [
+      "GLM-5 (thinking)",
+      "No context management; retains the latest five turns",
+      "62%",
+      "https://z.ai/blog/glm-5",
+      "2026-02-12",
+      "2026-11-12"
+    ],
+    [
+      "GLM-5 + context management",
+      "Context management using the discard-all strategy",
+      "75.9%",
+      "https://z.ai/blog/glm-5",
+      "2026-02-12",
+      "2026-11-12"
+    ]
+  ],
+  "quoteEvidence": [
+    {
+      "slug": "deepseek-v3-2",
+      "note": "Current DeepSeek-V3.2-specific hosted pricing is unknown, not free. The December 2025 release documented API access; the current API model list names newer models. Their prices and aliases do not establish a purchasable V3.2 rate or prove a weights-only offering.",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "date": "2026-11-16",
+      "pass": true
+    },
+    {
+      "slug": "kimi-k2-5",
+      "note": "The current Kimi K2.5-specific token rate is unknown, not free. The official K2 lifecycle notice preserves existing-user access, blocks newly registered users from 2026-10-31, and plans retirement by the end of December 2026. This is not a weights-only model or a claim that it is already retired.",
+      "url": "https://platform.kimi.ai/docs/pricing/chat",
+      "date": "2026-11-16",
+      "pass": true
+    },
+    {
+      "slug": "minimax-m2-1",
+      "note": "Current MiniMax M2.1-specific hosted pricing is unknown, not free. Its December 2025 launch linked API access; the current price table lists newer models and does not establish an M2.1 rate. Do not substitute M3 prices or infer a weights-only offering.",
+      "url": "https://platform.minimax.io/docs/pricing/overview",
+      "date": "2026-11-16",
+      "pass": true
+    }
+  ],
+  "scope": "Independent component SSR and metadata export; full Next HTTP metadata resolved only during release production acceptance."
+}

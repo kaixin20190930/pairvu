@@ -1,0 +1,34 @@
+{
+  "health": {
+    "url": "https://pairvu.com/api/health",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-a/production-health.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-a/production-health.body"
+  },
+  "leaderboard": {
+    "url": "https://pairvu.com/leaderboard",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-a/production-leaderboard.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-a/production-leaderboard.body"
+  },
+  "pricing": {
+    "url": "https://pairvu.com/llm-pricing",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-a/production-pricing.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-a/production-pricing.body"
+  },
+  "sitemap": {
+    "url": "https://pairvu.com/sitemap.xml",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-a/production-sitemap.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-a/production-sitemap.body"
+  }
+}

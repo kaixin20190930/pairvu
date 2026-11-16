@@ -1,0 +1,105 @@
+{
+  "unitId": "PIVOT-07-A",
+  "releaseSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+  "platformVersion": "2be9146f-7cce-4d17-a533-cab7e856bf78",
+  "candidateAcceptance": "PASS",
+  "productionAcceptance": "PASS",
+  "enabled": true,
+  "migrations": "NOT_REQUIRED",
+  "runtimeFiles": [
+    "app/leaderboard/page.tsx",
+    "components/ModelTable.tsx"
+  ],
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "checkedAt": "2026-11-16T07:39:14.358Z",
+      "action": "deploy",
+      "artifactSha256": "578f94e6fa657d63027d61fc2066d6ff8d8b49a9c2dc394eaae940416563373b",
+      "initialCheckedAt": "2026-11-16T07:38:29.414Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "checkedAt": "2026-11-16T07:39:14.358Z",
+      "action": "deploy",
+      "artifactSha256": "578f94e6fa657d63027d61fc2066d6ff8d8b49a9c2dc394eaae940416563373b",
+      "initialCheckedAt": "2026-11-16T07:38:29.414Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisonsTotal": 16,
+    "catalogPairComparisons": 15,
+    "fixedThreeWayComparison": 1,
+    "benchmarkDetails": 2,
+    "scoreRecords": 10,
+    "cursor": 4,
+    "browseOwner": 4,
+    "browseVendor": 2
+  },
+  "inventoryClarification": "Original production report inventory.comparisons=15 counts catalog pair comparisons; plus fixed three-way page gives 16 total comparison pages. Original preserved unchanged; actual 45 URL list is correct.",
+  "qa": "qa-original.json",
+  "productionQa": "production-original.json",
+  "checks": "Targeted SSR, exact diff, necessary release build/typecheck and four production HTTP requests; no full suite or extra local build.",
+  "cleanup": "No local services, test accounts or production test assets created",
+  "formalState": "Historical JRN-04-FIX RELEASE_READY preserved; this runtime unit not formally CLOSED by CLI.",
+  "nextAction": "Stage A complete. Existing scheduled read-only observation proceeds automatically; Stage B requires separate authorization and compatible official evidence.",
+  "retainedRawEvidence": [
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/deploy.log",
+      "sha256": "54d170a5f06990e550a0acb776098cbb97c3b6e86cfdecae23251642f698fc48"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-health.headers",
+      "sha256": "90ba24c2a4591410d1294dc2019aeac57acd905529157b4f336eeb3456d2798a"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-health.body",
+      "sha256": "6497409cec83c64b5d47a34253c130f84a9d856d1247d747cfaad67be21eb76f"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-leaderboard.headers",
+      "sha256": "5ab44c0d41394ffad877a6f7aaefd0500b6e9e86a1f5cb87da176e147131b99f"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-leaderboard.body",
+      "sha256": "58a2b77037cd6bc8fa8e7c44997fa6d94cc8d57f219102c96d03bb3ee3ba5949"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-pricing.headers",
+      "sha256": "df56dc70100b138ec49f9c1ce84ba08e2d98e44042df41772f9697da46ef6d61"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-pricing.body",
+      "sha256": "3ac459ece403d052c3a8e823d364a6023d2c52449c73e92c08b5d0c3294d0cd1"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-sitemap.headers",
+      "sha256": "9f88d1c7a98da34d7d7f84cc65e95b5c4d6b90441779627f4d86dfa01660eec5"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-a/production-sitemap.body",
+      "sha256": "5c95a6b10950880e0f5d933f411047cff5932695611693140643b9fd1035aff1"
+    }
+  ],
+  "archivedOriginals": {
+    "developer.md": "219229a213125b83a291dcd2bd6f82d215371a6afeb3ddf8d872cbb64327cb29",
+    "ssr-evidence.json": "6928b41682ac7169e7425bbb70df9a778536c3028949747f6ea05dc4c296d8f1",
+    "qa-original.json": "c76480609b842ecbcba92c22ee594f3d9a110cdddb8c5569db91bc3e5e3e4bf8",
+    "qa-ssr-evidence.json": "4605dd5ea950c5924b7274077b3bfc3b8a7335f17b1457aeb539592a1f0f1914",
+    "qa-ssr-probe-diagnostic.json": "5b7530b11bae31540578aafd20619a5d5fc2953de4c4c49a1a8c15137720b013",
+    "production-original.json": "093364daace74d6d10c9f31e4a791311ac271757b86a2d00f15a2ca219cca47f",
+    "production-requests.json": "19c4c2305facd6b70969e9c9e858b252346021b0a6107562ff5d6773bbdd93d8"
+  }
+}

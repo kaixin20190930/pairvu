@@ -1046,7 +1046,7 @@
     "contract": "operations/contracts/PIVOT-07-A.md",
     "baselineSha": "8e741238bdcb60a221ef521aaa163010c5162d5e",
     "authorization": "2026-11-16 用户仅授权第一阶段现有榜单成绩、三条未知价格来源日期、文档、独立验收及GitHub-first生产发布",
-    "status": "DEV_READY",
+    "status": "PROD_VERIFIED",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
     "development": {
       "model": "gpt-6.1-sol",
@@ -1063,7 +1063,7 @@
       "upgradeCondition": "实际事实/分组/状态错误FAIL返原开发，环境问题不升级",
       "agent": "/root/pivot07a_qa",
       "actualConfiguration": "gpt-6.1-sol/medium explicitly applied by spawn_agent",
-      "stage": "awaiting fixed candidate; no drifting-tree tests"
+      "stage": "candidate and production PASS"
     },
     "required": [
       "two runtime files only",
@@ -1084,8 +1084,28 @@
       "GSC/automation/DB/API/account changes"
     ],
     "assets": "tmp SSR only; no local service or test account",
-    "nextAction": "Freeze candidate commit, independent QA; push/deploy only after PASS",
-    "developmentEvidence": "/private/tmp/pairvu-pivot07-a/developer.md",
-    "developmentResult": "PASS: one targeted SSR invocation; 19 assertions"
+    "nextAction": "Stage A implemented, deployed, publicly enabled, independently production accepted. Existing read-only observations automatic; Stage B needs separate authorization and official comparable evidence. No more development/deploy automatically.",
+    "developmentEvidence": "operations/evidence/PIVOT-07-A/developer.md",
+    "developmentResult": "PASS: one targeted SSR invocation; 19 assertions",
+    "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+    "acceptance": {
+      "result": "PASS",
+      "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "evidence": "operations/evidence/PIVOT-07-A/qa-original.json"
+    },
+    "production": {
+      "result": "PASS",
+      "releaseSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "platformVersion": "2be9146f-7cce-4d17-a533-cab7e856bf78",
+      "enabled": true,
+      "requests": 4,
+      "urls": 45,
+      "models": 17,
+      "comparisons": 16,
+      "benchmarkDetails": 2,
+      "evidence": "operations/evidence/PIVOT-07-A/production-original.json"
+    },
+    "cleanup": "No services/test accounts/production test assets created; raw tmp evidence retained with hashes",
+    "completionEvidence": "operations/evidence/PIVOT-07-A/completion.md"
   }
 }

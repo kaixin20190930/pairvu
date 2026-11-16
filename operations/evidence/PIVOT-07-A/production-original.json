@@ -1,0 +1,171 @@
+{
+  "unit": "PIVOT-07-A",
+  "role": "independent production QA",
+  "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+  "releaseSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+  "platformVersion": "2be9146f-7cce-4d17-a533-cab7e856bf78",
+  "checkedAt": "2026-11-16T07:42:36.351571+00:00",
+  "result": "PASS",
+  "checks": {
+    "exactlyFourRequestsAll200": true,
+    "healthOk": true,
+    "exactBuildSha": true,
+    "exactPlatformVersion": true,
+    "leaderboardResolvedMetadata": true,
+    "pricingResolvedMetadata": true,
+    "leaderboardAllThreeTablesMatchIndependentlyAcceptedSSR": true,
+    "pricingTableMatchesIndependentlyAcceptedSSR": true,
+    "tenScoreRows": true,
+    "browseTwoEvidenceGroups": true,
+    "specification17Rows": true,
+    "threeUnknownSourceDateNotes": true,
+    "sitemap45Unique": true,
+    "noNewOrMissingUrls": true,
+    "repositoryClean": true
+  },
+  "observedHealth": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+    "platformVersion": "2be9146f-7cce-4d17-a533-cab7e856bf78"
+  },
+  "observedMetadata": {
+    "leaderboard": {
+      "title": [
+        "LLM Benchmark Leaderboards: Scores and Model Specs | Pairvu"
+      ],
+      "h1": [
+        "LLM benchmark leaderboards"
+      ],
+      "description": [
+        "Explore source-linked CursorBench 4.0 and BrowseComp scores grouped by benchmark and configuration, with official sources, check dates, and model specifications."
+      ],
+      "canonical": [
+        "https://pairvu.com/leaderboard"
+      ]
+    },
+    "pricing": {
+      "title": [
+        "LLM API pricing comparison | Pairvu"
+      ],
+      "h1": [
+        "LLM pricing comparison"
+      ],
+      "description": [
+        "Compare published input and output token prices with direct provider sources."
+      ],
+      "canonical": [
+        "https://pairvu.com/llm-pricing"
+      ]
+    }
+  },
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisons": 15,
+    "benchmarkDetails": 2,
+    "actualUrls": [
+      "https://pairvu.com/",
+      "https://pairvu.com/models",
+      "https://pairvu.com/compare",
+      "https://pairvu.com/compare/chatgpt-vs-claude-vs-gemini",
+      "https://pairvu.com/llm-pricing",
+      "https://pairvu.com/best/chinese-models",
+      "https://pairvu.com/best/open-source-models",
+      "https://pairvu.com/benchmarks",
+      "https://pairvu.com/benchmarks/cursorbench",
+      "https://pairvu.com/benchmarks/browsecomp",
+      "https://pairvu.com/leaderboard",
+      "https://pairvu.com/privacy",
+      "https://pairvu.com/legacy",
+      "https://pairvu.com/models/gpt-5-2",
+      "https://pairvu.com/models/claude-opus-4-5",
+      "https://pairvu.com/models/gemini-3-1-pro-preview",
+      "https://pairvu.com/models/qwen3-8b",
+      "https://pairvu.com/models/glm-5",
+      "https://pairvu.com/models/fable-5-2",
+      "https://pairvu.com/models/claude-opus-5-5",
+      "https://pairvu.com/models/qwen3-8-27b",
+      "https://pairvu.com/models/deepseek-v3-2",
+      "https://pairvu.com/models/kimi-k2-5",
+      "https://pairvu.com/models/minimax-m2-1",
+      "https://pairvu.com/models/qwen3-8-2-4t-a95b",
+      "https://pairvu.com/models/qwen3-5-397b-a17b",
+      "https://pairvu.com/models/qwen-4-max-preview",
+      "https://pairvu.com/models/claude-sonnet-5-5",
+      "https://pairvu.com/models/muse-wonder",
+      "https://pairvu.com/models/claude-haiku-5-5",
+      "https://pairvu.com/compare/claude-vs-gpt",
+      "https://pairvu.com/compare/gpt-vs-gemini",
+      "https://pairvu.com/compare/claude-vs-gemini",
+      "https://pairvu.com/compare/fable-5-2-vs-opus",
+      "https://pairvu.com/compare/qwen3-8-27b-vs-glm-5",
+      "https://pairvu.com/compare/qwen3-8-27b-vs-qwen3-8b",
+      "https://pairvu.com/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "https://pairvu.com/compare/deepseek-vs-chatgpt",
+      "https://pairvu.com/compare/kimi-k2-5-vs-deepseek-v3-2",
+      "https://pairvu.com/compare/minimax-m2-1-vs-glm-5",
+      "https://pairvu.com/compare/qwen3-8-2-4t-a95b-vs-qwen3-8-27b",
+      "https://pairvu.com/compare/qwen3-5-397b-a17b-vs-qwen3-8-27b",
+      "https://pairvu.com/compare/claude-sonnet-5-5-vs-claude-opus-5-5",
+      "https://pairvu.com/compare/muse-wonder-vs-gpt-5-2",
+      "https://pairvu.com/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+    ]
+  },
+  "requests": {
+    "health": {
+      "url": "https://pairvu.com/api/health",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-a/production-health.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-a/production-health.body"
+    },
+    "leaderboard": {
+      "url": "https://pairvu.com/leaderboard",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-a/production-leaderboard.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-a/production-leaderboard.body"
+    },
+    "pricing": {
+      "url": "https://pairvu.com/llm-pricing",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-a/production-pricing.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-a/production-pricing.body"
+    },
+    "sitemap": {
+      "url": "https://pairvu.com/sitemap.xml",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-a/production-sitemap.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-a/production-sitemap.body"
+    }
+  },
+  "method": "Exactly four curl HTTP requests, no retries. All score and specification/pricing tables match exact independent candidate SSR after removal only of React HTML comment separators. Candidate independently checked all score/model/config/source/publication/check-date values, unknown-price lifecycle notes and byte-identical baseline table after the three authorized suffixes. Production score rows/groups/counts independently counted; resolved metadata checked here. Sitemap compared to unchanged app/sitemap.ts fixed list and exact candidate model/comparison inventory.",
+  "reusedEvidence": [
+    "/private/tmp/pairvu-pivot07-a/qa-original.json",
+    "/private/tmp/pairvu-pivot07-a/qa-ssr-evidence.json",
+    "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json",
+    "operations/evidence/PIVOT-06-COPY/production-original.json"
+  ],
+  "notRun": "No extra requests, build/typecheck, services, GSC/automation, official-site recrawl, accounts/DB/customer operations.",
+  "cleanup": {
+    "servicesCreated": false,
+    "accountsOrProductionAssetsCreated": false,
+    "repositoryMutation": false,
+    "temporaryEvidence": "Retained under /private/tmp/pairvu-pivot07-a for controller archive",
+    "blockingCleanupRemaining": false
+  },
+  "nextAction": {
+    "action": "Controller may archive original QA evidence and record stage A implementation, exact production deployment, public enablement and independent production acceptance complete. Existing read-only observations continue; stage B requires separate authorization and compatible official evidence.",
+    "dependency": "None for stage A product acceptance; final controller evidence/document archival remains.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}

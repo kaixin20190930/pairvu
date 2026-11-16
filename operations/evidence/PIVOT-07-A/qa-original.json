@@ -1,0 +1,71 @@
+{
+  "unit": "PIVOT-07-A",
+  "role": "independent candidate QA",
+  "candidateSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+  "baselineSha": "8e741238bdcb60a221ef521aaa163010c5162d5e",
+  "result": "PASS",
+  "checkedAt": "2026-11-16T07:35:17.023501+00:00",
+  "checks": {
+    "exactCandidate": true,
+    "twoRuntimeFilesOnly": true,
+    "threeTables": true,
+    "exactTenRows": true,
+    "independentBrowseGroups": true,
+    "noCompositeOrRank": true,
+    "publicationHonest": true,
+    "methodsLimits": true,
+    "specifications17": true,
+    "modelLinksPublished": true,
+    "exactTitle": true,
+    "exactH1": true,
+    "descriptionGrouped": true,
+    "canonical": true,
+    "rootTitleSuffix": true,
+    "unknownThree": true,
+    "allBaselineTableContentPreservedAfterOnlyAllowedAppends": true,
+    "fxPreserved": true,
+    "originalEntrypoints": true
+  },
+  "diffReview": "Read complete six-file diff: only leaderboard page and ModelTable are runtime changes; four authorized documents/registry files record stage A boundary, stage B separate authorization. No catalog, route inventory, dependencies, config, source date or score changes. git diff --check passed. HEAD exact and working tree clean before/after SSR.",
+  "method": "Independent hardcoded 10 score/config/source/publication/check-date expectations; separately execute React SSR for leaderboard and pricing. Compare baseline ModelTable loaded from exact baseline git blob against candidate after removing only three authorized appended source/date suffixes. Result byte-for-byte identical; all numeric, self-hosted, lifecycle notes preserved. Metadata exports and unchanged root title template checked; actual HTTP head deferred to production.",
+  "command": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot07-a/qa-ssr.tsx",
+  "ssrEvidence": "/private/tmp/pairvu-pivot07-a/qa-ssr-evidence.json",
+  "artifacts": [
+    "/private/tmp/pairvu-pivot07-a/qa-ssr.tsx",
+    "/private/tmp/pairvu-pivot07-a/qa-baseline-ModelTable.tsx",
+    "/private/tmp/pairvu-pivot07-a/qa-leaderboard.html",
+    "/private/tmp/pairvu-pivot07-a/qa-pricing.html",
+    "/private/tmp/pairvu-pivot07-a/qa-ssr-evidence.json",
+    "/private/tmp/pairvu-pivot07-a/qa-ssr-probe-diagnostic.json"
+  ],
+  "diagnostic": {
+    "productFailure": false,
+    "detail": "First independent probe compared normalized table with baseline wrapping div, giving one false harness assertion. Preserved original as qa-ssr-probe-diagnostic.json; corrected comparison to baseline table. Second targeted SSR exit 0 all 19 checks true. Application unchanged."
+  },
+  "reusedEvidence": [
+    {
+      "path": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json",
+      "releaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "scope": "Unchanged catalog/route inventory/legacy route and source graph evidence only; leaderboard and pricing output independently rechecked here."
+    },
+    {
+      "path": "operations/evidence/PIVOT-06-COPY/production-original.json",
+      "releaseSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "scope": "Unchanged chinese-models single-copy existing-link production acceptance. No inherited PASS claimed for changed output."
+    }
+  ],
+  "excluded": "No service, full suite, extra build/typecheck, official-source recrawl, GSC/automation/accounts/DB/customer operations or production HTTP performed. Production acceptance remains pending.",
+  "cleanup": {
+    "repositoryMutated": false,
+    "servicesCreated": false,
+    "testAccountsOrAssetsCreated": false,
+    "temporaryEvidenceRetained": true,
+    "blockingCleanupRemaining": false
+  },
+  "nextAction": {
+    "action": "Controller may push, fresh-fetch verify exact candidate, build/deploy same commit under production rule; then same QA performs exactly health/leaderboard/llm-pricing/sitemap HTTP checks.",
+    "dependency": "Successful GitHub-first release handoff including actual release SHA and platform version.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}
