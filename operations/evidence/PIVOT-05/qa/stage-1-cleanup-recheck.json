@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-1",
+  "role": "independent-qa",
+  "candidateSha": "44052442d1ec166cc8c44aff08e51253882a9adf",
+  "checkedAt": "2026-11-16T05:13:16.363329+00:00",
+  "result": "PASS",
+  "readyForRelease": true,
+  "originalReport": "operations/evidence/PIVOT-05/qa/stage-1-original.json",
+  "originalPreserved": true,
+  "scope": "Cleanup-only recheck. All candidate functional/content acceptance evidence is reused without repeating checks.",
+  "controllerAction": "Controller reports authorized require_escalated kill 29729 exited 0.",
+  "independentCheck": {
+    "command": "lsof -nP -iTCP:3215 -sTCP:LISTEN",
+    "exitCode": 1,
+    "stdout": "",
+    "conclusion": "No listener on port 3215; temporary QA service cleanup complete."
+  },
+  "overallConclusion": "Original functional PASS plus independently verified cleanup yields overall candidate QA PASS and ready for release. This does not verify production.",
+  "nextAction": {
+    "action": "Controller may proceed through required commit/push/fetch exact-SHA and same-commit production deployment gates. Same independent QA then verifies production.",
+    "dependency": "Exact pushed release SHA and actual platform version required for production QA.",
+    "automatic": true,
+    "userInputRequired": false
+  },
+  "stage2Boundary": "Stage2 waits for stage1 production acceptance."
+}

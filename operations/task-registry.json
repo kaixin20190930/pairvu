@@ -846,7 +846,7 @@
     "baselineSha": "e6e95fafdff81154b57fec5222bc7d77a1fe6962",
     "authorization": "2026-11-16 用户授权最终方案两阶段实施、独立验收、GitHub-first生产发布和更新现有定时任务",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
-    "status": "STAGE_1_DEV_ACTIVE",
+    "status": "STAGE_1_RELEASE_READY",
     "development": {
       "model": "gpt-6.1-sol",
       "thinking": "high",
@@ -859,15 +859,27 @@
       "model": "gpt-6.1-sol",
       "thinking": "high",
       "reason": "固定SHA独立核对条件价格、版本错配和必要HTTP/生产事实",
-      "upgradeCondition": "事实不足直接FAIL；不扩矩阵或修改共享应用"
+      "upgradeCondition": "事实不足直接FAIL；不扩矩阵或修改共享应用",
+      "agent": "/root/pivot05_qa",
+      "actualConfiguration": "gpt-6.1-sol/high explicitly applied by spawn_agent"
     },
     "stages": {
       "1": {
-        "status": "DEV_ACTIVE",
+        "status": "RELEASE_READY",
         "expected": {
           "urls": 43,
           "models": 16,
           "comparisons": 15
+        },
+        "candidateSha": "44052442d1ec166cc8c44aff08e51253882a9adf",
+        "developmentEvidence": "operations/evidence/PIVOT-05/stage-1-developer.md",
+        "localBuildIdentity": "unknown; functional artifacts reused only after identical application blob check, production exact-SHA build still required",
+        "acceptance": {
+          "result": "PASS",
+          "reviewer": "/root/pivot05_qa",
+          "original": "operations/evidence/PIVOT-05/qa/stage-1-original.json",
+          "cleanupRecheck": "operations/evidence/PIVOT-05/qa/stage-1-cleanup-recheck.json",
+          "originalPartialPreserved": true
         }
       },
       "2": {
@@ -888,6 +900,32 @@
       "account Stripe API DB customer changes",
       "GSC writes"
     ],
-    "nextAction": "开发阶段1；固定候选后原独立QA验收，再GitHub-first发布；阶段2等待阶段1生产验收"
+    "nextAction": "阶段1已独立PASS和清理，提交证据、推送精确提交后发布；阶段2仍等待生产验收",
+    "automations": [
+      {
+        "id": "pairvu-2",
+        "status": "ACTIVE",
+        "action": "UPDATED_THROUGH_AUTOMATIONS_AND_READ_BACK",
+        "schedule": "Monday 09:30 Asia/Shanghai"
+      },
+      {
+        "id": "pairvu-gsc",
+        "status": "ACTIVE",
+        "action": "UPDATED_THROUGH_AUTOMATIONS_AND_READ_BACK",
+        "schedule": "Wednesday 10:00 Asia/Shanghai"
+      },
+      {
+        "id": "pairvu-3",
+        "status": "ACTIVE",
+        "action": "UPDATED_THROUGH_AUTOMATIONS_AND_READ_BACK",
+        "schedule": "Monthly day 1 10:30 Asia/Shanghai"
+      },
+      {
+        "id": "qwen4-preview",
+        "status": "ACTIVE",
+        "action": "PRESERVED_AND_READ_BACK",
+        "schedule": "Once 2026-11-26 09:00 Asia/Shanghai"
+      }
+    ]
   }
 }

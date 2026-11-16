@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "unitId": "PIVOT-05-stage-1",
+  "role": "independent-qa",
+  "result": "PARTIAL",
+  "functionalResult": "PASS",
+  "checkedAt": "2026-11-16T03:59:58.974973+00:00",
+  "candidateSha": "44052442d1ec166cc8c44aff08e51253882a9adf",
+  "baselineSha": "80cf4833eb52876f4784a7bb529984abf7e25c47",
+  "modelSelection": {
+    "model": "GPT-6.1 Sol",
+    "effort": "high",
+    "reason": "Independent exact-version, conditional price, source and cross-render acceptance as frozen by controller."
+  },
+  "candidateBinding": {
+    "headExact": true,
+    "completeDiffReviewedFiles": 11,
+    "allChangedBlobsMatch": true,
+    "blobs": {
+      "app/benchmarks/[bench]/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "306c725edbc70e49f4e051f3f125c29ac4a2e6fa521546929150aa1b1c6b6299"
+      },
+      "app/benchmarks/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "4e3e1ca51139cb039060c5e84ff29d4989029586eb72ce6ccbb5c64ae9b03f4c"
+      },
+      "app/compare/[slug]/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "ade2bffc68afefc2590df1f18e365cb1c61caa3e8253c022960ebdddfaf9eff1"
+      },
+      "app/leaderboard/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "6e490c28e9082cb468bcd68cd3baab631ffc1e2bfd4ce39edc8bc1e596d27ece"
+      },
+      "app/llm-pricing/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "dfd8a400c6503c9b4addf567b3dbee89bd5b3248f4f27976d01e83351ff2b9c2"
+      },
+      "app/models/[slug]/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "a4319a1fb0156f12b3d6e5953a5b6034b5b7326b60fd265bacb5c4dcd423f5ad"
+      },
+      "app/page.tsx": {
+        "matchesCandidate": true,
+        "sha256": "a397ddc74162bd4f2a43eeb95358b25e294b69b28f21ab2b53b83574e1287e98"
+      },
+      "app/sitemap.ts": {
+        "matchesCandidate": true,
+        "sha256": "00ade7022b42254cf1a93ace2660e6f27a7e457c07fb1d004e8f39951cd9cf76"
+      },
+      "lib/models/catalog.ts": {
+        "matchesCandidate": true,
+        "sha256": "9b2120a2baf7a6c808ad19474e61b21926dae7e091dee465b02976ea40f733dd"
+      },
+      "operations/evidence/PIVOT-05/stage-1-developer.md": {
+        "matchesCandidate": true,
+        "sha256": "c739da2b630319deb98fd8618decd290f50104989cf2bfb5c1730b9177c71d51"
+      },
+      "scripts/verify-model-pivot.ts": {
+        "matchesCandidate": true,
+        "sha256": "64ba3a62fbfd730eefe04a6e0d39a9b63553efddd3f1c83bc41dfcebe26a2b90"
+      }
+    },
+    "preservedExistingDirty": [
+      "operations/task-registry.json"
+    ],
+    "applicationMutationByQa": false,
+    "localBuildIdentity": {
+      "buildSha": "unknown",
+      "platformVersion": "unknown",
+      "boundary": "Developer built the stage-1 application changes before the candidate commit; all changed candidate blobs still match. This is local functional evidence, not a release or production identity. Production must rebuild the exact pushed release SHA."
+    }
+  },
+  "checks": [
+    {
+      "name": "complete fixed-SHA diff and scope",
+      "status": "PASS",
+      "evidence": "Reviewed all 11 changed files including shared renderers, catalog, date/sitemap policy, existing verifier and developer handoff. No account/payment/API/DB/dependency/middleware change. Exactly two existing benchmark pages; no stage-2 URLs."
+    },
+    {
+      "name": "official sources and exact versions",
+      "status": "PASS",
+      "evidence": "Owner sources independently opened and checked; source audit below. Historical API evidence stays historical; three unverified exact current prices remain unknown, not free. No successor price substitution or weights-only inference."
+    },
+    {
+      "name": "Qwen3.5 conditional prices",
+      "status": "PASS",
+      "evidence": "Owner Beijing rows and whole-request decimal-K rule match CNY 1.2/7.2 through 128K and 3/18 above 128K through 256K, both thinking/non-thinking. Independent rendered profile and comparison retain both original/USD tiers, region and modes. Static 6.676 CNY/USD and 2026-11-06 FX date unchanged. Hosted 256000 input billing ceiling is distinguished from weights native 262144 context."
+    },
+    {
+      "name": "Qwen3-8B LoRA cross-render boundary",
+      "status": "PASS",
+      "evidence": "Profile, comparison, pricing and leaderboard retain China (Beijing), LoRA fine-tuned custom deployment and non-thinking beside CNY 0.5/2. Profile additionally renders efficient SFT, plan=lora, thinking CNY 0.5/5 and preset throughput/concurrency/speed; numeric quote note is visible."
+    },
+    {
+      "name": "Kimi lifecycle counterexample",
+      "status": "PASS",
+      "evidence": "Owner notice and rendered profile preserve 2026-10-31 new-user restriction, existing users unaffected and planned retirement by end December 2026. No claim already retired."
+    },
+    {
+      "name": "three exact-version quality pairs and mismatch counterexamples",
+      "status": "PASS",
+      "evidence": "All three rendered pairs show dated owner evidence and configuration/limitations, no percentage scores, and explicit Opus 5.5 versus 4.5 / Gemini 4 Carbon versus 3.1 Preview exclusions. GPT Thinking maps to API gpt-5.2; launch reports are not treated as shared-harness scores or Pairvu runs."
+    },
+    {
+      "name": "approved TDK and API-product boundary",
+      "status": "PASS",
+      "evidence": "Actual /benchmarks title, description and H1 match approved text. /compare/gpt-vs-gemini renders ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview | Pairvu; H1 ChatGPT vs Gemini; body limits comparison to API models rather than consumer subscriptions. Each of 18 targeted pages has one Title/H1 and self-canonical."
+    },
+    {
+      "name": "inventory, benchmark date distinctions and no orphan models",
+      "status": "PASS",
+      "evidence": {
+        "actualSitemap": {
+          "urls": 43,
+          "models": 16,
+          "comparisons": 15,
+          "benchmarkDetails": 2
+        },
+        "lastmod": "40 entries 2026-11-16; /compare 2026-11-15; privacy/legacy 2026-11-12. No first-publication reset.",
+        "focusedCommand": "pnpm test:model-pivot; exit 0; 16 models / 43 sitemap URLs / 15 comparisons / no orphan models.",
+        "dateBoundary": "Cursor version introduced 2026-09-10, snapshot collected 2026-11-16 and individual result publication dates unknown are separate. BrowseComp baseline and vendor tables remain separate."
+      }
+    },
+    {
+      "name": "targeted HTTP and legacy",
+      "status": "PASS",
+      "evidence": {
+        "targeted200": 18,
+        "legacy": {
+          "/guides": {
+            "status": 410,
+            "location": null
+          },
+          "/guides/": {
+            "status": 410,
+            "location": null
+          },
+          "/examples": {
+            "status": 301,
+            "location": "/"
+          },
+          "/checks": {
+            "status": 301,
+            "location": "/leaderboard"
+          },
+          "/pivot05-qa-unknown": {
+            "status": 404,
+            "location": null
+          },
+          "/api/health": {
+            "status": 200,
+            "location": null,
+            "json": {
+              "ok": true,
+              "service": "pairvu",
+              "release": "public-beta",
+              "buildSha": "unknown",
+              "platformVersion": "unknown"
+            }
+          }
+        },
+        "redirectDestinations": "/ and /leaderboard independently returned 200 with redirects disabled."
+      }
+    },
+    {
+      "name": "whitespace",
+      "status": "PASS",
+      "evidence": "git diff --check exited 0."
+    },
+    {
+      "name": "temporary server cleanup",
+      "status": "BLOCKED",
+      "evidence": "Exact listener PID 29729 on 127.0.0.1:3215. kill 29729 failed operation not permitted in sandbox. Required escalated retry awaited approval and was aborted by user after 667.6 seconds. Fresh lsof still shows PID 29729 listening. No second escalation or bypass attempted."
+    }
+  ],
+  "sourceAudit": [
+    {
+      "url": "https://help.aliyun.com/en/model-studio/model-pricing",
+      "supports": "Exact Beijing Qwen3.5 two CNY/M tiers, thinking/non-thinking output, standard rates and decimal-K whole-request billing."
+    },
+    {
+      "url": "https://help.aliyun.com/en/model-studio/model-deployment-token",
+      "supports": "LoRA efficient-SFT custom models only; Beijing Qwen3-8B non-thinking 0.5/2, thinking 0.5/5 CNY/M; preset service limits."
+    },
+    {
+      "url": "https://platform.kimi.ai/docs/pricing/chat",
+      "supports": "K2 lifecycle dates and existing-user eligibility; readable source does not establish a current K2.5-specific numeric rate."
+    },
+    {
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "supports": "Current names/aliases refer to newer exact models; cannot establish V3.2 current price or availability."
+    },
+    {
+      "url": "https://api-docs.deepseek.com/news/news251201/",
+      "supports": "V3.2 historical December 2025 API offering, separate from current availability."
+    },
+    {
+      "url": "https://platform.minimax.io/docs/pricing/overview",
+      "supports": "Current newer model table without M2.1 exact price; absence supports unknown rather than a numeric inference."
+    },
+    {
+      "url": "https://www.minimax.io/news/minimax-m21",
+      "supports": "2025-12-23 M2.1 release and historical API access link."
+    },
+    {
+      "url": "https://aistudio.google.com/docs/models/gemini-3.1-pro-preview",
+      "supports": "Exact model code, Preview, 1048576 input context, modalities; distinct customtools model."
+    },
+    {
+      "url": "https://aistudio.google.com/docs/pricing#gemini-3.1-pro-preview",
+      "supports": "Standard API USD/M 2/12 through 200K, 4/18 above 200K; output includes thinking."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "supports": "2026-02-19 exact-version launch, ARC-AGI-2 reasoning evidence and synthesis/code demos, not a common pair harness."
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "supports": "2025-11-24 exact version coding/search evidence, high effort, interleaved scratchpads, 200K context, five trials, thinking-budget exceptions."
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-2/",
+      "supports": "2025-12-11 exact Thinking/API mapping, software engineering evidence, xhigh/heavy exception and research-environment caveat."
+    },
+    {
+      "url": "https://cursor.com/cursorbench",
+      "supports": "Exact retained named configurations, scores/costs and 2026-09-10 v4 changelog; individual result dates not stated."
+    },
+    {
+      "url": "https://openai.com/index/browsecomp/",
+      "supports": "2025-04-10 release, 1266 questions, short answers and open-ended generalization limitations."
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "path": "operations/evidence/PIVOT-05/stage-1-developer.md",
+      "status": "PASS_REUSED",
+      "scope": "Single necessary local Next build and typecheck successful; same application blobs, config and dependencies. No rebuild or duplicate typecheck by QA."
+    },
+    {
+      "path": "/private/tmp/pivot05-stage1-http-result.json",
+      "sha256": "17c7a12d602a1cd364f7ed125b348303fd541d8f2ef13b181a7dbf22504d7739",
+      "status": "PASS_REUSED",
+      "scope": "Full43 HTTP 200 and unique Title/H1/self-canonical matrix; same candidate application; independently sampled changed routes and exact sitemap inventory."
+    },
+    {
+      "path": "operations/evidence/PIVOT-04/qa/stage-d/qa.json",
+      "scope": "Prior 16-model link network and unchanged route/account boundary; no full historical business matrix repeated."
+    },
+    {
+      "path": "operations/evidence/PIVOT-04/production-2026-11-15/stage-d-production-qa.json",
+      "scope": "Prior published inventory/links and unchanged route behavior only; not PIVOT-05 production evidence."
+    }
+  ],
+  "rawEvidence": {
+    "targetedHttp": "/private/tmp/pivot05-stage1-qa-targeted-http.json",
+    "blobBinding": "/private/tmp/pivot05-stage1-qa-binding.json"
+  },
+  "factGaps": [
+    "Current exact hosted numeric prices for DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 remain unconfirmed, accurately disclosed and contract-permitted.",
+    "No common harness under a shared configuration for the three old-version pairs; no direct quality ranking claimed.",
+    "Individual Cursor result publication dates unknown and disclosed."
+  ],
+  "nonblockingFollowups": [
+    {
+      "item": "Existing /best/chinese-models describes Qwen3.5 as lacking a profile although it exists.",
+      "scope": "Pre-existing unchanged copy; developer reported it; outside this stage allowed page edits and not expanded by QA."
+    }
+  ],
+  "notRun": [
+    "Production verification/deployment; pending exact release SHA and platform version.",
+    "Account, Stripe, API business workflow, customer data, DB migration, GSC writes and broad legacy matrix excluded.",
+    "Fresh build, duplicate full43 HTTP sweep, new framework or stage2 implementation."
+  ],
+  "cleanup": {
+    "servicePid": 29729,
+    "port": 3215,
+    "status": "BLOCKED_PERMISSION",
+    "createdAccountsOrCustomerAssets": false,
+    "temporaryFiles": "Read-only HTTP/binding evidence retained in /private/tmp; original developer evidence preserved.",
+    "repositoryChanges": "Only this original QA evidence; controller registry preserved."
+  },
+  "nextAction": {
+    "action": "Controller completes authorized exact-PID cleanup and records its result; after release gates, same QA verifies actual production exact SHA/platform version and directed pages.",
+    "dependency": "PID29729 cleanup currently blocked by sandbox/aborted approval; production acceptance requires release identity.",
+    "automatic": true,
+    "userInputRequired": "Only if platform approval remains required for cleanup; no new release authorization requested.",
+    "stage2": "Must wait for stage1 independent production acceptance."
+  }
+}
