@@ -1150,7 +1150,7 @@
       "PIVOT-07-A production-original release4637c6d for unchanged output/URLs",
       "PIVOT-05 stage2 unchanged routing/model graph"
     ],
-    "nextAction": "Stage B implemented/deployed/publicly enabled and independently production accepted. Archive docs and push only; existing read-only observation automatic. No further data/page/scaling/development or release automatically.",
+    "nextAction": "Stage B complete; existing pairvu-gsc automatically reviews Haiku pair and StageB four edited pages on2026-11-18 10:00 Asia/Shanghai, dependent on GSC session/export; no automatic development or production release.",
     "developmentEvidence": "operations/evidence/PIVOT-07-B/developer.md",
     "developmentResult": "PASS: initial targetedSSR15 + affected copySSR8; no extra build/full suite",
     "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
@@ -1174,6 +1174,25 @@
       "evidence": "operations/evidence/PIVOT-07-B/production-original.json"
     },
     "cleanup": "No services/test accounts/production test assets; raw official HTML/HTTP/deploy logs retained tmp with hashes",
-    "completionEvidence": "operations/evidence/PIVOT-07-B/completion.md"
+    "completionEvidence": "operations/evidence/PIVOT-07-B/completion.md",
+    "gscFollowup": {
+      "automationId": "pairvu-gsc",
+      "action": "UPDATED_THROUGH_AUTOMATIONS_AND_READ_BACK",
+      "status": "ACTIVE",
+      "schedule": "Wednesday 10:00 Asia/Shanghai; next2026-11-18",
+      "identityKindNameThreadSchedulePreserved": true,
+      "stageBPriorityUrls": [
+        "/benchmarks",
+        "/compare/claude-vs-gpt",
+        "/compare/gpt-vs-gemini",
+        "/compare/claude-vs-gemini"
+      ],
+      "haikuDiscoveryCrawlIndexingReviewRetained": true,
+      "baselineCsv": "operations/evidence/PIVOT-05/gsc-2026-11-16.csv",
+      "onlineConfirmationTime": "2026-11-16T08:15:50.115387Z",
+      "timeReference": "production-original checkedAt is confirmed online time, not exact switch; normalize GSC timezone; window/unknown/no-data classified explicitly",
+      "reportOrder": "Haiku pair, StageB four-page post-release crawl comparison, other retained edited-page/batch/performance reports",
+      "scope": "Existing prompt and documents only; no new automation, live GSC run, development, tests or release"
+    }
   }
 }

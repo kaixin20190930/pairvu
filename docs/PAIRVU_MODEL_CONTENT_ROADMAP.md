@@ -153,3 +153,22 @@ Add only this paired evidence to the existing Claude vs GPT page and a SWE-bench
 Acceptance stays bounded: the three authorized runtime files, independent source/diff/target SSR with an unchanged Haiku counterexample, one necessary exact pushed-commit build, then six production HTTP checks. Still 45 URLs, 17 models, 16 comparisons, two benchmark detail pages. No new framework, service, full regression, GSC write or automation change. Only existing read-only observation proceeds automatically after this release; the scaling gates and product boundaries remain unchanged.
 
 Stage B is now implemented, independently candidate-accepted, pushed, deployed, publicly enabled and independently production-accepted on `4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84`, Cloudflare `f25195e4-22f6-4512-b4e4-1be2e2142c5a`. Official raw-source hash and both original records were independently checked offline. The four affected pages matched accepted candidate SSR in production, including actual metadata and one methods footer per core page; all six production HTTP requests returned 200. The sitemap remains exactly the same 45-URL set. No additional page, model, service, test account or production asset was created. Source selection/exclusions and original review diagnostics are preserved in [Stage B completion and evidence](../operations/evidence/PIVOT-07-B/completion.md). Final evidence/document archival is pushed separately and does not redeploy runtime. Next: existing November 18 read-only GSC/content observations continue, dependent on the saved sessions or current exports; no automatic new data intake, expansion or further development.
+
+## November 18 GSC task update after Stage B
+
+On November 16, the existing `pairvu-gsc` heartbeat was updated through the Automations action and read back ACTIVE, with its identity, name, thread and Wednesday 10:00 schedule unchanged. The next review remains **2026-11-18 10:00 Asia/Shanghai**. No automation was added. Original batch/performance reporting and other edited-page checks remain; Haiku's two URLs stay first for discovery, last crawl, fetch/index permissions and result, indexing reason, referring sitemap and both canonicals.
+
+Immediately after the Haiku table, report these four existing Stage B URLs separately:
+
+| URL | Last-crawl baseline from November 16 CSV (original GSC display time) |
+|---|---|
+| `/benchmarks` | 2026-11-13 17:10:17 |
+| `/compare/claude-vs-gpt` | 2026-11-13 16:04:20 |
+| `/compare/gpt-vs-gemini` | 2026-11-13 15:50:45 |
+| `/compare/claude-vs-gemini` | 2026-11-13 10:28:28 |
+
+For each, show baseline crawl, current indexed-version last crawl, whether it advanced, whether it can be confirmed after Stage B went live, current indexing/fetch result and both canonicals. The release is `4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84`. Its [independent production acceptance](../operations/evidence/PIVOT-07-B/production-original.json) confirmed new content online at **2026-11-16T08:15:50.115387Z (16:15:50 Asia/Shanghai)**. This is an online-confirmation time, not a fabricated exact deployment-switch timestamp. The recorded pre-release check began at 08:11:50Z; treat crawls within that release-to-confirmation window as indeterminate unless better evidence exists. Verify the GSC display/API timezone before comparison; retain raw timestamps and state when timezone is unknown.
+
+A crawl later than the online-confirmation time establishes a post-release crawl; advancing beyond the old baseline alone does not. Report pre-release, indeterminate or missing records explicitly. Even a post-release crawl does not prove the SWE table or revised text is in Google's indexed HTML without that specific evidence. Do not substitute a live test or HTTP200, reset first publication dates, or create a new indexing batch for these edits. The original [45-row GSC baseline](../operations/evidence/PIVOT-05/gsc-2026-11-16.csv) and historical acceptance evidence remain unchanged.
+
+This update changes only the existing task prompt and documents, without running GSC now, developing, testing or releasing. The scheduled read-only report proceeds automatically, dependent on an accessible GSC session or current manual export; hand login to the user when required. No new task, indexing request, sitemap submission, validation or automatic site change is authorized.
