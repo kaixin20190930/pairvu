@@ -985,5 +985,43 @@
       "nonblockingCopy": "Existing /best/chinese-models says Qwen3.5 lacks profile; scoped follow-up, not silently repaired",
       "formalControl": "Historical JRN-04-FIX RELEASE_READY unchanged; no formal CLOSED claim"
     }
+  },
+  "pivot06copy": {
+    "unitId": "PIVOT-06-COPY",
+    "contract": "operations/contracts/PIVOT-06-COPY.md",
+    "baselineSha": "ce1cbf026a229a4f310007fed23444a1e13fce1c",
+    "authorization": "2026-11-16 用户仅授权Chinese models过期句子及既有档案链接、独立验收、提交推送发布、同步文档",
+    "status": "DEV_READY",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "model": "gpt-6-luna",
+      "thinking": "medium",
+      "reason": "单条既定文案/Link，输入完整且易核验",
+      "upgradeCondition": "不能保持单处范围则停止交总控，不扩框架",
+      "agent": "/root/pivot06_copy_dev",
+      "actualConfiguration": "gpt-6-luna/medium explicitly applied by spawn_agent"
+    },
+    "qa": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "固定SHA差分、单页SSR及实际生产版本核对，常规独立审查足够",
+      "upgradeCondition": "发现真实错误FAIL返原开发，环境问题不升级"
+    },
+    "required": [
+      "single runtime copy/link diff",
+      "target SSR and existing catalog destination",
+      "fixed-SHA independent QA",
+      "GitHub-first exact release and production single-page verification"
+    ],
+    "reuse": "PIVOT-05 unchanged catalog/components/config/dependencies and prior production route evidence",
+    "excluded": [
+      "other runtime files",
+      "new tests/framework or local server",
+      "full test suite/standalone full typecheck/extra local build",
+      "GSC/automations/API/account/DB/customer changes"
+    ],
+    "nextAction": "总控提交单处应用修改及范围文档，固定SHA独立QA，原件放tmp以保持发布树干净；PASS后发布该同一候选",
+    "developmentEvidence": "/private/tmp/pairvu-pivot06-copy/DEV-REPORT.md",
+    "ssrEvidence": "/private/tmp/pairvu-pivot06-copy/ssr-evidence.json"
   }
 }

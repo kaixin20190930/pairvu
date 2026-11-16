@@ -530,6 +530,21 @@
         "official source and conditional price evidence",
         "exact GitHub-first releases and production acceptance"
       ]
+    },
+    {
+      "id": "PIVOT-06-COPY",
+      "title": "Chinese models单条过期文案修复",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-05"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "single-copy fixed candidate",
+        "independent target acceptance",
+        "exact production release and targeted verification"
+      ]
     }
   ]
 }
