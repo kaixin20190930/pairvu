@@ -17,7 +17,7 @@ export default function Page() {
     <p>Pairvu currently explains two benchmarks. The owner publication date, model-owner report date, and Pairvu collection date describe different events; a recent source check does not make an older result new.</p>
     <h2>What each test measures</h2>
     <h3><Link href="/benchmarks/cursorbench">CursorBench 4.0: coding agents in a real editor</Link></h3>
-    <p>{cursorBench.method} Version 4.0 introduced long-horizon tasks on {cursorBench.versionReleaseDate}, including editing, refactoring, investigation, and design adherence. Pairvu preserves Gemini 4 Carbon High, Fable 5.2 Max, and Opus 5.5 Max, with each configuration and owner-reported cost per task.</p>
+    <p>{cursorBench.method} Version 4.0 introduced long-horizon tasks on {cursorBench.versionReleaseDate}, including editing, refactoring, investigation, and design adherence. Pairvu preserves Gemini 4 Carbon High, Fable 5.2 Max, Opus 5.5 Max, and Haiku 5.5 Max, with each configuration and owner-reported cost per task.</p>
     <p>{cursorBench.resultPublished} Pairvu checked this snapshot on {cursorBench.snapshotDate}; that is a collection date. {cursorBench.limitation}</p>
     <h3><Link href="/benchmarks/browsecomp">BrowseComp: persistent information search</Link></h3>
     <p>{browseComp.method} The original {browseComp.releaseDate} release contains 1,266 questions. Pairvu shows its Deep research, o1, GPT-4o with browsing, and GPT-4.5 baselines separately from Z.ai&apos;s {browseComp.latestReportDate} GLM-5 report.</p>
