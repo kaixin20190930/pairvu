@@ -545,6 +545,21 @@
         "independent target acceptance",
         "exact production release and targeted verification"
       ]
+    },
+    {
+      "id": "PIVOT-07-A",
+      "title": "既有榜单成绩与三条未知价格行溯源",
+      "priority": 0,
+      "dependsOn": [
+        "PIVOT-06-COPY"
+      ],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": [
+        "fixed candidate and scoped independent SSR",
+        "10 existing configuration score records",
+        "exact GitHub-first production release and targeted acceptance"
+      ]
     }
   ]
 }

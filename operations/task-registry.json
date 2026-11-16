@@ -1040,5 +1040,52 @@
     },
     "cleanup": "No services, test accounts or production test assets",
     "completionEvidence": "operations/evidence/PIVOT-06-COPY/release-record.json"
+  },
+  "pivot07a": {
+    "unitId": "PIVOT-07-A",
+    "contract": "operations/contracts/PIVOT-07-A.md",
+    "baselineSha": "8e741238bdcb60a221ef521aaa163010c5162d5e",
+    "authorization": "2026-11-16 用户仅授权第一阶段现有榜单成绩、三条未知价格来源日期、文档、独立验收及GitHub-first生产发布",
+    "status": "DEV_READY",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "development": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "既有成绩分组与共享价格表条件渲染，常规局部实现",
+      "upgradeCondition": "需新数据或超两运行时文件则停止交总控，不扩范围",
+      "agent": "/root/pivot07a_dev",
+      "actualConfiguration": "gpt-6.1-sol/medium explicitly applied by spawn_agent"
+    },
+    "qa": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "固定SHA差分、独立SSR与四条生产核验，常规有界审查",
+      "upgradeCondition": "实际事实/分组/状态错误FAIL返原开发，环境问题不升级",
+      "agent": "/root/pivot07a_qa",
+      "actualConfiguration": "gpt-6.1-sol/medium explicitly applied by spawn_agent",
+      "stage": "awaiting fixed candidate; no drifting-tree tests"
+    },
+    "required": [
+      "two runtime files only",
+      "10 existing score records with source/configuration/date and BrowseComp evidence separation",
+      "three unknown price rows retain state and gain official source/date",
+      "fixed-SHA independent acceptance",
+      "exact GitHub-first release and four-request independent production acceptance"
+    ],
+    "reuse": [
+      "PIVOT-05 stage-2 production QA release c389517",
+      "PIVOT-06-COPY production QA release c225006",
+      "unchanged catalog/routing/config/dependencies"
+    ],
+    "excluded": [
+      "new URLs or benchmark data",
+      "comparison rewrites",
+      "full tests/extra local build/new test framework",
+      "GSC/automation/DB/API/account changes"
+    ],
+    "assets": "tmp SSR only; no local service or test account",
+    "nextAction": "Freeze candidate commit, independent QA; push/deploy only after PASS",
+    "developmentEvidence": "/private/tmp/pairvu-pivot07-a/developer.md",
+    "developmentResult": "PASS: one targeted SSR invocation; 19 assertions"
   }
 }
