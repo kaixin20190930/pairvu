@@ -982,7 +982,7 @@
       "currentPrices": "DeepSeek-V3.2, Kimi K2.5, MiniMax M2.1 exact current official hosted quotes unconfirmed and accurately disclosed",
       "gsc": "Fresh batch indexing/crawl/impression evidence still needed; Haiku pair first published2026-11-16; prior November9 report is stale",
       "scale": "NOT_ALLOWED: 17 models and unverified fresh GSC gates",
-      "nonblockingCopy": "Existing /best/chinese-models says Qwen3.5 lacks profile; scoped follow-up, not silently repaired",
+      "nonblockingCopy": "Resolved separately by PIVOT-06-COPY release c225006 with independent production PASS; original PIVOT-05 records preserved",
       "formalControl": "Historical JRN-04-FIX RELEASE_READY unchanged; no formal CLOSED claim"
     }
   },
@@ -991,7 +991,7 @@
     "contract": "operations/contracts/PIVOT-06-COPY.md",
     "baselineSha": "ce1cbf026a229a4f310007fed23444a1e13fce1c",
     "authorization": "2026-11-16 用户仅授权Chinese models过期句子及既有档案链接、独立验收、提交推送发布、同步文档",
-    "status": "DEV_READY",
+    "status": "PROD_VERIFIED",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
     "development": {
       "model": "gpt-6-luna",
@@ -1005,7 +1005,9 @@
       "model": "gpt-6.1-sol",
       "thinking": "medium",
       "reason": "固定SHA差分、单页SSR及实际生产版本核对，常规独立审查足够",
-      "upgradeCondition": "发现真实错误FAIL返原开发，环境问题不升级"
+      "upgradeCondition": "发现真实错误FAIL返原开发，环境问题不升级",
+      "agent": "/root/pivot06_copy_qa",
+      "actualConfiguration": "gpt-6.1-sol/medium explicitly applied by spawn_agent"
     },
     "required": [
       "single runtime copy/link diff",
@@ -1020,8 +1022,23 @@
       "full test suite/standalone full typecheck/extra local build",
       "GSC/automations/API/account/DB/customer changes"
     ],
-    "nextAction": "总控提交单处应用修改及范围文档，固定SHA独立QA，原件放tmp以保持发布树干净；PASS后发布该同一候选",
-    "developmentEvidence": "/private/tmp/pairvu-pivot06-copy/DEV-REPORT.md",
-    "ssrEvidence": "/private/tmp/pairvu-pivot06-copy/ssr-evidence.json"
+    "nextAction": "本单处修复实现、独立验收、部署及公开启用均完成；仅既有只读定时观察自动继续，无额外开发/重复部署，无需用户输入",
+    "developmentEvidence": "operations/evidence/PIVOT-06-COPY/developer.md",
+    "ssrEvidence": "operations/evidence/PIVOT-06-COPY/qa-ssr-evidence.json",
+    "candidateSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+    "acceptance": {
+      "result": "PASS",
+      "candidateSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "evidence": "operations/evidence/PIVOT-06-COPY/qa-original.json"
+    },
+    "production": {
+      "releaseSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "platformVersion": "1c6ff4b8-8d96-4a89-a01d-90d425df76e6",
+      "result": "PASS",
+      "enabled": true,
+      "evidence": "operations/evidence/PIVOT-06-COPY/production-original.json"
+    },
+    "cleanup": "No services, test accounts or production test assets",
+    "completionEvidence": "operations/evidence/PIVOT-06-COPY/release-record.json"
   }
 }

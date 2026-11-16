@@ -1,0 +1,45 @@
+{
+  "unitId": "PIVOT-06-COPY",
+  "releaseSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+  "platformVersion": "1c6ff4b8-8d96-4a89-a01d-90d425df76e6",
+  "candidateAcceptance": "PASS",
+  "productionAcceptance": "PASS",
+  "enabled": true,
+  "runtimeFiles": [
+    "app/best/chinese-models/page.tsx"
+  ],
+  "scope": "Only replace stale Qwen3.5 no-profile claim with existing Pairvu profile link",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "checkedAt": "2026-11-16T06:05:13.909Z",
+      "action": "deploy",
+      "artifactSha256": "6edec5353bd59b8debaee53f161c1a5037a15df18cc9f5a2fc9ba9c24f9d8231",
+      "initialCheckedAt": "2026-11-16T06:04:33.774Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+      "checkedAt": "2026-11-16T06:05:13.909Z",
+      "action": "deploy",
+      "artifactSha256": "6edec5353bd59b8debaee53f161c1a5037a15df18cc9f5a2fc9ba9c24f9d8231",
+      "initialCheckedAt": "2026-11-16T06:04:33.774Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "deployLogSha256": "76d87981126306243368ff0b43fcd9e5265b55ec1cc32f9e1d573a7cc21c1185",
+  "qa": "qa-original.json",
+  "productionQa": "production-original.json",
+  "migrations": "NOT_REQUIRED",
+  "checks": "Target SSR, fixed diff, three production HTTP requests only; no full suite, standalone typecheck or extra local build",
+  "cleanup": "No local service/account/upload/test asset created",
+  "nextAction": "Delivery complete; existing read-only observation proceeds automatically. No additional development/deployment and no user action required."
+}

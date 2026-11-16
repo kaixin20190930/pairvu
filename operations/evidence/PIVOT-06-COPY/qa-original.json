@@ -1,0 +1,46 @@
+{
+  "unit": "PIVOT-06-COPY",
+  "role": "independent QA",
+  "candidateSha": "c22500662b53823510e60f9debe25ac0ab9933b2",
+  "baselineSha": "ce1cbf026a229a4f310007fed23444a1e13fce1c",
+  "checkedAt": "2026-11-16T06:01:21.035385+00:00",
+  "candidateAcceptance": "PASS",
+  "checks": {
+    "headExactCandidate": true,
+    "treeClean": true,
+    "runtimeOnlyTarget": true,
+    "onlyExpectedLiReplacement": true,
+    "metadataIdentical": true,
+    "h1Preserved": true,
+    "checkedDatePreserved": true,
+    "targetLiHasProfileAndOfficial": true,
+    "profileHref": true,
+    "profileText": true,
+    "oldClaimAbsent": true,
+    "eightCandidates": true,
+    "officialSourceRetained": true,
+    "slugInCatalog": true
+  },
+  "fullDiffReviewed": [
+    "app/best/chinese-models/page.tsx",
+    "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md",
+    "operations/backlog.json",
+    "operations/contracts/PIVOT-06-COPY.md",
+    "operations/task-registry.json"
+  ],
+  "metadata": {
+    "title": "Chinese AI models to evaluate",
+    "description": "Eight source-linked candidates without a fabricated absolute ranking.",
+    "canonical": "/best/chinese-models",
+    "h1": "Chinese AI models to evaluate",
+    "checkedDate": "2026-11-12"
+  },
+  "catalogEvidence": "Unchanged lib/models/catalog.ts includes qwen3-5-397b-a17b in models/modelMap and publishedModelSlugs; unchanged dynamic profile route uses modelMap.",
+  "ssrEvidence": "/private/tmp/pairvu-pivot06-copy/qa-ssr-evidence.json",
+  "ssrEvidenceSha256": "31c23b9f312c26d300dfa043bb2673e45ff77a647eac138219d5e8fc8101d070",
+  "probeReview": "Independently inspected probe assertions and actual target li; ol-only count 8; original official links preserved by exact replacement comparison.",
+  "reuse": "Unchanged catalog/components/config/dependencies and prior PIVOT-05 evidence only; local acceptance does not assert production PASS.",
+  "productionAcceptance": "PENDING exact same SHA deployment and actual platform version",
+  "excluded": "No full suite/typecheck/build/server/legacy/GSC/official-web research; no customer/DB/account writes.",
+  "cleanup": "No service, test account or production asset created."
+}
