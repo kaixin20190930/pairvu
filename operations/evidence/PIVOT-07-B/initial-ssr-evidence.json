@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "checks": {
+    "twoRecordsMatchFrozenOfficialExtract": true,
+    "allOldCatalogExportsUnchanged": true,
+    "hubAnchorAndThreeBenchmarks": true,
+    "hubScoresProvenanceLimits": true,
+    "claude-vs-gpt:metadataAndFactsPreserved": true,
+    "claude-vs-gpt:singleMethodFooterAndHubCoverage": true,
+    "claudeGptSingleBenchmarkSideBySide": true,
+    "gpt-vs-gemini:metadataAndFactsPreserved": true,
+    "gpt-vs-gemini:singleMethodFooterAndHubCoverage": true,
+    "gpt-vs-gemini:noInventedGeminiScores": true,
+    "claude-vs-gemini:metadataAndFactsPreserved": true,
+    "claude-vs-gemini:singleMethodFooterAndHubCoverage": true,
+    "claude-vs-gemini:noInventedGeminiScores": true,
+    "claude-haiku-5-5-vs-claude-opus-5-5:metadataAndFactsPreserved": true,
+    "haikuExactBaselineOutput": true
+  },
+  "scope": "One targeted local SSR invocation; no build, independent QA, or production verification"
+}

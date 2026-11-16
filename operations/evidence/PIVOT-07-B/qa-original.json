@@ -1,0 +1,145 @@
+{
+  "unit": "PIVOT-07-B",
+  "role": "independent candidate QA",
+  "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+  "baselineSha": "20a105fc7ec64d758d3ef641658e21c7a07f1b7b",
+  "checkedAt": "2026-11-16T08:10:53.960297+00:00",
+  "result": "PASS",
+  "scopeReview": {
+    "changedFiles": [
+      "app/benchmarks/page.tsx",
+      "app/compare/[slug]/page.tsx",
+      "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md",
+      "lib/models/catalog.ts",
+      "operations/backlog.json",
+      "operations/contracts/PIVOT-07-B.md",
+      "operations/task-registry.json"
+    ],
+    "runtimeFilesOnly": [
+      "lib/models/catalog.ts",
+      "app/benchmarks/page.tsx",
+      "app/compare/[slug]/page.tsx"
+    ],
+    "fullDiffRead": true,
+    "gitDiffCheck": "PASS",
+    "treeClean": true,
+    "details": "Read full seven-file candidate diff. Runtime changes isolated to bounded SWE catalog append, benchmark hub, and core-slug branches. Old catalog prefix preserved byte-for-byte; all existing data exports structurally equal. Other 13 comparison outputs unchanged by branch structure, with whole Haiku sample byte-identical SSR to exact baseline. Fixed three-way page unchanged. Four documentation/registry/contract files describe authorized stage B and preserve no-new-URL/no-automation boundaries."
+  },
+  "officialEvidence": {
+    "path": "/private/tmp/pairvu-pivot07-b/qa-official-source.json",
+    "rawFile": "/private/tmp/pairvu-swebench-2026-11-16.html",
+    "sha256": "c862011a4ee1d1a7199fad6ca0905fa5c64f58216f7217ac1eddf37f28788433",
+    "checks": {
+      "sourceHash": true,
+      "originalRowsMatchExtract": true,
+      "requiredSettings": true,
+      "noGemini31Match": true
+    },
+    "verifiedVisibleMethodText": [
+      "Bash Only 500 instances The default Verified view: every model in the same mini-SWE-agent environment.",
+      "Verified 500 instances A human-filtered subset of SWE-bench."
+    ],
+    "sourceRequestsPerformed": 0,
+    "finding": "Raw Verified rows independently parsed and matched 76.8/72.8, original model labels, exact tags/folders, date2026-02-17, mini2.0.0/high/Attempts1, null checked/logs. Exact Gemini3.1 identity absent; no claim of absence across other benchmarks. Current copy does not claim Pairvu reproduction, exact dated API snapshot, equal compute, per-record verification or 2026 per-entry $3/250 steps."
+  },
+  "targetSSR": {
+    "command": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot07-b/qa-ssr.tsx",
+    "result": "PASS",
+    "count": 38,
+    "checks": {
+      "catalogOnlyAppend": true,
+      "existingExportsUnchanged": true,
+      "newObjectOnly": true,
+      "officialRawIndependentPASS": true,
+      "recordsMatchOfficialRaw": true,
+      "sharedSettingsExact": true,
+      "hubAnchorAndThreeBenchmarks": true,
+      "hubRecordsAndProvenance": true,
+      "hubNaturalLimits": true,
+      "hubMetadataUnchanged": true,
+      "claude-vs-gpt:metadataAndH1": true,
+      "claude-vs-gpt:factsPricesVendorArticles": true,
+      "claude-vs-gpt:selectionPreserved": true,
+      "claude-vs-gpt:singleMethodFooter": true,
+      "claudeOnlyOnePairedScoreRow": true,
+      "claudeFullRecordConfiguration": true,
+      "claudeLimitsOnlyFooter": true,
+      "claude-vs-gpt:modelAndComparisonLinksPreserved": true,
+      "gpt-vs-gemini:metadataAndH1": true,
+      "gpt-vs-gemini:factsPricesVendorArticles": true,
+      "gpt-vs-gemini:selectionPreserved": true,
+      "gpt-vs-gemini:singleMethodFooter": true,
+      "gpt-vs-gemini:noFabricatedPairedScores": true,
+      "gpt-vs-gemini:modelAndComparisonLinksPreserved": true,
+      "claude-vs-gemini:metadataAndH1": true,
+      "claude-vs-gemini:factsPricesVendorArticles": true,
+      "claude-vs-gemini:selectionPreserved": true,
+      "claude-vs-gemini:singleMethodFooter": true,
+      "claude-vs-gemini:noFabricatedPairedScores": true,
+      "claude-vs-gemini:modelAndComparisonLinksPreserved": true,
+      "claude-haiku-5-5-vs-claude-opus-5-5:metadataAndH1": true,
+      "claude-haiku-5-5-vs-claude-opus-5-5:factsPricesVendorArticles": true,
+      "claude-haiku-5-5-vs-claude-opus-5-5:selectionPreserved": true,
+      "haikuEntireOutputByteIdentical": true,
+      "allModelLinksPublished": true,
+      "noInventedSWEPage": true,
+      "officialSourcesLinked": true,
+      "exactCandidateCleanAfter": true
+    },
+    "evidence": "/private/tmp/pairvu-pivot07-b/qa-ssr-evidence.json",
+    "pages": [
+      "hub",
+      "claude-vs-gpt",
+      "gpt-vs-gemini",
+      "claude-vs-gemini",
+      "claude-haiku-5-5-vs-claude-opus-5-5"
+    ],
+    "details": "Compare metadata/H1 and original first fact/price table, entire vendor evidence articles, original selection first paragraph, all old model/comparison links against exact baseline; assert paired single SWE row only Claude/GPT, Gemini no new paired numeric result, one method footer, hub anchor/provenance, no fabricated model/detail links. Complete hub metadata unchanged. HTTP head resolution pending production."
+  },
+  "diagnostics": [
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/qa-official-source-probe-diagnostic.json",
+      "productFailure": false,
+      "detail": "Initial broad regex over full source record matched unrelated numeric per-instance fields after Gemini. Corrected exact Gemini3.1 search limited to model identity fields; original preserved."
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/qa-ssr-probe-diagnostic.json",
+      "productFailure": false,
+      "detail": "First SSR comparison used unescaped limitation text containing apostrophe against HTML. Corrected probe to compare rendered escaping; rerun exit0. No application edits."
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "path": "operations/evidence/PIVOT-07-A/production-original.json",
+      "releaseSha": "4637c6de246d15377a0abc51ae1a621ed673de30",
+      "scope": "Unchanged leaderboard/ModelTable/prices/FX/route inventory; original model/comparison catalog unchanged, sole new object is not in sitemap."
+    },
+    {
+      "path": "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json",
+      "releaseSha": "c389517a570d1e4ed0fc4ace4b689b294bf0dd93",
+      "scope": "Unchanged routing/config/dependencies/model graph; no inherited PASS for changed hub/core output."
+    }
+  ],
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisonPages": 16,
+    "catalogPairComparisons": 15,
+    "fixedThreeWayComparisons": 1,
+    "benchmarkDetailPages": 2
+  },
+  "notRun": "No production HTTP, official refetch, local service, repository tests/framework, build/typecheck/full suite, GSC/automation/account/DB/customer operations.",
+  "cleanup": {
+    "repositoryMutation": false,
+    "servicesCreated": false,
+    "testOrProductionAssetsCreated": false,
+    "temporaryEvidenceRetained": "/private/tmp/pairvu-pivot07-b",
+    "blockingCleanupRemaining": false
+  },
+  "nextAction": {
+    "action": "Controller may GitHub-first push, fresh-fetch verify exact candidate, build/deploy same pushed commit with clean tree; same QA then six HTTP health/hub/threecore/sitemap.",
+    "dependency": "Actual release SHA and Cloudflare platform version after successful release.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}

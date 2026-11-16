@@ -1,0 +1,77 @@
+{
+  "result": "PASS",
+  "checks": {
+    "sourceHash": true,
+    "originalRowsMatchExtract": true,
+    "requiredSettings": true,
+    "noGemini31Match": true
+  },
+  "officialSourceFile": "/private/tmp/pairvu-swebench-2026-11-16.html",
+  "sourceSha256": "c862011a4ee1d1a7199fad6ca0905fa5c64f58216f7217ac1eddf37f28788433",
+  "officialBoard": "Verified",
+  "rows": [
+    {
+      "agent": "mini-SWE-agent",
+      "agent_org": "SWE-agent",
+      "checked": null,
+      "cost": 376.9539985,
+      "date": "2026-02-17",
+      "folder": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+      "instance_calls": 32.896,
+      "instance_cost": 0.753907997,
+      "logs": null,
+      "mini-swe-agent_version": "2.0.0",
+      "model_display": "Claude 4.5 Opus",
+      "model_org": "Anthropic",
+      "model_release_date": 20251124,
+      "name": "Claude 4.5 Opus (high)",
+      "os_model": false,
+      "os_system": true,
+      "reasoning_effort": "high",
+      "resolved": 76.8,
+      "site": "https://www.anthropic.com/claude",
+      "tags": [
+        "Model: claude-4-5-opus",
+        "Org: Anthropic",
+        "System: Attempts - 1",
+        "Mini: 2.0.0"
+      ],
+      "trajs": "s3://swe-bench-submissions/bash-only/20260217_mini-v2.0.0_claude-4-5-opus-high/trajs",
+      "trajs_docent": "https://docent.transluce.org/dashboard/b038912e-0133-4594-b093-92806f8ffb17",
+      "warning": null
+    },
+    {
+      "agent": "mini-SWE-agent",
+      "agent_org": "SWE-agent",
+      "checked": null,
+      "cost": 236.78350885,
+      "date": "2026-02-17",
+      "folder": "20260217_mini-v2.0.0_gpt-5-2-high",
+      "instance_calls": 35.046,
+      "instance_cost": 0.4735670177,
+      "logs": null,
+      "mini-swe-agent_version": "2.0.0",
+      "model_display": "GPT 5.2",
+      "model_org": "OpenAI",
+      "model_release_date": 20251211,
+      "name": "GPT 5.2 (high)",
+      "os_model": false,
+      "os_system": true,
+      "reasoning_effort": "high",
+      "resolved": 72.8,
+      "site": "https://platform.openai.com",
+      "tags": [
+        "Model: gpt-5-2",
+        "Org: OpenAI",
+        "System: Attempts - 1",
+        "Mini: 2.0.0"
+      ],
+      "trajs": "s3://swe-bench-submissions/bash-only/20260217_mini-v2.0.0_gpt-5-2-high/trajs",
+      "trajs_docent": "https://docent.transluce.org/dashboard/c2c7f5be-2c1a-472f-a34a-92e9e1df4f01",
+      "warning": null
+    }
+  ],
+  "gemini31MatchingNamesTags": [],
+  "sourceRequestsPerformed": 0,
+  "diagnostic": "Initial overly broad Gemini regex searched entire record including per-instance numeric data and falsely matched unrelated entries. Restrict to identity fields with exact Gemini3.1 boundary; original diagnostic retained. No product failure."
+}

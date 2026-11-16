@@ -1113,7 +1113,7 @@
     "contract": "operations/contracts/PIVOT-07-B.md",
     "baselineSha": "20a105fc7ec64d758d3ef641658e21c7a07f1b7b",
     "authorization": "2026-11-16 第二阶段官方取证，仅共同设置证据/不新增页面/独立验收/GitHub-first生产发布",
-    "status": "DEV_READY",
+    "status": "PROD_VERIFIED",
     "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
     "development": {
       "agent": "/root/pivot07a_dev",
@@ -1131,7 +1131,7 @@
       "upgradeCondition": "事实/口径/隔离FAIL返原开发；环境不升级",
       "actualConfiguration": "Reusing original explicitly spawned gpt-6.1-sol/medium; followup tool cannot reset model; same appropriate configuration retained"
     },
-    "sourceEvidence": "/private/tmp/pairvu-pivot07-b/official-swe-verified-extract.json",
+    "sourceEvidence": "operations/evidence/PIVOT-07-B/official-swe-verified-extract.json",
     "required": [
       "official matched mini-SWE-agent2.0.0/high/1 two records",
       "three runtime files only and core-slug isolation",
@@ -1150,8 +1150,30 @@
       "PIVOT-07-A production-original release4637c6d for unchanged output/URLs",
       "PIVOT-05 stage2 unchanged routing/model graph"
     ],
-    "nextAction": "Freeze candidate, independent source and targetSSR acceptance; push/deploy only after PASS",
-    "developmentEvidence": "/private/tmp/pairvu-pivot07-b/developer.md",
-    "developmentResult": "PASS: initial targetedSSR15 + affected copySSR8; no extra build/full suite"
+    "nextAction": "Stage B implemented/deployed/publicly enabled and independently production accepted. Archive docs and push only; existing read-only observation automatic. No further data/page/scaling/development or release automatically.",
+    "developmentEvidence": "operations/evidence/PIVOT-07-B/developer.md",
+    "developmentResult": "PASS: initial targetedSSR15 + affected copySSR8; no extra build/full suite",
+    "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+    "sourceDecisions": "operations/evidence/PIVOT-07-B/source-decisions.json",
+    "acceptance": {
+      "result": "PASS",
+      "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "evidence": "operations/evidence/PIVOT-07-B/qa-original.json"
+    },
+    "production": {
+      "result": "PASS",
+      "releaseSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "platformVersion": "f25195e4-22f6-4512-b4e4-1be2e2142c5a",
+      "enabled": true,
+      "requests": 6,
+      "urls": 45,
+      "models": 17,
+      "comparisons": 16,
+      "benchmarkDetails": 2,
+      "explainedBenchmarks": 3,
+      "evidence": "operations/evidence/PIVOT-07-B/production-original.json"
+    },
+    "cleanup": "No services/test accounts/production test assets; raw official HTML/HTTP/deploy logs retained tmp with hashes",
+    "completionEvidence": "operations/evidence/PIVOT-07-B/completion.md"
   }
 }

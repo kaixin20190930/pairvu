@@ -1,0 +1,144 @@
+{
+  "unitId": "PIVOT-07-B",
+  "releaseSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+  "platformVersion": "f25195e4-22f6-4512-b4e4-1be2e2142c5a",
+  "baselineSha": "20a105fc7ec64d758d3ef641658e21c7a07f1b7b",
+  "candidateAcceptance": "PASS",
+  "productionAcceptance": "PASS",
+  "implemented": true,
+  "enabled": true,
+  "migrations": "NOT_REQUIRED",
+  "runtimeFiles": [
+    "lib/models/catalog.ts",
+    "app/benchmarks/page.tsx",
+    "app/compare/[slug]/page.tsx"
+  ],
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "checkedAt": "2026-11-16T08:12:33.667Z",
+      "action": "deploy",
+      "artifactSha256": "278e903bb5bcf17cd5367be369a0fb2faa25101344374fed26f9566452799040",
+      "initialCheckedAt": "2026-11-16T08:11:50.011Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+      "checkedAt": "2026-11-16T08:12:33.667Z",
+      "action": "deploy",
+      "artifactSha256": "278e903bb5bcf17cd5367be369a0fb2faa25101344374fed26f9566452799040",
+      "initialCheckedAt": "2026-11-16T08:11:50.011Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "acceptedEvidence": {
+    "benchmark": "SWE-bench Verified",
+    "tasks": 500,
+    "agent": "mini-SWE-agent",
+    "version": "2.0.0",
+    "effort": "high",
+    "attempts": 1,
+    "entryDate": "2026-02-17",
+    "sourceChecked": "2026-11-16",
+    "opus45": 76.8,
+    "gpt52": 72.8,
+    "limitations": "Official listing and common named setting, not Pairvu reproduction or proof of equal inference compute/exact dated API snapshots"
+  },
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisonsTotal": 16,
+    "catalogPairComparisons": 15,
+    "fixedThreeWay": 1,
+    "benchmarkDetails": 2,
+    "explainedBenchmarks": 3
+  },
+  "excludedEvidence": "No matched Gemini3.1 entry in checked Verified snapshot; no shared-setup GPQA/Pro numeric comparison added",
+  "qa": "qa-original.json",
+  "productionQa": "production-original.json",
+  "productionRequests": 6,
+  "checks": "Independent offline official-source audit, bounded SSR of hub/core3 and unchanged Haiku; one necessary exact production build/typecheck; six HTTP only.",
+  "cleanup": "No services, accounts or production test assets created",
+  "formalState": "JRN-04-FIX historical RELEASE_READY preserved; actual acceptance tracked here, not CLI CLOSED",
+  "nextAction": "Archive and push documentation only; then existing read-only monitoring automatically continues. No additional data, pages, expansion or deployment automatically authorized.",
+  "retainedRawEvidence": [
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/deploy.log",
+      "sha256": "7e003d1df7046b47a37e48f36d2d20df895d13756d05ea9f9d1ab91fd9ea7c95"
+    },
+    {
+      "path": "/private/tmp/pairvu-swebench-2026-11-16.html",
+      "sha256": "c862011a4ee1d1a7199fad6ca0905fa5c64f58216f7217ac1eddf37f28788433"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-health.headers",
+      "sha256": "fc32f9ad2124a037bf653de6b27aec656711d747fa6479aeab971a444bba4b07"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-health.body",
+      "sha256": "cbaad86a78cd77bd9c69fd888918079ab859239d9fdd9d7cba87b769c1eaf2f5"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-hub.headers",
+      "sha256": "6d7dfb2ff6e5e289fa35828db6c892ebc8f8d1a7b0f8ab302350d7505fb5a1ea"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-hub.body",
+      "sha256": "69c38d197b23ff8526ab9096b1f25032d80339bb414c4cc569f2ac7aedfc0b04"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.headers",
+      "sha256": "d13f31b5630443f033b3988e6adbb69df7c57da0eaa7b1d1f32afc518b05ea01"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.body",
+      "sha256": "7763a03c3dc6caa8a2ab463ab9ed7e79b55ae34c68fafe8dd0dfa29b844982cd"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.headers",
+      "sha256": "7a740fdddf6db922fb3b6364a0c4756eb0ba5cad0c0c131bf627636404ff8aa7"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.body",
+      "sha256": "865ca197e106dfebf0ef4d09f46316a1624573c563dce7aeb787de4b38375e63"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.headers",
+      "sha256": "eb17daffc56e3c8c60ab5fd51a5d812605a9b4c30afb80a768a8af2c95bc9de4"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.body",
+      "sha256": "e76b97f59da96a5116050126e46b24a66781020ded2e7e863010d3073dec171d"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-sitemap.headers",
+      "sha256": "84b6c61a8d0c3767afc99ade00a1c505a11e991bcf5443bef85b3758ae24bf70"
+    },
+    {
+      "path": "/private/tmp/pairvu-pivot07-b/production-sitemap.body",
+      "sha256": "5c95a6b10950880e0f5d933f411047cff5932695611693140643b9fd1035aff1"
+    }
+  ],
+  "archivedOriginals": {
+    "developer.md": "ec37c73f25a48661a15175108b12e5d482f1196fdb88cd74ba14f051a54fa436",
+    "initial-ssr-evidence.json": "38043914026492d62956dd16bd4643e5bcaf6a4b4a820ecc194a64c49bb9e788",
+    "copy-revision-ssr-evidence.json": "0a6adcdcf0bb2ac817b4183f7f2fa6cbfd358dbb6312767b71e33b6d62b25558",
+    "official-swe-verified-extract.json": "5e6779ae04d05ad23f9760be5e7ea0525940f93f240f8028b2a1abb656ae9107",
+    "source-decisions.json": "00c372c02fee6443eb37d8fe40546bb0531175c26b09ff645c82e92a4f0102d5",
+    "qa-original.json": "53a5b21001c610d36756540d01299f76419c761ef81e5a22458bdad2f717a1d4",
+    "qa-official-source.json": "666cabdef50adfb7af2bbf0969a60101be295b6669f67b87f528449a95c0b70c",
+    "qa-ssr-evidence.json": "09ce5b53aa00caab60515ec40a911c16d23d5d9e3b8346f1008ac82c19daae9b",
+    "qa-official-source-probe-diagnostic.json": "4d6261d7f1cbf373d4b6365f29b497645cb10410fb7da040be6e276db4f57aca",
+    "qa-ssr-probe-diagnostic.json": "fc49472a906f6db72dcff6e778f5329921398a640381fef32d1904a84159443b",
+    "production-original.json": "fca2e2783453f6c437ef9ffb0b9ba832d95c52b1ae31bb1c425d43978bda8fa9",
+    "production-requests.json": "10da5aa47229bfe6dedb0961dd840df0850acaf56b7786724007117512c170c6"
+  }
+}

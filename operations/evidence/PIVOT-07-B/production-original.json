@@ -1,0 +1,224 @@
+{
+  "unit": "PIVOT-07-B",
+  "role": "independent production QA",
+  "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+  "releaseSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+  "platformVersion": "f25195e4-22f6-4512-b4e4-1be2e2142c5a",
+  "checkedAt": "2026-11-16T08:15:50.115387+00:00",
+  "result": "PASS",
+  "checks": {
+    "exactlySixRequestsAll200": true,
+    "healthOk": true,
+    "exactBuildSha": true,
+    "exactPlatformVersion": true,
+    "hub:resolvedMetadata": true,
+    "hub:mainMatchesIndependentCandidate": true,
+    "claude-vs-gpt:resolvedMetadata": true,
+    "claude-vs-gpt:mainMatchesIndependentCandidate": true,
+    "claude-vs-gpt:oneFooterAndValidHubLink": true,
+    "gpt-vs-gemini:resolvedMetadata": true,
+    "gpt-vs-gemini:mainMatchesIndependentCandidate": true,
+    "gpt-vs-gemini:oneFooterAndValidHubLink": true,
+    "claude-vs-gemini:resolvedMetadata": true,
+    "claude-vs-gemini:mainMatchesIndependentCandidate": true,
+    "claude-vs-gemini:oneFooterAndValidHubLink": true,
+    "hubAnchorExists": true,
+    "claudeSinglePairedSWErow": true,
+    "geminiNoFabricatedPairedNumbers": true,
+    "sitemap45Unique": true,
+    "sitemapUnchangedURLset": true,
+    "repositoryClean": true
+  },
+  "observedHealth": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+    "platformVersion": "f25195e4-22f6-4512-b4e4-1be2e2142c5a"
+  },
+  "observedMetadata": {
+    "hub": {
+      "title": [
+        "LLM Benchmarks Explained: What Each Test Measures | Pairvu"
+      ],
+      "h1": [
+        "LLM benchmarks"
+      ],
+      "description": [
+        "Every LLM benchmark on Pairvu explained — what it measures, which exact model versions were tested, and when each result was published."
+      ],
+      "canonical": [
+        "https://pairvu.com/benchmarks"
+      ]
+    },
+    "claude-vs-gpt": {
+      "title": [
+        "Claude vs GPT: Opus 4.5 vs GPT-5.2 | Pairvu"
+      ],
+      "h1": [
+        "Claude vs GPT"
+      ],
+      "description": [
+        "Compare Claude Opus 4.5 and GPT-5.2: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "canonical": [
+        "https://pairvu.com/compare/claude-vs-gpt"
+      ]
+    },
+    "gpt-vs-gemini": {
+      "title": [
+        "ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview | Pairvu"
+      ],
+      "h1": [
+        "ChatGPT vs Gemini"
+      ],
+      "description": [
+        "Compare GPT-5.2 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "canonical": [
+        "https://pairvu.com/compare/gpt-vs-gemini"
+      ]
+    },
+    "claude-vs-gemini": {
+      "title": [
+        "Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview | Pairvu"
+      ],
+      "h1": [
+        "Claude vs Gemini"
+      ],
+      "description": [
+        "Compare Claude Opus 4.5 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts."
+      ],
+      "canonical": [
+        "https://pairvu.com/compare/claude-vs-gemini"
+      ]
+    }
+  },
+  "requests": {
+    "health": {
+      "url": "https://pairvu.com/api/health",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-health.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-health.body"
+    },
+    "hub": {
+      "url": "https://pairvu.com/benchmarks",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-hub.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-hub.body"
+    },
+    "claude-vs-gpt": {
+      "url": "https://pairvu.com/compare/claude-vs-gpt",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.body"
+    },
+    "gpt-vs-gemini": {
+      "url": "https://pairvu.com/compare/gpt-vs-gemini",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.body"
+    },
+    "claude-vs-gemini": {
+      "url": "https://pairvu.com/compare/claude-vs-gemini",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.body"
+    },
+    "sitemap": {
+      "url": "https://pairvu.com/sitemap.xml",
+      "status": "200",
+      "exit": 0,
+      "stderr": "",
+      "headersPath": "/private/tmp/pairvu-pivot07-b/production-sitemap.headers",
+      "bodyPath": "/private/tmp/pairvu-pivot07-b/production-sitemap.body"
+    }
+  },
+  "inventory": {
+    "urls": 45,
+    "models": 17,
+    "comparisonPages": 16,
+    "catalogPairComparisons": 15,
+    "fixedThreeWayComparisons": 1,
+    "benchmarkDetailPages": 2,
+    "actualUrls": [
+      "https://pairvu.com/",
+      "https://pairvu.com/models",
+      "https://pairvu.com/compare",
+      "https://pairvu.com/compare/chatgpt-vs-claude-vs-gemini",
+      "https://pairvu.com/llm-pricing",
+      "https://pairvu.com/best/chinese-models",
+      "https://pairvu.com/best/open-source-models",
+      "https://pairvu.com/benchmarks",
+      "https://pairvu.com/benchmarks/cursorbench",
+      "https://pairvu.com/benchmarks/browsecomp",
+      "https://pairvu.com/leaderboard",
+      "https://pairvu.com/privacy",
+      "https://pairvu.com/legacy",
+      "https://pairvu.com/models/gpt-5-2",
+      "https://pairvu.com/models/claude-opus-4-5",
+      "https://pairvu.com/models/gemini-3-1-pro-preview",
+      "https://pairvu.com/models/qwen3-8b",
+      "https://pairvu.com/models/glm-5",
+      "https://pairvu.com/models/fable-5-2",
+      "https://pairvu.com/models/claude-opus-5-5",
+      "https://pairvu.com/models/qwen3-8-27b",
+      "https://pairvu.com/models/deepseek-v3-2",
+      "https://pairvu.com/models/kimi-k2-5",
+      "https://pairvu.com/models/minimax-m2-1",
+      "https://pairvu.com/models/qwen3-8-2-4t-a95b",
+      "https://pairvu.com/models/qwen3-5-397b-a17b",
+      "https://pairvu.com/models/qwen-4-max-preview",
+      "https://pairvu.com/models/claude-sonnet-5-5",
+      "https://pairvu.com/models/muse-wonder",
+      "https://pairvu.com/models/claude-haiku-5-5",
+      "https://pairvu.com/compare/claude-vs-gpt",
+      "https://pairvu.com/compare/gpt-vs-gemini",
+      "https://pairvu.com/compare/claude-vs-gemini",
+      "https://pairvu.com/compare/fable-5-2-vs-opus",
+      "https://pairvu.com/compare/qwen3-8-27b-vs-glm-5",
+      "https://pairvu.com/compare/qwen3-8-27b-vs-qwen3-8b",
+      "https://pairvu.com/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "https://pairvu.com/compare/deepseek-vs-chatgpt",
+      "https://pairvu.com/compare/kimi-k2-5-vs-deepseek-v3-2",
+      "https://pairvu.com/compare/minimax-m2-1-vs-glm-5",
+      "https://pairvu.com/compare/qwen3-8-2-4t-a95b-vs-qwen3-8-27b",
+      "https://pairvu.com/compare/qwen3-5-397b-a17b-vs-qwen3-8-27b",
+      "https://pairvu.com/compare/claude-sonnet-5-5-vs-claude-opus-5-5",
+      "https://pairvu.com/compare/muse-wonder-vs-gpt-5-2",
+      "https://pairvu.com/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+    ]
+  },
+  "method": "Exactly six curl HTTP requests, no retry or extra network request. Removed only React HTML comment separators and compared complete main markup of four affected pages byte-for-byte with independently accepted exact candidate SSR. This preserves all score/configuration/tag/folder/source/entry/check dates, independent vendor articles/facts/prices/link text, missing-Gemini qualifications and sole method footers. Actual unique HTTP Title/H1/description/self canonical resolved here. Sitemap set compared to original stage A accepted 45 URL set.",
+  "reusedEvidence": [
+    "/private/tmp/pairvu-pivot07-b/qa-original.json",
+    "/private/tmp/pairvu-pivot07-b/qa-ssr-evidence.json",
+    "/private/tmp/pairvu-pivot07-b/qa-official-source.json",
+    "operations/evidence/PIVOT-07-A/production-original.json",
+    "operations/evidence/PIVOT-05/production-2026-11-16/stage-2-production-qa.json"
+  ],
+  "notRun": "No other page/source HTTP, service, build/typecheck/full suite, GSC/automation/account/DB/customer operations.",
+  "cleanup": {
+    "repositoryMutation": false,
+    "servicesCreated": false,
+    "accountsOrProductionAssetsCreated": false,
+    "temporaryEvidenceRetained": "/private/tmp/pairvu-pivot07-b",
+    "blockingCleanupRemaining": false
+  },
+  "nextAction": {
+    "action": "Controller may archive original independent QA/HTTP evidence and record stage B implementation, same-SHA production deployment, public enablement and independent production acceptance complete. Only existing read-only observations continue automatically; new data/pages/scaling remain outside authorization.",
+    "dependency": "No product acceptance blocker; final evidence/document archive remains controller work.",
+    "automatic": true,
+    "userInputRequired": false
+  }
+}

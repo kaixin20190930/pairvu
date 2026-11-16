@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "checks": {
+    "hubNaturalMethodBoundary": true,
+    "archivalNullValuesRetained": true,
+    "claude-vs-gpt:singleNaturalMethodFooter": true,
+    "claudeGptBoundaryMovedToFooter": true,
+    "gpt-vs-gemini:singleNaturalMethodFooter": true,
+    "gpt-vs-gemini:conciseGeminiFooter": true,
+    "claude-vs-gemini:singleNaturalMethodFooter": true,
+    "claude-vs-gemini:conciseGeminiFooter": true
+  },
+  "scope": "One affected SSR rerun for controller-requested natural copy and disclaimer placement; initial evidence preserved"
+}

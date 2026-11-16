@@ -1,0 +1,50 @@
+{
+  "health": {
+    "url": "https://pairvu.com/api/health",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-health.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-health.body"
+  },
+  "hub": {
+    "url": "https://pairvu.com/benchmarks",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-hub.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-hub.body"
+  },
+  "claude-vs-gpt": {
+    "url": "https://pairvu.com/compare/claude-vs-gpt",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gpt.body"
+  },
+  "gpt-vs-gemini": {
+    "url": "https://pairvu.com/compare/gpt-vs-gemini",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-gpt-vs-gemini.body"
+  },
+  "claude-vs-gemini": {
+    "url": "https://pairvu.com/compare/claude-vs-gemini",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-claude-vs-gemini.body"
+  },
+  "sitemap": {
+    "url": "https://pairvu.com/sitemap.xml",
+    "status": "200",
+    "exit": 0,
+    "stderr": "",
+    "headersPath": "/private/tmp/pairvu-pivot07-b/production-sitemap.headers",
+    "bodyPath": "/private/tmp/pairvu-pivot07-b/production-sitemap.body"
+  }
+}

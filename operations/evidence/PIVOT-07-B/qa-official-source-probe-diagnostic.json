@@ -1,0 +1,5087 @@
+{
+  "result": "FAIL",
+  "checks": {
+    "sourceHash": true,
+    "originalRowsMatchExtract": true,
+    "requiredSettings": true,
+    "noGemini31Match": false
+  },
+  "officialSourceFile": "/private/tmp/pairvu-swebench-2026-11-16.html",
+  "sourceSha256": "c862011a4ee1d1a7199fad6ca0905fa5c64f58216f7217ac1eddf37f28788433",
+  "officialBoard": "Verified",
+  "rows": [
+    {
+      "agent": "mini-SWE-agent",
+      "agent_org": "SWE-agent",
+      "checked": null,
+      "cost": 376.9539985,
+      "date": "2026-02-17",
+      "folder": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+      "instance_calls": 32.896,
+      "instance_cost": 0.753907997,
+      "logo": [
+        "img/logos/20260217_mini-v2.0.0_claude-4-5-opus-high.jpg",
+        "img/mini-icon.svg"
+      ],
+      "logs": null,
+      "mini-swe-agent_version": "2.0.0",
+      "model_display": "Claude 4.5 Opus",
+      "model_org": "Anthropic",
+      "model_release_date": 20251124,
+      "name": "Claude 4.5 Opus (high)",
+      "os_model": false,
+      "os_system": true,
+      "per_instance_details": {
+        "astropy__astropy-12907": {
+          "api_calls": 32,
+          "cost": 0.7220905000000003,
+          "resolved": true
+        },
+        "astropy__astropy-13033": {
+          "api_calls": 56,
+          "cost": 0.9606260000000003,
+          "resolved": true
+        },
+        "astropy__astropy-13236": {
+          "api_calls": 38,
+          "cost": 0.6501449999999999,
+          "resolved": false
+        },
+        "astropy__astropy-13398": {
+          "api_calls": 58,
+          "cost": 2.0428815,
+          "resolved": false
+        },
+        "astropy__astropy-13453": {
+          "api_calls": 48,
+          "cost": 1.1097202499999999,
+          "resolved": true
+        },
+        "astropy__astropy-13579": {
+          "api_calls": 39,
+          "cost": 1.1030327500000001,
+          "resolved": true
+        },
+        "astropy__astropy-13977": {
+          "api_calls": 41,
+          "cost": 1.0037147499999999,
+          "resolved": true
+        },
+        "astropy__astropy-14096": {
+          "api_calls": 29,
+          "cost": 0.47836424999999994,
+          "resolved": true
+        },
+        "astropy__astropy-14182": {
+          "api_calls": 47,
+          "cost": 0.8921457499999998,
+          "resolved": true
+        },
+        "astropy__astropy-14309": {
+          "api_calls": 26,
+          "cost": 0.59190325,
+          "resolved": true
+        },
+        "astropy__astropy-14365": {
+          "api_calls": 22,
+          "cost": 0.48384975,
+          "resolved": false
+        },
+        "astropy__astropy-14369": {
+          "api_calls": 37,
+          "cost": 1.070297,
+          "resolved": false
+        },
+        "astropy__astropy-14508": {
+          "api_calls": 42,
+          "cost": 1.0986740000000002,
+          "resolved": true
+        },
+        "astropy__astropy-14539": {
+          "api_calls": 20,
+          "cost": 0.36909575,
+          "resolved": true
+        },
+        "astropy__astropy-14598": {
+          "api_calls": 63,
+          "cost": 1.975697,
+          "resolved": false
+        },
+        "astropy__astropy-14995": {
+          "api_calls": 35,
+          "cost": 0.76757025,
+          "resolved": true
+        },
+        "astropy__astropy-7166": {
+          "api_calls": 23,
+          "cost": 0.5363747499999999,
+          "resolved": true
+        },
+        "astropy__astropy-7336": {
+          "api_calls": 20,
+          "cost": 0.33071375000000003,
+          "resolved": true
+        },
+        "astropy__astropy-7606": {
+          "api_calls": 20,
+          "cost": 0.34843850000000004,
+          "resolved": false
+        },
+        "astropy__astropy-7671": {
+          "api_calls": 23,
+          "cost": 0.34150575000000005,
+          "resolved": true
+        },
+        "astropy__astropy-8707": {
+          "api_calls": 35,
+          "cost": 0.9053564999999999,
+          "resolved": false
+        },
+        "astropy__astropy-8872": {
+          "api_calls": 22,
+          "cost": 0.44746925000000004,
+          "resolved": false
+        },
+        "django__django-10097": {
+          "api_calls": 20,
+          "cost": 0.5032437500000001,
+          "resolved": false
+        },
+        "django__django-10554": {
+          "api_calls": 81,
+          "cost": 3.0067362499999994,
+          "resolved": false
+        },
+        "django__django-10880": {
+          "api_calls": 17,
+          "cost": 0.25666750000000005,
+          "resolved": true
+        },
+        "django__django-10914": {
+          "api_calls": 14,
+          "cost": 0.23708950000000004,
+          "resolved": true
+        },
+        "django__django-10973": {
+          "api_calls": 16,
+          "cost": 0.35289799999999993,
+          "resolved": true
+        },
+        "django__django-10999": {
+          "api_calls": 16,
+          "cost": 0.26457800000000004,
+          "resolved": false
+        },
+        "django__django-11066": {
+          "api_calls": 11,
+          "cost": 0.13550075,
+          "resolved": true
+        },
+        "django__django-11087": {
+          "api_calls": 44,
+          "cost": 1.1720412500000001,
+          "resolved": false
+        },
+        "django__django-11095": {
+          "api_calls": 16,
+          "cost": 0.27924124999999994,
+          "resolved": true
+        },
+        "django__django-11099": {
+          "api_calls": 10,
+          "cost": 0.16861975,
+          "resolved": true
+        },
+        "django__django-11119": {
+          "api_calls": 18,
+          "cost": 0.3105855,
+          "resolved": true
+        },
+        "django__django-11133": {
+          "api_calls": 24,
+          "cost": 0.4375455,
+          "resolved": true
+        },
+        "django__django-11138": {
+          "api_calls": 70,
+          "cost": 2.51898325,
+          "resolved": true
+        },
+        "django__django-11141": {
+          "api_calls": 29,
+          "cost": 0.7449500000000001,
+          "resolved": false
+        },
+        "django__django-11149": {
+          "api_calls": 29,
+          "cost": 0.78522475,
+          "resolved": true
+        },
+        "django__django-11163": {
+          "api_calls": 24,
+          "cost": 0.33412850000000005,
+          "resolved": true
+        },
+        "django__django-11179": {
+          "api_calls": 17,
+          "cost": 0.27440025,
+          "resolved": true
+        },
+        "django__django-11206": {
+          "api_calls": 23,
+          "cost": 0.67510225,
+          "resolved": true
+        },
+        "django__django-11211": {
+          "api_calls": 36,
+          "cost": 0.78567125,
+          "resolved": true
+        },
+        "django__django-11239": {
+          "api_calls": 19,
+          "cost": 0.37520125,
+          "resolved": true
+        },
+        "django__django-11265": {
+          "api_calls": 75,
+          "cost": 3.0444769999999997,
+          "resolved": false
+        },
+        "django__django-11276": {
+          "api_calls": 22,
+          "cost": 0.362058,
+          "resolved": true
+        },
+        "django__django-11292": {
+          "api_calls": 38,
+          "cost": 0.7271829999999999,
+          "resolved": true
+        },
+        "django__django-11299": {
+          "api_calls": 26,
+          "cost": 0.472642,
+          "resolved": true
+        },
+        "django__django-11333": {
+          "api_calls": 25,
+          "cost": 0.4924909999999999,
+          "resolved": true
+        },
+        "django__django-11400": {
+          "api_calls": 21,
+          "cost": 0.490628,
+          "resolved": false
+        },
+        "django__django-11433": {
+          "api_calls": 29,
+          "cost": 0.6047502499999998,
+          "resolved": true
+        },
+        "django__django-11451": {
+          "api_calls": 16,
+          "cost": 0.3074255000000001,
+          "resolved": true
+        },
+        "django__django-11477": {
+          "api_calls": 29,
+          "cost": 0.56268075,
+          "resolved": false
+        },
+        "django__django-11490": {
+          "api_calls": 48,
+          "cost": 1.12946275,
+          "resolved": true
+        },
+        "django__django-11532": {
+          "api_calls": 32,
+          "cost": 0.5817630000000003,
+          "resolved": true
+        },
+        "django__django-11551": {
+          "api_calls": 21,
+          "cost": 0.47148349999999994,
+          "resolved": true
+        },
+        "django__django-11555": {
+          "api_calls": 49,
+          "cost": 1.3928155000000004,
+          "resolved": true
+        },
+        "django__django-11603": {
+          "api_calls": 14,
+          "cost": 0.2068115,
+          "resolved": true
+        },
+        "django__django-11728": {
+          "api_calls": 25,
+          "cost": 0.50969125,
+          "resolved": true
+        },
+        "django__django-11734": {
+          "api_calls": 61,
+          "cost": 3.0804792500000007,
+          "resolved": false
+        },
+        "django__django-11740": {
+          "api_calls": 32,
+          "cost": 0.7046975000000001,
+          "resolved": true
+        },
+        "django__django-11749": {
+          "api_calls": 40,
+          "cost": 0.8986622499999999,
+          "resolved": true
+        },
+        "django__django-11790": {
+          "api_calls": 25,
+          "cost": 0.43973125,
+          "resolved": true
+        },
+        "django__django-11815": {
+          "api_calls": 21,
+          "cost": 0.39185575,
+          "resolved": false
+        },
+        "django__django-11820": {
+          "api_calls": 38,
+          "cost": 0.8254580000000001,
+          "resolved": false
+        },
+        "django__django-11848": {
+          "api_calls": 24,
+          "cost": 0.39159425000000003,
+          "resolved": true
+        },
+        "django__django-11880": {
+          "api_calls": 26,
+          "cost": 0.4424479999999999,
+          "resolved": true
+        },
+        "django__django-11885": {
+          "api_calls": 54,
+          "cost": 1.252522,
+          "resolved": false
+        },
+        "django__django-11951": {
+          "api_calls": 13,
+          "cost": 0.19880175000000003,
+          "resolved": true
+        },
+        "django__django-11964": {
+          "api_calls": 32,
+          "cost": 0.7663809999999999,
+          "resolved": true
+        },
+        "django__django-11999": {
+          "api_calls": 30,
+          "cost": 0.5101935,
+          "resolved": true
+        },
+        "django__django-12039": {
+          "api_calls": 26,
+          "cost": 0.5866887500000001,
+          "resolved": true
+        },
+        "django__django-12050": {
+          "api_calls": 22,
+          "cost": 0.36204549999999996,
+          "resolved": true
+        },
+        "django__django-12125": {
+          "api_calls": 37,
+          "cost": 0.6843847500000001,
+          "resolved": true
+        },
+        "django__django-12143": {
+          "api_calls": 16,
+          "cost": 0.274693,
+          "resolved": true
+        },
+        "django__django-12155": {
+          "api_calls": 16,
+          "cost": 0.32807925000000004,
+          "resolved": true
+        },
+        "django__django-12193": {
+          "api_calls": 25,
+          "cost": 0.49013249999999997,
+          "resolved": true
+        },
+        "django__django-12209": {
+          "api_calls": 63,
+          "cost": 2.15621875,
+          "resolved": true
+        },
+        "django__django-12262": {
+          "api_calls": 26,
+          "cost": 0.49217125,
+          "resolved": true
+        },
+        "django__django-12273": {
+          "api_calls": 41,
+          "cost": 1.0936735,
+          "resolved": false
+        },
+        "django__django-12276": {
+          "api_calls": 21,
+          "cost": 0.368368,
+          "resolved": true
+        },
+        "django__django-12304": {
+          "api_calls": 27,
+          "cost": 0.43964099999999995,
+          "resolved": true
+        },
+        "django__django-12308": {
+          "api_calls": 31,
+          "cost": 0.558421,
+          "resolved": false
+        },
+        "django__django-12325": {
+          "api_calls": 28,
+          "cost": 0.5275055,
+          "resolved": false
+        },
+        "django__django-12406": {
+          "api_calls": 48,
+          "cost": 1.1666555,
+          "resolved": true
+        },
+        "django__django-12419": {
+          "api_calls": 14,
+          "cost": 0.19643275000000004,
+          "resolved": true
+        },
+        "django__django-12663": {
+          "api_calls": 73,
+          "cost": 2.65580875,
+          "resolved": false
+        },
+        "django__django-12708": {
+          "api_calls": 56,
+          "cost": 1.4776419999999995,
+          "resolved": true
+        },
+        "django__django-12713": {
+          "api_calls": 14,
+          "cost": 0.22236324999999998,
+          "resolved": true
+        },
+        "django__django-12741": {
+          "api_calls": 15,
+          "cost": 0.23261524999999997,
+          "resolved": true
+        },
+        "django__django-12754": {
+          "api_calls": 38,
+          "cost": 0.97913025,
+          "resolved": true
+        },
+        "django__django-12774": {
+          "api_calls": 30,
+          "cost": 0.5436235000000001,
+          "resolved": true
+        },
+        "django__django-12858": {
+          "api_calls": 30,
+          "cost": 0.5211742500000001,
+          "resolved": true
+        },
+        "django__django-12965": {
+          "api_calls": 58,
+          "cost": 1.6671077500000002,
+          "resolved": true
+        },
+        "django__django-13012": {
+          "api_calls": 31,
+          "cost": 0.5400895,
+          "resolved": true
+        },
+        "django__django-13023": {
+          "api_calls": 24,
+          "cost": 0.35879725,
+          "resolved": true
+        },
+        "django__django-13028": {
+          "api_calls": 20,
+          "cost": 0.34109349999999994,
+          "resolved": true
+        },
+        "django__django-13033": {
+          "api_calls": 36,
+          "cost": 0.8710625,
+          "resolved": true
+        },
+        "django__django-13089": {
+          "api_calls": 19,
+          "cost": 0.3178607500000001,
+          "resolved": true
+        },
+        "django__django-13109": {
+          "api_calls": 33,
+          "cost": 0.502982,
+          "resolved": true
+        },
+        "django__django-13112": {
+          "api_calls": 56,
+          "cost": 1.6776604999999996,
+          "resolved": true
+        },
+        "django__django-13121": {
+          "api_calls": 45,
+          "cost": 0.8594707500000001,
+          "resolved": true
+        },
+        "django__django-13128": {
+          "api_calls": 27,
+          "cost": 0.50296525,
+          "resolved": true
+        },
+        "django__django-13158": {
+          "api_calls": 36,
+          "cost": 0.6857517499999999,
+          "resolved": true
+        },
+        "django__django-13195": {
+          "api_calls": 26,
+          "cost": 0.56714975,
+          "resolved": false
+        },
+        "django__django-13212": {
+          "api_calls": 36,
+          "cost": 1.15413075,
+          "resolved": false
+        },
+        "django__django-13279": {
+          "api_calls": 30,
+          "cost": 0.70047575,
+          "resolved": true
+        },
+        "django__django-13297": {
+          "api_calls": 48,
+          "cost": 1.23396125,
+          "resolved": true
+        },
+        "django__django-13315": {
+          "api_calls": 44,
+          "cost": 1.0666642499999994,
+          "resolved": true
+        },
+        "django__django-13343": {
+          "api_calls": 27,
+          "cost": 0.4964152500000001,
+          "resolved": true
+        },
+        "django__django-13344": {
+          "api_calls": 72,
+          "cost": 3.021320250000001,
+          "resolved": false
+        },
+        "django__django-13346": {
+          "api_calls": 27,
+          "cost": 0.6813569999999999,
+          "resolved": true
+        },
+        "django__django-13363": {
+          "api_calls": 19,
+          "cost": 0.28853650000000003,
+          "resolved": true
+        },
+        "django__django-13401": {
+          "api_calls": 21,
+          "cost": 0.3804965,
+          "resolved": true
+        },
+        "django__django-13406": {
+          "api_calls": 38,
+          "cost": 0.9120190000000001,
+          "resolved": true
+        },
+        "django__django-13410": {
+          "api_calls": 11,
+          "cost": 0.19207625,
+          "resolved": true
+        },
+        "django__django-13417": {
+          "api_calls": 28,
+          "cost": 0.614945,
+          "resolved": true
+        },
+        "django__django-13449": {
+          "api_calls": 44,
+          "cost": 1.2079714999999998,
+          "resolved": true
+        },
+        "django__django-13512": {
+          "api_calls": 21,
+          "cost": 0.28552475,
+          "resolved": false
+        },
+        "django__django-13513": {
+          "api_calls": 34,
+          "cost": 0.6887842499999999,
+          "resolved": false
+        },
+        "django__django-13516": {
+          "api_calls": 26,
+          "cost": 0.40773925,
+          "resolved": true
+        },
+        "django__django-13551": {
+          "api_calls": 27,
+          "cost": 0.538651,
+          "resolved": true
+        },
+        "django__django-13568": {
+          "api_calls": 24,
+          "cost": 0.5703002500000001,
+          "resolved": true
+        },
+        "django__django-13569": {
+          "api_calls": 44,
+          "cost": 1.0321310000000001,
+          "resolved": true
+        },
+        "django__django-13590": {
+          "api_calls": 29,
+          "cost": 0.51475225,
+          "resolved": true
+        },
+        "django__django-13658": {
+          "api_calls": 17,
+          "cost": 0.24174974999999999,
+          "resolved": true
+        },
+        "django__django-13670": {
+          "api_calls": 21,
+          "cost": 0.34572224999999995,
+          "resolved": true
+        },
+        "django__django-13741": {
+          "api_calls": 27,
+          "cost": 0.4745040000000001,
+          "resolved": true
+        },
+        "django__django-13786": {
+          "api_calls": 24,
+          "cost": 0.4137897500000001,
+          "resolved": true
+        },
+        "django__django-13794": {
+          "api_calls": 38,
+          "cost": 0.6389697499999999,
+          "resolved": false
+        },
+        "django__django-13807": {
+          "api_calls": 24,
+          "cost": 0.47070325,
+          "resolved": true
+        },
+        "django__django-13809": {
+          "api_calls": 26,
+          "cost": 0.6103257500000001,
+          "resolved": true
+        },
+        "django__django-13810": {
+          "api_calls": 46,
+          "cost": 1.51998675,
+          "resolved": true
+        },
+        "django__django-13820": {
+          "api_calls": 17,
+          "cost": 0.412154,
+          "resolved": true
+        },
+        "django__django-13821": {
+          "api_calls": 17,
+          "cost": 0.32969450000000006,
+          "resolved": true
+        },
+        "django__django-13837": {
+          "api_calls": 23,
+          "cost": 0.58137125,
+          "resolved": true
+        },
+        "django__django-13925": {
+          "api_calls": 41,
+          "cost": 1.11031425,
+          "resolved": false
+        },
+        "django__django-13933": {
+          "api_calls": 24,
+          "cost": 0.4599442499999999,
+          "resolved": true
+        },
+        "django__django-13964": {
+          "api_calls": 47,
+          "cost": 1.25228325,
+          "resolved": true
+        },
+        "django__django-14007": {
+          "api_calls": 45,
+          "cost": 1.07047275,
+          "resolved": true
+        },
+        "django__django-14011": {
+          "api_calls": 21,
+          "cost": 0.5217315,
+          "resolved": false
+        },
+        "django__django-14017": {
+          "api_calls": 34,
+          "cost": 0.7762682499999999,
+          "resolved": true
+        },
+        "django__django-14034": {
+          "api_calls": 44,
+          "cost": 1.5663232499999997,
+          "resolved": false
+        },
+        "django__django-14053": {
+          "api_calls": 28,
+          "cost": 0.7950679999999999,
+          "resolved": false
+        },
+        "django__django-14089": {
+          "api_calls": 12,
+          "cost": 0.18404124999999996,
+          "resolved": true
+        },
+        "django__django-14122": {
+          "api_calls": 36,
+          "cost": 0.8715297500000002,
+          "resolved": true
+        },
+        "django__django-14140": {
+          "api_calls": 19,
+          "cost": 0.42718675,
+          "resolved": false
+        },
+        "django__django-14155": {
+          "api_calls": 27,
+          "cost": 0.45588425000000016,
+          "resolved": false
+        },
+        "django__django-14170": {
+          "api_calls": 34,
+          "cost": 0.7355740000000003,
+          "resolved": false
+        },
+        "django__django-14238": {
+          "api_calls": 22,
+          "cost": 0.40105899999999994,
+          "resolved": true
+        },
+        "django__django-14311": {
+          "api_calls": 24,
+          "cost": 0.51949275,
+          "resolved": true
+        },
+        "django__django-14315": {
+          "api_calls": 19,
+          "cost": 0.35116775,
+          "resolved": false
+        },
+        "django__django-14349": {
+          "api_calls": 21,
+          "cost": 0.40619199999999994,
+          "resolved": true
+        },
+        "django__django-14351": {
+          "api_calls": 67,
+          "cost": 2.463750000000001,
+          "resolved": true
+        },
+        "django__django-14373": {
+          "api_calls": 17,
+          "cost": 0.26562975000000005,
+          "resolved": true
+        },
+        "django__django-14376": {
+          "api_calls": 14,
+          "cost": 0.22750250000000002,
+          "resolved": true
+        },
+        "django__django-14404": {
+          "api_calls": 21,
+          "cost": 0.33978125,
+          "resolved": false
+        },
+        "django__django-14434": {
+          "api_calls": 34,
+          "cost": 0.8006215000000001,
+          "resolved": true
+        },
+        "django__django-14493": {
+          "api_calls": 21,
+          "cost": 0.3177372500000001,
+          "resolved": true
+        },
+        "django__django-14500": {
+          "api_calls": 30,
+          "cost": 0.8667540000000001,
+          "resolved": true
+        },
+        "django__django-14534": {
+          "api_calls": 32,
+          "cost": 0.6826472499999999,
+          "resolved": true
+        },
+        "django__django-14539": {
+          "api_calls": 20,
+          "cost": 0.40530349999999987,
+          "resolved": true
+        },
+        "django__django-14559": {
+          "api_calls": 21,
+          "cost": 0.3466160000000001,
+          "resolved": true
+        },
+        "django__django-14580": {
+          "api_calls": 23,
+          "cost": 0.41643925000000004,
+          "resolved": true
+        },
+        "django__django-14608": {
+          "api_calls": 22,
+          "cost": 0.4553412500000001,
+          "resolved": true
+        },
+        "django__django-14631": {
+          "api_calls": 67,
+          "cost": 1.5378084999999997,
+          "resolved": true
+        },
+        "django__django-14672": {
+          "api_calls": 29,
+          "cost": 0.48105275,
+          "resolved": true
+        },
+        "django__django-14725": {
+          "api_calls": 43,
+          "cost": 1.4308805000000002,
+          "resolved": false
+        },
+        "django__django-14752": {
+          "api_calls": 12,
+          "cost": 0.2112605,
+          "resolved": true
+        },
+        "django__django-14765": {
+          "api_calls": 22,
+          "cost": 0.3526985000000001,
+          "resolved": true
+        },
+        "django__django-14771": {
+          "api_calls": 21,
+          "cost": 0.38428524999999997,
+          "resolved": true
+        },
+        "django__django-14787": {
+          "api_calls": 20,
+          "cost": 0.31848975000000007,
+          "resolved": true
+        },
+        "django__django-14792": {
+          "api_calls": 33,
+          "cost": 0.85717,
+          "resolved": false
+        },
+        "django__django-14855": {
+          "api_calls": 28,
+          "cost": 0.52660775,
+          "resolved": true
+        },
+        "django__django-14915": {
+          "api_calls": 22,
+          "cost": 0.31253575,
+          "resolved": true
+        },
+        "django__django-14999": {
+          "api_calls": 41,
+          "cost": 0.7910997500000001,
+          "resolved": true
+        },
+        "django__django-15022": {
+          "api_calls": 41,
+          "cost": 1.4636022500000003,
+          "resolved": false
+        },
+        "django__django-15037": {
+          "api_calls": 34,
+          "cost": 0.6685047499999998,
+          "resolved": true
+        },
+        "django__django-15098": {
+          "api_calls": 60,
+          "cost": 1.4337145,
+          "resolved": false
+        },
+        "django__django-15103": {
+          "api_calls": 19,
+          "cost": 0.40581500000000004,
+          "resolved": true
+        },
+        "django__django-15104": {
+          "api_calls": 16,
+          "cost": 0.20620175000000002,
+          "resolved": true
+        },
+        "django__django-15127": {
+          "api_calls": 22,
+          "cost": 0.48241524999999996,
+          "resolved": true
+        },
+        "django__django-15128": {
+          "api_calls": 37,
+          "cost": 1.21801325,
+          "resolved": true
+        },
+        "django__django-15161": {
+          "api_calls": 50,
+          "cost": 1.5311172500000003,
+          "resolved": true
+        },
+        "django__django-15252": {
+          "api_calls": 32,
+          "cost": 0.7765070000000002,
+          "resolved": false
+        },
+        "django__django-15268": {
+          "api_calls": 30,
+          "cost": 0.801368,
+          "resolved": true
+        },
+        "django__django-15277": {
+          "api_calls": 26,
+          "cost": 0.3383705000000001,
+          "resolved": true
+        },
+        "django__django-15278": {
+          "api_calls": 32,
+          "cost": 0.6195930000000001,
+          "resolved": true
+        },
+        "django__django-15280": {
+          "api_calls": 42,
+          "cost": 1.74209225,
+          "resolved": true
+        },
+        "django__django-15315": {
+          "api_calls": 25,
+          "cost": 0.467156,
+          "resolved": true
+        },
+        "django__django-15368": {
+          "api_calls": 18,
+          "cost": 0.355273,
+          "resolved": true
+        },
+        "django__django-15375": {
+          "api_calls": 25,
+          "cost": 0.5804139999999999,
+          "resolved": true
+        },
+        "django__django-15380": {
+          "api_calls": 30,
+          "cost": 0.6344405,
+          "resolved": true
+        },
+        "django__django-15382": {
+          "api_calls": 43,
+          "cost": 1.1034002499999997,
+          "resolved": true
+        },
+        "django__django-15467": {
+          "api_calls": 19,
+          "cost": 0.31120700000000007,
+          "resolved": true
+        },
+        "django__django-15499": {
+          "api_calls": 25,
+          "cost": 0.48371200000000003,
+          "resolved": true
+        },
+        "django__django-15503": {
+          "api_calls": 48,
+          "cost": 1.6184030000000003,
+          "resolved": true
+        },
+        "django__django-15525": {
+          "api_calls": 21,
+          "cost": 0.5870759999999999,
+          "resolved": true
+        },
+        "django__django-15554": {
+          "api_calls": 79,
+          "cost": 3.021954499999999,
+          "resolved": false
+        },
+        "django__django-15561": {
+          "api_calls": 27,
+          "cost": 0.5853992499999998,
+          "resolved": true
+        },
+        "django__django-15563": {
+          "api_calls": 45,
+          "cost": 1.21825725,
+          "resolved": false
+        },
+        "django__django-15569": {
+          "api_calls": 13,
+          "cost": 0.2140725,
+          "resolved": true
+        },
+        "django__django-15572": {
+          "api_calls": 22,
+          "cost": 0.33424275,
+          "resolved": true
+        },
+        "django__django-15629": {
+          "api_calls": 40,
+          "cost": 0.8529687499999999,
+          "resolved": false
+        },
+        "django__django-15695": {
+          "api_calls": 24,
+          "cost": 0.55695175,
+          "resolved": true
+        },
+        "django__django-15731": {
+          "api_calls": 15,
+          "cost": 0.22768700000000003,
+          "resolved": true
+        },
+        "django__django-15732": {
+          "api_calls": 33,
+          "cost": 0.7540275000000001,
+          "resolved": false
+        },
+        "django__django-15741": {
+          "api_calls": 36,
+          "cost": 0.5702170000000001,
+          "resolved": true
+        },
+        "django__django-15814": {
+          "api_calls": 22,
+          "cost": 0.31126649999999995,
+          "resolved": true
+        },
+        "django__django-15851": {
+          "api_calls": 13,
+          "cost": 0.22333875,
+          "resolved": true
+        },
+        "django__django-15863": {
+          "api_calls": 20,
+          "cost": 0.36086775,
+          "resolved": true
+        },
+        "django__django-15916": {
+          "api_calls": 31,
+          "cost": 0.77822775,
+          "resolved": true
+        },
+        "django__django-15930": {
+          "api_calls": 29,
+          "cost": 0.5924577499999998,
+          "resolved": true
+        },
+        "django__django-15957": {
+          "api_calls": 80,
+          "cost": 2.26733025,
+          "resolved": false
+        },
+        "django__django-15973": {
+          "api_calls": 64,
+          "cost": 2.1131032499999995,
+          "resolved": false
+        },
+        "django__django-15987": {
+          "api_calls": 21,
+          "cost": 0.38124474999999997,
+          "resolved": true
+        },
+        "django__django-16032": {
+          "api_calls": 60,
+          "cost": 2.4320394999999992,
+          "resolved": true
+        },
+        "django__django-16082": {
+          "api_calls": 31,
+          "cost": 0.534647,
+          "resolved": true
+        },
+        "django__django-16100": {
+          "api_calls": 25,
+          "cost": 0.37885375000000004,
+          "resolved": true
+        },
+        "django__django-16116": {
+          "api_calls": 30,
+          "cost": 0.5329265000000001,
+          "resolved": true
+        },
+        "django__django-16136": {
+          "api_calls": 19,
+          "cost": 0.4292055,
+          "resolved": true
+        },
+        "django__django-16139": {
+          "api_calls": 20,
+          "cost": 0.28852099999999997,
+          "resolved": true
+        },
+        "django__django-16145": {
+          "api_calls": 24,
+          "cost": 0.53370525,
+          "resolved": true
+        },
+        "django__django-16255": {
+          "api_calls": 14,
+          "cost": 0.19994375,
+          "resolved": true
+        },
+        "django__django-16256": {
+          "api_calls": 29,
+          "cost": 0.8542182500000001,
+          "resolved": false
+        },
+        "django__django-16263": {
+          "api_calls": 75,
+          "cost": 3.0129354999999998,
+          "resolved": false
+        },
+        "django__django-16315": {
+          "api_calls": 39,
+          "cost": 0.902346,
+          "resolved": true
+        },
+        "django__django-16333": {
+          "api_calls": 30,
+          "cost": 0.4228180000000001,
+          "resolved": true
+        },
+        "django__django-16429": {
+          "api_calls": 18,
+          "cost": 0.26023,
+          "resolved": true
+        },
+        "django__django-16454": {
+          "api_calls": 41,
+          "cost": 0.7745645000000002,
+          "resolved": false
+        },
+        "django__django-16485": {
+          "api_calls": 22,
+          "cost": 0.34991574999999997,
+          "resolved": true
+        },
+        "django__django-16493": {
+          "api_calls": 23,
+          "cost": 0.41784100000000013,
+          "resolved": true
+        },
+        "django__django-16502": {
+          "api_calls": 23,
+          "cost": 0.58926625,
+          "resolved": false
+        },
+        "django__django-16527": {
+          "api_calls": 11,
+          "cost": 0.14774650000000003,
+          "resolved": true
+        },
+        "django__django-16560": {
+          "api_calls": 38,
+          "cost": 1.0615444999999997,
+          "resolved": false
+        },
+        "django__django-16569": {
+          "api_calls": 12,
+          "cost": 0.2300565,
+          "resolved": true
+        },
+        "django__django-16595": {
+          "api_calls": 24,
+          "cost": 0.46560075,
+          "resolved": true
+        },
+        "django__django-16612": {
+          "api_calls": 24,
+          "cost": 0.4167295,
+          "resolved": true
+        },
+        "django__django-16631": {
+          "api_calls": 35,
+          "cost": 0.9849022500000001,
+          "resolved": false
+        },
+        "django__django-16642": {
+          "api_calls": 23,
+          "cost": 0.3973630000000001,
+          "resolved": true
+        },
+        "django__django-16661": {
+          "api_calls": 21,
+          "cost": 0.50953775,
+          "resolved": true
+        },
+        "django__django-16662": {
+          "api_calls": 23,
+          "cost": 0.4498837500000001,
+          "resolved": true
+        },
+        "django__django-16667": {
+          "api_calls": 28,
+          "cost": 0.45716000000000007,
+          "resolved": false
+        },
+        "django__django-16801": {
+          "api_calls": 27,
+          "cost": 0.5661742500000002,
+          "resolved": true
+        },
+        "django__django-16819": {
+          "api_calls": 42,
+          "cost": 1.00142075,
+          "resolved": true
+        },
+        "django__django-16877": {
+          "api_calls": 18,
+          "cost": 0.25536175,
+          "resolved": true
+        },
+        "django__django-16899": {
+          "api_calls": 23,
+          "cost": 0.38176425,
+          "resolved": true
+        },
+        "django__django-16901": {
+          "api_calls": 32,
+          "cost": 0.68234275,
+          "resolved": true
+        },
+        "django__django-16938": {
+          "api_calls": 23,
+          "cost": 0.5316489999999999,
+          "resolved": true
+        },
+        "django__django-16950": {
+          "api_calls": 50,
+          "cost": 1.6799435000000003,
+          "resolved": true
+        },
+        "django__django-17029": {
+          "api_calls": 18,
+          "cost": 0.24453075000000007,
+          "resolved": true
+        },
+        "django__django-17084": {
+          "api_calls": 34,
+          "cost": 0.7833122500000002,
+          "resolved": true
+        },
+        "django__django-17087": {
+          "api_calls": 25,
+          "cost": 0.4252105,
+          "resolved": true
+        },
+        "django__django-7530": {
+          "api_calls": 25,
+          "cost": 0.49524549999999995,
+          "resolved": true
+        },
+        "django__django-9296": {
+          "api_calls": 16,
+          "cost": 0.25588175,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-13989": {
+          "api_calls": 19,
+          "cost": 0.39830350000000003,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-14623": {
+          "api_calls": 63,
+          "cost": 1.9538082499999998,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-20488": {
+          "api_calls": 30,
+          "cost": 0.7602780000000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-20676": {
+          "api_calls": 25,
+          "cost": 0.493676,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-20826": {
+          "api_calls": 51,
+          "cost": 1.3130624999999998,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-20859": {
+          "api_calls": 13,
+          "cost": 0.18788525,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-21568": {
+          "api_calls": 37,
+          "cost": 0.9957185000000001,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-22719": {
+          "api_calls": 20,
+          "cost": 0.34387075000000006,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-22865": {
+          "api_calls": 32,
+          "cost": 0.7620830000000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-22871": {
+          "api_calls": 23,
+          "cost": 0.6242602500000002,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23299": {
+          "api_calls": 53,
+          "cost": 1.257282,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-23314": {
+          "api_calls": 27,
+          "cost": 0.43076,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23412": {
+          "api_calls": 28,
+          "cost": 0.5524870000000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23476": {
+          "api_calls": 32,
+          "cost": 0.6710609999999998,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-24026": {
+          "api_calls": 18,
+          "cost": 0.3710534999999999,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24149": {
+          "api_calls": 25,
+          "cost": 0.48603525,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24177": {
+          "api_calls": 37,
+          "cost": 0.7806015000000002,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24570": {
+          "api_calls": 18,
+          "cost": 0.44461675000000006,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24627": {
+          "api_calls": 64,
+          "cost": 1.50476025,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24637": {
+          "api_calls": 40,
+          "cost": 0.6206342499999999,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24870": {
+          "api_calls": 39,
+          "cost": 1.0722630000000002,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-24970": {
+          "api_calls": 29,
+          "cost": 0.48653174999999993,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25122": {
+          "api_calls": 15,
+          "cost": 0.28106624999999996,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25287": {
+          "api_calls": 22,
+          "cost": 0.3396725,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25311": {
+          "api_calls": 74,
+          "cost": 2.5502830000000003,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-25332": {
+          "api_calls": 36,
+          "cost": 0.5598110000000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25479": {
+          "api_calls": 41,
+          "cost": 0.83705725,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-25775": {
+          "api_calls": 64,
+          "cost": 2.12508475,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25960": {
+          "api_calls": 34,
+          "cost": 0.7917292499999999,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26113": {
+          "api_calls": 28,
+          "cost": 0.49427375000000007,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26208": {
+          "api_calls": 65,
+          "cost": 2.36976275,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-26291": {
+          "api_calls": 38,
+          "cost": 0.70900875,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26342": {
+          "api_calls": 33,
+          "cost": 0.6631107500000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26466": {
+          "api_calls": 50,
+          "cost": 0.9783170000000001,
+          "resolved": false
+        },
+        "mwaskom__seaborn-3069": {
+          "api_calls": 53,
+          "cost": 1.2976962499999996,
+          "resolved": true
+        },
+        "mwaskom__seaborn-3187": {
+          "api_calls": 43,
+          "cost": 1.0416684999999999,
+          "resolved": false
+        },
+        "pallets__flask-5014": {
+          "api_calls": 23,
+          "cost": 0.32184725000000003,
+          "resolved": true
+        },
+        "psf__requests-1142": {
+          "api_calls": 16,
+          "cost": 0.29191199999999995,
+          "resolved": true
+        },
+        "psf__requests-1724": {
+          "api_calls": 19,
+          "cost": 0.34454675000000007,
+          "resolved": true
+        },
+        "psf__requests-1766": {
+          "api_calls": 13,
+          "cost": 0.2361475,
+          "resolved": true
+        },
+        "psf__requests-1921": {
+          "api_calls": 30,
+          "cost": 0.8498187500000001,
+          "resolved": true
+        },
+        "psf__requests-2317": {
+          "api_calls": 18,
+          "cost": 0.28359075,
+          "resolved": true
+        },
+        "psf__requests-2931": {
+          "api_calls": 25,
+          "cost": 0.5550087499999999,
+          "resolved": true
+        },
+        "psf__requests-5414": {
+          "api_calls": 31,
+          "cost": 0.66822775,
+          "resolved": false
+        },
+        "psf__requests-6028": {
+          "api_calls": 57,
+          "cost": 1.4221585000000003,
+          "resolved": true
+        },
+        "pydata__xarray-2905": {
+          "api_calls": 49,
+          "cost": 1.0284354999999998,
+          "resolved": true
+        },
+        "pydata__xarray-3095": {
+          "api_calls": 26,
+          "cost": 0.5258845000000002,
+          "resolved": true
+        },
+        "pydata__xarray-3151": {
+          "api_calls": 21,
+          "cost": 0.3489255,
+          "resolved": true
+        },
+        "pydata__xarray-3305": {
+          "api_calls": 32,
+          "cost": 0.536497,
+          "resolved": true
+        },
+        "pydata__xarray-3677": {
+          "api_calls": 26,
+          "cost": 0.4753715,
+          "resolved": true
+        },
+        "pydata__xarray-3993": {
+          "api_calls": 22,
+          "cost": 0.4119097500000001,
+          "resolved": true
+        },
+        "pydata__xarray-4075": {
+          "api_calls": 25,
+          "cost": 0.48185124999999995,
+          "resolved": true
+        },
+        "pydata__xarray-4094": {
+          "api_calls": 35,
+          "cost": 0.7739705,
+          "resolved": true
+        },
+        "pydata__xarray-4356": {
+          "api_calls": 37,
+          "cost": 0.8506492500000001,
+          "resolved": true
+        },
+        "pydata__xarray-4629": {
+          "api_calls": 15,
+          "cost": 0.20920300000000003,
+          "resolved": true
+        },
+        "pydata__xarray-4687": {
+          "api_calls": 41,
+          "cost": 1.3214177500000002,
+          "resolved": false
+        },
+        "pydata__xarray-4695": {
+          "api_calls": 31,
+          "cost": 0.5764929999999998,
+          "resolved": true
+        },
+        "pydata__xarray-4966": {
+          "api_calls": 33,
+          "cost": 0.7993047499999999,
+          "resolved": true
+        },
+        "pydata__xarray-6461": {
+          "api_calls": 28,
+          "cost": 0.55017075,
+          "resolved": true
+        },
+        "pydata__xarray-6599": {
+          "api_calls": 62,
+          "cost": 2.261735500000001,
+          "resolved": false
+        },
+        "pydata__xarray-6721": {
+          "api_calls": 46,
+          "cost": 0.9513554999999998,
+          "resolved": true
+        },
+        "pydata__xarray-6744": {
+          "api_calls": 25,
+          "cost": 0.7047027499999999,
+          "resolved": true
+        },
+        "pydata__xarray-6938": {
+          "api_calls": 44,
+          "cost": 0.9372542500000003,
+          "resolved": true
+        },
+        "pydata__xarray-6992": {
+          "api_calls": 32,
+          "cost": 0.557315,
+          "resolved": false
+        },
+        "pydata__xarray-7229": {
+          "api_calls": 53,
+          "cost": 1.51541075,
+          "resolved": false
+        },
+        "pydata__xarray-7233": {
+          "api_calls": 27,
+          "cost": 0.5065299999999999,
+          "resolved": true
+        },
+        "pydata__xarray-7393": {
+          "api_calls": 57,
+          "cost": 1.1088317500000004,
+          "resolved": true
+        },
+        "pylint-dev__pylint-4551": {
+          "api_calls": 35,
+          "cost": 1.0117795,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4604": {
+          "api_calls": 57,
+          "cost": 1.1499980000000003,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4661": {
+          "api_calls": 13,
+          "cost": 0.29839975,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4970": {
+          "api_calls": 52,
+          "cost": 1.10511925,
+          "resolved": true
+        },
+        "pylint-dev__pylint-6386": {
+          "api_calls": 30,
+          "cost": 0.4971995000000001,
+          "resolved": false
+        },
+        "pylint-dev__pylint-6528": {
+          "api_calls": 70,
+          "cost": 1.5003552499999997,
+          "resolved": false
+        },
+        "pylint-dev__pylint-6903": {
+          "api_calls": 13,
+          "cost": 0.28983925,
+          "resolved": true
+        },
+        "pylint-dev__pylint-7080": {
+          "api_calls": 53,
+          "cost": 1.2685015,
+          "resolved": false
+        },
+        "pylint-dev__pylint-7277": {
+          "api_calls": 19,
+          "cost": 0.3362124999999999,
+          "resolved": false
+        },
+        "pylint-dev__pylint-8898": {
+          "api_calls": 32,
+          "cost": 0.627183,
+          "resolved": false
+        },
+        "pytest-dev__pytest-10051": {
+          "api_calls": 27,
+          "cost": 0.49367300000000003,
+          "resolved": true
+        },
+        "pytest-dev__pytest-10081": {
+          "api_calls": 27,
+          "cost": 0.5562462499999999,
+          "resolved": true
+        },
+        "pytest-dev__pytest-10356": {
+          "api_calls": 31,
+          "cost": 0.63836575,
+          "resolved": false
+        },
+        "pytest-dev__pytest-5262": {
+          "api_calls": 23,
+          "cost": 0.40030999999999994,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5631": {
+          "api_calls": 17,
+          "cost": 0.26000825,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5787": {
+          "api_calls": 47,
+          "cost": 1.3664795,
+          "resolved": false
+        },
+        "pytest-dev__pytest-5809": {
+          "api_calls": 6,
+          "cost": 0.11461175000000001,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5840": {
+          "api_calls": 27,
+          "cost": 0.6231960000000002,
+          "resolved": false
+        },
+        "pytest-dev__pytest-6197": {
+          "api_calls": 65,
+          "cost": 2.4604300000000006,
+          "resolved": true
+        },
+        "pytest-dev__pytest-6202": {
+          "api_calls": 29,
+          "cost": 0.46373500000000006,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7205": {
+          "api_calls": 17,
+          "cost": 0.35793874999999997,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7236": {
+          "api_calls": 51,
+          "cost": 1.0841987499999999,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7324": {
+          "api_calls": 20,
+          "cost": 0.39793175000000003,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7432": {
+          "api_calls": 20,
+          "cost": 0.41767325000000005,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7490": {
+          "api_calls": 34,
+          "cost": 0.883284,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7521": {
+          "api_calls": 24,
+          "cost": 0.5695539999999999,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7571": {
+          "api_calls": 29,
+          "cost": 0.62842275,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7982": {
+          "api_calls": 20,
+          "cost": 0.24809575000000006,
+          "resolved": true
+        },
+        "pytest-dev__pytest-8399": {
+          "api_calls": 16,
+          "cost": 0.24930950000000002,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10297": {
+          "api_calls": 27,
+          "cost": 0.5006039999999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10844": {
+          "api_calls": 23,
+          "cost": 0.40327125,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10908": {
+          "api_calls": 37,
+          "cost": 0.6526037500000001,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-11310": {
+          "api_calls": 42,
+          "cost": 0.9468139999999998,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-11578": {
+          "api_calls": 33,
+          "cost": 0.6645187499999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12585": {
+          "api_calls": 20,
+          "cost": 0.24682075000000003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12682": {
+          "api_calls": 38,
+          "cost": 0.9893254999999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12973": {
+          "api_calls": 18,
+          "cost": 0.30730225,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13124": {
+          "api_calls": 27,
+          "cost": 0.75437275,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13135": {
+          "api_calls": 27,
+          "cost": 0.41406625,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13142": {
+          "api_calls": 33,
+          "cost": 0.636486,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13328": {
+          "api_calls": 23,
+          "cost": 0.3847932499999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13439": {
+          "api_calls": 18,
+          "cost": 0.26534174999999993,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13496": {
+          "api_calls": 28,
+          "cost": 0.45327325,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13779": {
+          "api_calls": 36,
+          "cost": 0.563938,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14053": {
+          "api_calls": 26,
+          "cost": 0.46366450000000003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14087": {
+          "api_calls": 43,
+          "cost": 0.9269039999999998,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14141": {
+          "api_calls": 14,
+          "cost": 0.18698525000000002,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14496": {
+          "api_calls": 23,
+          "cost": 0.3219534999999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14629": {
+          "api_calls": 37,
+          "cost": 0.6376710000000001,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14710": {
+          "api_calls": 29,
+          "cost": 0.46025425000000003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14894": {
+          "api_calls": 30,
+          "cost": 0.54005525,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14983": {
+          "api_calls": 31,
+          "cost": 0.5751435,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-15100": {
+          "api_calls": 15,
+          "cost": 0.23992725,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25102": {
+          "api_calls": 33,
+          "cost": 0.7923197499999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25232": {
+          "api_calls": 37,
+          "cost": 0.8404945,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25747": {
+          "api_calls": 40,
+          "cost": 0.75112225,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-25931": {
+          "api_calls": 51,
+          "cost": 0.9424905000000001,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25973": {
+          "api_calls": 62,
+          "cost": 1.1044295,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-26194": {
+          "api_calls": 34,
+          "cost": 0.4968905,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-26323": {
+          "api_calls": 32,
+          "cost": 0.5421687500000001,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-9288": {
+          "api_calls": 33,
+          "cost": 0.66906675,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10323": {
+          "api_calls": 28,
+          "cost": 0.56440275,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10435": {
+          "api_calls": 94,
+          "cost": 2.9490647500000002,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-10449": {
+          "api_calls": 41,
+          "cost": 0.73229025,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10466": {
+          "api_calls": 20,
+          "cost": 0.38078524999999996,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10614": {
+          "api_calls": 58,
+          "cost": 1.8948392500000009,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-10673": {
+          "api_calls": 38,
+          "cost": 0.9126477499999996,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-11445": {
+          "api_calls": 39,
+          "cost": 0.710654,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-11510": {
+          "api_calls": 83,
+          "cost": 2.556229500000001,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7440": {
+          "api_calls": 74,
+          "cost": 2.0043855,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7454": {
+          "api_calls": 64,
+          "cost": 1.4629622500000001,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7462": {
+          "api_calls": 27,
+          "cost": 0.4050215000000001,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7590": {
+          "api_calls": 58,
+          "cost": 1.3166585000000004,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7748": {
+          "api_calls": 63,
+          "cost": 1.7575662499999998,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7757": {
+          "api_calls": 33,
+          "cost": 0.68028575,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7889": {
+          "api_calls": 16,
+          "cost": 0.29491900000000004,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7910": {
+          "api_calls": 41,
+          "cost": 0.67093325,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7985": {
+          "api_calls": 50,
+          "cost": 1.06355425,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-8035": {
+          "api_calls": 40,
+          "cost": 0.8673259999999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8056": {
+          "api_calls": 30,
+          "cost": 0.5779225,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8120": {
+          "api_calls": 32,
+          "cost": 0.6292504999999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8265": {
+          "api_calls": 26,
+          "cost": 0.5949720000000002,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8269": {
+          "api_calls": 22,
+          "cost": 0.3705572500000001,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8459": {
+          "api_calls": 48,
+          "cost": 0.8911627500000002,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8475": {
+          "api_calls": 18,
+          "cost": 0.27406,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8548": {
+          "api_calls": 51,
+          "cost": 1.3295940000000002,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-8551": {
+          "api_calls": 41,
+          "cost": 0.88132575,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8593": {
+          "api_calls": 56,
+          "cost": 1.0665254999999998,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8595": {
+          "api_calls": 25,
+          "cost": 0.3155465,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8621": {
+          "api_calls": 40,
+          "cost": 0.61958325,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8638": {
+          "api_calls": 38,
+          "cost": 0.969639,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8721": {
+          "api_calls": 36,
+          "cost": 0.590321,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9229": {
+          "api_calls": 100,
+          "cost": 3.0092634999999994,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9230": {
+          "api_calls": 39,
+          "cost": 0.91750175,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9258": {
+          "api_calls": 23,
+          "cost": 0.49421925000000005,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9281": {
+          "api_calls": 47,
+          "cost": 0.8060577499999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9320": {
+          "api_calls": 23,
+          "cost": 0.47814025000000004,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9367": {
+          "api_calls": 13,
+          "cost": 0.21858725000000004,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9461": {
+          "api_calls": 76,
+          "cost": 2.0901877500000006,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9591": {
+          "api_calls": 39,
+          "cost": 0.622863,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9602": {
+          "api_calls": 57,
+          "cost": 1.4384077499999997,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9658": {
+          "api_calls": 23,
+          "cost": 0.612799,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9673": {
+          "api_calls": 34,
+          "cost": 0.7061852500000002,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9698": {
+          "api_calls": 22,
+          "cost": 0.30893725,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9711": {
+          "api_calls": 17,
+          "cost": 0.27974250000000006,
+          "resolved": true
+        },
+        "sympy__sympy-11618": {
+          "api_calls": 24,
+          "cost": 0.35969399999999996,
+          "resolved": true
+        },
+        "sympy__sympy-12096": {
+          "api_calls": 54,
+          "cost": 1.12467625,
+          "resolved": true
+        },
+        "sympy__sympy-12419": {
+          "api_calls": 53,
+          "cost": 1.05404625,
+          "resolved": true
+        },
+        "sympy__sympy-12481": {
+          "api_calls": 41,
+          "cost": 0.7184807500000001,
+          "resolved": true
+        },
+        "sympy__sympy-12489": {
+          "api_calls": 43,
+          "cost": 1.26512025,
+          "resolved": true
+        },
+        "sympy__sympy-13031": {
+          "api_calls": 47,
+          "cost": 0.9861197500000003,
+          "resolved": false
+        },
+        "sympy__sympy-13091": {
+          "api_calls": 38,
+          "cost": 0.9232650000000001,
+          "resolved": true
+        },
+        "sympy__sympy-13372": {
+          "api_calls": 38,
+          "cost": 0.5355290000000001,
+          "resolved": true
+        },
+        "sympy__sympy-13480": {
+          "api_calls": 21,
+          "cost": 0.29167275000000004,
+          "resolved": true
+        },
+        "sympy__sympy-13551": {
+          "api_calls": 46,
+          "cost": 1.12520475,
+          "resolved": true
+        },
+        "sympy__sympy-13615": {
+          "api_calls": 59,
+          "cost": 1.4159175,
+          "resolved": true
+        },
+        "sympy__sympy-13647": {
+          "api_calls": 20,
+          "cost": 0.37347500000000006,
+          "resolved": true
+        },
+        "sympy__sympy-13757": {
+          "api_calls": 35,
+          "cost": 0.6622647499999998,
+          "resolved": true
+        },
+        "sympy__sympy-13798": {
+          "api_calls": 26,
+          "cost": 0.4857739999999999,
+          "resolved": false
+        },
+        "sympy__sympy-13852": {
+          "api_calls": 39,
+          "cost": 0.9054267499999998,
+          "resolved": false
+        },
+        "sympy__sympy-13877": {
+          "api_calls": 24,
+          "cost": 0.3803575,
+          "resolved": false
+        },
+        "sympy__sympy-13878": {
+          "api_calls": 71,
+          "cost": 2.13057125,
+          "resolved": true
+        },
+        "sympy__sympy-13974": {
+          "api_calls": 44,
+          "cost": 0.9281432499999998,
+          "resolved": false
+        },
+        "sympy__sympy-14248": {
+          "api_calls": 109,
+          "cost": 2.5034057499999998,
+          "resolved": false
+        },
+        "sympy__sympy-14531": {
+          "api_calls": 52,
+          "cost": 1.2862044999999998,
+          "resolved": true
+        },
+        "sympy__sympy-14711": {
+          "api_calls": 21,
+          "cost": 0.31157025,
+          "resolved": true
+        },
+        "sympy__sympy-14976": {
+          "api_calls": 50,
+          "cost": 1.1149932500000002,
+          "resolved": false
+        },
+        "sympy__sympy-15017": {
+          "api_calls": 21,
+          "cost": 0.37187875,
+          "resolved": true
+        },
+        "sympy__sympy-15345": {
+          "api_calls": 26,
+          "cost": 0.4361987500000001,
+          "resolved": true
+        },
+        "sympy__sympy-15349": {
+          "api_calls": 24,
+          "cost": 0.5058284999999999,
+          "resolved": true
+        },
+        "sympy__sympy-15599": {
+          "api_calls": 66,
+          "cost": 2.495301,
+          "resolved": false
+        },
+        "sympy__sympy-15809": {
+          "api_calls": 23,
+          "cost": 0.42214675000000007,
+          "resolved": true
+        },
+        "sympy__sympy-15875": {
+          "api_calls": 29,
+          "cost": 0.7191745000000002,
+          "resolved": false
+        },
+        "sympy__sympy-15976": {
+          "api_calls": 29,
+          "cost": 0.6209122499999999,
+          "resolved": true
+        },
+        "sympy__sympy-16450": {
+          "api_calls": 23,
+          "cost": 0.44892325,
+          "resolved": true
+        },
+        "sympy__sympy-16597": {
+          "api_calls": 41,
+          "cost": 0.9020425000000001,
+          "resolved": false
+        },
+        "sympy__sympy-16766": {
+          "api_calls": 33,
+          "cost": 0.51113125,
+          "resolved": true
+        },
+        "sympy__sympy-16792": {
+          "api_calls": 34,
+          "cost": 0.69637675,
+          "resolved": true
+        },
+        "sympy__sympy-16886": {
+          "api_calls": 14,
+          "cost": 0.21447549999999996,
+          "resolved": true
+        },
+        "sympy__sympy-17139": {
+          "api_calls": 23,
+          "cost": 0.29690874999999994,
+          "resolved": true
+        },
+        "sympy__sympy-17318": {
+          "api_calls": 28,
+          "cost": 0.5055115,
+          "resolved": false
+        },
+        "sympy__sympy-17630": {
+          "api_calls": 35,
+          "cost": 0.7717844999999999,
+          "resolved": false
+        },
+        "sympy__sympy-17655": {
+          "api_calls": 32,
+          "cost": 0.5638437499999999,
+          "resolved": true
+        },
+        "sympy__sympy-18189": {
+          "api_calls": 21,
+          "cost": 0.39305475,
+          "resolved": true
+        },
+        "sympy__sympy-18199": {
+          "api_calls": 33,
+          "cost": 0.7085257499999997,
+          "resolved": false
+        },
+        "sympy__sympy-18211": {
+          "api_calls": 32,
+          "cost": 0.5465462500000002,
+          "resolved": true
+        },
+        "sympy__sympy-18698": {
+          "api_calls": 38,
+          "cost": 0.9316769999999999,
+          "resolved": true
+        },
+        "sympy__sympy-18763": {
+          "api_calls": 38,
+          "cost": 0.63129175,
+          "resolved": false
+        },
+        "sympy__sympy-19040": {
+          "api_calls": 75,
+          "cost": 1.7379962500000008,
+          "resolved": true
+        },
+        "sympy__sympy-19346": {
+          "api_calls": 21,
+          "cost": 0.3252205000000001,
+          "resolved": true
+        },
+        "sympy__sympy-19495": {
+          "api_calls": 45,
+          "cost": 1.15812075,
+          "resolved": false
+        },
+        "sympy__sympy-19637": {
+          "api_calls": 19,
+          "cost": 0.30822549999999993,
+          "resolved": true
+        },
+        "sympy__sympy-19783": {
+          "api_calls": 43,
+          "cost": 0.9070925000000001,
+          "resolved": true
+        },
+        "sympy__sympy-19954": {
+          "api_calls": 19,
+          "cost": 0.29976175,
+          "resolved": true
+        },
+        "sympy__sympy-20154": {
+          "api_calls": 24,
+          "cost": 0.43726774999999996,
+          "resolved": true
+        },
+        "sympy__sympy-20428": {
+          "api_calls": 51,
+          "cost": 1.2863827500000002,
+          "resolved": false
+        },
+        "sympy__sympy-20438": {
+          "api_calls": 74,
+          "cost": 1.5733622499999995,
+          "resolved": false
+        },
+        "sympy__sympy-20590": {
+          "api_calls": 20,
+          "cost": 0.33936575,
+          "resolved": true
+        },
+        "sympy__sympy-20801": {
+          "api_calls": 19,
+          "cost": 0.29443325000000004,
+          "resolved": true
+        },
+        "sympy__sympy-20916": {
+          "api_calls": 37,
+          "cost": 0.7521542500000001,
+          "resolved": true
+        },
+        "sympy__sympy-21379": {
+          "api_calls": 37,
+          "cost": 0.73347725,
+          "resolved": true
+        },
+        "sympy__sympy-21596": {
+          "api_calls": 38,
+          "cost": 1.0026482500000002,
+          "resolved": false
+        },
+        "sympy__sympy-21612": {
+          "api_calls": 41,
+          "cost": 0.9293705000000002,
+          "resolved": true
+        },
+        "sympy__sympy-21847": {
+          "api_calls": 23,
+          "cost": 0.3873505,
+          "resolved": true
+        },
+        "sympy__sympy-21930": {
+          "api_calls": 35,
+          "cost": 0.7807549999999999,
+          "resolved": false
+        },
+        "sympy__sympy-22080": {
+          "api_calls": 41,
+          "cost": 0.9856275000000002,
+          "resolved": false
+        },
+        "sympy__sympy-22456": {
+          "api_calls": 26,
+          "cost": 0.36638350000000003,
+          "resolved": true
+        },
+        "sympy__sympy-22714": {
+          "api_calls": 21,
+          "cost": 0.31055949999999993,
+          "resolved": true
+        },
+        "sympy__sympy-22914": {
+          "api_calls": 28,
+          "cost": 0.44116874999999994,
+          "resolved": true
+        },
+        "sympy__sympy-23262": {
+          "api_calls": 35,
+          "cost": 0.6956104999999999,
+          "resolved": true
+        },
+        "sympy__sympy-23413": {
+          "api_calls": 30,
+          "cost": 1.3863294999999998,
+          "resolved": true
+        },
+        "sympy__sympy-23534": {
+          "api_calls": 25,
+          "cost": 0.37956974999999993,
+          "resolved": true
+        },
+        "sympy__sympy-23824": {
+          "api_calls": 17,
+          "cost": 0.33781,
+          "resolved": true
+        },
+        "sympy__sympy-23950": {
+          "api_calls": 36,
+          "cost": 0.7429692499999999,
+          "resolved": false
+        },
+        "sympy__sympy-24066": {
+          "api_calls": 21,
+          "cost": 0.3891175,
+          "resolved": true
+        },
+        "sympy__sympy-24213": {
+          "api_calls": 19,
+          "cost": 0.34517775000000006,
+          "resolved": true
+        },
+        "sympy__sympy-24443": {
+          "api_calls": 25,
+          "cost": 0.5338229999999999,
+          "resolved": true
+        },
+        "sympy__sympy-24539": {
+          "api_calls": 14,
+          "cost": 0.23927449999999997,
+          "resolved": true
+        },
+        "sympy__sympy-24562": {
+          "api_calls": 23,
+          "cost": 0.5466682499999999,
+          "resolved": true
+        },
+        "sympy__sympy-24661": {
+          "api_calls": 27,
+          "cost": 0.5685840000000001,
+          "resolved": true
+        }
+      },
+      "reasoning_effort": "high",
+      "resolved": 76.8,
+      "site": "https://www.anthropic.com/claude",
+      "tags": [
+        "Model: claude-4-5-opus",
+        "Org: Anthropic",
+        "System: Attempts - 1",
+        "Mini: 2.0.0"
+      ],
+      "trajs": "s3://swe-bench-submissions/bash-only/20260217_mini-v2.0.0_claude-4-5-opus-high/trajs",
+      "trajs_docent": "https://docent.transluce.org/dashboard/b038912e-0133-4594-b093-92806f8ffb17",
+      "warning": null
+    },
+    {
+      "agent": "mini-SWE-agent",
+      "agent_org": "SWE-agent",
+      "checked": null,
+      "cost": 236.78350885,
+      "date": "2026-02-17",
+      "folder": "20260217_mini-v2.0.0_gpt-5-2-high",
+      "instance_calls": 35.046,
+      "instance_cost": 0.4735670177,
+      "logo": [
+        "img/logos/20260217_mini-v2.0.0_gpt-5-2-high.svg",
+        "img/mini-icon.svg"
+      ],
+      "logs": null,
+      "mini-swe-agent_version": "2.0.0",
+      "model_display": "GPT 5.2",
+      "model_org": "OpenAI",
+      "model_release_date": 20251211,
+      "name": "GPT 5.2 (high)",
+      "os_model": false,
+      "os_system": true,
+      "per_instance_details": {
+        "astropy__astropy-12907": {
+          "api_calls": 20,
+          "cost": 0.30075955,
+          "resolved": true
+        },
+        "astropy__astropy-13033": {
+          "api_calls": 35,
+          "cost": 0.36046149999999993,
+          "resolved": false
+        },
+        "astropy__astropy-13236": {
+          "api_calls": 22,
+          "cost": 0.14728314999999995,
+          "resolved": false
+        },
+        "astropy__astropy-13398": {
+          "api_calls": 70,
+          "cost": 2.1274974,
+          "resolved": false
+        },
+        "astropy__astropy-13453": {
+          "api_calls": 49,
+          "cost": 0.49807940000000006,
+          "resolved": true
+        },
+        "astropy__astropy-13579": {
+          "api_calls": 44,
+          "cost": 0.7521825499999999,
+          "resolved": true
+        },
+        "astropy__astropy-13977": {
+          "api_calls": 41,
+          "cost": 0.5261738999999999,
+          "resolved": false
+        },
+        "astropy__astropy-14096": {
+          "api_calls": 24,
+          "cost": 0.33693415000000004,
+          "resolved": true
+        },
+        "astropy__astropy-14182": {
+          "api_calls": 28,
+          "cost": 0.45696734999999994,
+          "resolved": true
+        },
+        "astropy__astropy-14309": {
+          "api_calls": 39,
+          "cost": 0.3616049500000001,
+          "resolved": true
+        },
+        "astropy__astropy-14365": {
+          "api_calls": 29,
+          "cost": 0.27853,
+          "resolved": false
+        },
+        "astropy__astropy-14369": {
+          "api_calls": 53,
+          "cost": 0.9223284,
+          "resolved": false
+        },
+        "astropy__astropy-14508": {
+          "api_calls": 39,
+          "cost": 0.7200893,
+          "resolved": true
+        },
+        "astropy__astropy-14539": {
+          "api_calls": 42,
+          "cost": 0.8720893999999999,
+          "resolved": true
+        },
+        "astropy__astropy-14598": {
+          "api_calls": 57,
+          "cost": 1.3258146999999998,
+          "resolved": false
+        },
+        "astropy__astropy-14995": {
+          "api_calls": 40,
+          "cost": 0.44133739999999994,
+          "resolved": true
+        },
+        "astropy__astropy-7166": {
+          "api_calls": 42,
+          "cost": 0.8079253,
+          "resolved": true
+        },
+        "astropy__astropy-7336": {
+          "api_calls": 23,
+          "cost": 0.24127775,
+          "resolved": true
+        },
+        "astropy__astropy-7606": {
+          "api_calls": 24,
+          "cost": 0.24142615000000003,
+          "resolved": false
+        },
+        "astropy__astropy-7671": {
+          "api_calls": 39,
+          "cost": 0.5807952500000001,
+          "resolved": true
+        },
+        "astropy__astropy-8707": {
+          "api_calls": 47,
+          "cost": 0.7093149000000001,
+          "resolved": false
+        },
+        "astropy__astropy-8872": {
+          "api_calls": 32,
+          "cost": 0.45217865,
+          "resolved": false
+        },
+        "django__django-10097": {
+          "api_calls": 12,
+          "cost": 0.13344975,
+          "resolved": false
+        },
+        "django__django-10554": {
+          "api_calls": 73,
+          "cost": 2.3390181500000002,
+          "resolved": false
+        },
+        "django__django-10880": {
+          "api_calls": 16,
+          "cost": 0.13754685000000003,
+          "resolved": true
+        },
+        "django__django-10914": {
+          "api_calls": 29,
+          "cost": 0.34959855,
+          "resolved": true
+        },
+        "django__django-10973": {
+          "api_calls": 17,
+          "cost": 0.1968211,
+          "resolved": false
+        },
+        "django__django-10999": {
+          "api_calls": 15,
+          "cost": 0.14612920000000001,
+          "resolved": false
+        },
+        "django__django-11066": {
+          "api_calls": 10,
+          "cost": 0.06436955,
+          "resolved": true
+        },
+        "django__django-11087": {
+          "api_calls": 53,
+          "cost": 1.2693131500000001,
+          "resolved": false
+        },
+        "django__django-11095": {
+          "api_calls": 19,
+          "cost": 0.15505699999999997,
+          "resolved": true
+        },
+        "django__django-11099": {
+          "api_calls": 23,
+          "cost": 0.13046495,
+          "resolved": true
+        },
+        "django__django-11119": {
+          "api_calls": 19,
+          "cost": 0.17676750000000002,
+          "resolved": true
+        },
+        "django__django-11133": {
+          "api_calls": 16,
+          "cost": 0.30775745,
+          "resolved": true
+        },
+        "django__django-11138": {
+          "api_calls": 30,
+          "cost": 0.8440397000000001,
+          "resolved": true
+        },
+        "django__django-11141": {
+          "api_calls": 21,
+          "cost": 0.24352125,
+          "resolved": false
+        },
+        "django__django-11149": {
+          "api_calls": 72,
+          "cost": 1.4345470999999999,
+          "resolved": false
+        },
+        "django__django-11163": {
+          "api_calls": 18,
+          "cost": 0.17207645,
+          "resolved": true
+        },
+        "django__django-11179": {
+          "api_calls": 19,
+          "cost": 0.16195025,
+          "resolved": true
+        },
+        "django__django-11206": {
+          "api_calls": 18,
+          "cost": 0.3215191,
+          "resolved": true
+        },
+        "django__django-11211": {
+          "api_calls": 27,
+          "cost": 0.42677705000000005,
+          "resolved": true
+        },
+        "django__django-11239": {
+          "api_calls": 18,
+          "cost": 0.13923665000000002,
+          "resolved": true
+        },
+        "django__django-11265": {
+          "api_calls": 55,
+          "cost": 0.89867365,
+          "resolved": true
+        },
+        "django__django-11276": {
+          "api_calls": 14,
+          "cost": 0.08835960000000001,
+          "resolved": true
+        },
+        "django__django-11292": {
+          "api_calls": 20,
+          "cost": 0.25471635,
+          "resolved": true
+        },
+        "django__django-11299": {
+          "api_calls": 26,
+          "cost": 0.27918624999999997,
+          "resolved": true
+        },
+        "django__django-11333": {
+          "api_calls": 22,
+          "cost": 0.23827825000000002,
+          "resolved": true
+        },
+        "django__django-11400": {
+          "api_calls": 34,
+          "cost": 0.44470895,
+          "resolved": false
+        },
+        "django__django-11433": {
+          "api_calls": 22,
+          "cost": 0.3136105,
+          "resolved": true
+        },
+        "django__django-11451": {
+          "api_calls": 16,
+          "cost": 0.13801480000000002,
+          "resolved": true
+        },
+        "django__django-11477": {
+          "api_calls": 50,
+          "cost": 0.9045756999999999,
+          "resolved": false
+        },
+        "django__django-11490": {
+          "api_calls": 46,
+          "cost": 0.6458305,
+          "resolved": true
+        },
+        "django__django-11532": {
+          "api_calls": 24,
+          "cost": 0.30861285,
+          "resolved": true
+        },
+        "django__django-11551": {
+          "api_calls": 23,
+          "cost": 0.3559136,
+          "resolved": true
+        },
+        "django__django-11555": {
+          "api_calls": 56,
+          "cost": 1.06270185,
+          "resolved": true
+        },
+        "django__django-11603": {
+          "api_calls": 15,
+          "cost": 0.11515105,
+          "resolved": true
+        },
+        "django__django-11728": {
+          "api_calls": 29,
+          "cost": 0.3583807499999999,
+          "resolved": true
+        },
+        "django__django-11734": {
+          "api_calls": 61,
+          "cost": 1.1116633499999997,
+          "resolved": false
+        },
+        "django__django-11740": {
+          "api_calls": 48,
+          "cost": 0.8543608499999998,
+          "resolved": true
+        },
+        "django__django-11749": {
+          "api_calls": 15,
+          "cost": 0.34543425,
+          "resolved": true
+        },
+        "django__django-11790": {
+          "api_calls": 31,
+          "cost": 0.38929695,
+          "resolved": false
+        },
+        "django__django-11815": {
+          "api_calls": 30,
+          "cost": 0.34135499999999996,
+          "resolved": true
+        },
+        "django__django-11820": {
+          "api_calls": 26,
+          "cost": 0.3778131,
+          "resolved": false
+        },
+        "django__django-11848": {
+          "api_calls": 19,
+          "cost": 0.26432805,
+          "resolved": true
+        },
+        "django__django-11880": {
+          "api_calls": 22,
+          "cost": 0.17307465,
+          "resolved": true
+        },
+        "django__django-11885": {
+          "api_calls": 68,
+          "cost": 1.6896256999999995,
+          "resolved": true
+        },
+        "django__django-11951": {
+          "api_calls": 22,
+          "cost": 0.22650669999999998,
+          "resolved": true
+        },
+        "django__django-11964": {
+          "api_calls": 26,
+          "cost": 0.30752085000000007,
+          "resolved": true
+        },
+        "django__django-11999": {
+          "api_calls": 24,
+          "cost": 0.3144326499999999,
+          "resolved": true
+        },
+        "django__django-12039": {
+          "api_calls": 31,
+          "cost": 0.3265423,
+          "resolved": true
+        },
+        "django__django-12050": {
+          "api_calls": 21,
+          "cost": 0.16205944999999997,
+          "resolved": true
+        },
+        "django__django-12125": {
+          "api_calls": 35,
+          "cost": 0.51794715,
+          "resolved": true
+        },
+        "django__django-12143": {
+          "api_calls": 13,
+          "cost": 0.08461284999999999,
+          "resolved": true
+        },
+        "django__django-12155": {
+          "api_calls": 13,
+          "cost": 0.14413595,
+          "resolved": true
+        },
+        "django__django-12193": {
+          "api_calls": 25,
+          "cost": 0.2604672,
+          "resolved": true
+        },
+        "django__django-12209": {
+          "api_calls": 53,
+          "cost": 1.1043823000000004,
+          "resolved": true
+        },
+        "django__django-12262": {
+          "api_calls": 26,
+          "cost": 0.3091711,
+          "resolved": true
+        },
+        "django__django-12273": {
+          "api_calls": 26,
+          "cost": 0.49269325,
+          "resolved": false
+        },
+        "django__django-12276": {
+          "api_calls": 38,
+          "cost": 0.43999620000000006,
+          "resolved": true
+        },
+        "django__django-12304": {
+          "api_calls": 25,
+          "cost": 0.24289929999999998,
+          "resolved": true
+        },
+        "django__django-12308": {
+          "api_calls": 23,
+          "cost": 0.27872984999999995,
+          "resolved": false
+        },
+        "django__django-12325": {
+          "api_calls": 37,
+          "cost": 0.66893085,
+          "resolved": false
+        },
+        "django__django-12406": {
+          "api_calls": 26,
+          "cost": 0.36198890000000006,
+          "resolved": false
+        },
+        "django__django-12419": {
+          "api_calls": 48,
+          "cost": 0.5518159499999999,
+          "resolved": true
+        },
+        "django__django-12663": {
+          "api_calls": 56,
+          "cost": 0.8646592499999997,
+          "resolved": true
+        },
+        "django__django-12708": {
+          "api_calls": 23,
+          "cost": 0.2522247,
+          "resolved": true
+        },
+        "django__django-12713": {
+          "api_calls": 19,
+          "cost": 0.18198005,
+          "resolved": true
+        },
+        "django__django-12741": {
+          "api_calls": 20,
+          "cost": 0.10326189999999999,
+          "resolved": true
+        },
+        "django__django-12754": {
+          "api_calls": 45,
+          "cost": 0.8743321999999997,
+          "resolved": true
+        },
+        "django__django-12774": {
+          "api_calls": 26,
+          "cost": 0.23360889999999998,
+          "resolved": true
+        },
+        "django__django-12858": {
+          "api_calls": 64,
+          "cost": 1.3709794000000004,
+          "resolved": true
+        },
+        "django__django-12965": {
+          "api_calls": 60,
+          "cost": 1.65730495,
+          "resolved": true
+        },
+        "django__django-13012": {
+          "api_calls": 43,
+          "cost": 0.8189796999999999,
+          "resolved": true
+        },
+        "django__django-13023": {
+          "api_calls": 19,
+          "cost": 0.14832579999999998,
+          "resolved": false
+        },
+        "django__django-13028": {
+          "api_calls": 25,
+          "cost": 0.22183595,
+          "resolved": true
+        },
+        "django__django-13033": {
+          "api_calls": 35,
+          "cost": 0.53361945,
+          "resolved": true
+        },
+        "django__django-13089": {
+          "api_calls": 22,
+          "cost": 0.4251950500000001,
+          "resolved": true
+        },
+        "django__django-13109": {
+          "api_calls": 18,
+          "cost": 0.13956775000000002,
+          "resolved": true
+        },
+        "django__django-13112": {
+          "api_calls": 95,
+          "cost": 2.2335085500000003,
+          "resolved": true
+        },
+        "django__django-13121": {
+          "api_calls": 67,
+          "cost": 0.941122,
+          "resolved": true
+        },
+        "django__django-13128": {
+          "api_calls": 35,
+          "cost": 0.45457369999999997,
+          "resolved": true
+        },
+        "django__django-13158": {
+          "api_calls": 45,
+          "cost": 0.54890745,
+          "resolved": true
+        },
+        "django__django-13195": {
+          "api_calls": 30,
+          "cost": 0.6821044999999999,
+          "resolved": false
+        },
+        "django__django-13212": {
+          "api_calls": 40,
+          "cost": 0.6892927999999999,
+          "resolved": false
+        },
+        "django__django-13279": {
+          "api_calls": 30,
+          "cost": 0.4566082500000001,
+          "resolved": true
+        },
+        "django__django-13297": {
+          "api_calls": 21,
+          "cost": 0.3793314,
+          "resolved": true
+        },
+        "django__django-13315": {
+          "api_calls": 36,
+          "cost": 0.5548458999999999,
+          "resolved": true
+        },
+        "django__django-13343": {
+          "api_calls": 19,
+          "cost": 0.21798070000000003,
+          "resolved": true
+        },
+        "django__django-13344": {
+          "api_calls": 25,
+          "cost": 0.68873735,
+          "resolved": false
+        },
+        "django__django-13346": {
+          "api_calls": 35,
+          "cost": 1.1565777999999998,
+          "resolved": true
+        },
+        "django__django-13363": {
+          "api_calls": 22,
+          "cost": 0.21389619999999995,
+          "resolved": true
+        },
+        "django__django-13401": {
+          "api_calls": 28,
+          "cost": 0.30536345,
+          "resolved": true
+        },
+        "django__django-13406": {
+          "api_calls": 53,
+          "cost": 1.3065366999999997,
+          "resolved": false
+        },
+        "django__django-13410": {
+          "api_calls": 14,
+          "cost": 0.18119604999999997,
+          "resolved": true
+        },
+        "django__django-13417": {
+          "api_calls": 33,
+          "cost": 0.43272354999999996,
+          "resolved": true
+        },
+        "django__django-13449": {
+          "api_calls": 36,
+          "cost": 0.64775865,
+          "resolved": true
+        },
+        "django__django-13512": {
+          "api_calls": 22,
+          "cost": 0.2058553,
+          "resolved": false
+        },
+        "django__django-13513": {
+          "api_calls": 26,
+          "cost": 0.3356955,
+          "resolved": false
+        },
+        "django__django-13516": {
+          "api_calls": 17,
+          "cost": 0.1625638,
+          "resolved": true
+        },
+        "django__django-13551": {
+          "api_calls": 24,
+          "cost": 0.33543614999999993,
+          "resolved": true
+        },
+        "django__django-13568": {
+          "api_calls": 28,
+          "cost": 0.3544625,
+          "resolved": true
+        },
+        "django__django-13569": {
+          "api_calls": 49,
+          "cost": 0.92474865,
+          "resolved": true
+        },
+        "django__django-13590": {
+          "api_calls": 26,
+          "cost": 0.24403889999999992,
+          "resolved": true
+        },
+        "django__django-13658": {
+          "api_calls": 26,
+          "cost": 0.25673305,
+          "resolved": true
+        },
+        "django__django-13670": {
+          "api_calls": 14,
+          "cost": 0.0994637,
+          "resolved": true
+        },
+        "django__django-13741": {
+          "api_calls": 21,
+          "cost": 0.1780121,
+          "resolved": true
+        },
+        "django__django-13786": {
+          "api_calls": 33,
+          "cost": 0.36286985,
+          "resolved": true
+        },
+        "django__django-13794": {
+          "api_calls": 27,
+          "cost": 0.267869,
+          "resolved": false
+        },
+        "django__django-13807": {
+          "api_calls": 32,
+          "cost": 0.40866630000000004,
+          "resolved": true
+        },
+        "django__django-13809": {
+          "api_calls": 20,
+          "cost": 0.34677754999999993,
+          "resolved": true
+        },
+        "django__django-13810": {
+          "api_calls": 11,
+          "cost": 0.25330865,
+          "resolved": true
+        },
+        "django__django-13820": {
+          "api_calls": 19,
+          "cost": 0.2527245,
+          "resolved": true
+        },
+        "django__django-13821": {
+          "api_calls": 49,
+          "cost": 0.8359816500000001,
+          "resolved": true
+        },
+        "django__django-13837": {
+          "api_calls": 31,
+          "cost": 0.36808694999999997,
+          "resolved": true
+        },
+        "django__django-13925": {
+          "api_calls": 30,
+          "cost": 0.48538630000000005,
+          "resolved": true
+        },
+        "django__django-13933": {
+          "api_calls": 32,
+          "cost": 0.37214870000000005,
+          "resolved": true
+        },
+        "django__django-13964": {
+          "api_calls": 24,
+          "cost": 0.5217985500000001,
+          "resolved": true
+        },
+        "django__django-14007": {
+          "api_calls": 31,
+          "cost": 0.5490422,
+          "resolved": true
+        },
+        "django__django-14011": {
+          "api_calls": 35,
+          "cost": 0.7645365,
+          "resolved": false
+        },
+        "django__django-14017": {
+          "api_calls": 34,
+          "cost": 0.4523952999999999,
+          "resolved": true
+        },
+        "django__django-14034": {
+          "api_calls": 33,
+          "cost": 0.5851856499999998,
+          "resolved": false
+        },
+        "django__django-14053": {
+          "api_calls": 47,
+          "cost": 1.0024510999999996,
+          "resolved": true
+        },
+        "django__django-14089": {
+          "api_calls": 14,
+          "cost": 0.10517989999999999,
+          "resolved": true
+        },
+        "django__django-14122": {
+          "api_calls": 53,
+          "cost": 0.8376385499999999,
+          "resolved": true
+        },
+        "django__django-14140": {
+          "api_calls": 22,
+          "cost": 0.206549,
+          "resolved": false
+        },
+        "django__django-14155": {
+          "api_calls": 22,
+          "cost": 0.31202885,
+          "resolved": false
+        },
+        "django__django-14170": {
+          "api_calls": 28,
+          "cost": 0.37629969999999996,
+          "resolved": false
+        },
+        "django__django-14238": {
+          "api_calls": 19,
+          "cost": 0.16802309999999998,
+          "resolved": true
+        },
+        "django__django-14311": {
+          "api_calls": 19,
+          "cost": 0.20253939999999995,
+          "resolved": true
+        },
+        "django__django-14315": {
+          "api_calls": 22,
+          "cost": 0.16865660000000002,
+          "resolved": false
+        },
+        "django__django-14349": {
+          "api_calls": 27,
+          "cost": 0.4248929999999999,
+          "resolved": true
+        },
+        "django__django-14351": {
+          "api_calls": 57,
+          "cost": 0.9848138999999999,
+          "resolved": true
+        },
+        "django__django-14373": {
+          "api_calls": 18,
+          "cost": 0.12258610000000002,
+          "resolved": true
+        },
+        "django__django-14376": {
+          "api_calls": 23,
+          "cost": 0.21996309999999994,
+          "resolved": false
+        },
+        "django__django-14404": {
+          "api_calls": 22,
+          "cost": 0.2094939,
+          "resolved": true
+        },
+        "django__django-14434": {
+          "api_calls": 37,
+          "cost": 0.6439943999999999,
+          "resolved": true
+        },
+        "django__django-14493": {
+          "api_calls": 14,
+          "cost": 0.1749216,
+          "resolved": true
+        },
+        "django__django-14500": {
+          "api_calls": 23,
+          "cost": 0.4086866,
+          "resolved": true
+        },
+        "django__django-14534": {
+          "api_calls": 16,
+          "cost": 0.1955877,
+          "resolved": false
+        },
+        "django__django-14539": {
+          "api_calls": 20,
+          "cost": 0.30844589999999994,
+          "resolved": true
+        },
+        "django__django-14559": {
+          "api_calls": 20,
+          "cost": 0.19979784999999994,
+          "resolved": true
+        },
+        "django__django-14580": {
+          "api_calls": 22,
+          "cost": 0.22521660000000002,
+          "resolved": true
+        },
+        "django__django-14608": {
+          "api_calls": 33,
+          "cost": 0.4086999,
+          "resolved": true
+        },
+        "django__django-14631": {
+          "api_calls": 40,
+          "cost": 0.41547975000000004,
+          "resolved": true
+        },
+        "django__django-14672": {
+          "api_calls": 18,
+          "cost": 0.14580405,
+          "resolved": true
+        },
+        "django__django-14725": {
+          "api_calls": 45,
+          "cost": 0.75111715,
+          "resolved": false
+        },
+        "django__django-14752": {
+          "api_calls": 17,
+          "cost": 0.22315965,
+          "resolved": true
+        },
+        "django__django-14765": {
+          "api_calls": 19,
+          "cost": 0.1752716,
+          "resolved": true
+        },
+        "django__django-14771": {
+          "api_calls": 20,
+          "cost": 0.23576979999999995,
+          "resolved": false
+        },
+        "django__django-14787": {
+          "api_calls": 24,
+          "cost": 0.35833489999999996,
+          "resolved": true
+        },
+        "django__django-14792": {
+          "api_calls": 36,
+          "cost": 0.6918218999999999,
+          "resolved": false
+        },
+        "django__django-14855": {
+          "api_calls": 31,
+          "cost": 0.38404835,
+          "resolved": true
+        },
+        "django__django-14915": {
+          "api_calls": 15,
+          "cost": 0.11025489999999999,
+          "resolved": true
+        },
+        "django__django-14999": {
+          "api_calls": 38,
+          "cost": 0.7476423499999998,
+          "resolved": true
+        },
+        "django__django-15022": {
+          "api_calls": 78,
+          "cost": 1.9653413499999997,
+          "resolved": false
+        },
+        "django__django-15037": {
+          "api_calls": 36,
+          "cost": 0.6123141499999999,
+          "resolved": true
+        },
+        "django__django-15098": {
+          "api_calls": 64,
+          "cost": 0.8931699000000001,
+          "resolved": false
+        },
+        "django__django-15103": {
+          "api_calls": 24,
+          "cost": 0.25645025000000005,
+          "resolved": true
+        },
+        "django__django-15104": {
+          "api_calls": 21,
+          "cost": 0.1758316,
+          "resolved": true
+        },
+        "django__django-15127": {
+          "api_calls": 41,
+          "cost": 0.37346994999999994,
+          "resolved": true
+        },
+        "django__django-15128": {
+          "api_calls": 44,
+          "cost": 0.8822551500000001,
+          "resolved": true
+        },
+        "django__django-15161": {
+          "api_calls": 34,
+          "cost": 0.4417798,
+          "resolved": true
+        },
+        "django__django-15252": {
+          "api_calls": 27,
+          "cost": 0.32061015,
+          "resolved": false
+        },
+        "django__django-15268": {
+          "api_calls": 28,
+          "cost": 0.41407695000000005,
+          "resolved": true
+        },
+        "django__django-15277": {
+          "api_calls": 14,
+          "cost": 0.06846279999999999,
+          "resolved": true
+        },
+        "django__django-15278": {
+          "api_calls": 52,
+          "cost": 0.6299447,
+          "resolved": true
+        },
+        "django__django-15280": {
+          "api_calls": 70,
+          "cost": 1.18404055,
+          "resolved": true
+        },
+        "django__django-15315": {
+          "api_calls": 29,
+          "cost": 0.24184684999999995,
+          "resolved": true
+        },
+        "django__django-15368": {
+          "api_calls": 26,
+          "cost": 0.16776585000000002,
+          "resolved": true
+        },
+        "django__django-15375": {
+          "api_calls": 39,
+          "cost": 0.42731535,
+          "resolved": true
+        },
+        "django__django-15380": {
+          "api_calls": 20,
+          "cost": 0.22841385000000003,
+          "resolved": true
+        },
+        "django__django-15382": {
+          "api_calls": 45,
+          "cost": 0.6108963000000002,
+          "resolved": true
+        },
+        "django__django-15467": {
+          "api_calls": 21,
+          "cost": 0.15828330000000002,
+          "resolved": true
+        },
+        "django__django-15499": {
+          "api_calls": 33,
+          "cost": 0.31040939999999995,
+          "resolved": true
+        },
+        "django__django-15503": {
+          "api_calls": 20,
+          "cost": 0.34601525,
+          "resolved": false
+        },
+        "django__django-15525": {
+          "api_calls": 32,
+          "cost": 0.48384594999999997,
+          "resolved": true
+        },
+        "django__django-15554": {
+          "api_calls": 57,
+          "cost": 1.25179775,
+          "resolved": true
+        },
+        "django__django-15561": {
+          "api_calls": 24,
+          "cost": 0.1968449,
+          "resolved": true
+        },
+        "django__django-15563": {
+          "api_calls": 50,
+          "cost": 0.7542986499999997,
+          "resolved": false
+        },
+        "django__django-15569": {
+          "api_calls": 18,
+          "cost": 0.16099895000000003,
+          "resolved": true
+        },
+        "django__django-15572": {
+          "api_calls": 32,
+          "cost": 0.34891674999999994,
+          "resolved": true
+        },
+        "django__django-15629": {
+          "api_calls": 35,
+          "cost": 0.4697315,
+          "resolved": false
+        },
+        "django__django-15695": {
+          "api_calls": 44,
+          "cost": 0.6837803,
+          "resolved": false
+        },
+        "django__django-15731": {
+          "api_calls": 24,
+          "cost": 0.19518310000000003,
+          "resolved": true
+        },
+        "django__django-15732": {
+          "api_calls": 22,
+          "cost": 0.3050481,
+          "resolved": true
+        },
+        "django__django-15741": {
+          "api_calls": 27,
+          "cost": 0.38010735000000007,
+          "resolved": true
+        },
+        "django__django-15814": {
+          "api_calls": 36,
+          "cost": 0.40578509999999995,
+          "resolved": true
+        },
+        "django__django-15851": {
+          "api_calls": 16,
+          "cost": 0.07993265000000002,
+          "resolved": true
+        },
+        "django__django-15863": {
+          "api_calls": 21,
+          "cost": 0.27208545,
+          "resolved": true
+        },
+        "django__django-15916": {
+          "api_calls": 49,
+          "cost": 0.7675954999999999,
+          "resolved": true
+        },
+        "django__django-15930": {
+          "api_calls": 38,
+          "cost": 0.35076405000000005,
+          "resolved": true
+        },
+        "django__django-15957": {
+          "api_calls": 85,
+          "cost": 1.9256684999999996,
+          "resolved": false
+        },
+        "django__django-15973": {
+          "api_calls": 38,
+          "cost": 0.6555580499999999,
+          "resolved": false
+        },
+        "django__django-15987": {
+          "api_calls": 18,
+          "cost": 0.16862335,
+          "resolved": true
+        },
+        "django__django-16032": {
+          "api_calls": 56,
+          "cost": 0.6414408000000001,
+          "resolved": true
+        },
+        "django__django-16082": {
+          "api_calls": 23,
+          "cost": 0.17256679999999996,
+          "resolved": true
+        },
+        "django__django-16100": {
+          "api_calls": 30,
+          "cost": 0.31219300000000005,
+          "resolved": true
+        },
+        "django__django-16116": {
+          "api_calls": 29,
+          "cost": 0.29217334999999994,
+          "resolved": true
+        },
+        "django__django-16136": {
+          "api_calls": 17,
+          "cost": 0.17516345,
+          "resolved": true
+        },
+        "django__django-16139": {
+          "api_calls": 22,
+          "cost": 0.25646004999999994,
+          "resolved": true
+        },
+        "django__django-16145": {
+          "api_calls": 24,
+          "cost": 0.32496379999999997,
+          "resolved": true
+        },
+        "django__django-16255": {
+          "api_calls": 15,
+          "cost": 0.11228665000000003,
+          "resolved": true
+        },
+        "django__django-16256": {
+          "api_calls": 41,
+          "cost": 0.5457613000000001,
+          "resolved": false
+        },
+        "django__django-16263": {
+          "api_calls": 69,
+          "cost": 2.2146551,
+          "resolved": false
+        },
+        "django__django-16315": {
+          "api_calls": 32,
+          "cost": 0.40927389999999997,
+          "resolved": true
+        },
+        "django__django-16333": {
+          "api_calls": 21,
+          "cost": 0.18725455000000005,
+          "resolved": true
+        },
+        "django__django-16429": {
+          "api_calls": 14,
+          "cost": 0.16255155,
+          "resolved": true
+        },
+        "django__django-16454": {
+          "api_calls": 29,
+          "cost": 0.29467095000000004,
+          "resolved": true
+        },
+        "django__django-16485": {
+          "api_calls": 16,
+          "cost": 0.16748969999999996,
+          "resolved": true
+        },
+        "django__django-16493": {
+          "api_calls": 17,
+          "cost": 0.10905299999999998,
+          "resolved": true
+        },
+        "django__django-16502": {
+          "api_calls": 39,
+          "cost": 0.6649930000000003,
+          "resolved": false
+        },
+        "django__django-16527": {
+          "api_calls": 17,
+          "cost": 0.12037935000000001,
+          "resolved": true
+        },
+        "django__django-16560": {
+          "api_calls": 28,
+          "cost": 0.8931153000000001,
+          "resolved": true
+        },
+        "django__django-16569": {
+          "api_calls": 17,
+          "cost": 0.09597035,
+          "resolved": true
+        },
+        "django__django-16595": {
+          "api_calls": 29,
+          "cost": 0.4481897000000001,
+          "resolved": true
+        },
+        "django__django-16612": {
+          "api_calls": 16,
+          "cost": 0.0950383,
+          "resolved": true
+        },
+        "django__django-16631": {
+          "api_calls": 21,
+          "cost": 0.24263435000000003,
+          "resolved": false
+        },
+        "django__django-16642": {
+          "api_calls": 17,
+          "cost": 0.15046185,
+          "resolved": true
+        },
+        "django__django-16661": {
+          "api_calls": 19,
+          "cost": 0.16456265,
+          "resolved": true
+        },
+        "django__django-16662": {
+          "api_calls": 25,
+          "cost": 0.3442267500000001,
+          "resolved": true
+        },
+        "django__django-16667": {
+          "api_calls": 27,
+          "cost": 0.18749185000000002,
+          "resolved": false
+        },
+        "django__django-16801": {
+          "api_calls": 17,
+          "cost": 0.14233310000000002,
+          "resolved": true
+        },
+        "django__django-16819": {
+          "api_calls": 48,
+          "cost": 1.1572876,
+          "resolved": true
+        },
+        "django__django-16877": {
+          "api_calls": 22,
+          "cost": 0.15278060000000002,
+          "resolved": true
+        },
+        "django__django-16899": {
+          "api_calls": 26,
+          "cost": 0.21514080000000002,
+          "resolved": true
+        },
+        "django__django-16901": {
+          "api_calls": 35,
+          "cost": 0.43618189999999996,
+          "resolved": true
+        },
+        "django__django-16938": {
+          "api_calls": 26,
+          "cost": 0.2899232,
+          "resolved": true
+        },
+        "django__django-16950": {
+          "api_calls": 33,
+          "cost": 0.591521,
+          "resolved": false
+        },
+        "django__django-17029": {
+          "api_calls": 14,
+          "cost": 0.09100735,
+          "resolved": true
+        },
+        "django__django-17084": {
+          "api_calls": 63,
+          "cost": 0.776251,
+          "resolved": true
+        },
+        "django__django-17087": {
+          "api_calls": 23,
+          "cost": 0.21853299999999992,
+          "resolved": true
+        },
+        "django__django-7530": {
+          "api_calls": 18,
+          "cost": 0.16222990000000004,
+          "resolved": true
+        },
+        "django__django-9296": {
+          "api_calls": 11,
+          "cost": 0.07101045,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-13989": {
+          "api_calls": 30,
+          "cost": 0.23637564999999996,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-14623": {
+          "api_calls": 50,
+          "cost": 0.4333489999999998,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-20488": {
+          "api_calls": 40,
+          "cost": 0.60188975,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-20676": {
+          "api_calls": 44,
+          "cost": 0.5914282499999999,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-20826": {
+          "api_calls": 44,
+          "cost": 0.69766515,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-20859": {
+          "api_calls": 45,
+          "cost": 0.2936486,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-21568": {
+          "api_calls": 68,
+          "cost": 1.3304486999999998,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-22719": {
+          "api_calls": 26,
+          "cost": 0.16351580000000002,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-22865": {
+          "api_calls": 30,
+          "cost": 0.4795112,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-22871": {
+          "api_calls": 32,
+          "cost": 0.45658934999999995,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23299": {
+          "api_calls": 39,
+          "cost": 0.49328544999999996,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-23314": {
+          "api_calls": 31,
+          "cost": 0.19441555000000002,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23412": {
+          "api_calls": 38,
+          "cost": 0.24754484999999998,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-23476": {
+          "api_calls": 35,
+          "cost": 0.38320835,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-24026": {
+          "api_calls": 51,
+          "cost": 0.48220725,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24149": {
+          "api_calls": 29,
+          "cost": 0.24345439999999996,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24177": {
+          "api_calls": 44,
+          "cost": 0.5310602499999999,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24570": {
+          "api_calls": 25,
+          "cost": 0.32621154999999996,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24627": {
+          "api_calls": 74,
+          "cost": 0.9829571499999998,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24637": {
+          "api_calls": 49,
+          "cost": 0.40897815,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-24870": {
+          "api_calls": 40,
+          "cost": 0.5523258999999999,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-24970": {
+          "api_calls": 26,
+          "cost": 0.20406785,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25122": {
+          "api_calls": 38,
+          "cost": 0.5458180000000001,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25287": {
+          "api_calls": 41,
+          "cost": 0.29318380000000005,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25311": {
+          "api_calls": 52,
+          "cost": 0.6737636500000002,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-25332": {
+          "api_calls": 32,
+          "cost": 0.32993799999999995,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25479": {
+          "api_calls": 46,
+          "cost": 0.39866505,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-25775": {
+          "api_calls": 55,
+          "cost": 1.0093909,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-25960": {
+          "api_calls": 36,
+          "cost": 0.4131826999999999,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-26113": {
+          "api_calls": 29,
+          "cost": 0.33122915,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26208": {
+          "api_calls": 34,
+          "cost": 0.3615472,
+          "resolved": false
+        },
+        "matplotlib__matplotlib-26291": {
+          "api_calls": 48,
+          "cost": 0.46162129999999996,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26342": {
+          "api_calls": 45,
+          "cost": 0.43368499999999993,
+          "resolved": true
+        },
+        "matplotlib__matplotlib-26466": {
+          "api_calls": 43,
+          "cost": 0.45381314999999994,
+          "resolved": false
+        },
+        "mwaskom__seaborn-3069": {
+          "api_calls": 63,
+          "cost": 1.17943735,
+          "resolved": false
+        },
+        "mwaskom__seaborn-3187": {
+          "api_calls": 72,
+          "cost": 1.04829655,
+          "resolved": false
+        },
+        "pallets__flask-5014": {
+          "api_calls": 26,
+          "cost": 0.2427369,
+          "resolved": true
+        },
+        "psf__requests-1142": {
+          "api_calls": 54,
+          "cost": 0.5867281,
+          "resolved": true
+        },
+        "psf__requests-1724": {
+          "api_calls": 21,
+          "cost": 0.21901005,
+          "resolved": true
+        },
+        "psf__requests-1766": {
+          "api_calls": 14,
+          "cost": 0.24649169999999998,
+          "resolved": true
+        },
+        "psf__requests-1921": {
+          "api_calls": 60,
+          "cost": 0.44864785000000007,
+          "resolved": true
+        },
+        "psf__requests-2317": {
+          "api_calls": 45,
+          "cost": 0.4617570999999999,
+          "resolved": true
+        },
+        "psf__requests-2931": {
+          "api_calls": 43,
+          "cost": 0.39085829999999994,
+          "resolved": false
+        },
+        "psf__requests-5414": {
+          "api_calls": 27,
+          "cost": 0.3042434499999999,
+          "resolved": false
+        },
+        "psf__requests-6028": {
+          "api_calls": 37,
+          "cost": 0.6954136,
+          "resolved": false
+        },
+        "pydata__xarray-2905": {
+          "api_calls": 38,
+          "cost": 0.37558290000000005,
+          "resolved": true
+        },
+        "pydata__xarray-3095": {
+          "api_calls": 34,
+          "cost": 0.28500149999999996,
+          "resolved": true
+        },
+        "pydata__xarray-3151": {
+          "api_calls": 29,
+          "cost": 0.3116826999999999,
+          "resolved": true
+        },
+        "pydata__xarray-3305": {
+          "api_calls": 76,
+          "cost": 0.7266493500000001,
+          "resolved": true
+        },
+        "pydata__xarray-3677": {
+          "api_calls": 31,
+          "cost": 0.22816920000000002,
+          "resolved": true
+        },
+        "pydata__xarray-3993": {
+          "api_calls": 39,
+          "cost": 0.36899659999999995,
+          "resolved": true
+        },
+        "pydata__xarray-4075": {
+          "api_calls": 19,
+          "cost": 0.16164855000000003,
+          "resolved": true
+        },
+        "pydata__xarray-4094": {
+          "api_calls": 47,
+          "cost": 0.6048752499999999,
+          "resolved": true
+        },
+        "pydata__xarray-4356": {
+          "api_calls": 39,
+          "cost": 0.4718598500000001,
+          "resolved": true
+        },
+        "pydata__xarray-4629": {
+          "api_calls": 21,
+          "cost": 0.1254953,
+          "resolved": true
+        },
+        "pydata__xarray-4687": {
+          "api_calls": 38,
+          "cost": 0.5701342500000001,
+          "resolved": true
+        },
+        "pydata__xarray-4695": {
+          "api_calls": 31,
+          "cost": 0.22971060000000004,
+          "resolved": true
+        },
+        "pydata__xarray-4966": {
+          "api_calls": 41,
+          "cost": 0.38786194999999996,
+          "resolved": true
+        },
+        "pydata__xarray-6461": {
+          "api_calls": 48,
+          "cost": 0.6024693499999999,
+          "resolved": false
+        },
+        "pydata__xarray-6599": {
+          "api_calls": 44,
+          "cost": 0.6877328500000001,
+          "resolved": false
+        },
+        "pydata__xarray-6721": {
+          "api_calls": 43,
+          "cost": 0.41809389999999985,
+          "resolved": true
+        },
+        "pydata__xarray-6744": {
+          "api_calls": 25,
+          "cost": 0.20774670000000003,
+          "resolved": true
+        },
+        "pydata__xarray-6938": {
+          "api_calls": 32,
+          "cost": 0.28424795,
+          "resolved": false
+        },
+        "pydata__xarray-6992": {
+          "api_calls": 28,
+          "cost": 0.18656085,
+          "resolved": false
+        },
+        "pydata__xarray-7229": {
+          "api_calls": 60,
+          "cost": 0.8556590000000001,
+          "resolved": false
+        },
+        "pydata__xarray-7233": {
+          "api_calls": 24,
+          "cost": 0.1839607,
+          "resolved": true
+        },
+        "pydata__xarray-7393": {
+          "api_calls": 34,
+          "cost": 0.2752638,
+          "resolved": true
+        },
+        "pylint-dev__pylint-4551": {
+          "api_calls": 56,
+          "cost": 0.7598755499999997,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4604": {
+          "api_calls": 49,
+          "cost": 0.5339096000000001,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4661": {
+          "api_calls": 32,
+          "cost": 0.30984625,
+          "resolved": false
+        },
+        "pylint-dev__pylint-4970": {
+          "api_calls": 34,
+          "cost": 0.35882454999999996,
+          "resolved": false
+        },
+        "pylint-dev__pylint-6386": {
+          "api_calls": 49,
+          "cost": 0.5870913999999999,
+          "resolved": true
+        },
+        "pylint-dev__pylint-6528": {
+          "api_calls": 54,
+          "cost": 1.0358922,
+          "resolved": false
+        },
+        "pylint-dev__pylint-6903": {
+          "api_calls": 19,
+          "cost": 0.1883777,
+          "resolved": true
+        },
+        "pylint-dev__pylint-7080": {
+          "api_calls": 110,
+          "cost": 2.2766366,
+          "resolved": false
+        },
+        "pylint-dev__pylint-7277": {
+          "api_calls": 27,
+          "cost": 0.60630045,
+          "resolved": false
+        },
+        "pylint-dev__pylint-8898": {
+          "api_calls": 64,
+          "cost": 1.2032356,
+          "resolved": true
+        },
+        "pytest-dev__pytest-10051": {
+          "api_calls": 18,
+          "cost": 0.13854225,
+          "resolved": true
+        },
+        "pytest-dev__pytest-10081": {
+          "api_calls": 26,
+          "cost": 0.34736659999999997,
+          "resolved": true
+        },
+        "pytest-dev__pytest-10356": {
+          "api_calls": 37,
+          "cost": 0.6773389,
+          "resolved": false
+        },
+        "pytest-dev__pytest-5262": {
+          "api_calls": 21,
+          "cost": 0.14677845,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5631": {
+          "api_calls": 22,
+          "cost": 0.18044145000000003,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5787": {
+          "api_calls": 52,
+          "cost": 0.7439092499999999,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5809": {
+          "api_calls": 14,
+          "cost": 0.12759320000000002,
+          "resolved": true
+        },
+        "pytest-dev__pytest-5840": {
+          "api_calls": 47,
+          "cost": 1.28983785,
+          "resolved": false
+        },
+        "pytest-dev__pytest-6197": {
+          "api_calls": 60,
+          "cost": 1.5339155999999998,
+          "resolved": true
+        },
+        "pytest-dev__pytest-6202": {
+          "api_calls": 23,
+          "cost": 0.19231800000000002,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7205": {
+          "api_calls": 22,
+          "cost": 0.1267196,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7236": {
+          "api_calls": 32,
+          "cost": 0.30022055,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7324": {
+          "api_calls": 32,
+          "cost": 0.28640255,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7432": {
+          "api_calls": 21,
+          "cost": 0.17930885,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7490": {
+          "api_calls": 28,
+          "cost": 0.32326945,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7521": {
+          "api_calls": 28,
+          "cost": 0.23326975000000003,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7571": {
+          "api_calls": 27,
+          "cost": 0.25733085000000006,
+          "resolved": true
+        },
+        "pytest-dev__pytest-7982": {
+          "api_calls": 28,
+          "cost": 0.21153090000000002,
+          "resolved": true
+        },
+        "pytest-dev__pytest-8399": {
+          "api_calls": 37,
+          "cost": 0.29702715,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10297": {
+          "api_calls": 21,
+          "cost": 0.19964174999999998,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10844": {
+          "api_calls": 22,
+          "cost": 0.2534847,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-10908": {
+          "api_calls": 18,
+          "cost": 0.18589689999999998,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-11310": {
+          "api_calls": 39,
+          "cost": 0.3293003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-11578": {
+          "api_calls": 42,
+          "cost": 0.5151027,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12585": {
+          "api_calls": 20,
+          "cost": 0.16346785,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12682": {
+          "api_calls": 57,
+          "cost": 0.8125050500000002,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-12973": {
+          "api_calls": 26,
+          "cost": 0.22521555000000001,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13124": {
+          "api_calls": 26,
+          "cost": 0.31439449999999997,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13135": {
+          "api_calls": 19,
+          "cost": 0.1827987,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13142": {
+          "api_calls": 30,
+          "cost": 0.31362415,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-13328": {
+          "api_calls": 35,
+          "cost": 0.26115145000000006,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13439": {
+          "api_calls": 23,
+          "cost": 0.19881119999999997,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13496": {
+          "api_calls": 27,
+          "cost": 0.2799124999999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-13779": {
+          "api_calls": 19,
+          "cost": 0.2946034,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14053": {
+          "api_calls": 19,
+          "cost": 0.13681255,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14087": {
+          "api_calls": 18,
+          "cost": 0.18047434999999995,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-14141": {
+          "api_calls": 16,
+          "cost": 0.15622949999999994,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14496": {
+          "api_calls": 27,
+          "cost": 0.30340975,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14629": {
+          "api_calls": 38,
+          "cost": 0.4344882499999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14710": {
+          "api_calls": 28,
+          "cost": 0.3069626,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14894": {
+          "api_calls": 31,
+          "cost": 0.29112825000000003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-14983": {
+          "api_calls": 30,
+          "cost": 0.3650724,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-15100": {
+          "api_calls": 15,
+          "cost": 0.11780930000000003,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25102": {
+          "api_calls": 82,
+          "cost": 1.3446065500000006,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-25232": {
+          "api_calls": 46,
+          "cost": 1.0120946499999999,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25747": {
+          "api_calls": 22,
+          "cost": 0.33265925,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-25931": {
+          "api_calls": 41,
+          "cost": 0.46584544999999994,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-25973": {
+          "api_calls": 42,
+          "cost": 0.45441550000000014,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-26194": {
+          "api_calls": 56,
+          "cost": 0.79310735,
+          "resolved": false
+        },
+        "scikit-learn__scikit-learn-26323": {
+          "api_calls": 44,
+          "cost": 0.41132980000000013,
+          "resolved": true
+        },
+        "scikit-learn__scikit-learn-9288": {
+          "api_calls": 35,
+          "cost": 0.34075649999999996,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10323": {
+          "api_calls": 43,
+          "cost": 0.59005905,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-10435": {
+          "api_calls": 23,
+          "cost": 0.23531025,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10449": {
+          "api_calls": 38,
+          "cost": 0.3366929999999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10466": {
+          "api_calls": 24,
+          "cost": 0.21502494999999996,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-10614": {
+          "api_calls": 54,
+          "cost": 0.8688428000000001,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-10673": {
+          "api_calls": 55,
+          "cost": 0.9649482499999995,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-11445": {
+          "api_calls": 25,
+          "cost": 0.20379519999999998,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-11510": {
+          "api_calls": 50,
+          "cost": 1.0258534999999998,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7440": {
+          "api_calls": 73,
+          "cost": 0.9851316999999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7454": {
+          "api_calls": 45,
+          "cost": 0.38258255,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7462": {
+          "api_calls": 19,
+          "cost": 0.15397375000000002,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7590": {
+          "api_calls": 70,
+          "cost": 1.18470065,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7748": {
+          "api_calls": 47,
+          "cost": 0.7386379,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-7757": {
+          "api_calls": 23,
+          "cost": 0.202867,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7889": {
+          "api_calls": 25,
+          "cost": 0.24329759999999997,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7910": {
+          "api_calls": 27,
+          "cost": 0.25619474999999997,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-7985": {
+          "api_calls": 40,
+          "cost": 0.6182617000000002,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-8035": {
+          "api_calls": 47,
+          "cost": 0.5677161000000001,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8056": {
+          "api_calls": 59,
+          "cost": 0.7365029000000002,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-8120": {
+          "api_calls": 28,
+          "cost": 0.2852769500000001,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8265": {
+          "api_calls": 36,
+          "cost": 0.44641135,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8269": {
+          "api_calls": 54,
+          "cost": 0.5186846,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8459": {
+          "api_calls": 56,
+          "cost": 0.8463766500000002,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8475": {
+          "api_calls": 32,
+          "cost": 0.3661462,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8548": {
+          "api_calls": 70,
+          "cost": 1.4646964499999997,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-8551": {
+          "api_calls": 60,
+          "cost": 0.5482400000000001,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8593": {
+          "api_calls": 37,
+          "cost": 0.30259984999999995,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8595": {
+          "api_calls": 53,
+          "cost": 0.41975290000000004,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8621": {
+          "api_calls": 42,
+          "cost": 0.8530952499999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8638": {
+          "api_calls": 55,
+          "cost": 0.6183005499999997,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-8721": {
+          "api_calls": 59,
+          "cost": 0.5564762000000002,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9229": {
+          "api_calls": 125,
+          "cost": 2.6613013000000008,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9230": {
+          "api_calls": 31,
+          "cost": 0.46264295000000005,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9258": {
+          "api_calls": 26,
+          "cost": 0.3219314,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9281": {
+          "api_calls": 25,
+          "cost": 0.17995005,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9320": {
+          "api_calls": 28,
+          "cost": 0.20476469999999994,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9367": {
+          "api_calls": 22,
+          "cost": 0.22031415,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9461": {
+          "api_calls": 84,
+          "cost": 1.30680935,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9591": {
+          "api_calls": 34,
+          "cost": 0.28257145,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9602": {
+          "api_calls": 56,
+          "cost": 0.99615425,
+          "resolved": false
+        },
+        "sphinx-doc__sphinx-9658": {
+          "api_calls": 45,
+          "cost": 0.7241958499999999,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9673": {
+          "api_calls": 47,
+          "cost": 0.50941065,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9698": {
+          "api_calls": 35,
+          "cost": 0.21874334999999998,
+          "resolved": true
+        },
+        "sphinx-doc__sphinx-9711": {
+          "api_calls": 52,
+          "cost": 0.48156325000000016,
+          "resolved": true
+        },
+        "sympy__sympy-11618": {
+          "api_calls": 35,
+          "cost": 0.4025244999999999,
+          "resolved": false
+        },
+        "sympy__sympy-12096": {
+          "api_calls": 53,
+          "cost": 0.5297747,
+          "resolved": false
+        },
+        "sympy__sympy-12419": {
+          "api_calls": 59,
+          "cost": 0.7606732,
+          "resolved": false
+        },
+        "sympy__sympy-12481": {
+          "api_calls": 34,
+          "cost": 0.30153725000000003,
+          "resolved": false
+        },
+        "sympy__sympy-12489": {
+          "api_calls": 68,
+          "cost": 1.2509447999999999,
+          "resolved": true
+        },
+        "sympy__sympy-13031": {
+          "api_calls": 73,
+          "cost": 0.6397069000000002,
+          "resolved": true
+        },
+        "sympy__sympy-13091": {
+          "api_calls": 65,
+          "cost": 0.6583262,
+          "resolved": true
+        },
+        "sympy__sympy-13372": {
+          "api_calls": 42,
+          "cost": 0.3999359,
+          "resolved": false
+        },
+        "sympy__sympy-13480": {
+          "api_calls": 44,
+          "cost": 0.2696631,
+          "resolved": true
+        },
+        "sympy__sympy-13551": {
+          "api_calls": 63,
+          "cost": 0.8903951000000001,
+          "resolved": true
+        },
+        "sympy__sympy-13615": {
+          "api_calls": 35,
+          "cost": 0.3703790999999999,
+          "resolved": true
+        },
+        "sympy__sympy-13647": {
+          "api_calls": 41,
+          "cost": 0.3351075,
+          "resolved": true
+        },
+        "sympy__sympy-13757": {
+          "api_calls": 56,
+          "cost": 0.38696280000000005,
+          "resolved": true
+        },
+        "sympy__sympy-13798": {
+          "api_calls": 96,
+          "cost": 1.1157404999999998,
+          "resolved": false
+        },
+        "sympy__sympy-13852": {
+          "api_calls": 40,
+          "cost": 0.36806735000000007,
+          "resolved": false
+        },
+        "sympy__sympy-13877": {
+          "api_calls": 66,
+          "cost": 0.6553715,
+          "resolved": true
+        },
+        "sympy__sympy-13878": {
+          "api_calls": 102,
+          "cost": 1.3049158499999995,
+          "resolved": false
+        },
+        "sympy__sympy-13974": {
+          "api_calls": 73,
+          "cost": 0.7472793999999997,
+          "resolved": false
+        },
+        "sympy__sympy-14248": {
+          "api_calls": 104,
+          "cost": 1.3986773500000003,
+          "resolved": false
+        },
+        "sympy__sympy-14531": {
+          "api_calls": 57,
+          "cost": 0.50547035,
+          "resolved": true
+        },
+        "sympy__sympy-14711": {
+          "api_calls": 48,
+          "cost": 0.38434094999999996,
+          "resolved": true
+        },
+        "sympy__sympy-14976": {
+          "api_calls": 30,
+          "cost": 0.2516213,
+          "resolved": false
+        },
+        "sympy__sympy-15017": {
+          "api_calls": 39,
+          "cost": 0.38106739999999995,
+          "resolved": true
+        },
+        "sympy__sympy-15345": {
+          "api_calls": 41,
+          "cost": 0.56778575,
+          "resolved": true
+        },
+        "sympy__sympy-15349": {
+          "api_calls": 18,
+          "cost": 0.0926926,
+          "resolved": true
+        },
+        "sympy__sympy-15599": {
+          "api_calls": 24,
+          "cost": 0.44493540000000004,
+          "resolved": true
+        },
+        "sympy__sympy-15809": {
+          "api_calls": 19,
+          "cost": 0.10074575000000001,
+          "resolved": true
+        },
+        "sympy__sympy-15875": {
+          "api_calls": 30,
+          "cost": 0.35033075,
+          "resolved": false
+        },
+        "sympy__sympy-15976": {
+          "api_calls": 31,
+          "cost": 0.37564065,
+          "resolved": false
+        },
+        "sympy__sympy-16450": {
+          "api_calls": 34,
+          "cost": 0.25031685000000004,
+          "resolved": true
+        },
+        "sympy__sympy-16597": {
+          "api_calls": 71,
+          "cost": 1.1531513,
+          "resolved": false
+        },
+        "sympy__sympy-16766": {
+          "api_calls": 25,
+          "cost": 0.2528361499999999,
+          "resolved": true
+        },
+        "sympy__sympy-16792": {
+          "api_calls": 62,
+          "cost": 0.9059396499999999,
+          "resolved": true
+        },
+        "sympy__sympy-16886": {
+          "api_calls": 8,
+          "cost": 0.06158424999999999,
+          "resolved": true
+        },
+        "sympy__sympy-17139": {
+          "api_calls": 26,
+          "cost": 0.30791740000000006,
+          "resolved": true
+        },
+        "sympy__sympy-17318": {
+          "api_calls": 29,
+          "cost": 0.3155914999999999,
+          "resolved": false
+        },
+        "sympy__sympy-17630": {
+          "api_calls": 34,
+          "cost": 0.37209515000000004,
+          "resolved": false
+        },
+        "sympy__sympy-17655": {
+          "api_calls": 39,
+          "cost": 0.5036058999999999,
+          "resolved": true
+        },
+        "sympy__sympy-18189": {
+          "api_calls": 39,
+          "cost": 0.47987905,
+          "resolved": true
+        },
+        "sympy__sympy-18199": {
+          "api_calls": 18,
+          "cost": 0.15860565000000001,
+          "resolved": false
+        },
+        "sympy__sympy-18211": {
+          "api_calls": 24,
+          "cost": 0.2971178000000001,
+          "resolved": false
+        },
+        "sympy__sympy-18698": {
+          "api_calls": 69,
+          "cost": 1.3854984499999998,
+          "resolved": true
+        },
+        "sympy__sympy-18763": {
+          "api_calls": 24,
+          "cost": 0.25322465,
+          "resolved": false
+        },
+        "sympy__sympy-19040": {
+          "api_calls": 78,
+          "cost": 1.3831832,
+          "resolved": true
+        },
+        "sympy__sympy-19346": {
+          "api_calls": 26,
+          "cost": 0.23297820000000002,
+          "resolved": true
+        },
+        "sympy__sympy-19495": {
+          "api_calls": 18,
+          "cost": 0.17215205000000003,
+          "resolved": true
+        },
+        "sympy__sympy-19637": {
+          "api_calls": 13,
+          "cost": 0.1366463,
+          "resolved": true
+        },
+        "sympy__sympy-19783": {
+          "api_calls": 26,
+          "cost": 0.4003433,
+          "resolved": true
+        },
+        "sympy__sympy-19954": {
+          "api_calls": 12,
+          "cost": 0.10598279999999999,
+          "resolved": true
+        },
+        "sympy__sympy-20154": {
+          "api_calls": 24,
+          "cost": 0.21769229999999998,
+          "resolved": true
+        },
+        "sympy__sympy-20428": {
+          "api_calls": 38,
+          "cost": 0.32328835,
+          "resolved": false
+        },
+        "sympy__sympy-20438": {
+          "api_calls": 43,
+          "cost": 0.5922570499999998,
+          "resolved": false
+        },
+        "sympy__sympy-20590": {
+          "api_calls": 16,
+          "cost": 0.12881504999999996,
+          "resolved": true
+        },
+        "sympy__sympy-20801": {
+          "api_calls": 36,
+          "cost": 0.34936965000000003,
+          "resolved": true
+        },
+        "sympy__sympy-20916": {
+          "api_calls": 20,
+          "cost": 0.18144490000000002,
+          "resolved": false
+        },
+        "sympy__sympy-21379": {
+          "api_calls": 26,
+          "cost": 0.24018260000000002,
+          "resolved": true
+        },
+        "sympy__sympy-21596": {
+          "api_calls": 34,
+          "cost": 0.4823566999999999,
+          "resolved": false
+        },
+        "sympy__sympy-21612": {
+          "api_calls": 35,
+          "cost": 0.55843725,
+          "resolved": true
+        },
+        "sympy__sympy-21847": {
+          "api_calls": 11,
+          "cost": 0.1303372,
+          "resolved": true
+        },
+        "sympy__sympy-21930": {
+          "api_calls": 27,
+          "cost": 0.22796689999999997,
+          "resolved": false
+        },
+        "sympy__sympy-22080": {
+          "api_calls": 68,
+          "cost": 1.0827435499999998,
+          "resolved": false
+        },
+        "sympy__sympy-22456": {
+          "api_calls": 45,
+          "cost": 0.7398181,
+          "resolved": true
+        },
+        "sympy__sympy-22714": {
+          "api_calls": 23,
+          "cost": 0.22238579999999997,
+          "resolved": true
+        },
+        "sympy__sympy-22914": {
+          "api_calls": 38,
+          "cost": 0.32615204999999997,
+          "resolved": true
+        },
+        "sympy__sympy-23262": {
+          "api_calls": 38,
+          "cost": 0.28831705,
+          "resolved": true
+        },
+        "sympy__sympy-23413": {
+          "api_calls": 20,
+          "cost": 0.4113298000000001,
+          "resolved": true
+        },
+        "sympy__sympy-23534": {
+          "api_calls": 17,
+          "cost": 0.10933265000000002,
+          "resolved": true
+        },
+        "sympy__sympy-23824": {
+          "api_calls": 12,
+          "cost": 0.11162549999999999,
+          "resolved": true
+        },
+        "sympy__sympy-23950": {
+          "api_calls": 52,
+          "cost": 0.5881249500000001,
+          "resolved": false
+        },
+        "sympy__sympy-24066": {
+          "api_calls": 38,
+          "cost": 0.59595025,
+          "resolved": true
+        },
+        "sympy__sympy-24213": {
+          "api_calls": 31,
+          "cost": 0.21960854999999993,
+          "resolved": true
+        },
+        "sympy__sympy-24443": {
+          "api_calls": 25,
+          "cost": 0.46856915,
+          "resolved": true
+        },
+        "sympy__sympy-24539": {
+          "api_calls": 19,
+          "cost": 0.127267,
+          "resolved": true
+        },
+        "sympy__sympy-24562": {
+          "api_calls": 18,
+          "cost": 0.17308025,
+          "resolved": true
+        },
+        "sympy__sympy-24661": {
+          "api_calls": 34,
+          "cost": 0.36787519999999996,
+          "resolved": false
+        }
+      },
+      "reasoning_effort": "high",
+      "resolved": 72.8,
+      "site": "https://platform.openai.com",
+      "tags": [
+        "Model: gpt-5-2",
+        "Org: OpenAI",
+        "System: Attempts - 1",
+        "Mini: 2.0.0"
+      ],
+      "trajs": "s3://swe-bench-submissions/bash-only/20260217_mini-v2.0.0_gpt-5-2-high/trajs",
+      "trajs_docent": "https://docent.transluce.org/dashboard/c2c7f5be-2c1a-472f-a34a-92e9e1df4f01",
+      "warning": null
+    }
+  ],
+  "sourceRequestsPerformed": 0
+}

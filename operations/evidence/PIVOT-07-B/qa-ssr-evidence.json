@@ -1,0 +1,96 @@
+{
+  "unit": "PIVOT-07-B",
+  "candidateSha": "4e26c5b2b99faecb65ce6f7d9a812063ecdd6e84",
+  "result": "PASS",
+  "checkedAt": "2026-11-16T08:10:04.758Z",
+  "checks": {
+    "catalogOnlyAppend": true,
+    "existingExportsUnchanged": true,
+    "newObjectOnly": true,
+    "officialRawIndependentPASS": true,
+    "recordsMatchOfficialRaw": true,
+    "sharedSettingsExact": true,
+    "hubAnchorAndThreeBenchmarks": true,
+    "hubRecordsAndProvenance": true,
+    "hubNaturalLimits": true,
+    "hubMetadataUnchanged": true,
+    "claude-vs-gpt:metadataAndH1": true,
+    "claude-vs-gpt:factsPricesVendorArticles": true,
+    "claude-vs-gpt:selectionPreserved": true,
+    "claude-vs-gpt:singleMethodFooter": true,
+    "claudeOnlyOnePairedScoreRow": true,
+    "claudeFullRecordConfiguration": true,
+    "claudeLimitsOnlyFooter": true,
+    "claude-vs-gpt:modelAndComparisonLinksPreserved": true,
+    "gpt-vs-gemini:metadataAndH1": true,
+    "gpt-vs-gemini:factsPricesVendorArticles": true,
+    "gpt-vs-gemini:selectionPreserved": true,
+    "gpt-vs-gemini:singleMethodFooter": true,
+    "gpt-vs-gemini:noFabricatedPairedScores": true,
+    "gpt-vs-gemini:modelAndComparisonLinksPreserved": true,
+    "claude-vs-gemini:metadataAndH1": true,
+    "claude-vs-gemini:factsPricesVendorArticles": true,
+    "claude-vs-gemini:selectionPreserved": true,
+    "claude-vs-gemini:singleMethodFooter": true,
+    "claude-vs-gemini:noFabricatedPairedScores": true,
+    "claude-vs-gemini:modelAndComparisonLinksPreserved": true,
+    "claude-haiku-5-5-vs-claude-opus-5-5:metadataAndH1": true,
+    "claude-haiku-5-5-vs-claude-opus-5-5:factsPricesVendorArticles": true,
+    "claude-haiku-5-5-vs-claude-opus-5-5:selectionPreserved": true,
+    "haikuEntireOutputByteIdentical": true,
+    "allModelLinksPublished": true,
+    "noInventedSWEPage": true,
+    "officialSourcesLinked": true,
+    "exactCandidateCleanAfter": true
+  },
+  "pages": {
+    "claude-vs-gpt": {
+      "metadata": {
+        "title": "Claude vs GPT: Opus 4.5 vs GPT-5.2",
+        "description": "Compare Claude Opus 4.5 and GPT-5.2: exact versions, pricing, context, deployment and source-linked facts.",
+        "alternates": {
+          "canonical": "/compare/claude-vs-gpt"
+        }
+      },
+      "h1": "Claude vs GPT"
+    },
+    "gpt-vs-gemini": {
+      "metadata": {
+        "title": "ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview",
+        "description": "Compare GPT-5.2 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts.",
+        "alternates": {
+          "canonical": "/compare/gpt-vs-gemini"
+        }
+      },
+      "h1": "ChatGPT vs Gemini"
+    },
+    "claude-vs-gemini": {
+      "metadata": {
+        "title": "Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview",
+        "description": "Compare Claude Opus 4.5 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts.",
+        "alternates": {
+          "canonical": "/compare/claude-vs-gemini"
+        }
+      },
+      "h1": "Claude vs Gemini"
+    },
+    "claude-haiku-5-5-vs-claude-opus-5-5": {
+      "metadata": {
+        "title": "Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks",
+        "description": "Compare Claude Haiku 5.5 and Opus 5.5 pricing, context windows and published benchmark results, with official sources and configuration notes.",
+        "alternates": {
+          "canonical": "/compare/claude-haiku-5-5-vs-claude-opus-5-5"
+        }
+      },
+      "h1": "Claude Haiku 5.5 vs Opus 5.5"
+    }
+  },
+  "hubMetadata": {
+    "title": "LLM Benchmarks Explained: What Each Test Measures",
+    "description": "Every LLM benchmark on Pairvu explained — what it measures, which exact model versions were tested, and when each result was published.",
+    "alternates": {
+      "canonical": "/benchmarks"
+    }
+  },
+  "scope": "Independent target component SSR and metadata exports; HTTP metadata resolved at production stage."
+}

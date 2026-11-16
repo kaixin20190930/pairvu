@@ -1,0 +1,43 @@
+{
+  "accessed": "2026-11-16",
+  "accepted": {
+    "benchmark": "SWE-bench Verified",
+    "url": "https://www.swebench.com/",
+    "basis": "Two Verified entries match mini-SWE-agent2.0.0, high effort label, Attempts1 and entry date2026-02-17; 76.8/72.8",
+    "originalExtract": "official-swe-verified-extract.json",
+    "limits": [
+      "Reported model tags not dated API snapshot guarantees",
+      "Entry date is not result publication date",
+      "checked/logs null; listed result not per-record owner verification or Pairvu reproduction",
+      "No equal compute/latency/significance or universal quality claim"
+    ]
+  },
+  "methodBackground": {
+    "url": "https://www.swebench.com/post-250808-gpt5.html",
+    "published": "2025-08-08",
+    "finding": "Generic owner-described mini leaderboard protocol uses $3/250steps",
+    "limit": "Not per-record budget verification for February2026 entries"
+  },
+  "excluded": [
+    {
+      "subject": "Vendor launch scores for SWE/GPQA",
+      "urls": [
+        "https://openai.com/index/introducing-gpt-5-2/",
+        "https://www.anthropic.com/news/claude-opus-4-5",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+      ],
+      "reason": "No sufficiently established common version/configuration for requested cross-vendor comparison; do not combine vendor research scores with mini leaderboard entries."
+    },
+    {
+      "subject": "SWE-bench Pro",
+      "url": "https://labs.scale.com/leaderboard/swe_bench_pro",
+      "reason": "Gemini3.1 starred mini-swe-agent entry versus Opus4.5/GPT5.2 differently marked agent/budget cohort; do not combine."
+    },
+    {
+      "subject": "Gemini3.1 paired Verified record",
+      "url": "https://www.swebench.com/",
+      "reason": "Not found in checked Verified snapshot; Gemini3 Pro/Flash are different versions. This is not a claim of no published results anywhere."
+    }
+  ],
+  "retrievalLimits": "Two guessed experiments GitHub folder URLs returned404; unauthenticated GitHub API rate-limited. Neither path is used as a runtime source. Official site embedded data sufficient for bounded accepted record; no raw trace reproduction claimed."
+}
