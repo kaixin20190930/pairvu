@@ -23,9 +23,9 @@ Approved Haiku model Title: `Claude Haiku 5.5: Pricing, Context and Release Fact
 
 Missing current pricing does not establish a weights-only offering. Historical prices cannot masquerade as currently purchasable rates; later model prices cannot fill older version records. All new access dates reflect actual checks. Keep USD display with original currency and the existing dated static FX snapshot. Do not transplant Opus 5.5 or other Gemini results into Opus 4.5/GPT-5.2/Gemini 3.1 Pro Preview comparisons. Each new number needs a supporting source and exact configuration. No new benchmark, crawler, live-FX service, test framework, account/API/Stripe/customer change, or scaled page generation is authorized.
 
-Existing observation tasks retain their schedules and read-only boundary. Add price conditions, exact-source drift, lifecycle status, and the two new URLs' own GSC release batch. Stage 1 edits do not reset first publication. November 16 GSC property-owner access and sitemap submission were observed; stale November 9 legacy indexing reports do not establish indexing for the current release. Per-URL batch inspection remains PARTIAL until fresh evidence is available. With 17 profiles after Stage 2, scaling remains prohibited.
+Existing observation tasks retain their schedules and read-only boundary. Add price conditions, exact-source drift, lifecycle status, and the two new URLs' own GSC release batch. Stage 1 edits do not reset first publication. The November 16 read-only GSC inspection subsequently checked all 45 URLs: 43 indexed, with the two Haiku URLs unknown to Google. See the dated GSC baseline below; indexing does not prove that today's edited content has been recrawled. With 17 profiles after Stage 2, scaling remains prohibited.
 
-Stage 1 is implemented, independently accepted, deployed and production-verified on `a987739149a5794dc64bf839dc4744c4f311ca54` (Cloudflare `e21a5c25-9d16-4c99-9726-01504f3f9daf`). Inventory remains 43/16/15 with two benchmarks. Qwen3.5 has sourced Beijing conditional rates; DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 current exact-model prices remain explicitly unconfirmed. The original local PARTIAL caused only by cleanup permission is retained alongside independent cleanup PASS. Stage 2 subsequently passed independent fixed-candidate and production acceptance on `c389517a570d1e4ed0fc4ace4b689b294bf0dd93` (Cloudflare `81c33d8e-2699-49d7-8926-93735b5f69a6`). The actual inventory is 45 sitemap URLs / 17 profiles / 16 comparisons / two benchmark detail pages, with zero orphan models. Its only new URLs are `/models/claude-haiku-5-5` and `/compare/claude-haiku-5-5-vs-claude-opus-5-5`, first published in production on 2026-11-16. No GSC indexing claim is made. See [PIVOT-05 completion and evidence](../operations/evidence/PIVOT-05/completion.md).
+Stage 1 is implemented, independently accepted, deployed and production-verified on `a987739149a5794dc64bf839dc4744c4f311ca54` (Cloudflare `e21a5c25-9d16-4c99-9726-01504f3f9daf`). Inventory remains 43/16/15 with two benchmarks. Qwen3.5 has sourced Beijing conditional rates; DeepSeek-V3.2, Kimi K2.5 and MiniMax M2.1 current exact-model prices remain explicitly unconfirmed. The original local PARTIAL caused only by cleanup permission is retained alongside independent cleanup PASS. Stage 2 subsequently passed independent fixed-candidate and production acceptance on `c389517a570d1e4ed0fc4ace4b689b294bf0dd93` (Cloudflare `81c33d8e-2699-49d7-8926-93735b5f69a6`). The actual inventory is 45 sitemap URLs / 17 profiles / 16 comparisons / two benchmark detail pages, with zero orphan models. Its only new URLs are `/models/claude-haiku-5-5` and `/compare/claude-haiku-5-5-vs-claude-opus-5-5`, first published in production on 2026-11-16. No GSC indexing claim was made at production acceptance; the later read-only observation is recorded separately below. See [PIVOT-05 completion and evidence](../operations/evidence/PIVOT-05/completion.md).
 
 ## Completed four-stage delivery history
 
@@ -76,10 +76,10 @@ Do not evaluate scaled comparison publishing until all conditions hold simultane
 
 ## GSC batches and observation cadence
 
-Track first launch, PIVOT-02, PIVOT-03, Stage A, Stage B, and Stage D as separate batches. Stage A edits existing URLs and must not reset their original first-published date.
+Track first launch, PIVOT-02, PIVOT-03, Stage A, Stage B, Stage D, and PIVOT-05's Haiku pair as separate batches. Edits to existing URLs must not reset their original first-published date.
 
 - `pairvu-2`, Mondays 09:30 Asia/Shanghai: read-only official source, model availability, broken-link, orphan, sitemap, and status-code health report.
-- `pairvu-gsc`, Wednesdays 10:00: batch-level submitted/indexed/crawled/canonical/soft-404/impression report. Without a GSC connection, request a manual export and do not infer results.
+- `pairvu-gsc`, Wednesdays 10:00 Asia/Shanghai, next November 18: batch-level submitted/indexed/crawled/canonical/soft-404/impression report. Prioritize the Haiku pair's discovery, crawl and indexing, then compare today's edited pages' crawl dates against the November 16 baseline below. Without a GSC connection, request a manual export and do not infer results.
 - `pairvu-3`, monthly on day 1 at 10:30: model count, per-model comparison coverage, staleness, batch indexing, and expansion-gate decision. Any unmet condition means **do not scale**.
 - `qwen4-preview`, 2026-11-26 09:00: verify post-preview availability. Until the documented 2026-11-25 24:00 UTC+8 boundary, do not call it retired. After verification, preserve its URL and links, mark the historical preview accurately, and remove it from current recommendations where applicable.
 
@@ -97,7 +97,34 @@ Next actions: the existing read-only checks run automatically on their schedules
 
 Implementation, both independent candidate acceptances, GitHub-first deployment, public enablement, and both independent production acceptances are complete. No temporary server or test account/production asset remains. Existing monitoring was updated through Automations and read back ACTIVE; the preview reminder was preserved. Next checks in Asia/Shanghai: GSC November 18 10:00, content November 23 09:30, Qwen4 November 26 09:00, monthly review December 1 10:30. These read-only reports proceed automatically; none authorizes further code or deployment.
 
-The three older exact-model current API quotes remain unconfirmed; source/access/lifecycle distinctions are published rather than invented rates. Fresh GSC batch/canonical/crawl/impression data is still needed; the November 16 property-owner/submission observations do not establish current indexing. Recover a property session or request the specified exports if unavailable. Scaling remains prohibited with 17 models and unverified GSC gates. The pre-existing Chinese-models best-page sentence was recorded as a separate copy follow-up and was subsequently resolved by PIVOT-06-COPY; it was not folded into PIVOT-05. Historical JRN-04-FIX formal control state remains unchanged.
+The three older exact-model current API quotes remain unconfirmed; source/access/lifecycle distinctions are published rather than invented rates. The November 16 per-URL GSC inspection now establishes 43 indexed URLs out of 45; all six pre-Haiku batches are fully indexed. Haiku discovery/indexing, recrawl of edited content, and current impressions remain observation items. Recover a property session or request the specified exports if unavailable. Scaling remains prohibited with 17 models; passing the historical-batch indexing threshold alone does not meet all expansion gates. The pre-existing Chinese-models best-page sentence was recorded as a separate copy follow-up and was subsequently resolved by PIVOT-06-COPY; it was not folded into PIVOT-05. Historical JRN-04-FIX formal control state remains unchanged.
+
+## GSC observation baseline — 2026-11-16
+
+Read-only Chrome GSC inspection, 14:18–14:25 Asia/Shanghai, resource `sc-domain:pairvu.com`, verified-owner access with no login required. All 45 unique URLs were checked individually using Google's indexed-version records, not live URL tests or HTTP status as a proxy. **43/45 indexed (95.6%); all 43 pre-Haiku URLs indexed (100%).** The [45-row baseline CSV](../operations/evidence/PIVOT-05/gsc-2026-11-16.csv) records batch, first publication, status, crawl date, crawl/index permission, sitemap and canonical evidence. Original browser records remain under `/private/tmp/pairvu-gsc-45-2026-11-16/`; the CSV is the repository baseline for subsequent comparisons.
+
+| First production date | Batch | Indexed / URLs |
+|---|---|---:|
+| 2026-11-11 | First launch | 16/16 |
+| 2026-11-12 | PIVOT-02 | 10/10 |
+| 2026-11-12 | PIVOT-03 | 8/8 |
+| 2026-11-15 | PIVOT-04 A | 1/1 |
+| 2026-11-15 | PIVOT-04 B | 4/4 |
+| 2026-11-15 | PIVOT-04 D | 4/4 |
+| 2026-11-16 | PIVOT-05 Haiku | 0/2 |
+
+The Haiku URLs are `/models/claude-haiku-5-5` and `/compare/claude-haiku-5-5-vs-claude-opus-5-5`. Both report “Google 无法识别此网址”, no referring sitemap or page, and no applicable crawl/canonical data. They are not reported as crawled-not-indexed; this observation alone does not establish a technical fault. The first batch includes reused homepage/privacy URLs. Content-only stages add no batch and do not reset publication dates.
+
+The sitemap list reports success, submitted/read November 16, with 43 discovered pages. Discovery count is not indexed count, and its difference from 45 does not identify individual URLs by itself. The coverage report is dated November 13: all-known totals 86 indexed/36 excluded; sitemap-filtered totals 57/10 still include historical URLs and must not replace this 45-URL denominator. All 43 indexed URLs show successful crawl, allowed crawling/indexing, self-declared canonicals and Google's canonical as the inspected URL. The homepage's sitemap detail alone shows a temporary processing error, while its crawl succeeded November 16 and the sitemap list is successful; retain this as an observation, not a sitewide failure claim. Click/impression/query data was not inspected in this run and remains unverified.
+
+November 18 priorities, retaining the existing Wednesday 10:00 schedule:
+
+1. Inspect each Haiku URL separately for discovery/referring sitemap, last crawl, fetch and indexing permission, indexed status/reason, and both canonicals; compare against this baseline and report changes or continued absence of data.
+2. Compare crawl dates for November 16's edited/shared-rendering pages against the CSV, prioritizing `/best/chinese-models`, `/llm-pricing`, `/benchmarks`, the two benchmark details, the three Claude/GPT/Gemini comparisons, and the affected Qwen3-8B, Qwen3.5, DeepSeek, Kimi, MiniMax and Gemini model profiles. Use existing GSC reports/exports for the remaining affected pages; identify any uninspected dates as PARTIAL rather than expanding into HTTP or content regression tests.
+3. In particular, `/best/chinese-models` last crawled November 12 23:53:25; `/llm-pricing` November 13 10:25:24; `/benchmarks` November 13 17:10:17. Three priority pair comparisons also last crawled November 13. Report old/new crawl dates separately from indexed status. A later crawl is not proof that a particular revised sentence is in Google's indexed HTML; do not claim that without inspecting that evidence. Dates above retain the GSC display timezone.
+4. Read sitemap status/read date/discovered count and coverage-report freshness; retain existing batch and performance reporting with explicit windows and denominators. Explain lag, unknowns, changes and the smallest follow-up. No automatic expansion decision from the 95.6% figure.
+
+These observations authorize only documents and the existing task prompt to be updated. No new task, code, tests, production release, sitemap submission, indexing request or validation action is authorized. The next read-only report proceeds automatically November 18, dependent on an accessible GSC session or current export; login is handed to the user if required.
 
 ## Completed single-copy follow-up — PIVOT-06-COPY
 
