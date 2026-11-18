@@ -10,7 +10,7 @@
     "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded pair-specific JSX and shared anchor label correction", "upgradeCondition": "Stop and reassess substantive cross-module uncertainty; not permission/network waits"},
     "qa": {"agent": "/root/pivot08_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent source/fixed-SHA SSR counterexamples and six-request production acceptance", "upgradeCondition": "Return real defect to original developer; reassess actual reasoning gap only"},
     "expectedInventory": {"urls": 51, "models": 20, "comparisons": 19},
-    "gsc": "No interaction, repeated submission or task update; original November25 read-only follow-up preserved",
+    "gsc": "Runtime repair did not interact with GSC or change its task. Separate November19 authorization updated only existing pairvu-gsc prompt to add the two repaired comparisons and precise production-confirmation threshold; no GSC access/submission, new task or schedule change.",
     "developerEvidence": "operations/evidence/PIVOT-08-FIX/developer-handoff.json",
     "developerResult": "11 bounded checks PASS plus isolated final verdict wording check PASS; no server/build/typecheck/GSC. Runtime3files only, catalog one verdict phrase.",
     "candidateSha": "732f09f289fc6e29798fb32434abac583663b6c0",
@@ -23,7 +23,19 @@
     "releaseRecord": "operations/evidence/PIVOT-08-FIX/release-record.json",
     "completion": "operations/evidence/PIVOT-08-FIX/completion.md",
     "enablement": "Published; no migration or flag required; no new URL",
-    "nextAction": "Original November25 Wednesday10:00 Asia/Shanghai read-only GSC review proceeds automatically, dependent on authenticated session/export. No resubmission or task edit. Further development requires separate authorization; docs-only archive push needs no second deployment."
+    "gscObservationFollowup": {
+      "authorizedDate": "2026-11-19",
+      "automationId": "pairvu-gsc",
+      "action": "Updated existing task through app action and read back ACTIVE; entire previous prompt retained, same name/thread/schedule",
+      "nextRun": "2026-11-25 10:00 Asia/Shanghai",
+      "repairUrls": ["/compare/gpt-6-2-astra-vs-gpt-6-astra", "/compare/gpt-6-2-astra-vs-gpt-5-2"],
+      "postRepairCrawlThreshold": "2026-11-18T16:04:25.880Z (2026-11-19 00:04:25.880 Asia/Shanghai); independent online-confirmation window end, not exact traffic-switch time",
+      "report": "Previous/current crawl, advancement, post-repair determination after timezone confirmation, indexing/fetch permissions and both canonicals. No HTML-refresh claim without stored-HTML evidence; preserve original November18 batch and all earlier priorities.",
+      "automationFileSha256": "8593f835c827583774f97549a0c9c7bafa034170030445007ea2ffae3b807f33",
+      "promptSha256": "da5803025fcb4e05638536cf29167233a713171f937a17dea6df632167f24651",
+      "scope": "Task and existing documentation only; no GSC access/write, new task, development, application test or production deployment"
+    },
+    "nextAction": "Existing November25 Wednesday10:00 Asia/Shanghai read-only GSC review automatically includes the two repaired comparisons after original priorities, dependent on authenticated session/export. No repeated submission. Further development needs separate authorization; this follow-up commits/pushes documents only, no deployment."
   },
   "pivot08": {
     "unitId": "PIVOT-08",
