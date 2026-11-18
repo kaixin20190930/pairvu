@@ -1,0 +1,34 @@
+{
+  "unit": "PIVOT-09",
+  "baseline": "40be89afe1c4eaeb946ffb94854bea4380cd2f8e",
+  "stage": "DEV_READY for controller-owned exact candidate commit and independent acceptance",
+  "runtimeFiles": ["app/compare/[slug]/page.tsx", "lib/models/catalog.ts", "app/sitemap.ts"],
+  "changes": [
+    "Only gpt-vs-gemini gains the current GPT-6.2 Astra / Gemini4Carbon API specification and conditional price section, source dates and cautious price/modality/workflow guidance. Existing a/b identities, original specs table, verdict, quality records, benchmark references and legacy profile links remain explicitly historical below it.",
+    "Carbon is page-specific evidence, not a new catalog model/profile/route. Existing Astra record supplies its name,modelId,context,modality and Standard input/output rates.",
+    "Target metadata uses base title ChatGPT vs Gemini: API Pricing, Context and Limits; existing root template produces the exact final title ChatGPT vs Gemini: API Pricing, Context and Limits | Pairvu. H1 and canonical remain ChatGPT vs Gemini and /compare/gpt-vs-gemini.",
+    "Only /compare/gpt-vs-gemini sitemap lastmod changes to2026-11-19; all51URLs,20profiles,19comparisons retained. Other catalog data, historical comparison identities and evidence dates unchanged."
+  ],
+  "sourceDecisions": [
+    "All four frozen raw source files match operations/evidence/PIVOT-09/source-index.json SHA256 hashes. New source snapshots checked2026-11-19; old facts retain their own dates.",
+    "Carbon unified1,048,576tokens are shared by input,thinking,output;65,536 default synchronous output. Longer generation needs background execution,raised output budget and joined continuation steps, with thinking sharing the remaining window. No independent1Minput/1Moutput claim.",
+    "Carbon stable modelIDgemini-4-carbon,text/image/video/audio/PDF input,text output,implicit caching only. IntroStandardUSD/M2/10/.10 throughNov30;4/20/.20 fromDec1. Output includes thinking,tools additional; no invented timezone,cutoff,release day or benchmark score.",
+    "Astra1,050,000context/922,000maxinput/128,000maxoutput;Standard8/40/.40 at≤272Kinput. Morethan272Kinput applieswhole-request2xinput/cache and1.5xoutput,exact272Kexcluded. No consumer-plan access guarantee or quality/speed winner."
+  ],
+  "validation": {
+    "command": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot09.9Ng5aN/dev-ssr.tsx",
+    "result": "PASS",
+    "checks": 10,
+    "evidence": "/private/tmp/pairvu-pivot09.9Ng5aN/dev-evidence.json",
+    "artifacts": ["dev-target.html", "dev-target-metadata.json", "dev-counterexample.html"],
+    "counterexample": "claude-vs-gemini rendered body byte-identical and metadata deep-equal against baseline",
+    "catalog": "All models/comparisons/historical quality/SWE data deep-equal against baseline; Carbon absent from modelMap",
+    "sitemap": "Same ordered51URLs; every non-target entry deep-equal to baseline",
+    "diffCheck": "git diff --check PASS",
+    "initialProbeDiagnostic": "dev-initial-probe-diagnostic.json preserved. Probe initially searched a raw /models/gemini-4-carbon substring, matching the legitimate Google external URL; restricted the assertion to an internal href. No product change for that diagnostic. Final10checksPASS."
+  },
+  "focusedReactReview": "Existing server rendering preserved; semantic tablethead/tbody and source/model links; stable source.url keys; no hooks/effects/client marker/network/dependency or helper architecture.",
+  "exclusions": "No server,build,typecheck,full suite,liveHTTP,modelcalls,GSC,automation,database/account/customer operations. No commit,push,deployment or independent acceptance claim.",
+  "cleanup": "No persistent service,account or test asset created. Temporary baseline copies,source snapshots,probe and SSR outputs retained for independent reviewer.",
+  "next": "Controller commits all release-affecting runtime/docs then original reviewer accepts exact candidateSHA. No user input or developer Git mutation required."
+}

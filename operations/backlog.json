@@ -2,6 +2,15 @@
   "schemaVersion": 1,
   "units": [
     {
+      "id": "PIVOT-09",
+      "title": "Single existing ChatGPT/Gemini flagship update with historical evidence retained",
+      "priority": 0,
+      "dependsOn": ["PIVOT-08-FIX"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["official source semantics", "exact candidate independent SSR/counterexample", "same pushed SHA release and three-request production acceptance", "no new URL or GSC task/submission"]
+    },
+    {
       "id": "PIVOT-08-FIX",
       "title": "Repair two GPT comparison scenarios, sourced GPT5.2 fields and model anchor labels only",
       "priority": 0,

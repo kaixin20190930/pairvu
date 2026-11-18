@@ -1,0 +1,16 @@
+{
+  "unitId": "PIVOT-09",
+  "checkedDate": "2026-11-19",
+  "snapshotDirectory": "/private/tmp/pairvu-pivot09.9Ng5aN",
+  "sources": [
+    {"url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra.md", "file": "astra-model.md", "sha256": "89611cfc6a48262e6e73d2bca8e9aed9c6694b9ae2955a12d16f0d949081d639"},
+    {"url": "https://aistudio.google.com/docs/models/gemini-4-carbon", "file": "carbon-model.md", "sha256": "4ba20232c40c478cddb07ab13c2aaa6734c503463959665a0ef5f4e3b3b60a1e"},
+    {"url": "https://aistudio.google.com/docs/pricing", "file": "google-pricing.md", "sha256": "0663ffa742a29fbbbb11787e9d0741dbe1de17959ce7e03c8848d34c04fe17c8"},
+    {"url": "https://aistudio.google.com/docs/whats-new-gemini-4-carbon", "file": "carbon-whats-new.md", "sha256": "c2b7dbb42ff950b523c92ecc3d4714a517f84bd25773baabc13bce3c16f160a8"}
+  ],
+  "gscAutomationBaselineSha256": "8593f835c827583774f97549a0c9c7bafa034170030445007ea2ffae3b807f33",
+  "reuse": [
+    {"path": "operations/evidence/PIVOT-08-FIX/qa-production-original.json", "runtimeSha": "732f09f289fc6e29798fb32434abac583663b6c0", "scope": "Unchanged Astra comparisons/GPT5.2 fields and existing model anchor behavior"},
+    {"path": "operations/evidence/PIVOT-07-B/production-original.json", "scope": "Unchanged historical benchmark source records only"}
+  ]
+}

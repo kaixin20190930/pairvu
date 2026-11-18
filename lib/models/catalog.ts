@@ -46,7 +46,7 @@ export const comparisonSeo:Record<string,{title:string;h1:string;subtitle:string
  "gpt-6-2-astra-vs-gpt-6-astra":{title:"GPT-6.2 Astra vs GPT-6 Astra: What the Upgrade Changes",h1:"GPT-6.2 Astra vs GPT-6 Astra",subtitle:"Exact API versions compared: GPT-6.2 Astra and GPT-6 Astra.",description:"Compare GPT-6.2 Astra and GPT-6 Astra prices, context, cutoff dates and reasoning restrictions with official sources."},
  "claude-haiku-5-5-vs-claude-opus-5-5":{title:"Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks",h1:"Claude Haiku 5.5 vs Opus 5.5",subtitle:"Exact versions compared: Claude Haiku 5.5 and Claude Opus 5.5. Standard API token prices and CursorBench run costs describe different billing scopes.",description:"Compare Claude Haiku 5.5 and Opus 5.5 pricing, context windows and published benchmark results, with official sources and configuration notes."},
  "claude-vs-gpt":{title:"Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra",h1:"Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra",subtitle:"Current exact models: Claude Opus 5.5 and GPT-6.2 Astra. Historical Opus 4.5 / GPT-5.2 evidence is preserved separately below.",description:"Compare Claude Opus 5.5 and GPT-6.2 Astra prices, context and API facts; historical Opus 4.5 and GPT-5.2 benchmark results remain clearly labeled."},
- "gpt-vs-gemini":{title:"ChatGPT vs Gemini: GPT-5.2 vs Gemini 3.1 Pro Preview",h1:"ChatGPT vs Gemini",subtitle:"Exact versions compared: GPT-5.2 and Gemini 3.1 Pro Preview. These are API models, not the ChatGPT and Gemini subscription products."},
+ "gpt-vs-gemini":{title:"ChatGPT vs Gemini: API Pricing, Context and Limits",h1:"ChatGPT vs Gemini",subtitle:"Current API models compared: GPT-6.2 Astra and Gemini 4 Carbon. These are not ChatGPT and Gemini subscription plans or guarantees of consumer availability.",description:"Compare GPT-6.2 Astra and Gemini 4 Carbon API prices, context windows, output limits and billing conditions, with dated official sources."},
  "claude-vs-gemini":{title:"Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview",h1:"Claude vs Gemini",subtitle:"Exact versions compared: Claude Opus 4.5 and Gemini 3.1 Pro Preview."},
  "fable-5-2-vs-opus":{title:"Claude Fable 5.2 vs Opus 5.5",h1:"Claude Fable 5.2 vs Opus 5.5",subtitle:"Exact versions compared: Claude Fable 5.2 and Claude Opus 5.5."},
  "deepseek-vs-chatgpt":{title:"DeepSeek vs ChatGPT: V3.2 vs GPT-5.2",h1:"DeepSeek vs ChatGPT",subtitle:"Exact versions compared: DeepSeek-V3.2 and GPT-5.2."},
@@ -112,4 +112,16 @@ export const sweBenchVerified = {
     { slug: "claude-opus-4-5", model: "Claude Opus 4.5", reportedModel: "Claude 4.5 Opus", tag: "claude-4-5-opus", folder: "20260217_mini-v2.0.0_claude-4-5-opus-high", entryDate: "2026-02-17", score: 76.8, checked: null, logs: null },
     { slug: "gpt-5-2", model: "GPT-5.2", reportedModel: "GPT 5.2", tag: "gpt-5-2", folder: "20260217_mini-v2.0.0_gpt-5-2-high", entryDate: "2026-02-17", score: 72.8, checked: null, logs: null },
   ],
+};
+
+// Page-specific evidence only: Carbon is not a published Pairvu model profile.
+export const gptGeminiSnapshot={
+ checked:"2026-11-19",
+ carbon:{name:"Gemini 4 Carbon",modelId:"gemini-4-carbon",contextTokens:1048576,defaultOutputTokens:65536,inputPerMillion:2,outputPerMillion:10,cachedPerMillion:0.1,laterInputPerMillion:4,laterOutputPerMillion:20,laterCachedPerMillion:0.2},
+ sources:[
+  {label:"OpenAI GPT-6.2 Astra model documentation",url:"https://developers.openai.com/api/docs/models/gpt-6.2-astra",accessed:"2026-11-19"},
+  {label:"Google Gemini 4 Carbon model documentation",url:"https://aistudio.google.com/docs/models/gemini-4-carbon",accessed:"2026-11-19"},
+  {label:"Google Gemini API pricing",url:"https://aistudio.google.com/docs/pricing",accessed:"2026-11-19"},
+  {label:"Google Gemini 4 Carbon changes and long decode workflow",url:"https://aistudio.google.com/docs/whats-new-gemini-4-carbon",accessed:"2026-11-19"},
+ ] satisfies Source[],
 };

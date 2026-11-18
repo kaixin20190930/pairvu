@@ -8,7 +8,15 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
-## Current authorized repair — PIVOT-08-FIX (2026-11-18)
+## Current authorized single-page update — PIVOT-09 (2026-11-19)
+
+Execute only [PIVOT-09](../operations/contracts/PIVOT-09.md): `/compare/gpt-vs-gemini` gains a current GPT-6.2 Astra / Gemini4Carbon API section, conditional USD pricing, explicit unified-context/default-output semantics, official links and November19 checks. Title becomes `ChatGPT vs Gemini: API Pricing, Context and Limits | Pairvu`; H1/canonical/URL remain. Preserve GPT5.2/Gemini3.1ProPreview facts, vendor quality and SWE evidence below as clearly historical. Do not transplant historical scores or imply API specs establish consumer subscription access or a quality winner.
+
+Only its renderer, page-specific catalog snapshot and target sitemap lastmod may change. Carbon does not enter the published model catalog and gets no new profile. Inventory remains51URLs/20models/19comparisons. Other pricing/leaderboard/profile facts and source dates stay unchanged. Independent fixed-SHA targeted acceptance and one unchanged core-page counterexample precede GitHub-first same-commit production release; production check is bounded to three requests. No new page, feature, benchmark, dependency, account/API/Stripe/DB work, framework, general regression or extra build.
+
+Pre-change GSC inspection: October20–November16 Web reported0clicks/0impressions for this exact URL, no query rows; no ranking/demand inference. URL indexed, both canonicals self, last crawl November13 15:50:45 (display timezone unconfirmed). The existing November25 Wednesday10:00 Asia/Shanghai read-only task remains unchanged; no new task, GSC access or repeated submission in this release. Implementation/acceptance/release results will be recorded after verification. Subsequent development requires separate authorization.
+
+## Previous authorized repair — PIVOT-08-FIX (2026-11-18)
 
 Only repair P0/P1 from the accepted review: two existing Astra comparison pages receive pair-specific workload guidance; GPT-5.2's comparison table gets sourced exact fields (maximum input explicitly not separately stated, maximum output128,000, cutoff2025-08-31, cached inputUSD0.175/M and text/image input→text output); related comparison anchors in the existing shared model-profile renderer use current titles/model names rather than slugs, retaining every destination. Preserve all URLs,51/20/19 inventory, metadata, published dates, original source dates, Sol comparison copy, benchmark results and already-present GPT6 Astra cloud availability text. Same output caps are not evidence of equal quality; larger context is not maximum input. Price comparisons are scoped to context/speed/billing mode and never a universal migration recommendation.
 

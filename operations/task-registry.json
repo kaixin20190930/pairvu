@@ -1,5 +1,20 @@
 {
   "schemaVersion": 1,
+  "pivot09": {
+    "unitId": "PIVOT-09",
+    "contract": "operations/contracts/PIVOT-09.md",
+    "baselineSha": "40be89afe1c4eaeb946ffb94854bea4380cd2f8e",
+    "status": "DEV_READY_EVIDENCE_INDEX",
+    "formalTracking": "Historical JRN-04-FIX state/lock untouched; not a formal state override",
+    "authorization": "November19 single existing GPT/Gemini page and necessary data, docs, independent acceptance and GitHub-first production; no GSC write or task change",
+    "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded source-backed conditional server page", "upgradeCondition": "Substantive reasoning uncertainty only, not environment waits"},
+    "qa": {"agent": "/root/pivot08_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent exact-commit source/SSR and one counterexample", "upgradeCondition": "Return real defect to original developer, reassess actual reasoning gap"},
+    "expectedInventory": {"urls": 51, "models": 20, "comparisons": 19},
+    "gsc": "Original November25 10:00 Shanghai read-only task unchanged; no access/submission",
+    "developerEvidence": "operations/evidence/PIVOT-09/developer-handoff.json",
+    "developerResult": "10 bounded source/SSR checks PASS; unchanged counterexample and51/20/19; no build or HTTP",
+    "nextAction": "Controller commits fixed candidate; independent candidate acceptance then authorized release automatically if all gates pass"
+  },
   "pivot08Fix": {
     "unitId": "PIVOT-08-FIX",
     "contract": "operations/contracts/PIVOT-08-FIX.md",

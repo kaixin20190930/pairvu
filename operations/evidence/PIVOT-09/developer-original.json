@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "baseline": "40be89afe1c4eaeb946ffb94854bea4380cd2f8e",
+  "checks": {
+    "four-frozen-source-hashes-and-quoted-facts": true,
+    "exact-tdk-h1-self-canonical": true,
+    "current-specification-and-token-budget-semantics": true,
+    "conditional-prices-and-workflow-recommendation": true,
+    "source-dates-traceable-and-old-evidence-retained": true,
+    "historical-identity-table-verdict-and-quality-preserved": true,
+    "claude-gemini-counterexample-byte-identical": true,
+    "counterexample-metadata-identical": true,
+    "inventory-and-target-only-lastmod-change": true,
+    "focused-react-server-semantics-keys": true
+  },
+  "scope": "Target and unchanged counterexample server-component rendering, source hashes and frozen inventory only; no build/typecheck/server/HTTP/GSC/production",
+  "cleanup": "No services/accounts/assets created; temporary artifacts retained"
+}
