@@ -1,0 +1,107 @@
+{
+  "unit": "PIVOT-08-FIX",
+  "candidateSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+  "baseline": "64bd515b2e69ea5a726964da128c75db18df31e8",
+  "reviewedAt": "2026-11-18T15:53:24.487Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixedSHA clean tree and exact3runtimefile boundary",
+      "result": "PASS"
+    },
+    {
+      "name": "raw official source hashes and corrected facts",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-astra: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-5-2: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-2-sol: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-astra: original defect counterexample repaired",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-5-2: original defect counterexample repaired",
+      "result": "PASS"
+    },
+    {
+      "name": "AstraSol detail and entire comparison unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-5-2: only existing relatedanchor labels changed",
+      "result": "PASS"
+    },
+    {
+      "name": "claude-haiku-5-5: only existing relatedanchor labels changed",
+      "result": "PASS"
+    },
+    {
+      "name": "inventory and metadata dates unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "focused React server keys and semanticlink safeguards",
+      "result": "PASS"
+    }
+  ],
+  "metadata": {
+    "gpt-6-2-astra-vs-gpt-6-astra": {
+      "title": "GPT-6.2 Astra vs GPT-6 Astra: What the Upgrade Changes",
+      "description": "Compare GPT-6.2 Astra and GPT-6 Astra prices, context, cutoff dates and reasoning restrictions with official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-6-astra"
+      }
+    },
+    "gpt-6-2-astra-vs-gpt-5-2": {
+      "title": "GPT-6.2 Astra vs GPT-5.2: Context, Price and Upgrade Path",
+      "description": "Compare GPT-6.2 Astra and GPT-5.2 context, prices and upgrade tradeoffs with official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-5-2"
+      }
+    },
+    "gpt-6-2-astra-vs-gpt-6-2-sol": {
+      "title": "GPT-6.2 Astra vs Sol: Which One Should You Use?",
+      "description": "GPT-6.2 Astra vs Sol: compare API costs, shared context, reasoning restrictions and workload choices using official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol"
+      }
+    },
+    "gpt-5-2": {
+      "title": "GPT-5.2 specs, pricing and sources",
+      "description": "GPT-5.2 context, pricing, release and official sources.",
+      "alternates": {
+        "canonical": "/models/gpt-5-2"
+      }
+    },
+    "claude-haiku-5-5": {
+      "title": "Claude Haiku 5.5: Pricing, Context and Release Facts",
+      "description": "Claude Haiku 5.5 price per million tokens, context window, release date and official sources — plus how it compares with Opus 5.5.",
+      "alternates": {
+        "canonical": "/models/claude-haiku-5-5"
+      }
+    }
+  },
+  "reuse": {
+    "path": "operations/evidence/PIVOT-08/qa/production-final.json",
+    "runtimeSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+    "scope": "Unchanged sourcefacts/arithmetic/canonical/legacy and benchmarks; actual3runtimefile diff independently checked. Not used as current production acceptance."
+  },
+  "focusedSkill": "react-best-practices: servercomponent retained; stable keys and semanticlinks; no client/hooks/effects/newfetch.",
+  "excluded": "No build/typecheck/fullsuite/server/HTTP/GSC/automation/account/APIspend. Exact pushedcommit releasebuild remains required.",
+  "cleanup": "No services/accounts/assets created; temporary SSR evidence retained.",
+  "productionRequestsPerformed": 0,
+  "productionRequestsRemaining": 6,
+  "diagnostic": "qa-original.json preserved. Only verifier FAIL was developer baseline copy having one extra trailing blank line; independently rechecked both baseline copies after trimEnd and all exactSHA/fileboundary/catalog-only conditions. No runtime defect and no unchanged SSR rerun.",
+  "baselineRecheckedAt": "2026-11-18T15:53:46.244Z",
+  "reproduction": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot08-fix.g7roR1/qa.tsx (original SSR evidence); then pnpm exec tsx /private/tmp/pairvu-pivot08-fix.g7roR1/qa-baseline-recheck.ts (trailing-blank baseline diagnostic correction)"
+}

@@ -1,0 +1,105 @@
+{
+  "unit": "PIVOT-08-FIX",
+  "candidateSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+  "baseline": "64bd515b2e69ea5a726964da128c75db18df31e8",
+  "reviewedAt": "2026-11-18T15:53:24.487Z",
+  "result": "FAIL",
+  "checks": [
+    {
+      "name": "fixedSHA clean tree and exact3runtimefile boundary",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n  'import {OpenAIModelDetails} from \"@/components/OpenAIModelDetails\";\\n' +\n    'import type{Metadata}from\"next\";import Link from\"next/link\";import{notFound}from\"next/navigation\";import{SourceList}from\"@/components/SourceList\";import{formatTokens,modelMap,modelSeo,relatedFamilyModels,priceText,publishedModelSlugs,relatedBenchmarks,relatedComparisons,relatedSpecialComparisons}from\"@/lib/models/catalog\";\\n' +\n    'export function generateStaticParams(){return publishedModelSlugs.map(slug=>({slug}))}export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const{slug}=await params,m=modelMap.get(slug);if(!m)return{};return{title:modelSeo[slug]?.title??`${m.name} specs, pricing and sources`,description:modelSeo[slug]?.description??`${m.name} context, pricing, release and official sources.`,alternates:{canonical:`/models/${slug}`}}}\\n' +\n+   'export default async function Page({params}:{params:Promise<{slug:string}>}){const{slug}=await params,m=modelMap.get(slug);if(!m)notFound();const family=relatedFamilyModels(slug),cs=relatedComparisons(slug),special=relatedSpecialComparisons(slug),bs=relatedBenchmarks(slug),checked=m.sources.map(x=>x.accessed).sort().at(-1);return <main className=\"model-shell\"><p><Link href=\"/models\">← All models</Link></p><p className=\"eyebrow\">Model profile · checked {checked}</p><h1>{modelSeo[slug]?.h1??m.name}</h1><p className=\"lede\">{m.summary}</p><dl className=\"stat-grid\"><div><dt>Provider</dt><dd>{m.provider}</dd></div><div><dt>Release</dt><dd>{m.releaseDate}</dd></div><div><dt>Context</dt><dd>{formatTokens(m.contextTokens)} tokens{m.maxContextTokens?` default · ${formatTokens(m.maxContextTokens)} Max Mode`:\"\"}</dd></div><div><dt>Parameters</dt><dd>{m.parameters??\"Not disclosed by provider\"}</dd></div>{m.modelId&&<div><dt>Model ID</dt><dd>{m.modelId}</dd></div>}{m.availabilityStatus&&<div><dt>Status</dt><dd>{m.availabilityStatus}</dd></div>}</dl><h2>Official pricing snapshots / 1M tokens</h2>{m.pricing.map((p,i)=><p key={i}><strong>{p.provider} · {p.region} · {p.mode}</strong>: {priceText(p)}{p.inputPerMillion!==undefined&&p.note?` · ${p.note}`:\"\"} · checked {p.accessedAt} · <a href={p.source.url}>source</a></p>)}<p className=\"note\"><Link href=\"/llm-pricing\">CNY display prices use the dated static FX snapshot</Link>; original CNY prices and billing conditions remain authoritative.</p><OpenAIModelDetails slug={slug}/>{slug===\"gpt-5-2\"&&<section><h2>Newer OpenAI flagship</h2><p>This historical GPT-5.2 profile retains its exact-model facts. <Link href=\"/models/gpt-6-2-astra\">GPT-6.2 Astra</Link> is the newer documented flagship; <Link href=\"/compare/gpt-6-2-astra-vs-gpt-5-2\">compare its prices, context and API restrictions with GPT-5.2</Link>. See the <a href=\"https://developers.openai.com/api/docs/models/gpt-6.2-astra\">official Astra documentation</a>, checked November 18, 2026.</p></section>}<h2>Related comparisons</h2><div className=\"pill-links\">{cs.map(c=><Link key={c.slug} href={`/compare/${c.slug}`}>{c.slug}</Link>)}{special.map(c=><Link key={c.slug} href={`/compare/${c.slug}`}>{c.label}</Link>)}<Link href=\"/compare\">All comparisons</Link></div>{!cs.length&&!special.length&&<p className=\"note\">No Pairvu side-by-side page currently uses this model.</p>}<h2>Related benchmarks</h2>{bs.length?<div className=\"pill-links\">{bs.map(b=><Link key={b} href={`/benchmarks/${b}`}>{b}</Link>)}</div>:<p className=\"note\">No current Pairvu benchmark table includes this model.</p>}{family.length>0&&<section><h2>Related Claude 5.5 models</h2><p>Explore the existing profiles for other Claude 5.5 tiers; their prices and workload guidance remain specific to each model.</p><div className=\"pill-links\">{family.map(x=><Link key={x.slug} href={`/models/${x.slug}`}>{x.name}</Link>)}</div></section>}<SourceList sources={m.sources}/></main>}\\n' +\n+   '\\n'\n-   'export default async function Page({params}:{params:Promise<{slug:string}>}){const{slug}=await params,m=modelMap.get(slug);if(!m)notFound();const family=relatedFamilyModels(slug),cs=relatedComparisons(slug),special=relatedSpecialComparisons(slug),bs=relatedBenchmarks(slug),checked=m.sources.map(x=>x.accessed).sort().at(-1);return <main className=\"model-shell\"><p><Link href=\"/models\">← All models</Link></p><p className=\"eyebrow\">Model profile · checked {checked}</p><h1>{modelSeo[slug]?.h1??m.name}</h1><p className=\"lede\">{m.summary}</p><dl className=\"stat-grid\"><div><dt>Provider</dt><dd>{m.provider}</dd></div><div><dt>Release</dt><dd>{m.releaseDate}</dd></div><div><dt>Context</dt><dd>{formatTokens(m.contextTokens)} tokens{m.maxContextTokens?` default · ${formatTokens(m.maxContextTokens)} Max Mode`:\"\"}</dd></div><div><dt>Parameters</dt><dd>{m.parameters??\"Not disclosed by provider\"}</dd></div>{m.modelId&&<div><dt>Model ID</dt><dd>{m.modelId}</dd></div>}{m.availabilityStatus&&<div><dt>Status</dt><dd>{m.availabilityStatus}</dd></div>}</dl><h2>Official pricing snapshots / 1M tokens</h2>{m.pricing.map((p,i)=><p key={i}><strong>{p.provider} · {p.region} · {p.mode}</strong>: {priceText(p)}{p.inputPerMillion!==undefined&&p.note?` · ${p.note}`:\"\"} · checked {p.accessedAt} · <a href={p.source.url}>source</a></p>)}<p className=\"note\"><Link href=\"/llm-pricing\">CNY display prices use the dated static FX snapshot</Link>; original CNY prices and billing conditions remain authoritative.</p><OpenAIModelDetails slug={slug}/>{slug===\"gpt-5-2\"&&<section><h2>Newer OpenAI flagship</h2><p>This historical GPT-5.2 profile retains its exact-model facts. <Link href=\"/models/gpt-6-2-astra\">GPT-6.2 Astra</Link> is the newer documented flagship; <Link href=\"/compare/gpt-6-2-astra-vs-gpt-5-2\">compare its prices, context and API restrictions with GPT-5.2</Link>. See the <a href=\"https://developers.openai.com/api/docs/models/gpt-6.2-astra\">official Astra documentation</a>, checked November 18, 2026.</p></section>}<h2>Related comparisons</h2><div className=\"pill-links\">{cs.map(c=><Link key={c.slug} href={`/compare/${c.slug}`}>{c.slug}</Link>)}{special.map(c=><Link key={c.slug} href={`/compare/${c.slug}`}>{c.label}</Link>)}<Link href=\"/compare\">All comparisons</Link></div>{!cs.length&&!special.length&&<p className=\"note\">No Pairvu side-by-side page currently uses this model.</p>}<h2>Related benchmarks</h2>{bs.length?<div className=\"pill-links\">{bs.map(b=><Link key={b} href={`/benchmarks/${b}`}>{b}</Link>)}</div>:<p className=\"note\">No current Pairvu benchmark table includes this model.</p>}{family.length>0&&<section><h2>Related Claude 5.5 models</h2><p>Explore the existing profiles for other Claude 5.5 tiers; their prices and workload guidance remain specific to each model.</p><div className=\"pill-links\">{family.map(x=><Link key={x.slug} href={`/models/${x.slug}`}>{x.name}</Link>)}</div></section>}<SourceList sources={m.sources}/></main>}\\n'\n"
+    },
+    {
+      "name": "raw official source hashes and corrected facts",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-astra: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-5-2: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-2-sol: metadata canonical H1 hrefs unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-astra: original defect counterexample repaired",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-5-2: original defect counterexample repaired",
+      "result": "PASS"
+    },
+    {
+      "name": "AstraSol detail and entire comparison unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-5-2: only existing relatedanchor labels changed",
+      "result": "PASS"
+    },
+    {
+      "name": "claude-haiku-5-5: only existing relatedanchor labels changed",
+      "result": "PASS"
+    },
+    {
+      "name": "inventory and metadata dates unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "focused React server keys and semanticlink safeguards",
+      "result": "PASS"
+    }
+  ],
+  "metadata": {
+    "gpt-6-2-astra-vs-gpt-6-astra": {
+      "title": "GPT-6.2 Astra vs GPT-6 Astra: What the Upgrade Changes",
+      "description": "Compare GPT-6.2 Astra and GPT-6 Astra prices, context, cutoff dates and reasoning restrictions with official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-6-astra"
+      }
+    },
+    "gpt-6-2-astra-vs-gpt-5-2": {
+      "title": "GPT-6.2 Astra vs GPT-5.2: Context, Price and Upgrade Path",
+      "description": "Compare GPT-6.2 Astra and GPT-5.2 context, prices and upgrade tradeoffs with official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-5-2"
+      }
+    },
+    "gpt-6-2-astra-vs-gpt-6-2-sol": {
+      "title": "GPT-6.2 Astra vs Sol: Which One Should You Use?",
+      "description": "GPT-6.2 Astra vs Sol: compare API costs, shared context, reasoning restrictions and workload choices using official sources.",
+      "alternates": {
+        "canonical": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol"
+      }
+    },
+    "gpt-5-2": {
+      "title": "GPT-5.2 specs, pricing and sources",
+      "description": "GPT-5.2 context, pricing, release and official sources.",
+      "alternates": {
+        "canonical": "/models/gpt-5-2"
+      }
+    },
+    "claude-haiku-5-5": {
+      "title": "Claude Haiku 5.5: Pricing, Context and Release Facts",
+      "description": "Claude Haiku 5.5 price per million tokens, context window, release date and official sources — plus how it compares with Opus 5.5.",
+      "alternates": {
+        "canonical": "/models/claude-haiku-5-5"
+      }
+    }
+  },
+  "reuse": {
+    "path": "operations/evidence/PIVOT-08/qa/production-final.json",
+    "runtimeSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+    "scope": "Unchanged sourcefacts/arithmetic/canonical/legacy and benchmarks; actual3runtimefile diff independently checked. Not used as current production acceptance."
+  },
+  "focusedSkill": "react-best-practices: servercomponent retained; stable keys and semanticlinks; no client/hooks/effects/newfetch.",
+  "excluded": "No build/typecheck/fullsuite/server/HTTP/GSC/automation/account/APIspend. Exact pushedcommit releasebuild remains required.",
+  "cleanup": "No services/accounts/assets created; temporary SSR evidence retained.",
+  "productionRequestsPerformed": 0,
+  "productionRequestsRemaining": 6
+}

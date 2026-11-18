@@ -1,0 +1,42 @@
+{
+  "unitId": "PIVOT-08-FIX",
+  "releaseSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+  "platformVersion": "4f3a7c47-c142-49b1-a5fd-eb326db96120",
+  "artifactSha256": "cf05414a9768de248ee2ff753dc65b2ca67ef5badcb4463acf81500cdf04b939",
+  "candidateAcceptance": "PASS",
+  "productionAcceptance": "PASS",
+  "enabled": true,
+  "runtimeFiles": ["components/OpenAIComparisonDetails.tsx", "app/models/[slug]/page.tsx", "lib/models/catalog.ts"],
+  "inventory": {"urls": 51, "models": 20, "comparisons": 19},
+  "releaseGate": {
+    "remote": "origin/main",
+    "remoteSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+    "pushedBeforeBuild": true,
+    "standalonePreflightCheckedAt": "2026-11-18T15:55:14.150Z",
+    "initialWrapperCheckedAt": "2026-11-18T15:55:52.548Z",
+    "buildPreparedCheckedAt": "2026-11-18T15:56:40.076Z",
+    "resumeUploadCheckedAt": "2026-11-18T16:01:49.278Z",
+    "checks": "Fresh remote exact SHA, complete clean tree, build SHA, artifact digest and exclusive release lock before upload"
+  },
+  "build": {"count": 1, "result": "PASS", "typecheck": "PASS"},
+  "deploymentDiagnostic": {
+    "firstAttempt": "Stopped before upload because CLOUDFLARE_API_TOKEN was not exported; not a successful release",
+    "recovery": "Load existing token from .dev.vars only in child environment; reacquire release lock and rerun exported release gates; upload unchanged verified artifact with normal Wrangler",
+    "exclusions": "No second build, new credential/login/scope, release-tool edit, test-runner bypass or token printed",
+    "completed": "Wrangler uploaded/deployed and reported exact platform version; resume-upload-command-completed observed"
+  },
+  "productionConfirmation": {"startedAt": "2026-11-18T16:04:23.431Z", "completedAt": "2026-11-18T16:04:25.880Z", "localDate": "2026-11-19", "timezone": "Asia/Shanghai", "httpRequests": 6, "passedChecks": 16, "exactTrafficSwitchTime": "NOT_ASSERTED"},
+  "candidateQa": "qa-final.json",
+  "originalCandidateDiagnostic": "qa-original.json",
+  "productionQa": "qa-production-original.json",
+  "logs": [
+    {"file": "deploy.log", "sha256": "6f9932242bf069e55344f2df17574926574307ba17549b8bb3c67ab2f2dc7dc5"},
+    {"file": "deploy-resume.log", "sha256": "d74a8f36b08174b7db5a706776d4c9b5399b4fd2a914bbb58b490d9e1d9aa8e5"}
+  ],
+  "gsc": {"action": "NONE; no browser/submission/task update", "automationId": "pairvu-gsc", "sha256BeforeAndAfter": "08247599da5f92e3d26833be1f86171318c4f363efa7802e6d8a2d22f9a8130c", "nextCheck": "2026-11-25 10:00 Asia/Shanghai"},
+  "migrations": "NOT_REQUIRED",
+  "featureFlags": "NOT_REQUIRED",
+  "cleanup": "No service, account, upload or test asset created; temporary source/SSR/HTTP evidence retained",
+  "formalControl": "Historical JRN-04-FIX RELEASE_READY untouched; this evidence index does not fabricate a formal CLOSED transition",
+  "nextAction": "Archive evidence/documentation and push once, no redeployment. Existing read-only GSC observation is automatic subject to session/export; all further development requires authorization."
+}

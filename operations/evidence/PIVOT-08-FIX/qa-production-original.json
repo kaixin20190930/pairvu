@@ -1,0 +1,128 @@
+{
+  "unit": "PIVOT-08-FIX",
+  "candidateSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+  "releaseSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+  "platformVersion": "4f3a7c47-c142-49b1-a5fd-eb326db96120",
+  "artifactSha256": "cf05414a9768de248ee2ff753dc65b2ca67ef5badcb4463acf81500cdf04b939",
+  "scope": "http",
+  "checkedAt": "2026-11-18T16:04:23.431Z",
+  "completedAt": "2026-11-18T16:04:25.880Z",
+  "result": "PASS",
+  "requestCount": 6,
+  "maxRequests": 6,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:23.433Z",
+      "bodyFile": "qa-prod-0.body",
+      "headersFile": "qa-prod-0.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:24.955Z",
+      "bodyFile": "qa-prod-1.body",
+      "headersFile": "qa-prod-1.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:25.226Z",
+      "bodyFile": "qa-prod-2.body",
+      "headersFile": "qa-prod-2.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:25.432Z",
+      "bodyFile": "qa-prod-3.body",
+      "headersFile": "qa-prod-3.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/claude-haiku-5-5",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:25.585Z",
+      "bodyFile": "qa-prod-4.body",
+      "headersFile": "qa-prod-4.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-2-sol",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:04:25.723Z",
+      "bodyFile": "qa-prod-5.body",
+      "headersFile": "qa-prod-5.headers.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/claude-haiku-5-5:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exact candidate and Cloudflare version",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-astra: actual metadata canonical H1 and entire accepted content",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-5-2: actual metadata canonical H1 and entire accepted content",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-5-2: actual metadata canonical H1 and entire accepted content",
+      "result": "PASS"
+    },
+    {
+      "name": "claude-haiku-5-5: actual metadata canonical H1 and entire accepted content",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-2-sol: actual metadata canonical H1 and entire accepted content",
+      "result": "PASS"
+    },
+    {
+      "name": "actual oldAstra pair conditional distinct scenarios and platform boundary",
+      "result": "PASS"
+    },
+    {
+      "name": "actual GPT5.2 pair ownerfacts none difference outputlimit and contextprice distinctions",
+      "result": "PASS"
+    },
+    {
+      "name": "actual GPT5.2 Haiku human-readable relatedlabels",
+      "result": "PASS"
+    },
+    {
+      "name": "actual AstraSol original three scenario copy retained",
+      "result": "PASS"
+    }
+  ],
+  "normalization": "Only HTMLcomments and scriptpayload removed for renderedmain comparison; metadata decodedHTMLentities. Rawresponses preserved. No redirects or retries.",
+  "reuse": "Independent local fixedSHA qa-final.json acceptedcontent and ownerfacts; current production verifies all5completevisiblemain bodies.",
+  "deploymentDiagnostic": "Controller reported initial upload auth environment stop; same successfulbuild artifact resumed without secondbuild. Not product defect; current health verifies actualSHA/platformversion.",
+  "excluded": "No extraHTTP/fullsite/sitemap/GSC/automation/account/DB/liveAPIspend.",
+  "cleanup": "No services/accounts/assetscreated; rawheaders/bodies/evidence retained."
+}

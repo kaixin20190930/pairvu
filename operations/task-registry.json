@@ -4,7 +4,7 @@
     "unitId": "PIVOT-08-FIX",
     "contract": "operations/contracts/PIVOT-08-FIX.md",
     "baselineSha": "64bd515b2e69ea5a726964da128c75db18df31e8",
-    "status": "DEV_READY",
+    "status": "PRODUCTION_VERIFIED",
     "formalTracking": "Historical JRN-04-FIX RELEASE_READY remains untouched; evidence index only",
     "authorization": "2026-11-18 only accepted P0/P1 content and related-anchor repairs; independent acceptance, commit/push, production; no new URL or GSC/automation write",
     "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded pair-specific JSX and shared anchor label correction", "upgradeCondition": "Stop and reassess substantive cross-module uncertainty; not permission/network waits"},
@@ -13,7 +13,17 @@
     "gsc": "No interaction, repeated submission or task update; original November25 read-only follow-up preserved",
     "developerEvidence": "operations/evidence/PIVOT-08-FIX/developer-handoff.json",
     "developerResult": "11 bounded checks PASS plus isolated final verdict wording check PASS; no server/build/typecheck/GSC. Runtime3files only, catalog one verdict phrase.",
-    "nextAction": "Controller commits exact candidate; original independent reviewer checks frozen scope before GitHub-first release."
+    "candidateSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+    "releaseSha": "732f09f289fc6e29798fb32434abac583663b6c0",
+    "platformVersion": "4f3a7c47-c142-49b1-a5fd-eb326db96120",
+    "candidateEvidence": "operations/evidence/PIVOT-08-FIX/qa-final.json",
+    "candidateResult": "PASS;12 frozen checks on exact candidate; original baseline-copy trailing-blank diagnostic preserved, no runtime defect",
+    "productionEvidence": "operations/evidence/PIVOT-08-FIX/qa-production-original.json",
+    "productionResult": "PASS;16 checks;6/6 frozen HTTP requests all200; exact SHA/version and five complete rendered pages confirmed November19 00:04:23-00:04:25 Asia/Shanghai",
+    "releaseRecord": "operations/evidence/PIVOT-08-FIX/release-record.json",
+    "completion": "operations/evidence/PIVOT-08-FIX/completion.md",
+    "enablement": "Published; no migration or flag required; no new URL",
+    "nextAction": "Original November25 Wednesday10:00 Asia/Shanghai read-only GSC review proceeds automatically, dependent on authenticated session/export. No resubmission or task edit. Further development requires separate authorization; docs-only archive push needs no second deployment."
   },
   "pivot08": {
     "unitId": "PIVOT-08",

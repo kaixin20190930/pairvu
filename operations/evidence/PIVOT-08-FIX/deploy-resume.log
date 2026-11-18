@@ -1,0 +1,65 @@
+{"event":"resume-upload-prepared","candidateSha":"732f09f289fc6e29798fb32434abac583663b6c0","remote":"origin","branch":"main","remoteSha":"732f09f289fc6e29798fb32434abac583663b6c0","checkedAt":"2026-11-18T16:01:49.278Z","artifactSha256":"cf05414a9768de248ee2ff753dc65b2ca67ef5badcb4463acf81500cdf04b939","build":"Reused existing successful same-SHA production build; no second build"}
+
+ ⛅️ wrangler 4.114.0 (update available 4.164.0)
+───────────────────────────────────────────────
+🌀 Building list of assets...
+✨ Read 129 files from the assets directory /Users/liukai/Documents/Product Visual QA Platform/.open-next/assets
+🌀 Starting asset upload...
+🌀 Found 1 new or modified static asset to upload. Proceeding with upload...
++ /BUILD_ID
+Uploaded 1 of 1 asset
+✨ Success! Uploaded 1 file (88 already uploaded) (1.72 sec)
+
+Total Upload: 21490.91 KiB / gzip: 4860.17 KiB
+Worker Startup Time: 46 ms
+Your Worker has access to the following bindings:
+Binding                                                                                             Resource                     
+env.BATCH_ANALYSIS_QUEUE (inherited)                                                                Queue                        
+env.BATCH_PRIORITY_ANALYSIS_QUEUE (inherited)                                                       Queue                        
+env.VISUALQA_DB (pairvu-production)                                                                 D1 Database                  
+env.VISUALQA_ASSETS (pairvu-assets-production)                                                      R2 Bucket                    
+env.ASSETS                                                                                          Assets                       
+env.PAIRVU_VERSION_METADATA                                                                         Worker Version Metadata      
+env.NEXTJS_ENV ("production")                                                                       Environment Variable         
+env.PRODUCT_PROFILES_ENABLED ("true")                                                               Environment Variable         
+env.RELEASE_WORKBENCH_ENABLED ("true")                                                              Environment Variable         
+env.VALUE_METRICS_ENABLED ("true")                                                                  Environment Variable         
+env.ANONYMOUS_ASSET_RETENTION_HOURS ("24")                                                          Environment Variable         
+env.OPENAI_MODEL ("gpt-4.1-mini")                                                                   Environment Variable         
+env.OPENAI_PROMPT_VERSION ("m0-real-mvp-009")                                                       Environment Variable         
+env.OPENAI_REQUEST_TIMEOUT_MS ("120000")                                                            Environment Variable         
+env.TURNSTILE_SITE_KEY ("0x4AAAAAAEAut-dQfjfNjITa")                                                 Environment Variable         
+env.PUBLIC_ANALYSIS_ACCEPTING_NEW_REQUESTS ("true")                                                 Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_MINUTE_LIMIT ("3")                                                      Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_DAILY_LIMIT ("8")                                                       Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_DAILY_LIMIT ("50")                                                       Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_CONCURRENT_LIMIT ("1")                                                  Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_CONCURRENT_LIMIT ("3")                                                   Environment Variable         
+env.PUBLIC_ANALYSIS_SESSION_DAILY_SPEND_LIMIT_USD ("5")                                             Environment Variable         
+env.PUBLIC_ANALYSIS_GLOBAL_DAILY_SPEND_LIMIT_USD ("25")                                             Environment Variable         
+env.PUBLIC_UPLOAD_SESSION_MINUTE_LIMIT ("10")                                                       Environment Variable         
+env.PUBLIC_UPLOAD_SESSION_DAILY_LIMIT ("24")                                                        Environment Variable         
+env.PUBLIC_VALIDATE_UPLOADS_WITH_TURNSTILE ("false")                                                Environment Variable         
+env.BETTER_AUTH_URL ("https://pairvu.com")                                                          Environment Variable         
+env.AUTH_EMAIL_FROM ("Pairvu <sign-in@pairvu.com>")                                                 Environment Variable         
+env.AUTH_TRUSTED_ORIGINS ("https://pairvu.com,https://www.pairvu...")                               Environment Variable         
+env.STRIPE_PRICE_STARTER ("price_1U4wVaGlvseBpI4P6LKCEoYz")                                         Environment Variable         
+env.STRIPE_PRICE_GROWTH ("price_1U5G9PGlvseBpI4PQlZsQT7v")                                          Environment Variable         
+env.STRIPE_PRICE_AGENCY ("price_1U5GA0GlvseBpI4Phe04i4fi")                                          Environment Variable         
+env.STRIPE_PRICE_PACK_50 ("price_1U65lwGlvseBpI4PVQ7aKUNH")                                         Environment Variable         
+env.STRIPE_PRICE_PACK_200 ("price_1U65mZGlvseBpI4PwdicWZ8g")                                        Environment Variable         
+env.STRIPE_PRICE_PACK_500 ("price_1U65nqGlvseBpI4PqxwtBMGA")                                        Environment Variable         
+
+Uploaded pairvu (23.27 sec)
+Deployed pairvu triggers (9.10 sec)
+  https://pairvu.liukai19911010.workers.dev
+  pairvu.com (custom domain)
+  www.pairvu.com (custom domain)
+  schedule: */15 * * * *
+  Producer for pairvu-batch-analysis
+  Producer for pairvu-batch-priority-analysis
+  Consumer for pairvu-batch-analysis
+  Consumer for pairvu-batch-priority-analysis
+  Consumer for pairvu-batch-dead-letter
+Current Version ID: 4f3a7c47-c142-49b1-a5fd-eb326db96120
+{"event":"resume-upload-command-completed","candidateSha":"732f09f289fc6e29798fb32434abac583663b6c0","artifactSha256":"cf05414a9768de248ee2ff753dc65b2ca67ef5badcb4463acf81500cdf04b939","smoke":"required"}

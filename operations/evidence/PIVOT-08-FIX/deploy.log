@@ -1,0 +1,214 @@
+
+> product-visual-qa-platform@0.1.0 deploy /Users/liukai/Documents/Product Visual QA Platform
+> node scripts/deploy-release.mjs deploy --candidate 732f09f289fc6e29798fb32434abac583663b6c0 --remote origin --branch main
+
+
+┌─────────────────────────────┐
+│ OpenNext — Cloudflare build │
+└─────────────────────────────┘
+
+App directory: /Users/liukai/Documents/Product Visual QA Platform
+Next.js version : 16.2.12
+@opennextjs/cloudflare version: 1.20.2
+@opennextjs/aws version: 4.1.0
+workerd compatibility_date: 2026-07-26
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> product-visual-qa-platform@0.1.0 build /Users/liukai/Documents/Product Visual QA Platform
+> node scripts/build-release.mjs
+
+▲ Next.js 16.2.12 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.6s
+  Running TypeScript ...
+  Finished TypeScript in 10.2s ...
+  Collecting page data using 9 workers ...
+⚠ You are using an experimental edge runtime, the API might change.
+  Generating static pages using 9 workers (0/123) ...
+  Generating static pages using 9 workers (30/123) 
+  Generating static pages using 9 workers (61/123) 
+  Generating static pages using 9 workers (92/123) 
+✓ Generating static pages using 9 workers (123/123) in 612ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /account
+├ ƒ /account/batches
+├ ƒ /account/batches/new
+├ ƒ /account/products
+├ ƒ /account/products/[productId]
+├ ƒ /account/products/new
+├ ƒ /account/releases
+├ ƒ /account/value-metrics
+├ ○ /ai-product-photography
+├ ƒ /api/account/assets
+├ ƒ /api/account/session
+├ ƒ /api/analyses
+├ ƒ /api/analyses/[analysisId]
+├ ƒ /api/analyses/[analysisId]/feedback
+├ ƒ /api/analyses/[analysisId]/reviews
+├ ƒ /api/assets/[assetId]
+├ ƒ /api/assets/upload
+├ ƒ /api/auth/[...all]
+├ ƒ /api/batches
+├ ƒ /api/batches/[batchId]
+├ ƒ /api/batches/[batchId]/export
+├ ƒ /api/batches/references
+├ ƒ /api/billing/checkout
+├ ƒ /api/billing/context
+├ ƒ /api/billing/packs/checkout
+├ ƒ /api/billing/packs/status
+├ ƒ /api/billing/portal
+├ ƒ /api/billing/webhook
+├ ƒ /api/events
+├ ƒ /api/health
+├ ƒ /api/products
+├ ƒ /api/products/[productId]
+├ ƒ /api/products/[productId]/profile
+├ ƒ /api/products/[productId]/profiles
+├ ƒ /api/products/[productId]/references
+├ ƒ /api/releases
+├ ƒ /api/releases/export
+├ ƒ /api/releases/status
+├ ƒ /api/runtime-config
+├ ƒ /api/value-metrics
+├ ƒ /api/value-metrics/status
+├ ○ /benchmarks
+├ ● /benchmarks/[bench]
+│ ├ /benchmarks/cursorbench
+│ └ /benchmarks/browsecomp
+├ ○ /best/chinese-models
+├ ○ /best/open-source-models
+├ ○ /categories
+├ ○ /categories/beverage-product-image-qa
+├ ○ /categories/cosmetics-product-image-qa
+├ ○ /categories/household-packaged-goods-image-qa
+├ ○ /categories/packaged-food-product-image-qa
+├ ○ /categories/personal-care-product-image-qa
+├ ○ /categories/skincare-product-image-qa
+├ ○ /checks
+├ ○ /checks/product-color
+├ ○ /checks/product-components
+├ ○ /checks/product-image-observability
+├ ○ /checks/product-label-text
+├ ○ /checks/product-logo
+├ ○ /checks/product-packaging
+├ ○ /checks/product-quantity
+├ ○ /compare
+├ ● /compare/[slug]
+│ ├ /compare/gpt-6-2-astra-vs-gpt-6-2-sol
+│ ├ /compare/gpt-6-2-astra-vs-gpt-5-2
+│ ├ /compare/gpt-6-2-astra-vs-gpt-6-astra
+│ └ [+15 more paths]
+├ ○ /compare/chatgpt-vs-claude-vs-gemini
+├ ○ /examples
+├ ○ /examples/background-change-ai-product-image
+├ ○ /examples/candle-accessory-outside-crop
+├ ○ /examples/candle-set-component-removed
+├ ○ /examples/candle-set-scene-change
+├ ○ /examples/coca-cola-can-background-edit
+├ ○ /examples/cold-brew-condensation-change
+├ ○ /examples/cold-brew-flavor-volume-change
+├ ○ /examples/color-change-ai-product-image
+├ ○ /examples/controlled-visual-qa-benchmark
+├ ○ /examples/extra-candle-accessory
+├ ○ /examples/extra-product-component-ai-image
+├ ○ /examples/household-cleaner-background-change
+├ ○ /examples/household-cleaner-capacity-change
+├ ○ /examples/identical-product-images-pass
+├ ○ /examples/label-value-change-ai-product-image
+├ ○ /examples/large-viewpoint-difference-product-image
+├ ○ /examples/laundry-pouch-color-change
+├ ○ /examples/laundry-sheets-back-view-review
+├ ○ /examples/laundry-sheets-background-change
+├ ○ /examples/laundry-sheets-scent-count-change
+├ ○ /examples/lighting-change-product-image
+├ ○ /examples/logo-change-ai-product-image
+├ ○ /examples/missing-product-component-ai-image
+├ ○ /examples/packaging-shape-change-ai-product-image
+├ ○ /examples/partially-hidden-product-logo
+├ ○ /examples/partially-visible-product-image
+├ ○ /examples/product-color-not-observable-label-crop
+├ ○ /examples/product-count-change-ai-image
+├ ○ /examples/product-repositioning-perspective-change
+├ ○ /examples/shadow-reflection-change-product-image
+├ ○ /examples/skincare-package-crop-review
+├ ○ /examples/skincare-product-background-change
+├ ○ /examples/skincare-spf-value-change
+├ ○ /examples/toothpaste-variant-color-change
+├ ○ /examples/unreadable-product-label-text
+├ ○ /guides
+├ ○ /guides/ai-product-photography-checklist
+├ ○ /guides/compare-original-and-ai-product-images
+├ ○ /guides/ecommerce-product-image-requirements
+├ ○ /guides/keep-products-consistent-in-ai-images
+├ ○ /how-pairvu-works
+├ ○ /icon.svg
+├ ○ /leaderboard
+├ ○ /legacy
+├ ○ /llm-pricing
+├ ○ /manifest.webmanifest
+├ ○ /models
+├ ● /models/[slug]
+│ ├ /models/gpt-6-2-astra
+│ ├ /models/gpt-6-2-sol
+│ ├ /models/gpt-6-astra
+│ └ [+17 more paths]
+├ ○ /opengraph-image
+├ ○ /pricing
+├ ○ /privacy
+├ ○ /robots.txt
+├ ƒ /sign-in
+├ ○ /sitemap.xml
+├ ○ /use-cases
+├ ○ /use-cases/amazon-product-image-qa
+├ ○ /use-cases/brands
+├ ○ /use-cases/creative-agencies
+├ ○ /use-cases/ecommerce-product-image-qa
+└ ○ /use-cases/shopify-product-image-qa
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+Applying code patches: 2.266s
+# copyPackageTemplateFiles
+[35m⚙️ Bundling the OpenNext server...
+[0m
+[35mWorker saved in `.open-next/worker.js` 🚀
+[0m
+OpenNext build complete.
+{"event":"release-prepared","candidateSha":"732f09f289fc6e29798fb32434abac583663b6c0","remote":"origin","branch":"main","remoteSha":"732f09f289fc6e29798fb32434abac583663b6c0","checkedAt":"2026-11-18T15:56:40.076Z","action":"deploy","artifactSha256":"cf05414a9768de248ee2ff753dc65b2ca67ef5badcb4463acf81500cdf04b939","initialCheckedAt":"2026-11-18T15:55:52.548Z"}
+
+ ⛅️ wrangler 4.114.0 (update available 4.164.0)
+───────────────────────────────────────────────
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mIn a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN environment variable for wrangler to work. Please go to https://developers.cloudflare.com/fundamentals/api/get-started/create-token/ for instructions on how to create an api token, and assign its value to CLOUDFLARE_API_TOKEN.[0m
+
+  
+  To continue without logging in, rerun this command with `--temporary`. Wrangler will use a temporary account and print a claim URL.
+
+
+🪵  Logs were written to "/private/tmp/pairvu-pivot08-fix.g7roR1/wrangler.log"
+deploy-release: pnpm exec failed; release stopped
+ ELIFECYCLE  Command failed with exit code 1.
