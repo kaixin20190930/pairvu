@@ -1179,7 +1179,7 @@
       "automationId": "pairvu-gsc",
       "action": "UPDATED_THROUGH_AUTOMATIONS_AND_READ_BACK",
       "status": "ACTIVE",
-      "schedule": "Wednesday 10:00 Asia/Shanghai; next2026-11-18",
+      "schedule": "Wednesday 10:00 Asia/Shanghai; next2026-11-25",
       "identityKindNameThreadSchedulePreserved": true,
       "stageBPriorityUrls": [
         "/benchmarks",
@@ -1191,8 +1191,36 @@
       "baselineCsv": "operations/evidence/PIVOT-05/gsc-2026-11-16.csv",
       "onlineConfirmationTime": "2026-11-16T08:15:50.115387Z",
       "timeReference": "production-original checkedAt is confirmed online time, not exact switch; normalize GSC timezone; window/unknown/no-data classified explicitly",
-      "reportOrder": "Haiku pair, StageB four-page post-release crawl comparison, other retained edited-page/batch/performance reports",
-      "scope": "Existing prompt and documents only; no new automation, live GSC run, development, tests or release"
+      "reportOrder": "StageB four-page post-release crawl comparison, Haiku ongoing indexing status, other retained edited-page/batch/performance reports",
+      "scope": "Existing prompt and documentation update only; preserve the completed read-only observation, no new automation, further live GSC run, development, tests or release",
+      "latestObservation": {
+        "date": "2026-11-18",
+        "documentation": "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md#GSC observation update — 2026-11-18",
+        "currentUrlsIndividuallyInspected": 9,
+        "whole45UrlRecheck": false,
+        "currentWholeSiteIndexedRate": null,
+        "haikuFirstIndexingFollowup": "COMPLETE; both indexed; continue ongoing status observation",
+        "haikuLastCrawlsOriginalGscDisplay": {
+          "/models/claude-haiku-5-5": "2026-11-17 04:07:50",
+          "/compare/claude-haiku-5-5-vs-claude-opus-5-5": "2026-11-17 07:25:22"
+        },
+        "stageBLastCrawlsOriginalGscDisplay": {
+          "/benchmarks": "2026-11-13 17:10:17",
+          "/compare/claude-vs-gpt": "2026-11-13 16:04:20",
+          "/compare/gpt-vs-gemini": "2026-11-13 15:50:45",
+          "/compare/claude-vs-gemini": "2026-11-13 10:28:28"
+        },
+        "stageBStatus": "All four indexed; last crawls unchanged; no post-release recrawl evidence",
+        "allNineFetchPermissionsCanonicals": "Fetch successful, crawling/indexing allowed, matching self canonicals",
+        "coverageReportUpdated": "2026-11-13",
+        "crawledNotIndexedExamples": 9,
+        "crawledNotIndexedCurrentInventoryMatches": 3,
+        "allThreeMatchesIndividuallyIndexed": true,
+        "noindexExamples": 8,
+        "noindexCurrentInventoryMatches": 0,
+        "gscDisplayTimezone": "Unspecified; retain raw timestamps",
+        "indexedHtmlPerformanceAndCurrentSitemapStatus": "Not checked"
+      }
     }
   }
 }

@@ -172,3 +172,68 @@ For each, show baseline crawl, current indexed-version last crawl, whether it ad
 A crawl later than the online-confirmation time establishes a post-release crawl; advancing beyond the old baseline alone does not. Report pre-release, indeterminate or missing records explicitly. Even a post-release crawl does not prove the SWE table or revised text is in Google's indexed HTML without that specific evidence. Do not substitute a live test or HTTP200, reset first publication dates, or create a new indexing batch for these edits. The original [45-row GSC baseline](../operations/evidence/PIVOT-05/gsc-2026-11-16.csv) and historical acceptance evidence remain unchanged.
 
 This update changes only the existing task prompt and documents, without running GSC now, developing, testing or releasing. The scheduled read-only report proceeds automatically, dependent on an accessible GSC session or current manual export; hand login to the user when required. No new task, indexing request, sitemap submission, validation or automatic site change is authorized.
+
+## GSC observation update — 2026-11-18
+
+The read-only browser session accessed `sc-domain:pairvu.com` without another login. All nine crawled-not-indexed examples and all eight noindex examples were read and matched against the existing 45-URL inventory. Nine current URLs were individually inspected: the two Haiku URLs, the four Stage B URLs, and the three current URLs appearing in the historical exclusion list. These are indexed-version records, not live tests. This was not another complete 45-URL survey; no new whole-site indexed count or rate is established. The November 16 CSV and original development/acceptance evidence remain unchanged. The browser observations are recorded in this conversation and the tables below; no new raw DOM archive was created.
+
+The all-known-pages coverage report still displayed **last updated November 13**, 86 indexed and 36 excluded. Its examples and individual URL-inspection records disagree for three current pages. Retain both observations rather than interpreting nine exclusions as 9/45 current content failures. A zero discovered-not-indexed count does not establish that all 45 current URLs were discovered or crawled.
+
+### Haiku first-indexing follow-up completed
+
+| URL | November 16 status | November 18 indexed-version status | Last crawl, original GSC display | Referring page |
+|---|---|---|---|---|
+| `/models/claude-haiku-5-5` | Unknown to Google | Indexed | 2026-11-17 04:07:50 | `/leaderboard` |
+| `/compare/claude-haiku-5-5-vs-claude-opus-5-5` | Unknown to Google | Indexed | 2026-11-17 07:25:22 | `/models/claude-haiku-5-5` |
+
+Both show successful smartphone Googlebot fetches, crawling/indexing allowed, self-declared canonicals and Google selecting the inspected URL. Neither detects a referring sitemap; this alone is not a failure given successful discovery, crawl and indexing. First-indexing follow-up is complete. Subsequent scheduled reports retain ongoing indexing/canonical observation and use these results rather than repeating the November 16 unknown state as current.
+
+### Stage B post-release crawl remains unconfirmed
+
+| URL | November 16 baseline last crawl | November 18 last crawl | Advanced / confirmed post-release crawl |
+|---|---|---|---|
+| `/benchmarks` | 2026-11-13 17:10:17 | 2026-11-13 17:10:17 | No / no evidence |
+| `/compare/claude-vs-gpt` | 2026-11-13 16:04:20 | 2026-11-13 16:04:20 | No / no evidence |
+| `/compare/gpt-vs-gemini` | 2026-11-13 15:50:45 | 2026-11-13 15:50:45 | No / no evidence |
+| `/compare/claude-vs-gemini` | 2026-11-13 10:28:28 | 2026-11-13 10:28:28 | No / no evidence |
+
+All four are indexed, fetched successfully, allow crawling/indexing and have matching self canonicals. Their unchanged November 13 crawl records provide no evidence of recrawling the November 16 release. The next scheduled review prioritizes these four pages and compares against both this observation and the existing Stage B online-confirmation reference above. The GSC display did not specify a timezone; retain raw times and do not silently convert them. No indexed/crawled HTML was inspected, so indexing the revised SWE table or text is unverified even if a later crawl is subsequently observed.
+
+### All nine crawled-not-indexed examples
+
+Paths below use `https://pairvu.com` unless a full URL is shown. The example-list dates are retained separately from current individual inspection results.
+
+| URL | Example-list last crawl | In current 45? | November 18 individual inspection |
+|---|---|---|---|
+| `/models/qwen-4-max-preview` | 2026-11-14 | Yes | Indexed; last crawl 2026-11-14 19:50:16 |
+| `/compare/deepseek-vs-chatgpt` | 2026-11-13 | Yes | Indexed; last crawl 2026-11-13 18:00:14 |
+| `/llm-pricing` | 2026-11-13 | Yes | Indexed; last crawl 2026-11-13 10:25:24 |
+| `/benchmarks/controlled-visual-qa/pairvu-controlled-visual-qa-v1.csv` | 2026-08-30 | No | Not individually inspected; legacy data asset |
+| `http://pairvu.com/manifest.webmanifest` | 2026-08-30 | No | Not individually inspected; manifest asset |
+| `/opengraph-image?b916238a57b3764b` | 2026-08-29 | No | Not individually inspected; image asset |
+| `/opengraph-image?66de95bae66c5519` | 2026-08-28 | No | Not individually inspected; image asset |
+| `/benchmarks/controlled-visual-qa/pairvu-controlled-visual-qa-v1.json` | 2026-08-26 | No | Not individually inspected; legacy data asset |
+| `/opengraph-image` | 2026-08-13 | No | Not individually inspected; image asset |
+
+The three current pages allow crawling/indexing, fetched successfully and have matching self canonicals. The historical exclusion list alone does not justify content rewrites or asset cleanup.
+
+### All eight noindex examples
+
+| Path | Example-list last crawl | In current 45? |
+|---|---|---|
+| `/account/releases` | 2026-10-19 | No |
+| `/sign-in?next=/account/releases` | 2026-10-19 | No |
+| `/account/products` | 2026-10-18 | No |
+| `/sign-in?next=/account/products` | 2026-10-18 | No |
+| `/account` | 2026-09-06 | No |
+| `/sign-in` | 2026-09-06 | No |
+| `/account/batches/new` | 2026-08-26 | No |
+| `/sign-in?next=/account/batches/new` | 2026-08-26 | No |
+
+These are legacy account/login addresses, with zero intersection with the current 45-page inventory. No current model/comparison page appears in this noindex list. Do not remove these exclusions merely to clear report counts; no individual inspection or runtime change to these eight URLs was performed.
+
+### Existing automation and next action
+
+The original `pairvu-gsc` heartbeat was updated through Automations on November 18 and read back ACTIVE. Its ID, name, thread and Wednesday **10:00 Asia/Shanghai** schedule are preserved; the next regular run is **November 25, 2026**. No new automation is created. The prompt records Haiku's completed first indexing, makes the four Stage B post-release crawl records the first reporting priority, and retains Haiku ongoing status, other edited-page checks, original batch reporting and performance windows. It records the historical exclusions without turning them into a new repair task.
+
+Only documentation and the existing automation prompt change in this follow-up; commit and push these records without a production release. No development, tests, live tests, indexing requests, sitemap submission, validation, new connection or feature enablement is included. Current sitemap status and search performance were not checked in the November 18 observation. The next read-only report proceeds automatically, dependent on an accessible GSC session or current export; login requires user handoff. Scope remains 45 URLs / 17 models / 16 comparisons, with no expansion authorized.
