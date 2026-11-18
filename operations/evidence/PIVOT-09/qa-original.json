@@ -1,0 +1,70 @@
+{
+  "unit": "PIVOT-09",
+  "candidateSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+  "baseline": "40be89afe1c4eaeb946ffb94854bea4380cd2f8e",
+  "reviewedAt": "2026-11-18T16:31:50.533Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "fixedSHA clean tree exact runtime boundary and faithful baselinecopies",
+      "result": "PASS"
+    },
+    {
+      "name": "sourceSHA and official tokenpricingworkflow facts",
+      "result": "PASS"
+    },
+    {
+      "name": "exact title H1 canonical and explicit currentAPIscope",
+      "result": "PASS"
+    },
+    {
+      "name": "current specandworkflow reflects owners without inventedlimits",
+      "result": "PASS"
+    },
+    {
+      "name": "conditional USDprices threshold thinkingtools and boundedrecommendations",
+      "result": "PASS"
+    },
+    {
+      "name": "sourcecheckedtraceability and noCarbonroute",
+      "result": "PASS"
+    },
+    {
+      "name": "historical specs identities pricesverdict vendorrecords and SWE preserved",
+      "result": "PASS"
+    },
+    {
+      "name": "ClaudeGemini actualSSR and metadata baselinecounterexample byteidentical",
+      "result": "PASS"
+    },
+    {
+      "name": "inventory51/20/19 exact orderedURLs targetonlylastmod",
+      "result": "PASS"
+    },
+    {
+      "name": "focused serverReact semanticstableandlinks stablekeys nofetchclient",
+      "result": "PASS"
+    }
+  ],
+  "metadata": {
+    "title": "ChatGPT vs Gemini: API Pricing, Context and Limits",
+    "description": "Compare GPT-6.2 Astra and Gemini 4 Carbon API prices, context windows, output limits and billing conditions, with dated official sources.",
+    "alternates": {
+      "canonical": "/compare/gpt-vs-gemini"
+    }
+  },
+  "counterMetadata": {
+    "title": "Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview",
+    "description": "Compare Claude Opus 4.5 and Gemini 3.1 Pro Preview: exact versions, pricing, context, deployment and source-linked facts.",
+    "alternates": {
+      "canonical": "/compare/claude-vs-gemini"
+    }
+  },
+  "reproduction": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot09.9Ng5aN/qa.tsx",
+  "reuse": "PIVOT08FIX runtime732f09f ownerfacts/Astrapairs/GPT5.2/anchors and PIVOT07B historicalbenchmark evidence unchanged; currentdiff independently checked; no old production evidence treated as currentproduction.",
+  "nonblocking": "git diff --check reports trailing blank line in archived developer-probe-diagnostic.json only; runtime unaffected.",
+  "cleanup": "No services/accounts/assets created. Snapshots and SSR retained.",
+  "exclusions": "No build/typecheck/server/fullsuite/HTTP/GSC/automation/newframework.",
+  "productionRequestsPerformed": 0,
+  "productionRequestsRemaining": 3
+}

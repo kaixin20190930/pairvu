@@ -1,0 +1,37 @@
+{
+  "unitId": "PIVOT-09",
+  "releaseSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+  "platformVersion": "1c97350f-1b8d-4f5b-84e2-9ae0e60dca49",
+  "artifactSha256": "1471bb9da6b8841bb243aa41889cdc9ecddf95715a75e51f48fc5d80621fefa0",
+  "implementation": "COMPLETE: single existing page and necessary snapshot/lastmod only",
+  "enabled": true,
+  "candidateAcceptance": "PASS:10 independent checks on exact commit",
+  "productionAcceptance": "PASS:7 independent checks,3 HTTP requests all200",
+  "inventory": {"urls": 51, "models": 20, "comparisons": 19},
+  "releaseGate": {
+    "remote": "origin/main",
+    "remoteSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+    "standaloneFreshCheckedAt": "2026-11-18T16:32:22.822Z",
+    "initialWrapperCheckedAt": "2026-11-18T16:32:52.174Z",
+    "preUploadFreshCheckedAt": "2026-11-18T16:33:32.194Z",
+    "result": "Exact remote/local SHA, complete clean tree, build SHA, artifact digest and exclusive release lock verified before deployment"
+  },
+  "build": {"count": 1, "compilation": "PASS", "typecheck": "PASS", "deploymentExitCode": 0},
+  "productionConfirmation": {
+    "startedAt": "2026-11-18T16:34:50.824Z",
+    "completedAt": "2026-11-18T16:34:52.476Z",
+    "timezone": "Asia/Shanghai",
+    "localWindow": "2026-11-19 00:34:50.824–00:34:52.476",
+    "exactTrafficSwitchTime": "NOT_ASSERTED"
+  },
+  "candidateQa": "qa-original.json",
+  "productionQa": "qa-production-original.json",
+  "deploymentLog": {"localPath": "/private/tmp/pairvu-pivot09.9Ng5aN/deploy.log", "sha256": "c6daf46b6218246a8711a6597a578576c8480de0ba8b34c6b4247493b6bdd07c"},
+  "gsc": {"action": "NONE", "taskEdit": "NONE", "nextOriginalCheck": "2026-11-25 10:00 Asia/Shanghai", "automationSha256BeforeAndAfter": "8593f835c827583774f97549a0c9c7bafa034170030445007ea2ffae3b807f33"},
+  "migrations": "NOT_REQUIRED",
+  "featureFlags": "NOT_REQUIRED",
+  "cleanup": "No service/account/customer/synthetic asset created; temporary probes and raw evidence retained locally",
+  "nonblocking": "Original developer probe diagnostic contains extra EOF blank line. Preserve original bytes; no runtime defect or new test required.",
+  "formalControl": "Historical JRN-04-FIX RELEASE_READY state/lock remains untouched; registry is not a fabricated CLI CLOSED transition",
+  "nextAction": "Docs-only evidence archive/push, no redeploy; original GSC observation automatic subject to usable session/export; any further development needs new authorization"
+}

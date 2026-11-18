@@ -1,0 +1,70 @@
+{
+  "unit": "PIVOT-09",
+  "candidateSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+  "releaseSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+  "platformVersion": "1c97350f-1b8d-4f5b-84e2-9ae0e60dca49",
+  "artifactSha256": "1471bb9da6b8841bb243aa41889cdc9ecddf95715a75e51f48fc5d80621fefa0",
+  "scope": "http",
+  "checkedAt": "2026-11-18T16:34:50.824Z",
+  "completedAt": "2026-11-18T16:34:52.476Z",
+  "result": "PASS",
+  "requestCount": 3,
+  "maxRequests": 3,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:34:50.825Z",
+      "bodyFile": "qa-production-0.body",
+      "headersFile": "qa-production-0.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-vs-gemini",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:34:51.951Z",
+      "bodyFile": "qa-production-1.body",
+      "headersFile": "qa-production-1.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/claude-vs-gemini",
+      "status": 200,
+      "checkedAt": "2026-11-18T16:34:52.253Z",
+      "bodyFile": "qa-production-2.body",
+      "headersFile": "qa-production-2.headers.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gemini:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exactSHA and platformversion",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini: exact accepted metadata canonical and complete renderedmain",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gemini: exact accepted metadata canonical and complete renderedmain",
+      "result": "PASS"
+    },
+    {
+      "name": "actual currentAPI models exact limits conditionalprices sources and historicalseparation",
+      "result": "PASS"
+    }
+  ],
+  "normalization": "Removed only hydrationHTMLcomments and Flight/scriptpayloads to compare actual renderedmain with accepted SSR. Rawresponses preserved. No redirects/retries.",
+  "reuse": "Local qa-original fixedSHA sourcefacts/inventory and baselinecounterexample; both actual production entiremain bodies equal accepted SSR.",
+  "cleanup": "No services/accounts/assets created. Rawheaders/bodies/reports retained.",
+  "excluded": "No otherHTTP/GSC/automation/build/test/server/runtimewrite. No migrations/activation needed."
+}

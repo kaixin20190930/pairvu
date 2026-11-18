@@ -4,7 +4,7 @@
     "unitId": "PIVOT-09",
     "contract": "operations/contracts/PIVOT-09.md",
     "baselineSha": "40be89afe1c4eaeb946ffb94854bea4380cd2f8e",
-    "status": "DEV_READY_EVIDENCE_INDEX",
+    "status": "PRODUCTION_VERIFIED",
     "formalTracking": "Historical JRN-04-FIX state/lock untouched; not a formal state override",
     "authorization": "November19 single existing GPT/Gemini page and necessary data, docs, independent acceptance and GitHub-first production; no GSC write or task change",
     "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded source-backed conditional server page", "upgradeCondition": "Substantive reasoning uncertainty only, not environment waits"},
@@ -13,7 +13,15 @@
     "gsc": "Original November25 10:00 Shanghai read-only task unchanged; no access/submission",
     "developerEvidence": "operations/evidence/PIVOT-09/developer-handoff.json",
     "developerResult": "10 bounded source/SSR checks PASS; unchanged counterexample and51/20/19; no build or HTTP",
-    "nextAction": "Controller commits fixed candidate; independent candidate acceptance then authorized release automatically if all gates pass"
+    "candidateSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+    "releaseSha": "017c97afeaf9bd945b481b9543a7cd39210d0949",
+    "platformVersion": "1c97350f-1b8d-4f5b-84e2-9ae0e60dca49",
+    "candidateEvidence": "operations/evidence/PIVOT-09/qa-original.json",
+    "candidateResult": "PASS:10 frozen independent checks",
+    "productionEvidence": "operations/evidence/PIVOT-09/qa-production-original.json",
+    "productionResult": "PASS:7checks/3HTTP all200; exactSHA/version; November19 00:34:50.824–00:34:52.476 Shanghai",
+    "completion": "operations/evidence/PIVOT-09/completion.md",
+    "nextAction": "Docs-only archive/push with no redeploy. Original November25 10:00 GSC review automatic subject to session/export; further development requires user authorization"
   },
   "pivot08Fix": {
     "unitId": "PIVOT-08-FIX",
