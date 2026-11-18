@@ -1,0 +1,83 @@
+{
+  "candidate": "7cdd9247c6b6875768cdf27770e1c1588bf69cd5",
+  "baseline": "531201710ca874363f900a053ff30e92237ac536",
+  "result": "FAIL",
+  "checks": [
+    {
+      "name": "fixed candidate and clean tree",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra: exact metadata H1, tables, five FAQ and substance",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((pages[s].match(/<table /g)||[]).length>=3)\n"
+    },
+    {
+      "name": "gpt-6-2-sol: exact metadata H1, tables, five FAQ and substance",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((pages[s].match(/<table /g)||[]).length>=3)\n"
+    },
+    {
+      "name": "gpt-6-astra: exact metadata H1, tables, five FAQ and substance",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((pages[s].match(/<table /g)||[]).length>=3)\n"
+    },
+    {
+      "name": "Astra exact description",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-2-sol: exact title canonical and pair links",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-5-2: exact title canonical and pair links",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra-vs-gpt-6-astra: exact title canonical and pair links",
+      "result": "PASS"
+    },
+    {
+      "name": "first comparison exact H1 and4x table and3 conditional recommendations",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n7 !== 3\n"
+    },
+    {
+      "name": "official-source values, dates and independent arithmetic boundaries",
+      "result": "PASS"
+    },
+    {
+      "name": "GPT5.2 retained facts and latest model link",
+      "result": "PASS"
+    },
+    {
+      "name": "flagship exact requested title",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra Pricing and Context'\n- 'Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra'\n"
+    },
+    {
+      "name": "current pair and historical SWE/vendor provenance separated; one methods footer",
+      "result": "PASS"
+    },
+    {
+      "name": "Haiku facts scores costs and metadata unaffected",
+      "result": "PASS"
+    },
+    {
+      "name": "20 distinct pricing rows individual retained source dates",
+      "result": "PASS"
+    },
+    {
+      "name": "51 unique sitemap routes, exact6 new, truthful lastmods and reciprocal graph",
+      "result": "PASS"
+    }
+  ],
+  "words": {
+    "gpt-6-2-astra": 1478,
+    "gpt-6-2-sol": 1504,
+    "gpt-6-astra": 1475
+  },
+  "exclusions": "No build/full suite/typecheck/server/productionHTTP/account/APIspend. Production compilation remains release gate. Shared Haiku SourceList date range and automatically added current comparison link permitted.",
+  "cleanup": "No services/accounts/assets created. Read-only SSR artifacts retained."
+}

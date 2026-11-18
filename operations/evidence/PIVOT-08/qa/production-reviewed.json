@@ -1,0 +1,281 @@
+{
+  "candidateSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+  "releaseSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+  "platformVersion": "91e98e0f-a025-44ec-92ec-e7d5a5032f4f",
+  "scope": "http",
+  "checkedAt": "2026-11-18T09:26:58.062Z",
+  "completedAt": "2026-11-18T09:27:02.078Z",
+  "result": "FAIL",
+  "requestCount": 13,
+  "maxRequests": 13,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:58.063Z",
+      "bodyFile": "production-0.body",
+      "headersFile": "production-0.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-2-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.177Z",
+      "bodyFile": "production-1.body",
+      "headersFile": "production-1.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-2-sol",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.443Z",
+      "bodyFile": "production-2.body",
+      "headersFile": "production-2.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.618Z",
+      "bodyFile": "production-3.body",
+      "headersFile": "production-3.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-2-sol",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.815Z",
+      "bodyFile": "production-4.body",
+      "headersFile": "production-4.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.236Z",
+      "bodyFile": "production-5.body",
+      "headersFile": "production-5.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.495Z",
+      "bodyFile": "production-6.body",
+      "headersFile": "production-6.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/llm-pricing",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.674Z",
+      "bodyFile": "production-7.body",
+      "headersFile": "production-7.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.849Z",
+      "bodyFile": "production-8.body",
+      "headersFile": "production-8.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/claude-vs-gpt",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.003Z",
+      "bodyFile": "production-9.body",
+      "headersFile": "production-9.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.281Z",
+      "bodyFile": "production-10.body",
+      "headersFile": "production-10.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.544Z",
+      "bodyFile": "production-11.body",
+      "headersFile": "production-11.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/sitemap.xml",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.725Z",
+      "bodyFile": "production-12.body",
+      "headersFile": "production-12.headers.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/sitemap.xml: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exact deployed commit and platform version",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra: actual production facts tables billing FAQs reciprocal link",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-sol: actual production facts tables billing FAQs reciprocal link",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-astra: actual production facts tables billing FAQs reciprocal link",
+      "result": "PASS"
+    },
+    {
+      "name": "first comparison actual4x cost table conditional recommendations",
+      "result": "PASS"
+    },
+    {
+      "name": "current and historical facts actual production separation",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n2 !== 1\n"
+    },
+    {
+      "name": "pricing20 own-source dates and worked costs",
+      "result": "PASS"
+    },
+    {
+      "name": "models index20 unique model targets",
+      "result": "PASS"
+    },
+    {
+      "name": "compare index19 unique comparison targets",
+      "result": "PASS"
+    },
+    {
+      "name": "sitemap51 unique canonical URLs with sixnew and truthful lastmods",
+      "result": "PASS"
+    }
+  ],
+  "exclusions": "No full51URL survey, account/businesswrites/liveAPIspend/GSC. HTTP source/rendered content acceptance only; candidate source arithmetic reused. No repeat requests or redirectfollow.",
+  "cleanup": "No services/accounts/testassets created. RawHTTP headers and bodies retained.",
+  "offlineReviewedAt": "2026-11-18T09:27:35.096Z",
+  "originalEvidence": "production-original.json",
+  "normalization": "Original raw result preserved. Six raw assertions were affected only by React hydration HTMLcomments separating text nodes. Offline evaluation removes HTMLcomments and reruns exactly those six categories on the same13responsebodies. No extraHTTP.",
+  "originalDiagnosticResult": "FAIL"
+}

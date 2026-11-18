@@ -1,0 +1,17 @@
+{
+  "candidate": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+  "previousCandidate": "7cdd9247c6b6875768cdf27770e1c1588bf69cd5",
+  "result": "PASS",
+  "affectedCheck": "Exact isolated title-only catalog diff and actual Claude-vs-GPT generateMetadata title/description/canonical PASS",
+  "metadata": {
+    "title": "Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra",
+    "description": "Compare Claude Opus 5.5 and GPT-6.2 Astra prices, context and API facts; historical Opus 4.5 and GPT-5.2 benchmark results remain clearly labeled.",
+    "alternates": {
+      "canonical": "/compare/claude-vs-gpt"
+    }
+  },
+  "reusedEvidence": "/private/tmp/pairvu-pivot08/qa/candidate-reviewed.json",
+  "reuseReason": "Only flagship title literal changed; every other prior candidate acceptance category is unaffected and remains PASS. Original FAIL reports preserved.",
+  "production": "NOT RUN: remaining13HTTP; compilation/typecheck is pushed-commit release build gate",
+  "cleanup": "No service/account/test assets created; read-only evidence retained."
+}

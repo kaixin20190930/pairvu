@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "checks": {
+    "gpt-6-2-astra:render-and-metadata": true,
+    "gpt-6-2-sol:render-and-metadata": true,
+    "gpt-6-astra:render-and-metadata": true,
+    "gpt-5-2:render-and-metadata": true,
+    "gpt-6-2-astra-vs-gpt-6-2-sol:render-metadata-links": true,
+    "gpt-6-2-astra-vs-gpt-5-2:render-metadata-links": true,
+    "gpt-6-2-astra-vs-gpt-6-astra:render-metadata-links": true,
+    "claude-vs-gpt:render-metadata-links": true,
+    "claude-haiku-5-5-vs-claude-opus-5-5:render-metadata-links": true,
+    "price-arithmetic-boundary": true,
+    "51-20-19-reciprocal-graph-lastmod": true,
+    "20-pricing-rows-own-dates-sources": true
+  },
+  "words": {
+    "gpt-6-2-astra": 1480,
+    "gpt-6-2-sol": 1506,
+    "gpt-6-astra": 1477
+  },
+  "scope": "Targeted local component SSR; no HTTP server, build, typecheck or production claim"
+}

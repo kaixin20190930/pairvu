@@ -1,0 +1,282 @@
+{
+  "candidateSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+  "releaseSha": "7667cb34a5477d877e77daa6a5a366d9b697ba39",
+  "platformVersion": "91e98e0f-a025-44ec-92ec-e7d5a5032f4f",
+  "scope": "http",
+  "checkedAt": "2026-11-18T09:26:58.062Z",
+  "completedAt": "2026-11-18T09:27:02.078Z",
+  "result": "FAIL",
+  "requestCount": 13,
+  "maxRequests": 13,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:58.063Z",
+      "bodyFile": "production-0.body",
+      "headersFile": "production-0.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-2-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.177Z",
+      "bodyFile": "production-1.body",
+      "headersFile": "production-1.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-2-sol",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.443Z",
+      "bodyFile": "production-2.body",
+      "headersFile": "production-2.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-6-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.618Z",
+      "bodyFile": "production-3.body",
+      "headersFile": "production-3.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-2-sol",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:26:59.815Z",
+      "bodyFile": "production-4.body",
+      "headersFile": "production-4.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.236Z",
+      "bodyFile": "production-5.body",
+      "headersFile": "production-5.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/gpt-6-2-astra-vs-gpt-6-astra",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.495Z",
+      "bodyFile": "production-6.body",
+      "headersFile": "production-6.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/llm-pricing",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.674Z",
+      "bodyFile": "production-7.body",
+      "headersFile": "production-7.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models/gpt-5-2",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:00.849Z",
+      "bodyFile": "production-8.body",
+      "headersFile": "production-8.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare/claude-vs-gpt",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.003Z",
+      "bodyFile": "production-9.body",
+      "headersFile": "production-9.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/models",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.281Z",
+      "bodyFile": "production-10.body",
+      "headersFile": "production-10.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/compare",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.544Z",
+      "bodyFile": "production-11.body",
+      "headersFile": "production-11.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/sitemap.xml",
+      "status": 200,
+      "checkedAt": "2026-11-18T09:27:01.725Z",
+      "bodyFile": "production-12.body",
+      "headersFile": "production-12.headers.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/sitemap.xml: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exact deployed commit and platform version",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare: title description H1 selfcanonical",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-2-sol: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-6-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-5-2: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-astra: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/claude-vs-gpt: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gpt-5-2: accepted metadata fidelity",
+      "result": "PASS"
+    },
+    {
+      "name": "gpt-6-2-astra: actual production facts tables billing FAQs reciprocal link",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: $7.00"
+    },
+    {
+      "name": "gpt-6-2-sol: actual production facts tables billing FAQs reciprocal link",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: $1.75"
+    },
+    {
+      "name": "gpt-6-astra: actual production facts tables billing FAQs reciprocal link",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: $8.75"
+    },
+    {
+      "name": "first comparison actual4x cost table conditional recommendations",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(html.includes(`<th>${k}</th><td>4×</td>`))\n"
+    },
+    {
+      "name": "current and historical facts actual production separation",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(html.indexOf('Historical comparison:')<html.indexOf('76.8%'))\n"
+    },
+    {
+      "name": "pricing20 own-source dates and worked costs",
+      "result": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '<tr><th><a href=\"/models/gpt-6-2-astra\">GPT-6.2 Astra</a></th><td>OpenAI</td><td>1.05M</td><td>USD 8 in / 40 out · Global API · Standard API, input ≤272,000 tokens<!-- --> · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked <!-- -->2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-6-2-sol\">GPT-6.2 Sol</a></th><td>OpenAI</td><td>1.05M</td><td>USD 2 in / 10 out · Global API · Standard API, input ≤272,000 tokens<!-- --> · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked <!-- -->2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-6-astra\">GPT-6 Astra</a></th><td>OpenAI</td><td>1.05M</td><td>USD 10 in / 50 out · Global API · Standard API, input ≤272,000 tokens<!-- --> · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked <!-- -->2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-5-2\">GPT-5.2</a></th><td>OpenAI</td><td>400K</td><td>USD 1.75 in / 14 out · Global API · Standard API<!-- --> · <a href=\"https://developers.openai.com/api/docs/models/gpt-5.2\">OpenAI GPT-5.2 documentation</a> · checked <!-- -->2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-opus-4-5\">Claude Opus 4.5</a></th><td>Anthropic</td><td>200K</td><td>USD 5 in / 25 out · Global API · Standard API<!-- --> · <a href=\"https://docs.anthropic.com/en/docs/about-claude/models/overview\">Anthropic model overview and pricing</a> · checked <!-- -->2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/gemini-3-1-pro-preview\">Gemini 3.1 Pro Preview</a></th><td>Google</td><td>1.048576M</td><td>USD 2 in / 12 out · Global API · Standard API, prompts ≤200K<!-- --> · <a href=\"https://aistudio.google.com/docs/pricing#gemini-3.1-pro-preview\">Google Gemini 3.1 Pro Preview Standard API pricing</a> · checked <!-- -->2026-11-16</td><td>Closed</td></tr><tr><th><a href=\"/models/qwen3-8b\">Qwen3-8B</a></th><td>Qwen / Alibaba</td><td>33K</td><td>USD 0.07 in / 0.30 out (CNY 0.5 / 2) · China (Beijing) · LoRA fine-tuned custom deployment, non-thinking<!-- --> · <a href=\"https://help.aliyun.com/en/model-studio/model-deployment-token\">Alibaba LoRA token-based deployment billing</a> · checked <!-- -->2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/glm-5\">GLM-5</a></th><td>Z.ai</td><td>200K</td><td>USD 1 in / 3.2 out · International · Model API pay-as-you-go<!-- --> · <a href=\"https://docs.z.ai/guides/overview/pricing\">Z.ai official model API pricing</a> · checked <!-- -->2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/fable-5-2\">Claude Fable 5.2</a></th><td>Anthropic</td><td>1M</td><td>USD 8 in / 40 out · Global API · Standard API<!-- --> · <a href=\"https://platform.claude.com/docs/en/models/fable-5-2/overview\">Anthropic Fable 5.2 documentation</a> · checked <!-- -->2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-opus-5-5\">Claude Opus 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 4 in / 20 out · Global API · Standard Claude API<!-- --> · <a href=\"https://platform.claude.com/docs/en/models/opus-5-5/overview\">Anthropic Claude Opus 5.5 overview</a> · checked <!-- -->2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/qwen3-8-27b\">Qwen3.8-27B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 0.45 in / 1.80 out (CNY 3 / 12) · China (Beijing) · Hosted API, 0–1M input<!-- --> · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba Model Studio official pricing</a> · checked <!-- -->2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/deepseek-v3-2\">DeepSeek-V3.2</a></th><td>DeepSeek</td><td>128K</td><td>Current DeepSeek-V3.2-specific hosted pricing is unknown, not free. The December 2025 release documented API access; the current API model list names newer models. Their prices and aliases do not establish a purchasable V3.2 rate or prove a weights-only offering.<!-- --> · <a href=\"https://api-docs.deepseek.com/quick_start/pricing\">DeepSeek current official API model list</a> · checked <!-- -->2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/kimi-k2-5\">Kimi K2.5</a></th><td>Moonshot AI</td><td>256K</td><td>The current Kimi K2.5-specific token rate is unknown, not free. The official K2 lifecycle notice preserves existing-user access, blocks newly registered users from 2026-10-31, and plans retirement by the end of December 2026. This is not a weights-only model or a claim that it is already retired.<!-- --> · <a href=\"https://platform.kimi.ai/docs/pricing/chat\">Kimi API pricing and K2 lifecycle notice</a> · checked <!-- -->2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/minimax-m2-1\">MiniMax M2.1</a></th><td>MiniMax</td><td>200K</td><td>Current MiniMax M2.1-specific hosted pricing is unknown, not free. Its December 2025 launch linked API access; the current price table lists newer models and does not establish an M2.1 rate. Do not substitute M3 prices or infer a weights-only offering.<!-- --> · <a href=\"https://platform.minimax.io/docs/pricing/overview\">MiniMax current official API pricing</a> · checked <!-- -->2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/qwen3-8-2-4t-a95b\">Qwen3.8-2.4T-A95B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 1.80 in / 5.39 out (CNY 12 / 36) · China (Beijing) · Hosted API, 0–1M input<!-- --> · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba Model Studio official pricing</a> · checked <!-- -->2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/qwen3-5-397b-a17b\">Qwen3.5-397B-A17B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 0.18 in / 1.08 out (CNY 1.2 / 7.2) · China (Beijing) · Hosted API, thinking or non-thinking, 0 &lt; input tokens ≤128K<!-- --> · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba exact Qwen3.5 model API pricing</a> · checked <!-- -->2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/qwen-4-max-preview\">Qwen 4 Max Preview</a></th><td>Qwen / Alibaba</td><td>1M</td><td>No pay-as-you-go price. Preview runs through 2026-11-25 at 24:00 UTC+8 and is then retired.<!-- --> · <a href=\"https://help.aliyun.com/en/model-studio/qwen4-max-preview\">Alibaba Qwen4-Max-Preview documentation</a> · checked <!-- -->2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-sonnet-5-5\">Claude Sonnet 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 2 in / 10 out · Global API · Standard Claude API<!-- --> · <a href=\"https://platform.claude.com/docs/en/models/sonnet-5-5/overview\">Anthropic Claude Sonnet 5.5 overview</a> · checked <!-- -->2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/muse-wonder\">Muse Wonder</a></th><td>Meta</td><td>1.048576M</td><td>USD 4 in / 20 out · Available except South Korea · Pay-as-you-go, Standard mode only<!-- --> · <a href=\"https://dev.meta.ai/docs/pricing-rate-limits\">Meta Model API pricing and rate limits</a> · checked <!-- -->2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-haiku-5-5\">Claude Haiku 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 0.1 in / 0.5 out · Global API · Standard Claude API, input prompts ≤100,000 tokens<!-- --> · <a href=\"https://platform.claude.com/docs/en/models/haiku-5-5/overview\">Anthropic Claude Haiku 5.5 exact model overview and pricing</a> · checked <!-- -->2026-11-16</td><td>Closed</td></tr>'\n- '<tr><th><a href=\"/models/gpt-6-2-astra\">GPT-6.2 Astra</a></th><td>OpenAI</td><td>1.05M</td><td>USD 8 in / 40 out · Global API · Standard API, input ≤272,000 tokens · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked 2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-6-2-sol\">GPT-6.2 Sol</a></th><td>OpenAI</td><td>1.05M</td><td>USD 2 in / 10 out · Global API · Standard API, input ≤272,000 tokens · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked 2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-6-astra\">GPT-6 Astra</a></th><td>OpenAI</td><td>1.05M</td><td>USD 10 in / 50 out · Global API · Standard API, input ≤272,000 tokens · <a href=\"https://developers.openai.com/api/docs/pricing\">OpenAI API pricing and processing tiers</a> · checked 2026-11-18</td><td>Closed</td></tr><tr><th><a href=\"/models/gpt-5-2\">GPT-5.2</a></th><td>OpenAI</td><td>400K</td><td>USD 1.75 in / 14 out · Global API · Standard API · <a href=\"https://developers.openai.com/api/docs/models/gpt-5.2\">OpenAI GPT-5.2 documentation</a> · checked 2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-opus-4-5\">Claude Opus 4.5</a></th><td>Anthropic</td><td>200K</td><td>USD 5 in / 25 out · Global API · Standard API · <a href=\"https://docs.anthropic.com/en/docs/about-claude/models/overview\">Anthropic model overview and pricing</a> · checked 2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/gemini-3-1-pro-preview\">Gemini 3.1 Pro Preview</a></th><td>Google</td><td>1.048576M</td><td>USD 2 in / 12 out · Global API · Standard API, prompts ≤200K · <a href=\"https://aistudio.google.com/docs/pricing#gemini-3.1-pro-preview\">Google Gemini 3.1 Pro Preview Standard API pricing</a> · checked 2026-11-16</td><td>Closed</td></tr><tr><th><a href=\"/models/qwen3-8b\">Qwen3-8B</a></th><td>Qwen / Alibaba</td><td>33K</td><td>USD 0.07 in / 0.30 out (CNY 0.5 / 2) · China (Beijing) · LoRA fine-tuned custom deployment, non-thinking · <a href=\"https://help.aliyun.com/en/model-studio/model-deployment-token\">Alibaba LoRA token-based deployment billing</a> · checked 2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/glm-5\">GLM-5</a></th><td>Z.ai</td><td>200K</td><td>USD 1 in / 3.2 out · International · Model API pay-as-you-go · <a href=\"https://docs.z.ai/guides/overview/pricing\">Z.ai official model API pricing</a> · checked 2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/fable-5-2\">Claude Fable 5.2</a></th><td>Anthropic</td><td>1M</td><td>USD 8 in / 40 out · Global API · Standard API · <a href=\"https://platform.claude.com/docs/en/models/fable-5-2/overview\">Anthropic Fable 5.2 documentation</a> · checked 2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-opus-5-5\">Claude Opus 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 4 in / 20 out · Global API · Standard Claude API · <a href=\"https://platform.claude.com/docs/en/models/opus-5-5/overview\">Anthropic Claude Opus 5.5 overview</a> · checked 2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/qwen3-8-27b\">Qwen3.8-27B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 0.45 in / 1.80 out (CNY 3 / 12) · China (Beijing) · Hosted API, 0–1M input · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba Model Studio official pricing</a> · checked 2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/deepseek-v3-2\">DeepSeek-V3.2</a></th><td>DeepSeek</td><td>128K</td><td>Current DeepSeek-V3.2-specific hosted pricing is unknown, not free. The December 2025 release documented API access; the current API model list names newer models. Their prices and aliases do not establish a purchasable V3.2 rate or prove a weights-only offering. · <a href=\"https://api-docs.deepseek.com/quick_start/pricing\">DeepSeek current official API model list</a> · checked 2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/kimi-k2-5\">Kimi K2.5</a></th><td>Moonshot AI</td><td>256K</td><td>The current Kimi K2.5-specific token rate is unknown, not free. The official K2 lifecycle notice preserves existing-user access, blocks newly registered users from 2026-10-31, and plans retirement by the end of December 2026. This is not a weights-only model or a claim that it is already retired. · <a href=\"https://platform.kimi.ai/docs/pricing/chat\">Kimi API pricing and K2 lifecycle notice</a> · checked 2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/minimax-m2-1\">MiniMax M2.1</a></th><td>MiniMax</td><td>200K</td><td>Current MiniMax M2.1-specific hosted pricing is unknown, not free. Its December 2025 launch linked API access; the current price table lists newer models and does not establish an M2.1 rate. Do not substitute M3 prices or infer a weights-only offering. · <a href=\"https://platform.minimax.io/docs/pricing/overview\">MiniMax current official API pricing</a> · checked 2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/qwen3-8-2-4t-a95b\">Qwen3.8-2.4T-A95B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 1.80 in / 5.39 out (CNY 12 / 36) · China (Beijing) · Hosted API, 0–1M input · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba Model Studio official pricing</a> · checked 2026-11-12</td><td>Open</td></tr><tr><th><a href=\"/models/qwen3-5-397b-a17b\">Qwen3.5-397B-A17B</a></th><td>Qwen / Alibaba</td><td>262K</td><td>USD 0.18 in / 1.08 out (CNY 1.2 / 7.2) · China (Beijing) · Hosted API, thinking or non-thinking, 0 &lt; input tokens ≤128K · <a href=\"https://help.aliyun.com/en/model-studio/model-pricing\">Alibaba exact Qwen3.5 model API pricing</a> · checked 2026-11-16</td><td>Open</td></tr><tr><th><a href=\"/models/qwen-4-max-preview\">Qwen 4 Max Preview</a></th><td>Qwen / Alibaba</td><td>1M</td><td>No pay-as-you-go price. Preview runs through 2026-11-25 at 24:00 UTC+8 and is then retired. · <a href=\"https://help.aliyun.com/en/model-studio/qwen4-max-preview\">Alibaba Qwen4-Max-Preview documentation</a> · checked 2026-11-12</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-sonnet-5-5\">Claude Sonnet 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 2 in / 10 out · Global API · Standard Claude API · <a href=\"https://platform.claude.com/docs/en/models/sonnet-5-5/overview\">Anthropic Claude Sonnet 5.5 overview</a> · checked 2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/muse-wonder\">Muse Wonder</a></th><td>Meta</td><td>1.048576M</td><td>USD 4 in / 20 out · Available except South Korea · Pay-as-you-go, Standard mode only · <a href=\"https://dev.meta.ai/docs/pricing-rate-limits\">Meta Model API pricing and rate limits</a> · checked 2026-11-15</td><td>Closed</td></tr><tr><th><a href=\"/models/claude-haiku-5-5\">Claude Haiku 5.5</a></th><td>Anthropic</td><td>1M</td><td>USD 0.1 in / 0.5 out · Global API · Standard Claude API, input prompts ≤100,000 tokens · <a href=\"https://platform.claude.com/docs/en/models/haiku-5-5/overview\">Anthropic Claude Haiku 5.5 exact model overview and pricing</a> · checked 2026-11-16</td><td>Closed</td></tr>'\n"
+    },
+    {
+      "name": "models index20 unique model targets",
+      "result": "PASS"
+    },
+    {
+      "name": "compare index19 unique comparison targets",
+      "result": "PASS"
+    },
+    {
+      "name": "sitemap51 unique canonical URLs with sixnew and truthful lastmods",
+      "result": "PASS"
+    }
+  ],
+  "exclusions": "No full51URL survey, account/businesswrites/liveAPIspend/GSC. HTTP source/rendered content acceptance only; candidate source arithmetic reused. No repeat requests or redirectfollow.",
+  "cleanup": "No services/accounts/testassets created. RawHTTP headers and bodies retained."
+}
