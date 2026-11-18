@@ -1,5 +1,20 @@
 {
   "schemaVersion": 1,
+  "pivot08Fix": {
+    "unitId": "PIVOT-08-FIX",
+    "contract": "operations/contracts/PIVOT-08-FIX.md",
+    "baselineSha": "64bd515b2e69ea5a726964da128c75db18df31e8",
+    "status": "DEV_READY",
+    "formalTracking": "Historical JRN-04-FIX RELEASE_READY remains untouched; evidence index only",
+    "authorization": "2026-11-18 only accepted P0/P1 content and related-anchor repairs; independent acceptance, commit/push, production; no new URL or GSC/automation write",
+    "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded pair-specific JSX and shared anchor label correction", "upgradeCondition": "Stop and reassess substantive cross-module uncertainty; not permission/network waits"},
+    "qa": {"agent": "/root/pivot08_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent source/fixed-SHA SSR counterexamples and six-request production acceptance", "upgradeCondition": "Return real defect to original developer; reassess actual reasoning gap only"},
+    "expectedInventory": {"urls": 51, "models": 20, "comparisons": 19},
+    "gsc": "No interaction, repeated submission or task update; original November25 read-only follow-up preserved",
+    "developerEvidence": "operations/evidence/PIVOT-08-FIX/developer-handoff.json",
+    "developerResult": "11 bounded checks PASS plus isolated final verdict wording check PASS; no server/build/typecheck/GSC. Runtime3files only, catalog one verdict phrase.",
+    "nextAction": "Controller commits exact candidate; original independent reviewer checks frozen scope before GitHub-first release."
+  },
   "pivot08": {
     "unitId": "PIVOT-08",
     "contract": "operations/contracts/PIVOT-08.md",

@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "baseline": "64bd515b2e69ea5a726964da128c75db18df31e8",
+  "checks": {
+    "source-snapshots-match-frozen-hashes": true,
+    "gpt-6-2-astra-vs-gpt-6-astra:metadata-and-threshold-preserved": true,
+    "gpt-6-2-astra-vs-gpt-6-astra:pair-specific-details": true,
+    "gpt-6-2-astra-vs-gpt-5-2:metadata-and-threshold-preserved": true,
+    "gpt-6-2-astra-vs-gpt-5-2:pair-specific-details": true,
+    "gpt-6-2-astra-vs-gpt-6-2-sol:metadata-and-threshold-preserved": true,
+    "gpt-6-2-astra-vs-gpt-6-2-sol:pair-specific-details": true,
+    "gpt-5-2:labels-only-preserve-hrefs-and-metadata": true,
+    "claude-haiku-5-5:labels-only-preserve-hrefs-and-metadata": true,
+    "inventory-51-20-19": true,
+    "focused-react-server-key-link-review": true
+  },
+  "scope": "Affected server-component SSR and frozen inventory only; no build/typecheck/server/network/GSC/production",
+  "cleanup": "No services, accounts or synthetic assets created; SSR artifacts retained"
+}

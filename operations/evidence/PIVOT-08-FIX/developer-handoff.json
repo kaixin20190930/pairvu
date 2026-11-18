@@ -1,0 +1,29 @@
+{
+  "unit": "PIVOT-08-FIX",
+  "baseline": "64bd515b2e69ea5a726964da128c75db18df31e8",
+  "stage": "Runtime ready for controller candidate commit and independent acceptance",
+  "runtimeFiles": ["components/OpenAIComparisonDetails.tsx", "app/models/[slug]/page.tsx", "lib/models/catalog.ts (one authorized verdict phrase only)"],
+  "catalogChanged": "GPT-6.2 Astra vs GPT-5.2 verdict changes larger documented token limits to a larger documented context window; all other catalog content unchanged",
+  "decisions": [
+    "GPT-6.2 Astra vs GPT-6 Astra scenarios cover new project evaluation, existing production migration and platform eligibility, preserving equal token limits, 20% input/output and 60% cache-read price differences and 18-day cutoff difference without assuming cloud availability or quality superiority.",
+    "GPT-6.2 Astra vs GPT-5.2 scenarios cover long documents, cost-sensitive existing workloads and migration/reasoning. 2.625x context is distinct from the shared 128K output ceiling; output price40/14 is about2.86x at short-context Standard, not an all-request bill ratio.",
+    "GPT-5.2 table uses explicitly unknown maximum input,128K maximum output,2025-08-31 cutoff,text/image input and text output,cached readUSD0.175/M and reasoning none support; direct official source checked2026-11-18 is local to that new table evidence. Existing catalog dates unchanged.",
+    "Existing shared model profile links use comparisonSeo.title or exact model names; hrefs,order,special links and metadata unchanged.",
+    "Astra/Sol component output retained, verified after whitespace normalization. The only additional runtime edit is the controller-authorized context-only verdict phrase."
+  ],
+  "validation": {
+    "command": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot08-fix.g7roR1/dev-ssr.tsx",
+    "result": "PASS",
+    "checks": 11,
+    "evidence": "/private/tmp/pairvu-pivot08-fix.g7roR1/dev-evidence.json",
+    "rendered": "/private/tmp/pairvu-pivot08-fix.g7roR1/dev-*.html",
+    "diffCheck": "git diff --check PASS",
+    "finalVerdictCheck": "After the 11-check PASS, controller requested context-only wording in the top GPT5.2 verdict. One targeted page render confirmed the corrected verdict appears and the old phrase is absent; PASS. Unaffected 11-check evidence reused, not rerun.",
+    "sourceHashes": "All three raw official snapshots match operations/evidence/PIVOT-08-FIX/source-index.json",
+    "probeDiagnostic": "Initial probe incorrectly tried to relabel the existing hand-written newer-flagship inline link as well as bare-slug related labels. Its rendered assertion showed product preserved that inline link correctly; narrowed expected substitution to bare-slug labels and reran once to PASS. No runtime change was made for that diagnostic."
+  },
+  "focusedReactReview": "Applied react-best-practices focused scope: existing server component retained, no hooks/effects/client marker/network/dependency; stable scenario/table/link keys; real semantic source anchor and existing Next Links.",
+  "exclusions": "No build/typecheck/full suite/server/network/GSC/account or synthetic asset operations. No production or independent acceptance claim.",
+  "cleanup": "No running service,account or synthetic asset created. Temporary baseline copies,probe and SSR artifacts retained for independent reproduction.",
+  "next": "Controller commits exact candidate; original independent reviewer checks that SHA and reuses unaffected evidence. Developer needs no user input and performs no Git mutation or release."
+}

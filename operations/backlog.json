@@ -2,6 +2,15 @@
   "schemaVersion": 1,
   "units": [
     {
+      "id": "PIVOT-08-FIX",
+      "title": "Repair two GPT comparison scenarios, sourced GPT5.2 fields and model anchor labels only",
+      "priority": 0,
+      "dependsOn": ["PIVOT-08"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["exact source fields and pair-specific guidance", "fixed candidate independent bounded SSR acceptance", "GitHub-first same-SHA release and six-request production acceptance", "unchanged GSC schedule/no submission"]
+    },
+    {
       "id": "PIVOT-08",
       "title": "Official GPT-6.2 family six-page publication and bounded billing corrections",
       "priority": 0,
