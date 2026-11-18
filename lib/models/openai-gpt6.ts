@@ -1,0 +1,14 @@
+import type {ModelRecord, Source} from './catalog';
+export const gpt6Checked='2026-11-18';
+const source=(label:string,url:string):Source=>({label,url,accessed:gpt6Checked});
+export const openaiApiPricing=source('OpenAI API pricing and processing tiers','https://developers.openai.com/api/docs/pricing');
+export const openaiWorkPricing=source('ChatGPT Work and Codex pricing and usage estimates','https://learn.chatgpt.com/docs/pricing');
+export const gpt6Specs={
+ 'gpt-6-2-astra':{id:'gpt-6.2-astra',name:'GPT-6.2 Astra',input:8,output:40,cached:.4,write30:10,write12:20,cutoff:'2026-05-18',messages:'6–50'},
+ 'gpt-6-2-sol':{id:'gpt-6.2-sol',name:'GPT-6.2 Sol',input:2,output:10,cached:.1,write30:2.5,write12:5,cutoff:'2026-06-01',messages:'17–180'},
+ 'gpt-6-astra':{id:'gpt-6-astra',name:'GPT-6 Astra',input:10,output:50,cached:1,write30:12.5,write12:25,cutoff:'2026-04-30',messages:'5–45'},
+} as const;
+export type Gpt6Slug=keyof typeof gpt6Specs;
+export const isGpt6=(slug:string):slug is Gpt6Slug=>Object.hasOwn(gpt6Specs,slug);
+export const gpt6Models:ModelRecord[]=Object.entries(gpt6Specs).map(([slug,v])=>{const doc=source(`${v.name} official model documentation`,`https://developers.openai.com/api/docs/models/${v.id}`);return {slug,name:v.name,provider:'OpenAI',releaseDate:'Not stated in the cited official model documentation',openWeights:false,contextTokens:1050000,modelId:v.id,availabilityStatus:'Listed in OpenAI API documentation; verify account access and model selector',summary:slug==="gpt-6-2-astra"?"GPT-6.2 Astra input and output prices are 20% lower than GPT-6 Astra. It retains the same 1,050,000-token context window. The API rejects reasoning effort none.":slug==="gpt-6-2-sol"?"GPT-6.2 Sol input, output and cached-read prices are one quarter of GPT-6.2 Astra at the same context and speed setting. It shares the 1,050,000-token context window, with a June 1, 2026 knowledge cutoff. The API rejects reasoning effort none.":"GPT-6 Astra accepts text and image inputs and produces text, with a 1,050,000-token context window. Its knowledge cutoff is April 30, 2026. Its input/output prices are $10/$50 per million tokens at short-context Standard rates.",sources:[doc,openaiApiPricing,openaiWorkPricing],pricing:[{provider:'OpenAI',region:'Global API',currency:'USD',mode:'Standard API, input ≤272,000 tokens',accessedAt:gpt6Checked,inputPerMillion:v.input,outputPerMillion:v.output,note:`More than 272,000 input tokens: input and cache rates ×2, output ×1.5 for the full request. Cached read $${v.cached}/M at short context.`,source:openaiApiPricing}],modality:'Text and image input; text output',licenseAndWeights:'Closed weights',accessAndDeployment:`OpenAI API model ${v.id}; Chat Completions, Responses and Batch`};});
+export function gpt6RequestCost(slug:Gpt6Slug,input:number,output:number){const v=gpt6Specs[slug],long=input>272000;return input/1e6*v.input*(long?2:1)+output/1e6*v.output*(long?1.5:1);}

@@ -1,5 +1,20 @@
 {
   "schemaVersion": 1,
+  "pivot08": {
+    "unitId": "PIVOT-08",
+    "contract": "operations/contracts/PIVOT-08.md",
+    "baselineSha": "531201710ca874363f900a053ff30e92237ac536",
+    "status": "DEV_READY",
+    "formalTracking": "BACKLOG_BLOCKED_BY_JRN-04-FIX_RELEASE_READY",
+    "authorization": "2026-11-18 six official-source model/comparison URLs and bounded existing content corrections; independent acceptance, push, production, GSC submission",
+    "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded existing catalog and JSX content integration with frozen official facts", "upgradeCondition": "Stop for substantive out-of-scope consistency uncertainty; no environment-driven upgrade"},
+    "qa": {"agent": "/root/pivot08_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent fixed-SHA source/arithmetic/targeted SSR and 13-request production acceptance", "upgradeCondition": "Return actual runtime failures to original developer; reassess substantive reasoning insufficiency only"},
+    "expectedInventory": {"urls": 51, "models": 20, "comparisons": 19},
+    "excluded": ["new best/products/benchmark URLs", "fabricated scores or universal rankings", "account/Stripe/DB/dependency changes", "new framework/full regression/extra build", "backlink outreach or new automation"],
+    "developerEvidence": "/private/tmp/pairvu-pivot08/developer-handoff.md",
+    "developerResult": "12 targeted SSR/inventory/arithmetic/source-date checks PASS; exact requested metadata corrected before candidate; no build/server/full suite",
+    "nextAction": "Bind independently accepted exact candidate, then GitHub-first production and authorized GSC submission."
+  },
   "controllerThreadId": "01a0bcd5-909b-7b72-b64b-399e8028c919",
   "unitId": "JRN-04-FIX",
   "baselineSha": "c20cf48c06269fe463043a4dbf5d4a11841c1da6",

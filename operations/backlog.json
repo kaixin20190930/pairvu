@@ -2,6 +2,15 @@
   "schemaVersion": 1,
   "units": [
     {
+      "id": "PIVOT-08",
+      "title": "Official GPT-6.2 family six-page publication and bounded billing corrections",
+      "priority": 0,
+      "dependsOn": ["PIVOT-07-B"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["official source and billing arithmetic", "fixed SHA independent bounded acceptance", "GitHub-first production exact version and 13 target requests", "verified GSC sitemap and six-URL request outcomes"]
+    },
+    {
       "id": "AUTO-01",
       "title": "自动化控制与独立验收工具",
       "priority": 0,

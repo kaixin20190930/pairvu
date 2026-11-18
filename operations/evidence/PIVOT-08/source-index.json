@@ -1,0 +1,33 @@
+{
+  "checkedDate": "2026-11-18",
+  "kind": "Official-source snapshot index and controller observation; not a reproduced benchmark or raw GSC export",
+  "sources": [
+    {"url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra.md", "raw": "/private/tmp/pairvu-pivot08/astra.md", "sha256": "89611cfc6a48262e6e73d2bca8e9aed9c6694b9ae2955a12d16f0d949081d639"},
+    {"url": "https://developers.openai.com/api/docs/models/gpt-6.2-sol.md", "raw": "/private/tmp/pairvu-pivot08/sol.md", "sha256": "3c1aa626387fc854be2560f16620f0c913f4a2aa97e8208d4239efd3279fe913"},
+    {"url": "https://developers.openai.com/api/docs/models/gpt-6-astra.md", "raw": "/private/tmp/pairvu-pivot08/astra6.md", "sha256": "31d55873985379d2b4e129fd41f974e8511b9de1a5105dc4e0692b53b504a8cb"},
+    {"url": "https://developers.openai.com/api/docs/pricing.md", "raw": "/private/tmp/pairvu-pivot08/api-pricing.md", "sha256": "427698a0c4f1cf4abb2569cb0f9a4ca7fcacfa2f45d61a75f221f0b590ac5114"},
+    {"url": "https://learn.chatgpt.com/docs/pricing.md", "raw": "/private/tmp/pairvu-pivot08/work-pricing.md", "sha256": "83c9e06d02f40b0974ccefc151a30d11420bad88bb6128e75f948c1956ebc42d"}
+  ],
+  "gscPreRetargetCheck": {
+    "method": "Authenticated Chrome UI read-only performance report",
+    "property": "sc-domain:pairvu.com",
+    "searchType": "Web",
+    "range": "28 days, 2026-10-19 through 2026-11-15",
+    "filter": "Query contains claude",
+    "reportedImpressions": 0,
+    "reportedClicks": 0,
+    "table": "No data",
+    "limitation": "No visible query landing-page ranking established. Query privacy and reporting delay prevent interpreting this as proof of zero demand or a complete query census. No screenshot/raw export archived for this read-only check.",
+    "decision": "Retarget existing Claude vs GPT current flagship; retain prior exact-model facts and SWE evidence in explicitly historical section."
+  },
+  "billingCounterexamples": {
+    "threshold": "Strictly greater than 272000 input tokens; entire request input/cache x2, output x1.5",
+    "example": "400000 uncached input plus10000 billed output, Standard, excludes tools/cache writes/taxes",
+    "astra62Usd": 7,
+    "sol62Usd": 1.75,
+    "astra6Usd": 8.75,
+    "equalCaps": "Not evidence of equal quality or speed",
+    "releasedOn": "Not established; knowledge cutoff is not release date",
+    "subscriptionScope": "ChatGPT Work/Codex local-message estimates; API-key usage billed separately"
+  }
+}
