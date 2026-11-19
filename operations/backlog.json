@@ -2,6 +2,15 @@
   "schemaVersion": 1,
   "units": [
     {
+      "id": "PIVOT-10",
+      "title": "Only two existing best pages: vendor/API vs license/self-host content",
+      "priority": 0,
+      "dependsOn": ["PIVOT-09"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["eight linked and dated exact licenses/prices", "fixed-SHA independent ten-check acceptance", "unchanged metadata and51URLs", "same pushed SHA release and at most4 production requests", "GSC task unchanged"]
+    },
+    {
       "id": "PIVOT-09",
       "title": "Single existing ChatGPT/Gemini flagship update with historical evidence retained",
       "priority": 0,

@@ -1,0 +1,131 @@
+{
+  "unit": "PIVOT-10",
+  "accessed": "2026-11-19",
+  "localDirectory": "/private/tmp/pairvu-pivot10.SsTOzX",
+  "sources": [
+    {
+      "file": "minimax-architecture.html",
+      "url": "https://www.minimax.io/news/post-training-experience-and-insights-for-agent-models",
+      "sha256": "29de251c37756dbf2f63be6c87ec7775a5f99698f29aea104c525cd2582a9431"
+    },
+    {
+      "file": "minimax-config.json",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1/raw/main/config.json",
+      "sha256": "3372a31ecbdba614b309cfa5b3dfec33ceea3c580cb9612ff35345d92ced8618"
+    },
+    {
+      "file": "deepseek-config.json",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2/raw/main/config.json",
+      "sha256": "c7fa8b191e9936d8e6a57d864baab82b792fae16a116416cdd3a75ba76bc5af1"
+    },
+    {
+      "file": "qwen3-card.md",
+      "url": "https://huggingface.co/Qwen/Qwen3-8B/raw/main/README.md",
+      "sha256": "0f36caaff9c2516411a7738db384606263ba653c1e63e61d72f511606164d5a6"
+    },
+    {
+      "file": "qwen38-card.md",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B/raw/main/README.md",
+      "sha256": "7c24f46af1e0024e6ce9b799df6f4865f9200acf3b6f92b6530c37248cc9e821"
+    },
+    {
+      "file": "qwenmax-card.md",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/raw/main/README.md",
+      "sha256": "7690c680c2d6eb284179ef5dd4db63260d248531cae9087b09b2c2200230f331"
+    },
+    {
+      "file": "qwen35-card.md",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B/raw/main/README.md",
+      "sha256": "bda4b24e975f65ac677985306ddbad33362e65064637660654c8bb7dea7edf50"
+    },
+    {
+      "file": "glm-card.md",
+      "url": "https://huggingface.co/zai-org/GLM-5/raw/main/README.md",
+      "sha256": "4f8859aa1e0585e25f4fc61b5c17b2c488c767f37f41231818bc065a865ceae7"
+    },
+    {
+      "file": "deepseek-card.md",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2/raw/main/README.md",
+      "sha256": "22b9f57e1ece2df27f9de0e71377e19481f7a6892eca8bc23e73fcdffe1d845c"
+    },
+    {
+      "file": "kimi-card.md",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.5/raw/main/README.md",
+      "sha256": "1b04bed9c6c25894171c0ab5e0b4c4d57667698a654dbfd5a6c1649b922810a5"
+    },
+    {
+      "file": "minimax-card.md",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1/raw/main/README.md",
+      "sha256": "459e6ef0bfc12d151386e3711df97515a7bf8a2dc8cab7df8d9045fee1e0c7f1"
+    },
+    {
+      "file": "qwen3-license.txt",
+      "url": "https://huggingface.co/Qwen/Qwen3-8B/raw/main/LICENSE",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "qwen38-license.txt",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B/raw/main/LICENSE",
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+    },
+    {
+      "file": "qwenmax-license.txt",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/raw/main/LICENSE",
+      "sha256": "a136bc4137ef3d7a7a54963164a47270f73e497917728ea0f4407a0115db1290"
+    },
+    {
+      "file": "qwen35-license.txt",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B/raw/main/LICENSE",
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+    },
+    {
+      "file": "deepseek-license.txt",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2/raw/main/LICENSE",
+      "sha256": "f2c6c602815669d292889e5be8c802f2ed950653b77999b1584e8e6aed25d040"
+    },
+    {
+      "file": "kimi-license.txt",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.5/raw/main/LICENSE",
+      "sha256": "c524b41658421b8b143c5b50637ef008909da56013ad12ccaba0536139ee35b0"
+    },
+    {
+      "file": "minimax-license.txt",
+      "url": "https://raw.githubusercontent.com/MiniMax-AI/MiniMax-M2.1/main/LICENSE",
+      "sha256": "23c032431db1bb076245dbb4dc4c85799fffd279b1ad13f52d61e7e6396a140f"
+    },
+    {
+      "file": "qwen-pricing.html",
+      "url": "https://help.aliyun.com/en/model-studio/model-pricing",
+      "sha256": "391032f8f79b873dec5e724533a7b16f8f0483f8f556dd5f7c48c692c0f9fe30"
+    },
+    {
+      "file": "qwen-lora.html",
+      "url": "https://help.aliyun.com/en/model-studio/model-deployment-token",
+      "sha256": "26632e6192ad29b14f2ca8479d9781d29fadfd1ef78f3dc0c299182a22ad30bd"
+    },
+    {
+      "file": "glm-pricing.md",
+      "url": "https://docs.z.ai/guides/overview/pricing",
+      "sha256": "185176279fcf522fa29113214fd2cc9f127f9c235a15a07222f76543d57b96f8"
+    },
+    {
+      "file": "deepseek-pricing.md",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "sha256": "1cfdcd452dbb2b59f32d220190237d4a839fcd807ff4a14887b43c23186c9cfc"
+    },
+    {
+      "file": "kimi-pricing.md",
+      "url": "https://platform.kimi.ai/docs/pricing/chat",
+      "sha256": "762188ef86ae5066a30c5dd980437347404fb2767046c59e565c71fc4c70aa71"
+    },
+    {
+      "file": "minimax-pricing.md",
+      "url": "https://platform.minimax.io/docs/pricing/overview",
+      "sha256": "8b8902aef277802c87edcc278722e91b013313f022969fc7307a608a1a66e686"
+    }
+  ],
+  "notes": [
+    "Z.ai curl SSL failed once; escalated exact retry succeeded. No estimated hosted prices.",
+    "Source content not reproduced; hashes bind official snapshots for independent acceptance."
+  ]
+}

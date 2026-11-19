@@ -1,0 +1,31 @@
+{
+  "unit": "PIVOT-10",
+  "stage": "DEV_READY",
+  "baseline": "74f43156cf5cf76ab13ec9e9da5a424116fa6d31",
+  "runtimeFiles": ["app/best/chinese-models/page.tsx", "app/best/open-source-models/page.tsx", "lib/models/best-content.ts", "app/sitemap.ts"],
+  "changes": "Two distinct eight-row best-page tables, distinct four-question FAQs and eight descriptions per page; exact owner licenses and their different commercial conditions; unchanged catalog first-quote priceText with modes/currencies/regions and source dates; explicit API/infrastructure assumptions; only two sitemap lastmods advanced. Original full metadata/H1/URLs and global consumers remain unchanged.",
+  "sourceDecisions": [
+    "24 official snapshot hashes matched the controller source-index. Current best-specific owner sources accessed 2026-11-19; unchanged FX retains its old accessed date and 2026-11-06 rate date.",
+    "Qwen3-8B is exactly 8.2B per card. Dense models have no independently stated active count. DeepSeek parameter count remains explicitly unstated; GLM card's 200K SWE-bench configuration is not presented as a documented maximum.",
+    "MiniMax owner approximation is about 230B total/~10B active. MiniMax196608 and DeepSeek163840 are labeled weights config max_position_embeddings, not guaranteed hosted API windows, with model-specific config links.",
+    "Qwen Max has both commercial clauses including affiliate aggregate USD50M/12month and constrained internal-use exception; Kimi threshold OR and MiniMax unconditional covered-commercial UI-display obligation are distinct. MiniMax is Modified MIT.",
+    "CNY0.5/2 is Qwen3 LoRA custom non-thinking after training, not general base API. Qwen3.5 tiers apply to all request tokens; billing K1000 differs from native262144. DeepSeek/Kimi/MiniMax exact current hosted prices stay unknown, not free or weights-only.",
+    "API illustration: 10M input * USD1/M + 2M output * USD3.2/M = USD16.40; hypothetical USD500 infrastructure minus USD16.40 = USD483.60. Not a hardware quote or equivalent-service claim."
+  ],
+  "evidence": "/private/tmp/pairvu-pivot10.SsTOzX/dev-evidence.json",
+  "originalDiagnosticEvidence": "/private/tmp/pairvu-pivot10.SsTOzX/dev-first-report.json",
+  "probe": "/private/tmp/pairvu-pivot10.SsTOzX/dev-ssr.tsx",
+  "runCommands": [
+    "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot10.SsTOzX/dev-ssr.tsx",
+    "PIVOT_CHECKS=02,03,04 NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot10.SsTOzX/dev-ssr.tsx",
+    "git diff --check"
+  ],
+  "actualResults": "All 10 frozen checks plus source-hash check PASS. First execution passed8 and failed3 probe-string assertions only (license uses50,000,000 rather than50million; later-model is semantically successor; does-not-itself-establish differs from not-establish). Original FAIL retained. Corrected those probe expectations without runtime changes; reran only02/03/04 PASS and reused unaffected passing evidence. Pricing counterexample byte-identical; inventory51/20/18+threeway; metadata/H1 unchanged; exactly2lastmod deltas; diffcheck PASS.",
+  "independentQaSteps": [
+    "Controller commits runtime plus owned release-affecting docs, gives exact candidate SHA to original independent reviewer. Reviewer inspects candidate diff and 24 snapshots, binds report to that SHA.",
+    "Reuse temporary React/tsx SSR approach and baseline modules; inspect target rendered tables/license-price cells/source dates, unique FAQs/descriptions and arithmetic. Do not overwrite original developer reports; reviewer uses separate report paths. Current probe check10 intentionally verifies precommit dirty runtime allowlist; at committed candidate independently use git diff baseline..candidate name-only rather than working-tree status.",
+    "Verify unchanged pricing server rendering, full original metadata/H1, all8profilelinks and /llm-pricing, inventory51/20/18+threeway, and sitemap precisely2lastmods. No build/server/typecheck/fullsuite/GSC/liveHTTP during local acceptance."
+  ],
+  "cleanup": "No persistent processes, assets, accounts, services, dependencies or test framework created. Raw snapshots/baseline modules/probe/rendered HTML retained only in designated temporary directory for independent acceptance. Controller-owned dirty documentation preserved. No commit/push/deploy performed.",
+  "remaining": "Independent exact-candidate acceptance and controller GitHub-first release gates; no developer blocker. Production and Google ingestion are not verified by local SSR."
+}

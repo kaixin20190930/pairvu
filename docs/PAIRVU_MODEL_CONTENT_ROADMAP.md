@@ -8,7 +8,17 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
-## Current authorized single-page update — PIVOT-09 (2026-11-19)
+## Current authorized first stage — PIVOT-10 (2026-11-19)
+
+Only optimize existing `/best/chinese-models` and `/best/open-source-models` under [frozen contract](../operations/contracts/PIVOT-10.md). Chinese-model content answers vendor, exact deployment/API route, native specs, mode/region-qualified price and practical choices; open-source content answers exact license/commercial clauses, downloadable weights, self-host constraints and explicitly assumed cost arithmetic. Tables, FAQs and eight description sentences differ. Every license/price cell links to the exact official source and access date; unknown remains unknown, not free. No blanket license claim, fabricated benchmark winner or invented GPU requirement.
+
+Preserve both URLs, complete metadata/Title/H1/canonical/robots and all eight model links; retain/add the pricing link. Only these two sitemap lastmods advance to November19; total stays51URLs/20model profiles/18two-way plus one three-way comparison. Header has one checked date; individual sources own dates, without an aggregate conflicting range. Local best-only facts may be added; global catalog, SourceList and pricing behavior stay unchanged.
+
+Licenses are not interchangeable: DeepSeek/GLM MIT; three Qwen models Apache-2.0; Kimi Modified MIT with >100M MAU OR >USD20M monthly-revenue brand display; Qwen3.8-Max includes its display threshold plus a separate commercial-license gate for qualifying MaaS/AI Work Assistant businesses over USD50M aggregate affiliated revenue in12months; MiniMax M2.1 adds commercial UI branding. Full linked terms control; publication is not commercial legal clearance. Prices reuse existing catalog/FX and verified exact-model billing conditions, not successor rates.
+
+Independent exact-candidate acceptance precedes authorized GitHub-first same-SHA production, one necessary build and at most4 production HTTP requests. No new pages, Carbon/profile/products/best/benchmark expansion, flagship rewrite, feature/dependency/account/DB work, generalized test framework, whole-site regression, GSC access/submission or task edit. Original November25 Wednesday10:00 Asia/Shanghai read-only GSC review remains; later development requires new authorization. Results will be appended after actual acceptance and deployment.
+
+## Previous single-page update — PIVOT-09 (2026-11-19)
 
 Execute only [PIVOT-09](../operations/contracts/PIVOT-09.md): `/compare/gpt-vs-gemini` gains a current GPT-6.2 Astra / Gemini4Carbon API section, conditional USD pricing, explicit unified-context/default-output semantics, official links and November19 checks. Title becomes `ChatGPT vs Gemini: API Pricing, Context and Limits | Pairvu`; H1/canonical/URL remain. Preserve GPT5.2/Gemini3.1ProPreview facts, vendor quality and SWE evidence below as clearly historical. Do not transplant historical scores or imply API specs establish consumer subscription access or a quality winner.
 

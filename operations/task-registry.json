@@ -1,5 +1,21 @@
 {
   "schemaVersion": 1,
+  "pivot10": {
+    "unitId": "PIVOT-10",
+    "contract": "operations/contracts/PIVOT-10.md",
+    "baselineSha": "74f43156cf5cf76ab13ec9e9da5a424116fa6d31",
+    "status": "DEV_READY",
+    "formalTracking": "Evidence index only; historical JRN-04-FIX RELEASE_READY/state/lock untouched",
+    "authorization": "November19 first stage: two existing best pages only, docs, independent acceptance, commit/push and production; no GSC or automation operation",
+    "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded source-backed server tables and content; exact eight-model scope", "upgradeCondition": "Substantive unresolved reasoning only, not network or approval"},
+    "qa": {"agent": "/root/pivot08_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent exact-SHA license/price/SSR invariants and one unchanged counterexample", "upgradeCondition": "Return real defect to original developer; reassess reasoning gap only"},
+    "frozenChecks": "PIVOT-10 contract ten checks; 15/30minute diagnostic checkpoints; maximum4 production HTTP",
+    "expectedInventory": {"urls": 51, "models": 20, "twoWayComparisons": 18, "threeWayComparisons": 1},
+    "gsc": "Original November25 10:00 Asia/Shanghai task unchanged; no access/submission/task edit",
+    "developerEvidence": "operations/evidence/PIVOT-10/developer-handoff.json",
+    "developerResult": "Ten frozen checks plus24source hashes PASS; three probe-string diagnostics preserved; no runtime correction/build/server/fullsuite/GSC",
+    "nextAction": "Commit complete scoped release candidate; original independent reviewer accepts exact SHA before authorized GitHub-first release"
+  },
   "pivot09": {
     "unitId": "PIVOT-09",
     "contract": "operations/contracts/PIVOT-09.md",

@@ -1,0 +1,20 @@
+{
+  "unit": "PIVOT-10",
+  "baseline": "74f43156cf5cf76ab13ec9e9da5a424116fa6d31",
+  "result": "FAIL",
+  "checks": {
+    "01-distinct-tables-faqs-and-eight-descriptions": "PASS",
+    "02-eight-original-linked-dated-licenses-and-full-conditions": "FAIL",
+    "03-catalog-price-cells-conditions-unknowns-and-arithmetic": "FAIL",
+    "04-required-subjects-owner-specs-and-no-inferred-hardware": "FAIL",
+    "05-one-header-date-individual-source-dates-original-fx": "PASS",
+    "06-full-metadata-h1-canonical-robots-unchanged": "PASS",
+    "07-inventory-and-exact-two-lastmod-delta": "PASS",
+    "08-all-eight-profile-links-and-pricing-links": "PASS",
+    "09-pricing-ssr-counterexample-and-global-files-identical": "PASS",
+    "10-runtime-allowlist-diff-check-and-focused-react-checklist": "PASS",
+    "official-source-hashes-and-parameter-config-facts": "PASS"
+  },
+  "scope": "Affected server-component renderings + one unchanged pricing counterexample, official source hashes, exact inventory and diff only. No build, standalone typecheck, server, HTTP, GSC, full suite or production check.",
+  "cleanup": "No persistent processes, accounts, assets or dependencies created. Temporary probe, rendered HTML and raw snapshots retained for independent QA."
+}
