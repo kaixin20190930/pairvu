@@ -1,0 +1,85 @@
+{
+  "unit": "PIVOT-10",
+  "candidateSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+  "releaseSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+  "platformVersion": "846effe2-aa62-4922-8262-895e8de935d2",
+  "artifactSha256": "10afe564d272b81b3b6f5548c9195c363e9e519eeea0b809e3664786ed882af9",
+  "scope": "http",
+  "checkedAt": "2026-11-19T06:18:40.334Z",
+  "completedAt": "2026-11-19T06:18:43.878Z",
+  "result": "PASS",
+  "requestCount": 4,
+  "maxRequests": 4,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "checkedAt": "2026-11-19T06:18:40.335Z",
+      "bodyFile": "qa-production-0.body",
+      "headersFile": "qa-production-0.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/best/chinese-models",
+      "status": 200,
+      "checkedAt": "2026-11-19T06:18:42.883Z",
+      "bodyFile": "qa-production-1.body",
+      "headersFile": "qa-production-1.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/best/open-source-models",
+      "status": 200,
+      "checkedAt": "2026-11-19T06:18:43.488Z",
+      "bodyFile": "qa-production-2.body",
+      "headersFile": "qa-production-2.headers.json"
+    },
+    {
+      "url": "https://pairvu.com/llm-pricing",
+      "status": 200,
+      "checkedAt": "2026-11-19T06:18:43.696Z",
+      "bodyFile": "qa-production-3.body",
+      "headersFile": "qa-production-3.headers.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/best/chinese-models:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/best/open-source-models:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing:HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exactreleaseSHA and Cloudflareversion",
+      "result": "PASS"
+    },
+    {
+      "name": "/best/chinese-models: exactmetadata H1 canonical robots and completeacceptedmain",
+      "result": "PASS"
+    },
+    {
+      "name": "/best/open-source-models: exactmetadata H1 canonical robots and completeacceptedmain",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: exactmetadata H1 canonical robots and completeacceptedmain",
+      "result": "PASS"
+    },
+    {
+      "name": "twoactual8rowtables licensepricecells dated and distinctFAQ/descriptions",
+      "result": "PASS"
+    }
+  ],
+  "normalization": "Only hydrationHTMLcomments and Flight/scriptpayload removed for completevisiblemain comparison; metadataHTMLentities decoded. Originalresponsebodies and headers retained.",
+  "reusedEvidence": "qa-original.json exactcandidatePASS for24sourcehashes/ownerfacts/disjointdescriptions/51inventory/2lastmods; completeactualHTML matches itsacceptedSSR. Localinventoryproof is not GSC or freshHTTPsitemap.",
+  "untested": "No sitemap/fifthHTTP/GSC/Googleingestion/indexing/accounts/modelcalls/build/test/server. No migration/activation required.",
+  "cleanup": "No persistentservices/accounts/assets created. OriginalHTTPandQA evidence retained."
+}

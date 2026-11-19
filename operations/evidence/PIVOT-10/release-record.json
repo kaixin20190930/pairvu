@@ -1,0 +1,34 @@
+{
+  "unit": "PIVOT-10",
+  "releaseSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "846effe2-aa62-4922-8262-895e8de935d2",
+  "artifactSha256": "10afe564d272b81b3b6f5548c9195c363e9e519eeea0b809e3664786ed882af9",
+  "remoteSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+  "branch": "main",
+  "preflightCheckedAt": "2026-11-19T06:10:09.990Z",
+  "deploymentInitialCheck": "2026-11-19T06:15:29.233Z",
+  "finalPreuploadCheck": "2026-11-19T06:16:14.597Z",
+  "candidateAcceptance": "qa-original.json: PASS10checks exact candidate",
+  "build": "One necessary OpenNext production build and TypeScript PASS; no second build",
+  "deployment": "Authorized same pushed SHA; clean complete working tree, fresh remote, build SHA/artifact digest and exclusive release gates PASS; command exit0",
+  "productionAcceptance": "qa-production-original.json: PASS9checks; exactly4HTTP all200",
+  "confirmedOnlineWindow": {
+    "start": "2026-11-19T06:18:40.334Z",
+    "end": "2026-11-19T06:18:43.878Z",
+    "local": "November19 14:18:40.334–14:18:43.878 Asia/Shanghai",
+    "meaning": "Independent online confirmation window, not exact traffic-switch timestamp"
+  },
+  "enablement": "Publicly enabled; no migration or feature flag required",
+  "inventory": {
+    "urls": 51,
+    "models": 20,
+    "twoWayComparisons": 18,
+    "threeWayComparisons": 1,
+    "proof": "Exact-candidate local inventory and same-SHA release; no fresh sitemap HTTP or Google ingestion claim"
+  },
+  "gsc": "No access/submission/automation edit; original November25 10:00 Asia/Shanghai review retained",
+  "automationSha256": "8593f835c827583774f97549a0c9c7bafa034170030445007ea2ffae3b807f33",
+  "cleanup": "No persistent services/accounts/synthetic assets; raw temporary sources/SSR/HTTP originals retained and indexed",
+  "next": "Controller docs-only archival commit/push, no redeploy or extra QA; later development requires new user authorization"
+}

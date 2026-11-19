@@ -1,0 +1,72 @@
+{
+  "unit": "PIVOT-10",
+  "candidateSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+  "baseline": "74f43156cf5cf76ab13ec9e9da5a424116fa6d31",
+  "reviewedAt": "2026-11-19T06:07:29.432Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "01 actual tables distinct prescribedcolumns FAQanddescription disjoint",
+      "result": "PASS"
+    },
+    {
+      "name": "02 24sourcehashes exact8licenses original specialclauses and datedcells",
+      "result": "PASS"
+    },
+    {
+      "name": "03 everypricecell catalogequivalent currency mode source date unknownnotzero arithmetic",
+      "result": "PASS"
+    },
+    {
+      "name": "04 exactownerfacts sixsubjects no genericlicenserestriction/hardwarequalityclaim",
+      "result": "PASS"
+    },
+    {
+      "name": "05 oneheadercheckeddate sourcesindividuallydated unchangedFX",
+      "result": "PASS"
+    },
+    {
+      "name": "06 fullmetadata H1 canonical robotsinheritedsource unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "07 inventory51/20/18plus3way orderedURLs onlytwo lastmods",
+      "result": "PASS"
+    },
+    {
+      "name": "08 all8profilelinks and pricinglink bothpages",
+      "result": "PASS"
+    },
+    {
+      "name": "09 pricingactualSSRcounterexample and globals untouched",
+      "result": "PASS"
+    },
+    {
+      "name": "10 exactSHAcandidateallowlist diffcheck focusedserverReact",
+      "result": "PASS"
+    }
+  ],
+  "metadata": {
+    "chinese": {
+      "title": "Chinese AI models to evaluate",
+      "description": "Eight source-linked candidates without a fabricated absolute ranking.",
+      "alternates": {
+        "canonical": "/best/chinese-models"
+      }
+    },
+    "open": {
+      "title": "Open Source LLMs: 8 Open-Weight Models Compared",
+      "description": "Compare eight open source LLMs and open-weight models by exact version, context, license caveats and official sources.",
+      "alternates": {
+        "canonical": "/best/open-source-models"
+      }
+    }
+  },
+  "reproduction": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot10.SsTOzX/qa.tsx",
+  "reuse": "PIVOT09 at017c97a GPTGemini and PIVOT08FIX at732f09f priorrepairs unchangedby exact4runtimefilediff; notcurrentproductionproof.",
+  "sourceReview": "24hashes independently verified; KimiOR/QwenMax50M12moaffiliatesandinternalexception/MiniMaxcommercialUIterms read directly. Price visible snapshots inspected, unknownexactrates retained.",
+  "cleanup": "No services/accounts/assets/dependencies created. Temporary source/probe/SSR retained.",
+  "exclusions": "No build/standalonetypecheck/server/fullsuite/HTTP/GSC/automation/runtimewrites.",
+  "productionRequestsPerformed": 0,
+  "productionRequestsRemaining": 4
+}

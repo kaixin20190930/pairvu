@@ -4,7 +4,7 @@
     "unitId": "PIVOT-10",
     "contract": "operations/contracts/PIVOT-10.md",
     "baselineSha": "74f43156cf5cf76ab13ec9e9da5a424116fa6d31",
-    "status": "DEV_READY",
+    "status": "PRODUCTION_VERIFIED",
     "formalTracking": "Evidence index only; historical JRN-04-FIX RELEASE_READY/state/lock untouched",
     "authorization": "November19 first stage: two existing best pages only, docs, independent acceptance, commit/push and production; no GSC or automation operation",
     "development": {"agent": "/root/pivot08_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded source-backed server tables and content; exact eight-model scope", "upgradeCondition": "Substantive unresolved reasoning only, not network or approval"},
@@ -14,7 +14,16 @@
     "gsc": "Original November25 10:00 Asia/Shanghai task unchanged; no access/submission/task edit",
     "developerEvidence": "operations/evidence/PIVOT-10/developer-handoff.json",
     "developerResult": "Ten frozen checks plus24source hashes PASS; three probe-string diagnostics preserved; no runtime correction/build/server/fullsuite/GSC",
-    "nextAction": "Commit complete scoped release candidate; original independent reviewer accepts exact SHA before authorized GitHub-first release"
+    "candidateSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+    "releaseSha": "6b4ac095d239c0218be83f7fa9ac91b0700c79d1",
+    "platformVersion": "846effe2-aa62-4922-8262-895e8de935d2",
+    "candidateEvidence": "operations/evidence/PIVOT-10/qa-original.json",
+    "candidateResult": "PASS10 exact-candidate independent checks",
+    "productionEvidence": "operations/evidence/PIVOT-10/qa-production-original.json",
+    "productionResult": "PASS9checks/exactly4HTTP all200; releaseSHA/version and complete two-best/pricing content match; November19 14:18:40.334–14:18:43.878 Asia/Shanghai",
+    "completion": "operations/evidence/PIVOT-10/completion.md",
+    "enablement": "Publicly enabled; no migration or feature flag",
+    "nextAction": "Docs-only archive/push without redeploy or extra QA. Original November25 10:00 read-only GSC review automatic subject to session/export; next development requires new user authorization"
   },
   "pivot09": {
     "unitId": "PIVOT-09",
