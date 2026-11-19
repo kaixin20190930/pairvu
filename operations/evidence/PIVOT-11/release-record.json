@@ -1,0 +1,84 @@
+{
+  "unitId": "PIVOT-11",
+  "result": "INDEPENDENTLY_PRODUCTION_VERIFIED",
+  "releaseSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "79a45734-e3e9-4d2f-826c-a7f66407bde8",
+  "artifactSha256": "4a9a003f633bbc95d02671f454050de65216fc92b4b40af4a99a6a7f0cf96ed6",
+  "releasePrepared": {
+    "event": "release-prepared",
+    "candidateSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+    "remote": "origin",
+    "branch": "main",
+    "remoteSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+    "checkedAt": "2026-11-19T15:50:16.350Z",
+    "action": "deploy",
+    "artifactSha256": "4a9a003f633bbc95d02671f454050de65216fc92b4b40af4a99a6a7f0cf96ed6",
+    "initialCheckedAt": "2026-11-19T15:49:33.605Z"
+  },
+  "gitHubFirst": "Independent exact-candidate PASS, push origin/main, fresh fetch both exact1c75215, complete clean tree; deploy script fresh remote/tree/build SHA/artifact and exclusive release guard passed",
+  "build": "One necessary OpenNext production build; compilation and TypeScript PASS; no separate typecheck/build/full suite",
+  "onlineConfirmation": {
+    "from": "2026-11-19T15:52:11.550Z",
+    "to": "2026-11-19T15:52:14.513Z",
+    "timezone": "UTC",
+    "localFrom": "2026-11-19 23:52:11.550 Asia/Shanghai",
+    "localTo": "2026-11-19 23:52:14.513 Asia/Shanghai",
+    "meaning": "Independent online confirmation, not exact traffic-switch timestamp; compare later GSC crawls only after confirming its display timezone"
+  },
+  "acceptance": {
+    "candidate": "operations/evidence/PIVOT-11/qa-final.json",
+    "candidateChecks": 10,
+    "production": "operations/evidence/PIVOT-11/qa-production-original.json",
+    "productionChecks": 19,
+    "httpRequests": 9,
+    "allHTTP200": true
+  },
+  "inventory": {
+    "urls": 54,
+    "models": 22,
+    "twoWayComparisons": 19,
+    "threeWayComparisons": 1
+  },
+  "raw": {
+    "directory": "/private/tmp/pairvu-pivot11.c5dn7j",
+    "deployLog": "deploy.log",
+    "deployLogSha256": "ebe286754f43ef6676055a65a1508feca3e2df71ed7e6cba622175498f2d6e30",
+    "originalReports": [
+      {
+        "name": "developer-handoff.json",
+        "sha256": "7b2b422ba576ebaba915690664eb073131770b3b2265eb52ff64d2d4d26077b3"
+      },
+      {
+        "name": "dev-evidence.json",
+        "sha256": "54f118d83dd28b654e4cedc60eb68eec852d4d587992e3a436a6f980bcf6f2ec"
+      },
+      {
+        "name": "dev-first-report.json",
+        "sha256": "837631909057a46f33ebb50818878f6228d1b20ebf1be6a597ea9239a948ba7b"
+      },
+      {
+        "name": "qa-original.json",
+        "sha256": "df8abc4e6916478b57821465ede74d595979a0f1627ba0a0e8ccd90216fc3c92"
+      },
+      {
+        "name": "qa-final.json",
+        "sha256": "ab3125a15ca5f11ca8635df2bb6a24f472fa07bc9b6676a7b3a8cb168034a246"
+      },
+      {
+        "name": "qa-raw-index.json",
+        "sha256": "151ccf97fd1245f559d9140484945da0614168c08b1efbfeac40c7db0e54ab44"
+      },
+      {
+        "name": "qa-production-original.json",
+        "sha256": "5e46c5d3c83b94df3472d75c8a80d42a9ecc2c0aa9adc7292e1351b133b5efdb"
+      }
+    ]
+  },
+  "diagnostics": "Original developer old-sitemap import and independent QA nonexistent static CursorBench path probe failures retained; corrected temporary fixtures/structural checks only, no runtime defect or repeated SSR",
+  "enablement": "Publicly enabled in existing routing, no feature flag/migration",
+  "gsc": "No access/submission/task edit; file hash unchanged a6774b96145227fe13c47109e063863431f0ae215dfa1e582e4b0ede2485a34f. Original November25 10:00 Asia/Shanghai review retained; no fresh indexing claim or explicit new-batch task addition.",
+  "cleanup": "No services/accounts/test assets/customer data/DB/dependencies created; raw downloaded sources, SSR and HTTP evidence retained with hashes",
+  "formalTracking": "Historical JRN-04-FIX RELEASE_READY/state/lock retained; PIVOT-11 backlog synchronized through official plan-sync, evidence index does not override control state",
+  "nextAction": "Automatic docs/evidence-only commit/push and fresh remote verification, no redeploy. Existing November25 review depends on GSC session/export. Dedicated Flash comparison/new-batch task additions require separate user authorization; no automatic new development."
+}

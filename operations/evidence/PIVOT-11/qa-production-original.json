@@ -1,0 +1,188 @@
+{
+  "unit": "PIVOT-11",
+  "candidateSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+  "releaseSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+  "platformVersion": "79a45734-e3e9-4d2f-826c-a7f66407bde8",
+  "artifactSha256": "4a9a003f633bbc95d02671f454050de65216fc92b4b40af4a99a6a7f0cf96ed6",
+  "scope": "http",
+  "checkedAt": "2026-11-19T15:52:11.550Z",
+  "completedAt": "2026-11-19T15:52:14.513Z",
+  "result": "PASS",
+  "requestCount": 9,
+  "maxRequests": 9,
+  "requests": [
+    {
+      "url": "https://pairvu.com/api/health",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:11.551Z",
+      "completedAt": "2026-11-19T15:52:12.688Z",
+      "bodyFile": "qa-production-0.body",
+      "bodySha256": "5ec84aa27e219ed5c8fffd1eb7de730d37aea99d3c342a643ea9769b8e00ede4",
+      "headersFile": "qa-production-0.headers.json",
+      "headersSha256": "3d8991887900dd09f6cd3f2d0224c5552085ff936691e2ca4ad694cfdf475659"
+    },
+    {
+      "url": "https://pairvu.com/models/gemini-4-neon",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:12.688Z",
+      "completedAt": "2026-11-19T15:52:13.141Z",
+      "bodyFile": "qa-production-1.body",
+      "bodySha256": "e79d69674833f9afb75e3277529be34d1ddbc3f231938541aa6ebe6c150ab68b",
+      "headersFile": "qa-production-1.headers.json",
+      "headersSha256": "64e8830d8b1248fdfe6d31a71bc2874b81e0e53af590eb82b28680621af7a89a"
+    },
+    {
+      "url": "https://pairvu.com/compare/gemini-4-neon-vs-claude-opus-5-5",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:13.142Z",
+      "completedAt": "2026-11-19T15:52:13.460Z",
+      "bodyFile": "qa-production-2.body",
+      "bodySha256": "bf68045fe44723c4ccfc0cbd14d885705559913c096500bd6c9feb22a9b8534f",
+      "headersFile": "qa-production-2.headers.json",
+      "headersSha256": "d147f809942943511325d26c422986998a100eec64cfdebf2496cc6e53330512"
+    },
+    {
+      "url": "https://pairvu.com/models/mai-code-2-flash",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:13.460Z",
+      "completedAt": "2026-11-19T15:52:13.655Z",
+      "bodyFile": "qa-production-3.body",
+      "bodySha256": "0003d3112a89daec66904006db6923a317b689601642258f0add63480c8f7556",
+      "headersFile": "qa-production-3.headers.json",
+      "headersSha256": "32a47173454e3989894174e3442eea4891149f299bdd4879d1dc2342529e4b8a"
+    },
+    {
+      "url": "https://pairvu.com/models",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:13.656Z",
+      "completedAt": "2026-11-19T15:52:13.803Z",
+      "bodyFile": "qa-production-4.body",
+      "bodySha256": "db81c99d94d8683a45c3605d44abcfd558a9008104048a8b7008bca59665fad8",
+      "headersFile": "qa-production-4.headers.json",
+      "headersSha256": "57f49e3cbaa457f38b1296a41b0f4d412bc7209e71ef058c9cf349e9a9d0d03c"
+    },
+    {
+      "url": "https://pairvu.com/llm-pricing",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:13.804Z",
+      "completedAt": "2026-11-19T15:52:13.984Z",
+      "bodyFile": "qa-production-5.body",
+      "bodySha256": "52c9216ad03e3b11d0a3b4f1e77b8144f54302fe5fe4c79fc3150a461016989a",
+      "headersFile": "qa-production-5.headers.json",
+      "headersSha256": "9b8d3760240feb5f2a243126138cd8598a97e30e5483104499af42055ca603a1"
+    },
+    {
+      "url": "https://pairvu.com/models/claude-opus-5-5",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:13.985Z",
+      "completedAt": "2026-11-19T15:52:14.131Z",
+      "bodyFile": "qa-production-6.body",
+      "bodySha256": "8cf7e9ceaad310275741548f40c65dda314ec08dc81e7d76e5e3d0d8c43e7808",
+      "headersFile": "qa-production-6.headers.json",
+      "headersSha256": "15d5f20ca626ed90844d021c74cbfd03780236d8e1b1e919bf4b3a15bbfe96bc"
+    },
+    {
+      "url": "https://pairvu.com/models/gemini-3-1-pro-preview",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:14.133Z",
+      "completedAt": "2026-11-19T15:52:14.282Z",
+      "bodyFile": "qa-production-7.body",
+      "bodySha256": "b9c98bb2b1a84334c770bc234c950454c200ddf4dadfff4584849096a0108d11",
+      "headersFile": "qa-production-7.headers.json",
+      "headersSha256": "a90d83953ec4f9d3959b1eb7472f59f844113bbbcd63e7e026d6ead85e7ccff4"
+    },
+    {
+      "url": "https://pairvu.com/sitemap.xml",
+      "status": 200,
+      "startedAt": "2026-11-19T15:52:14.284Z",
+      "completedAt": "2026-11-19T15:52:14.508Z",
+      "bodyFile": "qa-production-8.body",
+      "bodySha256": "f615f2cb047cb57a3b27f60a9499a68dad872213944d3b7fa54f723cafba6ff1",
+      "headersFile": "qa-production-8.headers.json",
+      "headersSha256": "26b199ee9a91b15dd55363d2131d62ed2928851cd171e0a77c09e4fc1b9e013a"
+    }
+  ],
+  "checks": [
+    {
+      "name": "/api/health: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-neon: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gemini-4-neon-vs-claude-opus-5-5: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/mai-code-2-flash: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/claude-opus-5-5: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gemini-3-1-pro-preview: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "/sitemap.xml: HTTP200",
+      "result": "PASS"
+    },
+    {
+      "name": "health exact pushed SHA and platform identity",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-neon: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/compare/gemini-4-neon-vs-claude-opus-5-5: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/mai-code-2-flash: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/models: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/llm-pricing: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/claude-opus-5-5: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "/models/gemini-3-1-pro-preview: accepted complete main and exact metadata canonical robots",
+      "result": "PASS"
+    },
+    {
+      "name": "sitemap 54 unique exact accepted URLs and dated lastmods",
+      "result": "PASS"
+    },
+    {
+      "name": "production new facts pricing and required links visible",
+      "result": "PASS"
+    }
+  ],
+  "normalization": "Only hydration comments and script/Flight payload removed for complete accepted SSR main equality; metadata entities decoded. Original response bodies and headers retained with SHA256.",
+  "reusedEvidence": "qa-final.json exact candidate10checks; one-best SSR, old20model records, native source rates, full metadata and automation hash. Current nine fresh HTTP responses prove runtime release/content/sitemap only.",
+  "coverageGap": "Flash inline comparison exists; dedicated comparison expansion gate remains unmet.",
+  "exclusions": "No extra URL, GSC/indexing/submission/automation/modelcalls/accounts/customerdata/build/server or new acceptance matrix. No migrations or feature flags.",
+  "cleanup": "No persistent processes, accounts or assets created; original HTTP bodies/headers and probe retained."
+}

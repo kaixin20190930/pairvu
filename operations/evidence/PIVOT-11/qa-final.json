@@ -1,0 +1,66 @@
+{
+  "unit": "PIVOT-11",
+  "candidateSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+  "baselineSha": "f1426e44f7bc1a07c9123e93c716dc831113037f",
+  "reviewedAt": "2026-11-19T15:47:01.135Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "01 exact candidate allowlist inventory and affected lastmods",
+      "result": "PASS"
+    },
+    {
+      "name": "02 new metadata H1 canonicals and unchanged existing metadata",
+      "result": "PASS"
+    },
+    {
+      "name": "03 Neon specs modes family rates exclusions and arithmetic",
+      "result": "PASS"
+    },
+    {
+      "name": "04 native Opus context retention and conditional token-cost example",
+      "result": "PASS"
+    },
+    {
+      "name": "05 bounded owner-reported benchmark versions values and configuration limits",
+      "result": "PASS",
+      "incrementalEvidence": "Original SSR check passed all four benchmark values/configuration assertions and cursorBench baseline equality; corrected dynamic route source byte-equal to baseline in structural-only recheck."
+    },
+    {
+      "name": "06 MAI limits promotion billing ownership and release boundaries",
+      "result": "PASS"
+    },
+    {
+      "name": "07 pricing new channel-specific entries and original 20 records retained",
+      "result": "PASS"
+    },
+    {
+      "name": "08 discoverability real inline comparison and explicit dedicated gap",
+      "result": "PASS"
+    },
+    {
+      "name": "09 old flagship historical evidence best bytes and automation unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "10 source integrity reused production scope and server React checklist",
+      "result": "PASS"
+    }
+  ],
+  "rawIndex": "/private/tmp/pairvu-pivot11.c5dn7j/qa-raw-index.json",
+  "probe": "/private/tmp/pairvu-pivot11.c5dn7j/qa.tsx",
+  "reproduction": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot11.c5dn7j/qa.tsx",
+  "sourceReview": "Existing 12 source digests verified; directly inspected Neon API/card/pricing, native Opus retention and context, Copilot promotion rows, Microsoft claim ownership. PDF source specifics reuse controller read/screenshot bound in source-index; no new PDF fetch or benchmark run.",
+  "reusedEvidence": "PIVOT10 exact6b4ac095 production for unchanged best/routing/old claims, scoped by current source/catalog invariants and independent one-best SSR equality; not current production proof.",
+  "coverageGap": "Flash has actual inline Code2 comparison; no dedicated /compare edge; expansion gate remains unmet.",
+  "cleanup": "No services, accounts, assets, model calls, customer data, network requests, dependency changes or runtime edits. Raw sources/SSR/probe retained with hashes.",
+  "exclusions": "No build, full suite, typecheck, server, GSC, automation mutation or production requests.",
+  "productionRequestsPerformed": 0,
+  "productionRequestsRemaining": 9,
+  "completedAt": "2026-11-19T15:47:32.067Z",
+  "originalEvidence": "/private/tmp/pairvu-pivot11.c5dn7j/qa-original.json",
+  "originalSha256": "df8abc4e6916478b57821465ede74d595979a0f1627ba0a0e8ccd90216fc3c92",
+  "diagnostic": "Original probe referenced nonexistent static CursorBench source route; actual existing route app/benchmarks/[bench]/page.tsx verified byte-identical. Original FAIL preserved, all unaffected PASS reused; one SSR invocation total, no product defect.",
+  "incrementalCommand": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot11.c5dn7j/qa-recheck.ts",
+  "probeSha256": "7907a5ba64167a88ee6ba4f8fc54b26792cf5337ee39f12d029e28ef468c276f"
+}
