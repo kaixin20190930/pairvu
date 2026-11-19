@@ -23,7 +23,22 @@
     "productionResult": "PASS9checks/exactly4HTTP all200; releaseSHA/version and complete two-best/pricing content match; November19 14:18:40.334–14:18:43.878 Asia/Shanghai",
     "completion": "operations/evidence/PIVOT-10/completion.md",
     "enablement": "Publicly enabled; no migration or feature flag",
-    "nextAction": "Docs-only archive/push without redeploy or extra QA. Original November25 10:00 read-only GSC review automatic subject to session/export; next development requires new user authorization"
+    "gscObservationFollowup": {
+      "authorizedDate": "2026-11-19",
+      "automationId": "pairvu-gsc",
+      "action": "Updated existing heartbeat through app action and read back ACTIVE; original prompt retained in full, same id/name/thread/creation time/schedule",
+      "nextRun": "2026-11-25 10:00 Asia/Shanghai",
+      "urls": ["/best/chinese-models", "/best/open-source-models"],
+      "historicalCrawlBaselines": ["2026-11-12 23:53:25", "2026-11-13 15:37:07"],
+      "baselineSource": "operations/evidence/PIVOT-05/gsc-2026-11-16.csv; GSC display timezone unconfirmed, not fresh results",
+      "postUpdateCrawlThreshold": "2026-11-19T06:18:43.878Z (2026-11-19 14:18:43.878 Asia/Shanghai); end of independent online-confirmation window, not exact traffic-switch time",
+      "preuploadGate": "2026-11-19T06:16:14.597Z",
+      "checks": "Previous/current crawl, advancement, post-update determination after timezone confirmation, indexing reason/fetch/crawl-index permissions and both canonicals. No refreshed-text claim without stored HTML. Preserve all original priorities and batches.",
+      "automationFileSha256": "a6774b96145227fe13c47109e063863431f0ae215dfa1e582e4b0ede2485a34f",
+      "promptSha256": "0e5208acac037786e09bd4ff547083ce55dacf6241f9ebef20c6166bdc6c89ae",
+      "scope": "Existing task and three existing documentation files only; no new task, actual GSC access/write, development, application test or production deployment"
+    },
+    "nextAction": "Existing November25 10:00 read-only GSC review automatically includes both best pages after original priorities, dependent on authenticated session/export. This follow-up commits/pushes documents only; no further development or deployment."
   },
   "pivot09": {
     "unitId": "PIVOT-09",
