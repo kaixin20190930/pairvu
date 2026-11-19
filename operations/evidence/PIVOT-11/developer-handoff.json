@@ -1,0 +1,28 @@
+{
+  "unit": "PIVOT-11",
+  "stage": "IMPLEMENTED_READY_FOR_CONTROLLER_COMMIT_AND_INDEPENDENT_QA",
+  "baselineSha": "f1426e44f7bc1a07c9123e93c716dc831113037f",
+  "candidateSha": null,
+  "candidateNote": "Developer was instructed not to commit/push/deploy; controller binds the complete runtime diff to a committed exact candidate before independent QA.",
+  "runtimeFiles": ["lib/models/catalog.ts", "lib/models/november-launches.ts", "components/NovemberLaunchDetails.tsx", "app/models/[slug]/page.tsx", "app/compare/[slug]/page.tsx", "app/llm-pricing/page.tsx", "app/sitemap.ts"],
+  "result": "10 bounded developer checks PASS; independent acceptance and production verification pending",
+  "evidence": "/private/tmp/pairvu-pivot11.c5dn7j/dev-evidence.json",
+  "originalDiagnostic": "/private/tmp/pairvu-pivot11.c5dn7j/dev-first-report.json",
+  "commandsExecuted": ["git diff --check", "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot11.c5dn7j/dev-ssr.tsx", "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot11.c5dn7j/dev-inventory.ts"],
+  "diagnostic": "The sole SSR invocation passed nine checks; check01's prior sitemap fixture imported current catalog and incorrectly observed zero added URLs. Preserved initial failure, corrected temp fixture to import baseline-catalog, ran only structural inventory recheck, then reused unaffected passing SSR evidence. No runtime defect or additional SSR rerender.",
+  "reproduction": "The corrected dev-ssr.tsx is directly executable with the command above and contains the full bounded assertions; independent reviewer should author their own single bounded check on the exact committed candidate. Original SSR HTML and metadata retained as dev-*.html and dev-metadata.json.",
+  "sourceIndex": "operations/evidence/PIVOT-11/source-index.json (controller-owned); all 12 raw source hashes verified by developer probe",
+  "decisions": [
+    "Exactly two catalog models and one pair; 54 unique URLs, 22 profiles and 19 catalog pairs. MAI Code 2 is an inline comparison/pricing reference only.",
+    "New title strings omit the suffix because the existing global metadata template supplies | Pairvu. MAI description qualifies Copilot; Opus description qualifies cache writes as optional rather than universal.",
+    "Neon API spec/cutoff/implicit-only cache and dated family Standard rates are authoritative; Argon and Carbon both have published December 1 rates.",
+    "Four model-card reported benchmark rows retain Google attribution, exact benchmark versions and configuration limits. Existing CursorBench 4.0 unchanged; no independent matched-harness or universal winner claim.",
+    "MAI specs use checked card v3. Exact total parameter count is not asserted due to imprecise/conflicting descriptions. Copilot GA/AI-credit rates separated from Foundry limited preview and future platforms.",
+    "Microsoft Code 2 full comparative claim includes both 98%/40% GPT-6.1 Sol and 96%/5% Opus ownership and four-benchmark/max-effort/promotional assumptions; Flash claim is separately qualified by three benchmarks/MSBench/Copilot CLI/no-subagents/max-effort/promotional price.",
+    "FAQs use semantic server-rendered articles without schema. Tables have headers and stable keyed rows; no hooks, client fetches or dependencies.",
+    "All original 20 model records and mapped SEO/evidence values structurally unchanged. Both /best sources byte-identical and one best SSR counterexample byte-identical. Existing Astra/Carbon pair/history preserved with one sourced Neon alternative paragraph."
+  ],
+  "coverageGap": "Flash has an inline Code 2 comparison linked from pricing and its profile is reachable from /models; it has no dedicated /compare edge. The every-model-dedicated-comparison expansion gate remains unmet. No fourth page or expansion authorized.",
+  "cleanup": "No accounts, assets, customers, servers/processes, subscriptions, migrations, flags, automation, GSC calls or dependencies created/modified. Temporary raw sources, fixtures, probes and rendered HTML retained for independent QA. All controller docs/evidence preserved.",
+  "nextAction": "Controller inspect and commit this runtime diff, bind exact SHA, then independent reviewer performs frozen candidate acceptance; release remains subject to repository GitHub-first gates. Developer will only address a real scoped QA defect."
+}

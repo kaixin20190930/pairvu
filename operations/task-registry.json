@@ -1,5 +1,22 @@
 {
   "schemaVersion": 1,
+  "pivot11": {
+    "unitId": "PIVOT-11",
+    "contract": "operations/contracts/PIVOT-11.md",
+    "baselineSha": "f1426e44f7bc1a07c9123e93c716dc831113037f",
+    "status": "IMPLEMENTED_PENDING_INDEPENDENT_ACCEPTANCE",
+    "formalTracking": "Historical JRN-04-FIX RELEASE_READY/state/lock untouched; registry is not a formal transition",
+    "authorization": "November19 verified attachment implementation; explicit current-turn answer authorizes commit/push and production after independent acceptance",
+    "development": {"agent": "/root/pivot11_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded static catalog/server content integration with verified official inputs", "upgradeCondition": "Substantive unresolved reasoning only; stop on scope growth, not model upgrade for network/approval"},
+    "qa": {"agent": "/root/pivot11_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent exact-SHA source, conditional pricing and target SSR acceptance", "upgradeCondition": "Real fact/configuration defect returns original developer; reassess actual reasoning gap only"},
+    "expectedInventory": {"urls": 54, "models": 22, "twoWayComparisons": 19, "threeWayComparisons": 1},
+    "frozenChecks": "Contract10checks;15/30minute diagnostic checkpoints; maximum9 production HTTP; existing SSR only",
+    "sourceDirectory": "/private/tmp/pairvu-pivot11.c5dn7j",
+    "developerEvidence": "operations/evidence/PIVOT-11/developer-handoff.json",
+    "developerResult": "10bounded checksPASS; oneSSR invocation plus structural-only fixture correction, original diagnostic retained; no runtime failure/build/server/GSC",
+    "gsc": "No GSC access/submission or automation update; existing November25 task preserved",
+    "nextAction": "Implement frozen scope, independent exact-candidate acceptance, authorized GitHub-first same-SHA production and bounded independent production acceptance"
+  },
   "pivot10": {
     "unitId": "PIVOT-10",
     "contract": "operations/contracts/PIVOT-10.md",

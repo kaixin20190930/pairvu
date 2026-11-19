@@ -611,6 +611,15 @@
         "fixed candidate independent target acceptance",
         "GitHub-first production release and six-request acceptance"
       ]
+    },
+    {
+      "id": "PIVOT-11",
+      "title": "Neon与MAI三页官方取证及必要入口更新",
+      "priority": 0,
+      "dependsOn": ["PIVOT-07-B"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["official exact-model and channel-specific source inventory", "fixed candidate independent bounded SSR acceptance", "authorized exact GitHub-first release and maximum9request production acceptance"]
     }
   ]
 }

@@ -1,0 +1,104 @@
+{
+  "unitId": "PIVOT-11",
+  "baselineSha": "f1426e44f7bc1a07c9123e93c716dc831113037f",
+  "snapshotDirectory": "/private/tmp/pairvu-pivot11.c5dn7j",
+  "accessed": "2026-11-19",
+  "method": "Official primary-source snapshots fetched once, all12 HTTP200. Controller read official pages/PDF via web and screenshot of MAIcard p0 and Googlemethod p2. Digests bind exact raw downloads; no model calls or independent model benchmark runs.",
+  "files": [
+    {
+      "file": "neon-api.md",
+      "url": "https://aistudio.google.com/docs/models/gemini-4-neon",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "a7a4b434a31b957da7f084c30c2ead10a0e7b27ad3119cbfa6720c54a4033898"
+    },
+    {
+      "file": "google-pricing.md",
+      "url": "https://aistudio.google.com/docs/pricing",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "9c7ea643955f30d793c3b18d0b49ee85d5eb946c7d5cda3dcef3170f4b8ef92d"
+    },
+    {
+      "file": "neon-new.md",
+      "url": "https://aistudio.google.com/docs/whats-new-gemini-4-neon",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "6ac102659b341da11cbd17cee1cb706c6a9a6f77be6a9760145dc367022e009a"
+    },
+    {
+      "file": "neon-launch.html",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "214e96b638b7958a018ff56f167acd6a1b360cdd56942a8bc3ba31b6f80bd0fa"
+    },
+    {
+      "file": "neon-card.html",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "b5652339b4761d235259831144a7a49565e065dfebe463e70fa88d454e5a575e"
+    },
+    {
+      "file": "neon-method.pdf",
+      "url": "https://deepmind.google/models/evals-methodology/gemini-4-neon",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "c260182978984944d5b7c8ce1012ecdcb10f184296b2469e4f356527499f56f0"
+    },
+    {
+      "file": "mai-launch.html",
+      "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "1567626e7dc56210b710a67e044c9b0cce4072329b2202c2fb87daee7f6611fb"
+    },
+    {
+      "file": "mai-card.pdf",
+      "url": "https://microsoft.ai/pdf/MAI-Code-2-And-MAI-Code-2-Flash-Model-Card.pdf?v=3",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "40edd05404a00ae453e23b772acfd8097cf70988a10b3fc2368fc7d5bc0eea29"
+    },
+    {
+      "file": "copilot-pricing.html",
+      "url": "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "82909086fd3d6a180e93b9eda1a7b10a4b77325712ac8a33311fbe50c88c82b9"
+    },
+    {
+      "file": "opus-launch.html",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "a721afa8cc23a0db72e52d7186a0ca6526d407501a468e54d3e6d542bc413922"
+    },
+    {
+      "file": "opus-overview.html",
+      "url": "https://platform.claude.com/docs/en/models/opus-5-5/overview",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "d27efea24ac0d437766fda7f9359c407ebb1e5a65b6052fc71524f3053c29f48"
+    },
+    {
+      "file": "cursor.html",
+      "url": "https://cursor.com/cursorbench",
+      "httpStatus": 200,
+      "accessed": "2026-11-19",
+      "sha256": "deb8e5c9c72246d93e61875181581c44dbc5dd035b2d1511e973611a2401e86d"
+    }
+  ],
+  "decisions": [
+    "Attachment corrected before implementation; source hierarchy exact model docs/card > channel-specific pricing > launch commentary.",
+    "Neon API unified context1048576/default sync output65536/longdecode1M within context, cutoffMarch2026, implicit-only caching. ArgonAPI post-Dec1rates published unlike Copilotfootnote.",
+    "Neon/Opus comparison uses nativeAPI rates, Opuscachewrite5 only5minute/8 onehour. Token example25% conditional, notcostpercompletion.",
+    "Google reported comparison includesbothmodels, but provideragents differ; do notcallmatchedharness or noavailablecomparison. Owner's thirdpartyquotes remain secondaryreports unless actualownerleaderboardchecked. No globalbenchmarkingestornewbenchmarkpage.",
+    "MAI v3card supplies context1050000,input922000,output128000 andmodality. Parameterwordingconflicts acrossversions; omitexactcount. Promotionalprices areCopilotAIcredits100perUSD, notdirectFoundryAPIcontract.",
+    "Microsoft's98%quality40%costcomparison appliesCode2anditsaggregatebenchmarks/maximumthinking/promorates,notFlash. NoFlashrawscoreinvention.",
+    "FlashinlineCode2comparisonreceivespricinganchorlinks butdoesnotbecomeanindependent/comparepage. Dedicatedcomparisonexpansiongateunmet;3URLbudgetpreserved.",
+    "Existing bestcompletedproduction notreprioritized/redone; currentGPTGeminiAstraCarbonpairnotretargeted. NoGSC/task/outreach."
+  ],
+  "gscAutomationFileSha256": "a6774b96145227fe13c47109e063863431f0ae215dfa1e582e4b0ede2485a34f"
+}

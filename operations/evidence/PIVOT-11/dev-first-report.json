@@ -1,0 +1,20 @@
+{
+  "unit": "PIVOT-11",
+  "baseline": "f1426e44f7bc1a07c9123e93c716dc831113037f",
+  "result": "FAIL",
+  "checks": {
+    "01-allowlist-three-new-urls-and-exact-lastmods": "FAIL",
+    "02-new-tdk-canonical-old-metadata-retained": "PASS",
+    "03-neon-specs-family-and-arithmetic": "PASS",
+    "04-opus-native-retention-and-identical-token-assumptions": "PASS",
+    "05-four-reported-benchmarks-versions-and-limits": "PASS",
+    "06-mai-specs-current-future-credit-channel-and-claim-ownership": "PASS",
+    "07-pricing-original-twenty-facts-unchanged": "PASS",
+    "08-discovery-inbound-links-real-inline-anchor": "PASS",
+    "09-current-pair-history-and-best-bytes-preserved": "PASS",
+    "10-snapshot-digests-and-react-server-checklist": "PASS"
+  },
+  "scope": "One bounded SSR invocation, catalog/metadata/sitemap structural checks and raw source hashes; no build/typecheck/server/network/model calls or accounts.",
+  "gap": "MAI Flash has an actual inline Code 2 comparison but no dedicated /compare page; expansion coverage gate remains unmet.",
+  "cleanup": "No processes, accounts, customer assets or dependencies created. Temp snapshots, probe and HTML retained for QA."
+}
