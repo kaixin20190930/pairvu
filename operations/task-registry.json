@@ -23,9 +23,49 @@
     "productionResult": "PASS19checks/exactly9HTTP all200; exactSHA/version/sevencompletepagebodies/metadata/54URLs;2026-11-19 23:52:11.550–23:52:14.513 Asia/Shanghai",
     "completion": "operations/evidence/PIVOT-11/completion.md",
     "enablement": "Publicly enabled; no migration/flag",
-    "remaining": ["Flash lacks dedicated comparison edge; expansion gate unmet", "New batch GSC discovery/crawl/indexing uninspected and not added to original task; no submission"],
-    "gsc": "No GSC access/submission or automation update; existing November25 task preserved",
-    "nextAction": "Docs/evidence-only push and fresh remote verification automatically; no redeploy. Existing November25 read-only GSC review depends on session/export. Further page or task changes require user authorization."
+    "remaining": ["Flash lacks dedicated comparison edge; expansion gate unmet", "New batch GSC discovery/crawl/indexing uninspected; now added to existing November25 task by separate authorization, no submission"],
+    "gsc": "Runtime release performed no GSC/task action. Separately authorized follow-up updated existing pairvu-gsc prompt only; no actual GSC access/submission or new task.",
+    "gscObservationFollowup": {
+      "automationId": "pairvu-gsc",
+      "action": "Updated existing heartbeat through app automation action and read back ACTIVE; full prior7511character prompt retained verbatim as suffix",
+      "scope": "Existing task and three documentation files only; no new task, live GSC access/submission, development, tests or production release",
+      "updatedAtUtc": "2026-11-19T16:00:41.917Z",
+      "updatedAtAsiaShanghai": "2026-11-20 00:00:41.917 Asia/Shanghai",
+      "nextRun": "2026-11-25 10:00 Asia/Shanghai",
+      "identityKindNameThreadCreationAndSchedulePreserved": true,
+      "firstPublicationBatch": "2026-11-19",
+      "urls": [
+        "/models/gemini-4-neon",
+        "/compare/gemini-4-neon-vs-claude-opus-5-5",
+        "/models/mai-code-2-flash"
+      ],
+      "batchDenominator": 3,
+      "releaseInventory": {
+        "urls": 54,
+        "models": 22,
+        "comparisonPages": 20,
+        "twoWayComparisons": 19,
+        "threeWayComparisons": 1
+      },
+      "releaseSha": "1c75215f34051750412d22bde0b290a4a9b99844",
+      "platformVersion": "79a45734-e3e9-4d2f-826c-a7f66407bde8",
+      "productionOnlineConfirmationUtc": [
+        "2026-11-19T15:52:11.550Z",
+        "2026-11-19T15:52:14.513Z"
+      ],
+      "postReleaseCrawlThreshold": "2026-11-19T15:52:14.513Z (2026-11-19 23:52:14.513 Asia/Shanghai); conservative confirmation-window end, not exact traffic switch",
+      "preuploadGate": "2026-11-19T15:50:16.350Z",
+      "baseline": "No GSC records for these three URLs inspected; unknown, not zero/not-indexed; preserve old45/51URL batches and originalCSV",
+      "checks": "Per URL discovery/Google recognition, referring sitemap/pages, raw last-crawl time and timezone, post-release determination, fetch/crawl-index permissions, indexing state/reason, both canonicals; distinct3URL batch with actual coverage. No invented first discovery/crawl time or indexed-content-refresh proof.",
+      "prioritiesRetained": "StageB four-page highest priority; continuing Haiku indexing; Astra repairs; six GPT pages; two best updates; other edited pages; sitemap anomaly; performance and expansion gates",
+      "beforeAutomationFileSha256": "a6774b96145227fe13c47109e063863431f0ae215dfa1e582e4b0ede2485a34f",
+      "automationFileSha256": "f610a5ae5d214f79c84f83a7424e486b0a4d7deab45650f10e489893c217b9ae",
+      "promptSha256": "0e3312e2ca881be415eef083760b5ca745a39527f2bc72e58608e84356ffbdc5",
+      "promptCharacters": 9153,
+      "originalPromptCharacters": 7511,
+      "noGscRequestMade": true
+    },
+    "nextAction": "Existing November25 10:00 read-only review automatically includes the three new pages after original priorities, dependent on GSC session/export; login requires user handoff. This follow-up commits/pushes documents only; no development, tests or deployment."
   },
   "pivot10": {
     "unitId": "PIVOT-10",
