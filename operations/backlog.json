@@ -620,6 +620,15 @@
       "mode": "runtime",
       "autoEligible": false,
       "requiredEvidence": ["official exact-model and channel-specific source inventory", "fixed candidate independent bounded SSR acceptance", "authorized exact GitHub-first release and maximum9request production acceptance"]
+    },
+    {
+      "id": "PIVOT-12",
+      "title": "CursorBench4.0历史快照标识与可追溯保留数据",
+      "priority": 0,
+      "dependsOn": ["PIVOT-11"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["immutable historical-data provenance with explicit raw-capture limitation", "fixed candidate independent six-check acceptance", "same pushed SHA production and maximum7request independent verification"]
     }
   ]
 }

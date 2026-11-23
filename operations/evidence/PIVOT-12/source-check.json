@@ -1,0 +1,27 @@
+{
+  "unitId": "PIVOT-12",
+  "checkedDate": "2026-11-23",
+  "officialCurrent": {
+    "url": "https://cursor.com/cursorbench",
+    "access": "Read current owner webpage; heading CursorBench4.1 and November18 changelog verified",
+    "version": "4.1",
+    "versionReleaseDate": "2026-11-18",
+    "changes": ["Modified instruction-following problems", "Increased agent time limit"],
+    "decision": "Link current owner page for version/methodology; do not treat it as proof of old4.0 numerical rows or ingest4.1 scores"
+  },
+  "historicalData": {
+    "recordedCollectionDate": "2026-11-16",
+    "releaseCommit": "1c75215f34051750412d22bde0b290a4a9b99844",
+    "path": "lib/models/catalog.ts",
+    "gitBlob": "f3403c7114ce3455ab8adb8ef6afd1994dec6404",
+    "fileSha256": "f1af2b5b54f2e0e410d70ab22ab8b2ed5dab85ff89ae2c61360974e5ba2be32a",
+    "originalIndependentReview": "operations/evidence/PIVOT-05/qa/stage-2-original.json",
+    "reviewSupport": "Original reviewer records November16 owner-source check and exact HaikuMax48.4/USD1.12 and OpusMax57.8/USD13.43",
+    "limitation": "Prior temporary owner raw captures unavailable. New publicJSON is an explicitly labelled Pairvu retained transcription reconstructed from committed data, not a recovered official raw-page archive or current re-verification of old numbers."
+  },
+  "automationBaselineSha256": {
+    "pairvu-gsc": "f610a5ae5d214f79c84f83a7424e486b0a4d7deab45650f10e489893c217b9ae",
+    "pairvu-2": "16e8e37f259fecf5cbfa09bd4732cebf2b71e2199e52517debbc75b05e052442",
+    "qwen4-preview": "db174abce976c581e9f6f32205ef4db003048bdfcba27691904be4aae3a95d35"
+  }
+}

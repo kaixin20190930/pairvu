@@ -1,5 +1,21 @@
 {
   "schemaVersion": 1,
+  "pivot12": {
+    "unitId": "PIVOT-12",
+    "contract": "operations/contracts/PIVOT-12.md",
+    "baselineSha": "2b68877c44979f46cfa1d9d42c3d91ed6db17359",
+    "status": "DEV_READY",
+    "authorization": "November23 user requests minimal historical CursorBench repair and production release",
+    "formalTracking": "Historical JRN-04-FIX lock/state retained; evidence index only",
+    "development": {"agent": "/root/pivot12_dev", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Small static source-provenance correction; supplied immutable data and scoped SSR", "upgradeCondition": "Substantive unresolved reasoning only, not environment failure"},
+    "qa": {"agent": "/root/pivot12_qa", "model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent exact-SHA provenance, unchanged numeric/metadata and focused SSR/production checks", "upgradeCondition": "Real defect returns developer; reassess only substantive reasoning gap"},
+    "frozenChecks": "Six contract checks; one SSR per role, unchanged BrowseComp counterexample; at most7 production GETs",
+    "expectedInventory": {"urls":54,"models":22,"twoWayComparisons":19,"threeWayComparisons":1},
+    "limits": "No 4.1 ingestion/new pages/GSC/task changes; old raw owner capture unavailable and reconstruction explicitly labelled",
+    "developerEvidence": "operations/evidence/PIVOT-12/developer-handoff.json",
+    "developerResult": "One SSR rendered/data/metadata/inventory PASS; preserved source-slice diagnostic and structural-only correction PASS",
+    "nextAction": "Controller commits fixed candidate for independent six-check acceptance; then authorized GitHub-first same-SHA production and maximum7GET independent verification"
+  },
   "pivot11": {
     "unitId": "PIVOT-11",
     "contract": "operations/contracts/PIVOT-11.md",

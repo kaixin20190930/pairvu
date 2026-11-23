@@ -1,0 +1,127 @@
+{
+  "stage": "developer working-tree bounded SSR",
+  "baseline": "2b68877c44979f46cfa1d9d42c3d91ed6db17359",
+  "original": "1c75215f34051750412d22bde0b290a4a9b99844",
+  "checks": [
+    {
+      "name": "cursorbench: metadata/H1/old links unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: visible historical/version/provenance distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: original four scores render",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: metadata/H1/old links unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: visible historical/version/provenance distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: metadata/H1/old links unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: visible historical/version/provenance distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: original four scores render",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: metadata/H1/old links unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: visible historical/version/provenance distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "Haiku exact Max numbers and old limitations",
+      "status": "PASS"
+    },
+    {
+      "name": "browsecomp: metadata/H1/old links unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "BrowseComp exact SSR equality",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical catalog four rows/date/all other facts unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Public retained reconstruction integrity and dates",
+      "status": "PASS"
+    },
+    {
+      "name": "54 same URLs; only four lastmods change; 22 models/20 comparisons",
+      "status": "PASS"
+    },
+    {
+      "name": "Exact runtime allowlist/no routes or dependencies",
+      "status": "PASS"
+    },
+    {
+      "name": "All non-Cursor comparison sections and BrowseComp branch unchanged",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ ';return <main className=\"model-shell\"><h1>BrowseComp</h1><p className=\"lede\">{browseComp.version}, released <time dateTime={browseComp.releaseDate}>{browseComp.releaseDate}</time>. The benchmark-owner baseline and a later model-owner report remain separate.</p><h2>Method and coverage</h2><p>{browseComp.method}</p><p>{browseComp.coverage}</p><h2>2025 OpenAI benchmark-owner baseline</h2><table className=\"model-table\"><thead><tr><th>System</th><th>Score</th><th>Configuration</th><th>Run cost</th><th>Pairvu model profile</th></tr></thead><tbody>{browseComp.rows.map(r=><tr key={r.model}><th>{r.model}</th><td>{r.score}%</td><td>{r.configuration}</td><td>{r.cost}</td><td>Not in current {models.length}-model catalog</td></tr>)}</tbody></table><h2>2026 Z.ai vendor-reported results</h2><p>Reported by Z.ai on <time dateTime={browseComp.latestReportDate}>{browseComp.latestReportDate}</time>.</p><table className=\"model-table\"><thead><tr><th>System</th><th>Score</th><th>Configuration</th><th>Run cost</th><th>Pairvu model profile</th></tr></thead><tbody>{browseComp.latest.map(r=><tr key={r.model}><th>{r.model}</th><td>{r.score}%</td><td>{r.configuration}</td><td>{r.cost}</td><td>{cell(r)}</td></tr>)}</tbody></table><p className=\"note\"><strong>Not directly comparable:</strong> the vendor report uses a later model and its own evaluation configuration; context management materially changes the result. {browseComp.limitation} Do not merge these tables into one ranking.</p><div className=\"pill-links\"><Link href=\"/models/glm-5\">GLM-5 profile</Link><Link href=\"/compare/minimax-m2-1-vs-glm-5\">MiniMax M2.1 vs GLM-5</Link></div><SourceList sources={[browseComp.source,browseComp.latestSource]}/></main>}\\n' +\n+   'import { CursorBenchHistoryNotice } from \"@/components/CursorBenchHistoryNotice\";\\n'\n- ';return <main className=\"model-shell\"><h1>BrowseComp</h1><p className=\"lede\">{browseComp.version}, released <time dateTime={browseComp.releaseDate}>{browseComp.releaseDate}</time>. The benchmark-owner baseline and a later model-owner report remain separate.</p><h2>Method and coverage</h2><p>{browseComp.method}</p><p>{browseComp.coverage}</p><h2>2025 OpenAI benchmark-owner baseline</h2><table className=\"model-table\"><thead><tr><th>System</th><th>Score</th><th>Configuration</th><th>Run cost</th><th>Pairvu model profile</th></tr></thead><tbody>{browseComp.rows.map(r=><tr key={r.model}><th>{r.model}</th><td>{r.score}%</td><td>{r.configuration}</td><td>{r.cost}</td><td>Not in current {models.length}-model catalog</td></tr>)}</tbody></table><h2>2026 Z.ai vendor-reported results</h2><p>Reported by Z.ai on <time dateTime={browseComp.latestReportDate}>{browseComp.latestReportDate}</time>.</p><table className=\"model-table\"><thead><tr><th>System</th><th>Score</th><th>Configuration</th><th>Run cost</th><th>Pairvu model profile</th></tr></thead><tbody>{browseComp.latest.map(r=><tr key={r.model}><th>{r.model}</th><td>{r.score}%</td><td>{r.configuration}</td><td>{r.cost}</td><td>{cell(r)}</td></tr>)}</tbody></table><p className=\"note\"><strong>Not directly comparable:</strong> the vendor report uses a later model and its own evaluation configuration; context management materially changes the result. {browseComp.limitation} Do not merge these tables into one ranking.</p><div className=\"pill-links\"><Link href=\"/models/glm-5\">GLM-5 profile</Link><Link href=\"/compare/minimax-m2-1-vs-glm-5\">MiniMax M2.1 vs GLM-5</Link></div><SourceList sources={[browseComp.source,browseComp.latestSource]}/></main>}\\n'\n"
+    },
+    {
+      "name": "Whitespace",
+      "status": "PASS"
+    }
+  ],
+  "ssr": [
+    {
+      "label": "cursorbench",
+      "path": "app/benchmarks/[bench]/page.tsx",
+      "htmlSha256": "a3e1dd1ecbcd4964851bf61677a903c581feacacb934b6bbed8ddeed3afdc0f8",
+      "baselineHtmlSha256": "3e73336003ee0ac7fa2c022c052a64c768b245178afea0f7f6aa7d9c5b4996ba"
+    },
+    {
+      "label": "benchmarks",
+      "path": "app/benchmarks/page.tsx",
+      "htmlSha256": "3846892a69df8879ae6d7443142c519cbd2dcfa82f11c2b53a88327629c6932a",
+      "baselineHtmlSha256": "7e17e979b5ac8abbf41df31bc3b50b8ea90071f02a2b71bb7241914dbfd60a8b"
+    },
+    {
+      "label": "leaderboard",
+      "path": "app/leaderboard/page.tsx",
+      "htmlSha256": "dbeaa23109de3adc8715a89318319b7ff94c279b5e9635958a51f05b233a8a6e",
+      "baselineHtmlSha256": "8001aae3a7db774e30f08bf4eb9dcfc57f3a8e304f1cd1880cb96ac43d66fa65"
+    },
+    {
+      "label": "haiku",
+      "path": "app/compare/[slug]/page.tsx",
+      "htmlSha256": "07c22f09ac01c7702f18609230f4a140e402ceec42098f60f8ea2c7ee439c650",
+      "baselineHtmlSha256": "92f8bc8f047923d0d4d87d03709108ee1e209b8129b636686d83b3ccd15f7c16"
+    },
+    {
+      "label": "browsecomp",
+      "path": "app/benchmarks/[bench]/page.tsx",
+      "htmlSha256": "e0e3dc512cd6a88a275b8db04ec70f2b12d4f8a7362a0b1d70988c3c732cf285",
+      "baselineHtmlSha256": "e0e3dc512cd6a88a275b8db04ec70f2b12d4f8a7362a0b1d70988c3c732cf285"
+    }
+  ],
+  "notRun": [
+    "build",
+    "typecheck",
+    "dev server",
+    "full suite",
+    "GSC",
+    "automation",
+    "account/customer/database writes"
+  ],
+  "cleanup": "Only temporary read-only generated probe evidence; no persistent test assets or listener.",
+  "result": "FAIL"
+}

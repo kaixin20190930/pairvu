@@ -1,0 +1,16 @@
+{
+  "unitId": "PIVOT-12",
+  "baselineSha": "2b68877c44979f46cfa1d9d42c3d91ed6db17359",
+  "developer": "/root/pivot12_dev",
+  "result": "DEV_READY; one SSR passed rendered/numeric/metadata/inventory checks; source-slice diagnostic corrected by import relocation, structural recheckPASS",
+  "candidateBinding": "Controller commits complete candidate before independent acceptance; this developer report does not claim production or independent PASS",
+  "original": "operations/evidence/PIVOT-12/developer-original.json",
+  "structuralRecheck": "operations/evidence/PIVOT-12/developer-structural-recheck.json",
+  "rawDirectory": "/private/tmp/pairvu-pivot12-dev.nk4by5",
+  "probe": "NODE_PATH='/Users/liukai/Documents/Product Visual QA Platform/node_modules' pnpm exec tsx /private/tmp/pairvu-pivot12-dev.nk4by5/probe.tsx",
+  "structuralProbe": "node /private/tmp/pairvu-pivot12-dev.nk4by5/structural-recheck.mjs",
+  "reproductionNote": "Original probe includes the preserved overly broad source-slice diagnostic. Do not overwrite original report; reviewer authors independent bounded checks against committed candidate.",
+  "rawAssets": "Five candidate/baseline HTML bodies, metadataJSON, sitemapJSON, runtime.diff, new component/publicJSON copies and final eight runtime hashes",
+  "cleanup": "No server, account, customer asset, migration, feature flag or dependency created; retain temporary probe evidence",
+  "exclusions": "No build/typecheck/fullsuite/GSC/automation/production requests; independent acceptance and same-SHA production pending"
+}

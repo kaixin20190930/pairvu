@@ -1,0 +1,41 @@
+{
+  "label": "Pairvu retained transcription of four historical CursorBench 4.0 configurations, reconstructed from Git",
+  "benchmark": "CursorBench",
+  "version": "4.0",
+  "versionReleaseDate": "2026-09-10",
+  "originalRecordedCollectionDate": "2026-11-16",
+  "packagedAndProvenanceCheckedDate": "2026-11-23",
+  "resultPublicationDates": "Unknown: not stated in the retained catalog",
+  "originalOwnerUrl": "https://cursor.com/cursorbench",
+  "provenance": {
+    "commit": "1c75215f34051750412d22bde0b290a4a9b99844",
+    "commitUrl": "https://github.com/kaixin20190930/pairvu/commit/1c75215f34051750412d22bde0b290a4a9b99844",
+    "catalogUrl": "https://github.com/kaixin20190930/pairvu/blob/1c75215f34051750412d22bde0b290a4a9b99844/lib/models/catalog.ts",
+    "catalogGitBlob": "f3403c7114ce3455ab8adb8ef6afd1994dec6404",
+    "catalogSha256": "f1af2b5b54f2e0e410d70ab22ab8b2ed5dab85ff89ae2c61360974e5ba2be32a",
+    "independentReviewUrl": "https://github.com/kaixin20190930/pairvu/blob/1c75215f34051750412d22bde0b290a4a9b99844/operations/evidence/PIVOT-05/qa/stage-2-original.json",
+    "independentReviewSha256": "13c94223aa6baf42a2e6948c86abda245d1af07927de7c1de0604d304918d297"
+  },
+  "limitations": [
+    "Pairvu's retained transcription, not recovered official raw HTML, an independent archive, or the complete leaderboard. Original temporary owner-page captures are unavailable.",
+    "Reconstructed from the immutable Git catalog; the original independent review specifically corroborates the Haiku and Opus Max rows.",
+    "The current official page does not verify these historical numbers. Packaging on 2026-11-23 is not a new collection of the 4.0 results.",
+    "Scores depend on exact model, effort, Cursor harness and task budget. Effort names do not establish identical compute. Run cost per task is not token pricing or a latency measurement."
+  ],
+  "currentOfficialMethodology": {
+    "url": "https://cursor.com/cursorbench",
+    "checkedDate": "2026-11-23",
+    "version": "4.1",
+    "changelogDate": "2026-11-18",
+    "change": "Changes instruction-following tasks and increases agent time; not directly comparable as a shared-harness ranking with 4.0.",
+    "scoresIngested": false
+  },
+  "scoreUnit": "percent",
+  "costUnit": "USD per task",
+  "rows": [
+    { "model": "Gemini 4 Carbon High", "score": 60.4, "cost": 9.22, "configuration": "Carbon · High effort" },
+    { "model": "Fable 5.2 Max", "slug": "fable-5-2", "score": 60, "cost": 32.79, "configuration": "Fable 5.2 · Max effort" },
+    { "model": "Opus 5.5 Max", "slug": "claude-opus-5-5", "score": 57.8, "cost": 13.43, "configuration": "Opus 5.5 · Max effort" },
+    { "model": "Haiku 5.5 Max", "slug": "claude-haiku-5-5", "score": 48.4, "cost": 1.12, "configuration": "Haiku 5.5 · Max effort" }
+  ]
+}

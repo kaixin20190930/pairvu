@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SourceList } from "@/components/SourceList";
+import { CursorBenchHistoryNotice } from "@/components/CursorBenchHistoryNotice";
 import { browseComp, cursorBench, sweBenchVerified } from "@/lib/models/catalog";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function Page() {
     <p>Pairvu currently explains three benchmarks. The owner publication date, model-owner report date, and Pairvu collection date describe different events; a recent source check does not make an older result new.</p>
     <h2>What each test measures</h2>
     <h3><Link href="/benchmarks/cursorbench">CursorBench 4.0: coding agents in a real editor</Link></h3>
+    <CursorBenchHistoryNotice />
     <p>{cursorBench.method} Version 4.0 introduced long-horizon tasks on {cursorBench.versionReleaseDate}, including editing, refactoring, investigation, and design adherence. Pairvu preserves Gemini 4 Carbon High, Fable 5.2 Max, Opus 5.5 Max, and Haiku 5.5 Max, with each configuration and owner-reported cost per task.</p>
     <p>{cursorBench.resultPublished} Pairvu checked this snapshot on {cursorBench.snapshotDate}; that is a collection date. {cursorBench.limitation}</p>
     <h3><Link href="/benchmarks/browsecomp">BrowseComp: persistent information search</Link></h3>

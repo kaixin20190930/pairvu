@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ModelTable } from "@/components/ModelTable";
+import { CursorBenchHistoryNotice } from "@/components/CursorBenchHistoryNotice";
 import { browseComp, cursorBench, type Source } from "@/lib/models/catalog";
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function Page() {
     <p className="lede">Ten configuration results across two benchmarks, not ten independent models. Each test retains its own methodology and evidence groups; there is no universal ranking or composite score.</p>
     <section>
       <h2>CursorBench {cursorBench.version}</h2>
+      <CursorBenchHistoryNotice />
       <p>{cursorBench.method} {cursorBench.coverage}</p>
       <p>Benchmark version released {cursorBench.versionReleaseDate}. {cursorBench.resultPublished} The snapshot and source-check dates are not result publication dates.</p>
       <div className="table-wrap"><table className="model-table">

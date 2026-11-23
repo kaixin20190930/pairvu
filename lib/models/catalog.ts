@@ -65,6 +65,7 @@ export const qwen35Candidate={name:"Qwen3.5-397B-A17B",slug:"qwen3-5-397b-a17b",
 export const bestChinese=["qwen3-8b","qwen3-8-27b","qwen3-8-2-4t-a95b","glm-5","deepseek-v3-2","kimi-k2-5","minimax-m2-1"],bestOpen=[...bestChinese];
 export const cursorBench={
  version:"4.0",versionReleaseDate:"2026-09-10",resultPublished:"Individual result publication dates are not stated on the cited leaderboard.",snapshotDate:"2026-11-16",source:verified("CursorBench 4.0 official leaderboard","https://cursor.com/cursorbench"),
+ provenance:{packagedDate:"2026-11-23",currentVersion:"4.1",currentVersionDate:"2026-11-18",snapshotUrl:"/evidence/cursorbench-4-0-2026-11-16.json",catalogUrl:"https://github.com/kaixin20190930/pairvu/blob/1c75215f34051750412d22bde0b290a4a9b99844/lib/models/catalog.ts",reviewUrl:"https://github.com/kaixin20190930/pairvu/blob/1c75215f34051750412d22bde0b290a4a9b99844/operations/evidence/PIVOT-05/qa/stage-2-original.json"},
  method:"Cursor evaluates coding agents on ambiguous, multi-file tasks drawn from real Cursor sessions; higher scores are better.",
  coverage:"This Pairvu snapshot shows four named configurations from the owner leaderboard; it is not the full leaderboard.",
  limitation:"Results depend on the exact model, effort setting, Cursor agent harness, and task budget. Small score gaps may reflect run variance and should not be treated as universal model quality.",

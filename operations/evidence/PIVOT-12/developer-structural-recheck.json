@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "diagnostic": "Original report.json preserved. Single SSR passed all rendered outputs; original sole FAIL was a source slice including the newly appended import. Imports relocated to top with no JSX/content change. This recheck performs no SSR.",
+  "checks": [
+    {
+      "name": "Haiku insertion is entire comparison diff",
+      "status": "PASS"
+    },
+    {
+      "name": "Cursor detail insertion/copy is entire benchmark diff",
+      "status": "PASS"
+    },
+    {
+      "name": "Whitespace",
+      "status": "PASS"
+    }
+  ],
+  "sha256": {
+    "lib/models/catalog.ts": "c8b968512395103784e0f61103f8f6cec8e56f01f34c1a22c7f51ed1aa69aac1",
+    "app/benchmarks/[bench]/page.tsx": "c43d60598afa187fe77f182090537f099ba462dd271952a019201ae6845a9bd3",
+    "app/benchmarks/page.tsx": "af8a8848f838775ad64a0eb8e66ea7cc133ffbb02cd14fcc4bff445057a102d7",
+    "app/leaderboard/page.tsx": "522d4cab94228b7f0ce007ab4a488dab12ea768b4affbed05283abd09c29c3d3",
+    "app/compare/[slug]/page.tsx": "4a612dfa919edd291747e39e0e6a5dd3bab90cfe4b40a1f69f8a82f76def580a",
+    "app/sitemap.ts": "41d56eb8923b496984193d0ab4a1cb7e8adcd5a7debeef3cc780ccb43040d61e",
+    "components/CursorBenchHistoryNotice.tsx": "9c784f7677dad2f4abfbbb9b70869f704ffa304854ca0b2f2c88fcbb83798f8e",
+    "public/evidence/cursorbench-4-0-2026-11-16.json": "18aae3ecde5c39a712bdebed78e202c71d89873cb2a9b4d43ca3527747f7a32e"
+  }
+}
