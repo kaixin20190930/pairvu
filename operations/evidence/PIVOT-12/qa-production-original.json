@@ -1,0 +1,121 @@
+{
+  "unit": "PIVOT-12",
+  "role": "independent production reviewer",
+  "candidate": "9ad36381b2140c647c0144e2d99dc266b525e5ae",
+  "platformVersion": "9fe9ce87-9495-4db1-94dd-7cc21b5b1d7d",
+  "firstObservedUTC": "2026-11-23T02:39:01.868Z",
+  "lastObservedUTC": "2026-11-23T02:39:05.240Z",
+  "requests": [
+    {
+      "label": "health",
+      "path": "/api/health",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:01.868Z",
+      "finishedUTC": "2026-11-23T02:39:03.250Z"
+    },
+    {
+      "label": "benchmarks",
+      "path": "/benchmarks",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:03.250Z",
+      "finishedUTC": "2026-11-23T02:39:03.837Z"
+    },
+    {
+      "label": "cursorbench",
+      "path": "/benchmarks/cursorbench",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:03.837Z",
+      "finishedUTC": "2026-11-23T02:39:04.106Z"
+    },
+    {
+      "label": "leaderboard",
+      "path": "/leaderboard",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:04.106Z",
+      "finishedUTC": "2026-11-23T02:39:04.357Z"
+    },
+    {
+      "label": "haiku",
+      "path": "/compare/claude-haiku-5-5-vs-claude-opus-5-5",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:04.358Z",
+      "finishedUTC": "2026-11-23T02:39:04.608Z"
+    },
+    {
+      "label": "snapshot",
+      "path": "/evidence/cursorbench-4-0-2026-11-16.json",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:04.608Z",
+      "finishedUTC": "2026-11-23T02:39:05.013Z"
+    },
+    {
+      "label": "sitemap",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "startedUTC": "2026-11-23T02:39:05.013Z",
+      "finishedUTC": "2026-11-23T02:39:05.240Z"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exactly seven GET responses all HTTP200",
+      "status": "PASS"
+    },
+    {
+      "name": "Health exact candidate SHA and deployed Cloudflare version",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: full rendered main equals accepted candidate SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: production title/H1/canonical/robots and visible historical evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: full rendered main equals accepted candidate SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: production title/H1/canonical/robots and visible historical evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: full rendered main equals accepted candidate SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: production title/H1/canonical/robots and visible historical evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: full rendered main equals accepted candidate SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: production title/H1/canonical/robots and visible historical evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "Public JSON byte-identical to accepted committed snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "Sitemap54 exact accepted URLs and dates; only four November23 modifications",
+      "status": "PASS"
+    }
+  ],
+  "limits": [
+    "Original owner raw archive unavailable; retained Git transcription only.",
+    "No GSC/account/database/automation operations."
+  ],
+  "result": "PASS",
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "9ad36381b2140c647c0144e2d99dc266b525e5ae",
+    "platformVersion": "9fe9ce87-9495-4db1-94dd-7cc21b5b1d7d"
+  }
+}

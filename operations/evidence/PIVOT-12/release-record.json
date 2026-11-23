@@ -1,0 +1,38 @@
+{
+  "unit": "PIVOT-12",
+  "status": "PRODUCTION_VERIFIED",
+  "releaseSha": "9ad36381b2140c647c0144e2d99dc266b525e5ae",
+  "remoteBranch": "origin/main",
+  "platform": "Cloudflare Workers",
+  "platformVersion": "9fe9ce87-9495-4db1-94dd-7cc21b5b1d7d",
+  "artifactSha256": "9fb4d0cfaef539955317af1f345ed8a39a4de6a21bc3f1434f8fe7dca1c85254",
+  "initialReleaseGateUtc": "2026-11-23T02:35:40.214Z",
+  "finalPreUploadGateUtc": "2026-11-23T02:36:27.250Z",
+  "releaseGates": "Exact candidate freshly verified on origin/main; production working tree clean; built-SHA and artifact digest checked before upload",
+  "onlineConfirmationUtc": ["2026-11-23T02:39:01.868Z", "2026-11-23T02:39:05.240Z"],
+  "onlineConfirmationAsiaShanghai": ["2026-11-23 10:39:01.868", "2026-11-23 10:39:05.240"],
+  "timeSemantics": "Independent online confirmation window, not exact traffic switch; window end is conservative post-release crawl threshold once GSC timezone is established",
+  "candidateAcceptance": {"result": "PASS", "assertions": 21, "contractGroups": 6, "evidence": "operations/evidence/PIVOT-12/qa-original.json"},
+  "productionAcceptance": {"result": "PASS", "assertions": 12, "requests": 7, "allHttp200": true, "evidence": "operations/evidence/PIVOT-12/qa-production-original.json"},
+  "affectedPages": ["/benchmarks/cursorbench", "/benchmarks", "/leaderboard", "/compare/claude-haiku-5-5-vs-claude-opus-5-5"],
+  "inventory": {"urls": 54, "modelProfiles": 22, "comparisonPages": 20, "newHtmlPages": 0},
+  "historicalData": "All four CursorBench4.0 rows/configurations/costs and November16 collection date unchanged; no4.1 scores ingested",
+  "publicEvidence": "/evidence/cursorbench-4-0-2026-11-16.json",
+  "provenanceLimit": "Original temporary owner raw archive unavailable. Public JSON is a retained Pairvu transcription reconstructed from immutable committed catalog and original review, not official archived HTML or current owner score verification.",
+  "diagnostics": [
+    "Developer original source-slice assertion accidentally included appended import; original failure retained and structural-only recheck passed after import placement. Original SSR was not repeated.",
+    "Initial deploy invocation extra separator rejected before build or upload.",
+    "First guarded production build/TypeScript passed; uploader stopped before upload because existing Cloudflare token was not exported.",
+    "Loaded only existing credential into child environment; unchanged guarded command on same pushed SHA passed fresh gates, rebuilt and deployed. Actual total two successful production builds, one upload. No new credential, changed release tool, expanded suite or additional SSR."
+  ],
+  "migration": "none",
+  "featureEnablement": "Public existing routes; no flag",
+  "gscOrAutomationAction": "none",
+  "unchangedAutomationFileSha256": {
+    "pairvu-gsc": "f610a5ae5d214f79c84f83a7424e486b0a4d7deab45650f10e489893c217b9ae",
+    "pairvu-2": "16e8e37f259fecf5cbfa09bd4732cebf2b71e2199e52517debbc75b05e052442",
+    "qwen4-preview": "db174abce976c581e9f6f32205ef4db003048bdfcba27691904be4aae3a95d35"
+  },
+  "formalState": "Historical JRN-04-FIX lock/state retained; PIVOT-12 registry is evidence index only, not a formal state transition",
+  "nextAction": "Documentation-only archive/push, no rebuild/test/redeployment. Existing November25 10:00 Asia/Shanghai GSC review automatic subject to login/export;4.1 ingestion needs separate authorization."
+}

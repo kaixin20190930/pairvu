@@ -1,0 +1,137 @@
+{
+  "unit": "PIVOT-12",
+  "role": "independent reviewer",
+  "candidate": "9ad36381b2140c647c0144e2d99dc266b525e5ae",
+  "baseline": "2b68877c44979f46cfa1d9d42c3d91ed6db17359",
+  "started": "2026-11-23T02:29:11.881Z",
+  "checks": [
+    {
+      "name": "Fixed committed candidate and clean working tree",
+      "status": "PASS"
+    },
+    {
+      "name": "Eight runtime files only; no routes/dependencies/new page",
+      "status": "PASS"
+    },
+    {
+      "name": "Catalog restricted to provenance insertion, all original rows and dates invariant",
+      "status": "PASS"
+    },
+    {
+      "name": "Public JSON Git hashes, four complete facts and honest reconstruction",
+      "status": "PASS"
+    },
+    {
+      "name": "New methodology distinction matches controller current-owner source check",
+      "status": "PASS"
+    },
+    {
+      "name": "Only existing Haiku comparison receives insertion; static server component",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: metadata, H1 and preexisting links preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: historical notice/date/methodology/download/Git source distinctions visible",
+      "status": "PASS"
+    },
+    {
+      "name": "cursorbench: exact original four table rows/configurations/score/cost retained",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: metadata, H1 and preexisting links preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "benchmarks: historical notice/date/methodology/download/Git source distinctions visible",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: metadata, H1 and preexisting links preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: historical notice/date/methodology/download/Git source distinctions visible",
+      "status": "PASS"
+    },
+    {
+      "name": "leaderboard: exact original four table rows/configurations/score/cost retained",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: metadata, H1 and preexisting links preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "haiku: historical notice/date/methodology/download/Git source distinctions visible",
+      "status": "PASS"
+    },
+    {
+      "name": "Haiku old table and compute/cost/latency limits preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "browsecomp: metadata, H1 and preexisting links preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "BrowseComp unchanged SSR counterexample",
+      "status": "PASS"
+    },
+    {
+      "name": "54 identical URL set /22 model /20 comparison pages; only four November23 lastmods",
+      "status": "PASS"
+    },
+    {
+      "name": "Candidate unchanged after acceptance; no persistent probe assets",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": [
+    {
+      "label": "cursorbench",
+      "sha256": "a3e1dd1ecbcd4964851bf61677a903c581feacacb934b6bbed8ddeed3afdc0f8",
+      "baselineSha256": "3e73336003ee0ac7fa2c022c052a64c768b245178afea0f7f6aa7d9c5b4996ba"
+    },
+    {
+      "label": "benchmarks",
+      "sha256": "3846892a69df8879ae6d7443142c519cbd2dcfa82f11c2b53a88327629c6932a",
+      "baselineSha256": "7e17e979b5ac8abbf41df31bc3b50b8ea90071f02a2b71bb7241914dbfd60a8b"
+    },
+    {
+      "label": "leaderboard",
+      "sha256": "dbeaa23109de3adc8715a89318319b7ff94c279b5e9635958a51f05b233a8a6e",
+      "baselineSha256": "8001aae3a7db774e30f08bf4eb9dcfc57f3a8e304f1cd1880cb96ac43d66fa65"
+    },
+    {
+      "label": "haiku",
+      "sha256": "07c22f09ac01c7702f18609230f4a140e402ceec42098f60f8ea2c7ee439c650",
+      "baselineSha256": "92f8bc8f047923d0d4d87d03709108ee1e209b8129b636686d83b3ccd15f7c16"
+    },
+    {
+      "label": "browsecomp",
+      "sha256": "e0e3dc512cd6a88a275b8db04ec70f2b12d4f8a7362a0b1d70988c3c732cf285",
+      "baselineSha256": "e0e3dc512cd6a88a275b8db04ec70f2b12d4f8a7362a0b1d70988c3c732cf285"
+    }
+  ],
+  "limitations": [
+    "Historical owner raw captures unavailable; reconstruction only.",
+    "No production validation yet."
+  ],
+  "notRun": [
+    "build",
+    "typecheck",
+    "server",
+    "full suite",
+    "GSC",
+    "automation",
+    "accounts",
+    "database",
+    "production HTTP"
+  ],
+  "result": "PASS",
+  "finished": "2026-11-23T02:29:12.726Z"
+}
