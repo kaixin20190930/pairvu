@@ -1,0 +1,84 @@
+{
+  "unit": "PIVOT-14",
+  "role": "independent QA",
+  "candidate": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+  "baseline": "8c2a3296ad5e16906f3dd7da773a97598febd1c6",
+  "started": "2026-11-24T08:04:02.087Z",
+  "checks": [
+    {
+      "group": 1,
+      "name": "Exact allowed diff, unchanged 58 URLs/24 models/22 comparison inventory, canonical/index and sitemap",
+      "status": "PASS"
+    },
+    {
+      "group": 2,
+      "name": "Carbon exact High row link; four-only rank limit; original numbers/dates/provenance and 4.1 warning",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: CursorBench 4.1"
+    },
+    {
+      "group": 3,
+      "name": "Carbon historical score backlink and separate attributed/unreproduced Nov10 Google claim; no Astra score",
+      "status": "PASS"
+    },
+    {
+      "group": 4,
+      "name": "Historical exact old pair intent and one short current link; preserved historical table/evidence/verdict; dedicated invariant except generated link",
+      "status": "PASS"
+    },
+    {
+      "group": 5,
+      "name": "Qwen editorial24 / checked12 visible; exact future boundary/replacements and untouched official data",
+      "status": "PASS"
+    },
+    {
+      "group": 6,
+      "name": "Exact commit, unchanged price/model/best/threeway/BrowseComp source, no task/account/DB changes or persistent assets",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": [
+    {
+      "route": "/benchmarks/cursorbench",
+      "sha256": "cc9ceb4ae2aa4ad02765edd667d5ffc42c298cd6e27d2fe2fd5558ad1a0c2d6e"
+    },
+    {
+      "route": "/models/gemini-4-carbon",
+      "sha256": "1739194094b06138a033155635267f2d515f447bfb43d0ca4667bc40b573c053"
+    },
+    {
+      "route": "/compare/gpt-vs-gemini",
+      "sha256": "80eb9aea0e70cd715dac676aa97cf88c8bea08f00c0c5e9282bd7cb2635317cd"
+    },
+    {
+      "route": "/models/qwen-4-max-preview",
+      "sha256": "e7e510886dafe7a966cd9131563979dc919db76a3db33908e38816a5f7407b15"
+    },
+    {
+      "route": "/compare",
+      "sha256": "821dc25b9e0e096caf086a49fce849a802ff0cb418f8aacd1eed3e231d575131"
+    },
+    {
+      "route": "/compare/gpt-6-2-astra-vs-gemini-4-carbon",
+      "sha256": "466df6b29cb694ba9c11406bcce529516e01e1d481bc90e4bc59f1b92418294e"
+    }
+  ],
+  "reused": [
+    "PIVOT-13 final independent f1788a9 untouched data/pricing/availability; confirmed source invariants",
+    "PIVOT-12 historical provenance unchanged"
+  ],
+  "notRun": [
+    "build",
+    "typecheck",
+    "server",
+    "fullsuite",
+    "production",
+    "GSC",
+    "tasks",
+    "accounts",
+    "DB"
+  ],
+  "cleanup": "Only /tmp/pivot14-qa probe and evidence retained. No server, persistent framework or external assets.",
+  "finished": "2026-11-24T08:04:02.508Z",
+  "result": "FAIL"
+}

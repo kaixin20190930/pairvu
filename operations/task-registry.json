@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "pivot14": {
-    "unitId":"PIVOT-14", "contract":"operations/contracts/PIVOT-14.md", "baselineSha":"8c2a3296ad5e16906f3dd7da773a97598febd1c6", "status":"DEV_READY",
+    "unitId":"PIVOT-14", "contract":"operations/contracts/PIVOT-14.md", "baselineSha":"8c2a3296ad5e16906f3dd7da773a97598febd1c6", "status":"PRODUCTION_VERIFIED",
     "authorization":"November24 current user explicitly requests minimal repair and production deployment",
     "formalTracking":"Historical lock/state preserved; evidence index only",
     "development":{"model":"gpt-6.1-sol","thinking":"medium","reason":"Bounded static link/date/intent repair with deterministic SSR","upgradeCondition":"Substantive reasoning gap only, not environment"},
@@ -12,7 +12,19 @@
     "developerEvidence":"operations/evidence/PIVOT-14/developer-original.json",
     "developerResult":"PASS6groups in one6pageSSR; five runtime files only; unchanged model/price/source objects and historical numericconfig rows except Carbon slug",
     "rawDeveloperEvidence":"/tmp/pivot14-dev",
-    "nextAction":"Commitfixedcandidate then independent6group acceptance; authorizedGitHub-first sameSHA production"
+    "candidateSha":"09dd0ddccbab1dd8c46c27093035412b19c95da5",
+    "releaseSha":"09dd0ddccbab1dd8c46c27093035412b19c95da5",
+    "platformVersion":"81d5bc77-cd3b-49ba-a4ec-7b4e322700c5",
+    "candidateEvidence":"operations/evidence/PIVOT-14/qa-artifact-recheck.json",
+    "candidateResult":"PASS6groups; one6pageSSR; original qa-original.json probe-wordingFAIL retained, artifact-onlycorrection/no rerender",
+    "productionEvidence":"operations/evidence/PIVOT-14/qa-production-original.json",
+    "productionResult":"PASS15assertions/exactly8GETall200; exactSHA/version,6completebodies+metadata and58sameURLs/dates;November24 16:12:47.180–16:12:50.077 Asia/Shanghai",
+    "releaseEvidence":"operations/evidence/PIVOT-14/release-record.json",
+    "completion":"operations/evidence/PIVOT-14/completion.md",
+    "enablement":"Publicexistingroutes;nomigration/flag",
+    "gsc":"Noaccess/submission/taskwrite;all3automationhashesunchanged",
+    "remaining":["ExistingNov25GSCsession/exportdependent review unchanged; this repairtimestamp not added to prompt", "Nov26Qwen official lifecycle confirmation remains", "Threewayupgrade/bulktitles/products and4.1ingestion not authorized in thisrepair"],
+    "nextAction":"Archive/push docs-only automatically without furtherbuild/test/deploy. ExistingNov25GSC andNov26Qwen observation proceed in prior scope dependent on session/source; login needsuser. Furtherdevelopment requiresseparateauthorization."
   },
   "pivot13": {
     "unitId": "PIVOT-13",

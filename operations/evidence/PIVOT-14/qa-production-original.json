@@ -1,0 +1,139 @@
+{
+  "unit": "PIVOT-14",
+  "role": "independent production QA",
+  "candidate": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+  "platformVersion": "81d5bc77-cd3b-49ba-a4ec-7b4e322700c5",
+  "firstObservedUTC": "2026-11-24T08:12:47.180Z",
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:47.180Z",
+      "finishedUTC": "2026-11-24T08:12:48.436Z",
+      "sha256": "9f73b3c76fbc690e4d9586cad91512cb15ad637684f0a380d0826472de6a4100"
+    },
+    {
+      "path": "/benchmarks/cursorbench",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:48.436Z",
+      "finishedUTC": "2026-11-24T08:12:48.794Z",
+      "sha256": "9eace79f4bbe937a3a2b1d3204bee606cbc6eaf002f7dca15fe1c89f562e843f"
+    },
+    {
+      "path": "/models/gemini-4-carbon",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:48.794Z",
+      "finishedUTC": "2026-11-24T08:12:49.021Z",
+      "sha256": "81c5e314ccb3d592640eb2b41160fb4e44e28dd39793d65c9872c9ab861f6d9a"
+    },
+    {
+      "path": "/compare/gpt-vs-gemini",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:49.021Z",
+      "finishedUTC": "2026-11-24T08:12:49.209Z",
+      "sha256": "cad075287e93943713329ba52ba231f80077c7fb6eaf64aa626e5d1c2c570175"
+    },
+    {
+      "path": "/models/qwen-4-max-preview",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:49.209Z",
+      "finishedUTC": "2026-11-24T08:12:49.388Z",
+      "sha256": "c7be9a2d8b0112f8860da8e3f04236609d39ebdb6a00f5e328a24dd0151f55a1"
+    },
+    {
+      "path": "/compare",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:49.389Z",
+      "finishedUTC": "2026-11-24T08:12:49.565Z",
+      "sha256": "929a2cc57eb4a02baf77c24b630b9cdbfa12ce7d8d7a95e851e448c7d43b857e"
+    },
+    {
+      "path": "/compare/gpt-6-2-astra-vs-gemini-4-carbon",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:49.565Z",
+      "finishedUTC": "2026-11-24T08:12:49.888Z",
+      "sha256": "9b6c9be0081ed01b883a263faa4b20915ca1dadcf07b3153fea660b79562d52a"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "startedUTC": "2026-11-24T08:12:49.889Z",
+      "finishedUTC": "2026-11-24T08:12:50.068Z",
+      "sha256": "597bf6ed674ba63af59fbc3623180c6e9022a0652b85ba75203e3ade56df99e0"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exactly eight GET responses HTTP200",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual production health buildSHA/platformVersion exact accepted deployed identity",
+      "status": "PASS"
+    },
+    {
+      "name": "/benchmarks/cursorbench full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/benchmarks/cursorbench title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-carbon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-carbon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gemini-4-carbon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gemini-4-carbon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Sitemap 58 exact accepted unique URLs and dates",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "No GSC/task/account/DB actions or model runs; historical provenance reused unchanged."
+  ],
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+    "platformVersion": "81d5bc77-cd3b-49ba-a4ec-7b4e322700c5"
+  },
+  "lastObservedUTC": "2026-11-24T08:12:50.077Z",
+  "result": "PASS"
+}

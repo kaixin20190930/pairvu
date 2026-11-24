@@ -1,0 +1,67 @@
+{
+  "unit": "PIVOT-14",
+  "releaseSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+  "platformVersion": "81d5bc77-cd3b-49ba-a4ec-7b4e322700c5",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+      "checkedAt": "2026-11-24T08:10:03.253Z",
+      "action": "deploy",
+      "artifactSha256": "f023f44500eabe558733c44374ddcdc2021f44bab16a334abe1ff88874335a0e",
+      "initialCheckedAt": "2026-11-24T08:09:17.125Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "09dd0ddccbab1dd8c46c27093035412b19c95da5",
+      "checkedAt": "2026-11-24T08:10:03.253Z",
+      "action": "deploy",
+      "artifactSha256": "f023f44500eabe558733c44374ddcdc2021f44bab16a334abe1ff88874335a0e",
+      "initialCheckedAt": "2026-11-24T08:09:17.125Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "builds": 1,
+  "uploads": 1,
+  "releaseGates": "Accepted exact candidate pushed then freshly remote verified, completely clean tree, sameSHA guarded build and artifact check",
+  "buildAndTypeScript": "PASS",
+  "candidateAcceptance": "6groupsPASS, one6pageSSR; original probe-only wordingFAIL retained with artifact-only correctionPASS",
+  "productionAcceptance": "Exactly8GET all200; exacthealthSHA/version,6completevisiblebodies/metadata equal acceptedSSR and58URLidentical sitemap",
+  "onlineConfirmationUtc": [
+    "2026-11-24T08:12:47.180Z",
+    "2026-11-24T08:12:50.077Z"
+  ],
+  "onlineConfirmationAsiaShanghai": [
+    "2026-11-24 16:12:47.180",
+    "2026-11-24 16:12:50.077"
+  ],
+  "timeSemantics": "Actual independent confirmation window, not exact traffic switch. End conservative post-repair recrawl threshold after confirming GSC timezone.",
+  "inventory": {
+    "urls": 58,
+    "models": 24,
+    "comparisonPages": 22
+  },
+  "migration": "none",
+  "enablement": "Public existing routes; no featureflag",
+  "automationFileSha256": {
+    "pairvu-gsc": "4de4988d041ef73acbf47a2c0819e6ac50bfd34b0dd9aa98958544495503cb6d",
+    "pairvu-2": "16e8e37f259fecf5cbfa09bd4732cebf2b71e2199e52517debbc75b05e052442",
+    "qwen4-preview": "db174abce976c581e9f6f32205ef4db003048bdfcba27691904be4aae3a95d35"
+  },
+  "gscAndTasks": "No access/submission/taskwrite; all3hashes unchanged. ExistingNov25review not rewritten with this repairtime.",
+  "scope": "5runtimefiles,4boundedrepairs,no newpage or generalized framework, allnumericpriceconfigs/sourceaccessdates preserved",
+  "diagnostics": "Developerone6pageSSR6PASS/no diagnostic. QAone6pageSSR had probe expecting contiguous CursorBench4.1 rather than correct currentversion...is4.1 wording; originalFAIL and artifact-only recheck retained without rerender/runtimechange.",
+  "rawEvidence": {
+    "developer": "/tmp/pivot14-dev",
+    "reviewer": "/tmp/pivot14-qa"
+  },
+  "formalTracking": "Historical controller lock/state unchanged; registry evidence index only",
+  "nextAction": "Finaldocs-onlycommit/push without rebuild/test/redeploy. ExistingNov25GSCsession/export andNov26Qwenofficial-source reviews stay scheduled in originalscope. No automaticdevelopment; threeway/bulktitles/products/newbenchmark deferred."
+}
