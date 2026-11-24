@@ -1,0 +1,185 @@
+{
+  "unit": "PIVOT-13",
+  "role": "independent production QA",
+  "candidate": "f1788a963d02934e3200baa7109315e72329f94b",
+  "platformVersion": "1edd7cbd-8ed4-4cf3-8bc6-e1edc5e44bc7",
+  "firstObservedUTC": "2026-11-24T03:28:38.746Z",
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:38.746Z",
+      "finishedUTC": "2026-11-24T03:28:40.423Z",
+      "sha256": "667b6d7e96226abf799bb289cacf52909c8ff1abb6ac1be108dc70704c3977b4"
+    },
+    {
+      "path": "/models/gemini-4-argon",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:40.423Z",
+      "finishedUTC": "2026-11-24T03:28:40.726Z",
+      "sha256": "d3c06ca476d72b746031456bf6d0098790820b0b8d1d09b098df298b30684632"
+    },
+    {
+      "path": "/models/gemini-4-carbon",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:40.726Z",
+      "finishedUTC": "2026-11-24T03:28:40.919Z",
+      "sha256": "594e9b3a4042412bb780be05409cb347882702b19247525ac98de16e9f081baf"
+    },
+    {
+      "path": "/compare/gemini-4-argon-vs-gemini-4-carbon",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:40.920Z",
+      "finishedUTC": "2026-11-24T03:28:41.240Z",
+      "sha256": "458f845a894c159bb1c43145889775ed2e132594fc6a7bf72c0ec44706fcff42"
+    },
+    {
+      "path": "/compare/gpt-6-2-astra-vs-gemini-4-carbon",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:41.240Z",
+      "finishedUTC": "2026-11-24T03:28:41.438Z",
+      "sha256": "5db8916131690b523ce102c559363e656ac19cb94167b234e2b082b0d2b5a281"
+    },
+    {
+      "path": "/models/qwen-4-max-preview",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:41.438Z",
+      "finishedUTC": "2026-11-24T03:28:41.650Z",
+      "sha256": "b3e20ab52d51c4ed8cb7388bc0da85226a035e0b904032259383888be418fbaa"
+    },
+    {
+      "path": "/llm-pricing",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:41.650Z",
+      "finishedUTC": "2026-11-24T03:28:42.011Z",
+      "sha256": "23773d9531b557c206e21da870dc20247f5bb43baf82eed4b9305486f05489cb"
+    },
+    {
+      "path": "/benchmarks/cursorbench",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:42.011Z",
+      "finishedUTC": "2026-11-24T03:28:43.004Z",
+      "sha256": "722b4cecb8d796d1723d4740b793f56cdccde0b72604662594cd4a217393f876"
+    },
+    {
+      "path": "/compare/gpt-vs-gemini",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:43.004Z",
+      "finishedUTC": "2026-11-24T03:28:43.540Z",
+      "sha256": "be92dfa3789afcfd2e0a69d7d0b86a772174e3bff2ae8bf16f7c18189d91afb1"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:43.540Z",
+      "finishedUTC": "2026-11-24T03:28:43.703Z",
+      "sha256": "597bf6ed674ba63af59fbc3623180c6e9022a0652b85ba75203e3ade56df99e0"
+    },
+    {
+      "path": "/models",
+      "status": 200,
+      "startedUTC": "2026-11-24T03:28:43.703Z",
+      "finishedUTC": "2026-11-24T03:28:44.670Z",
+      "sha256": "3b97ee11fd5499a4c9a86eeda0c43c7bcd9bfa88b6d82abee5967ff0c91869c0"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exactly eleven GET responses HTTP200",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual production health buildSHA/platformVersion exact accepted deployed identity",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-carbon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-carbon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gemini-4-argon-vs-gemini-4-carbon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gemini-4-argon-vs-gemini-4-carbon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gemini-4-carbon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gemini-4-carbon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/llm-pricing full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/llm-pricing title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/benchmarks/cursorbench full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/benchmarks/cursorbench title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/gpt-vs-gemini title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Sitemap 58 exact accepted unique URLs and dates",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Historical Carbon High no-profile wording ambiguity remains non-blocking follow-up.",
+    "No GSC/task/account/DB actions or model runs; historical provenance reused unchanged."
+  ],
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "f1788a963d02934e3200baa7109315e72329f94b",
+    "platformVersion": "1edd7cbd-8ed4-4cf3-8bc6-e1edc5e44bc7"
+  },
+  "lastObservedUTC": "2026-11-24T03:28:44.680Z",
+  "result": "PASS"
+}

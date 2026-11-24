@@ -1,0 +1,68 @@
+{
+  "unit": "PIVOT-13",
+  "releaseSha": "f1788a963d02934e3200baa7109315e72329f94b",
+  "platformVersion": "1edd7cbd-8ed4-4cf3-8bc6-e1edc5e44bc7",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "f1788a963d02934e3200baa7109315e72329f94b",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f1788a963d02934e3200baa7109315e72329f94b",
+      "checkedAt": "2026-11-24T03:26:41.781Z",
+      "action": "deploy",
+      "artifactSha256": "7c001cf7e85b465701a39af7afa173d736a35f793c203f168ca29c5903428364",
+      "initialCheckedAt": "2026-11-24T03:25:55.019Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "f1788a963d02934e3200baa7109315e72329f94b",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f1788a963d02934e3200baa7109315e72329f94b",
+      "checkedAt": "2026-11-24T03:26:41.781Z",
+      "action": "deploy",
+      "artifactSha256": "7c001cf7e85b465701a39af7afa173d736a35f793c203f168ca29c5903428364",
+      "initialCheckedAt": "2026-11-24T03:25:55.019Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "builds": 1,
+  "uploads": 1,
+  "buildAndTypeScript": "PASS; same pushed SHA, fresh remote and clean tree before build/upload",
+  "migrations": "none",
+  "featureEnablement": "Publicly enabled existing static publication",
+  "independentCandidate": "8groupsPASS structural recheck of original same-render evidence; original diagnostic failures retained",
+  "independentProduction": "Exactly11GET all200;9complete rendered bodies+metadata match accepted SSR, exact health identity and58sitemapURLs",
+  "onlineConfirmationUTC": [
+    "2026-11-24T03:28:38.746Z",
+    "2026-11-24T03:28:44.680Z"
+  ],
+  "onlineConfirmationAsiaShanghai": [
+    "2026-11-24 11:28:38.746",
+    "2026-11-24 11:28:44.680"
+  ],
+  "timeSemantics": "Confirmation window, not exact traffic-switch time. End is conservative post-release recrawl threshold after GSC timezone verified.",
+  "inventory": {
+    "urls": 58,
+    "modelProfiles": 24,
+    "comparisonPages": 22
+  },
+  "gscAndTasks": "No actions; all three automation file hashes same as PIVOT12/source-check.json",
+  "rawEvidence": {
+    "developer": "/tmp/pivot13-dev",
+    "qa": "/tmp/pivot13-qa"
+  },
+  "formalTracking": "Historical JRN-04-FIX lock/state unchanged; registry evidence index only",
+  "limits": [
+    "No actual GSC observations or submissions",
+    "No4.1score ingestion",
+    "Carbon historical row profile wording nonblocking follow-up, no automatic repair"
+  ],
+  "diagnostics": [
+    "Developer initial14routeSSR plus one affected Astra/Carbon guard retry; original baseline-loader and broad Sol assertion diagnostics retained; final Qwen source-only then independently rendered.",
+    "Independent one12routeSSR; artifact-only diagnostic correction for old baseline/catalog binding, capitalization and absent-vs-undefined assertion. No repeat rendering; originalFAIL retained."
+  ],
+  "nextAction": "Existing November25 GSC and November26 Qwen reviews retain prior scope and schedule, dependent on session/official source. New4URLs not separately added to task this turn. December1 pricing boundary merits owner-source recheck; not a new automatic task or silent price engine. Docs-only push, no further build/deploy."
+}

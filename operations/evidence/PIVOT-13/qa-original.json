@@ -1,0 +1,121 @@
+{
+  "unit": "PIVOT-13",
+  "role": "independent QA",
+  "candidate": "f1788a963d02934e3200baa7109315e72329f94b",
+  "baseline": "b833a0aa8e314f83ae8de825bd0547741cd58c05",
+  "started": "2026-11-24T03:19:42.304Z",
+  "checks": [
+    {
+      "group": 1,
+      "name": "58 unique routes /24 profiles/22 comparisons and exactly four additions",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '/compare/gemini-4-argon-vs-gemini-4-carbon',\n-   '/compare/gpt-6-2-astra-vs-gemini-4-carbon',\n-   '/models/gemini-4-argon',\n-   '/models/gemini-4-carbon'\n- ]\n"
+    },
+    {
+      "group": 2,
+      "name": "Five retained owner source hashes and exact specs/channel/status dates",
+      "status": "PASS"
+    },
+    {
+      "group": 3,
+      "name": "Both dated Standard price schedules and explicit billing/channel limits",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: /models/gemini-4-argon:thinking tokens"
+    },
+    {
+      "group": 4,
+      "name": "Distinct pair advice / both linked / no inherited GPT5.2 Sol workload fallback",
+      "status": "PASS"
+    },
+    {
+      "group": 5,
+      "name": "Qwen final rendered scheduled notice and two actual replacement links / historic date",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(c.modelMap.get('qwen-4-max-preview').availabilityStatus.includes('scheduled'))\n"
+    },
+    {
+      "group": 6,
+      "name": "Cursor bespoke metadata/three FAQ, invariant historical scores and provenance/no ingestion",
+      "status": "PASS"
+    },
+    {
+      "group": 7,
+      "name": "All 22 old models/old comparisons/meta unchanged except Qwen status; best and BrowseComp branch invariant",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   availabilityStatus: undefined,\n    contextTokens: 1000000,\n    name: 'Qwen 4 Max Preview',\n    openWeights: false,\n    pricing: [\n      {\n"
+    },
+    {
+      "group": 8,
+      "name": "Exact candidate/allowlist/clean tree/server-only no task or account changes",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": [
+    {
+      "route": "/models/gemini-4-argon",
+      "sha256": "088a6542b471bdb817c55e648f6a83a7fd761387dde41349de187e49dcbc5a53"
+    },
+    {
+      "route": "/models/gemini-4-carbon",
+      "sha256": "2c1c945d11672ee9717c46f0516ae895c95e203f997a64fcb5e660f75bc9ded1"
+    },
+    {
+      "route": "/compare/gemini-4-argon-vs-gemini-4-carbon",
+      "sha256": "0f00880b13176c9ce029de6237c011e53ae9b5dc54fc13acb194c890081380bb"
+    },
+    {
+      "route": "/compare/gpt-6-2-astra-vs-gemini-4-carbon",
+      "sha256": "3060eba0c81453a3baba60fdc0d45e3a7e0be78bb1d368b25c81a102ad3e2a66"
+    },
+    {
+      "route": "/models/qwen-4-max-preview",
+      "sha256": "c5646bd5f32c93c69505945b952198819795123c2de8820b255b26300887d6b3"
+    },
+    {
+      "route": "/llm-pricing",
+      "sha256": "1e07617fa8fa52c68576d1e3f25d8b18a974f588876805e1fbd0237775b5799f"
+    },
+    {
+      "route": "/benchmarks/cursorbench",
+      "sha256": "5b3842d29878c4ba26f6457aaff1e2af6928ce87b25a775b7a154327fa2781bf"
+    },
+    {
+      "route": "/compare/gpt-vs-gemini",
+      "sha256": "cfb671ba51baadce4249b48701ad0f833dc20432fcc9c08debb712f53563d947"
+    },
+    {
+      "route": "/models",
+      "sha256": "3b11a5c87d38d0f6d2b2cc6c4cdd5004ff0181423d7391f27be0607aafeb3374"
+    },
+    {
+      "route": "/compare",
+      "sha256": "821dc25b9e0e096caf086a49fce849a802ff0cb418f8aacd1eed3e231d575131"
+    },
+    {
+      "route": "/",
+      "sha256": "30c0c182b1c4aec1a54d4316bb51d58d9263ff7aab99c3c18ab57f1e9ef6767a"
+    },
+    {
+      "route": "/leaderboard",
+      "sha256": "141734b29f941fddbe33477e0809d4c716ac1e3deba31b2aa9aad039a61eef06"
+    }
+  ],
+  "reused": "PIVOT-12/qa-original.json historical provenance subject to unchanged catalog equality",
+  "limitations": [
+    "Cursor no-profile fallback is ambiguous for now-published Carbon; low severity historical configuration wording follow-up."
+  ],
+  "notRun": [
+    "build",
+    "typecheck",
+    "devserver",
+    "framework",
+    "fullsuite",
+    "GSC",
+    "task edits",
+    "account/DB actions",
+    "production requests"
+  ],
+  "cleanup": "Temporary evidence only; no listener or external asset created.",
+  "result": "FAIL",
+  "finished": "2026-11-24T03:19:42.771Z"
+}
