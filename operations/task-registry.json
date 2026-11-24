@@ -1,5 +1,23 @@
 {
   "schemaVersion": 1,
+  "pivot13": {
+    "unitId": "PIVOT-13",
+    "contract": "operations/contracts/PIVOT-13.md",
+    "baselineSha": "b833a0aa8e314f83ae8de825bd0547741cd58c05",
+    "status": "DEV_READY",
+    "formalTracking": "Historical lock/state unchanged; evidence index only",
+    "authorization": "November24 current user requests factual fixes and new-page publication",
+    "development": {"model":"gpt-6.1-sol","thinking":"medium","reason":"Bounded sourced catalog/server content with date/channel invariants","upgradeCondition":"Substantive reasoning gap only, not environment"},
+    "qa": {"model":"gpt-6.1-sol","thinking":"medium","reason":"Independent exact-SHA source/SSR/inventory review","upgradeCondition":"Return defects to developer; reassess substantive reasoning only"},
+    "frozenChecks": "8 contract groups, one SSR per role, at most11 production GETs",
+    "expectedInventory": {"urls":58,"models":24,"comparisonPages":22},
+    "limits": "4 new URLs only; no premature Qwen retirement, no Carbon restricted-only claim, no4.1 scores/GSC/tasks/best changes",
+    "developerEvidence": "operations/evidence/PIVOT-13/developer-report-original.json",
+    "developerResult": "Initial14routeSSR13PASS/2baseline-loaderFAIL preserved; structural diagnostic fixed inventory/lastmods; one focused Astra/Carbon SSR retry for inherited guard, broad Sol assertion failure explained by legitimate related link. Final Qwen alternatives source-only; independent final candidate render pending.",
+    "developerRaw": "/tmp/pivot13-dev",
+    "diagnosticDeviation": "Initial scoped SSR plus one affected-page retry, not claimed as one invocation. No further developer SSR/build/typecheck/framework.",
+    "nextAction": "Commit complete candidate; independent eight-group final-SHA acceptance then GitHub-first production"
+  },
   "pivot12": {
     "unitId": "PIVOT-12",
     "contract": "operations/contracts/PIVOT-12.md",

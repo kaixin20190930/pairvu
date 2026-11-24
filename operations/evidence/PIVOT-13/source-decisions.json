@@ -1,0 +1,15 @@
+{
+  "unit": "PIVOT-13",
+  "checkedDate": "2026-11-24",
+  "controllerFindings": [
+    {"url":"https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon","finding":"Version table lists ordinary gemini-4-argon GA October13,2026; separate cyber-permissive variant is allowlisted. Do not confuse channels or variants."},
+    {"url":"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/","finding":"Dated November10. Ordinary Carbon available for developers on paid GeminiAPI and consumers on eligible Ultra plan. October28 restricted cyber rollout does not describe present ordinary-model availability."},
+    {"url":"https://aistudio.google.com/docs/pricing","finding":"Gemini Developer API Standard Argon and Carbon prices have two dated phases: USD perM2input/10output/.10implicitcache throughNovember30 and4/20/.20fromDecember1. No timezone specified for boundary; not a universal Cloud or subscription quote."},
+    {"url":"https://aistudio.google.com/docs/models/gemini-4-argon","finding":"Unified1048576context,65536default synchronous output and longdecode sharing the unified window; text/image/video/audio/PDF input and text output."},
+    {"url":"https://aistudio.google.com/docs/models/gemini-4-carbon","finding":"Separate ordinary API model with same documented context/defaultoutput semantics. CurrentAPI documentation contradicts submitted restricted-only assumption."}
+  ],
+  "inventoryCorrection":"51to54 is3addedURLs, not6. Authorized4newURLs lead58URLs/24profiles/22comparison pages and24pricing-modelrows, not23.",
+  "qwenDecision":"November24 precedes scheduledNovember25 24:00UTC+8 retirement (=November26 00:00); retain scheduled wording and old source date, add existing replacements. No premature retired claim.",
+  "searchMetrics":"User supplied volumes/KD/DR not independently verified and not publishing gate or ranking guarantee.",
+  "limits":"No GSC or task operation. Developer raw source capture/hash inventory and independent reviewer supply source verification evidence; this file records controller decisions, not a raw source archive."
+}

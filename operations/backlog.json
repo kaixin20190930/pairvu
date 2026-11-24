@@ -629,6 +629,15 @@
       "mode": "runtime",
       "autoEligible": false,
       "requiredEvidence": ["immutable historical-data provenance with explicit raw-capture limitation", "fixed candidate independent six-check acceptance", "same pushed SHA production and maximum7request independent verification"]
+    },
+    {
+      "id": "PIVOT-13",
+      "title": "Gemini Argon/Carbon四页取证上新与Cursor/Qwen时态最小修复",
+      "priority": 0,
+      "dependsOn": ["PIVOT-12"],
+      "mode": "runtime",
+      "autoEligible": false,
+      "requiredEvidence": ["official exact-channel status/spec/dates", "eight frozen exact-SHA acceptance groups", "same pushed SHA production and maximum11request independent verification"]
     }
   ]
 }

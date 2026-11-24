@@ -8,7 +8,16 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
+## Authorized bounded Gemini publication — PIVOT-13 (2026-11-24)
+
+Follow [PIVOT-13](../operations/contracts/PIVOT-13.md): exactly two model profiles (Gemini4Argon/Carbon) and two comparisons (Argon/Carbon, Astra/Carbon),58URLs/24profiles/22comparison pages. Reuse static existing directories and pricing, no bulk expansion or new product/tool/benchmark. A profile needs linked comparisons, exact version/channel/date sources and an honest selection judgment, not invented scores.
+
+The submitted plan requires factual corrections:51→54 was3newURLs, not6. Carbon's October28 restricted announcement is historical: the owner November10 launch makes the ordinary model available to developers/consumers; Fairwind restrictions concern cyber variants. Argon Cloud GA is October13; avoid transferring Cloud release/status to all channels. Both Gemini Developer API Standard introductory input/output/cacheUSD2/10/.10 perM throughNovember30 become4/20/.20 fromDecember1; publish both dated schedules with actualNovember24 access, no invented cutoff timezone or universal Cloud rate. Titles stay evergreen. Shared1,048,576-token context is not independent1Minput+1Moutput; default sync65,536 and long-decode constraints remain explicit. No new quality leaderboard/score or consumer entitlement promise.
+
+November24 is before Qwen preview's scheduledNovember25 24:00UTC+8 (=November26 00:00) retirement: retain future-tense status, add existing replacement links, keep URL200. Existing retirement review remains; no clock-driven status engine/task edit. CursorBench detail receives dedicated4.0historical metadata, no catalog-count leakage and three methods FAQ, preserving all4.0numbers/provenance/4.1warning. Do not rewrite best pages or ingest4.1results. Eight frozen checks, one scopedSSR per role, unchanged evidence reuse, one necessary GitHub-first pushed-SHA build, maximum11independent production requests. NoGSC/task/submission/DB/account/payment work. Future dated price/retirement verification depends on official sources; no automatic broad implementation. Completion follows accepted production evidence.
+
 ## Authorized minimal repair — PIVOT-12 (2026-11-23)
+<!-- Historical delivered section; current scope is PIVOT-13 below. -->
 
 Only clarify the existing CursorBench4.0 historical snapshot on its detail, benchmark hub, leaderboard and Haiku/Opus comparison section. Official Cursor page checked November23 now shows4.1, released November18 with modified instruction-following tasks and increased agent time. Preserve every4.0 number/configuration and November16 collection date; no4.1 score ingestion or cross-version ranking. Preserve metadata/URLs and54URL inventory; advance only four genuinely edited sitemap lastmods. See [frozen scope and six acceptance checks](../operations/contracts/PIVOT-12.md).
 

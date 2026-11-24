@@ -1,0 +1,37 @@
+{
+  "baseline": "b833a0aa8e314f83ae8de825bd0547741cd58c05",
+  "checks": [
+    {
+      "name": "1 corrected independent baseline inventory:54 to58 exactly4 new URLs /24profiles /22comparisons",
+      "status": "PASS"
+    },
+    {
+      "name": "1 corrected baseline only affected lastmods",
+      "status": "PASS"
+    },
+    {
+      "name": "4 corrected Astra/Carbon scoped SSR excludes OpenAI fallback scenarios",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Sol"
+    },
+    {
+      "name": "all runtime whitespace valid",
+      "status": "PASS"
+    }
+  ],
+  "ssr": [],
+  "notRun": [
+    "build",
+    "server",
+    "typecheck",
+    "full suite",
+    "production",
+    "GSC",
+    "tasks",
+    "accounts",
+    "DB"
+  ],
+  "cleanup": "Temporary probe/evidence only; no listeners, external test assets or persistent framework.",
+  "note": "One diagnostic correction of baseline sitemap catalog binding; original two harness failures retained. One affected-page SSR retry following renderer guard; no other SSR repeated. Remaining original passing checks reused on unaffected content.",
+  "result": "FAIL"
+}
