@@ -1,0 +1,50 @@
+{
+  "baseline": "8c2a3296ad5e16906f3dd7da773a97598febd1c6",
+  "checks": [
+    {
+      "name": "1 exact allowlist; 58 URLs /24 models /22 comparisons; unchanged canonical/index/robots/sitemap",
+      "status": "PASS"
+    },
+    {
+      "name": "2 Carbon linked retained High60.4 record; invariant four historical configurations/costs/dates/provenance/4.1",
+      "status": "PASS"
+    },
+    {
+      "name": "3 Carbon model historical60.4 backlink and separate attributed Google Nov10 #1 unreplicated claim; no pair score",
+      "status": "PASS"
+    },
+    {
+      "name": "4 old exact historical pair SEO/H1/index; one newer summary and no duplicate current tables; historical data intact / dedicated only related-link change",
+      "status": "PASS"
+    },
+    {
+      "name": "5 Qwen contentupdated24 vs officialsource12 / scheduled exact boundary / replacements / prices+source dates unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "6 fixedbaseline / all model+price records / best threeway BrowseComp preserved / React server semantics and cleanup",
+      "status": "PASS"
+    }
+  ],
+  "ssr": [
+    "/benchmarks/cursorbench",
+    "/models/gemini-4-carbon",
+    "/compare/gpt-vs-gemini",
+    "/models/qwen-4-max-preview",
+    "/compare",
+    "/compare/gpt-6-2-astra-vs-gemini-4-carbon"
+  ],
+  "notRun": [
+    "build",
+    "server",
+    "typecheck",
+    "full suite",
+    "production",
+    "GSC",
+    "tasks",
+    "accounts",
+    "DB"
+  ],
+  "cleanup": "Temporary local probe/evidence only; no listeners, persistent framework or external test assets.",
+  "result": "PASS"
+}

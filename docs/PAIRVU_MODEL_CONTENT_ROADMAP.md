@@ -8,6 +8,12 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
+## Authorized consistency repair — PIVOT-14 (2026-11-24)
+
+Execute only [PIVOT-14](../operations/contracts/PIVOT-14.md). Four observed problems: historical Carbon4.0 row lacks existing profile link; Carbon profile falsely lacks benchmarkcoverage; genericGPT/Gemini duplicates new currentpair while directory names historical pair; Qwen editorial24/sourcecheck12 poorly distinguished. Fix row/profile mutual links and scoped60.4High sample statement; Google November10 #1claim separately attributed/notreproduced. Keep all historicalscores/cost/config/date/provenance and4.1warning. Restore genericpage to historical GPT5.2/Gemini3.1ProPreview API metadata/H1/body, with one short currentpairsummary/link to dedicatedAstra/Carbon, preserving exactURL/selfcanonical/historicaldata. Distinguish Qwen contentupdatedNovember24 from officialsourcecheckedNovember12; never change sourceaccessdate without actualverification or retire beforeNovember26 00:00UTC+8. Dates are provenance, not freshnessdecoration.
+
+58URLs/24profiles/22comparisons unchanged, no newpages. No threewayupgrade, bulkmodeltitles, products/subscriptions, bestrewrite,4.1ingestion or GSC/taskwrites. KeywordDR/KD estimates are not deterministic ranking gates; semantic consistency and nonduplicated exact-model content justify this repair without newkeywordresearch. Six frozen checks, one6pageSSR perrole, one pushedsameSHA guardedbuild/release, at most8productionGET; reuse unmodifiedprice/source evidence. ProductionstillGitHub-first; documentationarchive not another release. OriginalNovember25GSC andNovember26Qwen reviews unchanged; no expandedautomaticwrites.
+
 ## Authorized bounded Gemini publication — PIVOT-13 (2026-11-24)
 
 Follow [PIVOT-13](../operations/contracts/PIVOT-13.md): exactly two model profiles (Gemini4Argon/Carbon) and two comparisons (Argon/Carbon, Astra/Carbon),58URLs/24profiles/22comparison pages. Reuse static existing directories and pricing, no bulk expansion or new product/tool/benchmark. A profile needs linked comparisons, exact version/channel/date sources and an honest selection judgment, not invented scores.

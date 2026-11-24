@@ -67,7 +67,7 @@ export const comparisonSeo:Record<string,{title:string;h1:string;subtitle:string
  "gpt-6-2-astra-vs-gpt-6-astra":{title:"GPT-6.2 Astra vs GPT-6 Astra: What the Upgrade Changes",h1:"GPT-6.2 Astra vs GPT-6 Astra",subtitle:"Exact API versions compared: GPT-6.2 Astra and GPT-6 Astra.",description:"Compare GPT-6.2 Astra and GPT-6 Astra prices, context, cutoff dates and reasoning restrictions with official sources."},
  "claude-haiku-5-5-vs-claude-opus-5-5":{title:"Claude Haiku 5.5 vs Opus 5.5: Pricing, Context and Benchmarks",h1:"Claude Haiku 5.5 vs Opus 5.5",subtitle:"Exact versions compared: Claude Haiku 5.5 and Claude Opus 5.5. Standard API token prices and CursorBench run costs describe different billing scopes.",description:"Compare Claude Haiku 5.5 and Opus 5.5 pricing, context windows and published benchmark results, with official sources and configuration notes."},
  "claude-vs-gpt":{title:"Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra",h1:"Claude vs GPT: Opus 5.5 vs GPT-6.2 Astra",subtitle:"Current exact models: Claude Opus 5.5 and GPT-6.2 Astra. Historical Opus 4.5 / GPT-5.2 evidence is preserved separately below.",description:"Compare Claude Opus 5.5 and GPT-6.2 Astra prices, context and API facts; historical Opus 4.5 and GPT-5.2 benchmark results remain clearly labeled."},
- "gpt-vs-gemini":{title:"ChatGPT vs Gemini: API Pricing, Context and Limits",h1:"ChatGPT vs Gemini",subtitle:"Current API models compared: GPT-6.2 Astra and Gemini 4 Carbon. These are not ChatGPT and Gemini subscription plans or guarantees of consumer availability.",description:"Compare GPT-6.2 Astra and Gemini 4 Carbon API prices, context windows, output limits and billing conditions, with dated official sources."},
+ "gpt-vs-gemini":{title:"GPT-5.2 vs Gemini 3.1 Pro Preview: Historical API Comparison",h1:"GPT-5.2 vs Gemini 3.1 Pro Preview",subtitle:"Historical API comparison of exact versions GPT-5.2 and Gemini 3.1 Pro Preview, preserving dated prices, specifications and owner evaluations.",description:"Compare historical GPT-5.2 and Gemini 3.1 Pro Preview API prices, context and exact-version evidence, with original source dates and benchmark limits."},
  "claude-vs-gemini":{title:"Claude vs Gemini: Opus 4.5 vs Gemini 3.1 Pro Preview",h1:"Claude vs Gemini",subtitle:"Exact versions compared: Claude Opus 4.5 and Gemini 3.1 Pro Preview."},
  "fable-5-2-vs-opus":{title:"Claude Fable 5.2 vs Opus 5.5",h1:"Claude Fable 5.2 vs Opus 5.5",subtitle:"Exact versions compared: Claude Fable 5.2 and Claude Opus 5.5."},
  "deepseek-vs-chatgpt":{title:"DeepSeek vs ChatGPT: V3.2 vs GPT-5.2",h1:"DeepSeek vs ChatGPT",subtitle:"Exact versions compared: DeepSeek-V3.2 and GPT-5.2."},
@@ -88,7 +88,7 @@ export const cursorBench={
  coverage:"This Pairvu snapshot shows four named configurations from the owner leaderboard; it is not the full leaderboard.",
  limitation:"Results depend on the exact model, effort setting, Cursor agent harness, and task budget. Small score gaps may reflect run variance and should not be treated as universal model quality.",
  rows:[
-  {model:"Gemini 4 Carbon High",score:60.4,cost:9.22,configuration:"Carbon · High effort"},
+  {model:"Gemini 4 Carbon High",slug:"gemini-4-carbon",score:60.4,cost:9.22,configuration:"Carbon · High effort"},
   {model:"Fable 5.2 Max",slug:"fable-5-2",score:60,cost:32.79,configuration:"Fable 5.2 · Max effort"},
   {model:"Opus 5.5 Max",slug:"claude-opus-5-5",score:57.8,cost:13.43,configuration:"Opus 5.5 · Max effort"},
   {model:"Haiku 5.5 Max",slug:"claude-haiku-5-5",score:48.4,cost:1.12,configuration:"Haiku 5.5 · Max effort"}
@@ -110,7 +110,7 @@ export const browseComp={
   {model:"GLM-5 + context management",slug:"glm-5",score:75.9,configuration:"Context management using the discard-all strategy",cost:"Not reported by the cited vendor report"}
  ]
 };
-export const relatedComparisons=(slug:string)=>comparisons.filter(c=>c.a===slug||c.b===slug); export const relatedBenchmarks=(slug:string)=>slug==="claude-haiku-5-5"||slug==="fable-5-2"||slug==="claude-opus-5-5"||slug==="claude-sonnet-5-5"||slug==="muse-wonder"?["cursorbench"]:slug==="glm-5"?["browsecomp"]:[];
+export const relatedComparisons=(slug:string)=>comparisons.filter(c=>c.a===slug||c.b===slug); export const relatedBenchmarks=(slug:string)=>slug==="gemini-4-carbon"||slug==="claude-haiku-5-5"||slug==="fable-5-2"||slug==="claude-opus-5-5"||slug==="claude-sonnet-5-5"||slug==="muse-wonder"?["cursorbench"]:slug==="glm-5"?["browsecomp"]:[];
 const claude55Family=["claude-haiku-5-5","claude-sonnet-5-5","claude-opus-5-5"];
 export const relatedFamilyModels=(slug:string)=>claude55Family.includes(slug)?claude55Family.filter(s=>s!==slug).map(s=>modelMap.get(s)!):[];
 export const relatedSpecialComparisons=(slug:string)=>["gpt-5-2","claude-opus-4-5","gemini-3-1-pro-preview"].includes(slug)?[{slug:"chatgpt-vs-claude-vs-gemini",label:"ChatGPT vs Claude vs Gemini"}]:[];

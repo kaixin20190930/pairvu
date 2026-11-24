@@ -1,0 +1,64 @@
+{
+  "unit": "PIVOT-14",
+  "baselineSha": "8c2a3296ad5e16906f3dd7da773a97598febd1c6",
+  "observedDate": "2026-11-24",
+  "requests": [
+    {
+      "path": "/benchmarks/cursorbench",
+      "status": 200,
+      "title": "CursorBench 4.0 scores and historical configurations | Pairvu",
+      "description": "Historical CursorBench 4.0 scores for four configurations, collected November 16, 2026; methodology, run costs and provenance.",
+      "noProfile": true,
+      "noBenchmark": false,
+      "qwenOldBadge": false,
+      "qwenAsOf24": false,
+      "currentFullSection": false
+    },
+    {
+      "path": "/models/gemini-4-carbon",
+      "status": 200,
+      "title": "Gemini 4 Carbon specs, pricing and sources | Pairvu",
+      "description": "Gemini 4 Carbon context, pricing, release and official sources.",
+      "noProfile": false,
+      "noBenchmark": true,
+      "qwenOldBadge": false,
+      "qwenAsOf24": false,
+      "currentFullSection": false
+    },
+    {
+      "path": "/compare/gpt-vs-gemini",
+      "status": 200,
+      "title": "ChatGPT vs Gemini: API Pricing, Context and Limits | Pairvu",
+      "description": "Compare GPT-6.2 Astra and Gemini 4 Carbon API prices, context windows, output limits and billing conditions, with dated official sources.",
+      "noProfile": false,
+      "noBenchmark": false,
+      "qwenOldBadge": false,
+      "qwenAsOf24": false,
+      "currentFullSection": true
+    },
+    {
+      "path": "/models/qwen-4-max-preview",
+      "status": 200,
+      "title": "Qwen 4 Max Preview specs, pricing and sources | Pairvu",
+      "description": "Qwen 4 Max Preview context, pricing, release and official sources.",
+      "noProfile": false,
+      "noBenchmark": true,
+      "qwenOldBadge": false,
+      "qwenAsOf24": true,
+      "currentFullSection": false
+    }
+  ],
+  "interpretation": "Four direct current production GETs all200. Carbon no-profile and no-benchmark messages, generic current duplicated section verified. Qwen raw compact React-markup substring did not match oldbadge string, not proof absent; repository renderer+sources establish source dateNov12 alongside editorialNov24.",
+  "ownerSource": {
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    "checked": "2026-11-24",
+    "published": "2026-11-10",
+    "finding": "Owner claims Carbon first on CursorBench4.0. Attribute as launch-era vendor statement; not independent Pairvu reproduction or present4.1rank."
+  },
+  "planDecisions": [
+    "Carbon4.0row profile link and model-only historicalcoverage summary; unchanged numericalsourceprovenance",
+    "RestoregenericpagehistoricalAPIpair; one currentpairsummary and dedicatedlink, no consumer-productcampaign",
+    "QwencontentupdatedNov24explicit, retain officialcheckedNov12; nofalseverification"
+  ],
+  "noActions": "NoGSC/tasks or accountsDBwrites; no keywordmetricsverified orrankingguarantees"
+}

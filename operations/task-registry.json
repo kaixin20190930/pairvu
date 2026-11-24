@@ -1,5 +1,19 @@
 {
   "schemaVersion": 1,
+  "pivot14": {
+    "unitId":"PIVOT-14", "contract":"operations/contracts/PIVOT-14.md", "baselineSha":"8c2a3296ad5e16906f3dd7da773a97598febd1c6", "status":"DEV_READY",
+    "authorization":"November24 current user explicitly requests minimal repair and production deployment",
+    "formalTracking":"Historical lock/state preserved; evidence index only",
+    "development":{"model":"gpt-6.1-sol","thinking":"medium","reason":"Bounded static link/date/intent repair with deterministic SSR","upgradeCondition":"Substantive reasoning gap only, not environment"},
+    "qa":{"model":"gpt-6.1-sol","thinking":"medium","reason":"Independent exact-SHA data/metadata and scoped SSR invariants","upgradeCondition":"Return actual defects; reassess substantive reasoning only"},
+    "expectedInventory":{"urls":58,"models":24,"comparisonPages":22},
+    "frozenChecks":"6groups, one scoped6pageSSR perrole, maximum8productionGET",
+    "limits":"No newpage/GSC/taskchange/4.1data/global source-restamp/threeway/titlecampaign",
+    "developerEvidence":"operations/evidence/PIVOT-14/developer-original.json",
+    "developerResult":"PASS6groups in one6pageSSR; five runtime files only; unchanged model/price/source objects and historical numericconfig rows except Carbon slug",
+    "rawDeveloperEvidence":"/tmp/pivot14-dev",
+    "nextAction":"Commitfixedcandidate then independent6group acceptance; authorizedGitHub-first sameSHA production"
+  },
   "pivot13": {
     "unitId": "PIVOT-13",
     "contract": "operations/contracts/PIVOT-13.md",
