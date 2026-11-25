@@ -10,6 +10,8 @@ No published price means unknown, not free. Open weights do not imply a common o
 
 ## Qwen preview schedule correction — PIVOT-15 (2026-11-25)
 
+Release continuation: user explicitly authorized push/production after localacceptance. No runtime changes since acceptedb0d94ad. Originalreviewer rebinds exact docs-only descendant release, reusing unchanged fourpageSSR, then GitHub-first fresh exactremote/cleanSHA single guardedbuild/deploy and maximum7targetproductionGET. No APItest/newscope/GSC/tasks. Historical noauthorization/notdeployed statements below describe the earlier stage, not current authorization. Completion will record realdeployedSHA/version/time and originalevidence.
+
 [Scope/acceptance](../operations/contracts/PIVOT-15.md): official Qwen4MaxPreview documentation now ends its preview November25 **10:00 UTC+8**, not24:00. Controller checked at02:14:45UTC/10:14:45Shanghai after publishedend. Correct summary/status/pricingnote/notice and derivedQwencomparison consistently: officialannouncedperiodended, actualAPIavailabilityunverified. No API call/shutdownclaim. Refresh only trulychecked Qwensource/quote/contentdates toNov25; preserve everyothermodel/price/numericbenchmark/URL/metadata. Inventory58/24/22 unchanged, no newproductionQwen4Maxprofile, GSC/taskchange, logic or timer. Source's remainingfuturetense does not establish actualavailability eitherway.
 
 Fivefrozenchecks, one4pageSSRperrole, no server/framework/fullsuite/separatetypecheck. Explicitnewreleaseauthorization absent: localfixedcandidate+independentacceptance only, stoprelease-ready; no push/build/productionrelease or enablement. Subsequentrelease requiresuserapproval and fullGitHub-first exactSHA procedure. Historicalstate/lock and originalevidence retained.
