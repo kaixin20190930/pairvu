@@ -1,0 +1,55 @@
+{
+  "baseline": "d3e30fe201387f575d6606b2e4fee23c60966241",
+  "checks": [
+    {
+      "name": "1 allowlist, inventory, metadata and affected lastmods",
+      "status": "PASS"
+    },
+    {
+      "name": "2 four copy areas and derived comparison exact end boundary/unverified distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "3 genuine Qwen dates and all unaffected model records/prices invariant",
+      "status": "PASS"
+    },
+    {
+      "name": "4 four SSR pages, Qwen header/pricing dates/source/replacements and unchanged Argon",
+      "status": "PASS"
+    },
+    {
+      "name": "5 candidate baseline evidence, React server-only semantics, cleanup",
+      "status": "PASS"
+    }
+  ],
+  "pages": [
+    {
+      "route": "/models/qwen-4-max-preview",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/llm-pricing",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/models/gemini-4-argon",
+      "metadataUnchanged": true
+    }
+  ],
+  "notRun": [
+    "API",
+    "GSC",
+    "tasks",
+    "build",
+    "server",
+    "typecheck",
+    "deploy",
+    "push"
+  ],
+  "cleanup": "Only tmp probe and evidence; no persistent assets, processes or accounts.",
+  "result": "PASS"
+}

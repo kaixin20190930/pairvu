@@ -8,6 +8,12 @@ Pairvu is a single-language English evidence-linked model comparison publication
 
 No published price means unknown, not free. Open weights do not imply a common open-source license. A direct quality score appears only when one source, one benchmark version, and one harness cover both exact versions. Display names may use natural search language, but each page has one canonical URL and no reverse duplicate.
 
+## Qwen preview schedule correction — PIVOT-15 (2026-11-25)
+
+[Scope/acceptance](../operations/contracts/PIVOT-15.md): official Qwen4MaxPreview documentation now ends its preview November25 **10:00 UTC+8**, not24:00. Controller checked at02:14:45UTC/10:14:45Shanghai after publishedend. Correct summary/status/pricingnote/notice and derivedQwencomparison consistently: officialannouncedperiodended, actualAPIavailabilityunverified. No API call/shutdownclaim. Refresh only trulychecked Qwensource/quote/contentdates toNov25; preserve everyothermodel/price/numericbenchmark/URL/metadata. Inventory58/24/22 unchanged, no newproductionQwen4Maxprofile, GSC/taskchange, logic or timer. Source's remainingfuturetense does not establish actualavailability eitherway.
+
+Fivefrozenchecks, one4pageSSRperrole, no server/framework/fullsuite/separatetypecheck. Explicitnewreleaseauthorization absent: localfixedcandidate+independentacceptance only, stoprelease-ready; no push/build/productionrelease or enablement. Subsequentrelease requiresuserapproval and fullGitHub-first exactSHA procedure. Historicalstate/lock and originalevidence retained.
+
 ## Authorized consistency repair — PIVOT-14 (2026-11-24)
 
 Execute only [PIVOT-14](../operations/contracts/PIVOT-14.md). Four observed problems: historical Carbon4.0 row lacks existing profile link; Carbon profile falsely lacks benchmarkcoverage; genericGPT/Gemini duplicates new currentpair while directory names historical pair; Qwen editorial24/sourcecheck12 poorly distinguished. Fix row/profile mutual links and scoped60.4High sample statement; Google November10 #1claim separately attributed/notreproduced. Keep all historicalscores/cost/config/date/provenance and4.1warning. Restore genericpage to historical GPT5.2/Gemini3.1ProPreview API metadata/H1/body, with one short currentpairsummary/link to dedicatedAstra/Carbon, preserving exactURL/selfcanonical/historicaldata. Distinguish Qwen contentupdatedNovember24 from officialsourcecheckedNovember12; never change sourceaccessdate without actualverification or retire beforeNovember26 00:00UTC+8. Dates are provenance, not freshnessdecoration.

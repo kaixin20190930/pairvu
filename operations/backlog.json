@@ -642,6 +642,8 @@
     {
       "id":"PIVOT-14", "title":"Carbon历史成绩互链、旧GPT对比定位和Qwen日期修复", "priority":0,"dependsOn":["PIVOT-13"],"mode":"runtime","autoEligible":false,
       "requiredEvidence":["six bounded exactcandidate acceptance groups","preserved58URLs and allhistoricalnumbers/source dates","same pushedSHAproduction and maximum8request verification"]
+    },
+    {"id":"PIVOT-15","title":"Qwen官方预览期10点结束的四处文案同步","priority":0,"dependsOn":["PIVOT-14"],"mode":"runtime","autoEligible":false,"requiredEvidence":["official10AMtime/sourceaccessandunknownAPIboundary","fivefrozenexactcandidatechecks","explicitreleaseauthorizationbeforeproduction"]
     }
   ]
 }
