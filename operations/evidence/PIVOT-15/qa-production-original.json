@@ -1,0 +1,128 @@
+{
+  "unit": "PIVOT-15",
+  "role": "independent production QA",
+  "candidate": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+  "platformVersion": "55d94e70-7715-461e-8a15-82ba7d89d585",
+  "firstObservedUTC": "2026-11-25T03:13:02.079Z",
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:02.080Z",
+      "finishedUTC": "2026-11-25T03:13:03.999Z",
+      "sha256": "fec15f7eac8bcee8945e7259411814330b691d3b8ce6f9df3300091f6b7c2309"
+    },
+    {
+      "path": "/models/qwen-4-max-preview",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:03.999Z",
+      "finishedUTC": "2026-11-25T03:13:04.311Z",
+      "sha256": "117a9654e8eedff5ce7bd95325c18074354375bef0c612634f4c2b7491fda585"
+    },
+    {
+      "path": "/llm-pricing",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:04.311Z",
+      "finishedUTC": "2026-11-25T03:13:04.547Z",
+      "sha256": "c58ab8f203735fbc416d3558c1f8f88aec0e34bb8f8f58dcda9d9a4545cc75e8"
+    },
+    {
+      "path": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:04.547Z",
+      "finishedUTC": "2026-11-25T03:13:04.720Z",
+      "sha256": "a5a17dcdf6858ecaa662c122ee8f45e244a121b7f593375c7890c0f4d5ab8c5b"
+    },
+    {
+      "path": "/models",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:04.720Z",
+      "finishedUTC": "2026-11-25T03:13:04.911Z",
+      "sha256": "18abb0bb69827f5fc19ab11c62af234dadd11d9fda336b02793bcb383d005dad"
+    },
+    {
+      "path": "/models/gemini-4-argon",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:04.911Z",
+      "finishedUTC": "2026-11-25T03:13:05.076Z",
+      "sha256": "f7c1046d7d6bb80290a7e3aec4dda652e27aec2153a3bb3811b4cc014239515a"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "startedUTC": "2026-11-25T03:13:05.077Z",
+      "finishedUTC": "2026-11-25T03:13:05.237Z",
+      "sha256": "4e5e8656953aa8418a59f531b9bc610301a6fd799c9d9f3d7e455dd50425e91d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exactly seven GET responses HTTP200",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual production health buildSHA/platformVersion exact accepted deployed identity",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/llm-pricing full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/llm-pricing title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/qwen-4-max-preview-vs-gpt-5-2 full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/qwen-4-max-preview-vs-gpt-5-2 title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Sitemap 58 exact accepted unique URLs and dates",
+      "status": "PASS"
+    },
+    {
+      "name": "Correct ended period and explicit unverified API distinction on affected production bodies",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "No GSC/task/account/DB actions or model runs; historical provenance reused unchanged."
+  ],
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+    "platformVersion": "55d94e70-7715-461e-8a15-82ba7d89d585"
+  },
+  "lastObservedUTC": "2026-11-25T03:13:05.246Z",
+  "result": "PASS"
+}

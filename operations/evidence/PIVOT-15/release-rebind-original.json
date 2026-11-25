@@ -1,0 +1,28 @@
+{
+  "unit": "PIVOT-15",
+  "role": "same independent QA",
+  "candidate": "b0d94ad53e817dbf7d4c75b8d4c7555b825fe17e",
+  "release": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+  "checkedAt": "2026-11-25T02:53:04.956885+00:00",
+  "result": "PASS",
+  "descendantOnlyDocsEvidence": [
+    "docs/PAIRVU_MODEL_CONTENT_ROADMAP.md",
+    "operations/contracts/PIVOT-15.md",
+    "operations/evidence/PIVOT-15/completion.md",
+    "operations/evidence/PIVOT-15/qa-handoff.json",
+    "operations/evidence/PIVOT-15/qa-original.json",
+    "operations/task-registry.json"
+  ],
+  "runtimeConfigDependenciesIdentical": true,
+  "cleanReleaseTree": true,
+  "reused": "operations/evidence/PIVOT-15/qa-original.json; original five groups/one four-page SSR unchanged",
+  "originalReportSha256": "94323429c79bce3329af4f88e0527af2651e08dc06e422d23d452d14caa1246d",
+  "notRun": [
+    "SSR rerender",
+    "new tests",
+    "build",
+    "deploy",
+    "production GET"
+  ],
+  "nextAction": "Controller push/fresh gates and authorized deployment; await actual release SHA/platform version before maximum7GET production acceptance."
+}

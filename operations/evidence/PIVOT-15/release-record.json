@@ -1,0 +1,60 @@
+{
+  "unit": "PIVOT-15",
+  "acceptedImplementationSha": "b0d94ad53e817dbf7d4c75b8d4c7555b825fe17e",
+  "releaseSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+  "platformVersion": "55d94e70-7715-461e-8a15-82ba7d89d585",
+  "authorization": "User explicitly answered 授权 after local independent acceptance",
+  "releaseRebind": "Independent same reviewer verified docs/evidence-only descendant, runtime/config/dependencies identical to accepted implementation; no rerender or expanded tests",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+      "checkedAt": "2026-11-25T02:58:59.923Z",
+      "action": "deploy",
+      "artifactSha256": "95f62dc54277bc41ce90716c588c1e6e01b50f96c1045979477ccafae9d6b31c",
+      "initialCheckedAt": "2026-11-25T02:58:17.319Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "bd8fdaf3ffdfba8add2941978b3008467ce06418",
+      "checkedAt": "2026-11-25T02:58:59.923Z",
+      "action": "deploy",
+      "artifactSha256": "95f62dc54277bc41ce90716c588c1e6e01b50f96c1045979477ccafae9d6b31c",
+      "initialCheckedAt": "2026-11-25T02:58:17.319Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "builds": 1,
+  "uploads": 1,
+  "migrations": "none",
+  "enablement": "Public existing routes, no flag",
+  "buildAndTypeScript": "PASS",
+  "releaseGates": "Exact accepted release pushed, fresh remote exactSHA, completely clean tree and guarded sameSHA build/artifact verification before upload",
+  "productionAcceptance": "14assertionsPASS; exactly7websiteGETall200; actualhealthSHA/version,5completepagebodies/metadata vs acceptedSSR or sameSHAcompiledmodels,58URL+date set",
+  "onlineConfirmationUtc": [
+    "2026-11-25T03:13:02.079Z",
+    "2026-11-25T03:13:05.246Z"
+  ],
+  "onlineConfirmationAsiaShanghai": [
+    "2026-11-25 11:13:02.079",
+    "2026-11-25 11:13:05.246"
+  ],
+  "timeSemantics": "Independent observed confirmation window, not exact traffic switch. End conservative post-release recrawl threshold after GSC timezone confirmation.",
+  "modelApiAvailability": "Not checked; published preview period elapsed at10:00UTC+8, not evidence actual endpoint disabled",
+  "gscAndTasks": "No access/submissions/task edits; automation hashes unchanged",
+  "automationFileSha256": {
+    "pairvu-gsc": "4de4988d041ef73acbf47a2c0819e6ac50bfd34b0dd9aa98958544495503cb6d",
+    "pairvu-2": "16e8e37f259fecf5cbfa09bd4732cebf2b71e2199e52517debbc75b05e052442",
+    "qwen4-preview": "db174abce976c581e9f6f32205ef4db003048bdfcba27691904be4aae3a95d35"
+  },
+  "rawEvidence": "/tmp/pivot15-qa, original developer /tmp/pivot15-dev",
+  "formalTracking": "Historical control lock/state retained; registry evidence index only",
+  "nextAction": "Archive/push final docs/evidence only, no newbuild/test/deploy. Existing observations remain subject to session/source; no further development or APItest automatic."
+}
