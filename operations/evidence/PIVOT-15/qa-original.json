@@ -1,0 +1,72 @@
+{
+  "unit": "PIVOT-15",
+  "role": "independent QA",
+  "candidate": "b0d94ad53e817dbf7d4c75b8d4c7555b825fe17e",
+  "baseline": "d3e30fe201387f575d6606b2e4fee23c60966241",
+  "started": "2026-11-25T02:40:10.227Z",
+  "checks": [
+    {
+      "group": 1,
+      "name": "Exact five runtime files; 58/24/22 inventory, metadata/robots, six affected lastmods only",
+      "status": "PASS"
+    },
+    {
+      "group": 2,
+      "name": "Four copy areas plus derived Qwen pair: official period elapsed at10:00UTC+8, availability unverified",
+      "status": "PASS"
+    },
+    {
+      "group": 3,
+      "name": "Qwen source/date25 only; all non-Qwen models, prices, scores and comparison data invariant",
+      "status": "PASS"
+    },
+    {
+      "group": 4,
+      "name": "Four rendered pages: dates, replacements, API-shutdown boundary, unchanged Argon counterexample",
+      "status": "PASS"
+    },
+    {
+      "group": 5,
+      "name": "Exact committed candidate, server semantics and cleanup; no excluded activity",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": [
+    {
+      "route": "/models/qwen-4-max-preview",
+      "sha256": "9b56ec750381c08fd75c80e66df698e85d36a7f345cc6a1598d7ebd2efe4da0a",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/llm-pricing",
+      "sha256": "1ff5681201796aa2f71e09878484add012129be582b914985b44a1051cf0c0a4",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "sha256": "8ca2b60e3b0ce481432177fc1cc8d88fbec7977b49ff3f67ed95d515d9ea5730",
+      "metadataUnchanged": true
+    },
+    {
+      "route": "/models/gemini-4-argon",
+      "sha256": "088a6542b471bdb817c55e648f6a83a7fd761387dde41349de187e49dcbc5a53",
+      "metadataUnchanged": true
+    }
+  ],
+  "notRun": [
+    "API",
+    "GSC",
+    "tasks",
+    "build",
+    "typecheck",
+    "server",
+    "deploy",
+    "production"
+  ],
+  "cleanup": "Only temporary probes and immutable evidence; no listener/account/persistent framework or external assets.",
+  "reused": [
+    "PIVOT13 Argon original HTML (f1788a9); PIVOT14 source diff leaves Argon unchanged; current exact bytes equal"
+  ],
+  "finished": "2026-11-25T02:40:11.157Z",
+  "result": "PASS"
+}

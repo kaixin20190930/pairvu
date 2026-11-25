@@ -1,0 +1,12 @@
+{
+  "unit": "PIVOT-15",
+  "candidate": "b0d94ad53e817dbf7d4c75b8d4c7555b825fe17e",
+  "result": "PASS",
+  "originalReport": "operations/evidence/PIVOT-15/qa-original.json",
+  "rawDirectory": "/tmp/pivot15-qa",
+  "execution": "One invocation rendered exactly four candidate pages; five frozen groups passed; no SSR retries or runtime changes.",
+  "sourceEvidence": "Controller directly retrieved full official Aliyun URL on November25; source-decision.json records retrieval clock and exact10:00UTC+8 boundary. No filesystem raw capture/hash retained; QA did not recrawl. This limitation does not imply verified actual API availability.",
+  "cleanup": "No service, account, test database records, API calls or persistent framework created. Temporary raw evidence retained.",
+  "deployment": "Not performed or authorized; candidate acceptance is local only.",
+  "nextAction": "Controller archives acceptance and stops at release-ready. Production depends on explicit user authorization and GitHub-first exact-commit release gates; no automatic deployment."
+}

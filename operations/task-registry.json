@@ -1,6 +1,36 @@
 {
   "schemaVersion": 1,
-  "pivot15": {"unitId":"PIVOT-15","contract":"operations/contracts/PIVOT-15.md","baselineSha":"d3e30fe201387f575d6606b2e4fee23c60966241","status":"DEV_READY","formalTracking":"Historicalstate/lockretained;evidenceindexonly","authorization":"November25userrequestsboundedQwencontentcorrection;productionnotexplicitlyauthorized","development":{"model":"gpt-6.1-sol","thinking":"medium","reason":"Boundedstaticcopyandtruesourcedates","upgradeCondition":"Substantivereasoninggaponly"},"qa":{"model":"gpt-6.1-sol","thinking":"medium","reason":"IndependentexactSHA/SSRscopeandunknownavailabilityboundary","upgradeCondition":"Returnactualdefect;substantivereasoningonly"},"frozenChecks":"5groups,one4pageSSRperrole,noAPI/build/deploy","developerEvidence":"operations/evidence/PIVOT-15/developer-original.json","developerResult":"5groupsPASS; temporaryprobecompileerrorretained/tmp/pivot15-dev/ssr-original.log, correctedprobeoneactual4pagerenderPASS;no runtimefailure","nextAction":"Commitfixedcandidateforindependentacceptance;stoprelease-readyawaituserdeploymentauthorization"},
+  "pivot15": {
+    "unitId": "PIVOT-15",
+    "contract": "operations/contracts/PIVOT-15.md",
+    "baselineSha": "d3e30fe201387f575d6606b2e4fee23c60966241",
+    "status": "RELEASE_READY",
+    "formalTracking": "Historicalstate/lockretained;evidenceindexonly",
+    "authorization": "November25userrequestsboundedQwencontentcorrection;productionnotexplicitlyauthorized",
+    "development": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "Boundedstaticcopyandtruesourcedates",
+      "upgradeCondition": "Substantivereasoninggaponly"
+    },
+    "qa": {
+      "model": "gpt-6.1-sol",
+      "thinking": "medium",
+      "reason": "IndependentexactSHA/SSRscopeandunknownavailabilityboundary",
+      "upgradeCondition": "Returnactualdefect;substantivereasoningonly"
+    },
+    "frozenChecks": "5groups,one4pageSSRperrole,noAPI/build/deploy",
+    "developerEvidence": "operations/evidence/PIVOT-15/developer-original.json",
+    "developerResult": "5groupsPASS; temporaryprobecompileerrorretained/tmp/pivot15-dev/ssr-original.log, correctedprobeoneactual4pagerenderPASS;no runtimefailure",
+    "nextAction": "Localdocs/evidencearchivecommit,then stop. User must explicitly authorizepush/production; future releasefreshsameSHA GitHubgates and boundedactualproductionverification, not automatic.",
+    "candidateSha": "b0d94ad53e817dbf7d4c75b8d4c7555b825fe17e",
+    "candidateEvidence": "operations/evidence/PIVOT-15/qa-original.json",
+    "candidateResult": "PASS5groups,one4pageSSR;58/24/22 andArgonunchanged",
+    "qaHandoff": "operations/evidence/PIVOT-15/qa-handoff.json",
+    "completion": "operations/evidence/PIVOT-15/completion.md",
+    "production": "NOT_DEPLOYED; no explicit current release authorization, no push/build/APIchecks",
+    "gsc": "NoGSC/tasksactions; unchangedautomationhashes"
+  },
   "pivot14": {
     "unitId":"PIVOT-14", "contract":"operations/contracts/PIVOT-14.md", "baselineSha":"8c2a3296ad5e16906f3dd7da773a97598febd1c6", "status":"PRODUCTION_VERIFIED",
     "authorization":"November24 current user explicitly requests minimal repair and production deployment",
