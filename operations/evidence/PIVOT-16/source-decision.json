@@ -1,0 +1,23 @@
+{
+  "unit": "PIVOT-16",
+  "checkedDate": "2026-11-26",
+  "currentOwnerUrl": "https://help.aliyun.com/en/model-studio/qwen4-max",
+  "controllerRetrieval": "Current owner page retrieved through webtool; no filesystem rawcapture/hash retained",
+  "policy": {
+    "retiredPreview": true,
+    "legacyId": "qwen4-max-preview",
+    "successorId": "qwen4-max",
+    "ownerSays": "Legacy ID automatically routes to successor and is billed at standard successor rates; preview limited-time discount no longer applies"
+  },
+  "limits": [
+    "No actualmodelAPIcall/test; ownerpolicyconfirmation is not independently verifiedroutingbehavior",
+    "No exact retirement execution timestamp established by current note",
+    "Successormodelnumericprices/specifications must not be substituted for historicalpreview"
+  ],
+  "historicalSource": {
+    "sourceUrl": "https://help.aliyun.com/en/model-studio/qwen4-max-preview",
+    "lastPreviewCheck": "2026-11-25",
+    "originalEvidence": "operations/evidence/PIVOT-15/source-decision.json; immutable previouslyaccepted catalog at bd8fdaf3ffdfba8add2941978b3008467ce06418"
+  },
+  "boundary": "Implementation only; no explicit productionrelease authorization in current userrequest"
+}

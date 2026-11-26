@@ -1,0 +1,96 @@
+{
+  "baseline": "1ebf876c780c710a5b114b1e966d290455caec2d",
+  "checks": [
+    {
+      "name": "1 allowlist, 58/24/22, URL canonical robots metadata and lastmods",
+      "status": "PASS"
+    },
+    {
+      "name": "2 retired historical pages and owner routing/billing caveat",
+      "status": "PASS"
+    },
+    {
+      "name": "3 historical quote and unchanged other data/metadata/benchmarks",
+      "status": "PASS"
+    },
+    {
+      "name": "4 homepage-only omission and shared historical tables/history links",
+      "status": "PASS"
+    },
+    {
+      "name": "5 date provenance, alternative links and unchanged Argon reused HTML",
+      "status": "PASS"
+    },
+    {
+      "name": "6 bounded SSR, React and reusable evidence/cleanup",
+      "status": "PASS"
+    }
+  ],
+  "pages": [
+    {
+      "route": "/models/qwen-4-max-preview",
+      "metadata": {
+        "title": "Qwen 4 Max Preview: Retired Preview Historical Record",
+        "description": "Historical Qwen 4 Max Preview specs and preview quote; Alibaba now routes the old ID to qwen4-max at standard pricing without preview discounts.",
+        "alternates": {
+          "canonical": "/models/qwen-4-max-preview"
+        }
+      }
+    },
+    {
+      "route": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "metadata": {
+        "title": "Qwen 4 Max Preview vs GPT-5.2: Retired Preview History",
+        "description": "Historical Qwen 4 Max Preview vs GPT-5.2 specs and quotes: retired preview, old-ID routing to qwen4-max and standard billing, with official sources.",
+        "alternates": {
+          "canonical": "/compare/qwen-4-max-preview-vs-gpt-5-2"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "metadata": {
+        "title": "AI model comparison with sources",
+        "description": "Compare AI models by pricing, context, benchmarks and original sources.",
+        "alternates": {
+          "canonical": "/"
+        }
+      }
+    },
+    {
+      "route": "/llm-pricing",
+      "metadata": {
+        "title": "LLM API pricing comparison",
+        "description": "Compare published input and output token prices with direct provider sources.",
+        "alternates": {
+          "canonical": "/llm-pricing"
+        }
+      }
+    },
+    {
+      "route": "/models/gemini-4-argon",
+      "metadata": {
+        "title": "Gemini 4 Argon specs, pricing and sources",
+        "description": "Gemini 4 Argon context, pricing, release and official sources.",
+        "alternates": {
+          "canonical": "/models/gemini-4-argon"
+        }
+      }
+    }
+  ],
+  "notRun": [
+    "API",
+    "GSC",
+    "tasks",
+    "build",
+    "server",
+    "typecheck",
+    "push",
+    "deploy"
+  ],
+  "cleanup": "Only temporary probe, rendered artifacts and report; no listener/account/external asset.",
+  "reused": [
+    "PIVOT-15 unchanged Argon SSR exact bytes, unchanged model records/prices/benchmarks compared with baseline catalog; production evidence bd8fdaf unchanged facts only, not production acceptance of this unit"
+  ],
+  "result": "PASS"
+}
