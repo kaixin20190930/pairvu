@@ -1,0 +1,159 @@
+{
+  "unit": "PIVOT-16",
+  "role": "independent production QA",
+  "candidate": "f8964221aad1e0405f1f585a70956472e83fbf71",
+  "platformVersion": "543415bd-e6b8-42fb-882e-378905947b9f",
+  "firstObservedUTC": "2026-11-26T09:30:09.717Z",
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:09.718Z",
+      "finishedUTC": "2026-11-26T09:30:11.005Z",
+      "sha256": "01dabbd09a94191713e6c77fdd8915288a11018c240ae1a6a3a6b5734b07fed6"
+    },
+    {
+      "path": "/models/qwen-4-max-preview",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:11.005Z",
+      "finishedUTC": "2026-11-26T09:30:11.251Z",
+      "sha256": "31a6ac7c25c13e21305038af519a8475c34c7a87c8b2bff089cc53876db835b2"
+    },
+    {
+      "path": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:11.251Z",
+      "finishedUTC": "2026-11-26T09:30:11.430Z",
+      "sha256": "357756d72a726c44e1930d5d4494a9d6f565a0f767d9f064ac6860886f5dcc8c"
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:11.430Z",
+      "finishedUTC": "2026-11-26T09:30:11.710Z",
+      "sha256": "9aab9710b806b204d4a61702444aec7c4c4b4ab47a363b1c26a310ee5714ce7c"
+    },
+    {
+      "path": "/llm-pricing",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:11.710Z",
+      "finishedUTC": "2026-11-26T09:30:11.908Z",
+      "sha256": "cff0ac1e8282220a46525b352aa6aa580753efe2dae1be56c4f42fe09d1e5116"
+    },
+    {
+      "path": "/models",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:11.908Z",
+      "finishedUTC": "2026-11-26T09:30:12.078Z",
+      "sha256": "6dfe52d400c8f44877ab878da1f05ae5b743e70eaf371bca77cf5f8e10aa9f08"
+    },
+    {
+      "path": "/leaderboard",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:12.078Z",
+      "finishedUTC": "2026-11-26T09:30:12.262Z",
+      "sha256": "0aa1cc713db81d8a283a69f6130c7c00a7d9c668c0dd7fe87642d013080280a8"
+    },
+    {
+      "path": "/models/gemini-4-argon",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:12.262Z",
+      "finishedUTC": "2026-11-26T09:30:12.431Z",
+      "sha256": "50591e80a227b3f82043cbd8424fc826e0becf1dfa7f55c9979330c17c75009f"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "startedUTC": "2026-11-26T09:30:12.431Z",
+      "finishedUTC": "2026-11-26T09:30:12.581Z",
+      "sha256": "8e6faa9c4b907395600379b30db61b401059ed39466b28d06abb7d432e2e5f5d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exactly nine GET responses HTTP200",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual production health buildSHA/platformVersion exact accepted deployed identity",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/qwen-4-max-preview title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/qwen-4-max-preview-vs-gpt-5-2 full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/compare/qwen-4-max-preview-vs-gpt-5-2 title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/ full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/ title canonical robots match candidate metadata",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(body.includes('href=\"https://pairvu.com'+meta.alternates.canonical+'\"'))\n"
+    },
+    {
+      "name": "/llm-pricing full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/llm-pricing title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/leaderboard full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/leaderboard title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon full visible main equals accepted SSR",
+      "status": "PASS"
+    },
+    {
+      "name": "/models/gemini-4-argon title canonical robots match candidate metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Sitemap 58 exact accepted unique URLs and dates",
+      "status": "PASS"
+    },
+    {
+      "name": "Retired policy, historical quotes and homepage/archive behavior",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "No GSC/task/account/DB actions or model runs; historical provenance reused unchanged."
+  ],
+  "health": {
+    "ok": true,
+    "service": "pairvu",
+    "release": "public-beta",
+    "buildSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+    "platformVersion": "543415bd-e6b8-42fb-882e-378905947b9f"
+  },
+  "lastObservedUTC": "2026-11-26T09:30:12.599Z",
+  "result": "FAIL"
+}

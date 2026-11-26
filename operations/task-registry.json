@@ -4,7 +4,7 @@
     "unitId": "PIVOT-16",
     "contract": "operations/contracts/PIVOT-16.md",
     "baselineSha": "1ebf876c780c710a5b114b1e966d290455caec2d",
-    "status": "RELEASE_READY",
+    "status": "PRODUCTION_VERIFIED",
     "authorization": "November26 current user explicitly authorizes production (授权发布) for accepted minimal retiredpreview repair only",
     "formalTracking": "Historicalcontrolstate/lockpreserved,evidenceindexonly",
     "development": {
@@ -27,12 +27,21 @@
     },
     "developerEvidence": "operations/evidence/PIVOT-16/developer-original.json",
     "developerResult": "PASS6groups/one5pageSSR;8allowedruntimefiles,no runtimefailure or extra tests",
-    "nextAction": "Commitdocs-only authorization descendant; originalreviewer exactSHArebind without rerender; push/freshremote/cleanSHA single guardedbuild/deploy then maximum9GET independentproductionacceptance",
+    "nextAction": "Archive/push finaldocs/evidence only without rebuild/retest/redeploy. Existingread-onlyobservations depend on session/source; noautomaticdevelopment or modelAPItest.",
     "candidateSha": "fcb6a4dda6389d6159dad4ce62de73ae683b6bb7",
     "candidateEvidence": "operations/evidence/PIVOT-16/qa-original.json",
     "candidateResult": "PASS6groups/one5pageSSR,zero failures/retries;58URLs24profiles22comparisons,unchangedArgon",
     "completion": "operations/evidence/PIVOT-16/completion.md",
-    "production": "AUTHORIZED_PENDING; no modelAPItest or expandedwork authorized"
+    "production": "DEPLOYED_AND_INDEPENDENTLY_VERIFIED; no modelAPItest or expandedwork",
+    "releaseSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+    "platformVersion": "543415bd-e6b8-42fb-882e-378905947b9f",
+    "releaseRebindEvidence": "operations/evidence/PIVOT-16/release-rebind-original.json",
+    "releaseRebindResult": "PASS exactdocs-only descendant; allruntime/config/dependencies unchanged,originalSSRreusedwithout rerender",
+    "productionEvidence": "operations/evidence/PIVOT-16/production-artifact-correction.json",
+    "productionResult": "PASS18assertions afterartifact-onlyhomecanonicalprobe correction; originalFAILretained,exactly9GETall200,7completebodies/metadata,58URLdates,actualSHA/version;November26 17:30:09.717–17:30:12.599 Asia/Shanghai",
+    "releaseEvidence": "operations/evidence/PIVOT-16/release-record.json",
+    "enablement": "Publicexistingroutes,no migration/featureflag",
+    "gscAndTasks": "NoGSCaccess/submission/taskedits;twoexistingautomationhashes unchanged,retirementone-time taskremainsabsent"
   },
   "pivot15": {
     "unitId": "PIVOT-15",

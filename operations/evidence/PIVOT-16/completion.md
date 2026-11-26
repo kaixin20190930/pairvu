@@ -1,4 +1,22 @@
-# PIVOT-16 — minimal retired-preview repair accepted locally
+# PIVOT-16 — minimal retired-preview repair production verified
+
+## Authorized release completed — November26
+
+User explicitly authorizedproduction after localindependentacceptance. Implementation, deployment, publicenablement and independentproductionacceptance now complete. Earlierlocal-only/pendingrelease statements below are historical, superseded by thisdelivery, not claims of earlierdeployment.
+
+- Acceptedimplementation `fcb6a4dda6389d6159dad4ce62de73ae683b6bb7`; actual pushed/deployedrelease `f8964221aad1e0405f1f585a70956472e83fbf71`.
+- Cloudflare `543415bd-e6b8-42fb-882e-378905947b9f`; publicexistingroutes, no migration/featureflag.
+- [Independentexactrelease rebind](release-rebind-original.json): onlydocs/evidence differ, all runtime/config/dependencies identical; original6groups/5pageSSR reused without rerender.
+- One necessary guardedbuild/TypeScriptPASS, no retries; fresh exactremote/clean-tree/buildSHA/artifactgates beforeupload. Existingexactcredential privatelyloaded inchildenvironment only, no secretoutput/edit.
+- [Originalproduction report](qa-production-original.json) retains probe-onlyFAIL: expectedrootcanonicalhttps://pairvu.com/ vs actualhttps://pairvu.com. [Artifact-only correction](production-artifact-correction.json) confirmsactualsameSHAcompiledindex.html head/canonical/title/description/indexability and passes18assertions. No runtimechange, extraGET orSSR.
+- Exactly9websiteGETall200, healthactualSHA/version, sevencompletevisiblepagebodies/metadata equalacceptedSSR or sameSHAcompiledmodels/leaderboard;58uniqueURL/date sitemap and retirement/history/homeexclusion/archivebadgecorrect.
+- Actualonlineconfirmation **November26 17:30:09.717–17:30:12.599 Asia/Shanghai** (`09:30:09.717Z–09:30:12.599Z`), not exactswitchtime. Finalpreupload09:27:28.624Z. Confirmation-end conservativepostreleasecrawlthreshold only afterGSCtimezoneverified. [Release record](release-record.json).
+- Threeitemminimumenabled: retiredprofile/comparisonwithownerlegacyIDrouting/standardbilling; historicalquote/specs preserved ratherthan formalmodeltransplant; homepageexclusion/archivebadges withhistoricalURLs/links retained. No modelAPItest, GSC or taskwrites. Twoexistingautomationhashes unchanged; completedone-time retirementtask remainsabsent.
+- Raworiginals retained `/tmp/pivot16-qa` and `/tmp/pivot16-dev`; no listener/customer/account/externaltestassets or cleanupoutstanding.
+
+Next: finaldocs/evidencearchivepush automatically without furtherbuild/test/deploy. Existingreadonlyobservations depend on GSCsession/export/officialsource; userhandlesloginifneeded. No automaticadditionaldevelopment or modelAPIavailabilityprobe. Historicalcontrollerlock/state retained; registrycompletionisevidenceindexonly.
+
+## Historical local-only stage
 
 Implementation and independentcandidateacceptance complete. **Not pushed, built or deployed; not enabled in production.** Currentuser authorized minimalimplementation, not explicitly productionrelease. No earlierreleaseapproval inherited.
 

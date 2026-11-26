@@ -1,0 +1,66 @@
+{
+  "unit": "PIVOT-16",
+  "acceptedImplementationSha": "fcb6a4dda6389d6159dad4ce62de73ae683b6bb7",
+  "releaseSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+  "platformVersion": "543415bd-e6b8-42fb-882e-378905947b9f",
+  "authorization": "Current user explicitly authorizes production (授权发布)",
+  "releaseRebind": "Original independentreviewer confirms docs/evidence-only descendant, all runtime/config/dependencies identical to acceptedcandidate; no rerender",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+      "checkedAt": "2026-11-26T09:27:28.624Z",
+      "action": "deploy",
+      "artifactSha256": "4fc7c8561ed9e0d0ef79c0c1d0f0254d3636f4657dce58c8a2715f4bce9000e7",
+      "initialCheckedAt": "2026-11-26T09:26:43.216Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "f8964221aad1e0405f1f585a70956472e83fbf71",
+      "checkedAt": "2026-11-26T09:27:28.624Z",
+      "action": "deploy",
+      "artifactSha256": "4fc7c8561ed9e0d0ef79c0c1d0f0254d3636f4657dce58c8a2715f4bce9000e7",
+      "initialCheckedAt": "2026-11-26T09:26:43.216Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "builds": 1,
+  "uploads": 1,
+  "retries": 0,
+  "migrations": "none",
+  "enablement": "Public existing routes, no featureflag",
+  "buildAndTypeScript": "PASS; same pushed SHA, fresh exactremote/clean-tree/artifactgates beforeupload",
+  "productionAcceptance": "PASS after artifact-only probe correction, exactly9websiteGETall200, exacthealthSHA/version,7completepagebodies/metadata vs acceptedSSR or sameSHAcompiledartifact,58URL/date set and retirement/archive/home exclusion",
+  "onlineConfirmationUtc": [
+    "2026-11-26T09:30:09.717Z",
+    "2026-11-26T09:30:12.599Z"
+  ],
+  "onlineConfirmationAsiaShanghai": [
+    "2026-11-26 17:30:09.717",
+    "2026-11-26 17:30:12.599"
+  ],
+  "timeSemantics": "Independent confirmation window, not exact traffic switch; window end conservative post-releasecrawlthreshold after GSCtimezone verified",
+  "productionDiagnostic": "Original report retained FAIL only homepage canonical expectation https://pairvu.com/ vs actual https://pairvu.com. Actual matches sameSHA compiled index.html; artifact-only correction verifies full canonical/title/description/indexability. No runtime edit, extraHTTP orSSR.",
+  "inventory": {
+    "urls": 58,
+    "modelProfiles": 24,
+    "comparisonPages": 22
+  },
+  "scope": "Only previouslyaccepted minimumrepair; no newdevelopment or modelAPItest/GSC/taskaction",
+  "automationStateUnchanged": {
+    "pairvu-gsc": "4de4988d041ef73acbf47a2c0819e6ac50bfd34b0dd9aa98958544495503cb6d",
+    "pairvu-2": "16e8e37f259fecf5cbfa09bd4732cebf2b71e2199e52517debbc75b05e052442",
+    "qwen4-preview": "absent before/after; previouslycompleted/deleted,notrecreated"
+  },
+  "rawEvidence": "/tmp/pivot16-qa and /tmp/pivot16-dev",
+  "sourceLimit": "Ownerretirement/routing/billingpolicy readNovember26, no retainedrawsourcefile or modelAPIexecution claimed",
+  "formalTracking": "Historicalcontrolstate/lockpreserved; registryevidenceindexonly",
+  "nextAction": "Archive/push finaldocs/evidence only without furtherbuild/test/deploy. Existingread-onlyobservation needs GSCsession/export/source; no automaticadditionaldevelopment or modelAPItest."
+}
