@@ -53,7 +53,7 @@ export async function recordProductEvent(db: D1Database, input: ProductEventInpu
     )
     .first<{ id: string }>();
 
-  if (!inserted) return;
+  if (!inserted || input.properties?.purpose === "model_decision_v1") return;
 
   await upsertAnonymousSession(db, input, now);
 }

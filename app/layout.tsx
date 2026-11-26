@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import { DecisionAnalytics } from "@/components/DecisionAnalytics";
+import { decisionPaths, decisionSourceRoles } from "@/lib/analytics/decision";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -44,6 +47,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SiteHeader />
+        <Suspense fallback={null}><DecisionAnalytics paths={[...decisionPaths]} sourceRoles={decisionSourceRoles()}/></Suspense>
         <div id="main-content">{children}</div>
         <SiteFooter />
       </body>

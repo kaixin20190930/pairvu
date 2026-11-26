@@ -1,3 +1,4 @@
+import { decisionEventSchema } from "@/lib/analytics/decision";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getVisualQAEnv } from "@/lib/cloudflare/bindings";
@@ -58,7 +59,20 @@ const EventSchema = z
 
 export async function POST(request: NextRequest) {
   try {
-    const parsed = EventSchema.safeParse(await request.json());
+    const body = await request.json();
+    const decision = body?.properties && Object.hasOwn(body.properties, "purpose");
+    if (decision) {
+      const origin = request.headers.get("origin");
+      if (origin && origin !== new URL(request.url).origin) return NextResponse.json({ error: "invalid_origin" }, { status: 403 });
+      if (request.headers.get("dnt") === "1" || request.headers.get("sec-gpc") === "1" || /bot|crawler|spider|headless/i.test(request.headers.get("user-agent") ?? "")) return new NextResponse(null, { status: 204 });
+      const parsed = decisionEventSchema.safeParse(body);
+      if (!parsed.success) return NextResponse.json({ error: "invalid_event" }, { status: 400 });
+      const env = getVisualQAEnv();
+      if (await clientEventRateLimitExceeded(env.VISUALQA_DB, parsed.data.anonymousSessionId)) return NextResponse.json({ error: "event_rate_limited" }, { status: 429 });
+      await recordProductEvent(env.VISUALQA_DB, { ...parsed.data, eventSource: "client", occurredAt: new Date().toISOString() });
+      return NextResponse.json({ accepted: true }, { status: 202 });
+    }
+    const parsed = EventSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
         {

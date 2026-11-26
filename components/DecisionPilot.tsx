@@ -9,8 +9,8 @@ function Evidence({ slugs }: { slugs: string[] }) {
       const model = modelMap.get(slug)!;
       const spec = model.sources[0];
       return <div key={slug}>
-        <p>{model.name} context, interfaces and availability — <a href={spec.url}>{spec.label}</a> · checked {spec.accessed}.</p>
-        {model.pricing.map((price, index) => <p key={index}>{model.name} prices and billing conditions — <a href={price.source.url}>{price.source.label}</a> · checked {price.accessedAt} · {price.region}, {price.mode}.</p>)}
+        <p>{model.name} context, interfaces and availability — <a href={spec.url} data-source-role="specification">{spec.label}</a> · checked {spec.accessed}.</p>
+        {model.pricing.map((price, index) => <p key={index}>{model.name} prices and billing conditions — <a href={price.source.url} data-source-role="pricing">{price.source.label}</a> · checked {price.accessedAt} · {price.region}, {price.mode}.</p>)}
       </div>;
     })}
     {slugs.includes("gemini-4-carbon") && <p>Carbon coding evidence — <Link href="/benchmarks/cursorbench">retained CursorBench 4.0 High record, collected November 16, 2026</Link>. This is a historical setup-specific result.</p>}

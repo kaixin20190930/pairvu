@@ -16,6 +16,7 @@ async function main() {
       select event_name as eventName, count(distinct anonymous_session_id) as sessions
       from product_events
       where occurred_at >= '${start}' and occurred_at < '${end}'
+        and coalesce(json_extract(properties_json, '$.purpose'), '') != 'model_decision_v1'
       group by event_name
     `),
     query(`
@@ -29,6 +30,7 @@ async function main() {
         count(distinct case when event_name = 'feedback_submitted' then anonymous_session_id end) as feedbackSessions
       from product_events
       where occurred_at >= '${start}' and occurred_at < '${end}'
+        and coalesce(json_extract(properties_json, '$.purpose'), '') != 'model_decision_v1'
       group by source, medium, campaign, referrer
       order by completedSessions desc, sessions desc
       limit 20
@@ -86,6 +88,7 @@ async function main() {
         count(*) as failures
       from product_events
       where occurred_at >= '${start}' and occurred_at < '${end}'
+        and coalesce(json_extract(properties_json, '$.purpose'), '') != 'model_decision_v1'
         and event_name in (
           'reference_upload_failed',
           'candidate_upload_failed',
@@ -105,6 +108,7 @@ async function main() {
         count(distinct anonymous_session_id) as sessions
       from product_events
       where occurred_at >= '${start}' and occurred_at < '${end}'
+        and coalesce(json_extract(properties_json, '$.purpose'), '') != 'model_decision_v1'
         and event_name in (
           'example_cta_clicked',
           'zero_allowance_viewed',
