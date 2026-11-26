@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "pivot17": {"contract": "operations/contracts/PIVOT-17.md", "baseline": "6f51777", "scope": "Decision support pilot, local implementation", "development": {"model": "gpt-6.1-sol", "thinking": "medium", "reason": "Bounded changes to existing content and telemetry", "upgradeCondition": "Material cross-layer reasoning gap"}, "qa": {"model": "gpt-6.1-sol", "thinking": "medium", "reason": "Independent bounded candidate and privacy review", "upgradeCondition": "Evidence cannot resolve material ambiguity"}},
   "pivot16": {
     "unitId": "PIVOT-16",
     "contract": "operations/contracts/PIVOT-16.md",

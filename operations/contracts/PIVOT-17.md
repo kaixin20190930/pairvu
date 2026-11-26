@@ -1,0 +1,11 @@
+# Decision support pilot · November 26
+
+Baseline 6f51777. Controller maintains roadmap, inventory and existing observation schedules. Developer and independent reviewer use GPT-6.1 Sol medium for bounded content, navigation and existing event transport. Escalate substantive cross-layer evidence gaps only. Archived PIVOT-16 evidence establishes retirement/58-URL baseline, not acceptance of this candidate.
+
+Freeze: three existing specific pairs (Astra/Sol, Astra/Carbon, Argon/Carbon) and four associated model profiles. Use their dated sources for task fit, alternatives, limits, price conditions and reproducible examples. Three groups of three current candidates in /compare, with a source or fact-backed link; scope reuse existing catalogue. Minimal privacy-conscious navigation and source metrics using existing first-party transport, keep attribution minimal and privacy notice accurate. Existing route metadata and history stay identifiable. No new public pages, dependencies, schema migration or live model calls. Price deadline and GSC observations in existing tasks. No production authorization for this unit.
+
+Required: check scoped diff and inventory, pilot decisions and source mappings, comparable evidence, arithmetic, working links, relevant navigation event flow including filtering and privacy. One targeted typecheck plus bounded read-only independent review of exact SHA; targeted local rendering or synthetic event checks for affected flow only. No live telemetry writes, build, full suite or new framework. Preserve original review and any failure. No persistent test assets. 15/30 minute diagnostic checkpoints. Complete candidate when these checks pass. External usage and index coverage require later observations.
+
+## Stage boundary
+
+The runtime candidate covers only stage 2 (three pairs and four profiles). Stage 1 documentation, inventory and existing schedule updates are independently checkable without a production release. The existing roadmap advances runtime stages after independent acceptance and production verification. Stage 3 navigation and analytics checks listed above apply to a later candidate after the pilot release. This candidate requires only pair/model scopes, original dated facts, cost examples, limits, linked alternatives and absence of stage 3 runtime effects.

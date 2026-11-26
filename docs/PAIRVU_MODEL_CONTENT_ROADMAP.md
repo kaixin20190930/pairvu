@@ -2,6 +2,25 @@
 
 This is the single current route into Pairvu model-content planning. Work advances one independently accepted and production-verified stage at a time; completing code for a later stage early is not allowed.
 
+## Decision support work · current as of November 26, 2026
+
+The [58 canonical URLs](../operations/evidence/PIVOT-17/inventory.md) cover 24 model profiles, 22 comparisons and 12 other pages. The Qwen preview is an archive. Keep Carbon’s historical CursorBench 4.0 evidence and current 4.1 results distinct. Older dated entries below describe their original releases.
+
+Pairvu maintains English research for readers choosing an exact model for a task. Each material number, state or recommendation identifies its model ID or version, API or consumer channel, source and date. Specify context and output limits separately. For prices, include currency, region, billing mode, unit, cached/uncached assumptions and effective dates. Distinguish official non-disclosure, pending verification, conflicting sources, history and inapplicable fields. Display factual effective dates separately from editorial edits and source access dates. For quality comparisons require the same benchmark version, split, scoring, harness, tool access and comparable reasoning budgets. Explain the observed trade-off if results support one; otherwise explain the missing comparison condition.
+
+| Stage | Deliverable and acceptance |
+|---|---|
+| 1 · Baseline and stewardship | Current sitemap inventory with intent, first publication and dated inspections. Existing observation owners and due dates below. |
+| 2 · Editorial pilot | Three existing comparisons and four linked profiles in the [unit contract](../operations/contracts/PIVOT-17.md). For each decision show the exact candidates, workload, decisive constraint, limitations and dated source. Recalculate example bills under explicit assumptions. |
+| 3 · Navigation and observation | After pilot acceptance and production verification, add three groups of three candidates within /compare for coding, long context and low-cost batch. Verify actual batch availability, price conditions and completion windows. Record directory-to-profile visits, comparisons opened, task candidate clicks and official source clicks by purpose. Before enabling, verify the production sink, privacy notice, minimization and report access. |
+| 4 · Product review | From actual measurement enablement, check at 14 and 28 days. Count eligible visits and observed actions with their denominators. Source clicks indicate further research. Use optional direct feedback to learn whether readers actually chose a model. Expand existing profiles in groups of 3–5 according to observed gaps. |
+
+**Observation owners (Asia/Shanghai).** Content weekly on Nov 30 at 09:30 prechecks Argon and Carbon. The existing monthly review on Dec 1 at 10:30 checks actual effective Google Developer API Standard input, output and implicit-cache prices and the production display. Latest published evidence was checked Nov 24. Introductory USD/M 2/10/0.10 and announced 4/20/0.20 need dated confirmation at transition; Google’s timezone is unspecified. Use the [owner price sheet](https://aistudio.google.com/docs/pricing); flag ambiguity for the next check. Weekly content review prioritizes expired terms and those due within seven days.
+
+GSC weekly on Dec 2 at 10:00 matches each batch against the current sitemap, preserves the Haiku and post-edit crawl checks, and records inspected, indexed and unknown counts. The full November 16 inspection found 43/45 indexed; November 18 confirmed both Haiku pages and November 25 checked four core URLs. Fresh coverage of all 58 is pending. Report impressions, clicks and query/landing-page totals separately from first-party navigation signals. Report weekly source problems, overdue checks, material changes and the smallest next action. Keep expansion conditional on stable batch index coverage, evidence quality and observed demand.
+
+The existing analytics endpoint and event names serve the prior product. A Nov 26 read of public /compare HTML showed no Google tag, Plausible or Cloudflare beacon signatures. Provider-side settings and delivery of decision events remain unverified. For the proposed pilot, use purpose-limited first-party reporting with no personal content. Stage 1 schedules were updated in place; the 14–28 day product observation window starts only after production enablement.
+
 ## Product boundary
 
 Pairvu is a single-language English evidence-linked model comparison publication. It is not an API aggregator, paywall, model tool, CMS, crawler, live-FX service, arbitrary N-model comparator, or universal scoring system. Every material fact identifies the exact model version, owner source, access date, region, currency, and billing mode when relevant.
