@@ -1,0 +1,209 @@
+{
+  "result": "FAIL",
+  "candidate": "0e2ec71e1c8cea8793cc3bad4449f80a8409c11a",
+  "platformVersion": "43169b70-4bf3-4ba3-b48e-ffaa8b74c3e1",
+  "utcWindow": {
+    "start": "2026-11-26T14:18:05.990Z",
+    "end": "2026-11-26T14:18:13.538Z"
+  },
+  "requests": 9,
+  "checks": [
+    {
+      "name": "all9GET200",
+      "pass": true
+    },
+    {
+      "name": "releaseSHA",
+      "pass": true
+    },
+    {
+      "name": "platformVersion",
+      "pass": true
+    },
+    {
+      "name": "route1-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route1-canonical",
+      "pass": true
+    },
+    {
+      "name": "route1-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route1-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route1-costExample",
+      "pass": true
+    },
+    {
+      "name": "route1-costLimit",
+      "pass": true
+    },
+    {
+      "name": "route2-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route2-canonical",
+      "pass": true
+    },
+    {
+      "name": "route2-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route2-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route2-costExample",
+      "pass": true
+    },
+    {
+      "name": "route2-costLimit",
+      "pass": false
+    },
+    {
+      "name": "route3-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route3-canonical",
+      "pass": true
+    },
+    {
+      "name": "route3-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route3-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route3-costExample",
+      "pass": true
+    },
+    {
+      "name": "route3-costLimit",
+      "pass": true
+    },
+    {
+      "name": "route4-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route4-canonical",
+      "pass": true
+    },
+    {
+      "name": "route4-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route4-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route4-alternativesAndUnknown",
+      "pass": true
+    },
+    {
+      "name": "route5-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route5-canonical",
+      "pass": true
+    },
+    {
+      "name": "route5-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route5-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route5-alternativesAndUnknown",
+      "pass": true
+    },
+    {
+      "name": "route6-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route6-canonical",
+      "pass": true
+    },
+    {
+      "name": "route6-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route6-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route6-alternativesAndUnknown",
+      "pass": true
+    },
+    {
+      "name": "route7-visibleDecision",
+      "pass": true
+    },
+    {
+      "name": "route7-canonical",
+      "pass": true
+    },
+    {
+      "name": "route7-sourceDates",
+      "pass": true
+    },
+    {
+      "name": "route7-ownerLinks",
+      "pass": true
+    },
+    {
+      "name": "route7-alternativesAndUnknown",
+      "pass": true
+    },
+    {
+      "name": "inventory58unique",
+      "pass": true
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gpt-6-2-sol-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/compare/gpt-6-2-astra-vs-gemini-4-carbon-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/compare/gemini-4-argon-vs-gemini-4-carbon-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/models/gpt-6-2-astra-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/models/gpt-6-2-sol-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/models/gemini-4-argon-lastmod",
+      "pass": true
+    },
+    {
+      "name": "/models/gemini-4-carbon-lastmod",
+      "pass": true
+    }
+  ],
+  "note": "Visible HTML strips script blocks. Initial diagnostic incorrectly split at first head script, producing empty-body false values. Corrected from same saved responses; no new GET."
+}
