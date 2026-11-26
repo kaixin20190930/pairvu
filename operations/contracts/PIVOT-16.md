@@ -1,5 +1,11 @@
 # PIVOT-16 — retire preview as historical record, November26
 
+## Authorized release continuation — November26
+
+Current user explicitly authorizes production (授权发布), superseding the earlier local-only boundary below without changing runtime scope. Commit only authorization/docs descendant of acceptedfcb6a4d; originalreviewer reassessed GPT-6.1Sol/medium for ordinary immutableartifact/identityverification, no escalation absent substantive reasoninggap. Independently rebind exactfinalreleaseSHA: all descendantdiff docs/evidence only, runtime/config/dependencies identical to acceptedcandidate. Reuse original6groups/5pageSSR, no rerender/newframework or developerwork. Rebind report temporaryonly until afterrelease, preserving clean tree.
+
+AfterPASS push/freshfetch exactremote cleanSHA, one guardedsameSHA productionbuild/deploy privately loading only existingexactcredential. No migration/featureflag/GSC/tasks/modelAPI. Same independentreviewer atmost9websiteGET health,Qwenprofile,Qwenpair,home,pricing,models,leaderboard,Argon,sitemap; actualreleaseSHA/platformversion, sevencompletepagebodies/metadata match acceptedSSR or sameSHAcompiled models/leaderboardHTML;58URL/dateinventory; homepageexclusion/archivebadges/retiredpolicy/historyquotes required. No additional SSR to obtain models/leaderboard artifacts. Preserve originals/failures, stop after requiredchecks. Final docs/evidence commit/push without rebuild/redeploy; no automaticexpandedwork.
+
 User authorizes strictly the previous minimal modification list, not an explicit production release. Baseline1ebf876c780c710a5b114b1e966d290455caec2d clean. Read AGENTS, operationsREADME/controller/modelselection and contract. Preserve historicalcontrolstate/lock, registry evidenceindex not forcedformaltransition. Controllerdocs/commit; oneruntime developer and independent reviewer, both GPT-6.1Sol/medium: ordinary static source-labelled lifecyclecopy and bounded recommendationfilter, deterministic invariants. Escalate only substantive reasoninggap, not network/approval. Stoprelease-ready/localacceptance; no push/build/deploy yet. No newpage or testframework.
 
 ## Frozen minimum

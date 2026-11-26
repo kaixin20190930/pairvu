@@ -5,7 +5,7 @@
     "contract": "operations/contracts/PIVOT-16.md",
     "baselineSha": "1ebf876c780c710a5b114b1e966d290455caec2d",
     "status": "RELEASE_READY",
-    "authorization": "November26 user authorizes strictly minimal retiredpreview implementation, not explicit productionrelease",
+    "authorization": "November26 current user explicitly authorizes production (授权发布) for accepted minimal retiredpreview repair only",
     "formalTracking": "Historicalcontrolstate/lockpreserved,evidenceindexonly",
     "development": {
       "model": "gpt-6.1-sol",
@@ -27,12 +27,12 @@
     },
     "developerEvidence": "operations/evidence/PIVOT-16/developer-original.json",
     "developerResult": "PASS6groups/one5pageSSR;8allowedruntimefiles,no runtimefailure or extra tests",
-    "nextAction": "Localdocs/evidencearchivecommitonly,thenstop. Productionpush/deployneedsseparateuserauthorization andfullGitHub-firstexactSHAreleasegates; noautomaticAPI/GSC/taskaction.",
+    "nextAction": "Commitdocs-only authorization descendant; originalreviewer exactSHArebind without rerender; push/freshremote/cleanSHA single guardedbuild/deploy then maximum9GET independentproductionacceptance",
     "candidateSha": "fcb6a4dda6389d6159dad4ce62de73ae683b6bb7",
     "candidateEvidence": "operations/evidence/PIVOT-16/qa-original.json",
     "candidateResult": "PASS6groups/one5pageSSR,zero failures/retries;58URLs24profiles22comparisons,unchangedArgon",
     "completion": "operations/evidence/PIVOT-16/completion.md",
-    "production": "NOT_DEPLOYED; productionauthorizationnotexplicit,no push/build/APItests"
+    "production": "AUTHORIZED_PENDING; no modelAPItest or expandedwork authorized"
   },
   "pivot15": {
     "unitId": "PIVOT-15",
