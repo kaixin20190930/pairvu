@@ -1,0 +1,80 @@
+{
+  "unit": "PIVOT-16",
+  "role": "independent QA",
+  "candidate": "fcb6a4dda6389d6159dad4ce62de73ae683b6bb7",
+  "baseline": "1ebf876c780c710a5b114b1e966d290455caec2d",
+  "started": "2026-11-26T09:19:33.529Z",
+  "checks": [
+    {
+      "group": 1,
+      "name": "Eight allowlisted runtime files; 58/24/22 URLs, canonicals, metadata boundaries and genuine lastmods",
+      "status": "PASS"
+    },
+    {
+      "group": 2,
+      "name": "Retired target titles/H1/status/verdict; attributed ID routing and normal billing, no API shutdown inference",
+      "status": "PASS"
+    },
+    {
+      "group": 3,
+      "name": "Historical preview pricing dated25 and source retained; no successor numbers, unchanged other records and benchmarks",
+      "status": "PASS"
+    },
+    {
+      "group": 4,
+      "name": "Homepage exactly one omitted row; shared table archive badge remains for directory/pricing/leaderboard and history links",
+      "status": "PASS"
+    },
+    {
+      "group": 5,
+      "name": "Separate current26/historical25 provenance, replacement links retained and Argon exact prior SSR bytes",
+      "status": "PASS"
+    },
+    {
+      "group": 6,
+      "name": "One five-page SSR on exact clean committed candidate; static semantics and cleanup/exclusions",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": [
+    {
+      "route": "/models/qwen-4-max-preview",
+      "sha256": "1fc6b4de7f5ad08392864992b2f37bb52ece6c5a6abe90e7554f2a0d12d77aaf"
+    },
+    {
+      "route": "/compare/qwen-4-max-preview-vs-gpt-5-2",
+      "sha256": "a417e05393943a8b69475fe3a447271a7f4593b00e73d3147c56ce2d9cd3ae75"
+    },
+    {
+      "route": "/",
+      "sha256": "fbff03713b38c61c4a6f65383c673b09364f1b8487814d9ec2a241bcc43807b3"
+    },
+    {
+      "route": "/llm-pricing",
+      "sha256": "01c0e17c66e0a0c688c39aec2b4d0a3729b3d081784c69aedd9caa93ac75cbed"
+    },
+    {
+      "route": "/models/gemini-4-argon",
+      "sha256": "088a6542b471bdb817c55e648f6a83a7fd761387dde41349de187e49dcbc5a53"
+    }
+  ],
+  "notRun": [
+    "API",
+    "source crawl",
+    "GSC",
+    "tasks",
+    "build",
+    "typecheck",
+    "server",
+    "push",
+    "deploy",
+    "production"
+  ],
+  "sourceLimit": "Controller web retrieval November26, source-decision.json; no filesystem raw source capture/hash retained. Vendor policy, no actual routing verification.",
+  "cleanup": "Only temporary probe and original artifacts retained; no listener, account, database or external test assets.",
+  "reused": [
+    "PIVOT15 independent original SSR Argon exact bytes and metadata; PIVOT15 bd8fdaf production evidence only for unchanged facts, not current production acceptance. Baseline catalog bound explicitly for all invariants."
+  ],
+  "finished": "2026-11-26T09:19:34.181Z",
+  "result": "PASS"
+}
