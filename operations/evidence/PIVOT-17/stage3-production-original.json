@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "candidate": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+  "platformVersion": "f2ea0ced-4188-45d3-9c03-b699b008bedf",
+  "observationUTC": {
+    "start": "2026-11-27T13:17:30.952Z",
+    "end": "2026-11-27T13:17:32.804Z"
+  },
+  "requests": 5,
+  "checks": [
+    {
+      "name": "releaseSHA",
+      "pass": true
+    },
+    {
+      "name": "platformVersion",
+      "pass": true
+    },
+    {
+      "name": "fourGET200",
+      "pass": true
+    },
+    {
+      "name": "DNTrejectedWithoutInsert",
+      "pass": true
+    },
+    {
+      "name": "3taskGroups",
+      "pass": true
+    },
+    {
+      "name": "nineCandidates",
+      "pass": true
+    },
+    {
+      "name": "batchConditions",
+      "pass": true
+    },
+    {
+      "name": "9sourceLinks",
+      "pass": true
+    },
+    {
+      "name": "compareCanonical",
+      "pass": true
+    },
+    {
+      "name": "privacyNotice",
+      "pass": true
+    },
+    {
+      "name": "privacyCanonical",
+      "pass": true
+    },
+    {
+      "name": "58uniqueURLs",
+      "pass": true
+    },
+    {
+      "name": "/compare-updated",
+      "pass": true
+    },
+    {
+      "name": "/privacy-updated",
+      "pass": true
+    }
+  ],
+  "limits": "DNT decision request has deliberately incomplete payload and returns before validation, environment access or D1 operations. No accepted production event or user funnel conversion was tested. Client transport and opt-out reuse accepted local evidence."
+}

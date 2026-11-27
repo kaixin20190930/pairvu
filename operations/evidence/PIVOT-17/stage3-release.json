@@ -1,0 +1,42 @@
+{
+  "commit": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+  "platformVersion": "f2ea0ced-4188-45d3-9c03-b699b008bedf",
+  "approved": "User authorized stage 3 production and first-party measurement on Nov 27",
+  "releaseEvents": [
+    {
+      "event": "release-prepared",
+      "candidateSha": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+      "checkedAt": "2026-11-27T13:16:44.178Z",
+      "action": "deploy",
+      "artifactSha256": "668dcc7cba4d0cf91ef841549e2edef0c8f40a8aab254107ffcc0a9751da92e9",
+      "initialCheckedAt": "2026-11-27T13:15:54.888Z"
+    },
+    {
+      "event": "release-command-completed",
+      "candidateSha": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+      "remote": "origin",
+      "branch": "main",
+      "remoteSha": "85fa2e8ba9a316f2bfa207e9430bbc2dc23c011a",
+      "checkedAt": "2026-11-27T13:16:44.178Z",
+      "action": "deploy",
+      "artifactSha256": "668dcc7cba4d0cf91ef841549e2edef0c8f40a8aab254107ffcc0a9751da92e9",
+      "initialCheckedAt": "2026-11-27T13:15:54.888Z",
+      "platformVersion": "unknown",
+      "smoke": "required"
+    }
+  ],
+  "productionReview": "stage3-production-original.json",
+  "observationStartUTC": "2026-11-27T13:17:32.804Z",
+  "startMeaning": "Conservative production verification time; actual routing switch may precede this instant",
+  "first14DayEndUTC": "2026-12-11T13:17:32.804Z",
+  "first28DayEndUTC": "2026-12-25T13:17:32.804Z",
+  "scheduledReviewAsiaShanghai": [
+    "2026-12-14 09:30",
+    "2026-12-28 09:30"
+  ],
+  "migration": "none",
+  "syntheticProductionEventWrites": 0
+}
